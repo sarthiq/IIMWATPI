@@ -4,7 +4,9 @@ const path = require("path");
 const { v4: uuidv4 } = require("uuid");
 const { saveFile } = require("../../../Utils/fileHandler");
 const Question = require("../../../Models/TestPattern/question");
+const Answer = require("../../../Models/TestPattern/answer");
 
+//Create Quiz
 exports.createQuiz = async (req, res) => {
   try {
     const { title, description } = req.body;
@@ -46,12 +48,10 @@ exports.createQuestion = async (req, res) => {
 
     // Validate input
     if (!text && !imageFile) {
-      return res
-        .status(400)
-        .json({
-          success: false,
-          message: "Question text or image is required",
-        });
+      return res.status(400).json({
+        success: false,
+        message: "Question text or image is required",
+      });
     }
     if (!correctAnswerId) {
       return res
@@ -130,3 +130,166 @@ exports.createAnswer = async (req, res) => {
     });
   }
 };
+
+//get quizes
+
+exports.getQuizzes = async (req, res) => {
+  try {
+    const quizzes = await Quiz.findAll();
+    return res.status(200).json({
+      success: true,
+      message: "Quizzes retrieved successfully",
+      data: quizzes,
+    });
+  } catch (error) {
+    console.error("Error fetching quizzes:", error);
+    return res.status(500).json({
+      success: false,
+      message: "Internal server error",
+    });
+  }
+};
+
+exports.getQuestions = async (req, res) => {
+  const { quizId } = req.body;
+  try {
+    const questions = await Question.findAll({
+      where: {
+        QuizId: quizId,
+      },
+    });
+    return res.status(200).json({
+      success: true,
+      message: "Questions retrieved successfully",
+      data: questions,
+    });
+  } catch (error) {
+    console.error("Error fetching questions:", error);
+    return res.status(500).json({
+      success: false,
+      message: "Internal server error",
+    });
+  }
+};
+
+exports.getAnswers = async (req, res) => {
+  const { questionId } = req.body;
+
+  try {
+    const answers = await Answer.findAll({
+      where: {
+        QuestionId: questionId,
+      },
+    });
+    return res.status(200).json({
+      success: true,
+      message: "Answers retrieved successfully",
+      data: answers,
+    });
+  } catch (error) {
+    console.error("Error fetching answers:", error);
+    return res.status(500).json({
+      success: false,
+      message: "Internal server error",
+    });
+  }
+};
+
+//delete quizes;
+
+exports.deleteQuiz = async (req, res) => {
+  try {
+    const { quizId } = req.body;
+
+    // Check if quiz exists
+    const quiz = await Quiz.findByPk(quizId);
+    if (!quiz) {
+      return res
+        .status(404)
+        .json({ success: false, message: "Quiz not found" });
+    }
+
+    // Find all questions linked to the quiz
+    const questions = await Question.findAll({ where: { QuizId: quizId } });
+
+    // Delete all answers linked to the found questions
+    const questionIds = questions.map((q) => q.id);
+    if (questionIds.length > 0) {
+      await Answer.destroy({ where: { QuestionId: questionIds } });
+    }
+
+    // Delete questions linked to the quiz
+    await questions.destroy();
+
+    // Delete the quiz
+    await quiz.destroy();
+
+    return res.status(200).json({
+      success: true,
+      message: "Quiz and associated questions and answers deleted successfully",
+    });
+  } catch (error) {
+    console.error("Error deleting quiz:", error);
+    return res
+      .status(500)
+      .json({ success: false, message: "Internal server error" });
+  }
+};
+
+exports.deleteQuestion = async (req, res) => {
+  try {
+    const { questionId } = req.body;
+
+    // Check if question exists
+    const question = await Question.findByPk(questionId);
+    if (!question) {
+      return res
+        .status(404)
+        .json({ success: false, message: "Question not found" });
+    }
+
+    // Delete associated answers first
+    await Answer.destroy({ where: { QuestionId: questionId } });
+
+    // Delete the question
+    await question.destroy();
+
+    return res.status(200).json({
+      success: true,
+      message: "Question and associated answers deleted successfully",
+    });
+  } catch (error) {
+    console.error("Error deleting question:", error);
+    return res
+      .status(500)
+      .json({ success: false, message: "Internal server error" });
+  }
+};
+
+exports.deleteAnswer = async (req, res) => {
+  try {
+    const { answerId } = req.params;
+
+    // Check if answer exists
+    const answer = await Answer.findByPk(answerId);
+    if (!answer) {
+      return res
+        .status(404)
+        .json({ success: false, message: "Answer not found" });
+    }
+
+    // Delete the answer
+    await answer.destroy();
+
+    return res.status(200).json({
+      success: true,
+      message: "Answer deleted successfully",
+    });
+  } catch (error) {
+    console.error("Error deleting answer:", error);
+    return res
+      .status(500)
+      .json({ success: false, message: "Internal server error" });
+  }
+};
+
