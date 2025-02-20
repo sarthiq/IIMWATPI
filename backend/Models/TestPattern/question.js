@@ -19,6 +19,11 @@ const Question = sequelize.define(
       allowNull: false, // Type must be defined
       defaultValue: "text", // Default to text-based questions
     }, // If image-based questions are used
+    isActive:{
+      type:DataTypes.BOOLEAN,
+      allowNull:false,
+      defaultValue:true
+    },
     weight: { type: DataTypes.FLOAT, allowNull: false, defaultValue: 1.0 },
     correctAnswerId: { type: DataTypes.INTEGER, allowNull: false }, // Stores the correct answer ID
   },

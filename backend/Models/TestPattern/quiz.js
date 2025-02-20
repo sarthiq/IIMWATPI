@@ -9,6 +9,11 @@ const Quiz = sequelize.define("Quiz", {
       type: DataTypes.STRING,
       allowNull: true, // Image is optional
     },
+    isActive:{
+      type:DataTypes.BOOLEAN,
+      allowNull:false,
+      defaultValue:true
+    }
   },
   {
     timestamps: true, // Automatically adds createdAt and updatedAt fields

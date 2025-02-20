@@ -11,7 +11,7 @@ const geoip = require("geoip-lite");
 const { setupRoutes } = require("./Routes/setupRoutes");
 const db = require("./database");
 const infoRoutes = require("./infoRoutes");
-const setupModels = require("./Models/setModels");
+const {setupModels} = require("./Models/setModels");
 
 
 

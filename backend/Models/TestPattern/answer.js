@@ -18,7 +18,11 @@ const Answer = sequelize.define(
       type: DataTypes.STRING,
       allowNull: false, // Type must be defined
       defaultValue: "text", // Default to text-based answers
-    },
+    },isActive:{
+      type:DataTypes.BOOLEAN,
+      allowNull:false,
+      defaultValue:true
+    }
    
   },
   {

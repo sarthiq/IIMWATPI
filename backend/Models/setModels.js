@@ -5,13 +5,13 @@ const Quiz = require("./TestPattern/quiz");
 const AdminActivity = require("./User/adminActivity");
 const Admin = require("./User/admins");
 
+exports.setupModels = () => {
+  Admin.hasMany(AdminActivity);
+  AdminActivity.belongsTo(Admin);
 
+  Quiz.hasMany(Question);
+  Question.belongsTo(Quiz);
 
-Admin.hasMany(AdminActivity);
-AdminActivity.belongsTo(Admin);
-
-Quiz.hasMany(Question);
-Question.belongsTo(Quiz);
-
-Question.hasMany(Answer);
-Answer.belongsTo(Question);
+  Question.hasMany(Answer);
+  Answer.belongsTo(Question);
+};
