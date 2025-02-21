@@ -1,5 +1,5 @@
 
-const Admin = require("../../../Models/User/admins");
+const Admin = require("../../Models/User/admins");
 const bcrypt = require("bcrypt");
 
 

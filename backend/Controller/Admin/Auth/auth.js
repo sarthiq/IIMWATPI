@@ -25,7 +25,7 @@ exports.adminLogin = async (req, res, next) => {
           .json({ error: "Internal server error. Please try again later." });
       }
 
-      const expiresIn=process.env.NODE_ENV==='testing'?'2d':'5m';
+      const expiresIn=process.env.NODE_ENV==='testing'?'7d':'5m';
 
       if (isMatch) {
         // Generate a JWT token

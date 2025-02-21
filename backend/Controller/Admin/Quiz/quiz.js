@@ -10,7 +10,7 @@ const Answer = require("../../../Models/TestPattern/answer");
 exports.createQuiz = async (req, res) => {
   try {
     const { title, description } = req.body;
-    const imageFile = req.files[req.fileName];
+    const imageFile = req.files? req.files[req.fileName]:null;
 
     // Validate input
     if (!title) {

@@ -7,22 +7,46 @@ const questions = [
   {
     id: 1,
     question: "What is the capital of France?",
-    answers: ["Berlin", "Madrid", "Paris", "Rome", "Lisbon", "London"],
+    answers: [
+      { text: "Berlin", image: null },
+      { text: "Madrid", image: null },
+      { text: "Paris", image: null },
+      { text: "Rome", image: null },
+      { text: "Lisbon", image: null },
+      { text: "London", image: null },
+    ],
     correct: 2,
+    image: null, // No image for this question
   },
   {
     id: 2,
     question: "Which planet is known as the Red Planet?",
-    answers: ["Earth", "Mars", "Jupiter", "Saturn", "Venus", "Mercury"],
+    answers: [
+      { text: "Earth", image: null },
+      { text: "Mars", image: "https://example.com/mars.jpg" }, // Image for Mars
+      { text: "Jupiter", image: null },
+      { text: "Saturn", image: null },
+      { text: "Venus", image: null },
+      { text: "Mercury", image: null },
+    ],
     correct: 1,
+    image: "https://example.com/red-planet.jpg", // Example image URL
   },
   {
     id: 3,
-    question: "What is 2 + 2?",
-    answers: ["3", "4", "5", "6", "7", "8"],
+    question: null, // No text question
+    answers: [
+      { text: null, image: "https://placehold.co/400" }, // Only image for this option
+      { text: null, image: "https://example.com/option2.jpg" },
+      { text: null, image: "https://example.com/option3.jpg" },
+      { text: null, image: "https://example.com/option4.jpg" },
+      { text: null, image: "https://example.com/option5.jpg" },
+      { text: null, image: "https://example.com/option6.jpg" },
+    ],
     correct: 1,
+    image: "https://placehold.co/400", // Only image for this question
   },
-  // Add 17 more questions in this format
+  // Add more questions in this format
 ];
 
 export const Question = () => {
@@ -51,24 +75,38 @@ export const Question = () => {
     navigate(`/quiz/${id}/result`);
   };
 
+  const currentQ = questions[currentQuestion];
+
   return (
     <Container className="question-container">
       <Card className="question-card">
         {!isAgeRequired ? (
           <>
             <Card.Body>
-              <Card.Title className="question-title">
-                {currentQuestion + 1}. {questions[currentQuestion].question}
-              </Card.Title>
+              {currentQ.question && (
+                <Card.Title className="question-title">
+                  {currentQuestion + 1}. {currentQ.question}
+                </Card.Title>
+              )}
+              {currentQ.image && (
+                <div className="question-image">
+                  <img src={currentQ.image} alt="Question" />
+                </div>
+              )}
+              <hr/>
               <div className="question-options">
-                {questions[currentQuestion].answers.map((option, index) => (
+                {currentQ.answers.map((option, index) => (
                   <Button
                     key={index}
                     variant={selectedAnswer === index ? "success" : "outline-primary"}
                     className="question-option"
                     onClick={() => setSelectedAnswer(index)}
                   >
-                    {option}
+                    {option.image ? (
+                      <img src={option.image} alt={`Option ${index + 1}`} className="option-image" />
+                    ) : (
+                      option.text
+                    )}
                   </Button>
                 ))}
               </div>
