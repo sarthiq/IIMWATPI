@@ -1,0 +1,37 @@
+.result-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
+  }
+  
+  .result-card {
+    width: 100%;
+    max-width: 500px;
+    text-align: center;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .result-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  .result-details {
+    font-size: 18px;
+    margin-bottom: 20px;
+  }
+  
+  .result-details p {
+    margin: 5px 0;
+  }
+  
+  .home-button {
+    width: 100%;
+    padding: 10px;
+    font-size: 18px;
+  }
+  
