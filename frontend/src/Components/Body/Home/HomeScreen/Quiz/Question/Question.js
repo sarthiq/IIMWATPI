@@ -5,7 +5,7 @@ import "./Question.css"; // Unique styles for this page
 
 
 
-export const Question = ({ questions }) => {
+export const Question = ({ questions ,setUserAnswer}) => {
   const { id } = useParams(); // Get quiz ID and question number from URL
   const navigate = useNavigate();
 

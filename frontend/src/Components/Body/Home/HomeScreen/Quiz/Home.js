@@ -9,7 +9,7 @@ import { fetchQuestionsHandler } from "./apiHandler";
 export const Home = () => {
   const [isDataLoading, setIsDataLoading] = useState(false);
   const { showAlert } = useAlert();
-  const [selectedAnswer, setSelectedAnswer] = useState({});
+  const [userAnswer, setUserAnswer] = useState({});
   const [questions,setQuestions]=useState([]);
 
   useEffect(() => {
@@ -33,10 +33,10 @@ export const Home = () => {
 
         <Route
           path="question"
-          element={<Question questions={questions} setSelectedAnswer={setSelectedAnswer} />}
+          element={<Question questions={questions} setUserAnswer={setUserAnswer} />}
         />
 
-        <Route path="result" element={<Result selectedAnswer={selectedAnswer} />} />
+        <Route path="result" element={<Result userAnswer={userAnswer} />} />
         {/* Catch-all for invalid routes, redirecting to homepage */}
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
