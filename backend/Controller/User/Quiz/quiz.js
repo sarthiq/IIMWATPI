@@ -25,13 +25,29 @@ exports.getQuizzes = async (req, res) => {
 
 exports.getQuestions = async (req, res) => {
   const { quizId } = req.body;
+
   try {
+    // Fetch questions along with their answers
     const questions = await Question.findAll({
       where: {
-        QuizId: quizId,
+        quizId: quizId,
         isActive: true,
       },
+      include: [
+        {
+          model: Answer,
+          attributes: ["id", "text", "imageUrl", "type"], // Fetch only necessary fields
+        },
+      ],
     });
+
+    if (!questions.length) {
+      return res.status(404).json({
+        success: false,
+        message: "No questions found for this quiz.",
+      });
+    }
+
     return res.status(200).json({
       success: true,
       message: "Questions retrieved successfully",
@@ -46,29 +62,7 @@ exports.getQuestions = async (req, res) => {
   }
 };
 
-exports.getAnswers = async (req, res) => {
-  const { questionId } = req.body;
 
-  try {
-    const answers = await Answer.findAll({
-      where: {
-        QuestionId: questionId,
-        isActive: true,
-      },
-    });
-    return res.status(200).json({
-      success: true,
-      message: "Answers retrieved successfully",
-      data: answers,
-    });
-  } catch (error) {
-    console.error("Error fetching answers:", error);
-    return res.status(500).json({
-      success: false,
-      message: "Internal server error",
-    });
-  }
-};
 
 
 

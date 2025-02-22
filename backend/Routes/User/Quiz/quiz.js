@@ -6,7 +6,7 @@ const router = express.Router();
 
 router.post("/getQuizzes", quizController.getQuizzes);
 router.post("/getQuestions", quizController.getQuestions);
-router.post("/getAnswers", quizController.getAnswers);
+
 
 
 router.post('/submitQuiz', quizController.submitQuiz);
