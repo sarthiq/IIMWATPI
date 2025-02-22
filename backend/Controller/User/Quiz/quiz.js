@@ -71,15 +71,15 @@ exports.getQuestions = async (req, res) => {
 
 exports.submitQuiz = async (req, res) => {
   try {
-    const { quizId, answers } = req.body; // answers = [{ questionId, selectedAnswerId }, ...]
-    
+    const { quizId, answers } = req.body; // answers = { questionId: selectedAnswerId, ... }
+
     // Validate input
-    if (!quizId || !Array.isArray(answers)) {
+    if (!quizId || typeof answers !== "object" || answers === null) {
       return res.status(400).json({ success: false, message: "Invalid request data" });
     }
 
     // Fetch all questions for the quiz
-    const questions = await Question.findAll({ where: {QuizId:quizId } });
+    const questions = await Question.findAll({ where: { QuizId: quizId } });
     if (!questions.length) {
       return res.status(404).json({ success: false, message: "Quiz not found or has no questions" });
     }
@@ -90,22 +90,22 @@ exports.submitQuiz = async (req, res) => {
 
     for (let question of questions) {
       totalWeight += question.weight; // Total possible score
-      
-      // Find if the user answered this question
-      const userAnswer = answers.find(ans => ans.QuestionId === question.id);
-      
-      if (userAnswer) {
-        attemptedQuestions++;
 
+      // Check if the user answered this question
+      const selectedAnswerId = answers[question.id];
+
+      if (selectedAnswerId !== undefined) {
+        attemptedQuestions++;
+        console.log(selectedAnswerId,question.correctAnswerId);
         // Check if the answer is correct
-        if (userAnswer.selectedAnswerId === question.correctAnswerId) {
+        if (selectedAnswerId == question.correctAnswerId) {
           userScore += question.weight; // Add weight of the correct question to the score
         }
       }
     }
 
     // Calculate percentage score
-    const percentage = (userScore / totalWeight) * 100;
+    const percentage = totalWeight > 0 ? (userScore / totalWeight) * 100 : 0;
 
     // Determine IQ Level based on score percentage
     let iqLevel;

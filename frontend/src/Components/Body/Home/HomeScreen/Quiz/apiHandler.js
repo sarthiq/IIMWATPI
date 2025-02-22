@@ -19,4 +19,24 @@ export const fetchQuestionsHandler = async (setIsLoading, showAlert) => {
       setIsLoading(false);
     }
   };
+
+  export const submitAnswersHandler = async (answers,setIsLoading, showAlert) => {
+    //above authentication will be here --
+    const obj = {quizId:"1",answers};
+    const url = "/user/quiz/submitQuiz";
+  
+    setIsLoading(true);
+  
+    try {
+      
+      const result = await apiRequest(url, obj, "", "post");
+      const data = result.data;
+  
+      return data;
+    } catch (e) {
+      handleErrors(e, showAlert);
+    } finally {
+      setIsLoading(false);
+    }
+  };
   

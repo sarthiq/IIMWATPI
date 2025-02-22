@@ -3,10 +3,8 @@ import { useParams, useNavigate } from "react-router-dom";
 import { Container, Card, Button, Form } from "react-bootstrap";
 import "./Question.css"; // Unique styles for this page
 
-
-
-export const Question = ({ questions ,setUserAnswer}) => {
-  const { id } = useParams(); // Get quiz ID and question number from URL
+export const Question = ({ questions, setUserAnswer }) => {
+  const { id } = useParams(); // Get quiz ID from URL
   const navigate = useNavigate();
 
   const [currentQuestion, setCurrentQuestion] = useState(0);
@@ -14,19 +12,38 @@ export const Question = ({ questions ,setUserAnswer}) => {
   const [age, setAge] = useState("");
   const [isAgeRequired, setIsAgeRequired] = useState(false);
 
+  const handleAnswerSelect = (index) => {
+    // Set the selected answer for the current question
+    setSelectedAnswer(index);
+
+    // Update the userAnswer map with the selected answer
+    const questionId = questions[currentQuestion].id;
+    console.log(questions)
+    setUserAnswer((prevUserAnswer) => ({
+      ...prevUserAnswer,
+      [questionId]: questions[currentQuestion].Answers[index].id, // Map questionId to the selected answer index
+    }));
+  };
+
   const handleNext = () => {
     if (currentQuestion < questions.length - 1) {
       setCurrentQuestion(currentQuestion + 1);
-      setSelectedAnswer(null);
+      setSelectedAnswer(null); // Reset selected answer for the next question
     } else {
       setIsAgeRequired(true);
     }
   };
 
   const handleSubmit = () => {
+    
     if (!age) {
       alert("Please enter your age before submitting.");
       return;
+    }else{
+      setUserAnswer((prevUserAnswer) => ({
+        ...prevUserAnswer,
+        ['age']: age, // Map questionId to the selected answer index
+      }));
     }
     navigate(`/quiz/${id}/result`);
   };
@@ -38,6 +55,7 @@ export const Question = ({ questions ,setUserAnswer}) => {
       </>
     );
   }
+
   const currentQ = questions[currentQuestion];
 
   return (
@@ -65,7 +83,7 @@ export const Question = ({ questions ,setUserAnswer}) => {
                       selectedAnswer === index ? "success" : "outline-primary"
                     }
                     className="question-option"
-                    onClick={() => setSelectedAnswer(index)}
+                    onClick={() => handleAnswerSelect(index)}
                   >
                     {option.image ? (
                       <img
