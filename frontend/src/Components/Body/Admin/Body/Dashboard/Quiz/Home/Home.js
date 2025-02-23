@@ -10,9 +10,8 @@ import {
   Alert,
 } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import axios from "axios";
 import "./Home.css";
-import { quizHandler } from "../apiHandler";
+import { createHandler, quizHandler } from "../apiHandler";
 import { useAlert } from "../../../../../../UI/Alert/AlertContext";
 
 export const QuizHome = () => {
@@ -20,7 +19,6 @@ export const QuizHome = () => {
   const [quizData, setQuizData] = useState({
     title: "",
     description: "",
-    image: "",
     typeId: "",
   });
   const [quizzes, setQuizzes] = useState([]);
@@ -28,15 +26,15 @@ export const QuizHome = () => {
   const [error, setError] = useState(null);
   const [submitting, setSubmitting] = useState(false);
   const { showAlert } = useAlert();
+  const [selectedImage, setSelectedImage] = useState(null);
+
   useEffect(() => {
     fetchQuizzes();
   }, []);
 
   const fetchQuizzes = async () => {
     const response = await quizHandler({}, "getQuizzes", setLoading, showAlert);
-
     if (response) {
-     
       setQuizzes(response.data);
     }
   };
@@ -47,12 +45,50 @@ export const QuizHome = () => {
   };
 
   const handleImageChange = (e) => {
-    setQuizData({ ...quizData, image: URL.createObjectURL(e.target.files[0]) });
+    if (e.target.files[0]) {
+      setSelectedImage(e.target.files[0]);
+    }
   };
+  
 
-  const handleCreateQuiz = async () => {
-    
-    
+  const handleCreateQuiz = async (e) => {
+    e.preventDefault();
+
+    // Create a new FormData object
+    const formData = new FormData();
+
+    // Append all form fields to the FormData object
+    formData.append("title", quizData.title);
+    formData.append("description", quizData.description);
+    formData.append("typeId", quizData.typeId);
+
+    // Append the image file if it exists
+    if (selectedImage) {
+      formData.append("image", selectedImage);
+    }
+
+    // Submit the form data using the createHandler API
+    const response = await createHandler(
+      formData,
+      "createQuiz",
+      setSubmitting,
+      showAlert
+    );
+
+    if (response) {
+      console.log("Form Submitted!");
+      // Reset the form fields
+      setQuizData({
+        title: "",
+        description: "",
+        typeId: "",
+      });
+      setSelectedImage(null); // Clear the selected image
+      // Hide the form after submission
+      setShowForm(false);
+      // Refresh the quizzes list
+      fetchQuizzes();
+    }
   };
 
   return (
@@ -68,7 +104,7 @@ export const QuizHome = () => {
       {showForm && (
         <Card className="quiz-form-card">
           <Card.Body>
-            <Form>
+            <Form onSubmit={handleCreateQuiz}>
               <Form.Group>
                 <Form.Label>Title</Form.Label>
                 <Form.Control
@@ -92,6 +128,7 @@ export const QuizHome = () => {
                 <Form.Label>Image (Optional)</Form.Label>
                 <Form.Control
                   type="file"
+                  name="image"
                   accept="image/*"
                   onChange={handleImageChange}
                 />
@@ -108,7 +145,7 @@ export const QuizHome = () => {
               </Form.Group>
               <Button
                 className="quiz-submit-btn"
-                onClick={handleCreateQuiz}
+                type="submit"
                 disabled={submitting}
               >
                 {submitting ? (
@@ -132,10 +169,10 @@ export const QuizHome = () => {
           {quizzes.map((quiz) => (
             <Col md={6} lg={4} key={quiz.id} className="quiz-col">
               <Card className="quiz-card">
-                {quiz.image && (
+                {quiz.imageUrl && (
                   <Card.Img
                     variant="top"
-                    src={quiz.image}
+                    src={`${process.env.REACT_APP_REMOTE_ADDRESS}/${quiz.imageUrl}`}
                     className="quiz-image"
                   />
                 )}

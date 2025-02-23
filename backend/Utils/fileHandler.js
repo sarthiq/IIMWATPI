@@ -1,4 +1,26 @@
 const multer = require("multer");
+const fs = require("fs");
+const path=require('path');
+const { baseDir } = require("../importantInfo");
+
+function createFilePath(filePath) {
+  if (!fs.existsSync(filePath)) {
+    fs.mkdirSync(filePath, { recursive: true });
+  }
+}
+exports.saveFile = (file, dir, name) => {
+  const newDir=path.join(baseDir,dir)
+  if (file) {
+    const ext = path.extname(file.originalname);
+    const filePath = path.join(newDir, `${name}${ext}`);
+
+    createFilePath(newDir);
+    fs.writeFileSync(filePath, file.buffer); // Save the file
+    
+    return path.join("files", dir, `${name}${ext}`).replace(/\\/g, "/");
+  }
+};
+
 
 exports.setFileSizeLimit = ({ fileSizeLimit = 0.5 ,fileName=""}) => {
   return (req, res, next) => {

@@ -30,7 +30,7 @@ export const apiUploadRequest = async (url, obj = {}, token = "") => {
     Authorization: token || "", // Fallback for optional token
     "Content-Type": "multipart/form-data", // Standard for API requests
   };
-
+  
   const result = await axios.post(completeUrl, obj, { headers });
 
   return result; // Return only the response data
