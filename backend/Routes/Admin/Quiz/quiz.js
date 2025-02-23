@@ -22,6 +22,9 @@ router.post('/deleteQuestion',quizController.deleteQuestion)
 router.post('/deleteAnswer',quizController.deleteAnswer)
 
 
+router.post('/updateQuiz',quizController.updateQuizStatus)
+router.post('/updateQuestion',quizController.updateQuestionStatus)
+router.post('/updateAnswer',quizController.updateAnswerStatus)
 
 
 module.exports = router;

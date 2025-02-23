@@ -5,6 +5,8 @@ const { v4: uuidv4 } = require("uuid");
 const { saveFile } = require("../../../Utils/fileHandler");
 const Question = require("../../../Models/TestPattern/question");
 const Answer = require("../../../Models/TestPattern/answer");
+const sequelize=require('sequelize');
+
 
 //Create Quiz
 exports.createQuiz = async (req, res) => {
@@ -197,99 +199,199 @@ exports.getAnswers = async (req, res) => {
 
 //delete quizes;
 
+
+
+
+// Delete Quiz (along with associated Questions and Answers)
 exports.deleteQuiz = async (req, res) => {
+  const transaction = await sequelize.transaction();
   try {
     const { quizId } = req.body;
 
     // Check if quiz exists
-    const quiz = await Quiz.findByPk(quizId);
+    const quiz = await Quiz.findByPk(quizId, { transaction });
     if (!quiz) {
-      return res
-        .status(404)
-        .json({ success: false, message: "Quiz not found" });
+      await transaction.rollback();
+      return res.status(404).json({ success: false, message: "Quiz not found" });
     }
 
     // Find all questions linked to the quiz
-    const questions = await Question.findAll({ where: { QuizId: quizId } });
+    const questions = await Question.findAll({ where: { quizId }, transaction });
 
-    // Delete all answers linked to the found questions
+    // Collect all question IDs
     const questionIds = questions.map((q) => q.id);
+
+    // Delete all answers linked to the questions
     if (questionIds.length > 0) {
-      await Answer.destroy({ where: { QuestionId: questionIds } });
+      await Answer.destroy({ where: { questionId: questionIds }, transaction });
+      await Question.destroy({ where: { id: questionIds }, transaction });
     }
 
-    // Delete questions linked to the quiz
-    await questions.destroy();
-
     // Delete the quiz
-    await quiz.destroy();
+    await quiz.destroy({ transaction });
+
+    // Commit transaction
+    await transaction.commit();
 
     return res.status(200).json({
       success: true,
       message: "Quiz and associated questions and answers deleted successfully",
     });
   } catch (error) {
+    await transaction.rollback();
     console.error("Error deleting quiz:", error);
-    return res
-      .status(500)
-      .json({ success: false, message: "Internal server error" });
+    return res.status(500).json({ success: false, message: "Internal server error" });
   }
 };
 
+// Delete Question (along with associated Answers)
 exports.deleteQuestion = async (req, res) => {
+  const transaction = await sequelize.transaction();
   try {
     const { questionId } = req.body;
 
     // Check if question exists
-    const question = await Question.findByPk(questionId);
+    const question = await Question.findByPk(questionId, { transaction });
     if (!question) {
-      return res
-        .status(404)
-        .json({ success: false, message: "Question not found" });
+      await transaction.rollback();
+      return res.status(404).json({ success: false, message: "Question not found" });
     }
 
     // Delete associated answers first
-    await Answer.destroy({ where: { QuestionId: questionId } });
+    await Answer.destroy({ where: { questionId }, transaction });
 
     // Delete the question
-    await question.destroy();
+    await question.destroy({ transaction });
+
+    // Commit transaction
+    await transaction.commit();
 
     return res.status(200).json({
       success: true,
       message: "Question and associated answers deleted successfully",
     });
   } catch (error) {
+    await transaction.rollback();
     console.error("Error deleting question:", error);
-    return res
-      .status(500)
-      .json({ success: false, message: "Internal server error" });
+    return res.status(500).json({ success: false, message: "Internal server error" });
   }
 };
 
+// Delete Answer
 exports.deleteAnswer = async (req, res) => {
+  const transaction = await sequelize.transaction();
   try {
     const { answerId } = req.params;
 
     // Check if answer exists
-    const answer = await Answer.findByPk(answerId);
+    const answer = await Answer.findByPk(answerId, { transaction });
     if (!answer) {
-      return res
-        .status(404)
-        .json({ success: false, message: "Answer not found" });
+      await transaction.rollback();
+      return res.status(404).json({ success: false, message: "Answer not found" });
     }
 
     // Delete the answer
-    await answer.destroy();
+    await answer.destroy({ transaction });
+
+    // Commit transaction
+    await transaction.commit();
 
     return res.status(200).json({
       success: true,
       message: "Answer deleted successfully",
     });
   } catch (error) {
+    await transaction.rollback();
     console.error("Error deleting answer:", error);
-    return res
-      .status(500)
-      .json({ success: false, message: "Internal server error" });
+    return res.status(500).json({ success: false, message: "Internal server error" });
   }
 };
 
+
+
+//Update part -- 
+
+
+// Update Quiz isActive Status
+exports.updateQuizStatus = async (req, res) => {
+  const transaction = await sequelize.transaction();
+  try {
+    const { quizId, isActive } = req.body;
+
+    // Find Quiz
+    const quiz = await Quiz.findByPk(quizId, { transaction });
+    if (!quiz) {
+      await transaction.rollback();
+      return res.status(404).json({ success: false, message: "Quiz not found" });
+    }
+
+    // Update isActive
+    await quiz.update({ isActive }, { transaction });
+
+    await transaction.commit();
+    return res.status(200).json({
+      success: true,
+      message: `Quiz status updated successfully to ${isActive}`,
+    });
+  } catch (error) {
+    await transaction.rollback();
+    console.error("Error updating quiz status:", error);
+    return res.status(500).json({ success: false, message: "Internal server error" });
+  }
+};
+
+// Update Question isActive Status
+exports.updateQuestionStatus = async (req, res) => {
+  const transaction = await sequelize.transaction();
+  try {
+    const { questionId, isActive } = req.body;
+
+    // Find Question
+    const question = await Question.findByPk(questionId, { transaction });
+    if (!question) {
+      await transaction.rollback();
+      return res.status(404).json({ success: false, message: "Question not found" });
+    }
+
+    // Update isActive
+    await question.update({ isActive }, { transaction });
+
+    await transaction.commit();
+    return res.status(200).json({
+      success: true,
+      message: `Question status updated successfully to ${isActive}`,
+    });
+  } catch (error) {
+    await transaction.rollback();
+    console.error("Error updating question status:", error);
+    return res.status(500).json({ success: false, message: "Internal server error" });
+  }
+};
+
+// Update Answer isActive Status
+exports.updateAnswerStatus = async (req, res) => {
+  const transaction = await sequelize.transaction();
+  try {
+    const { answerId, isActive } = req.body;
+
+    // Find Answer
+    const answer = await Answer.findByPk(answerId, { transaction });
+    if (!answer) {
+      await transaction.rollback();
+      return res.status(404).json({ success: false, message: "Answer not found" });
+    }
+
+    // Update isActive
+    await answer.update({ isActive }, { transaction });
+
+    await transaction.commit();
+    return res.status(200).json({
+      success: true,
+      message: `Answer status updated successfully to ${isActive}`,
+    });
+  } catch (error) {
+    await transaction.rollback();
+    console.error("Error updating answer status:", error);
+    return res.status(500).json({ success: false, message: "Internal server error" });
+  }
+};

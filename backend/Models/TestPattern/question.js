@@ -25,7 +25,7 @@ const Question = sequelize.define(
       defaultValue:true
     },
     weight: { type: DataTypes.FLOAT, allowNull: false, defaultValue: 1.0 },
-    correctAnswerId: { type: DataTypes.INTEGER, allowNull: false }, // Stores the correct answer ID
+    correctAnswerId: { type: DataTypes.INTEGER, allowNull: false,defaultValue:0 }, // Stores the correct answer ID
   },
   {
     timestamps: true, // Automatically adds createdAt and updatedAt fields

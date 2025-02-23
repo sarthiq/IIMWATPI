@@ -96,7 +96,7 @@ exports.submitQuiz = async (req, res) => {
 
       if (selectedAnswerId !== undefined) {
         attemptedQuestions++;
-        console.log(selectedAnswerId,question.correctAnswerId);
+        
         // Check if the answer is correct
         if (selectedAnswerId == question.correctAnswerId) {
           userScore += question.weight; // Add weight of the correct question to the score

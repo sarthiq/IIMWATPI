@@ -13,6 +13,10 @@ const Quiz = sequelize.define("Quiz", {
       type:DataTypes.BOOLEAN,
       allowNull:false,
       defaultValue:true
+    },
+    typeId:{
+      type:DataTypes.STRING,
+      defaultValue:"normal",
     }
   },
   {
