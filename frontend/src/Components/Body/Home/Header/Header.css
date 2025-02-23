@@ -9,7 +9,7 @@ header {
     width: 100%;
   }
   
-  /* Flex container */
+  /* Flex container
   .container {
     display: flex;
     align-items: center;
@@ -17,7 +17,7 @@ header {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
-  }
+  } */
   
   /* Logo */
   header img {
