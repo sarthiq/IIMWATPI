@@ -27,6 +27,13 @@
   background-color: white;
   text-align: center;
   padding-bottom: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover Effect */
+.uni-card:hover {
+  transform: translateY(-10px); /* Slight lift effect */
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2); /* Deeper shadow */
 }
 
 /* Blue Box (Header) */
