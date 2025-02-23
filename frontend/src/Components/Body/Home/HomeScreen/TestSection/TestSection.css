@@ -1,0 +1,59 @@
+.test-section {
+  padding: 40px 20px;
+  text-align: center;
+}
+
+/* Heading */
+.section-title {
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 30px;
+}
+
+/* Cards Container */
+.uni-cards-container {
+  display: flex;
+  justify-content: center;
+  gap: 100px;
+}
+
+/* Card Styling */
+.uni-card {
+  width: 400px;
+  height: inherit;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: white;
+  text-align: center;
+  padding-bottom: 20px;
+}
+
+/* Blue Box (Header) */
+.uni-card-header {
+  background-color: #3366cc;
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  padding: 25px;
+  border-radius: 25px 25px 0 0;
+}
+
+/* Description Box (Body) */
+.uni-card-body {
+  padding: 15px 20px;
+  font-size: 16px;
+  color: #333;
+}
+
+/* Text Styling */
+.desc-text {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.extra-text {
+  font-size: 14px;
+  color: #666;
+  margin-top: 5px;
+}

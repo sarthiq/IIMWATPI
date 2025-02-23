@@ -2,8 +2,11 @@ import React from "react";
 import { Container, Row, Col, Card } from "react-bootstrap";
 import "./HomeScreen.css"; // Unique CSS for this page
 import { Link } from "react-router-dom";
-import { TestSection } from "../TestSection/TestSection";
-import { VideoSection } from "../VideoSection/VideoSection";
+import { Banner } from "./Banner/banner";
+import { TestSection } from "./TestSection/TestSection";
+import { VideoSection } from "./VideoSection/VideoSection";
+import { CareerSection } from "./CareerSection/CareerSection";
+import { CareerResearch } from "./CareerResearch/CareerResearch";
 
 const quizzes = [
   { id: 1, title: "Science Quiz", image: "https://placehold.co/400" },
@@ -15,9 +18,12 @@ const quizzes = [
 export const HomeScreen = () => {
   return (
     <div className="quiz-selection-page">
+      <Banner/>
       <TestSection/>
       <VideoSection/>
-      {/* Quiz Cards */}
+      <CareerSection/>
+      <CareerResearch/>
+      {/* Quiz Cards
       <Container className="quiz-container">
         <Row>
           {quizzes.map((quiz) => (
@@ -37,7 +43,7 @@ export const HomeScreen = () => {
             </Link>
           ))}
         </Row>
-      </Container>
+      </Container> */}
     </div>
   );
 };
