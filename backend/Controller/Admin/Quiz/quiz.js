@@ -5,15 +5,14 @@ const { v4: uuidv4 } = require("uuid");
 const { saveFile } = require("../../../Utils/fileHandler");
 const Question = require("../../../Models/TestPattern/question");
 const Answer = require("../../../Models/TestPattern/answer");
-const sequelize=require('sequelize');
-
+const sequelize = require("sequelize");
 
 //Create Quiz
 exports.createQuiz = async (req, res) => {
   try {
     const { title, description } = req.body;
-    const imageFile = req.files? req.files[req.fileName][0]:null;
-    
+    const imageFile = req.files ? req.files[req.fileName][0] : null;
+
     // Validate input
     if (!title) {
       return res
@@ -21,9 +20,9 @@ exports.createQuiz = async (req, res) => {
         .json({ success: false, message: "Title is required" });
     }
     let url = "";
-    
+
     if (imageFile) {
-      const filePath = path.join( "CustomFiles", "Quiz");
+      const filePath = path.join("CustomFiles", "Quiz");
       const fileName = uuidv4();
       url = saveFile(imageFile, filePath, fileName);
     }
@@ -46,9 +45,10 @@ exports.createQuiz = async (req, res) => {
 
 exports.createQuestion = async (req, res) => {
   try {
-    const { text, type, correctAnswerId, quizId, weight } = req.body;
+    const { text, type,  quizId, weight } = req.body;
     const imageFile = req.files ? req.files[req.fileName][0] : null;
 
+   
     // Validate input
     if (!text && !imageFile) {
       return res.status(400).json({
@@ -56,15 +56,12 @@ exports.createQuestion = async (req, res) => {
         message: "Question text or image is required",
       });
     }
-    if (!correctAnswerId) {
-      return res
-        .status(400)
-        .json({ success: false, message: "Correct answer ID is required" });
-    }
+    
+    
 
     let imageUrl = "";
     if (imageFile) {
-      const filePath = path.join(baseDir, "CustomFiles", "Question"); // Adjust path
+      const filePath = path.join( "CustomFiles", "Question"); // Adjust path
       const fileName = uuidv4();
       imageUrl = saveFile(imageFile, filePath, fileName);
     }
@@ -74,8 +71,7 @@ exports.createQuestion = async (req, res) => {
       text,
       imageUrl,
       type: type || "text", // Default to text type
-      correctAnswerId,
-      weight,
+            weight,
       QuizId: quizId,
     });
 
@@ -98,6 +94,7 @@ exports.createAnswer = async (req, res) => {
     const { text, type, questionId } = req.body;
     const imageFile = req.files ? req.files[req.fileName][0] : null;
 
+    
     // Validate input
     if (!text && !imageFile) {
       return res
@@ -107,7 +104,7 @@ exports.createAnswer = async (req, res) => {
 
     let imageUrl = "";
     if (imageFile) {
-      const filePath = path.join(baseDir, "CustomFiles", "Answer"); // Adjust the upload path
+      const filePath = path.join( "CustomFiles", "Answer"); // Adjust the upload path
       const fileName = uuidv4();
       imageUrl = saveFile(imageFile, filePath, fileName);
     }
@@ -198,10 +195,95 @@ exports.getAnswers = async (req, res) => {
   }
 };
 
+exports.getQuiz = async (req, res) => {
+  try {
+    const { quizId } = req.body;
+
+    // Check if quizId is provided
+    if (!quizId) {
+      return res.status(400).json({
+        success: false,
+        message: "Quiz ID is required",
+      });
+    }
+
+    // Find the quiz by its primary key (quizId)
+    const quiz = await Quiz.findByPk(quizId);
+
+    // Check if the quiz exists
+    if (!quiz) {
+      return res.status(404).json({
+        success: false,
+        message: "Quiz not found",
+      });
+    }
+
+    // Fetch associated questions for the quiz
+    const questions = await quiz.getQuestions();
+
+    
+    
+
+    // Return the quiz and its questions
+    return res.status(200).json({
+      success: true,
+      message: "Quiz retrieved successfully",
+      quiz,
+      questions,
+    });
+  } catch (error) {
+    console.error("Error fetching quiz:", error);
+    return res.status(500).json({
+      success: false,
+      message: "Internal server error",
+    });
+  }
+};
+
+exports.getQuestion = async (req, res) => {
+  try {
+    const { questionId } = req.body;
+
+    // Check if questionId is provided
+    if (!questionId) {
+      return res.status(400).json({
+        success: false,
+        message: "Question ID is required",
+      });
+    }
+
+    // Find the question by its primary key (questionId)
+    const question = await Question.findByPk(questionId);
+
+    // Check if the question exists
+    if (!question) {
+      return res.status(404).json({
+        success: false,
+        message: "Question not found",
+      });
+    }
+
+    // Fetch associated answers for the question
+    const answers = await question.getAnswers();
+
+  
+    // Return the question and its answers
+    return res.status(200).json({
+      success: true,
+      message: "Question retrieved successfully",
+      question,
+      answers,
+    });
+  } catch (error) {
+    console.error("Error fetching question:", error);
+    return res.status(500).json({
+      success: false,
+      message: "Internal server error",
+    });
+  }
+};
+
 //delete quizes;
-
-
-
 
 // Delete Quiz (along with associated Questions and Answers)
 exports.deleteQuiz = async (req, res) => {
@@ -213,11 +295,16 @@ exports.deleteQuiz = async (req, res) => {
     const quiz = await Quiz.findByPk(quizId, { transaction });
     if (!quiz) {
       await transaction.rollback();
-      return res.status(404).json({ success: false, message: "Quiz not found" });
+      return res
+        .status(404)
+        .json({ success: false, message: "Quiz not found" });
     }
 
     // Find all questions linked to the quiz
-    const questions = await Question.findAll({ where: { quizId }, transaction });
+    const questions = await Question.findAll({
+      where: { quizId },
+      transaction,
+    });
 
     // Collect all question IDs
     const questionIds = questions.map((q) => q.id);
@@ -241,7 +328,9 @@ exports.deleteQuiz = async (req, res) => {
   } catch (error) {
     await transaction.rollback();
     console.error("Error deleting quiz:", error);
-    return res.status(500).json({ success: false, message: "Internal server error" });
+    return res
+      .status(500)
+      .json({ success: false, message: "Internal server error" });
   }
 };
 
@@ -255,7 +344,9 @@ exports.deleteQuestion = async (req, res) => {
     const question = await Question.findByPk(questionId, { transaction });
     if (!question) {
       await transaction.rollback();
-      return res.status(404).json({ success: false, message: "Question not found" });
+      return res
+        .status(404)
+        .json({ success: false, message: "Question not found" });
     }
 
     // Delete associated answers first
@@ -274,7 +365,9 @@ exports.deleteQuestion = async (req, res) => {
   } catch (error) {
     await transaction.rollback();
     console.error("Error deleting question:", error);
-    return res.status(500).json({ success: false, message: "Internal server error" });
+    return res
+      .status(500)
+      .json({ success: false, message: "Internal server error" });
   }
 };
 
@@ -288,7 +381,9 @@ exports.deleteAnswer = async (req, res) => {
     const answer = await Answer.findByPk(answerId, { transaction });
     if (!answer) {
       await transaction.rollback();
-      return res.status(404).json({ success: false, message: "Answer not found" });
+      return res
+        .status(404)
+        .json({ success: false, message: "Answer not found" });
     }
 
     // Delete the answer
@@ -304,14 +399,13 @@ exports.deleteAnswer = async (req, res) => {
   } catch (error) {
     await transaction.rollback();
     console.error("Error deleting answer:", error);
-    return res.status(500).json({ success: false, message: "Internal server error" });
+    return res
+      .status(500)
+      .json({ success: false, message: "Internal server error" });
   }
 };
 
-
-
-//Update part -- 
-
+//Update part --
 
 // Update Quiz isActive Status
 exports.updateQuizStatus = async (req, res) => {
@@ -323,7 +417,9 @@ exports.updateQuizStatus = async (req, res) => {
     const quiz = await Quiz.findByPk(quizId, { transaction });
     if (!quiz) {
       await transaction.rollback();
-      return res.status(404).json({ success: false, message: "Quiz not found" });
+      return res
+        .status(404)
+        .json({ success: false, message: "Quiz not found" });
     }
 
     // Update isActive
@@ -337,7 +433,9 @@ exports.updateQuizStatus = async (req, res) => {
   } catch (error) {
     await transaction.rollback();
     console.error("Error updating quiz status:", error);
-    return res.status(500).json({ success: false, message: "Internal server error" });
+    return res
+      .status(500)
+      .json({ success: false, message: "Internal server error" });
   }
 };
 
@@ -351,7 +449,9 @@ exports.updateQuestionStatus = async (req, res) => {
     const question = await Question.findByPk(questionId, { transaction });
     if (!question) {
       await transaction.rollback();
-      return res.status(404).json({ success: false, message: "Question not found" });
+      return res
+        .status(404)
+        .json({ success: false, message: "Question not found" });
     }
 
     // Update isActive
@@ -365,7 +465,9 @@ exports.updateQuestionStatus = async (req, res) => {
   } catch (error) {
     await transaction.rollback();
     console.error("Error updating question status:", error);
-    return res.status(500).json({ success: false, message: "Internal server error" });
+    return res
+      .status(500)
+      .json({ success: false, message: "Internal server error" });
   }
 };
 
@@ -379,7 +481,9 @@ exports.updateAnswerStatus = async (req, res) => {
     const answer = await Answer.findByPk(answerId, { transaction });
     if (!answer) {
       await transaction.rollback();
-      return res.status(404).json({ success: false, message: "Answer not found" });
+      return res
+        .status(404)
+        .json({ success: false, message: "Answer not found" });
     }
 
     // Update isActive
@@ -393,6 +497,8 @@ exports.updateAnswerStatus = async (req, res) => {
   } catch (error) {
     await transaction.rollback();
     console.error("Error updating answer status:", error);
-    return res.status(500).json({ success: false, message: "Internal server error" });
+    return res
+      .status(500)
+      .json({ success: false, message: "Internal server error" });
   }
 };

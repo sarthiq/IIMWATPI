@@ -8,7 +8,7 @@ export const Question = () => {
     
     <Routes>
         <Route path="" element={<QuestionHome/>}/>
-        <Route path="question/:id/*" element={<AnswerHome/>}/>
+        <Route path="question/:qid/*" element={<AnswerHome/>}/>
         <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>
     </>

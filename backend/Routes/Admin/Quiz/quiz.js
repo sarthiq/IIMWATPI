@@ -16,6 +16,9 @@ router.post('/getQuizzes',quizController.getQuizzes)
 router.post('/getQuestions',quizController.getQuestions)
 router.post('/getAnswers',quizController.getAnswers)
 
+router.post('/getQuiz',quizController.getQuiz)
+router.post('/getQuestion',quizController.getQuestion)
+
 
 router.post('/deleteQuiz',quizController.deleteQuiz)
 router.post('/deleteQuestion',quizController.deleteQuestion)
