@@ -36,7 +36,8 @@ export const QuizHome = () => {
     const response = await quizHandler({}, "getQuizzes", setLoading, showAlert);
 
     if (response) {
-      console.log(response);
+     
+      setQuizzes(response.data);
     }
   };
 
@@ -50,18 +51,8 @@ export const QuizHome = () => {
   };
 
   const handleCreateQuiz = async () => {
-    if (!quizData.title || !quizData.typeId) return;
-    setSubmitting(true);
-    try {
-      const response = await axios.post("/api/quizzes", quizData); // Replace with actual API endpoint
-      setQuizzes([...quizzes, response.data]);
-      setQuizData({ title: "", description: "", image: "", typeId: "" });
-      setShowForm(false);
-    } catch (err) {
-      setError("Failed to create quiz. Please try again.");
-    } finally {
-      setSubmitting(false);
-    }
+    
+    
   };
 
   return (
