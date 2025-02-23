@@ -1,8 +1,6 @@
-export const Answer = () => {
-  return <>Answer Page</>;
-};
+
 import React, { useState } from "react";
-import { Container, Row, Col, Card, Form, Button, Table, Dropdown } from "react-bootstrap";
+import { Container, Row, Col, Card, Form, Button, Table } from "react-bootstrap";
 import "./AnswerHome.css"; // Unique CSS file
 
 const dummyAnswers = [

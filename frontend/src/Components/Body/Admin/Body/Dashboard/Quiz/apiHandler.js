@@ -1,9 +1,9 @@
 import { apiRequest, handleErrors } from "../../../../../../Utils/apiHandler";
 
-export const quizHandler = async (formData, url, setIsLoading, showAlert) => {
+export const quizHandler = async (formData, typeUrl, setIsLoading, showAlert) => {
     //above authentication will be here --
     const obj = formData;
-    const url = `/admin/quiz/${url}`;
+    const url = `/admin/quiz/${typeUrl}`;
   
     setIsLoading(true);
   
