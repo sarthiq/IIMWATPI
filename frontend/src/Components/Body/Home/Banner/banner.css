@@ -1,0 +1,25 @@
+/* Banner Section */
+.banner {
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+   
+  }
+  
+  .banner img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  /* Swiper Pagination */
+  .swiper-pagination-bullet {
+    background: white;
+    opacity: 0.8;
+  }
+  
+  .swiper-button-next,
+  .swiper-button-prev {
+    color: white;
+  }
+  
