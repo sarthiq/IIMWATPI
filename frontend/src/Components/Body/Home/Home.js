@@ -14,7 +14,8 @@ export const Home = () => {
       <div>
         <Routes>
           {/* Default route for homepage */}
-          {/* <Route path="/" element={<Banner />} /> */}
+          
+
           
 
 
