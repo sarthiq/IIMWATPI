@@ -12,8 +12,8 @@ const sequelize=require('sequelize');
 exports.createQuiz = async (req, res) => {
   try {
     const { title, description } = req.body;
-    const imageFile = req.files? req.files[req.fileName]:null;
-
+    const imageFile = req.files? req.files[req.fileName][0]:null;
+    
     // Validate input
     if (!title) {
       return res
@@ -21,8 +21,9 @@ exports.createQuiz = async (req, res) => {
         .json({ success: false, message: "Title is required" });
     }
     let url = "";
+    
     if (imageFile) {
-      const filePath = path.join(baseDir, "CustomFiles", "Quiz");
+      const filePath = path.join( "CustomFiles", "Quiz");
       const fileName = uuidv4();
       url = saveFile(imageFile, filePath, fileName);
     }
@@ -46,7 +47,7 @@ exports.createQuiz = async (req, res) => {
 exports.createQuestion = async (req, res) => {
   try {
     const { text, type, correctAnswerId, quizId, weight } = req.body;
-    const imageFile = req.files ? req.files[req.fileName] : null;
+    const imageFile = req.files ? req.files[req.fileName][0] : null;
 
     // Validate input
     if (!text && !imageFile) {
@@ -95,7 +96,7 @@ exports.createQuestion = async (req, res) => {
 exports.createAnswer = async (req, res) => {
   try {
     const { text, type, questionId } = req.body;
-    const imageFile = req.files ? req.files[req.fileName] : null;
+    const imageFile = req.files ? req.files[req.fileName][0] : null;
 
     // Validate input
     if (!text && !imageFile) {
