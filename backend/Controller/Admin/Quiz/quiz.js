@@ -5,13 +5,17 @@ const { v4: uuidv4 } = require("uuid");
 const { saveFile } = require("../../../Utils/fileHandler");
 const Question = require("../../../Models/TestPattern/question");
 const Answer = require("../../../Models/TestPattern/answer");
-const sequelize = require("sequelize");
+const sequelize = require("../../../database");
 
 //Create Quiz
 exports.createQuiz = async (req, res) => {
   try {
     const { title, description } = req.body;
-    const imageFile = req.files ? req.files[req.fileName][0] : null;
+    const imageFile = req.files
+      ? req.files[req.fileName]
+        ? req.files[req.fileName][0]
+        : null
+      : null;
 
     // Validate input
     if (!title) {
@@ -45,10 +49,13 @@ exports.createQuiz = async (req, res) => {
 
 exports.createQuestion = async (req, res) => {
   try {
-    const { text, type,  quizId, weight } = req.body;
-    const imageFile = req.files ? req.files[req.fileName][0] : null;
+    const { text, type, quizId, weight } = req.body;
+    const imageFile = req.files
+      ? req.files[req.fileName]
+        ? req.files[req.fileName][0]
+        : null
+      : null;
 
-   
     // Validate input
     if (!text && !imageFile) {
       return res.status(400).json({
@@ -56,12 +63,10 @@ exports.createQuestion = async (req, res) => {
         message: "Question text or image is required",
       });
     }
-    
-    
 
     let imageUrl = "";
     if (imageFile) {
-      const filePath = path.join( "CustomFiles", "Question"); // Adjust path
+      const filePath = path.join("CustomFiles", "Question"); // Adjust path
       const fileName = uuidv4();
       imageUrl = saveFile(imageFile, filePath, fileName);
     }
@@ -71,7 +76,7 @@ exports.createQuestion = async (req, res) => {
       text,
       imageUrl,
       type: type || "text", // Default to text type
-            weight,
+      weight,
       QuizId: quizId,
     });
 
@@ -92,9 +97,12 @@ exports.createQuestion = async (req, res) => {
 exports.createAnswer = async (req, res) => {
   try {
     const { text, type, questionId } = req.body;
-    const imageFile = req.files ? req.files[req.fileName][0] : null;
+    const imageFile = req.files
+      ? req.files[req.fileName]
+        ? req.files[req.fileName][0]
+        : null
+      : null;
 
-    
     // Validate input
     if (!text && !imageFile) {
       return res
@@ -104,7 +112,7 @@ exports.createAnswer = async (req, res) => {
 
     let imageUrl = "";
     if (imageFile) {
-      const filePath = path.join( "CustomFiles", "Answer"); // Adjust the upload path
+      const filePath = path.join("CustomFiles", "Answer"); // Adjust the upload path
       const fileName = uuidv4();
       imageUrl = saveFile(imageFile, filePath, fileName);
     }
@@ -221,9 +229,6 @@ exports.getQuiz = async (req, res) => {
     // Fetch associated questions for the quiz
     const questions = await quiz.getQuestions();
 
-    
-    
-
     // Return the quiz and its questions
     return res.status(200).json({
       success: true,
@@ -266,7 +271,6 @@ exports.getQuestion = async (req, res) => {
     // Fetch associated answers for the question
     const answers = await question.getAnswers();
 
-  
     // Return the question and its answers
     return res.status(200).json({
       success: true,
@@ -375,7 +379,7 @@ exports.deleteQuestion = async (req, res) => {
 exports.deleteAnswer = async (req, res) => {
   const transaction = await sequelize.transaction();
   try {
-    const { answerId } = req.params;
+    const { answerId } = req.body;
 
     // Check if answer exists
     const answer = await Answer.findByPk(answerId, { transaction });
@@ -487,7 +491,7 @@ exports.updateAnswerStatus = async (req, res) => {
     }
 
     // Update isActive
-    await answer.update({ isActive }, { transaction });
+    await answer.update({ isActive:!answer.isActive }, { transaction });
 
     await transaction.commit();
     return res.status(200).json({

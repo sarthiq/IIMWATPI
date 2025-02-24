@@ -9,34 +9,10 @@ import {
   Table,
   Spinner,
 } from "react-bootstrap";
+import { useParams, useNavigate } from "react-router-dom"; // Added useNavigate
 import "./AnswerHome.css";
-import { useParams } from "react-router-dom";
 import { useAlert } from "../../../../../../../UI/Alert/AlertContext";
 import { createHandler, quizHandler } from "../../apiHandler";
-
-const dummyAnswers = [
-  {
-    id: 1,
-    text: "React is a JavaScript library.",
-    image: "",
-    type: "text",
-    active: true,
-  },
-  {
-    id: 2,
-    text: "",
-    image: "https://via.placeholder.com/100",
-    type: "image",
-    active: false,
-  },
-  {
-    id: 3,
-    text: "JSX is a syntax extension.",
-    image: "https://via.placeholder.com/100",
-    type: "both",
-    active: true,
-  },
-];
 
 export const AnswerHome = () => {
   const [showForm, setShowForm] = useState(false);
@@ -45,6 +21,7 @@ export const AnswerHome = () => {
     type: "text",
   });
   const params = useParams();
+  const navigate = useNavigate(); // For navigation
   const [selectedImage, setSelectedImage] = useState(null);
   const [loading, setLoading] = useState(true);
   const [creating, setCreating] = useState(false);
@@ -56,8 +33,12 @@ export const AnswerHome = () => {
     weight: "",
     totalAnswers: 0,
   });
-
   const [dataUpdated, setDataUpdated] = useState(0);
+  const [isActivatingQuestion, setIsActivatingQuestion] = useState(false); // For question activation
+  const [isDeletingQuestion, setIsDeletingQuestion] = useState(false); // For question deletion
+  const [isActivatingAnswer, setIsActivatingAnswer] = useState({}); // For answer activation
+  const [isDeletingAnswer, setIsDeletingAnswer] = useState({}); // For answer deletion
+  const [tempLoading,setTempLoading]=useState(false);
 
   useEffect(() => {
     fetchDetails();
@@ -73,15 +54,21 @@ export const AnswerHome = () => {
 
     if (response) {
       setAnswers(response.answers);
-      
       setDetails({
         id: response.question.id,
         weight: response.question.weight,
         question: response.question.text,
         totalAnswers: response.answers.length,
       });
+      // Initialize activation states for answers
+      const initialActivationStates = {};
+      response.answers.forEach((answer) => {
+        initialActivationStates[answer.id] = answer.active || false;
+      });
+      setIsActivatingAnswer(initialActivationStates);
     }
   };
+
   const handleImageChange = (e) => {
     if (e.target.files[0]) {
       setSelectedImage(e.target.files[0]);
@@ -95,20 +82,15 @@ export const AnswerHome = () => {
   const handleCreateAnswer = async (e) => {
     e.preventDefault();
 
-    // Create a new FormData object
     const formData = new FormData();
-
-    // Append all form fields to the FormData object
     formData.append("questionId", params.qid);
     formData.append("text", newAnswer.text);
     formData.append("type", newAnswer.type);
 
-    // Append the image file if it exists
     if (selectedImage) {
       formData.append("image", selectedImage);
     }
 
-    // Submit the form data using the createHandler API
     const response = await createHandler(
       formData,
       "createAnswer",
@@ -118,7 +100,68 @@ export const AnswerHome = () => {
 
     if (response) {
       setDataUpdated(dataUpdated + 1);
+      setNewAnswer({ text: "", type: "text" }); // Reset form
+      setSelectedImage(null); // Clear selected image
+      setShowForm(false); // Hide form after submission
     }
+  };
+
+  const handleToggleQuestionActive = async () => {
+    
+    const response = await quizHandler(
+      { questionId: params.qid, isActive: !details.isActive },
+      "updateQuestion",
+      setIsActivatingQuestion,
+      showAlert
+    );
+    if (response) {
+      setDetails((prev) => ({ ...prev, isActive: !prev.isActive }));
+    }
+    
+  };
+
+  const handleDeleteQuestion = async () => {
+
+    const response = await quizHandler(
+      { questionId: params.qid },
+      "deleteQuestion",
+      setIsDeletingQuestion,
+      showAlert
+    );
+    if (response) {
+      navigate("../"); // Redirect to quizzes list after deletion
+    }
+   
+  };
+
+  const handleToggleAnswerActive = async (answerId) => {
+    
+    const response = await quizHandler(
+      { answerId, isActive: !isActivatingAnswer[answerId] },
+      "updateAnswer",
+      setTempLoading,
+      showAlert
+    );
+    console.log(response);
+    if (response) {
+      
+      setDataUpdated(dataUpdated + 1); // Refresh data
+    }
+    
+  };
+
+  const handleDeleteAnswer = async (answerId) => {
+    setIsDeletingAnswer((prev) => ({ ...prev, [answerId]: true }));
+    const response = await quizHandler(
+      { answerId },
+      "deleteAnswer",
+      setTempLoading,
+      showAlert
+    );
+    if (response) {
+      setDataUpdated(dataUpdated + 1); // Refresh data
+    }
+    setIsDeletingAnswer((prev) => ({ ...prev, [answerId]: false }));
   };
 
   if (loading) {
@@ -129,8 +172,10 @@ export const AnswerHome = () => {
       </div>
     );
   }
+
   return (
     <Container className="answer-page">
+      {/* Question Status Section */}
       <Row className="question-status">
         <Col md={6}>
           <h4>Question Title: {details.question}</h4>
@@ -140,11 +185,35 @@ export const AnswerHome = () => {
           <p>Total Answers: {details.totalAnswers}</p>
         </Col>
         <Col md={6} className="question-actions">
-          <Button variant="warning">Activate/Deactivate Question</Button>
-          <Button variant="danger">Delete Question</Button>
+          <Button
+            variant={details.isActive ? "warning" : "success"}
+            onClick={handleToggleQuestionActive}
+            disabled={isActivatingQuestion}
+          >
+            {isActivatingQuestion ? (
+              <Spinner animation="border" size="sm" />
+            ) : details.isActive ? (
+              "Deactivate Question"
+            ) : (
+              "Activate Question"
+            )}
+          </Button>
+          <Button
+            variant="danger"
+            onClick={handleDeleteQuestion}
+            disabled={isDeletingQuestion}
+            className="ms-2"
+          >
+            {isDeletingQuestion ? (
+              <Spinner animation="border" size="sm" />
+            ) : (
+              "Delete Question"
+            )}
+          </Button>
         </Col>
       </Row>
 
+      {/* Create Answer Button */}
       <Row>
         <Col className="text-center">
           <Button variant="primary" onClick={() => setShowForm(!showForm)}>
@@ -153,6 +222,7 @@ export const AnswerHome = () => {
         </Col>
       </Row>
 
+      {/* Create Answer Form */}
       {showForm && (
         <Row className="answer-form">
           <Col md={8} className="mx-auto">
@@ -211,6 +281,7 @@ export const AnswerHome = () => {
         </Row>
       )}
 
+      {/* Answer List */}
       <Row className="answer-list">
         <Col>
           <Table striped bordered hover>
@@ -240,11 +311,30 @@ export const AnswerHome = () => {
                   </td>
                   <td>{answer.type}</td>
                   <td>
-                    <Button variant={answer.active ? "warning" : "success"}>
-                      {answer.active ? "Deactivate" : "Activate"}
+                    <Button
+                      variant={isActivatingAnswer[answer.id] ? "warning" : "success"}
+                      onClick={() => handleToggleAnswerActive(answer.id)}
+                      disabled={isActivatingAnswer[answer.id]}
+                    >
+                      {isActivatingAnswer[answer.id] ? (
+                        <Spinner animation="border" size="sm" />
+                      ) : isActivatingAnswer[answer.id] ? (
+                        "Deactivate"
+                      ) : (
+                        "Activate"
+                      )}
                     </Button>
-                    <Button variant="danger" className="ms-2">
-                      Delete
+                    <Button
+                      variant="danger"
+                      onClick={() => handleDeleteAnswer(answer.id)}
+                      disabled={isDeletingAnswer[answer.id]}
+                      className="ms-2"
+                    >
+                      {isDeletingAnswer[answer.id] ? (
+                        <Spinner animation="border" size="sm" />
+                      ) : (
+                        "Delete"
+                      )}
                     </Button>
                   </td>
                 </tr>
