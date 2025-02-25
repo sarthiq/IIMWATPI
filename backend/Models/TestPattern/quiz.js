@@ -17,7 +17,7 @@ const Quiz = sequelize.define("Quiz", {
     typeId:{
       type:DataTypes.STRING,
       defaultValue:"normal",
-    }
+    },
   },
   {
     timestamps: true, // Automatically adds createdAt and updatedAt fields

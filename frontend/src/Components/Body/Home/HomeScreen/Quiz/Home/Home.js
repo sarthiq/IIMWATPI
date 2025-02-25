@@ -26,7 +26,7 @@ const quizData = {
   },
 };
 
-export const QuizHome = () => {
+export const QuizHome = ({ setTimeDuration }) => {
   const { id } = useParams(); // Get quiz ID from URL
   const navigate = useNavigate();
 
@@ -42,11 +42,21 @@ export const QuizHome = () => {
         <Card.Img variant="top" src={quiz.image} className="quiz-home-image" />
         <Card.Body>
           <Card.Title className="quiz-home-title">{quiz.title}</Card.Title>
-          <Card.Text className="quiz-home-description">{quiz.description}</Card.Text>
-          <Button 
-            variant="primary" 
+          <Card.Text className="quiz-home-description">
+            {quiz.description}
+          </Card.Text>
+          <Button
+            variant="primary"
             className="quiz-home-button"
-            onClick={() => navigate(`/quiz/${id}/question`)}
+            onClick={() => {
+              setTimeDuration((prevData) => {
+                return {
+                  ...prevData,
+                  startTime: new Date(),
+                };
+              });
+              navigate(`/quiz/${id}/question`);
+            }}
           >
             Start Quiz
           </Button>

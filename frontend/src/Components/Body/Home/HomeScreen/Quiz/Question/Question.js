@@ -3,7 +3,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import { Container, Card, Button, Form } from "react-bootstrap";
 import "./Question.css"; // Unique styles for this page
 
-export const Question = ({ questions, setUserAnswer }) => {
+export const Question = ({ questions, setUserAnswer,setTimeDuration }) => {
   const { id } = useParams(); // Get quiz ID from URL
   const navigate = useNavigate();
 
@@ -30,6 +30,12 @@ export const Question = ({ questions, setUserAnswer }) => {
       setCurrentQuestion(currentQuestion + 1);
       setSelectedAnswer(null); // Reset selected answer for the next question
     } else {
+      setTimeDuration((prevData) => {
+        return {
+          ...prevData,
+          endTime: new Date(),
+        };
+      });
       setIsAgeRequired(true);
     }
   };

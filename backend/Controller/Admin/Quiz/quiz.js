@@ -491,7 +491,7 @@ exports.updateAnswerStatus = async (req, res) => {
     }
 
     // Update isActive
-    await answer.update({ isActive:!answer.isActive }, { transaction });
+    await answer.update({ isActive: !answer.isActive }, { transaction });
 
     await transaction.commit();
     return res.status(200).json({
@@ -504,5 +504,54 @@ exports.updateAnswerStatus = async (req, res) => {
     return res
       .status(500)
       .json({ success: false, message: "Internal server error" });
+  }
+};
+
+exports.updateCorrectAnswer = async (req, res) => {
+  try {
+    const { questionId, correctAnswerId } = req.body;
+
+    // Validate input
+    if (!questionId || !correctAnswerId) {
+      return res
+        .status(400)
+        .json({
+          success: false,
+          message: "Both questionId and correctAnswerId are required.",
+        });
+    }
+
+    // Check if the question exists
+    const question = await Question.findByPk(questionId);
+    if (!question) {
+      return res
+        .status(404)
+        .json({ success: false, message: "Question not found." });
+    }
+
+    // Check if the answer exists and belongs to the question
+    const answer = await Answer.findOne({
+      where: { id: correctAnswerId, QuestionId: questionId },
+    });
+    if (!answer) {
+      return res
+        .status(404)
+        .json({
+          success: false,
+          message: "Answer not found or does not belong to the given question.",
+        });
+    }
+
+    // Update the question's correct answer ID
+    await question.update({ correctAnswerId });
+
+    return res
+      .status(200)
+      .json({ success: true, message: "Correct answer updated successfully." });
+  } catch (error) {
+    console.error("Error updating correct answer:", error);
+    return res
+      .status(500)
+      .json({ success: false, message: "Internal server error." });
   }
 };

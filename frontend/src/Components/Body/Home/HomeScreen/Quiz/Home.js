@@ -11,6 +11,7 @@ export const Home = () => {
   const { showAlert } = useAlert();
   const [userAnswer, setUserAnswer] = useState({});
   const [questions, setQuestions] = useState([]);
+  const [timeDuration, setTimeDuration] = useState({});
 
   useEffect(() => {
     const fetchDetails = async () => {
@@ -28,16 +29,33 @@ export const Home = () => {
   return (
     <>
       <Routes>
-        <Route path="/" element={<QuizHome isDataLoading={isDataLoading} />} />
+        <Route
+          path="/"
+          element={
+            <QuizHome
+              setTimeDuration={setTimeDuration}
+              isDataLoading={isDataLoading}
+            />
+          }
+        />
 
         <Route
           path="question"
           element={
-            <Question questions={questions} setUserAnswer={setUserAnswer} />
+            <Question
+              questions={questions}
+              setTimeDuration={setTimeDuration}
+              setUserAnswer={setUserAnswer}
+            />
           }
         />
 
-        <Route path="result" element={<Result userAnswer={userAnswer} />} />
+        <Route
+          path="result"
+          element={
+            <Result userAnswer={userAnswer} timeDuration={timeDuration} />
+          }
+        />
         {/* Catch-all for invalid routes, redirecting to homepage */}
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>

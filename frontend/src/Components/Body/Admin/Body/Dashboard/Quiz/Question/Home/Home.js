@@ -19,7 +19,7 @@ export const QuestionHome = () => {
   const [newQuestion, setNewQuestion] = useState({
     text: "",
     type: "text",
-    weight: "",
+    weight: "1",
   });
   const params = useParams();
   const [selectedImage, setSelectedImage] = useState(null);
@@ -230,6 +230,7 @@ export const QuestionHome = () => {
                       step="0.1"
                       name="weight"
                       value={newQuestion.weight}
+                    
                       onChange={handleChange}
                     />
                   </Form.Group>

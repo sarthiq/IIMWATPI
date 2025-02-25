@@ -5,7 +5,7 @@ import "./Result.css"; // Unique styles for result page
 import { submitAnswersHandler } from "../apiHandler";
 import { useAlert } from "../../../../../UI/Alert/AlertContext";
 
-export const Result = ({ userAnswer }) => {
+export const Result = ({ userAnswer,timeDuration }) => {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(true); // Loading state for spinner
   const [result, setResult] = useState(null); // State to store quiz result
@@ -15,7 +15,7 @@ export const Result = ({ userAnswer }) => {
   useEffect(() => {
     const submitDetails = async () => {
       const response = await submitAnswersHandler(
-        userAnswer,
+        {userAnswer,timeDuration},
         setLoading,
         showAlert
       );

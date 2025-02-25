@@ -30,4 +30,6 @@ router.post('/updateQuestion',quizController.updateQuestionStatus)
 router.post('/updateAnswer',quizController.updateAnswerStatus)
 
 
+router.post('/updateCorrectAnswer',quizController.updateCorrectAnswer)
+
 module.exports = router;
