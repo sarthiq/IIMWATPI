@@ -10,14 +10,13 @@ export const Home = () => {
   const [isDataLoading, setIsDataLoading] = useState(false);
   const { showAlert } = useAlert();
   const [userAnswer, setUserAnswer] = useState({});
-  const [questions,setQuestions]=useState([]);
+  const [questions, setQuestions] = useState([]);
 
   useEffect(() => {
     const fetchDetails = async () => {
       const response = await fetchQuestionsHandler(setIsDataLoading, showAlert);
 
       if (response) {
-        
         setQuestions(response.data);
       }
     };
@@ -33,7 +32,9 @@ export const Home = () => {
 
         <Route
           path="question"
-          element={<Question questions={questions} setUserAnswer={setUserAnswer} />}
+          element={
+            <Question questions={questions} setUserAnswer={setUserAnswer} />
+          }
         />
 
         <Route path="result" element={<Result userAnswer={userAnswer} />} />

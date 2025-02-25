@@ -30,7 +30,7 @@ exports.getQuestions = async (req, res) => {
     // Fetch questions along with their answers
     const questions = await Question.findAll({
       where: {
-        quizId: quizId,
+        QuizId: quizId,
         isActive: true,
       },
       include: [
@@ -62,11 +62,6 @@ exports.getQuestions = async (req, res) => {
   }
 };
 
-
-
-
-
-
 //Sumbit Quiz --
 
 exports.submitQuiz = async (req, res) => {
@@ -75,13 +70,20 @@ exports.submitQuiz = async (req, res) => {
 
     // Validate input
     if (!quizId || typeof answers !== "object" || answers === null) {
-      return res.status(400).json({ success: false, message: "Invalid request data" });
+      return res
+        .status(400)
+        .json({ success: false, message: "Invalid request data" });
     }
 
     // Fetch all questions for the quiz
     const questions = await Question.findAll({ where: { QuizId: quizId } });
     if (!questions.length) {
-      return res.status(404).json({ success: false, message: "Quiz not found or has no questions" });
+      return res
+        .status(404)
+        .json({
+          success: false,
+          message: "Quiz not found or has no questions",
+        });
     }
 
     let totalWeight = 0;
@@ -96,7 +98,7 @@ exports.submitQuiz = async (req, res) => {
 
       if (selectedAnswerId !== undefined) {
         attemptedQuestions++;
-        
+
         // Check if the answer is correct
         if (selectedAnswerId == question.correctAnswerId) {
           userScore += question.weight; // Add weight of the correct question to the score
@@ -120,7 +122,7 @@ exports.submitQuiz = async (req, res) => {
       data: {
         totalQuestions: questions.length,
         attemptedQuestions,
-        correctAnswers: userScore / Math.max(...questions.map(q => q.weight)), // Approximate correct count
+        correctAnswers: userScore / Math.max(...questions.map((q) => q.weight)), // Approximate correct count
         score: userScore,
         percentage: percentage.toFixed(2),
         iqLevel,

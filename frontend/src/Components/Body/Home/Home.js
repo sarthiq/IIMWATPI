@@ -6,7 +6,6 @@ import { Footer } from "./Footer/Footer";
 import { HomeScreen } from "./HomeScreen/HomeScreen";
 import { Quiz } from "./HomeScreen/Quiz/Quiz";
 
-
 export const Home = () => {
   return (
     <div className="app-container">
@@ -14,10 +13,6 @@ export const Home = () => {
       <div>
         <Routes>
           {/* Default route for homepage */}
-          
-
-          
-
 
           <Route path="/" element={<HomeScreen />} />
 

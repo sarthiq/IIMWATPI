@@ -14,6 +14,7 @@ export const fetchQuestionsHandler = async (setIsLoading, showAlert) => {
   
       return data;
     } catch (e) {
+      
       handleErrors(e, showAlert);
     } finally {
       setIsLoading(false);

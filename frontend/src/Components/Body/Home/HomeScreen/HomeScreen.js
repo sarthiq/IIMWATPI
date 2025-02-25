@@ -1,19 +1,11 @@
 import React from "react";
-import { Container, Row, Col, Card } from "react-bootstrap";
 import "./HomeScreen.css"; // Unique CSS for this page
-import { Link } from "react-router-dom";
 import { Banner } from "./Banner/banner";
 import { TestSection } from "./TestSection/TestSection";
 import { VideoSection } from "./VideoSection/VideoSection";
 import { CareerSection } from "./CareerSection/CareerSection";
 import { CareerResearch } from "./CareerResearch/CareerResearch";
 
-const quizzes = [
-  { id: 1, title: "Science Quiz", image: "https://placehold.co/400" },
-  { id: 2, title: "History Quiz", image: "https://placehold.co/400" },
-  { id: 3, title: "Math Quiz", image: "https://placehold.co/400" },
-  { id: 4, title: "General Knowledge", image: "https://placehold.co/400" },
-];
 
 export const HomeScreen = () => {
   return (
