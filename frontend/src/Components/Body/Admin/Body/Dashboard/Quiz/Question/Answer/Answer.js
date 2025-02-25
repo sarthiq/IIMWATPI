@@ -32,13 +32,14 @@ export const AnswerHome = () => {
     question: "",
     weight: "",
     totalAnswers: 0,
+    correctAnswerId: "",
   });
   const [dataUpdated, setDataUpdated] = useState(0);
   const [isActivatingQuestion, setIsActivatingQuestion] = useState(false); // For question activation
   const [isDeletingQuestion, setIsDeletingQuestion] = useState(false); // For question deletion
   const [isActivatingAnswer, setIsActivatingAnswer] = useState({}); // For answer activation
   const [isDeletingAnswer, setIsDeletingAnswer] = useState({}); // For answer deletion
-  const [tempLoading,setTempLoading]=useState(false);
+  const [tempLoading, setTempLoading] = useState(false);
 
   useEffect(() => {
     fetchDetails();
@@ -59,6 +60,7 @@ export const AnswerHome = () => {
         weight: response.question.weight,
         question: response.question.text,
         totalAnswers: response.answers.length,
+        correctAnswerId: response.question.correctAnswerId,
       });
       // Initialize activation states for answers
       const initialActivationStates = {};
@@ -107,7 +109,6 @@ export const AnswerHome = () => {
   };
 
   const handleToggleQuestionActive = async () => {
-    
     const response = await quizHandler(
       { questionId: params.qid, isActive: !details.isActive },
       "updateQuestion",
@@ -117,11 +118,9 @@ export const AnswerHome = () => {
     if (response) {
       setDetails((prev) => ({ ...prev, isActive: !prev.isActive }));
     }
-    
   };
 
   const handleDeleteQuestion = async () => {
-
     const response = await quizHandler(
       { questionId: params.qid },
       "deleteQuestion",
@@ -131,23 +130,28 @@ export const AnswerHome = () => {
     if (response) {
       navigate("../"); // Redirect to quizzes list after deletion
     }
-   
   };
 
   const handleToggleAnswerActive = async (answerId) => {
-    
-    const response = await quizHandler(
-      { answerId, isActive: !isActivatingAnswer[answerId] },
-      "updateAnswer",
-      setTempLoading,
-      showAlert
-    );
-    console.log(response);
-    if (response) {
-      
-      setDataUpdated(dataUpdated + 1); // Refresh data
-    }
-    
+    console.log(answerId);
+    // setIsActivatingAnswer((prev) => ({ ...prev, [answerId]: true })); // Set loading state
+
+    // const response = await quizHandler(
+    //   { answerId, isActive: !isActivatingAnswer[answerId] },
+    //   "updateAnswer",
+    //   setTempLoading,
+    //   showAlert
+    // );
+
+    // if (response) {
+    //   setIsActivatingAnswer((prev) => ({
+    //     ...prev,
+    //     [answerId]: !prev[answerId],
+    //   }));
+    //   setDataUpdated((prev) => prev + 1); // Force UI refresh
+    // } else {
+    //   setIsActivatingAnswer((prev) => ({ ...prev, [answerId]: false })); // Revert if failed
+    // }
   };
 
   const handleDeleteAnswer = async (answerId) => {
@@ -162,6 +166,20 @@ export const AnswerHome = () => {
       setDataUpdated(dataUpdated + 1); // Refresh data
     }
     setIsDeletingAnswer((prev) => ({ ...prev, [answerId]: false }));
+  };
+
+  const handleSetCorrectAnswer = async (answerId) => {
+    const response = await quizHandler(
+      { correctAnswerId: answerId, questionId: params.qid },
+      "setCorrectAnswer",
+      setTempLoading,
+      showAlert
+    );
+
+    if (response) {
+      showAlert("Correct answer set successfully!", "success");
+      setDataUpdated((prev) => prev + 1);
+    }
   };
 
   if (loading) {
@@ -182,7 +200,10 @@ export const AnswerHome = () => {
           <p>
             Weight: {details.weight} | Question ID: {details.id}
           </p>
-          <p>Total Answers: {details.totalAnswers}</p>
+          <p>
+            Total Answers: {details.totalAnswers} | Answer ID:{" "}
+            {details.correctAnswerId}
+          </p>
         </Col>
         <Col md={6} className="question-actions">
           <Button
@@ -287,15 +308,18 @@ export const AnswerHome = () => {
           <Table striped bordered hover>
             <thead>
               <tr>
+                <th>#</th>
                 <th>Text</th>
                 <th>Image</th>
                 <th>Type</th>
+                <th>Is Answer</th>
                 <th>Actions</th>
               </tr>
             </thead>
             <tbody>
               {answers.map((answer) => (
                 <tr key={answer.id}>
+                  <td>{answer.id}</td>
                   <td>{answer.text || "N/A"}</td>
                   <td>
                     {answer.imageUrl ? (
@@ -311,19 +335,30 @@ export const AnswerHome = () => {
                   </td>
                   <td>{answer.type}</td>
                   <td>
+                    {details.correctAnswerId === answer.id ? (
+                      <span style={{ color: "green", fontWeight: "bold" }}>
+                        ✔
+                      </span>
+                    ) : (
+                      <span style={{ color: "red", fontWeight: "bold" }}>
+                        ✘
+                      </span>
+                    )}
+                  </td>
+
+                  <td>
                     <Button
-                      variant={isActivatingAnswer[answer.id] ? "warning" : "success"}
+                      variant={
+                        isActivatingAnswer[answer.id] ? "warning" : "success"
+                      }
                       onClick={() => handleToggleAnswerActive(answer.id)}
-                      disabled={isActivatingAnswer[answer.id]}
+                      disabled={tempLoading}
                     >
-                      {isActivatingAnswer[answer.id] ? (
-                        <Spinner animation="border" size="sm" />
-                      ) : isActivatingAnswer[answer.id] ? (
-                        "Deactivate"
-                      ) : (
-                        "Activate"
-                      )}
+                      {isActivatingAnswer[answer.id]
+                        ? "Deactivate"
+                        : "Activate"}
                     </Button>
+
                     <Button
                       variant="danger"
                       onClick={() => handleDeleteAnswer(answer.id)}
@@ -335,6 +370,13 @@ export const AnswerHome = () => {
                       ) : (
                         "Delete"
                       )}
+                    </Button>
+                    <Button
+                      variant="primary"
+                      className="ms-2"
+                      onClick={() => handleSetCorrectAnswer(answer.id)}
+                    >
+                      Set Correct Answer
                     </Button>
                   </td>
                 </tr>

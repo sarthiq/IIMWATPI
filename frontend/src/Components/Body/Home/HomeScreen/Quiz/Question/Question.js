@@ -75,9 +75,9 @@ export const Question = ({ questions, setUserAnswer,setTimeDuration }) => {
                   {currentQuestion + 1}. {currentQ.text}
                 </Card.Title>
               )}
-              {currentQ.image && (
+              {currentQ.imageUrl && (
                 <div className="question-image">
-                  <img src={currentQ.image} alt="Question" />
+                  <img src={`${process.env.REACT_APP_REMOTE_ADDRESS}/${currentQ.imageUrl}`} alt="Question" />
                 </div>
               )}
               <hr />
@@ -91,9 +91,9 @@ export const Question = ({ questions, setUserAnswer,setTimeDuration }) => {
                     className="question-option"
                     onClick={() => handleAnswerSelect(index)}
                   >
-                    {option.image ? (
+                    {option.imageUrl ? (
                       <img
-                        src={option.image}
+                      src={`${process.env.REACT_APP_REMOTE_ADDRESS}/${option.imageUrl}`}
                         alt={`Option ${index + 1}`}
                         className="option-image"
                       />

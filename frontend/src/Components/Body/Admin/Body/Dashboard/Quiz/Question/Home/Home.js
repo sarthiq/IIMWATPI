@@ -256,6 +256,7 @@ export const QuestionHome = () => {
           <Table striped bordered hover>
             <thead>
               <tr>
+                <th>#</th>
                 <th>Text</th>
                 <th>Image</th>
                 <th>Type</th>
@@ -266,6 +267,7 @@ export const QuestionHome = () => {
             <tbody>
               {questions.map((question) => (
                 <tr key={question.id}>
+                  <td>{question.id}</td>
                   <td>{question.text || "N/A"}</td>
                   <td>
                     {question.imageUrl ? (
