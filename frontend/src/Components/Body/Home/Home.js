@@ -5,6 +5,8 @@ import { Footer } from "./Footer/Footer";
 
 import { HomeScreen } from "./HomeScreen/HomeScreen";
 import { Quiz } from "./HomeScreen/Quiz/Quiz";
+import { Careers } from "./Careers/Careers";
+import { About } from "./About/About";
 
 export const Home = () => {
   return (
@@ -15,6 +17,9 @@ export const Home = () => {
           {/* Default route for homepage */}
 
           <Route path="/" element={<HomeScreen />} />
+          <Route path="resources" element={<Careers />} />
+          <Route path="about" element={<About />} />
+          
 
           <Route path="quiz/*" element={<Quiz />} />
           {/* Catch-all for invalid routes, redirecting to homepage */}
