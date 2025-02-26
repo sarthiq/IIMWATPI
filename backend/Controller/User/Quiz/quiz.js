@@ -140,7 +140,7 @@ exports.submitQuiz = async (req, res) => {
 
     const percentage = totalWeight > 0 ? (userScore / totalWeight) * 100 : 0;
     const iqResult = calculateIQ(correctAnswers, timeTakenMinutes);
-
+   
     const token = jwt.sign(
       { id: unverifiedUser.id },
       process.env.JWT_SECRET_KEY,
@@ -158,8 +158,8 @@ exports.submitQuiz = async (req, res) => {
         correctAnswers,
         score: userScore,
         percentage: percentage.toFixed(2),
-        iqLevel: iqResult.Estimated_IQ_Range,
-        percentile: iqResult.Percentile,
+        iqLevel: iqResult.estimated_iq_range,
+        percentile: iqResult.percentile,
         token,
       },
     });

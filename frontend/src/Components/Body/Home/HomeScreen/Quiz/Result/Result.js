@@ -68,7 +68,7 @@ export const Result = ({ userAnswer,timeDuration }) => {
               <strong>Percentage:</strong> {result.percentage}%
             </p>
             <p>
-              <strong>IQ Level:</strong> {result.iqLevel}
+              <strong>IQ Level:</strong> {result.iqLevel[0]+" - "+ result.iqLevel[1]}
             </p>
           </div>
           <Button
