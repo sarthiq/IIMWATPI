@@ -1,6 +1,13 @@
 const Quiz = require("../../../Models/TestPattern/quiz");
 const Question = require("../../../Models/TestPattern/question");
 const Answer = require("../../../Models/TestPattern/answer");
+const { calculateIQ } = require("./utils");
+const UserQuiz = require("../../../Models/AndModels/UserQuiz");
+const UserQuizQuestion = require("../../../Models/AndModels/UserQuizQuestion");
+const UnverifiedUser = require("../../../Models/User/unverifiedUser");
+const sequelize = require("../../../database");
+const jwt = require("jsonwebtoken");
+
 
 exports.getQuizzes = async (req, res) => {
   try {
@@ -65,74 +72,104 @@ exports.getQuestions = async (req, res) => {
 //Sumbit Quiz --
 
 exports.submitQuiz = async (req, res) => {
+  let transaction;
   try {
-    const { quizId, answers } = req.body; // answers = { questionId: selectedAnswerId, ... }
+    const { quizId, answers, timeDuration, age } = req.body; // Include age from request
+    const { startTime, endTime } = timeDuration;
 
-    // Validate input
-    if (!quizId || typeof answers !== "object" || answers === null) {
+    if (!quizId || typeof answers !== "object" || !startTime || !endTime) {
       return res
         .status(400)
         .json({ success: false, message: "Invalid request data" });
     }
 
-    // Fetch all questions for the quiz
     const questions = await Question.findAll({ where: { QuizId: quizId } });
     if (!questions.length) {
-      return res
-        .status(404)
-        .json({
-          success: false,
-          message: "Quiz not found or has no questions",
-        });
+      return res.status(404).json({
+        success: false,
+        message: "Quiz not found or has no questions",
+      });
     }
 
+    transaction = await sequelize.transaction();
+
+    const unverifiedUser = await UnverifiedUser.create(
+      {
+        age: answers["age"],
+      },
+      { transaction }
+    );
+
+    const userQuiz = await UserQuiz.create(
+      {
+        UnverifiedUserId: unverifiedUser.id, // Assuming user is authenticated
+        QuizId: quizId,
+        startTime,
+        endTime,
+      },
+      { transaction }
+    );
+
+    let correctAnswers = 0;
+    let attemptedQuestions = 0;
     let totalWeight = 0;
     let userScore = 0;
-    let attemptedQuestions = 0;
+    const timeTakenMinutes = (new Date(endTime) - new Date(startTime)) / 60000; // Convert ms to minutes
 
     for (let question of questions) {
-      totalWeight += question.weight; // Total possible score
-
-      // Check if the user answered this question
+      totalWeight += question.weight;
       const selectedAnswerId = answers[question.id];
+      const isCorrect = selectedAnswerId == question.correctAnswerId;
 
       if (selectedAnswerId !== undefined) {
         attemptedQuestions++;
-
-        // Check if the answer is correct
-        if (selectedAnswerId == question.correctAnswerId) {
-          userScore += question.weight; // Add weight of the correct question to the score
-        }
+        if (isCorrect) correctAnswers++;
+        userScore += isCorrect ? question.weight : 0;
       }
+
+      await UserQuizQuestion.create(
+        {
+          UserQuizId: userQuiz.id,
+          QuestionId: question.id,
+          userAnswerId: selectedAnswerId,
+          isCorrect,
+        },
+        { transaction }
+      );
     }
 
-    // Calculate percentage score
     const percentage = totalWeight > 0 ? (userScore / totalWeight) * 100 : 0;
+    const iqResult = calculateIQ(correctAnswers, timeTakenMinutes);
 
-    // Determine IQ Level based on score percentage
-    let iqLevel;
-    if (percentage >= 90) iqLevel = "Genius";
-    else if (percentage >= 75) iqLevel = "Above Average";
-    else if (percentage >= 50) iqLevel = "Average";
-    else iqLevel = "Below Average";
-
+    const token = jwt.sign(
+      { id: unverifiedUser.id },
+      process.env.JWT_SECRET_KEY,
+      {
+        expiresIn: "5m", // Optional: specify token expiration time
+      }
+    );
+    transaction.commit();
     return res.status(200).json({
       success: true,
       message: "Quiz submitted successfully",
       data: {
         totalQuestions: questions.length,
         attemptedQuestions,
-        correctAnswers: userScore / Math.max(...questions.map((q) => q.weight)), // Approximate correct count
+        correctAnswers,
         score: userScore,
         percentage: percentage.toFixed(2),
-        iqLevel,
+        iqLevel: iqResult.Estimated_IQ_Range,
+        percentile: iqResult.Percentile,
+        token,
       },
     });
   } catch (error) {
+    if (transaction) {
+      await transaction.rollback();
+    }
     console.error("Error submitting quiz:", error);
-    return res.status(500).json({
-      success: false,
-      message: "Internal server error",
-    });
+    return res
+      .status(500)
+      .json({ success: false, message: "Internal server error" });
   }
 };

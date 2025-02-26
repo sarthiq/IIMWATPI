@@ -5,6 +5,15 @@ const UserQuizQuestion = sequelize.define(
   "UserQuizQuestion",
   {
     id: { type: DataTypes.INTEGER, autoIncrement: true, primaryKey: true },
+    userAnswerId: {
+      type: DataTypes.INTEGER,
+      allowNull: true,
+    },
+    isCorrect: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false,
+      defaultValue: false,
+    },
   },
   {
     timestamps: true, // Automatically adds createdAt and updatedAt fields
