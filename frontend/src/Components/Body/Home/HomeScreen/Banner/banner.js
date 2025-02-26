@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination, Autoplay } from "swiper/modules";
+import { Pagination, Autoplay } from "swiper/modules"; // ❌ Removed Navigation
 import "swiper/css";
-import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "./banner.css";
 
@@ -10,11 +9,10 @@ export const Banner = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [typedText, setTypedText] = useState("");
   const fullText = "  Are you a born actor, writer, or scientist? Know your hidden talent!";
-  const bgImage = process.env.PUBLIC_URL + "/Logo.png"; // ✅ Load image from public folder
-
+ 
   useEffect(() => {
     let timer;
-    if (activeIndex === 2) { // ✅ Typing effect will start only on the last slide
+    if (activeIndex === 2) { 
       setTypedText(""); 
       let i = 0;
       timer = setInterval(() => {
@@ -32,16 +30,15 @@ export const Banner = () => {
   return (
     <section className="banner">
       <Swiper
-        modules={[Navigation, Pagination, Autoplay]}
+        modules={[Pagination, Autoplay]} // ❌ Removed Navigation
         spaceBetween={50}
         slidesPerView={1}
-        navigation
         pagination={{ clickable: true }}
         autoplay={{ delay: 5000 }}
         className="banner-swiper"
         onSlideChange={(swiper) => setActiveIndex(swiper.activeIndex)}
       >
-        <SwiperSlide className="swiper-slide slide1" style={{ backgroundImage: `url(${bgImage})` }}>
+        <SwiperSlide className="swiper-slide slide1">
           <div className="slide-content">
             <h2>Empowering Students to become their best version!</h2>
             <p>
@@ -52,7 +49,7 @@ export const Banner = () => {
           </div>
         </SwiperSlide>
 
-        <SwiperSlide className="swiper-slide slide2" style={{ backgroundImage: `url(${bgImage})` }}>
+        <SwiperSlide className="swiper-slide slide2">
           <div className="slide-content">
             <h2>Discover Your Hidden Talents</h2>
             <p>
@@ -63,7 +60,7 @@ export const Banner = () => {
           </div>
         </SwiperSlide>
 
-        <SwiperSlide className="swiper-slide slide3" style={{ backgroundImage: `url(${bgImage})` }}>
+        <SwiperSlide className="swiper-slide slide3">
           <div className="slide-content">
             <h2 className="typing-text">{typedText}</h2>
           </div>

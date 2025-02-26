@@ -1,51 +1,90 @@
 .question-container {
-  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: #f8f9fa;
+  padding: 10px;
 }
 
 .question-card {
-  max-width: 600px;
-  margin: 0 auto;
+  width: 80%; /* Adjusted for responsiveness */
+  max-width: 500px; /* Ensures a compact look on larger screens */
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 15px;
 }
 
 .question-title {
-  font-size: 1.5rem;
-  margin-bottom: 20px;
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 10px;
 }
 
 .question-image img {
   max-width: 100%;
   height: auto;
-  margin-bottom: 20px;
+  max-height: 150px; /* Reduced size for compactness */
+  display: block;
+  margin: 0 auto;
+  border-radius: 5px;
 }
 
 .question-options {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Two-column layout */
   gap: 10px;
+  margin-top: 15px;
 }
 
 .question-option {
   width: 100%;
-  text-align: left;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  padding: 8px;
+  font-size: 14px;
+  text-align: center;
 }
 
 .option-image {
-  max-width: 100%;
+  max-width: 100px; /* Reduce image size */
   height: auto;
+  display: block;
+  margin: 0 auto;
 }
 
 .question-footer {
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
+  margin-top: 15px;
 }
 
-.age-input {
-  margin-bottom: 20px;
-}
-
+.next-button,
 .submit-button {
   width: 100%;
+}
+
+/* 📱 Responsive Design */
+@media (max-width: 768px) {
+  .question-card {
+    width: 95%;
+  }
+  
+  .question-title {
+    font-size: 16px;
+  }
+
+  .question-options {
+    grid-template-columns: repeat(1, 1fr); /* Stack options on small screens */
+  }
+
+  .question-option {
+    font-size: 12px;
+    padding: 6px;
+  }
+
+  .option-image {
+    max-width: 80px; /* Smaller images on small screens */
+  }
 }

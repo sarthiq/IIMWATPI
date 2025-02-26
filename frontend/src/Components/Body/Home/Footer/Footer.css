@@ -1,26 +1,92 @@
-/* Ensure the footer sticks at the bottom */
-html, body {
-    height: 100%;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-}
-
-#root {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh; /* Full viewport height */
-}
-
-.main-content {
-    flex-grow: 1; /* Push footer to bottom */
-}
-
-.quiz-footer {
-    background-color: #0057b8;
+/* Footer Styling */
+.footer {
+    background-color: #004aad; /* Blue background */
     color: white;
+    padding: 30px 20px;
     text-align: center;
-    padding: 15px 0;
-    width: 100%;
-    position: relative; /* Footer stays at bottom */
-}
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Footer Container */
+  .footer-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: auto;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  }
+  
+  /* Footer Columns */
+  .footer-column {
+    flex: 1;
+    min-width: 250px;
+    margin: 10px;
+  }
+  
+  .footer-column h4 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    font-weight: bold;
+  }
+  
+  .footer-column ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .footer-column ul li {
+    margin: 5px 0;
+  }
+  
+  .footer-column ul li a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  
+  .footer-column ul li a:hover {
+    color: #ffcc00;
+  }
+  
+  /* Social Icons */
+  .social-icons {
+    margin: 20px 0;
+  }
+  
+  .social-icons a {
+    color: white;
+    font-size: 24px;
+    margin: 0 10px;
+    display: inline-block;
+    transition: transform 0.3s ease;
+  }
+  
+  .social-icons a:hover {
+    transform: scale(1.2);
+  }
+  
+  .linkedin { color: #0077b5; }
+  .youtube { color: #ff0000; }
+  .telegram { color: #0088cc; }
+  .whatsapp { color: #25d366; }
+  
+  /* Footer Bottom */
+  .footer-bottom {
+    margin-top: 15px;
+    font-size: 14px;
+  }
+  
+  .footer-bottom p {
+    margin: 5px 0;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .footer-container {
+      flex-direction: column;
+      text-align: center;
+    }
+  }
+  
