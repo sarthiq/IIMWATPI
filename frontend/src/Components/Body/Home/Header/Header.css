@@ -21,7 +21,7 @@
 /* Logo - Align Left */
 .logo img {
   height: 40px;
-  position: absolute;
+  position: flex;
   left: 20px;
 }
 

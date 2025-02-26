@@ -1,12 +1,12 @@
 .banner {
   width: 100%;
-  height: 60vh; /* ✅ Fixed height */
+  height: 28vh; /* Reduced height slightly */
   display: flex;
   align-items: center;
   justify-content: center;
- 
 }
 
+/* Ensure slides scale properly */
 .swiper-slide {
   display: flex;
   align-items: center;
@@ -14,26 +14,60 @@
   background-size: cover;
   background-position: center;
   width: 100%;
-  height: 60vh;
+  height: 28vh;
 }
 
+/* Slide Content */
 .slide-content {
-  text-align:center;
-  margin-bottom: 0;
+  text-align: center;
   color: white;
-  font-size: 22px;
+  font-size: 20px;
   font-weight: 500;
-  max-width: 80%;
+  max-width: 85%;
+  height: auto;
   margin: auto;
-  background: rgba(0, 0, 0, 0.5); /* Adds slight overlay for readability */
-  padding: 20px;
-  border-radius: 10px;
+  background: rgba(6, 21, 231, 0.8); /* Slightly darker overlay */
+  padding: 15px;
+  border-radius: 8px;
+  min-height: 60%; /* ✅ Ensures text is not cut */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
-/* Typing Effect for Last Slide */
-.typing-text {
-  display: inline-block;
-  border-right: 3px solid white; /* Cursor effect */
-  white-space: nowrap;
-  overflow: hidden;
+/* Ensure text resizes properly on smaller screens */
+@media (max-width: 768px) {
+  .banner {
+    height: 30vh; /* Further reduced for mobile */
+  }
+
+  .swiper-slide {
+    height: 30vh;
+  }
+
+  .slide-content {
+    font-size: 16px; /* ✅ Smaller font for better fit */
+    padding: 10px;
+    max-width: 90%;
+    border-radius: 6px;
+    min-height: 65%; /* ✅ Prevent text cut-off */
+  }
+
+  /* Adjust heading sizes for mobile */
+  .slide-content h2 {
+    font-size: 18px;
+  }
+
+  .slide-content p {
+    font-size: 14px;
+    line-height: 1.3; /* ✅ Better spacing */
+  }
+
+  /* Typing Effect Adjustments */
+  .typing-text {
+    font-size: 16px;
+    border-right: 2px solid white;
+  }
 }
