@@ -26,7 +26,7 @@ export const Home = () => {
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </div>
-      {/* <Footer /> */}
+      <Footer />
     </div>
   );
 };
