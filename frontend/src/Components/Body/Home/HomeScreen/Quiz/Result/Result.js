@@ -15,7 +15,7 @@ export const Result = ({ userAnswer,timeDuration }) => {
   useEffect(() => {
     const submitDetails = async () => {
       const response = await submitAnswersHandler(
-        {userAnswer,timeDuration},
+        {answers:userAnswer,timeDuration},
         setLoading,
         showAlert
       );
