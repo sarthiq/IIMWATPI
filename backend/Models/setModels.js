@@ -20,7 +20,7 @@ exports.setupModels = () => {
 
   
   UnverifiedUser.belongsToMany(Quiz,{through:UserQuiz})
-  Quiz.belongsToMany(UnverifiedUser,{through:UnverifiedUser})
+  Quiz.belongsToMany(UnverifiedUser,{through:UserQuiz})
 
   UserQuiz.belongsToMany(Question,{through:UserQuizQuestion})
   Question.belongsToMany(UserQuiz,{through:UserQuizQuestion})
