@@ -29,7 +29,7 @@ export const Footer = () => {
           <h4>Contact Details</h4>
           <p><strong>Address:</strong> C-70, Sect 8, Jankipuram Extension, Lucknow, UP-226021</p>
           <p><strong>Email:</strong> sarthiq@gmail.com</p>
-          <p><strong>Phone & WhatsApp:</strong> 9335532658</p>
+          <p><strong>WhatsApp:</strong> 9335532658</p>
         </div>
       </div>
 

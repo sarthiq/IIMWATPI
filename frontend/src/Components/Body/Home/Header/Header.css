@@ -29,7 +29,7 @@
 .nav-menu {
   flex-grow: 1;
   display: flex;
-  justify-content: center;
+  justify-content: right;
 }
 
 .nav-menu ul {

@@ -5,7 +5,7 @@ import "./QuizHome.css"; // Unique CSS for this page
 
 const quizData = {
   1: {
-    title: "Science Quiz",
+    title: "IQ Test",
     description: "Test your knowledge of physics, chemistry, and biology!",
     image: "https://placehold.co/400",
   },

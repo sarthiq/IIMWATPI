@@ -56,10 +56,29 @@
   padding: 8px;
   font-size: 14px;
   text-align: center;
+  border: 1px solid #007bff;
+  border-radius: 5px;
+  background-color: white;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
 }
 
+/* ✅ Green border on hover */
+.question-option:hover {
+  border: 2px solid #28a745 !important;
+  background-color: rgba(40, 167, 70, 0.925);
+}
+
+/* ✅ Green background when selected */
+.question-option.selected {
+  background-color: #28a745 !important;
+  color: white !important;
+  border: 2px solid #28a745 !important;
+}
+
+/* Image inside option */
 .option-image {
-  max-width: 100px; /* Reduce image size */
+  max-width: 100px;
   height: auto;
   display: block;
   margin: 0 auto;
@@ -81,7 +100,7 @@
   .question-card {
     width: 95%;
   }
-  
+
   .question-title {
     font-size: 16px;
   }

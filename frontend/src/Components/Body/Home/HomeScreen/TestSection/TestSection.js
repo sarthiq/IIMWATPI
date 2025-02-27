@@ -10,29 +10,30 @@ export const TestSection = () => {
       {/* Boxes Container */}
       <div className="quiz-boxes-container">
         <Link to={`./quiz/1`} className="quiz-box">
-          <img src="/logo512.png" alt="IQ Test" className="quiz-box-image" />
+          <img src="/IQ.png" alt="IQ Test" className="quiz-box-image" />
           <div className="quiz-box-header">IQ</div>
           <div className="quiz-box-body">
-            <p className="desc-text">Check if you are the next Aryabhata</p>
-            <p className="extra-text"><strong>Description:</strong> In 5 points</p>
+            <p className="desc-text">Learning Speed</p>
+            {/* <p className="extra-text"><strong>Description:</strong> In 5 points</p> */}
           </div>
         </Link>
 
         <Link to={`./quiz/2`} className="quiz-box">
-          <img src="/logo192.png" alt="Personality Test" className="quiz-box-image" />
+          <img src="/Personality.png" alt="Personality Test" className="quiz-box-image" />
           <div className="quiz-box-header">Personality</div>
           <div className="quiz-box-body">
-            <p className="desc-text">Are you a better actor, leader, or doctor?</p>
-            <p className="extra-text"><strong>Description:</strong> Find out your strengths.</p>
+            <p className="desc-text">Behavior</p>
+            {/* <p className="extra-text"><strong>Description:</strong> Find out your strengths.</p> */}
           </div>
         </Link>
 
         <Link to={`./quiz/3`} className="quiz-box">
-          <img src="/logo192.png" alt="Creativity Test" className="quiz-box-image" />
+          <img src="/Creativity.png" alt="Creativity Test" className="quiz-box-image" />
           <div className="quiz-box-header">Creativity</div>
           <div className="quiz-box-body">
-            <p className="desc-text">Can you compose songs or design fashion?</p>
-            <p className="extra-text"><strong>Description:</strong> Test your creative potential.</p>
+            <p className="desc-text">Thinking out of the box
+            </p>
+            {/* <p className="extra-text"><strong>Description:</strong> Test your creative potential.</p> */}
           </div>
         </Link>
       </div>
