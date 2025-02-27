@@ -1,41 +1,56 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./TestSection.css";
 import { Link } from "react-router-dom";
+import { useAlert } from "../../../../UI/Alert/AlertContext";
+import { Spinner } from "react-bootstrap";
+import { fetchQuizzesHandler } from "../Quiz/apiHandler";
 
 export const TestSection = () => {
+  const { showAlert } = useAlert();
+  const [quizzes, setQuizzes] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+  useEffect(() => {
+    fetchDetails();
+  }, []);
+
+  const fetchDetails = async () => {
+    const response = await fetchQuizzesHandler(setIsLoading, showAlert);
+    if (response) {
+      setQuizzes(response.data);
+    }
+  };
+
+  if (isLoading) {
+    return (
+      <Spinner animation="border" role="status">
+        <span className="visually-hidden">Loading...</span>
+      </Spinner>
+    );
+  }
+console.log(quizzes);
   return (
     <section className="test-section">
       <h2 className="section-title">Discover Your Potential</h2>
 
       {/* Boxes Container */}
       <div className="quiz-boxes-container">
-        <Link to={`./quiz/1`} className="quiz-box">
-          <img src="/IQ.png" alt="IQ Test" className="quiz-box-image" />
-          <div className="quiz-box-header">IQ</div>
-          <div className="quiz-box-body">
-            <p className="desc-text">Learning Speed</p>
-            {/* <p className="extra-text"><strong>Description:</strong> In 5 points</p> */}
-          </div>
-        </Link>
-
-        <Link to={`./quiz/2`} className="quiz-box">
-          <img src="/Personality.png" alt="Personality Test" className="quiz-box-image" />
-          <div className="quiz-box-header">Personality</div>
-          <div className="quiz-box-body">
-            <p className="desc-text">Behavior</p>
-            {/* <p className="extra-text"><strong>Description:</strong> Find out your strengths.</p> */}
-          </div>
-        </Link>
-
-        <Link to={`./quiz/3`} className="quiz-box">
-          <img src="/Creativity.png" alt="Creativity Test" className="quiz-box-image" />
-          <div className="quiz-box-header">Creativity</div>
-          <div className="quiz-box-body">
-            <p className="desc-text">Thinking out of the box
-            </p>
-            {/* <p className="extra-text"><strong>Description:</strong> Test your creative potential.</p> */}
-          </div>
-        </Link>
+        {quizzes.map((quiz) => (
+          <Link key={quiz.id} to={`./quiz/${quiz.id}`} className="quiz-box">
+            <img
+              src={
+                quiz.imageUrl
+                  ? `${process.env.REACT_APP_REMOTE_ADDRESS}/${quiz.imageUrl}`
+                  : "/IQ.png"
+              }
+              alt={`${quiz.title} Test`}
+              className="quiz-box-image"
+            />
+            <div className="quiz-box-header">{quiz.title}</div>
+            <div className="quiz-box-body">
+              <p className="desc-text">{quiz.description}</p>
+            </div>
+          </Link>
+        ))}
       </div>
     </section>
   );

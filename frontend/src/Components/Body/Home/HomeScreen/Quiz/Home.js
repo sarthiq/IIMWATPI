@@ -46,6 +46,7 @@ export const Home = () => {
           path="/"
           element={
             <QuizHome
+              quizInfo={quizInfo}
               setTimeDuration={setTimeDuration}
               isDataLoading={isDataLoading}
             />

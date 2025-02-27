@@ -1,0 +1,453 @@
+[
+    
+  {
+    "quizId": "2",
+    "questionId": "1",
+    "text": {
+      "english": "I like being the most active and fun person in a group.",
+      "hindi": "मुझे समूह में सबसे ज्यादा सक्रिय और मज़ेदार व्यक्ति बनना पसंद है।"
+    }
+  }
+  ,
+  {
+    "quizId": "2",
+    "questionId": "2",
+    "text": {
+      "english": "I don’t really worry about how others feel.",
+      "hindi": "मैं दूसरों की भावनाओं की ज्यादा परवाह नहीं करता।"
+    }
+  }
+  ,
+  {
+    "quizId": "2",
+    "questionId": "3",
+    "text": {
+      "english": "I always make sure I am ready before doing something.",
+      "hindi": "मैं हमेशा कुछ करने से पहले पूरी तैयारी कर लेता हूँ।"
+    }
+  }
+  ,
+  {
+    "quizId": "2",
+    "questionId": "4",
+    "text": {
+      "english": "I get nervous or worried very easily.",
+      "hindi": "मैं बहुत जल्दी घबरा जाता हूँ या चिंता करने लगता हूँ।"
+    }
+  }
+  ,
+  {
+    "quizId": "2",
+    "questionId": "5",
+    "text": {
+      "english": "I know a lot of words and enjoy learning new ones.",
+      "hindi": "मुझे नए शब्द सीखना पसंद है और मेरी शब्दावली अच्छी है।"
+    }
+  }
+  ,
+  {
+    "quizId": "2",
+    "questionId": "6",
+    "text": {
+      "english": "I don’t talk much in front of others.",
+      "hindi": "मैं दूसरों के सामने ज्यादा बात नहीं करता।"
+    }
+  }
+  ,
+  {
+    "quizId": "2",
+    "questionId": "7",
+    "text": {
+      "english": "I enjoy learning about other people’s lives.",
+      "hindi": "मुझे दूसरों के जीवन के बारे में जानना अच्छा लगता है।"
+    }
+  }
+  ,
+  {
+    "quizId": "2",
+    "questionId": "8",
+    "text": {
+      "english": "I often leave my things in a mess.",
+      "hindi": "मैं अक्सर अपनी चीज़ों को इधर-उधर बिखेर देता हूँ।"
+    }
+  }
+  ,
+  {
+    "quizId": "2",
+    "questionId": "9",
+    "text": {
+      "english": "I stay calm and relaxed in most situations.",
+      "hindi": "मैं ज्यादातर समय शांत और तनावमुक्त रहता हूँ।"
+    }
+  }
+  ,
+  {
+    "quizId": "2",
+    "questionId": "10",
+    "text": {
+      "english": "I find it hard to understand difficult ideas.",
+      "hindi": "मुझे कठिन विचारों को समझने में मुश्किल होती है।"
+    }
+  }
+  ,
+  {
+    "quizId": "2",
+    "questionId": "11",
+    "text": {
+      "english": "I feel comfortable when I am around many people.",
+      "hindi": "मुझे कई लोगों के साथ रहना अच्छा लगता है।"
+    }
+  }
+  ,
+  {
+    "quizId": "2",
+    "questionId": "12",
+    "text": {
+      "english": "I sometimes say things that can hurt others.",
+      "hindi": "मैं कभी-कभी ऐसी बातें कह देता हूँ जो दूसरों को चोट पहुँचा सकती हैं।"
+    }
+  }
+  ,
+  {
+    "quizId": "2",
+    "questionId": "13",
+    "text": {
+      "english": "I like paying attention to small details.",
+      "hindi": "मुझे छोटी-छोटी बातों पर ध्यान देना पसंद है।"
+    }
+  }
+  ,
+  {
+    "quizId": "2",
+    "questionId": "14",
+    "text": {
+      "english": "I keep worrying about different things.",
+      "hindi": "मैं अलग-अलग चीजों की चिंता करता रहता हूँ।"
+    }
+  }
+  ,
+  {
+    "quizId": "2",
+    "questionId": "15",
+    "text": {
+      "english": "I have a very creative and imaginative mind.",
+      "hindi": "मेरी कल्पना शक्ति बहुत अच्छी है।"
+    }
+  }
+  ,
+  {
+    "quizId": "2",
+    "questionId": "16",
+    "text": {
+      "english": "I prefer to stay in the background rather than be in the spotlight.",
+      "hindi": "मुझे दूसरों के सामने आने के बजाय पीछे रहना पसंद है।"
+    }
+  }
+  ,
+  {
+    "quizId": "2",
+    "questionId": "17",
+    "text": {
+      "english": "I understand and care about other people’s feelings.",
+      "hindi": "मैं दूसरों की भावनाओं को समझता हूँ और उनकी परवाह करता हूँ।"
+    }
+  }
+  ,
+  {
+    "quizId": "2",
+    "questionId": "18",
+    "text": {
+      "english": "I sometimes create a mess when doing things.",
+      "hindi": "मैं कभी-कभी चीजों को करते समय गड़बड़ कर देता हूँ।"
+    }
+  }
+  ,
+  {
+    "quizId": "2",
+    "questionId": "19",
+    "text": {
+      "english": "I rarely feel sad or upset.",
+      "hindi": "मैं शायद ही कभी उदास या परेशान महसूस करता हूँ।"
+    }
+  }
+  ,
+  {
+    "quizId": "2",
+    "questionId": "20",
+    "text": {
+      "english": "I don’t like thinking about difficult or abstract topics.",
+      "hindi": "मुझे कठिन या जटिल विषयों के बारे में सोचना पसंद नहीं है।"
+    }
+  }
+  ,
+  {
+    "quizId": "2",
+    "questionId": "21",
+    "text": {
+      "english": "I enjoy starting conversations with others.",
+      "hindi": "मुझे दूसरों से बातचीत शुरू करना अच्छा लगता है।"
+    }
+  }
+  ,
+  {
+    "quizId": "2",
+    "questionId": "22",
+    "text": {
+      "english": "I don’t care much about other people’s problems.",
+      "hindi": "मैं दूसरों की समस्याओं में ज्यादा दिलचस्पी नहीं लेता।"
+    }
+  }
+  ,
+  {
+    "quizId": "2",
+    "questionId": "23",
+    "text": {
+      "english": "I finish my schoolwork and chores without delay.",
+      "hindi": "मैं अपना होमवर्क और काम बिना देर किए पूरा करता हूँ।"
+    }
+  }
+  ,
+  {
+    "quizId": "2",
+    "questionId": "24",
+    "text": {
+      "english": "I get easily disturbed by small things.",
+      "hindi": "मैं छोटी-छोटी बातों से आसानी से परेशान हो जाता हूँ।"
+    }
+  }
+  ,
+  {
+    "quizId": "2",
+    "questionId": "25",
+    "text": {
+      "english": "I come up with great ideas.",
+      "hindi": "मेरे पास बेहतरीन विचार होते हैं।"
+    }
+  }
+  ,
+  {
+    "quizId": "2",
+    "questionId": "26",
+    "text": {
+      "english": "I don’t talk much and prefer to stay quiet.",
+      "hindi": "मैं ज्यादा बातें नहीं करता और चुप रहना पसंद करता हूँ।"
+    }
+  }
+  ,
+  {
+    "quizId": "2",
+    "questionId": "27",
+    "text": {
+      "english": "I have a kind and caring heart.",
+      "hindi": "मेरा दिल बहुत दयालु और सहानुभूति से भरा हुआ है।"
+    }
+  }
+  ,
+  {
+    "quizId": "2",
+    "questionId": "28",
+    "text": {
+      "english": "I often forget to return things to their proper place.",
+      "hindi": "मैं अक्सर चीजों को उनकी सही जगह पर रखना भूल जाता हूँ।"
+    }
+  }
+  ,
+  {
+    "quizId": "2",
+    "questionId": "29",
+    "text": {
+      "english": "I get upset quickly over small things.",
+      "hindi": "मैं छोटी-छोटी बातों पर जल्दी परेशान हो जाता हूँ।"
+    }
+  }
+  ,
+  {
+    "quizId": "2",
+    "questionId": "30",
+    "text": {
+      "english": "I don’t have a very creative imagination.",
+      "hindi": "मेरी कल्पना शक्ति ज्यादा अच्छी नहीं है।"
+    }
+  }
+
+  ,
+  {
+    "quizId": "2",
+    "questionId": "31",
+    "text": {
+      "english": "I enjoy talking to many different people at social events.",
+      "hindi": "मुझे सामाजिक कार्यक्रमों में बहुत से अलग-अलग लोगों से बात करना पसंद है।"
+    }
+  }
+  ,
+  {
+    "quizId": "2",
+    "questionId": "32",
+    "text": {
+      "english": "I am not very interested in learning about other people.",
+      "hindi": "मुझे दूसरों के बारे में जानने में ज्यादा दिलचस्पी नहीं है।"
+    }
+  }
+  ,
+  {
+    "quizId": "2",
+    "questionId": "33",
+    "text": {
+      "english": "I like keeping my things neat and in order.",
+      "hindi": "मुझे अपनी चीजों को साफ-सुथरा और व्यवस्थित रखना पसंद है।"
+    }
+  }
+  ,
+  {
+    "quizId": "2",
+    "questionId": "34",
+    "text": {
+      "english": "My mood changes often.",
+      "hindi": "मेरा मूड बार-बार बदलता रहता है।"
+    }
+  }
+  ,
+  {
+    "quizId": "2",
+    "questionId": "35",
+    "text": {
+      "english": "I understand new ideas quickly.",
+      "hindi": "मैं नए विचारों को जल्दी समझ लेता हूँ।"
+    }
+  }
+  ,
+  {
+    "quizId": "2",
+    "questionId": "36",
+    "text": {
+      "english": "I don’t like being the center of attention.",
+      "hindi": "मुझे ध्यान का केंद्र बनना पसंद नहीं है।"
+    }
+  }
+  ,
+  {
+    "quizId": "2",
+    "questionId": "37",
+    "text": {
+      "english": "I have a soft and kind heart.",
+      "hindi": "मेरा दिल कोमल और दयालु है।"
+    }
+  }
+  ,
+  {
+    "quizId": "2",
+    "questionId": "38",
+    "text": {
+      "english": "I don’t like to follow a schedule.",
+      "hindi": "मुझे किसी कार्यक्रम का पालन करना पसंद नहीं है।"
+    }
+  }
+  ,
+  {
+    "quizId": "2",
+    "questionId": "39",
+    "text": {
+      "english": "I get irritated easily.",
+      "hindi": "मैं आसानी से चिढ़ जाता हूँ।"
+    }
+  }
+  ,
+  {
+    "quizId": "2",
+    "questionId": "40",
+    "text": {
+      "english": "I enjoy thinking about art and music.",
+      "hindi": "मुझे कला और संगीत के बारे में सोचना अच्छा लगता है।"
+    }
+  }
+  ,
+  {
+    "quizId": "2",
+    "questionId": "41",
+    "text": {
+      "english": "I am the life of the party.",
+      "hindi": "मैं पार्टी की जान हूँ।"
+    }
+  }
+  ,
+  {
+    "quizId": "2",
+    "questionId": "42",
+    "text": {
+      "english": "I feel sympathy for those who are less fortunate.",
+      "hindi": "मैं उन लोगों के लिए सहानुभूति रखता हूँ जो कम भाग्यशाली हैं।"
+    }
+  }
+  ,
+  {
+    "quizId": "2",
+    "questionId": "43",
+    "text": {
+      "english": "I follow through with my plans.",
+      "hindi": "मैं अपनी योजनाओं का पालन करता हूँ।"
+    }
+  }
+  ,
+  {
+    "quizId": "2",
+    "questionId": "44",
+    "text": {
+      "english": "I get stressed out easily.",
+      "hindi": "मैं आसानी से तनावग्रस्त हो जाता हूँ।"
+    }
+  }
+  ,
+  {
+    "quizId": "2",
+    "questionId": "45",
+    "text": {
+      "english": "I am full of ideas.",
+      "hindi": "मैं विचारों से भरा हूँ।"
+    }
+  }
+  ,
+  {
+    "quizId": "2",
+    "questionId": "46",
+    "text": {
+      "english": "I don’t like to talk a lot.",
+      "hindi": "मुझे ज्यादा बात करना पसंद नहीं है।"
+    }
+  }
+  ,
+  {
+    "quizId": "2",
+    "questionId": "47",
+    "text": {
+      "english": "I take time out for others.",
+      "hindi": "मैं दूसरों के लिए समय निकालता हूँ।"
+    }
+  }
+  ,
+  {
+    "quizId": "2",
+    "questionId": "48",
+    "text": {
+      "english": "I often forget to put things back where they belong.",
+      "hindi": "मैं अक्सर चीजों को वापस उनकी जगह पर रखना भूल जाता हूँ।"
+    }
+  }
+  ,
+  {
+    "quizId": "2",
+    "questionId": "49",
+    "text": {
+      "english": "I worry about everything.",
+      "hindi": "मैं हर चीज की चिंता करता हूँ।"
+    }
+  }
+  ,
+  {
+    "quizId": "2",
+    "questionId": "50",
+    "text": {
+      "english": "I enjoy playing with ideas and theories.",
+      "hindi": "मुझे विचारों और सिद्धांतों के साथ खेलना अच्छा लगता है।"
+    }
+  }
+]
