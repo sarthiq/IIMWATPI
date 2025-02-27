@@ -24,6 +24,7 @@ export const fetchQuestionsHandler = async (setIsLoading, showAlert) => {
   export const submitAnswersHandler = async (answers,setIsLoading, showAlert) => {
     //above authentication will be here --
     const obj = {quizId:"1",...answers};
+    //console.log(obj);
     const url = "/user/quiz/submitQuiz";
   
     setIsLoading(true);

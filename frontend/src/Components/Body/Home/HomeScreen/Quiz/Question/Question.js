@@ -22,11 +22,6 @@ export const Question = ({ questions, setUserAnswer, setTimeDuration }) => {
   };
 
   const handleNext = () => {
-    if (selectedAnswer === null) {
-      alert("Please select an answer before proceeding.");
-      return;
-    }
-
     if (currentQuestion < questions.length - 1) {
       setCurrentQuestion(currentQuestion + 1);
       setSelectedAnswer(null);
@@ -67,21 +62,28 @@ export const Question = ({ questions, setUserAnswer, setTimeDuration }) => {
               <Card.Title className="question-title">
                 {currentQuestion + 1}. {currentQ.text}
               </Card.Title>
-              
+
               {currentQ.imageUrl && (
                 <div className="question-image">
-                  <img src={`${process.env.REACT_APP_REMOTE_ADDRESS}/${currentQ.imageUrl}`} alt="Question" />
+                  <img
+                    src={`${process.env.REACT_APP_REMOTE_ADDRESS}/${currentQ.imageUrl}`}
+                    alt="Question"
+                  />
                 </div>
               )}
-              
+
               <hr />
-              
+
               <div className="question-options">
                 {currentQ.Answers.map((option, index) => (
                   <Button
                     key={index}
-                    variant={selectedAnswer === index ? "success" : "outline-primary"}
-                    className={`question-option ${selectedAnswer === index ? "selected" : ""}`}
+                    variant={
+                      selectedAnswer === index ? "success" : "outline-primary"
+                    }
+                    className={`question-option ${
+                      selectedAnswer === index ? "selected" : ""
+                    }`}
                     onClick={() => handleAnswerSelect(index)}
                   >
                     {option.imageUrl ? (
@@ -97,10 +99,16 @@ export const Question = ({ questions, setUserAnswer, setTimeDuration }) => {
                 ))}
               </div>
             </Card.Body>
-            
+
             <Card.Footer className="question-footer">
-              <Button variant="primary" className="next-button" onClick={handleNext}>
-                {currentQuestion === questions.length - 1 ? "Finish Quiz" : "Next"}
+              <Button
+                variant="primary"
+                className="next-button"
+                onClick={handleNext}
+              >
+                {currentQuestion === questions.length - 1
+                  ? "Finish Quiz"
+                  : "Next"}
               </Button>
             </Card.Footer>
           </>
@@ -116,7 +124,11 @@ export const Question = ({ questions, setUserAnswer, setTimeDuration }) => {
                 className="age-input"
               />
             </Form.Group>
-            <Button variant="success" className="submit-button" onClick={handleSubmit}>
+            <Button
+              variant="success"
+              className="submit-button"
+              onClick={handleSubmit}
+            >
               Submit & Get Result
             </Button>
           </Card.Body>
