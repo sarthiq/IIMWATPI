@@ -6,11 +6,12 @@ const { saveFile } = require("../../../Utils/fileHandler");
 const Question = require("../../../Models/TestPattern/question");
 const Answer = require("../../../Models/TestPattern/answer");
 const sequelize = require("../../../database");
+const PersonalityQuestion = require("../../../Models/TestPattern/personalityQuestion");
 
 //Create Quiz
 exports.createQuiz = async (req, res) => {
   try {
-    const { title, description } = req.body;
+    const { title, description, typeId } = req.body;
     const imageFile = req.files
       ? req.files[req.fileName]
         ? req.files[req.fileName][0]
@@ -31,7 +32,12 @@ exports.createQuiz = async (req, res) => {
       url = saveFile(imageFile, filePath, fileName);
     }
     // Create quiz
-    const newQuiz = await Quiz.create({ title, description, imageUrl: url });
+    const newQuiz = await Quiz.create({
+      title,
+      typeId,
+      description,
+      imageUrl: url,
+    });
 
     return res.status(201).json({
       success: true,
@@ -87,6 +93,43 @@ exports.createQuestion = async (req, res) => {
     });
   } catch (error) {
     console.error("Error creating question:", error);
+    return res.status(500).json({
+      success: false,
+      message: "Internal server error",
+    });
+  }
+};
+
+exports.createPersonalityQuestion = async (req, res) => {
+  try {
+    const { text, quizId } = req.body;
+
+    const englishText = text.english;
+    const hindiText = text.hindi;
+    // Validate input
+    if (!englishText || !hindiText) {
+      return res.status(400).json({
+        success: false,
+        message: "Both English and Hindi text are required",
+      });
+    }
+
+    // Create question with text in both languages
+    const newQuestion = await PersonalityQuestion.create({
+      text: {
+        english: englishText,
+        hindi: hindiText,
+      },
+      QuizId: quizId,
+    });
+
+    return res.status(201).json({
+      success: true,
+      message: "Personality question created successfully",
+      data: newQuestion,
+    });
+  } catch (error) {
+    console.error("Error creating personality question:", error);
     return res.status(500).json({
       success: false,
       message: "Internal server error",
@@ -225,9 +268,13 @@ exports.getQuiz = async (req, res) => {
         message: "Quiz not found",
       });
     }
-
+    let questions;
+    if (quiz.typeId == "personality") {
+      questions = await quiz.getPersonalityQuestions();
+    } else {
+      questions = await quiz.getQuestions();
+    }
     // Fetch associated questions for the quiz
-    const questions = await quiz.getQuestions();
 
     // Return the quiz and its questions
     return res.status(200).json({
@@ -342,22 +389,29 @@ exports.deleteQuiz = async (req, res) => {
 exports.deleteQuestion = async (req, res) => {
   const transaction = await sequelize.transaction();
   try {
-    const { questionId } = req.body;
-
+    const { questionId, typeId } = req.body;
+   
     // Check if question exists
-    const question = await Question.findByPk(questionId, { transaction });
-    if (!question) {
-      await transaction.rollback();
-      return res
-        .status(404)
-        .json({ success: false, message: "Question not found" });
+    if (typeId == "personality") {
+      const question = await PersonalityQuestion.findByPk(questionId, {
+        transaction,
+      });
+      await question.destroy({ transaction });
+    } else {
+      const question = await Question.findByPk(questionId, { transaction });
+      if (!question) {
+        await transaction.rollback();
+        return res
+          .status(404)
+          .json({ success: false, message: "Question not found" });
+      }
+
+      // Delete associated answers first
+      await Answer.destroy({ where: { questionId }, transaction });
+
+      // Delete the question
+      await question.destroy({ transaction });
     }
-
-    // Delete associated answers first
-    await Answer.destroy({ where: { questionId }, transaction });
-
-    // Delete the question
-    await question.destroy({ transaction });
 
     // Commit transaction
     await transaction.commit();
@@ -513,12 +567,10 @@ exports.updateCorrectAnswer = async (req, res) => {
 
     // Validate input
     if (!questionId || !correctAnswerId) {
-      return res
-        .status(400)
-        .json({
-          success: false,
-          message: "Both questionId and correctAnswerId are required.",
-        });
+      return res.status(400).json({
+        success: false,
+        message: "Both questionId and correctAnswerId are required.",
+      });
     }
 
     // Check if the question exists
@@ -534,12 +586,10 @@ exports.updateCorrectAnswer = async (req, res) => {
       where: { id: correctAnswerId, QuestionId: questionId },
     });
     if (!answer) {
-      return res
-        .status(404)
-        .json({
-          success: false,
-          message: "Answer not found or does not belong to the given question.",
-        });
+      return res.status(404).json({
+        success: false,
+        message: "Answer not found or does not belong to the given question.",
+      });
     }
 
     // Update the question's correct answer ID

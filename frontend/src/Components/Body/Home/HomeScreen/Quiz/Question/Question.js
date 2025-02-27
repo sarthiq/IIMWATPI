@@ -4,6 +4,7 @@ import { Container, Card, Button, Form } from "react-bootstrap";
 import "./Question.css"; // Keeping styles file unchanged
 
 export const Question = ({ questions, setUserAnswer, setTimeDuration }) => {
+  
   const { id } = useParams();
   const navigate = useNavigate();
 
@@ -50,9 +51,9 @@ export const Question = ({ questions, setUserAnswer, setTimeDuration }) => {
   if (questions.length === 0) {
     return <h1>No Questions Found</h1>;
   }
-
+  
   const currentQ = questions[currentQuestion];
-
+  
   return (
     <Container className="question-container">
       <Card className="question-card">

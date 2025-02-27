@@ -1,8 +1,8 @@
 import { apiRequest, handleErrors } from "../../../../../Utils/apiHandler";
 
-export const fetchQuestionsHandler = async (setIsLoading, showAlert) => {
+export const fetchQuestionsHandler = async (id,setIsLoading, showAlert) => {
     //above authentication will be here --
-    const obj = {quizId:"1"};
+    const obj = {quizId:id};
     const url = "/user/quiz/getQuestions";
   
     setIsLoading(true);
@@ -21,11 +21,11 @@ export const fetchQuestionsHandler = async (setIsLoading, showAlert) => {
     }
   };
 
-  export const submitAnswersHandler = async (answers,setIsLoading, showAlert) => {
+  export const submitAnswersHandler = async (data,urlPath,setIsLoading, showAlert) => {
     //above authentication will be here --
-    const obj = {quizId:"1",...answers};
+    const obj = data;
     //console.log(obj);
-    const url = "/user/quiz/submitQuiz";
+    const url = `/user/quiz/${urlPath}`;
   
     setIsLoading(true);
   

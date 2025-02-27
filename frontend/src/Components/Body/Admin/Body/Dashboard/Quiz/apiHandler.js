@@ -9,6 +9,7 @@ export const createHandler = async (formData, typeUrl, setIsLoading, showAlert) 
 
   try {
     const token = localStorage.getItem("adminToken");
+    
     const result = await apiUploadRequest(url, obj, token);
     const data = result.data;
 

@@ -1,6 +1,7 @@
 const UserQuiz = require("./AndModels/UserQuiz");
 const UserQuizQuestion = require("./AndModels/UserQuizQuestion");
 const Answer = require("./TestPattern/answer");
+const PersonalityQuestion = require("./TestPattern/personalityQuestion");
 const Question = require("./TestPattern/question");
 const Quiz = require("./TestPattern/quiz");
 
@@ -14,6 +15,9 @@ exports.setupModels = () => {
 
   Quiz.hasMany(Question);
   Question.belongsTo(Quiz);
+
+  Quiz.hasMany(PersonalityQuestion);
+  PersonalityQuestion.belongsTo(Quiz);
 
   Question.hasMany(Answer);
   Answer.belongsTo(Question);

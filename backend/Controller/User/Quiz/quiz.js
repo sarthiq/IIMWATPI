@@ -7,6 +7,7 @@ const UserQuizQuestion = require("../../../Models/AndModels/UserQuizQuestion");
 const UnverifiedUser = require("../../../Models/User/unverifiedUser");
 const sequelize = require("../../../database");
 const jwt = require("jsonwebtoken");
+const { calculatePersonalityResults } = require("./personalityUtils");
 
 
 exports.getQuizzes = async (req, res) => {
@@ -34,31 +35,37 @@ exports.getQuestions = async (req, res) => {
   const { quizId } = req.body;
 
   try {
-    // Fetch questions along with their answers
-    const questions = await Question.findAll({
-      where: {
-        QuizId: quizId,
-        isActive: true,
-      },
-      include: [
-        {
-          model: Answer,
-          attributes: ["id", "text", "imageUrl", "type"], // Fetch only necessary fields
-        },
-      ],
-    });
-
-    if (!questions.length) {
+    const quiz = await Quiz.findByPk(quizId);
+    if (!quiz) {
       return res.status(404).json({
         success: false,
-        message: "No questions found for this quiz.",
+        message: "Quiz not found",
       });
     }
+    let questions;
 
+    if (quiz.typeId == "personality") {
+      questions = await quiz.getPersonalityQuestions();
+    } else {
+      questions = await Question.findAll({
+        where: {
+          QuizId: quizId,
+          isActive: true,
+        },
+        include: [
+          {
+            model: Answer,
+            attributes: ["id", "text", "imageUrl", "type"], // Fetch only necessary fields
+          },
+        ],
+      });
+    }
     return res.status(200).json({
       success: true,
       message: "Questions retrieved successfully",
+
       data: questions,
+      quiz,
     });
   } catch (error) {
     console.error("Error fetching questions:", error);
@@ -74,10 +81,10 @@ exports.getQuestions = async (req, res) => {
 exports.submitQuiz = async (req, res) => {
   let transaction;
   try {
-    const { quizId, answers, timeDuration, age } = req.body; // Include age from request
+    const { quizId, answers, timeDuration } = req.body; // Include age from request
     const { startTime, endTime } = timeDuration;
 
-    if (!quizId || typeof answers !== "object" || !startTime || !endTime) {
+    if (!quizId  || !startTime || !endTime) {
       return res
         .status(400)
         .json({ success: false, message: "Invalid request data" });
@@ -140,7 +147,7 @@ exports.submitQuiz = async (req, res) => {
 
     const percentage = totalWeight > 0 ? (userScore / totalWeight) * 100 : 0;
     const iqResult = calculateIQ(correctAnswers, timeTakenMinutes);
-   
+
     const token = jwt.sign(
       { id: unverifiedUser.id },
       process.env.JWT_SECRET_KEY,
@@ -171,5 +178,47 @@ exports.submitQuiz = async (req, res) => {
     return res
       .status(500)
       .json({ success: false, message: "Internal server error" });
+  }
+};
+
+
+
+exports.submitPersonalityQuiz = async (req, res) => {
+  try {
+    const { answers } = req.body;
+
+    // Validate answers array
+    if (!Array.isArray(answers) || answers.length !== 50) {
+      return res.status(400).json({
+        success: false,
+        message: "Invalid input: Personality test requires exactly 50 answers",
+      });
+    }
+
+    // Validate each answer is within the valid range (1-5)
+    const isValidAnswer = answers.every(
+      (answer) => Number.isInteger(answer) && answer >= 1 && answer <= 5
+    );
+
+    if (!isValidAnswer) {
+      return res.status(400).json({
+        success: false,
+        message: "Invalid answers: Each answer must be between 1 and 5",
+      });
+    }
+
+    const result = calculatePersonalityResults(answers);
+
+    return res.status(200).json({
+      success: true,
+      data: result,
+      message: "Personality quiz submitted successfully",
+    });
+  } catch (error) {
+    console.error("Error submitting personality quiz:", error);
+    return res.status(500).json({
+      success: false,
+      message: "Internal server error",
+    });
   }
 };

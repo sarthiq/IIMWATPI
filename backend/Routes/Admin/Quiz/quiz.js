@@ -10,6 +10,7 @@ const router = express.Router();
 router.post("/createQuiz", fileHandlerRouter("image", 2), quizController.createQuiz);
 router.post("/createQuestion", fileHandlerRouter("image", 2), quizController.createQuestion);
 router.post("/createAnswer",fileHandlerRouter("image", 2), quizController.createAnswer);
+router.post('/createPersonalityQuestion',quizController.createPersonalityQuestion);
 
 
 router.post('/getQuizzes',quizController.getQuizzes)

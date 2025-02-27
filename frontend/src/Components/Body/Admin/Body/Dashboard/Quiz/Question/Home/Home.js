@@ -20,6 +20,7 @@ export const QuestionHome = () => {
     text: "",
     type: "text",
     weight: "1",
+    hindiText: "",
   });
   const params = useParams();
   const [selectedImage, setSelectedImage] = useState(null);
@@ -31,10 +32,12 @@ export const QuestionHome = () => {
     id: "",
     totalQuestions: 0,
     isActive: false, // Added isActive state for the quiz
+    typeId: "",
   });
   const [dataUpdated, setDataUpdated] = useState(0);
   const [isActivating, setIsActivating] = useState(false); // Loading state for activate/deactivate
   const [isDeleting, setIsDeleting] = useState(false); // Loading state for delete
+  const [isDeletingQuestion, setIsDeletingQuestion] = useState(false); // Loading state for delete
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -55,6 +58,7 @@ export const QuestionHome = () => {
         id: response.quiz.id,
         totalQuestions: response.questions.length,
         isActive: response.quiz.isActive || false, // Set isActive from the response
+        typeId: response.quiz.typeId,
       });
     }
   };
@@ -72,33 +76,56 @@ export const QuestionHome = () => {
   const handleCreateQuestion = async (e) => {
     e.preventDefault();
 
-    const formData = new FormData();
+    let formData = new FormData();
     formData.append("quizId", params.id);
-    formData.append("text", newQuestion.text);
-    formData.append("type", newQuestion.type);
-    formData.append("weight", newQuestion.weight);
 
-    if (selectedImage) {
-      formData.append("image", selectedImage);
+    if (details.typeId === "personality") {
+      formData = {
+        text: {
+          english: newQuestion.text,
+          hindi: newQuestion.hindiText,
+        },
+        quizId: params.id,
+      };
+    } else {
+      formData.append("text", newQuestion.text);
+      formData.append("type", newQuestion.type);
+      formData.append("weight", newQuestion.weight);
+      if (selectedImage) {
+        formData.append("image", selectedImage);
+      }
     }
-
-    const response = await createHandler(
-      formData,
-      "createQuestion",
-      setIsSubmitting,
-      showAlert
-    );
+    let response;
+    if (details.typeId === "personality") {
+      response = await quizHandler(
+        formData,
+        "createPersonalityQuestion",
+        setIsSubmitting,
+        showAlert
+      );
+    } else {
+      response = await createHandler(
+        formData,
+        "createQuestion",
+        setIsSubmitting,
+        showAlert
+      );
+    }
 
     if (response) {
       setDataUpdated(dataUpdated + 1);
-      setNewQuestion({ text: "", type: "text", weight: "" }); // Reset form
-      setSelectedImage(null); // Clear selected image
-      setShowForm(false); // Hide form after submission
+      setNewQuestion({
+        text: "",
+        type: "text",
+        weight: "1",
+        hindiText: "",
+      });
+      setSelectedImage(null);
+      setShowForm(false);
     }
   };
 
   const handleToggleActive = async () => {
-   
     const response = await quizHandler(
       { quizId: params.id, isActive: !details.isActive },
       "updateQuiz",
@@ -108,14 +135,24 @@ export const QuestionHome = () => {
     if (response) {
       setDetails((prev) => ({ ...prev, isActive: !prev.isActive }));
     }
-   
-    
+  };
+
+  const handleDeleteQuestion = async (id) => {
+    const response = await quizHandler(
+      { questionId: id ,typeId:details.typeId},
+      "deleteQuestion",
+      setIsDeletingQuestion,
+      showAlert
+    );
+    if (response) {
+      setDataUpdated(dataUpdated + 1);
+    }
   };
 
   const handleDeleteQuiz = async () => {
     setIsDeleting(true);
     const response = await quizHandler(
-      { quizId: params.id },
+      { quizId: params.id ,},
       "deleteQuiz",
       setIsLoading,
       showAlert
@@ -135,6 +172,7 @@ export const QuestionHome = () => {
       </div>
     );
   }
+  
 
   return (
     <Container className="question-home">
@@ -190,51 +228,83 @@ export const QuestionHome = () => {
             <Card>
               <Card.Body>
                 <Form>
-                  <Form.Group controlId="questionText">
-                    <Form.Label>Question Text (Optional)</Form.Label>
-                    <Form.Control
-                      type="text"
-                      name="text"
-                      value={newQuestion.text}
-                      onChange={handleChange}
-                    />
-                  </Form.Group>
+                  {details.typeId === "personality" ? (
+                    <>
+                      <Form.Group
+                        className="mb-3"
+                        controlId="questionTextEnglish"
+                      >
+                        <Form.Label>Question Text (English)</Form.Label>
+                        <Form.Control
+                          type="text"
+                          name="text"
+                          value={newQuestion.text}
+                          onChange={handleChange}
+                          required
+                        />
+                      </Form.Group>
 
-                  <Form.Group>
-                    <Form.Label>Image (Optional)</Form.Label>
-                    <Form.Control
-                      type="file"
-                      name="image"
-                      accept="image/*"
-                      onChange={handleImageChange}
-                    />
-                  </Form.Group>
+                      <Form.Group
+                        className="mb-3"
+                        controlId="questionTextHindi"
+                      >
+                        <Form.Label>Question Text (Hindi)</Form.Label>
+                        <Form.Control
+                          type="text"
+                          name="hindiText"
+                          value={newQuestion.hindiText}
+                          onChange={handleChange}
+                          required
+                        />
+                      </Form.Group>
+                    </>
+                  ) : (
+                    <>
+                      <Form.Group controlId="questionText">
+                        <Form.Label>Question Text (Optional)</Form.Label>
+                        <Form.Control
+                          type="text"
+                          name="text"
+                          value={newQuestion.text}
+                          onChange={handleChange}
+                        />
+                      </Form.Group>
 
-                  <Form.Group controlId="questionType">
-                    <Form.Label>Type</Form.Label>
-                    <Form.Select
-                      name="type"
-                      value={newQuestion.type}
-                      onChange={handleChange}
-                    >
-                      <option value="text">Text</option>
-                      <option value="image">Image</option>
-                      <option value="both">Both</option>
-                    </Form.Select>
-                  </Form.Group>
+                      <Form.Group>
+                        <Form.Label>Image (Optional)</Form.Label>
+                        <Form.Control
+                          type="file"
+                          name="image"
+                          accept="image/*"
+                          onChange={handleImageChange}
+                        />
+                      </Form.Group>
 
-                  <Form.Group controlId="questionWeight">
-                    <Form.Label>Weight</Form.Label>
-                    <Form.Control
-                      type="number"
-                      step="0.1"
-                      name="weight"
-                      value={newQuestion.weight}
-                    
-                      onChange={handleChange}
-                    />
-                  </Form.Group>
+                      <Form.Group controlId="questionType">
+                        <Form.Label>Type</Form.Label>
+                        <Form.Select
+                          name="type"
+                          value={newQuestion.type}
+                          onChange={handleChange}
+                        >
+                          <option value="text">Text</option>
+                          <option value="image">Image</option>
+                          <option value="both">Both</option>
+                        </Form.Select>
+                      </Form.Group>
 
+                      <Form.Group controlId="questionWeight">
+                        <Form.Label>Weight</Form.Label>
+                        <Form.Control
+                          type="number"
+                          step="0.1"
+                          name="weight"
+                          value={newQuestion.weight}
+                          onChange={handleChange}
+                        />
+                      </Form.Group>
+                    </>
+                  )}
                   <Button
                     variant="success"
                     onClick={handleCreateQuestion}
@@ -256,41 +326,70 @@ export const QuestionHome = () => {
           <Table striped bordered hover>
             <thead>
               <tr>
-                <th>#</th>
-                <th>Text</th>
-                <th>Image</th>
-                <th>Type</th>
-                <th>Weight</th>
-                <th>Action</th>
+                {details.typeId === "personality" ? (
+                  <>
+                    <th>#</th>
+                    <th>English</th>
+                    <th>Hindi</th>
+                    <th>Action</th>
+                  </>
+                ) : (
+                  <>
+                    <th>#</th>
+                    <th>Text</th>
+                    <th>Image</th>
+                    <th>Type</th>
+                    <th>Weight</th>
+                    <th>Action</th>
+                  </>
+                )}
               </tr>
             </thead>
             <tbody>
               {questions.map((question) => (
                 <tr key={question.id}>
-                  <td>{question.id}</td>
-                  <td>{question.text || "N/A"}</td>
-                  <td>
-                    {question.imageUrl ? (
-                      <img
-                        src={`${process.env.REACT_APP_REMOTE_ADDRESS}/${question.imageUrl}`}
-                        alt="Question"
-                        height="100"
-                        width="auto"
-                      />
-                    ) : (
-                      "N/A"
-                    )}
-                  </td>
-                  <td>{question.type}</td>
-                  <td>{question.weight}</td>
-                  <td>
-                    <Link
-                      to={`./question/${question.id}`}
-                      className="view-more-btn"
-                    >
-                      View More
-                    </Link>
-                  </td>
+                  {details.typeId === "personality" ? (
+                    <>
+                      <td>{question.id}</td>
+                      <td>{question.text.english || "N/A"}</td>
+                      <td>{question.text.hindi || "N/A"}</td>
+                      <td>
+                        <Button
+                          variant="danger"
+                          onClick={() => handleDeleteQuestion(question.id)}
+                          className="ms-2"
+                        >
+                          Delete
+                        </Button>
+                      </td>
+                    </>
+                  ) : (
+                    <>
+                      <td>{question.id}</td>
+                      <td>
+                        {question.imageUrl ? (
+                          <img
+                            src={`${process.env.REACT_APP_REMOTE_ADDRESS}/${question.imageUrl}`}
+                            alt="Question"
+                            height="100"
+                            width="auto"
+                          />
+                        ) : (
+                          "N/A"
+                        )}
+                      </td>
+                      <td>{question.type}</td>
+                      <td>{question.weight}</td>
+                      <td>
+                        <Link
+                          to={`./question/${question.id}`}
+                          className="view-more-btn"
+                        >
+                          View More
+                        </Link>
+                      </td>
+                    </>
+                  )}
                 </tr>
               ))}
             </tbody>
