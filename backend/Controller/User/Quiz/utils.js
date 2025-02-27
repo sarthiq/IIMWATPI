@@ -120,7 +120,7 @@ const data = {
 
 exports.calculateIQ = (correctAnswers, timeTaken) => {
   const iqTable = data.IQ_Range_Lookup_Table.data;
-  console.log(correctAnswers, timeTaken);
+  
   for (let entry of iqTable) {
     if (
       matchRange(entry.correct_answers, correctAnswers) &&
