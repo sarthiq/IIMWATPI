@@ -138,8 +138,8 @@ export const Result = ({
           <Card.Title className="result-title">IQ Results</Card.Title>
           <div className="result-details">
             <p>
-              <strong>IQ Level:</strong>{" "}
-              {result.iqLevel[0] + " - " + result.iqLevel[1]}
+              <strong>IQ Range:</strong>{" "}
+              {result.iqLevel}
             </p>
           </div>
           <Button

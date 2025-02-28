@@ -7,6 +7,9 @@ const UserQuiz = sequelize.define(
     id: { type: DataTypes.INTEGER, autoIncrement: true, primaryKey: true },
     startTime: { type: DataTypes.DATE },
     endTime: { type: DataTypes.DATE },
+    iqAnswer: { type: DataTypes.JSON },
+    personalityAnswer: { type: DataTypes.JSON },
+    creativityAnswer: { type: DataTypes.JSON },
   },
   {
     timestamps: true, // Automatically adds createdAt and updatedAt fields

@@ -5,14 +5,9 @@ const UserQuizQuestion = sequelize.define(
   "UserQuizQuestion",
   {
     id: { type: DataTypes.INTEGER, autoIncrement: true, primaryKey: true },
-    userAnswerId: {
-      type: DataTypes.INTEGER,
+    userAnswer: {
+      type: DataTypes.JSON,
       allowNull: true,
-    },
-    isCorrect: {
-      type: DataTypes.BOOLEAN,
-      allowNull: false,
-      defaultValue: false,
     },
   },
   {
