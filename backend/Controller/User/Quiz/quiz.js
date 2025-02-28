@@ -10,7 +10,6 @@ const jwt = require("jsonwebtoken");
 const { calculatePersonalityResults } = require("./personalityUtils");
 const { calculateCreativityScore } = require("./hugginfaceUtils");
 
-
 exports.getQuizzes = async (req, res) => {
   try {
     const quizzes = await Quiz.findAll({
@@ -84,7 +83,7 @@ exports.submitQuiz = async (req, res) => {
   try {
     const { quizId, answers, timeDuration } = req.body; // Include age from request
     const { startTime, endTime } = timeDuration;
-    
+
     if (!quizId || !startTime || !endTime) {
       return res
         .status(400)
@@ -135,7 +134,9 @@ exports.submitQuiz = async (req, res) => {
         QuizId: quizId,
         startTime,
         endTime,
-        iqAnswer: iqResult,
+        userAnswer: answers,
+        type: "iq",
+        result: iqResult,
       },
       { transaction }
     );
@@ -200,21 +201,16 @@ exports.submitPersonalityQuiz = async (req, res) => {
 
     transaction = await sequelize.transaction();
 
-    const unverifiedUser = await UnverifiedUser.create(
-      {
-        age: answers["age"],
-      },
-      { transaction }
-    );
+    const unverifiedUser = await UnverifiedUser.create({ transaction });
 
     const result = calculatePersonalityResults(answers);
     const userQuiz = await UserQuiz.create(
       {
         UnverifiedUserId: unverifiedUser.id, // Assuming user is authenticated
         QuizId: quizId,
-        startTime,
-        endTime,
-        personalityAnswer: result,
+        userAnswer: answers,
+        type: "personality",
+        result: result,
       },
       { transaction }
     );
@@ -239,6 +235,41 @@ exports.submitPersonalityQuiz = async (req, res) => {
 };
 
 exports.submitCreativityQuiz = async (req, res) => {
-  
-  calculateCreativityScore(req, res);
+  let transaction;
+  try {
+    const { answers, quizId } = req.body;
+    const result = { score: 0, message: "" };
+
+    transaction = await sequelize.transaction();
+
+    const unverifiedUser = await UnverifiedUser.create({ transaction });
+
+    const userQuiz = await UserQuiz.create(
+      {
+        UnverifiedUserId: unverifiedUser.id, // Assuming user is authenticated
+        QuizId: quizId,
+        userAnswer: answers,
+        type: "creativity", 
+        result: result,
+      },
+      { transaction }
+    );
+
+    await transaction.commit();
+
+    return res.status(200).json({
+      success: true,
+      data: result,
+      message: "Creativity quiz submitted successfully",
+    });
+  } catch (error) {
+    if (transaction) {
+      await transaction.rollback();
+    }
+    console.error("Error submitting creativity quiz:", error);
+    return res.status(500).json({
+      success: false,
+      message: "Internal server error",
+    });
+  }
 };
