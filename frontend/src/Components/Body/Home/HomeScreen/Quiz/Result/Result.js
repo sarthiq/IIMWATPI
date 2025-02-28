@@ -10,6 +10,7 @@ export const Result = ({
   userPersonalityAnswer,
   timeDuration,
   quizInfo,
+  userCreativityAnswer,
 }) => {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(true); // Loading state for spinner
@@ -33,12 +34,16 @@ export const Result = ({
           answers:
             quizInfo.typeId === "personality"
               ? userPersonalityAnswer
+              : quizInfo.typeId === "creativity"
+              ? userCreativityAnswer
               : userAnswer,
           timeDuration,
           quizId: quizInfo.id,
         },
         quizInfo.typeId === "personality"
           ? "submitPersonalityQuiz"
+          : quizInfo.typeId === "creativity"
+          ? "submitCreativityQuiz"
           : "submitQuiz",
         setLoading,
         showAlert
@@ -120,27 +125,32 @@ export const Result = ({
         </Card>
       </Container>
     );
-  } else
-    return (
-      <Container className="result-container">
-        <Card className="result-card">
-          <Card.Body>
-            <Card.Title className="result-title">IQ Results</Card.Title>
-            <div className="result-details">
-              <p>
-                <strong>IQ Level:</strong>{" "}
-                {result.iqLevel[0] + " - " + result.iqLevel[1]}
-              </p>
-            </div>
-            <Button
-              variant="primary"
-              className="home-button"
-              onClick={() => navigate("/")}
-            >
-              Go to Home Page
-            </Button>
-          </Card.Body>
-        </Card>
-      </Container>
-    );
+  }
+
+  if (quizInfo.typeId === "creativity") {
+    return <>Creativity</>;
+  }
+
+  return (
+    <Container className="result-container">
+      <Card className="result-card">
+        <Card.Body>
+          <Card.Title className="result-title">IQ Results</Card.Title>
+          <div className="result-details">
+            <p>
+              <strong>IQ Level:</strong>{" "}
+              {result.iqLevel[0] + " - " + result.iqLevel[1]}
+            </p>
+          </div>
+          <Button
+            variant="primary"
+            className="home-button"
+            onClick={() => navigate("/")}
+          >
+            Go to Home Page
+          </Button>
+        </Card.Body>
+      </Card>
+    </Container>
+  );
 };

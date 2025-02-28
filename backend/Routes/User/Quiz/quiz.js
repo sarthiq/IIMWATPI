@@ -11,5 +11,6 @@ router.post("/getQuestions", quizController.getQuestions);
 
 router.post('/submitQuiz', quizController.submitQuiz);
 router.post('/submitPersonalityQuiz', quizController.submitPersonalityQuiz);
+router.post('/submitCreativityQuiz', quizController.submitCreativityQuiz);
 
 module.exports = router;

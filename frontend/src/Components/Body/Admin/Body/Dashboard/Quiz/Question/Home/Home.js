@@ -366,6 +366,7 @@ export const QuestionHome = () => {
                   ) : (
                     <>
                       <td>{question.id}</td>
+                      <td>{question.text}</td>
                       <td>
                         {question.imageUrl ? (
                           <img

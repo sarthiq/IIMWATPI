@@ -6,12 +6,14 @@ import { useEffect, useState } from "react";
 import { useAlert } from "../../../../UI/Alert/AlertContext";
 import { fetchQuestionsHandler } from "./apiHandler";
 import { PersonalityQuestion } from "./Question/PersonalityQuestion";
+import { CreativityQuestion } from "./Question/CreativityQuestion";
 
 export const Home = () => {
   const [isDataLoading, setIsDataLoading] = useState(false);
   const { showAlert } = useAlert();
   const [userAnswer, setUserAnswer] = useState({});
-  const[userPersonalityAnswer,setUserPersonalityAnswer]=useState([]);
+  const [userPersonalityAnswer, setUserPersonalityAnswer] = useState([]);
+  const [userCreativityAnswer, setUserCreativityAnswer] = useState({});
   const [questions, setQuestions] = useState([]);
   const [timeDuration, setTimeDuration] = useState({});
   const [quizInfo, setQuizInfo] = useState({});
@@ -20,7 +22,6 @@ export const Home = () => {
 
   const id = params.id;
 
-  
   useEffect(() => {
     const fetchDetails = async () => {
       const response = await fetchQuestionsHandler(
@@ -62,6 +63,12 @@ export const Home = () => {
                 setTimeDuration={setTimeDuration}
                 setUserPersonalityAnswer={setUserPersonalityAnswer}
               />
+            ) : quizInfo.typeId === "creativity" ? (
+              <CreativityQuestion
+                questions={questions}
+                setTimeDuration={setTimeDuration}
+                setUserCreativityAnswer={setUserCreativityAnswer}
+              />
             ) : (
               <Question
                 questions={questions}
@@ -75,7 +82,13 @@ export const Home = () => {
         <Route
           path="result"
           element={
-            <Result userAnswer={userAnswer} userPersonalityAnswer={userPersonalityAnswer} timeDuration={timeDuration} quizInfo={quizInfo} />
+            <Result
+              userAnswer={userAnswer}
+              userPersonalityAnswer={userPersonalityAnswer}
+              userCreativityAnswer={userCreativityAnswer}
+              timeDuration={timeDuration}
+              quizInfo={quizInfo}
+            />
           }
         />
         {/* Catch-all for invalid routes, redirecting to homepage */}
