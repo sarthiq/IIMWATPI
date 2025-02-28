@@ -1,73 +1,144 @@
-.banner {
+/* General Banner Container */
+.banner-container {
   width: 100%;
-  height: 28vh; /* Reduced height slightly */
+  height: 60vh;
+  overflow: hidden;
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-/* Ensure slides scale properly */
-.swiper-slide {
+/* Hide all slides by default */
+.slide {
+  opacity: 0;
+  transform: translateX(100%);
+  position: absolute;
+  width: 100%;
+  height: 60vh;
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: transform 1s ease-in-out, opacity 1s ease-in-out;
+}
+
+/* Only show the active slide */
+.slide.active {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Background Image Slide */
+.background-image {
+  width: 100%;
+  height: 60vh;
   background-size: cover;
   background-position: center;
-  width: 100%;
-  height: 28vh;
+  position: absolute;
+  z-index: -10;
 }
 
-/* Slide Content */
-.slide-content {
+.centered-bottom {
+  position: absolute;
+  bottom: 0%; /* Adjust as needed */
+  left: 50%;
+  transform: translateX(-50%);
   text-align: center;
   color: white;
-  font-size: 20px;
-  font-weight: 500;
-  max-width: 85%;
-  height: auto;
-  margin: auto;
-  background: rgba(6, 21, 231, 0.8); /* Slightly darker overlay */
-  padding: 15px;
-  border-radius: 8px;
-  min-height: 60%; /* ✅ Ensures text is not cut */
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  word-wrap: break-word;
-  overflow-wrap: break-word;
+  width: 80%;
+}
+.slide-content {
+  color: white;
+  max-width: 80%;
 }
 
-/* Ensure text resizes properly on smaller screens */
-@media (max-width: 768px) {
-  .banner {
-    height: 30vh; /* Further reduced for mobile */
-  }
+.slide-content h1{
+  font-size: 3rem; 
+ 
+}
 
-  .swiper-slide {
-    height: 30vh;
-  }
+.slide-content p{
+  font-size: 2rem;
+}
 
-  .slide-content {
-    font-size: 16px; /* ✅ Smaller font for better fit */
-    padding: 10px;
-    max-width: 90%;
-    border-radius: 6px;
-    min-height: 65%; /* ✅ Prevent text cut-off */
-  }
 
-  /* Adjust heading sizes for mobile */
-  .slide-content h2 {
-    font-size: 18px;
-  }
+/* Side Image Slide */
+.side-image-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color:    #1e3a8a;
+  width: 100%;
+}
 
-  .slide-content p {
-    font-size: 14px;
-    line-height: 1.3; /* ✅ Better spacing */
-  }
+.side-image-content img {
+  width: 45%;
+  border-radius: 10px;
+}
 
-  /* Typing Effect Adjustments */
-  .typing-text {
-    font-size: 16px;
-    border-right: 2px solid white;
-  }
+.text {
+  width: 50%;
+  color: white;
+}
+
+.text h1 {
+  font-size: 3rem;
+  margin-bottom: 10px;
+}
+
+/* Three Column Section */
+.three-column-content {
+  height: 60vh;
+  background-color: #0c0e2f;
+  color: white;
+  text-align: center;
+ 
+}
+
+.three-column-title {
+  padding-top: 30px;
+  font-size: 2.2rem;
+  font-weight: bold;
+  margin-bottom: 40px;
+}
+
+.three-column-Subtitle{
+  padding-top: 30px;
+  font-size: 2.2rem;
+  font-weight: bold;
+  margin-bottom: 40px;
+  color: white;
+
+}
+
+
+/* Ensure columns align properly */
+.columns-wrapper {
+  display: flex;
+  justify-content: space-between;
+  width: 80%;
+  height: inherit;
+  margin: auto;
+ 
+  
+}
+
+/* Each column */
+.column {
+  width: 25%;
+  text-align: center;
+}
+
+
+
+
+
+h2 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+p {
+  font-size: 1rem;
 }
