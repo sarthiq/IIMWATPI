@@ -10,6 +10,7 @@ export const Result = ({
   userPersonalityAnswer,
   timeDuration,
   quizInfo,
+  userCreativityAnswer,
 }) => {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(true); // Loading state for spinner
@@ -33,12 +34,16 @@ export const Result = ({
           answers:
             quizInfo.typeId === "personality"
               ? userPersonalityAnswer
+              : quizInfo.typeId === "creativity"
+              ? userCreativityAnswer
               : userAnswer,
           timeDuration,
           quizId: quizInfo.id,
         },
         quizInfo.typeId === "personality"
           ? "submitPersonalityQuiz"
+          : quizInfo.typeId === "creativity"
+          ? "submitCreativityQuiz"
           : "submitQuiz",
         setLoading,
         showAlert
@@ -120,16 +125,21 @@ export const Result = ({
         </Card>
       </Container>
     );
-  } else
+  }
+
+  // ... existing code ...
+
+  if (quizInfo.typeId === "creativity") {
     return (
       <Container className="result-container">
         <Card className="result-card">
           <Card.Body>
-            <Card.Title className="result-title">IQ Results</Card.Title>
+            <Card.Title className="result-title">
+              Creativity Assessment Results
+            </Card.Title>
             <div className="result-details">
               <p>
-                <strong>IQ Level:</strong>{" "}
-                {result.iqLevel[0] + " - " + result.iqLevel[1]}
+                <strong>Creativity Level:</strong> {result.label}
               </p>
             </div>
             <Button
@@ -143,4 +153,29 @@ export const Result = ({
         </Card>
       </Container>
     );
+  }
+
+  // ... rest of the existing code ...
+
+  return (
+    <Container className="result-container">
+      <Card className="result-card">
+        <Card.Body>
+          <Card.Title className="result-title">IQ Results</Card.Title>
+          <div className="result-details">
+            <p>
+              <strong>IQ Range:</strong> {result.iqLevel}
+            </p>
+          </div>
+          <Button
+            variant="primary"
+            className="home-button"
+            onClick={() => navigate("/")}
+          >
+            Go to Home Page
+          </Button>
+        </Card.Body>
+      </Card>
+    </Container>
+  );
 };

@@ -1,4 +1,5 @@
 const UserQuiz = require("./AndModels/UserQuiz");
+const UserQuizPQuestion = require("./AndModels/UserQuizPQuestion");
 const UserQuizQuestion = require("./AndModels/UserQuizQuestion");
 const Answer = require("./TestPattern/answer");
 const PersonalityQuestion = require("./TestPattern/personalityQuestion");
@@ -8,6 +9,8 @@ const Quiz = require("./TestPattern/quiz");
 const AdminActivity = require("./User/adminActivity");
 const Admin = require("./User/admins");
 const UnverifiedUser = require("./User/unverifiedUser");
+
+
 
 exports.setupModels = () => {
   Admin.hasMany(AdminActivity);
@@ -28,4 +31,9 @@ exports.setupModels = () => {
 
   UserQuiz.belongsToMany(Question,{through:UserQuizQuestion})
   Question.belongsToMany(UserQuiz,{through:UserQuizQuestion})
+
+  UserQuiz.belongsToMany(PersonalityQuestion,{through:UserQuizPQuestion})
+  PersonalityQuestion.belongsToMany(UserQuiz,{through:UserQuizPQuestion})
+
+  
 };

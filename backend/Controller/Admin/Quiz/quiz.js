@@ -136,7 +136,59 @@ exports.createPersonalityQuestion = async (req, res) => {
     });
   }
 };
+// ... existing code ...
 
+exports.createPersonalityQuestions = async (req, res) => {
+  try {
+    const questions = req.body; // Expecting an array of questions
+
+    if (!Array.isArray(questions)) {
+      return res.status(400).json({
+        success: false,
+        message: "Request body should be an array of questions",
+      });
+    }
+
+    const createdQuestions = [];
+
+    for (const question of questions) {
+      const { text, quizId } = question;
+
+      // Validate each question
+      if (!text?.english || !text?.hindi || !quizId) {
+        return res.status(400).json({
+          success: false,
+          message: "Each question must have English text, Hindi text, and quizId",
+        });
+      }
+
+      // Create question with text in both languages
+      const newQuestion = await PersonalityQuestion.create({
+        text: {
+          english: text.english,
+          hindi: text.hindi,
+        },
+        QuizId: quizId,
+      });
+
+      createdQuestions.push(newQuestion);
+    }
+
+    return res.status(201).json({
+      success: true,
+      message: "Personality questions created successfully",
+      data: createdQuestions,
+    });
+  } catch (error) {
+    console.error("Error creating personality questions:", error);
+    return res.status(500).json({
+      success: false,
+      message: "Internal server error",
+    });
+  }
+};
+
+// ... existing code ...
 exports.createAnswer = async (req, res) => {
   try {
     const { text, type, questionId } = req.body;

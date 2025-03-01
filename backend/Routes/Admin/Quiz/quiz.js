@@ -11,6 +11,7 @@ router.post("/createQuiz", fileHandlerRouter("image", 2), quizController.createQ
 router.post("/createQuestion", fileHandlerRouter("image", 2), quizController.createQuestion);
 router.post("/createAnswer",fileHandlerRouter("image", 2), quizController.createAnswer);
 router.post('/createPersonalityQuestion',quizController.createPersonalityQuestion);
+router.post('/createPersonalityQuestions',quizController.createPersonalityQuestions);
 
 
 router.post('/getQuizzes',quizController.getQuizzes)

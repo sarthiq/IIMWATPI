@@ -118,3 +118,35 @@
     max-width: 80px; /* Smaller images on small screens */
   }
 }
+
+
+/* Creativity Question */
+
+.points-list {
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.point-actions {
+  opacity: 0.7;
+  transition: opacity 0.2s;
+}
+
+.point-actions:hover {
+  opacity: 1;
+}
+
+.add-point-btn {
+  min-width: 100px;
+}
+
+.question-title {
+  font-size: 1.5rem;
+  color: #2c3e50;
+}
+
+.answer-input-section {
+  background-color: #f8f9fa;
+  padding: 1rem;
+  border-radius: 8px;
+}
