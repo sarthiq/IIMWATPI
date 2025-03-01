@@ -32,24 +32,22 @@ export const PersonalityQuestion = ({
   };
 
   const options = [
-    { id: 5, text: "Strongly Agree" },
-    { id: 4, text: "Agree" },
+    { id: 1, text: "Strongly Agree" },
+    { id: 2, text: "Agree" },
     { id: 3, text: "Neutral" },
-    { id: 2, text: "Disagree" },
-    { id: 1, text: "Strongly Disagree" },
+    { id: 4, text: "Disagree" },
+    { id: 5, text: "Strongly Disagree" },
   ];
 
   const handleAnswerSelect = (optionId) => {
     setSelectedAnswer(optionId);
-    
-    
   };
 
   const handleNext = () => {
     setUserPersonalityAnswer((prevUserPersonalityAnswer) => {
-        prevUserPersonalityAnswer.push(selectedAnswer);
-        return prevUserPersonalityAnswer;
-      });
+      prevUserPersonalityAnswer.push(selectedAnswer);
+      return prevUserPersonalityAnswer;
+    });
     if (currentQuestion < questions.length - 1) {
       setCurrentQuestion(currentQuestion + 1);
       setSelectedAnswer(null);
