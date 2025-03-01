@@ -48,7 +48,7 @@ export const Result = ({
         setLoading,
         showAlert
       );
-      console.log(response);
+      
       if (response) {
         setResult(response.data);
         setLoading(false);

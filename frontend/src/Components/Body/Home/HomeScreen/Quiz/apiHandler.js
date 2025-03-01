@@ -46,7 +46,7 @@ export const fetchQuizzesHandler = async (setIsLoading, showAlert) => {
     const obj = data;
     //console.log(obj);
     const url = `/user/quiz/${urlPath}`;
-  
+    
     setIsLoading(true);
   
     try {
