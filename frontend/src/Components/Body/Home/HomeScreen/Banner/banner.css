@@ -79,6 +79,7 @@
 .text {
   width: 50%;
   color: white;
+  padding-left: 20px;
 }
 
 .text h1 {
@@ -89,7 +90,7 @@
 /* Three Column Section */
 .three-column-content {
   height: 60vh;
-  background-color: #0c0e2f;
+  background-color: #1e3a8a;
   color: white;
   text-align: center;
  
@@ -116,6 +117,7 @@
 .columns-wrapper {
   display: flex;
   justify-content: space-between;
+
   width: 80%;
   height: inherit;
   margin: auto;
@@ -124,7 +126,8 @@
 }
 
 /* Each column */
-.column {
+.column  { 
+  color: white;
   width: 25%;
   text-align: center;
 }
@@ -136,6 +139,7 @@
 h2 {
   font-size: 1.5rem;
   font-weight: bold;
+  color: white;
   margin-bottom: 10px;
 }
 
