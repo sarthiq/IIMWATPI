@@ -31,7 +31,7 @@
 .question-title {
   font-size: 18px;
   font-weight: bold;
-  text-align: center;
+  text-align: left;
   margin-bottom: 10px;
 }
 
@@ -93,6 +93,13 @@
 .next-button,
 .submit-button {
   width: 100%;
+}
+
+
+
+.next-button:hover {
+  background-color: #0056b3; /* Darker shade of blue */
+  transform: scale(1.025); /* Slightly increase size */
 }
 
 /* 📱 Responsive Design */

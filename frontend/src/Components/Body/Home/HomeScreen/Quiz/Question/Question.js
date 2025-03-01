@@ -53,7 +53,7 @@ export const Question = ({ questions, setUserAnswer, setTimeDuration }) => {
   }
   
   const currentQ = questions[currentQuestion];
-  
+  const Q = "Q.";
   return (
     <Container className="question-container">
       <Card className="question-card">
@@ -61,7 +61,7 @@ export const Question = ({ questions, setUserAnswer, setTimeDuration }) => {
           <>
             <Card.Body>
               <Card.Title className="question-title">
-                {currentQuestion + 1}. {currentQ.text}
+                 {Q + currentQ.text}
               </Card.Title>
 
               {currentQ.imageUrl && (
