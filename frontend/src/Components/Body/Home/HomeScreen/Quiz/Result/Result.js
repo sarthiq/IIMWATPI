@@ -48,7 +48,7 @@ export const Result = ({
         setLoading,
         showAlert
       );
-      
+
       if (response) {
         setResult(response.data);
         setLoading(false);
@@ -128,7 +128,6 @@ export const Result = ({
   }
 
   // ... existing code ...
-
   if (quizInfo.typeId === "creativity") {
     return (
       <Container className="result-container">
@@ -138,9 +137,40 @@ export const Result = ({
               Creativity Assessment Results
             </Card.Title>
             <div className="result-details">
-              <p>
-                <strong>Creativity Level:</strong> {result.label}
+              <p className="overall-score mb-4">
+                <strong>Overall Creativity Level:</strong> {result.label}
               </p>
+
+              <h5 className="category-title mb-3">Category Scores:{result.total}</h5>
+              
+              <table className="category-scores-table">
+                <tbody>
+                  <tr>
+                    <td>
+                      <strong>Fluency:</strong>
+                    </td>
+                    <td>{result.categoryScores.fluency.toFixed(1)}</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <strong>Flexibility:</strong>
+                    </td>
+                    <td>{result.categoryScores.flexibility.toFixed(1)}</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <strong>Originality:</strong>
+                    </td>
+                    <td>{result.categoryScores.originality.toFixed(1)}</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <strong>Elaboration:</strong>
+                    </td>
+                    <td>{result.categoryScores.elaboration.toFixed(1)}</td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
             <Button
               variant="primary"

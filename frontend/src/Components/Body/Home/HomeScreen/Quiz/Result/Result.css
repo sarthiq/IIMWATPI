@@ -49,3 +49,35 @@
   text-align: center;
   margin-bottom: 1.5rem;
 }
+
+
+.category-scores-table {
+  width: 100%;
+  margin: 1rem 0;
+}
+
+.category-scores-table td {
+  padding: 0.75rem;
+  border-bottom: 1px solid #dee2e6;
+}
+
+.category-scores-table td:first-child {
+  width: 40%;
+}
+
+.category-scores-table td:last-child {
+  text-align: right;
+}
+
+.category-title {
+  color: #2c3e50;
+  font-size: 1.1rem;
+}
+
+.overall-score {
+  font-size: 1.2rem;
+  text-align: center;
+  padding: 1rem;
+  background-color: #e9ecef;
+  border-radius: 6px;
+}

@@ -4,7 +4,13 @@ const client = new HfInference(process.env.HUGGINGFACE_API_KEY);
 
 exports.calculateCreativityScore = async (datas) => {
   const results = {};
-
+  const wholeCategoryScores = {
+    fluency: 0,
+    flexibility: 0,
+    originality: 0,
+    elaboration: 0,
+  };
+  
   for (const id in datas) {
     const data = datas[id];
     const question = data.question;
@@ -20,6 +26,7 @@ exports.calculateCreativityScore = async (datas) => {
     const scores = {
       fluency: answers.length,
     };
+    wholeCategoryScores.fluency += scores.fluency;
     if (scores.fluency > 10) {
       scores.fluency = 10;
     }
@@ -47,6 +54,7 @@ exports.calculateCreativityScore = async (datas) => {
       const averageScore =
         categoryScores.reduce((sum, score) => sum + score, 0) /
         categoryScores.length;
+      wholeCategoryScores[category] = (averageScore.toFixed(2) * 10)+wholeCategoryScores[category];
       scores[category] = averageScore.toFixed(2) * 10;
     }
     const totalScore = Object.values(scores).reduce(
@@ -65,6 +73,10 @@ exports.calculateCreativityScore = async (datas) => {
 
     scores["total"] = totalScore.toFixed(2);
     results[id] = scores;
+  }
+  for (const category in wholeCategoryScores) {
+    wholeCategoryScores[category] =
+      wholeCategoryScores[category] / Object.keys(datas).length;
   }
 
   let wholeScore = 0;
@@ -89,6 +101,7 @@ exports.calculateCreativityScore = async (datas) => {
 
   results["total"] = wholeScore;
   results["label"] = wholeScoreLabel;
+  results["categoryScores"] = wholeCategoryScores;
 
   return results;
 };
