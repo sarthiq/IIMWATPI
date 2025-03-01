@@ -18,7 +18,7 @@ exports.calculateCreativityScore = async (datas) => {
       elaboration: ["elaborated"],
     };
     const scores = {
-      fluency: releventAnswers.reduce((sum, score) => sum + score, 0),
+      fluency: answers.length,
     };
     if (scores.fluency > 10) {
       scores.fluency = 10;
