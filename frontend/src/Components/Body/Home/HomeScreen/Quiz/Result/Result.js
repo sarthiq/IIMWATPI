@@ -127,9 +127,35 @@ export const Result = ({
     );
   }
 
+  // ... existing code ...
+
   if (quizInfo.typeId === "creativity") {
-    return <>Creativity</>;
+    return (
+      <Container className="result-container">
+        <Card className="result-card">
+          <Card.Body>
+            <Card.Title className="result-title">
+              Creativity Assessment Results
+            </Card.Title>
+            <div className="result-details">
+              <p>
+                <strong>Creativity Level:</strong> {result.label}
+              </p>
+            </div>
+            <Button
+              variant="primary"
+              className="home-button"
+              onClick={() => navigate("/")}
+            >
+              Go to Home Page
+            </Button>
+          </Card.Body>
+        </Card>
+      </Container>
+    );
   }
+
+  // ... rest of the existing code ...
 
   return (
     <Container className="result-container">
@@ -138,8 +164,7 @@ export const Result = ({
           <Card.Title className="result-title">IQ Results</Card.Title>
           <div className="result-details">
             <p>
-              <strong>IQ Range:</strong>{" "}
-              {result.iqLevel}
+              <strong>IQ Range:</strong> {result.iqLevel}
             </p>
           </div>
           <Button

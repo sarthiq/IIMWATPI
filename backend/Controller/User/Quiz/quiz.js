@@ -3,12 +3,11 @@ const Question = require("../../../Models/TestPattern/question");
 const Answer = require("../../../Models/TestPattern/answer");
 const { calculateIQ } = require("./utils");
 const UserQuiz = require("../../../Models/AndModels/UserQuiz");
-const UserQuizQuestion = require("../../../Models/AndModels/UserQuizQuestion");
 const UnverifiedUser = require("../../../Models/User/unverifiedUser");
 const sequelize = require("../../../database");
 const jwt = require("jsonwebtoken");
 const { calculatePersonalityResults } = require("./personalityUtils");
-const { calculateCreativityScore } = require("./hugginfaceUtils");
+const { calculateCreativityScore } = require("./creativityUtils");
 
 exports.getQuizzes = async (req, res) => {
   try {
@@ -238,12 +237,14 @@ exports.submitCreativityQuiz = async (req, res) => {
   let transaction;
   try {
     const { answers, quizId } = req.body;
-    const result = { score: 0, message: "" };
+    
 
+    
+    const result = await calculateCreativityScore(answers);
     transaction = await sequelize.transaction();
 
     const unverifiedUser = await UnverifiedUser.create({ transaction });
-
+    
     const userQuiz = await UserQuiz.create(
       {
         UnverifiedUserId: unverifiedUser.id, // Assuming user is authenticated
