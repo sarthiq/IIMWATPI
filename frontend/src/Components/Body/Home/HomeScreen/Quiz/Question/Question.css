@@ -102,6 +102,79 @@
   transform: scale(1.025); /* Slightly increase size */
 }
 
+
+
+
+/* personality test */
+
+.question-circle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.question-circle .btn {
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.2s ease-in-out;
+  width: 50px; /* Default size */
+  height: 50px;
+  font-size: 0; /* Hide text inside button */
+}
+
+/* Different sizes for options */
+.question-circle .btn:nth-child(1) {
+  width: 70px;
+  height: 70px;
+  background-color: #1e40af; /* Dark Blue */
+}
+
+.question-circle .btn:nth-child(2) {
+  width: 50px;
+  height: 50px;
+  background-color: #3b82f6; /* Blue */
+}
+
+.question-circle .btn:nth-child(3) {
+  width: 30px;
+  height: 30px;
+  border: 2px solid gray;
+  background-color: white;
+}
+
+.question-circle .btn:nth-child(4) {
+  width: 50px;
+  height: 50px;
+  background-color: #facc15; /* Yellow */
+}
+
+.question-circle .btn:nth-child(5) {
+  width: 70px;
+  height: 70px;
+  background-color: #d97706; /* Dark Yellow */
+}
+
+/* Selected state */
+.question-circle .btn.selected {
+  transform: scale(1.1);
+  border: 2px solid black;
+}
+
+/* Add text below each circle */
+.question-circle .btn::after {
+  content: attr(data-label);
+  font-size: 12px;
+  display: block;
+  margin-top: 5px;
+  text-align: center;
+}
+
+
+
+
 /* 📱 Responsive Design */
 @media (max-width: 768px) {
   .question-card {
