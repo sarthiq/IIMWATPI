@@ -65,15 +65,15 @@
 
 /* ✅ Green border on hover */
 .question-option:hover {
-  border: 2px solid #28a745 !important;
-  background-color: rgba(40, 167, 70, 0.925);
+  border: 2px solid #1035ad !important;
+  background-color: #1035ad;
 }
 
 /* ✅ Green background when selected */
 .question-option.selected {
-  background-color: #28a745 !important;
+  background-color: #1035ad !important;
   color: white !important;
-  border: 2px solid #28a745 !important;
+  border: 2px solid #1035ad !important;
 }
 
 /* Image inside option */
@@ -98,7 +98,7 @@
 
 
 .next-button:hover {
-  background-color: #0056b3; /* Darker shade of blue */
+  background-color: #1035ad; /* Darker shade of blue */
   transform: scale(1.025); /* Slightly increase size */
 }
 
