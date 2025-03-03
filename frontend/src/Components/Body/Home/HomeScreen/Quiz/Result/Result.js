@@ -117,9 +117,9 @@ export const Result = ({
             <Button
               variant="primary"
               className="home-button"
-              onClick={() => navigate("/")}
+              onClick={() => navigate("../certificate")}
             >
-              Go to Home Page
+             Download Certificate
             </Button>
           </Card.Body>
         </Card>
@@ -175,9 +175,9 @@ export const Result = ({
             <Button
               variant="primary"
               className="home-button"
-              onClick={() => navigate("/")}
+              onClick={() => navigate("../certificate")}
             >
-              Go to Home Page
+             Download Certificate
             </Button>
           </Card.Body>
         </Card>
@@ -200,9 +200,9 @@ export const Result = ({
           <Button
             variant="primary"
             className="home-button"
-            onClick={() => navigate("/")}
+            onClick={() => navigate("../certificate")}
           >
-            Go to Home Page
+           Download Certificate
           </Button>
         </Card.Body>
       </Card>

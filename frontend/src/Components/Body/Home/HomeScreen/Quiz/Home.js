@@ -7,6 +7,7 @@ import { useAlert } from "../../../../UI/Alert/AlertContext";
 import { fetchQuestionsHandler } from "./apiHandler";
 import { PersonalityQuestion } from "./Question/PersonalityQuestion";
 import { CreativityQuestion } from "./Question/CreativityQuestion";
+import Certificate from "./Certificate/Certificate";
 
 export const Home = () => {
   const [isDataLoading, setIsDataLoading] = useState(false);
@@ -91,6 +92,7 @@ export const Home = () => {
             />
           }
         />
+        <Route path="certificate" element={<Certificate />} />
         {/* Catch-all for invalid routes, redirecting to homepage */}
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
