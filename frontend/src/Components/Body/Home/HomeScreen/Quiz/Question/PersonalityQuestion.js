@@ -100,14 +100,14 @@ export const PersonalityQuestion = ({
 
           <hr />
 
-          <div className="question-options">
+          <div className="question-circle">
             {options.map((option, index) => (
               <Button
                 key={option.id}
                 variant={
                   selectedAnswer === option.id ? "success" : "outline-primary"
                 }
-                className={`question-option ${
+                className={`question-circle ${
                   selectedAnswer === option.id ? "selected" : ""
                 }`}
                 onClick={() => handleAnswerSelect(index + 1)}
