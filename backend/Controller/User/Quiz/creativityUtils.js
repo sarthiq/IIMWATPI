@@ -42,6 +42,7 @@ exports.calculateCreativityScore = async (datas) => {
           categories[category]
         );
         const cScore = result.scores;
+        
         const averageScore =
           cScore.reduce((sum, score) => sum + score, 0) / cScore.length;
         const resultantAverageScore = (averageScore + similarity) / 2;

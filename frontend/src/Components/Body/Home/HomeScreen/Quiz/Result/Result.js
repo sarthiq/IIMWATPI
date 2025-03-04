@@ -16,6 +16,7 @@ export const Result = ({
   const [loading, setLoading] = useState(true); // Loading state for spinner
   const [result, setResult] = useState(null); // State to store quiz result
   const { showAlert } = useAlert();
+  //console.log(userPersonalityAnswer);
   // console.log(userAnswer=={});
   // if (!userAnswer) {
   //   if (userPersonalityAnswer.length === 0) {

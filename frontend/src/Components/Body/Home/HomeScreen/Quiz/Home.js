@@ -22,7 +22,7 @@ export const Home = () => {
   const params = useParams();
 
   const id = params.id;
-
+  //console.log(userPersonalityAnswer);
   useEffect(() => {
     const fetchDetails = async () => {
       const response = await fetchQuestionsHandler(

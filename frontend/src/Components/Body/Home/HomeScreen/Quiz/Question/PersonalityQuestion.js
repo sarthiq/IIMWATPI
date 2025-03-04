@@ -32,20 +32,20 @@ export const PersonalityQuestion = ({
   };
 
   const options = [
-    { id: 1, text: "Strongly Agree" },
-    { id: 2, text: "Agree" },
-    { id: 3, text: "Neutral" },
-    { id: 4, text: "Disagree" },
-    { id: 5, text: "Strongly Disagree" },
+    { id: 1, text: "Strongly Agree",value:5 },
+    { id: 2, text: "Agree" ,value:4},
+    { id: 3, text: "Neutral" ,value:3},
+    { id: 4, text: "Disagree" ,value:2},
+    { id: 5, text: "Strongly Disagree",value:1 },
   ];
 
   const handleAnswerSelect = (optionId) => {
     setSelectedAnswer(optionId);
   };
-
+  
   const handleNext = () => {
     setUserPersonalityAnswer((prevUserPersonalityAnswer) => {
-      prevUserPersonalityAnswer.push(selectedAnswer);
+      prevUserPersonalityAnswer.push(options[selectedAnswer - 1].value);
       return prevUserPersonalityAnswer;
     });
     if (currentQuestion < questions.length - 1) {
