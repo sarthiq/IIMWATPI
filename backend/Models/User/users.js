@@ -24,10 +24,7 @@ const User = sequelize.define(
       type: Sequelize.STRING,
       allowNull: true,
     },
-    authPin: {
-      type: Sequelize.STRING,
-      allowNull: true,
-    },
+
     phone: {
       type: Sequelize.STRING,
       allowNull: false,

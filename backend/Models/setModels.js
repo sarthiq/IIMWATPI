@@ -9,6 +9,7 @@ const Quiz = require("./TestPattern/quiz");
 const AdminActivity = require("./User/adminActivity");
 const Admin = require("./User/admins");
 const UnverifiedUser = require("./User/unverifiedUser");
+const UserProfile = require("./User/userProfile");
 const User = require("./User/users");
 
 
@@ -25,6 +26,9 @@ exports.setupModels = () => {
 
   Question.hasMany(Answer);
   Answer.belongsTo(Question);
+
+  User.hasOne(UserProfile);
+  UserProfile.belongsTo(User);
 
   
   UnverifiedUser.belongsToMany(Quiz,{through:UserQuiz})

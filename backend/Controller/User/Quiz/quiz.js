@@ -98,13 +98,17 @@ exports.submitQuiz = async (req, res) => {
     }
 
     transaction = await sequelize.transaction();
-
-    const unverifiedUser = await UnverifiedUser.create(
-      {
-        age: answers["age"],
-      },
-      { transaction }
-    );
+    let user;
+    if (req.userType == "authorized") {
+      user = req.user;
+    } else {
+      user = await UnverifiedUser.create(
+        {
+          age: answers["age"],
+        },
+        { transaction }
+      );
+    }
 
     let correctAnswers = 0;
     let attemptedQuestions = 0;
@@ -126,22 +130,25 @@ exports.submitQuiz = async (req, res) => {
 
     const percentage = totalWeight > 0 ? (userScore / totalWeight) * 100 : 0;
     const iqResult = calculateIQ(correctAnswers, timeTakenMinutes);
+    const data = {
+      QuizId: quizId,
+      startTime,
+      endTime,
+      userAnswer: answers,
+      type: "iq",
+      result: iqResult,
+    };
 
-    const userQuiz = await UserQuiz.create(
-      {
-        UnverifiedUserId: unverifiedUser.id, // Assuming user is authenticated
-        QuizId: quizId,
-        startTime,
-        endTime,
-        userAnswer: answers,
-        type: "iq",
-        result: iqResult,
-      },
-      { transaction }
-    );
+    if (req.userType == "authorized") {
+      data.UserId = user.id;
+    } else {
+      data.UnverifiedUserId = user.id;
+    }
+
+    const userQuiz = await UserQuiz.create(data, { transaction });
 
     const token = jwt.sign(
-      { id: unverifiedUser.id },
+      { id: user.id, type: req.userType, quizType: "iq", quizId: userQuiz.id },
       process.env.JWT_SECRET_KEY,
       {
         expiresIn: "5m", // Optional: specify token expiration time
@@ -200,25 +207,44 @@ exports.submitPersonalityQuiz = async (req, res) => {
 
     transaction = await sequelize.transaction();
 
-    const unverifiedUser = await UnverifiedUser.create({ transaction });
+    let user;
+    if (req.userType == "authorized") {
+      user = req.user;
+    } else {
+      user = await UnverifiedUser.create({ transaction });
+    }
 
     const result = calculatePersonalityResults(answers);
-    const userQuiz = await UserQuiz.create(
+    const data = {
+      QuizId: quizId,
+      userAnswer: answers,
+      type: "personality",
+      result: result,
+    };
+    if (req.userType == "authorized") {
+      data.UserId = user.id;
+    } else {
+      data.UnverifiedUserId = user.id;
+    }
+    const userQuiz = await UserQuiz.create(data, { transaction });
+    const token = jwt.sign(
       {
-        UnverifiedUserId: unverifiedUser.id, // Assuming user is authenticated
-        QuizId: quizId,
-        userAnswer: answers,
-        type: "personality",
-        result: result,
+        id: user.id,
+        type: req.userType,
+        quizType: "personality",
+        quizId: userQuiz.id,
       },
-      { transaction }
+      process.env.JWT_SECRET_KEY,
+      {
+        expiresIn: "5m", // Optional: specify token expiration time
+      }
     );
-
     await transaction.commit();
 
     return res.status(200).json({
       success: true,
       data: result,
+      token,
       message: "Personality quiz submitted successfully",
     });
   } catch (error) {
@@ -237,31 +263,49 @@ exports.submitCreativityQuiz = async (req, res) => {
   let transaction;
   try {
     const { answers, quizId } = req.body;
-    
 
-    
     const result = await calculateCreativityScore(answers);
     transaction = await sequelize.transaction();
+    let user;
+    if (req.userType == "authorized") {
+      user = req.user;
+    } else {
+      user = await UnverifiedUser.create({ transaction });
+    }
 
-    const unverifiedUser = await UnverifiedUser.create({ transaction });
-    
-    const userQuiz = await UserQuiz.create(
+    const data = {
+      QuizId: quizId,
+      userAnswer: answers,
+      type: "creativity",
+      result: result,
+    };
+
+    if (req.userType == "authorized") {
+      data.UserId = user.id;
+    } else {
+      data.UnverifiedUserId = user.id;
+    }
+
+    const userQuiz = await UserQuiz.create(data, { transaction });
+    const token = jwt.sign(
       {
-        UnverifiedUserId: unverifiedUser.id, // Assuming user is authenticated
-        QuizId: quizId,
-        userAnswer: answers,
-        type: "creativity", 
-        result: result,
+        id: user.id,
+        type: req.userType,
+        quizType: "creativity",
+        quizId: userQuiz.id,
       },
-      { transaction }
+      process.env.JWT_SECRET_KEY,
+      {
+        expiresIn: "5m", // Optional: specify token expiration time
+      }
     );
-
     await transaction.commit();
 
     return res.status(200).json({
       success: true,
       data: result,
       message: "Creativity quiz submitted successfully",
+      token,
     });
   } catch (error) {
     if (transaction) {
