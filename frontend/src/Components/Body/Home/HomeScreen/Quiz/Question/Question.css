@@ -1,0 +1,234 @@
+.question-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: #f8f9fa;
+  padding: 10px;
+}
+
+
+
+.speak-button {
+  padding: 0;
+  margin-left: 10px;
+  color: #0d6efd;
+  vertical-align: middle;
+}
+
+.speak-button:hover {
+  color: #0a58ca;
+}
+.question-card {
+  width: 80%; /* Adjusted for responsiveness */
+  max-width: 500px; /* Ensures a compact look on larger screens */
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+}
+
+.question-title {
+  font-size: 18px;
+  font-weight: bold;
+  text-align: left;
+  margin-bottom: 10px;
+}
+
+.question-image img {
+  max-width: 100%;
+  height: auto;
+  max-height: 150px; /* Reduced size for compactness */
+  display: block;
+  margin: 0 auto;
+  border-radius: 5px;
+}
+
+.question-options {
+  display: grid;
+  grid-template-rows: repeat(2, auto); /* 2 Rows */
+  grid-auto-flow: column; /* Columns will adjust automatically */
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.question-option {
+  width: 100%;
+  padding: 8px;
+  font-size: 14px;
+  text-align: center;
+  border: 1px solid #007bff;
+  border-radius: 5px;
+  background-color: white;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+/* ✅ Green border on hover */
+.question-option:hover {
+  border: 2px solid #1035ad !important;
+  background-color: #1035ad;
+}
+
+/* ✅ Green background when selected */
+.question-option.selected {
+  background-color: #1035ad !important;
+  color: white !important;
+  border: 2px solid #1035ad !important;
+}
+
+/* Image inside option */
+.option-image {
+  max-width: 100px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+.question-footer {
+  display: flex;
+  justify-content: center;
+  margin-top: 15px;
+}
+
+.next-button,
+.submit-button {
+  width: 100%;
+}
+
+
+
+.next-button:hover {
+  background-color: #1035ad; /* Darker shade of blue */
+  transform: scale(1.025); /* Slightly increase size */
+}
+
+
+
+
+/* personality test */
+
+.question-circle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.question-circle .btn {
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.2s ease-in-out;
+  width: 50px; /* Default size */
+  height: 50px;
+  font-size: 0; /* Hide text inside button */
+}
+
+/* Different sizes for options */
+.question-circle .btn:nth-child(1) {
+  width: 70px;
+  height: 70px;
+  background-color: #1e40af; /* Dark Blue */
+}
+
+.question-circle .btn:nth-child(2) {
+  width: 50px;
+  height: 50px;
+  background-color: #3b82f6; /* Blue */
+}
+
+.question-circle .btn:nth-child(3) {
+  width: 30px;
+  height: 30px;
+  border: 2px solid gray;
+  background-color: white;
+}
+
+.question-circle .btn:nth-child(4) {
+  width: 50px;
+  height: 50px;
+  background-color: #facc15; /* Yellow */
+}
+
+.question-circle .btn:nth-child(5) {
+  width: 70px;
+  height: 70px;
+  background-color: #d97706; /* Dark Yellow */
+}
+
+/* Selected state */
+.question-circle .btn.selected {
+  transform: scale(1.1);
+  border: 2px solid black;
+}
+
+/* Add text below each circle */
+.question-circle .btn::after {
+  content: attr(data-label);
+  font-size: 12px;
+  display: block;
+  margin-top: 5px;
+  text-align: center;
+}
+
+
+
+
+/* 📱 Responsive Design */
+@media (max-width: 768px) {
+  .question-card {
+    width: 95%;
+  }
+
+  .question-title {
+    font-size: 16px;
+  }
+
+  .question-options {
+    grid-template-columns: repeat(1, 1fr); /* Stack options on small screens */
+  }
+
+  .question-option {
+    font-size: 12px;
+    padding: 6px;
+  }
+
+  .option-image {
+    max-width: 80px; /* Smaller images on small screens */
+  }
+}
+
+
+/* Creativity Question */
+
+.points-list {
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.point-actions {
+  opacity: 0.7;
+  transition: opacity 0.2s;
+}
+
+.point-actions:hover {
+  opacity: 1;
+}
+
+.add-point-btn {
+  min-width: 100px;
+}
+
+.question-title {
+  font-size: 1.5rem;
+  color: #2c3e50;
+}
+
+.answer-input-section {
+  background-color: #f8f9fa;
+  padding: 1rem;
+  border-radius: 8px;
+}

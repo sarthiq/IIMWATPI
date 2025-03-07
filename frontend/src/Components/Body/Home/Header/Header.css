@@ -1,0 +1,133 @@
+/* Header Styling */
+.header {
+  width: 100%;
+  background-color: #1e3a8a;
+  color: white;
+  padding: 15px 0;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.head-container
+{
+  display: flex;
+  align-items: center;
+  
+  margin: 0 auto;
+  padding: 0 20px;
+  justify-content: space-between;
+  position: relative;
+}
+
+/* Logo - Align Left */
+.logo img {
+  height: 40px;
+  position: flex;
+  left: 20px;
+}
+
+/* Navigation - Centered */
+.nav-menu {
+  flex-grow: 1;
+  display: flex;
+  justify-content: right;
+}
+
+.nav-menu ul {
+  display: flex;
+  list-style: none;
+  gap: 30px;
+}
+
+.nav-menu ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 22px;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.nav-menu ul li a:hover {
+  color: #d1d5db;
+}
+
+/* Mobile Menu Button */
+.menu-toggle {
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  display: none;
+}
+
+/* Responsive Styling */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+    position: absolute;
+    right: 20px;
+    
+  }
+
+  .nav-menu {
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    background-color: #1e3a8a;
+    flex-direction: column;
+    text-align: center;
+    padding: 15px 0;
+    display: none;
+  }
+
+  .nav-menu.open {
+    display: flex;
+  }
+
+  .nav-menu ul {
+    flex-direction: column;
+    gap: 15px;
+  }
+}
+
+
+/* Dashboard Link Styling */
+/* Add these new styles after your existing nav-menu styles */
+
+.nav-menu ul li .dashboard-link {
+  color: #fbbf24; /* amber-400 */
+  font-weight: 600;
+}
+
+.nav-menu ul li .dashboard-link:hover {
+  color: #f59e0b; /* amber-500 */
+}
+
+.nav-menu ul li .login-link {
+  color: #34d399; /* emerald-400 */
+  font-weight: 600;
+}
+
+.nav-menu ul li .login-link:hover {
+  color: #10b981; /* emerald-500 */
+}
+
+/* Update the mobile styles to include the new links */
+@media (max-width: 768px) {
+  /* ... existing mobile styles ... */
+
+  .nav-menu ul li .dashboard-link,
+  .nav-menu ul li .login-link {
+    display: inline-block;
+    padding: 8px 15px;
+    border-radius: 5px;
+  }
+
+  .nav-menu ul li .dashboard-link {
+    background-color: rgba(251, 191, 36, 0.1);
+  }
+
+  .nav-menu ul li .login-link {
+    background-color: rgba(52, 211, 153, 0.1);
+  }
+}

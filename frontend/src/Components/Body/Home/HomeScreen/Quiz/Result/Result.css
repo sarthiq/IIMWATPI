@@ -1,0 +1,210 @@
+.result-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
+  }
+  
+  .result-card {
+    width: 100%;
+    max-width: 500px;
+    text-align: center;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .result-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  .result-details {
+    font-size: 18px;
+    margin-bottom: 20px;
+  }
+  
+  .result-details p {
+    margin: 5px 0;
+  }
+  
+  .home-button {
+    width: 100%;
+    padding: 10px;
+    font-size: 18px;
+  }
+  
+
+  /* Add these to your existing Result.css */
+.result-card .result-details {
+  margin: 2rem 0;
+  padding: 1rem;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+}
+
+.result-card .result-title {
+  color: #2c3e50;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+
+.category-scores-table {
+  width: 100%;
+  margin: 1rem 0;
+}
+
+.category-scores-table td {
+  padding: 0.75rem;
+  border-bottom: 1px solid #dee2e6;
+}
+
+.category-scores-table td:first-child {
+  width: 40%;
+}
+
+.category-scores-table td:last-child {
+  text-align: right;
+}
+
+.category-title {
+  color: #2c3e50;
+  font-size: 1.1rem;
+}
+
+.overall-score {
+  font-size: 1.2rem;
+  text-align: center;
+  padding: 1rem;
+  background-color: #e9ecef;
+  border-radius: 6px;
+}
+
+.personality-bars {
+  padding: 10px;
+}
+
+.trait-bar {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0;
+}
+
+.trait-label {
+  width: 30px;
+  height: 30px;
+  background: #4a90e2;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  margin-right: 15px;
+  font-weight: bold;
+}
+
+.bar-container {
+  flex-grow: 1;
+  height: 25px;
+  border-radius: 12px;
+  overflow: visible;
+  position: relative;
+}
+
+.bar {
+  height: 100%;
+  border-radius: 12px;
+  position: relative;
+  transition: width 1s ease-in-out;
+}
+
+.percentage {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #333;
+  font-weight: bold;
+  font-size: 14px;
+  margin-left: 8px;
+  white-space: nowrap;
+}
+
+/* बार कंटेनर्स के लिए dim बैकग्राउंड */
+.extraversion-container {
+  background: rgba(74, 144, 226, 0.2);
+}
+.agreeableness-container {
+  background: rgba(245, 166, 35, 0.2);
+}
+.conscientiousness-container {
+  background: rgba(126, 211, 33, 0.2);
+}
+.neuroticism-container {
+  background: rgba(144, 19, 254, 0.2);
+}
+.openness-container {
+  background: rgba(255, 92, 92, 0.2);
+}
+
+/* एक्टिव बार्स */
+.extraversion {
+  background: #4a90e2;
+}
+.agreeableness {
+  background: #f5a623;
+}
+.conscientiousness {
+  background: #7ed321;
+}
+.neuroticism {
+  background: #9013fe;
+}
+.openness {
+  background: #ff5c5c;
+}
+
+/* Trait name ovals के लिए रंग */
+.extraversion .trait-name-oval { 
+  background: #4a90e2; 
+}
+.agreeableness .trait-name-oval { 
+  background: #f5a623; 
+}
+.conscientiousness .trait-name-oval { 
+  background: #7ed321; 
+}
+.neuroticism .trait-name-oval { 
+  background: #9013fe; 
+}
+.openness .trait-name-oval { 
+  background: #ff5c5c; 
+}
+
+/* एक छोटा त्रिकोण बनाएं जो oval से बार की तरफ point करेगा */
+.trait-name-oval::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid inherit;
+}
+
+/* पुराने CSS के साथ यह नया CSS जोड़ें */
+
+.trait-section {
+  margin-bottom: 35px;
+}
+
+.trait-fullname {
+  margin-top: 8px;
+  margin-left: 45px; /* trait-label की width + margin के बराबर */
+  color: #666;
+  font-size: 14px;
+}
