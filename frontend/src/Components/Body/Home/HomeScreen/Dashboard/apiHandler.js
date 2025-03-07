@@ -37,3 +37,24 @@ export const updateProfileHandler = async (data, setIsLoading, showAlert) => {
     setIsLoading(false);
   }
 };
+
+
+export const getTestResultsHandler = async (setIsLoading, showAlert) => {
+  const url = "/user/result/getUserResult";
+
+  setIsLoading(true);
+  const token = localStorage.getItem("token");
+
+  try {
+    const result = await apiRequest(url, null, token, "get");
+    const data = result.data;
+
+    return data;
+  } catch (e) {
+    handleErrors(e, showAlert);
+  } finally {
+    setIsLoading(false);
+  }
+};
+
+

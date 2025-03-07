@@ -1,0 +1,122 @@
+.test-results-container {
+    padding: 2rem 1rem;
+  }
+  
+  .results-title {
+    color: #1e3a8a;
+    margin-bottom: 2rem;
+    font-weight: 600;
+  }
+  
+  .results-loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 300px;
+  }
+  
+  .result-card {
+    height: 100%;
+    border: none;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease;
+  }
+  
+  .result-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .result-image-container {
+    width: 100%;
+    height: 160px;
+    overflow: hidden;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+  }
+  
+  .result-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .result-title {
+    color: #1e3a8a;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+  }
+  
+  .result-details {
+    margin: 1rem 0;
+  }
+  
+  .result-date {
+    color: #6b7280;
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .result-score {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #1e3a8a;
+  }
+  
+  .personality-traits ul,
+  .creativity-scores ul {
+    list-style: none;
+    padding-left: 0;
+    margin-top: 0.5rem;
+  }
+  
+  .personality-traits li,
+  .creativity-scores li {
+    margin-bottom: 0.25rem;
+    color: #4b5563;
+  }
+  
+  .view-details-link {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background-color: #1e3a8a;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.2s ease;
+  }
+  
+  .view-details-link:hover {
+    background-color: #1c3175;
+    color: white;
+  }
+  
+  .no-results-card {
+    text-align: center;
+    padding: 2rem;
+  }
+  
+  .take-test-link {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    background-color: #1e3a8a;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.2s ease;
+  }
+  
+  .take-test-link:hover {
+    background-color: #1c3175;
+    color: white;
+  }
+  
+  @media (max-width: 768px) {
+    .test-results-container {
+      padding: 1rem;
+    }
+  
+    .result-card {
+      margin-bottom: 1rem;
+    }
+  }

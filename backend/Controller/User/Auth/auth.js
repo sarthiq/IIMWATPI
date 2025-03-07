@@ -8,6 +8,17 @@ exports.userSignUp = async (req, res, next) => {
   try {
     const { name, email, phone, password } = req.body;
 
+    if (!name || !email || !phone || !password) {
+      return res.status(400).json({ message: "All fields are required - name, email, phone, password" });
+    }
+
+    if (password.length < 8) {
+      return res.status(400).json({ message: "Password must be at least 8 characters long" });
+    }
+    if(phone.length !== 10) {
+      return res.status(400).json({ message: "Phone number must be 10 digits long" });
+    }
+
     const existingUser = await User.findOne({
       where: { [Op.or]: [{ email }, { phone }] },
     });

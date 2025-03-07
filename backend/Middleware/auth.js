@@ -66,7 +66,7 @@ exports.userAuthentication = async (req, res, next) => {
 
       // Find the user
       const user = await User.findByPk(payload.id);
-
+      //console.log(user);
       // Check if the user exists
       if (!user) {
         return res.status(404).json({ 
