@@ -1,7 +1,7 @@
 const Quiz = require("../../../Models/TestPattern/quiz");
 const Question = require("../../../Models/TestPattern/question");
 const Answer = require("../../../Models/TestPattern/answer");
-const { calculateIQ } = require("./utils");
+const { calculateIQ } = require("./utils2");
 const UserQuiz = require("../../../Models/AndModels/UserQuiz");
 const UnverifiedUser = require("../../../Models/User/unverifiedUser");
 const sequelize = require("../../../database");
@@ -129,7 +129,7 @@ exports.submitQuiz = async (req, res) => {
     }
 
     const percentage = totalWeight > 0 ? (userScore / totalWeight) * 100 : 0;
-    const iqResult = calculateIQ(correctAnswers, timeTakenMinutes);
+    const iqResult = calculateIQ(correctAnswers, timeTakenMinutes, questions.length);
     const data = {
       QuizId: quizId,
       startTime,

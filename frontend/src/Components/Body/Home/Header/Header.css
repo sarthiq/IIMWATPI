@@ -89,3 +89,45 @@
     gap: 15px;
   }
 }
+
+
+/* Dashboard Link Styling */
+/* Add these new styles after your existing nav-menu styles */
+
+.nav-menu ul li .dashboard-link {
+  color: #fbbf24; /* amber-400 */
+  font-weight: 600;
+}
+
+.nav-menu ul li .dashboard-link:hover {
+  color: #f59e0b; /* amber-500 */
+}
+
+.nav-menu ul li .login-link {
+  color: #34d399; /* emerald-400 */
+  font-weight: 600;
+}
+
+.nav-menu ul li .login-link:hover {
+  color: #10b981; /* emerald-500 */
+}
+
+/* Update the mobile styles to include the new links */
+@media (max-width: 768px) {
+  /* ... existing mobile styles ... */
+
+  .nav-menu ul li .dashboard-link,
+  .nav-menu ul li .login-link {
+    display: inline-block;
+    padding: 8px 15px;
+    border-radius: 5px;
+  }
+
+  .nav-menu ul li .dashboard-link {
+    background-color: rgba(251, 191, 36, 0.1);
+  }
+
+  .nav-menu ul li .login-link {
+    background-color: rgba(52, 211, 153, 0.1);
+  }
+}
