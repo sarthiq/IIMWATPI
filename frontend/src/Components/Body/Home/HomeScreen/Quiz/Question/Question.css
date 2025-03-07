@@ -9,7 +9,10 @@
 }
 
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 0986ca43faaea01e6dec0ad2ae6ab9b8aecb6a1d
 .speak-button {
   padding: 0;
   margin-left: 10px;
@@ -47,8 +50,12 @@
 
 .question-options {
   display: grid;
+<<<<<<< HEAD
   grid-template-rows: repeat(2, auto); /* 2 Rows */
   grid-auto-flow: column; /* Columns will adjust automatically */
+=======
+  grid-template-columns: repeat(2, 1fr); /* Two-column layout */
+>>>>>>> 0986ca43faaea01e6dec0ad2ae6ab9b8aecb6a1d
   gap: 10px;
   margin-top: 15px;
 }

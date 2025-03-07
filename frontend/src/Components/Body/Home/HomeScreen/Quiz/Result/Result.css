@@ -80,6 +80,7 @@
   padding: 1rem;
   background-color: #e9ecef;
   border-radius: 6px;
+<<<<<<< HEAD
 }
 
 .personality-bars {
@@ -207,4 +208,6 @@
   margin-left: 45px; /* trait-label की width + margin के बराबर */
   color: #666;
   font-size: 14px;
+=======
+>>>>>>> 0986ca43faaea01e6dec0ad2ae6ab9b8aecb6a1d
 }
