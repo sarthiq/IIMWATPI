@@ -1,49 +1,108 @@
-import React, { useRef, useEffect, useState } from "react";
+import React, { useRef } from "react";
 import { useReactToPrint } from "react-to-print";
+import { Container, Button } from "react-bootstrap";
+import "./Certificate.css";
 
-const Certificate = () => {
+const Certificate = ({ quizInfo }) => {
   const certificateRef = useRef();
-  const [userData, setUserData] = useState({ name: "", testType: "", score: "" });
-
-  useEffect(() => {
-    // Fetching data from backend (replace with actual API URL)
-    fetch("https://api.example.com/user/certificate")
-      .then((response) => response.json())
-      .then((data) => setUserData(data))
-      .catch((error) => console.error("Error fetching data:", error));
-  }, []);
+  const quizType = quizInfo?.typeId || "";
 
   const handlePrint = useReactToPrint({
     content: () => certificateRef.current,
   });
 
-  return (
-    <div className="flex flex-col items-center p-6 bg-gray-100 min-h-screen">
-      <button
-        onClick={handlePrint}
-        className="mb-4 px-6 py-2 bg-blue-600 text-white rounded shadow"
-      >
-        Download as PDF
-      </button>
+  const getCertificateBackground = () => {
+    switch(quizType) {
+      case "IQ":
+        return "/CertificateIQ.png";
+      case "personality":
+        return "/CertificatePersonality.png";
+      case "creativity":
+        return "/CertificateCreativity.png";
+      default:
+        return "";
+    }
+  };
 
-      <div
-        ref={certificateRef}
-        className="bg-white p-10 border shadow-lg text-center w-[700px] relative"
+  const getCertificateContent = () => {
+    switch(quizType) {
+      case "IQ":
+        return (
+          <div className="certificate-content">
+            <p>
+              This is to certify that <strong>John Doe</strong> has completed 
+              the IQ Assessment with a score of <strong>{quizInfo.iqLevel || "Average"}</strong>
+            </p>
+          </div>
+        );
+
+      case "personality":
+        return (
+          <div className="certificate-content">
+            <div className="scores-section">
+              <p>This is to certify that <strong>John Doe</strong> has completed 
+              the Big Five Personality Assessment with the following scores:</p>
+              <p>Extraversion: {quizInfo.extraversion}%</p>
+              <p>Agreeableness: {quizInfo.agreeableness}%</p>
+              <p>Conscientiousness: {quizInfo.conscientiousness}%</p>
+              <p>Neuroticism: {quizInfo.neuroticism}%</p>
+              <p>Openness: {quizInfo.openness}%</p>
+            </div>
+          </div>
+        );
+
+      case "creativity":
+        return (
+          <div className="certificate-content">
+            <div className="scores-section">
+              <p>This is to certify that <strong>John Doe</strong> has completed 
+              the Creativity Assessment with the following scores:</p>
+              <p>Overall Level: {quizInfo.label}</p>
+              <p>Fluency: {quizInfo.categoryScores?.fluency}</p>
+              <p>Flexibility: {quizInfo.categoryScores?.flexibility}</p>
+              <p>Originality: {quizInfo.categoryScores?.originality}</p>
+              <p>Elaboration: {quizInfo.categoryScores?.elaboration}</p>
+            </div>
+          </div>
+        );
+
+      default:
+        return null;
+    }
+  };
+
+  if (!quizType) {
+    return (
+      <Container className="certificate-container">
+        <div>No certificate type specified</div>
+      </Container>
+    );
+  }
+
+  return (
+    <Container className="certificate-container">
+      <Button 
+        variant="primary" 
+        onClick={handlePrint}
+        className="download-button"
+      >
+        Download Certificate
+      </Button>
+
+      <div 
+        ref={certificateRef} 
+        className="certificate"
+        data-type={quizType}
         style={{
-          backgroundImage: "url('/CertificateIQ.png')",
-          backgroundSize: "cover",
-          backgroundPosition: "center",
+          backgroundImage: `url(${getCertificateBackground()})`,
+          backgroundSize: 'contain',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat'
         }}
       >
-        <div className="mt-24 text-lg font-semibold">
-          This is Certified, <span className="font-bold">{userData.name}</span> has an intelligence quotient of <span className="font-bold">{userData.score}</span>.
-          The average IQ in India is 97.
-        </div>
-
-        <div className="mt-16 border-b border-black w-1/2 mx-auto" />
-        <div className="mt-10 text-lg font-semibold">This is based on the {userData.testType} test on SarthiQ</div>
+        {getCertificateContent()}
       </div>
-    </div>
+    </Container>
   );
 };
 

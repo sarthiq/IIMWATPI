@@ -92,7 +92,7 @@ export const Home = () => {
             />
           }
         />
-        <Route path="certificate" element={<Certificate />} />
+        <Route path="certificate" element={<Certificate quizInfo={quizInfo} />} />
         {/* Catch-all for invalid routes, redirecting to homepage */}
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>

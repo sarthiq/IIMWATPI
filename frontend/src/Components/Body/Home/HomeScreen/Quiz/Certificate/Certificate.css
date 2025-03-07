@@ -1,0 +1,134 @@
+.certificate-container {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.download-button {
+  margin-bottom: 20px;
+  padding: 8px 20px;
+  font-size: 16px;
+}
+
+.certificate {
+  width: 800px;
+  height: 600px;
+  position: relative;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.certificate-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 40%; /* कम width रखी है ताकि कंटेंट इमेज के अंदर रहे */
+  text-align: center;
+  padding: 20px;
+}
+
+/* IQ Certificate */
+.certificate[data-type="IQ"] .certificate-content {
+  top: 45%;
+}
+
+.certificate[data-type="IQ"] .certificate-content p {
+  font-size: 20px;
+  line-height: 1.5;
+  color: #333;
+}
+
+/* Personality Certificate */
+.certificate[data-type="personality"] .certificate-content {
+  top: 45%;
+}
+
+.certificate[data-type="personality"] .scores-section {
+  text-align: left;
+  margin: 0 auto;
+  width: fit-content;
+}
+
+.certificate[data-type="personality"] .scores-section p {
+  font-size: 16px;
+  line-height: 1.4;
+  margin: 5px 0;
+  color: #333;
+}
+
+.certificate[data-type="personality"] .scores-section p:first-child {
+  text-align: center;
+  margin-bottom: 15px;
+  font-size: 18px;
+}
+
+/* Creativity Certificate */
+.certificate[data-type="creativity"] .certificate-content {
+  top: 45%;
+}
+
+.certificate[data-type="creativity"] .scores-section {
+  text-align: left;
+  margin: 0 auto;
+  width: fit-content;
+}
+
+.certificate[data-type="creativity"] .scores-section p {
+  font-size: 16px;
+  line-height: 1.4;
+  margin: 5px 0;
+  color: #333;
+}
+
+.certificate[data-type="creativity"] .scores-section p:first-child {
+  text-align: center;
+  margin-bottom: 15px;
+  font-size: 18px;
+}
+
+.certificate-logo {
+  width: 150px;
+  margin-bottom: 20px;
+}
+
+.certificate-content h2 {
+  font-size: 32px;
+  margin-bottom: 20px;
+}
+
+.certificate-footer {
+  position: absolute;
+  bottom: 40px;
+  left: 0;
+  right: 0;
+  text-align: center;
+}
+
+.signature-line {
+  width: 200px;
+  height: 1px;
+  background-color: #000;
+  margin: 10px auto;
+}
+
+.certificate-medal {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  width: 80px;
+  height: 80px;
+}
+
+/* Print styles */
+@media print {
+  .download-button {
+    display: none;
+  }
+  
+  .certificate {
+    margin: 0;
+  }
+}
