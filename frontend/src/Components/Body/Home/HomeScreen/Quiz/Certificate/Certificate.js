@@ -1,14 +1,11 @@
 import React, { useRef } from "react";
 import { useReactToPrint } from "react-to-print";
-import { useLocation } from "react-router-dom";
 import { Container, Button } from "react-bootstrap";
 import "./Certificate.css";
 
-const Certificate = () => {
+const Certificate = ({ quizInfo }) => {
   const certificateRef = useRef();
-  const location = useLocation();
-  const result = location.state?.result || {};
-  const quizType = location.state?.quizType || "";
+  const quizType = quizInfo?.typeId || "";
 
   const handlePrint = useReactToPrint({
     content: () => certificateRef.current,
@@ -32,10 +29,9 @@ const Certificate = () => {
       case "IQ":
         return (
           <div className="certificate-content">
-            <h2>IQ Certificate</h2>
-            <p className="mt-4">
-              This is to certify that <strong>{result.name || "User"}</strong> has completed 
-              the IQ Assessment with a score of <strong>{result.iqLevel || "Average"}</strong>
+            <p>
+              This is to certify that <strong>John Doe</strong> has completed 
+              the IQ Assessment with a score of <strong>{quizInfo.iqLevel || "Average"}</strong>
             </p>
           </div>
         );
@@ -43,17 +39,14 @@ const Certificate = () => {
       case "personality":
         return (
           <div className="certificate-content">
-            <h2>Personality Certificate</h2>
-            <p className="mt-4">
-              This is to certify that <strong>{result.name || "User"}</strong> has completed 
-              the Big Five Personality Assessment with the following scores:
-            </p>
             <div className="scores-section">
-              <p>Extraversion: {result.extraversion}%</p>
-              <p>Agreeableness: {result.agreeableness}%</p>
-              <p>Conscientiousness: {result.conscientiousness}%</p>
-              <p>Neuroticism: {result.neuroticism}%</p>
-              <p>Openness: {result.openness}%</p>
+              <p>This is to certify that <strong>John Doe</strong> has completed 
+              the Big Five Personality Assessment with the following scores:</p>
+              <p>Extraversion: {quizInfo.extraversion}%</p>
+              <p>Agreeableness: {quizInfo.agreeableness}%</p>
+              <p>Conscientiousness: {quizInfo.conscientiousness}%</p>
+              <p>Neuroticism: {quizInfo.neuroticism}%</p>
+              <p>Openness: {quizInfo.openness}%</p>
             </div>
           </div>
         );
@@ -61,17 +54,14 @@ const Certificate = () => {
       case "creativity":
         return (
           <div className="certificate-content">
-            <h2>Creativity Certificate</h2>
-            <p className="mt-4">
-              This is to certify that <strong>{result.name || "User"}</strong> has completed 
-              the Creativity Assessment with the following scores:
-            </p>
             <div className="scores-section">
-              <p>Overall Level: {result.label}</p>
-              <p>Fluency: {result.categoryScores?.fluency}</p>
-              <p>Flexibility: {result.categoryScores?.flexibility}</p>
-              <p>Originality: {result.categoryScores?.originality}</p>
-              <p>Elaboration: {result.categoryScores?.elaboration}</p>
+              <p>This is to certify that <strong>John Doe</strong> has completed 
+              the Creativity Assessment with the following scores:</p>
+              <p>Overall Level: {quizInfo.label}</p>
+              <p>Fluency: {quizInfo.categoryScores?.fluency}</p>
+              <p>Flexibility: {quizInfo.categoryScores?.flexibility}</p>
+              <p>Originality: {quizInfo.categoryScores?.originality}</p>
+              <p>Elaboration: {quizInfo.categoryScores?.elaboration}</p>
             </div>
           </div>
         );
@@ -102,33 +92,15 @@ const Certificate = () => {
       <div 
         ref={certificateRef} 
         className="certificate"
+        data-type={quizType}
         style={{
           backgroundImage: `url(${getCertificateBackground()})`,
-          backgroundSize: 'cover',
+          backgroundSize: 'contain',
           backgroundPosition: 'center',
-          width: '800px',
-          height: '600px',
-          position: 'relative',
-          padding: '40px'
+          backgroundRepeat: 'no-repeat'
         }}
       >
-        <div className="certificate-inner">
-          <img 
-            src="/images/logo.png" 
-            alt="SarthiQ Logo" 
-            className="certificate-logo" 
-          />
-          {getCertificateContent()}
-          <div className="certificate-footer">
-            <div className="signature-line"></div>
-            <p>Issued by SarthiQ</p>
-          </div>
-          <img 
-            src="/images/medal.png" 
-            alt="Medal" 
-            className="certificate-medal" 
-          />
-        </div>
+        {getCertificateContent()}
       </div>
     </Container>
   );

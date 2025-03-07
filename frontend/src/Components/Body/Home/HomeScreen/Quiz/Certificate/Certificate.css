@@ -12,60 +12,81 @@
 }
 
 .certificate {
+  width: 800px;
+  height: 600px;
   position: relative;
-  margin: 20px 0;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
-/* IQ Certificate Content Styling */
-.certificate[style*="CertificateIQ.png"] .certificate-content {
+.certificate-content {
   position: absolute;
-  top: 45%;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  width: 40%; /* कम width रखी है ताकि कंटेंट इमेज के अंदर रहे */
   text-align: center;
-  width: 80%;
-  font-size: 24px;
+  padding: 20px;
+}
+
+/* IQ Certificate */
+.certificate[data-type="IQ"] .certificate-content {
+  top: 45%;
+}
+
+.certificate[data-type="IQ"] .certificate-content p {
+  font-size: 20px;
+  line-height: 1.5;
   color: #333;
 }
 
-/* Personality Certificate Content Styling */
-.certificate[style*="CertificatePersonality.png"] .certificate-content {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 70%;
+/* Personality Certificate */
+.certificate[data-type="personality"] .certificate-content {
+  top: 45%;
 }
 
-.certificate[style*="CertificatePersonality.png"] .result-scores {
+.certificate[data-type="personality"] .scores-section {
   text-align: left;
   margin: 0 auto;
+  width: fit-content;
 }
 
-.certificate[style*="CertificatePersonality.png"] .result-scores p {
-  margin: 10px 0;
-  font-size: 20px;
+.certificate[data-type="personality"] .scores-section p {
+  font-size: 16px;
+  line-height: 1.4;
+  margin: 5px 0;
   color: #333;
 }
 
-/* Creativity Certificate Content Styling */
-.certificate[style*="CertificateCreativity.png"] .certificate-content {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 70%;
+.certificate[data-type="personality"] .scores-section p:first-child {
+  text-align: center;
+  margin-bottom: 15px;
+  font-size: 18px;
 }
 
-.certificate[style*="CertificateCreativity.png"] .result-scores {
+/* Creativity Certificate */
+.certificate[data-type="creativity"] .certificate-content {
+  top: 45%;
+}
+
+.certificate[data-type="creativity"] .scores-section {
   text-align: left;
   margin: 0 auto;
+  width: fit-content;
 }
 
-.certificate[style*="CertificateCreativity.png"] .result-scores p {
-  margin: 10px 0;
-  font-size: 20px;
+.certificate[data-type="creativity"] .scores-section p {
+  font-size: 16px;
+  line-height: 1.4;
+  margin: 5px 0;
   color: #333;
+}
+
+.certificate[data-type="creativity"] .scores-section p:first-child {
+  text-align: center;
+  margin-bottom: 15px;
+  font-size: 18px;
 }
 
 .certificate-logo {
@@ -73,25 +94,9 @@
   margin-bottom: 20px;
 }
 
-.certificate-content {
-  margin: 30px 0;
-  color: #2c3e50;
-}
-
 .certificate-content h2 {
   font-size: 32px;
   margin-bottom: 20px;
-}
-
-.scores-section {
-  margin: 20px 0;
-  text-align: left;
-  display: inline-block;
-}
-
-.scores-section p {
-  margin: 10px 0;
-  font-size: 18px;
 }
 
 .certificate-footer {
@@ -117,7 +122,7 @@
   height: 80px;
 }
 
-/* Print Styling */
+/* Print styles */
 @media print {
   .download-button {
     display: none;
