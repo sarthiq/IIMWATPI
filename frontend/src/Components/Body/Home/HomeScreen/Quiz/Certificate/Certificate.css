@@ -1,0 +1,129 @@
+.certificate-container {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.download-button {
+  margin-bottom: 20px;
+  padding: 8px 20px;
+  font-size: 16px;
+}
+
+.certificate {
+  position: relative;
+  margin: 20px 0;
+}
+
+/* IQ Certificate Content Styling */
+.certificate[style*="CertificateIQ.png"] .certificate-content {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  width: 80%;
+  font-size: 24px;
+  color: #333;
+}
+
+/* Personality Certificate Content Styling */
+.certificate[style*="CertificatePersonality.png"] .certificate-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 70%;
+}
+
+.certificate[style*="CertificatePersonality.png"] .result-scores {
+  text-align: left;
+  margin: 0 auto;
+}
+
+.certificate[style*="CertificatePersonality.png"] .result-scores p {
+  margin: 10px 0;
+  font-size: 20px;
+  color: #333;
+}
+
+/* Creativity Certificate Content Styling */
+.certificate[style*="CertificateCreativity.png"] .certificate-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 70%;
+}
+
+.certificate[style*="CertificateCreativity.png"] .result-scores {
+  text-align: left;
+  margin: 0 auto;
+}
+
+.certificate[style*="CertificateCreativity.png"] .result-scores p {
+  margin: 10px 0;
+  font-size: 20px;
+  color: #333;
+}
+
+.certificate-logo {
+  width: 150px;
+  margin-bottom: 20px;
+}
+
+.certificate-content {
+  margin: 30px 0;
+  color: #2c3e50;
+}
+
+.certificate-content h2 {
+  font-size: 32px;
+  margin-bottom: 20px;
+}
+
+.scores-section {
+  margin: 20px 0;
+  text-align: left;
+  display: inline-block;
+}
+
+.scores-section p {
+  margin: 10px 0;
+  font-size: 18px;
+}
+
+.certificate-footer {
+  position: absolute;
+  bottom: 40px;
+  left: 0;
+  right: 0;
+  text-align: center;
+}
+
+.signature-line {
+  width: 200px;
+  height: 1px;
+  background-color: #000;
+  margin: 10px auto;
+}
+
+.certificate-medal {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  width: 80px;
+  height: 80px;
+}
+
+/* Print Styling */
+@media print {
+  .download-button {
+    display: none;
+  }
+  
+  .certificate {
+    margin: 0;
+  }
+}
