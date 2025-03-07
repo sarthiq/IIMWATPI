@@ -10,9 +10,9 @@ export const Header = () => {
     <header className="header">
       <div className="head-container">
         {/* Logo - Aligned to Left */}
-        <a href="/" className="logo">
+        <Link to="/" className="logo">
           <img src="/Logo.png" alt="Logo" />
-        </a>
+        </Link>
 
         {/* Navigation - Centered */}
         <nav className={isOpen ? "nav-menu open" : "nav-menu"}>

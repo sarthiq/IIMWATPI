@@ -9,6 +9,7 @@ export const TestSection = () => {
   const { showAlert } = useAlert();
   const [quizzes, setQuizzes] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+
   useEffect(() => {
     fetchDetails();
   }, []);
@@ -20,6 +21,43 @@ export const TestSection = () => {
     }
   };
 
+  const getQuizContent = (typeId) => {
+    switch (typeId) {
+      case 'normal':
+        return {
+          title: "Measure Your IQ – Know Your True Potential!",
+          description: "Did you know?",
+          points: [
+            "An IQ of 120+ means you're more intelligent than 95% of people! With this level of intelligence, you have hidden potential and can achieve anything you set your mind to.",
+            "An IQ between 90-100? No worries! With focus, specialization, and consistent effort, you can outperform even those with higher IQs (120) in your domain."
+          ],
+          cta: "Take our IQ Test today to discover where you stand and download your IQ certificate!"
+        };
+      case 'personality':
+        return {
+          title: "Discover Your Personality – Know Your Strengths!",
+          description: "Your personality shapes your success!",
+          points: [
+            "If you are an introvert, you have a better chance of cracking the UPSC examination with your ability to focus deeply, work independently, and think critically.",
+            "If you are an extrovert, your true potential shines when surrounded by people, making you excel in leadership roles, networking, and dynamic environments."
+          ],
+          cta: "Take our Personality Test today to understand yourself better and choose a career that aligns with your strengths. You also can download your Personality type certificate!"
+        };
+      case 'creativity':
+        return {
+          title: "Discover Your Creativity – Unleash Your Unique Potential!",
+          description: "Creativity and intelligence shape the way you think and solve problems!",
+          points: [
+            "High IQ individuals usually have lower creativity, as their thinking is often analytical and structured rather than imaginative and free-flowing.",
+            "If you have both high creativity and high IQ, you are among the rarest of the rare—a unique combination that allows you to think critically, solve complex problems, and create groundbreaking ideas."
+          ],
+          cta: "Take our Creativity Test today to discover your creative potential and download your Creativity Certificate!"
+        };
+      default:
+        return null;
+    }
+  };
+
   if (isLoading) {
     return (
       <Spinner animation="border" role="status">
@@ -27,30 +65,45 @@ export const TestSection = () => {
       </Spinner>
     );
   }
-console.log(quizzes);
+
   return (
     <section className="test-section">
       <h2 className="section-title">Discover Your Potential</h2>
 
-      {/* Boxes Container */}
       <div className="quiz-boxes-container">
-        {quizzes.map((quiz) => (
-          <Link key={quiz.id} to={`./quiz/${quiz.id}`} className="quiz-box">
-            <img
-              src={
-                quiz.imageUrl
-                  ? `${process.env.REACT_APP_REMOTE_ADDRESS}/${quiz.imageUrl}`
-                  : "/IQ.png"
-              }
-              alt={`${quiz.title} Test`}
-              className="quiz-box-image"
-            />
-            <div className="quiz-box-header">{quiz.title}</div>
-            <div className="quiz-box-body">
-              <p className="desc-text">{quiz.description}</p>
+        {quizzes.map((quiz) => {
+          const quizContent = getQuizContent(quiz.typeId);
+          return (
+            <div key={quiz.id} className="quiz-box-wrapper">
+              <Link to={`./quiz/${quiz.id}`} className="quiz-box">
+                <img
+                  src={quiz.imageUrl
+                    ? `${process.env.REACT_APP_REMOTE_ADDRESS}/${quiz.imageUrl}`
+                    : "/IQ.png"}
+                  alt={`${quiz.title} Test`}
+                  className="quiz-box-image"
+                />
+                <div className="quiz-box-header">{quiz.title}</div>
+                <div className="quiz-box-body">
+                  <p className="desc-text">{quiz.description}</p>
+                </div>
+              </Link>
+              
+              {quizContent && (
+                <div className="quiz-additional-content flex-grow-1 space-y-2" >
+                  <h3 className="content-title">{quizContent.title}</h3>
+                  <p className="content-description">{quizContent.description}</p>
+                  <ul className="content-points">
+                    {quizContent.points.map((point, index) => (
+                      <li key={index}>✔ {point}</li>
+                    ))}
+                  </ul>
+                  <p className="content-cta">{quizContent.cta}</p>
+                </div>
+              )}
             </div>
-          </Link>
-        ))}
+          );
+        })}
       </div>
     </section>
   );

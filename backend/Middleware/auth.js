@@ -90,7 +90,7 @@ exports.userAuthentication = async (req, res, next) => {
 
     } catch (tokenError) {
       // If token verification fails
-      return res.status(401).json({ 
+      return res.status(503).json({ 
         success: false,
         message: "Invalid or expired token!" 
       });

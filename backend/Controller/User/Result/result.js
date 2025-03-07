@@ -7,8 +7,17 @@ const UserQuizQuestion = require("../../../Models/AndModels/UserQuizQuestion");
 
 exports.getUserResult = async (req, res) => {
   try {
-    const userId = req.user.id;
     
+
+    if(!req.user){
+      return res.status(503).json({
+        success: false,
+        message: "Please login to get your results",
+      });
+    }
+
+    const userId = req.user.id;
+
     // Get the latest result for each quiz type
     const results = await UserQuiz.findAll({
       where: {
