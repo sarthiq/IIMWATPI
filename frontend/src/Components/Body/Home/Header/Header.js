@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import { FaBars, FaTimes } from "react-icons/fa"; // Import icons
-import "./Header.css"; // Import styling
+import { FaBars, FaTimes } from "react-icons/fa";
+import { Link } from "react-router-dom";
+import "./Header.css";
 
 export const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -16,9 +17,11 @@ export const Header = () => {
         {/* Navigation - Centered */}
         <nav className={isOpen ? "nav-menu open" : "nav-menu"}>
           <ul>
-            <li><a href="/" onClick={() => setIsOpen(false)}>Test</a></li>
-            <li><a href="/resources" onClick={() => setIsOpen(false)}>Career Options</a></li>
-            <li><a href="/about" onClick={() => setIsOpen(false)}>About Us</a></li>
+            <li><Link to="/" onClick={() => setIsOpen(false)}>Test</Link></li>
+            <li><Link to="/resources" onClick={() => setIsOpen(false)}>Career Options</Link></li>
+            <li><Link to="/about" onClick={() => setIsOpen(false)}>About Us</Link></li>
+            <li><Link to="/dashboard" className="dashboard-link" onClick={() => setIsOpen(false)}>Dashboard</Link></li>
+            <li><Link to="/auth" className="login-link" onClick={() => setIsOpen(false)}>Login</Link></li>
           </ul>
         </nav>
 

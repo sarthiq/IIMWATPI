@@ -7,6 +7,8 @@ import { HomeScreen } from "./HomeScreen/HomeScreen";
 import { Quiz } from "./HomeScreen/Quiz/Quiz";
 import { Career } from "./HomeScreen/Career/Career";
 import { About } from "./About/About";
+import { Dashboard } from "./HomeScreen/Dashboard/Dashboard";
+import { Auth } from "./HomeScreen/Auth/Auth";
 
 export const Home = () => {
   return (
@@ -19,7 +21,9 @@ export const Home = () => {
           <Route path="/" element={<HomeScreen />} />
           <Route path="resources" element={<Career />} />
           <Route path="about" element={<About />} />
-          
+
+          <Route path="dashboard/*" element={<Dashboard />} />
+          <Route path="auth/*" element={<Auth />} />
 
           <Route path="quiz/*" element={<Quiz />} />
           {/* Catch-all for invalid routes, redirecting to homepage */}

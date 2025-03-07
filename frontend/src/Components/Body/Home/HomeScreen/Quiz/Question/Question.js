@@ -61,7 +61,7 @@ export const Question = ({ questions, setUserAnswer, setTimeDuration }) => {
           <>
             <Card.Body>
               <Card.Title className="question-title">
-                 {Q + currentQ.text}
+                 {Q + (currentQuestion+1)}
               </Card.Title>
 
               {currentQ.imageUrl && (

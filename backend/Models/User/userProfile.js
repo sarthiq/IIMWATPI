@@ -31,7 +31,7 @@ const UserProfile = sequelize.define(
       comment: "Course name if in college (e.g., B.Tech, BBA)"
     },
     year: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.STRING,
       allowNull: true,
       comment: "Current year of study"
     },
