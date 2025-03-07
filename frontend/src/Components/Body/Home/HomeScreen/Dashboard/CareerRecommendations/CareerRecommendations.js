@@ -5,76 +5,96 @@ import './CareerRecommendations.css';
 export const CareerRecommendations = () => {
   const [recommendations, setRecommendations] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
+  const [userEducation, setUserEducation] = useState({
+    institutionType: 'School', // This will come from user profile
+    standard: '10',           // This will come from user profile
+  });
 
-  // Example data structure - replace with actual API call
-  const getRecommendations = () => {
-    const schoolRecommendations = {
-      "8-10": [
-        {
-          title: "Science Stream",
-          description: "Focus on Physics, Chemistry, Biology/Math",
-          careers: ["Doctor", "Engineer", "Scientist"],
-          skills: ["Analytical thinking", "Problem solving", "Research"]
-        },
-        {
-          title: "Commerce Stream",
-          description: "Focus on Business Studies, Economics",
-          careers: ["Accountant", "Business Manager", "Entrepreneur"],
-          skills: ["Financial analysis", "Business acumen", "Leadership"]
-        }
-      ],
-      "11-12": [
-        {
-          title: "Pre-Medical",
-          description: "Preparation for medical entrance exams",
-          careers: ["Doctor", "Dentist", "Veterinarian"],
-          skills: ["Biology", "Chemistry", "Patient care"]
-        },
-        {
-          title: "Engineering",
-          description: "Preparation for engineering entrance exams",
-          careers: ["Software Engineer", "Mechanical Engineer", "Civil Engineer"],
-          skills: ["Mathematics", "Physics", "Problem-solving"]
-        }
-      ]
-    };
-
-    const collegeRecommendations = {
-      "Engineering": [
-        {
-          title: "Computer Science",
-          description: "Focus on programming and software development",
-          careers: ["Software Developer", "Data Scientist", "AI Engineer"],
-          skills: ["Programming", "Algorithm design", "Data structures"]
-        },
-        {
-          title: "Mechanical Engineering",
-          description: "Focus on machine design and manufacturing",
-          careers: ["Mechanical Designer", "Production Engineer", "Robotics Engineer"],
-          skills: ["CAD/CAM", "Thermodynamics", "Machine design"]
-        }
-      ],
-      "Medical": [
-        {
-          title: "MBBS",
-          description: "Focus on medical sciences and patient care",
-          careers: ["General Physician", "Surgeon", "Specialist"],
-          skills: ["Clinical skills", "Patient care", "Medical knowledge"]
-        }
-      ]
-    };
-
-    return { school: schoolRecommendations, college: collegeRecommendations };
+  // Dummy data structure based on institution type and class
+  const careerData = {
+    School: {
+      '8': {
+        streams: ['Science', 'Commerce', 'Arts'],
+        nextSteps: 'Focus on building strong fundamentals in core subjects',
+        careers: [
+          {
+            title: "Future Science Path",
+            description: "Prepare for a career in Science and Technology",
+            careers: ["Doctor", "Engineer", "Research Scientist"],
+            skills: ["Mathematics", "Science", "Critical Thinking"]
+          },
+          {
+            title: "Future Commerce Path",
+            description: "Prepare for a career in Business and Finance",
+            careers: ["Chartered Accountant", "Business Manager", "Banker"],
+            skills: ["Mathematics", "Economics", "Business Studies"]
+          }
+        ]
+      },
+      '10': {
+        streams: ['Science (PCM/PCB)', 'Commerce', 'Humanities'],
+        nextSteps: 'Choose stream based on interests and aptitude',
+        careers: [
+          {
+            title: "Medical Sciences",
+            description: "Preparation for medical field",
+            careers: ["Doctor", "Dentist", "Pharmacist"],
+            skills: ["Biology", "Chemistry", "Physics"]
+          },
+          {
+            title: "Engineering",
+            description: "Preparation for engineering field",
+            careers: ["Software Engineer", "Mechanical Engineer", "Civil Engineer"],
+            skills: ["Mathematics", "Physics", "Computer Science"]
+          }
+        ]
+      }
+    },
+    College: {
+      'Engineering': {
+        streams: ['Computer Science', 'Mechanical', 'Civil'],
+        nextSteps: 'Specialize in your chosen field',
+        careers: [
+          {
+            title: "Technology Sector",
+            description: "Career in IT and Software",
+            careers: ["Software Developer", "Data Scientist", "System Architect"],
+            skills: ["Programming", "Data Structures", "Algorithms"]
+          },
+          {
+            title: "Core Engineering",
+            description: "Career in Traditional Engineering",
+            careers: ["Design Engineer", "Project Manager", "Consultant"],
+            skills: ["Technical Design", "Project Management", "Analysis"]
+          }
+        ]
+      }
+    },
+    University: {
+      'Masters': {
+        streams: ['MTech', 'MBA', 'MSc'],
+        nextSteps: 'Specialize and focus on research/industry expertise',
+        careers: [
+          {
+            title: "Advanced Technology",
+            description: "High-level technical positions",
+            careers: ["Senior Developer", "Tech Lead", "Research Scientist"],
+            skills: ["Advanced Programming", "Research", "Leadership"]
+          }
+        ]
+      }
+    }
   };
 
   useEffect(() => {
     setIsLoading(true);
-    // Simulate API call
+    // Simulate API call to get user education details and recommendations
     setTimeout(() => {
-      setRecommendations(getRecommendations());
+      const userRecommendations = careerData[userEducation.institutionType][userEducation.standard];
+      setRecommendations(userRecommendations);
       setIsLoading(false);
     }, 1000);
-  }, []);
+  }, [userEducation]);
 
   if (isLoading) {
     return (
@@ -120,43 +140,39 @@ export const CareerRecommendations = () => {
       <Row className="mb-4">
         <Col>
           <h2 className="recommendations-title">Career Recommendations</h2>
+          <p className="user-education-info">
+            Based on your current education: {userEducation.institutionType} - {userEducation.standard}
+          </p>
         </Col>
       </Row>
 
       {recommendations && (
         <>
-          {/* School Recommendations */}
-          <section className="recommendation-section">
-            <h3 className="section-title">School Level Recommendations</h3>
-            {Object.entries(recommendations.school).map(([grade, careers]) => (
-              <div key={grade} className="grade-section mb-4">
-                <h4 className="grade-title">Class {grade}</h4>
-                <Row>
-                  {careers.map((career, index) => (
-                    <Col key={index} md={6}>
-                      {renderCareerCard(career)}
-                    </Col>
+          <section className="current-path-section mb-4">
+            <h3 className="section-title">Your Current Path</h3>
+            <Card className="path-card">
+              <Card.Body>
+                <h4>Available Streams</h4>
+                <ul className="streams-list">
+                  {recommendations.streams.map((stream, index) => (
+                    <li key={index}>{stream}</li>
                   ))}
-                </Row>
-              </div>
-            ))}
+                </ul>
+                <h4>Next Steps</h4>
+                <p>{recommendations.nextSteps}</p>
+              </Card.Body>
+            </Card>
           </section>
 
-          {/* College Recommendations */}
-          <section className="recommendation-section">
-            <h3 className="section-title">College Level Recommendations</h3>
-            {Object.entries(recommendations.college).map(([stream, careers]) => (
-              <div key={stream} className="stream-section mb-4">
-                <h4 className="stream-title">{stream}</h4>
-                <Row>
-                  {careers.map((career, index) => (
-                    <Col key={index} md={6}>
-                      {renderCareerCard(career)}
-                    </Col>
-                  ))}
-                </Row>
-              </div>
-            ))}
+          <section className="career-options-section">
+            <h3 className="section-title">Recommended Career Paths</h3>
+            <Row>
+              {recommendations.careers.map((career, index) => (
+                <Col key={index} md={6}>
+                  {renderCareerCard(career)}
+                </Col>
+              ))}
+            </Row>
           </section>
         </>
       )}
