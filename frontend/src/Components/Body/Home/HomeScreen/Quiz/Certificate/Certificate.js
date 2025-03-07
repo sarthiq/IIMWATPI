@@ -21,27 +21,31 @@ const Certificate = ({ quizInfo, userData, setUserData, result }) => {
       
       const certificate = certificateRef.current;
       const canvas = await html2canvas(certificate, {
-        scale: 2, // Higher scale for better quality
-        useCORS: true, // Enable CORS for images
+        scale: 2, // Better quality
+        useCORS: true,
         allowTaint: true,
         backgroundColor: null
       });
 
-      const imgWidth = 210; // A4 width in mm
-      const imgHeight = (canvas.height * imgWidth) / canvas.width;
-      
-      const pdf = new jsPDF('l', 'mm', 'a4'); // 'l' for landscape orientation
+      // A4 size in mm
+      const a4Width = 297;  // A4 width in landscape
+      const a4Height = 210; // A4 height in landscape
+
+      // Create PDF in landscape orientation
+      const pdf = new jsPDF({
+        orientation: 'landscape',
+        unit: 'mm',
+        format: 'a4'
+      });
+
+      // Calculate image dimensions to fit A4 while maintaining aspect ratio
       const imgData = canvas.toDataURL('image/png');
+      pdf.addImage(imgData, 'PNG', 0, 0, a4Width, a4Height);
       
-      pdf.addImage(imgData, 'PNG', 0, 0, imgWidth, imgHeight);
-      
-      // Generate filename based on quiz type and user name
       const fileName = `${quizType}_certificate_${userData.name.replace(/\s+/g, '_')}.pdf`;
-      
       pdf.save(fileName);
     } catch (error) {
       console.error('Error generating PDF:', error);
-      // You might want to show an alert here using your alert system
     } finally {
       setIsDownloading(false);
     }
@@ -218,11 +222,25 @@ const Certificate = ({ quizInfo, userData, setUserData, result }) => {
   }
 
   return (
-    <Container className="certificate-container">
+    <Container fluid className="certificate-container p-0">
+      <div 
+        ref={certificateRef} 
+        className="certificate"
+        data-type={quizType}
+        style={{
+          backgroundImage: `url(${getCertificateBackground()})`,
+          backgroundSize: '100% 100%',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat'
+        }}
+      >
+        {getCertificateContent()}
+      </div>
+
       <Button 
         variant="primary" 
         onClick={handleDownload}
-        className="download-button"
+        className="download-button mt-3"
       >
         {isDownloading ? (
           <>
@@ -231,22 +249,9 @@ const Certificate = ({ quizInfo, userData, setUserData, result }) => {
           </>
         ) : 'Download Certificate'}
       </Button>
-
-      <div 
-        ref={certificateRef} 
-        className="certificate"
-        data-type={quizType}
-        style={{
-          backgroundImage: `url(${getCertificateBackground()})`,
-          backgroundSize: 'contain',
-          backgroundPosition: 'center',
-          backgroundRepeat: 'no-repeat'
-        }}
-      >
-        {getCertificateContent()}
-      </div>
     </Container>
   );
 };
 
 export default Certificate;
+

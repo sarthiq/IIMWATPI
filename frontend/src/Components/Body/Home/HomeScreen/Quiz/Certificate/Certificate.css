@@ -13,11 +13,12 @@
 
 .certificate {
   width: 800px;
-  height: 600px;
+  height: 990px;
   position: relative;
-  background-size: contain;
+  background-size: 100% 100%;
   background-position: center;
   background-repeat: no-repeat;
+  margin: 0 auto;
 }
 
 .certificate-content {
@@ -25,7 +26,7 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 40%; /* कम width रखी है ताकि कंटेंट इमेज के अंदर रहे */
+  width: 70%; /* कम width रखी है ताकि कंटेंट इमेज के अंदर रहे */
   text-align: center;
   padding: 20px;
 }
@@ -199,5 +200,12 @@
   
   .user-data-form-card .card-body {
     padding: 20px;
+  }
+}
+
+@media screen and (max-width: 850px) {
+  .certificate {
+    width: 95%;
+    height: 1000px;
   }
 }
