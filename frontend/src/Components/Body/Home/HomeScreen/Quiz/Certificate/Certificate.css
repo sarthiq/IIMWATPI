@@ -132,3 +132,72 @@
     margin: 0;
   }
 }
+
+.user-data-form-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background-color: #f8fafc;
+}
+
+.user-data-form-card {
+  width: 100%;
+  max-width: 500px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border: none;
+  border-radius: 15px;
+}
+
+.user-data-form-card .card-header {
+  background-color: #1e3a8a;
+  color: white;
+  padding: 20px;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  text-align: center;
+}
+
+.user-data-form-card .card-body {
+  padding: 30px;
+}
+
+.form-label {
+  font-weight: 500;
+  color: #4b5563;
+}
+
+.form-control {
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #e5e7eb;
+}
+
+.form-control:focus {
+  border-color: #1e3a8a;
+  box-shadow: 0 0 0 0.2rem rgba(30, 58, 138, 0.25);
+}
+
+.btn-primary {
+  padding: 12px;
+  font-weight: 500;
+  background-color: #1e3a8a;
+  border: none;
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: #1e40af;
+  transform: translateY(-2px);
+}
+
+@media (max-width: 576px) {
+  .user-data-form-card {
+    margin: 10px;
+  }
+  
+  .user-data-form-card .card-body {
+    padding: 20px;
+  }
+}

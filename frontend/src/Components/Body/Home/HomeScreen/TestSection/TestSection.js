@@ -95,7 +95,7 @@ export const TestSection = () => {
                   <p className="content-description">{quizContent.description}</p>
                   <ul className="content-points">
                     {quizContent.points.map((point, index) => (
-                      <li key={index}>✔ {point}</li>
+                      <li key={index}>{point}</li>
                     ))}
                   </ul>
                   <p className="content-cta">{quizContent.cta}</p>

@@ -207,3 +207,92 @@
   border-right: 5px solid transparent;
   border-top: 5px solid inherit;
 }
+
+/* Add these new styles to your existing CSS */
+
+.loading-card {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.creativity-loading {
+  padding: 20px;
+}
+
+.loading-message-container {
+  text-align: left;
+}
+
+.loading-message-container h4 {
+  color: #1e3a8a;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.loading-description {
+  color: #4b5563;
+  margin-bottom: 20px;
+}
+
+.analysis-points {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 30px;
+}
+
+.analysis-points li {
+  padding: 10px 0;
+  padding-left: 30px;
+  position: relative;
+  color: #4b5563;
+}
+
+.analysis-points li::before {
+  content: "⚡";
+  position: absolute;
+  left: 0;
+  color: #2563eb;
+}
+
+.timer-container {
+  background: #f8fafc;
+  padding: 20px;
+  border-radius: 10px;
+  margin: 20px 0;
+}
+
+.timer-container p {
+  color: #1e3a8a;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+.progress {
+  height: 10px;
+  border-radius: 5px;
+}
+
+.progress-bar {
+  background-color: #2563eb;
+}
+
+.patience-message {
+  color: #6b7280;
+  font-style: italic;
+  text-align: center;
+  margin-top: 20px;
+}
+
+@media (max-width: 576px) {
+  .creativity-loading {
+    padding: 10px;
+  }
+
+  .loading-message-container h4 {
+    font-size: 1.2rem;
+  }
+
+  .timer-container {
+    padding: 15px;
+  }
+}

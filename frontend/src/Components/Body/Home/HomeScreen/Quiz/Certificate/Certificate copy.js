@@ -1,12 +1,10 @@
 import React, { useRef, useState } from "react";
-import { useReactToPrint } from "react-to-print";
 import { Container, Button, Form, Card } from "react-bootstrap";
 import html2canvas from 'html2canvas';
 import jsPDF from 'jspdf';
 import "./Certificate.css";
 
-const Certificate = ({ quizInfo, userData, setUserData, result }) => {
-  console.log(result);
+const Certificate = ({ quizInfo, userData, setUserData }) => {
   const certificateRef = useRef();
   const quizType = quizInfo?.typeId || "";
   const [isDownloading, setIsDownloading] = useState(false);
@@ -15,6 +13,7 @@ const Certificate = ({ quizInfo, userData, setUserData, result }) => {
     email: userData.email || ""
   });
   const [validated, setValidated] = useState(false);
+
   const handleDownload = async () => {
     try {
       setIsDownloading(true);
@@ -47,8 +46,6 @@ const Certificate = ({ quizInfo, userData, setUserData, result }) => {
     }
   };
 
-
-  
   const handleSubmit = (event) => {
     event.preventDefault();
     const form = event.currentTarget;
@@ -89,40 +86,42 @@ const Certificate = ({ quizInfo, userData, setUserData, result }) => {
       case "normal":
         return (
           <div className="certificate-content">
-            <p>
-              This is to certify that <strong>{userData.name}</strong> has completed 
-              the IQ Assessment with a score of <strong>{result.iqLevel || "Average"}</strong>
-            </p>
+            <div className="certificate-header">
+              <h2>Certificate of Completion</h2>
+              <h3>IQ Assessment</h3>
+            </div>
+            <div className="certificate-body">
+              <p>
+                This is to certify that <strong>{userData.name}</strong> has completed 
+                the IQ Assessment with a score of <strong>{quizInfo.iqLevel || "Average"}</strong>
+              </p>
+              <p className="certificate-date">
+                Date: {new Date().toLocaleDateString()}
+              </p>
+            </div>
           </div>
         );
 
-        
       case "personality":
         return (
           <div className="certificate-content">
-            <div className="scores-section">
+            <div className="certificate-header">
+              <h2>Certificate of Completion</h2>
+              <h3>Personality Assessment</h3>
+            </div>
+            <div className="certificate-body">
               <p>This is to certify that <strong>{userData.name}</strong> has completed 
               the Big Five Personality Assessment with the following scores:</p>
-              <div style={{display: 'flex', justifyContent: 'space-between'}}>
-                <span>Extraversion:</span>
-                <span>{result.extraversion.toFixed(2)}%</span>
+              <div className="scores-grid">
+                <p>Extraversion: <strong>{quizInfo.extraversion}%</strong></p>
+                <p>Agreeableness: <strong>{quizInfo.agreeableness}%</strong></p>
+                <p>Conscientiousness: <strong>{quizInfo.conscientiousness}%</strong></p>
+                <p>Neuroticism: <strong>{quizInfo.neuroticism}%</strong></p>
+                <p>Openness: <strong>{quizInfo.openness}%</strong></p>
               </div>
-              <div style={{display: 'flex', justifyContent: 'space-between'}}>
-                <span>Agreeableness:</span>
-                <span>{result.agreeableness.toFixed(2)}%</span>
-              </div>
-              <div style={{display: 'flex', justifyContent: 'space-between'}}>
-                <span>Conscientiousness:</span>
-                <span>{result.conscientiousness.toFixed(2)}%</span>
-              </div>
-              <div style={{display: 'flex', justifyContent: 'space-between'}}>
-                <span>Neuroticism:</span>
-                <span>{result.neuroticism.toFixed(2)}%</span>
-              </div>
-              <div style={{display: 'flex', justifyContent: 'space-between'}}>
-                <span>Openness:</span>
-                <span>{result.openness.toFixed(2)}%</span>
-              </div>
+              <p className="certificate-date">
+                Date: {new Date().toLocaleDateString()}
+              </p>
             </div>
           </div>
         );
@@ -130,29 +129,23 @@ const Certificate = ({ quizInfo, userData, setUserData, result }) => {
       case "creativity":
         return (
           <div className="certificate-content">
-            <div className="scores-section">
+            <div className="certificate-header">
+              <h2>Certificate of Completion</h2>
+              <h3>Creativity Assessment</h3>
+            </div>
+            <div className="certificate-body">
               <p>This is to certify that <strong>{userData.name}</strong> has completed 
-                the Creativity Assessment with the following scores:</p>
-              <div style={{display: 'flex', justifyContent: 'space-between'}}>
-                <span>Overall Level:</span>
-                <span>{result.total.toFixed(2)}</span>
+              the Creativity Assessment with the following scores:</p>
+              <div className="scores-grid">
+                <p>Overall Level: <strong>{quizInfo.label}</strong></p>
+                <p>Fluency: <strong>{quizInfo.categoryScores?.fluency}</strong></p>
+                <p>Flexibility: <strong>{quizInfo.categoryScores?.flexibility}</strong></p>
+                <p>Originality: <strong>{quizInfo.categoryScores?.originality}</strong></p>
+                <p>Elaboration: <strong>{quizInfo.categoryScores?.elaboration}</strong></p>
               </div>
-              <div style={{display: 'flex', justifyContent: 'space-between'}}>
-                <span>Fluency:</span>
-                <span>{result.categoryScores?.fluency.toFixed(2)}</span>
-              </div>
-              <div style={{display: 'flex', justifyContent: 'space-between'}}>
-                <span>Flexibility:</span>
-                <span>{result.categoryScores?.flexibility.toFixed(2)}</span>
-              </div>
-              <div style={{display: 'flex', justifyContent: 'space-between'}}>
-                <span>Originality:</span>
-                <span>{result.categoryScores?.originality.toFixed(2)}</span>
-              </div>
-              <div style={{display: 'flex', justifyContent: 'space-between'}}>
-                <span>Elaboration:</span>
-                <span>{result.categoryScores?.elaboration.toFixed(2)}</span>
-              </div>
+              <p className="certificate-date">
+                Date: {new Date().toLocaleDateString()}
+              </p>
             </div>
           </div>
         );
@@ -162,7 +155,7 @@ const Certificate = ({ quizInfo, userData, setUserData, result }) => {
     }
   };
 
-  if (!quizType || !result) {
+  if (!quizType) {
     return (
       <Container className="certificate-container">
         <div>No certificate type specified</div>
@@ -223,13 +216,9 @@ const Certificate = ({ quizInfo, userData, setUserData, result }) => {
         variant="primary" 
         onClick={handleDownload}
         className="download-button"
+        disabled={isDownloading}
       >
-        {isDownloading ? (
-          <>
-            <span className="me-2">Generating PDF...</span>
-            <span className="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
-          </>
-        ) : 'Download Certificate'}
+        {isDownloading ? 'Generating PDF...' : 'Download Certificate'}
       </Button>
 
       <div 
@@ -240,7 +229,11 @@ const Certificate = ({ quizInfo, userData, setUserData, result }) => {
           backgroundImage: `url(${getCertificateBackground()})`,
           backgroundSize: 'contain',
           backgroundPosition: 'center',
-          backgroundRepeat: 'no-repeat'
+          backgroundRepeat: 'no-repeat',
+          width: '800px', // Fixed width for better PDF generation
+          height: '566px', // Aspect ratio for A4 landscape
+          margin: '0 auto',
+          position: 'relative'
         }}
       >
         {getCertificateContent()}

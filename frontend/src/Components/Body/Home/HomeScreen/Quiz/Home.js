@@ -18,6 +18,8 @@ export const Home = () => {
   const [questions, setQuestions] = useState([]);
   const [timeDuration, setTimeDuration] = useState({});
   const [quizInfo, setQuizInfo] = useState({});
+  const [userData, setUserData] = useState({name: "", email: "", age: ""});
+  const [result, setResult] = useState(null); // State to store quiz result
 
   const params = useParams();
 
@@ -89,10 +91,13 @@ export const Home = () => {
               userCreativityAnswer={userCreativityAnswer}
               timeDuration={timeDuration}
               quizInfo={quizInfo}
+              setResult={setResult}
+              result={result}
+              setUserData={setUserData}
             />
           }
         />
-        <Route path="certificate" element={<Certificate quizInfo={quizInfo} />} />
+        <Route path="certificate" element={<Certificate quizInfo={quizInfo} userData={userData} setUserData={setUserData} result={result} />} />
         {/* Catch-all for invalid routes, redirecting to homepage */}
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>

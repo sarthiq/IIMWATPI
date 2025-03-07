@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { Container, Card, Button, Spinner } from "react-bootstrap";
+import { Container, Card, Button, Spinner, ProgressBar } from "react-bootstrap";
 import "./Result.css"; // Unique styles for result page
 import { submitAnswersHandler } from "../apiHandler";
 import { useAlert } from "../../../../../UI/Alert/AlertContext";
@@ -11,10 +11,12 @@ export const Result = ({
   timeDuration,
   quizInfo,
   userCreativityAnswer,
+  setResult,
+  result,
 }) => {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(true); // Loading state for spinner
-  const [result, setResult] = useState(null); // State to store quiz result
+  const [timeRemaining, setTimeRemaining] = useState(120); // 2 minutes in seconds
   const { showAlert } = useAlert();
   //console.log(userPersonalityAnswer);
   // console.log(userAnswer=={});
@@ -30,29 +32,51 @@ export const Result = ({
 
   useEffect(() => {
     const submitDetails = async () => {
-      const response = await submitAnswersHandler(
-        {
-          answers:
-            quizInfo.typeId === "personality"
-              ? userPersonalityAnswer
-              : quizInfo.typeId === "creativity"
-              ? userCreativityAnswer
-              : userAnswer,
-          timeDuration,
-          quizId: quizInfo.id,
-        },
-        quizInfo.typeId === "personality"
-          ? "submitPersonalityQuiz"
-          : quizInfo.typeId === "creativity"
-          ? "submitCreativityQuiz"
-          : "submitQuiz",
-        setLoading,
-        showAlert
-      );
+      if (quizInfo.typeId === "creativity") {
+        // Start the countdown timer for creativity quiz
+        const timer = setInterval(() => {
+          setTimeRemaining((prev) => {
+            if (prev <= 1) {
+              clearInterval(timer);
+            }
+            return prev - 1;
+          });
+        }, 1000);
 
-      if (response) {
-        setResult(response.data);
-        setLoading(false);
+        // Submit the answers
+        const response = await submitAnswersHandler(
+          {
+            answers: userCreativityAnswer,
+            timeDuration,
+            quizId: quizInfo.id,
+          },
+          "submitCreativityQuiz",
+          setLoading,
+          showAlert
+        );
+
+        if (response) {
+          clearInterval(timer);
+          setResult(response.data);
+          setLoading(false);
+        }
+      } else {
+        // For other quiz types, proceed as normal
+        const response = await submitAnswersHandler(
+          {
+            answers: quizInfo.typeId === "personality" ? userPersonalityAnswer : userAnswer,
+            timeDuration,
+            quizId: quizInfo.id,
+          },
+          quizInfo.typeId === "personality" ? "submitPersonalityQuiz" : "submitQuiz",
+          setLoading,
+          showAlert
+        );
+
+        if (response) {
+          setResult(response.data);
+          setLoading(false);
+        }
       }
     };
 
@@ -60,15 +84,59 @@ export const Result = ({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  const formatTime = (seconds) => {
+    const mins = Math.floor(seconds / 60);
+    const secs = seconds % 60;
+    return `${mins}:${secs.toString().padStart(2, '0')}`;
+  };
+
+  const getLoadingMessage = () => {
+    if (quizInfo.typeId === "creativity") {
+      return (
+        <div className="creativity-loading">
+          <div className="loading-message-container">
+            <h4>Analyzing Your Creative Responses</h4>
+            <p className="loading-description">
+              Our AI is carefully evaluating your unique answers across multiple dimensions:
+            </p>
+            <ul className="analysis-points">
+              <li>Calculating fluency scores</li>
+              <li>Measuring flexibility in thinking</li>
+              <li>Evaluating response originality</li>
+              <li>Assessing idea elaboration</li>
+            </ul>
+            <div className="timer-container">
+              <p>Estimated time remaining: {formatTime(timeRemaining)}</p>
+              <ProgressBar 
+                now={((120 - timeRemaining) / 120) * 100} 
+                variant="info" 
+                animated
+              />
+            </div>
+            <p className="patience-message">
+              Please be patient as we generate your detailed creativity profile...
+            </p>
+          </div>
+        </div>
+      );
+    }
+
+    return (
+      <>
+        <Spinner animation="border" role="status">
+          <span className="visually-hidden">Loading...</span>
+        </Spinner>
+        <p>Submitting your quiz and calculating results...</p>
+      </>
+    );
+  };
+
   if (loading || !result) {
     return (
       <Container className="result-container">
-        <Card className="result-card">
+        <Card className="result-card loading-card">
           <Card.Body className="text-center">
-            <Spinner animation="border" role="status">
-              <span className="visually-hidden">Loading...</span>
-            </Spinner>
-            <p>Submitting your quiz and calculating results...</p>
+            {getLoadingMessage()}
           </Card.Body>
         </Card>
       </Container>
