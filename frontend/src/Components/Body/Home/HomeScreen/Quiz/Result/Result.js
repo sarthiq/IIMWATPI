@@ -84,7 +84,6 @@ export const Result = ({
               Personality Quiz Results
             </Card.Title>
             <div className="result-details">
-<<<<<<< HEAD
               <div className="personality-bars">
                 <div className="trait-section">
                   <div className="trait-bar">
@@ -171,49 +170,13 @@ export const Result = ({
                   <div className="trait-fullname">Openness to Experience</div>
                 </div>
               </div>
-=======
-              <table className="personality-table">
-                <thead>
-                  <tr>
-                    <th>Personality Trait</th>
-                    <th>Your Score</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>Extraversion (E)</td>
-                    <td>{result.extraversion.toFixed(2)}%</td>
-                  </tr>
-                  <tr>
-                    <td>Agreeableness (A)</td>
-                    <td>{result.agreeableness.toFixed(2)}%</td>
-                  </tr>
-                  <tr>
-                    <td>Conscientiousness (C)</td>
-                    <td>{result.conscientiousness.toFixed(2)}%</td>
-                  </tr>
-                  <tr>
-                    <td>Neuroticism (N)</td>
-                    <td>{result.neuroticism.toFixed(2)}%</td>
-                  </tr>
-                  <tr>
-                    <td>Openness to Experience (O)</td>
-                    <td>{result.openness.toFixed(2)}%</td>
-                  </tr>
-                </tbody>
-              </table>
->>>>>>> 0986ca43faaea01e6dec0ad2ae6ab9b8aecb6a1d
             </div>
             <Button
               variant="primary"
               className="home-button"
               onClick={() => navigate("../certificate")}
             >
-<<<<<<< HEAD
               Download Certificate
-=======
-             Download Certificate
->>>>>>> 0986ca43faaea01e6dec0ad2ae6ab9b8aecb6a1d
             </Button>
           </Card.Body>
         </Card>

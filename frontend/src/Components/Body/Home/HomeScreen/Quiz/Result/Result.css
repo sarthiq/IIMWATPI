@@ -80,17 +80,20 @@
   padding: 1rem;
   background-color: #e9ecef;
   border-radius: 6px;
-<<<<<<< HEAD
 }
 
 .personality-bars {
-  padding: 10px;
+  padding: 20px;
+}
+
+.trait-section {
+  margin-bottom: 35px;
 }
 
 .trait-bar {
   display: flex;
   align-items: center;
-  margin-bottom: 0;
+  margin-bottom: 5px;
 }
 
 .trait-label {
@@ -117,7 +120,9 @@
 .bar {
   height: 100%;
   border-radius: 12px;
-  position: relative;
+  position: absolute;
+  left: 0;
+  top: 0;
   transition: width 1s ease-in-out;
 }
 
@@ -132,7 +137,13 @@
   white-space: nowrap;
 }
 
-/* बार कंटेनर्स के लिए dim बैकग्राउंड */
+.trait-fullname {
+  margin-left: 45px;
+  color: #666;
+  font-size: 14px;
+}
+
+/* Bar containers with dim background */
 .extraversion-container {
   background: rgba(74, 144, 226, 0.2);
 }
@@ -149,7 +160,7 @@
   background: rgba(255, 92, 92, 0.2);
 }
 
-/* एक्टिव बार्स */
+/* Active bars */
 .extraversion {
   background: #4a90e2;
 }
@@ -166,7 +177,7 @@
   background: #ff5c5c;
 }
 
-/* Trait name ovals के लिए रंग */
+/* Trait name ovals for colors */
 .extraversion .trait-name-oval { 
   background: #4a90e2; 
 }
@@ -183,7 +194,7 @@
   background: #ff5c5c; 
 }
 
-/* एक छोटा त्रिकोण बनाएं जो oval से बार की तरफ point करेगा */
+/* Create a small triangle pointing towards oval */
 .trait-name-oval::after {
   content: '';
   position: absolute;
@@ -195,19 +206,4 @@
   border-left: 5px solid transparent;
   border-right: 5px solid transparent;
   border-top: 5px solid inherit;
-}
-
-/* पुराने CSS के साथ यह नया CSS जोड़ें */
-
-.trait-section {
-  margin-bottom: 35px;
-}
-
-.trait-fullname {
-  margin-top: 8px;
-  margin-left: 45px; /* trait-label की width + margin के बराबर */
-  color: #666;
-  font-size: 14px;
-=======
->>>>>>> 0986ca43faaea01e6dec0ad2ae6ab9b8aecb6a1d
 }
