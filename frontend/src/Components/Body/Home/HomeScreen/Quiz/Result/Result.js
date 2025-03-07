@@ -84,43 +84,99 @@ export const Result = ({
               Personality Quiz Results
             </Card.Title>
             <div className="result-details">
-              <table className="personality-table">
-                <thead>
-                  <tr>
-                    <th>Personality Trait</th>
-                    <th>Your Score</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>Extraversion (E)</td>
-                    <td>{result.extraversion.toFixed(2)}%</td>
-                  </tr>
-                  <tr>
-                    <td>Agreeableness (A)</td>
-                    <td>{result.agreeableness.toFixed(2)}%</td>
-                  </tr>
-                  <tr>
-                    <td>Conscientiousness (C)</td>
-                    <td>{result.conscientiousness.toFixed(2)}%</td>
-                  </tr>
-                  <tr>
-                    <td>Neuroticism (N)</td>
-                    <td>{result.neuroticism.toFixed(2)}%</td>
-                  </tr>
-                  <tr>
-                    <td>Openness to Experience (O)</td>
-                    <td>{result.openness.toFixed(2)}%</td>
-                  </tr>
-                </tbody>
-              </table>
+              <div className="personality-bars">
+                <div className="trait-section">
+                  <div className="trait-bar">
+                    <div className="trait-label">E</div>
+                    <div className="bar-container extraversion-container">
+                      <div 
+                        className="bar extraversion" 
+                        style={{width: `${result.extraversion}%`}}
+                      >
+                      </div>
+                      <span className="percentage" style={{left: `${result.extraversion}%`}}>
+                        {result.extraversion.toFixed(0)}%
+                      </span>
+                    </div>
+                  </div>
+                  <div className="trait-fullname">Extraversion</div>
+                </div>
+                
+                <div className="trait-section">
+                  <div className="trait-bar">
+                    <div className="trait-label">A</div>
+                    <div className="bar-container agreeableness-container">
+                      <div 
+                        className="bar agreeableness" 
+                        style={{width: `${result.agreeableness}%`}}
+                      >
+                      </div>
+                      <span className="percentage" style={{left: `${result.agreeableness}%`}}>
+                        {result.agreeableness.toFixed(0)}%
+                      </span>
+                    </div>
+                  </div>
+                  <div className="trait-fullname">Agreeableness</div>
+                </div>
+
+                <div className="trait-section">
+                  <div className="trait-bar">
+                    <div className="trait-label">C</div>
+                    <div className="bar-container conscientiousness-container">
+                      <div 
+                        className="bar conscientiousness" 
+                        style={{width: `${result.conscientiousness}%`}}
+                      >
+                      </div>
+                      <span className="percentage" style={{left: `${result.conscientiousness}%`}}>
+                        {result.conscientiousness.toFixed(0)}%
+                      </span>
+                    </div>
+                  </div>
+                  <div className="trait-fullname">Conscientiousness</div>
+                </div>
+
+                <div className="trait-section">
+                  <div className="trait-bar">
+                    <div className="trait-label">N</div>
+                    <div className="bar-container neuroticism-container">
+                      <div 
+                        className="bar neuroticism" 
+                        style={{width: `${result.neuroticism}%`}}
+                      >
+                      </div>
+                      <span className="percentage" style={{left: `${result.neuroticism}%`}}>
+                        {result.neuroticism.toFixed(0)}%
+                      </span>
+                    </div>
+                  </div>
+                  <div className="trait-fullname">Neuroticism</div>
+                </div>
+
+                <div className="trait-section">
+                  <div className="trait-bar">
+                    <div className="trait-label">O</div>
+                    <div className="bar-container openness-container">
+                      <div 
+                        className="bar openness" 
+                        style={{width: `${result.openness}%`}}
+                      >
+                      </div>
+                      <span className="percentage" style={{left: `${result.openness}%`}}>
+                        {result.openness.toFixed(0)}%
+                      </span>
+                    </div>
+                  </div>
+                  <div className="trait-fullname">Openness to Experience</div>
+                </div>
+              </div>
             </div>
             <Button
               variant="primary"
               className="home-button"
               onClick={() => navigate("../certificate")}
             >
-             Download Certificate
+              Download Certificate
             </Button>
           </Card.Body>
         </Card>

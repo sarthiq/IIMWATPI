@@ -12,7 +12,7 @@ export const HomeScreen = () => {
     <div className="quiz-selection-page">
       <Banner/>
       <TestSection/>
-      <Career/>
+      {/* <Career/> */}
      
      
     </div>

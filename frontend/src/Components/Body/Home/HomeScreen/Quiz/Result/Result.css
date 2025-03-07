@@ -81,3 +81,129 @@
   background-color: #e9ecef;
   border-radius: 6px;
 }
+
+.personality-bars {
+  padding: 20px;
+}
+
+.trait-section {
+  margin-bottom: 35px;
+}
+
+.trait-bar {
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+.trait-label {
+  width: 30px;
+  height: 30px;
+  background: #4a90e2;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  margin-right: 15px;
+  font-weight: bold;
+}
+
+.bar-container {
+  flex-grow: 1;
+  height: 25px;
+  border-radius: 12px;
+  overflow: visible;
+  position: relative;
+}
+
+.bar {
+  height: 100%;
+  border-radius: 12px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  transition: width 1s ease-in-out;
+}
+
+.percentage {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #333;
+  font-weight: bold;
+  font-size: 14px;
+  margin-left: 8px;
+  white-space: nowrap;
+}
+
+.trait-fullname {
+  margin-left: 45px;
+  color: #666;
+  font-size: 14px;
+}
+
+/* Bar containers with dim background */
+.extraversion-container {
+  background: rgba(74, 144, 226, 0.2);
+}
+.agreeableness-container {
+  background: rgba(245, 166, 35, 0.2);
+}
+.conscientiousness-container {
+  background: rgba(126, 211, 33, 0.2);
+}
+.neuroticism-container {
+  background: rgba(144, 19, 254, 0.2);
+}
+.openness-container {
+  background: rgba(255, 92, 92, 0.2);
+}
+
+/* Active bars */
+.extraversion {
+  background: #4a90e2;
+}
+.agreeableness {
+  background: #f5a623;
+}
+.conscientiousness {
+  background: #7ed321;
+}
+.neuroticism {
+  background: #9013fe;
+}
+.openness {
+  background: #ff5c5c;
+}
+
+/* Trait name ovals for colors */
+.extraversion .trait-name-oval { 
+  background: #4a90e2; 
+}
+.agreeableness .trait-name-oval { 
+  background: #f5a623; 
+}
+.conscientiousness .trait-name-oval { 
+  background: #7ed321; 
+}
+.neuroticism .trait-name-oval { 
+  background: #9013fe; 
+}
+.openness .trait-name-oval { 
+  background: #ff5c5c; 
+}
+
+/* Create a small triangle pointing towards oval */
+.trait-name-oval::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid inherit;
+}

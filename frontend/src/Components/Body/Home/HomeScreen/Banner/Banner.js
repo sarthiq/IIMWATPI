@@ -44,7 +44,7 @@ export const Banner = () => {
         setStartTyping(false);
         return (prev + 1) % slides.length;
       });
-    }, 7000);
+    }, 6000);
     return () => clearInterval(interval);
   }, []);
 
@@ -117,9 +117,7 @@ export const Banner = () => {
                     <p>{col.text}</p>
                   </div>
                 ))}
-                
               </div>
-             
             </div>
           )}
         </div>

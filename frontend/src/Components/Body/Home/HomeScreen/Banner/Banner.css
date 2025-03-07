@@ -1,148 +1,137 @@
-/* General Banner Container */
 .banner-container {
+  position: relative;
   width: 100%;
   height: 60vh;
   overflow: hidden;
-  position: relative;
+  background-color: #042b2b;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-/* Hide all slides by default */
 .slide {
-  opacity: 0;
-  transform: translateX(100%);
   position: absolute;
   width: 100%;
   height: 60vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: transform 1s ease-in-out, opacity 1s ease-in-out;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
 }
 
-/* Only show the active slide */
 .slide.active {
   opacity: 1;
-  transform: translateX(0);
 }
 
-/* Background Image Slide */
 .background-image {
+  position: absolute;
   width: 100%;
   height: 60vh;
   background-size: cover;
   background-position: center;
+  filter: blur(2px);
+}
+
+.slide-content {
   position: absolute;
-  z-index: -10;
+  width: 50%;
+  text-align: left;
+  color: white;
+  z-index: 2;
 }
 
 .centered-bottom {
-  position: absolute;
-  bottom: 0%; /* Adjust as needed */
-  left: 50%;
-  transform: translateX(-50%);
-  text-align: center;
-  color: white;
-  width: 80%;
-}
-.slide-content {
-  color: white;
-  max-width: 80%;
+  bottom: 10%;
+  left: 10%;
 }
 
-.slide-content h1{
-  font-size: 3rem; 
- 
+h1 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #f8f8f8;
 }
 
-.slide-content p{
-  font-size: 2rem;
+p {
+  font-size: 1.2rem;
+  line-height: 1.5;
+  color: #d1d1d1;
 }
 
-
-/* Side Image Slide */
 .side-image-content {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color:    #1e3a8a;
-  width: 100%;
+  width: 80%;
+  margin: auto;
+  color: white;
+}
+
+.side-image-content .text {
+  width: 50%;
 }
 
 .side-image-content img {
-  width: 45%;
+  width: 40%;
   border-radius: 10px;
 }
 
-.text {
-  width: 50%;
-  color: white;
-  padding-left: 20px;
-}
-
-.text h1 {
-  font-size: 3rem;
-  margin-bottom: 10px;
-}
-
-/* Three Column Section */
 .three-column-content {
-  height: 60vh;
-  background-color: #1e3a8a;
-  color: white;
   text-align: center;
- 
+  width: 80%;
+  margin: auto;
+  color: white;
 }
 
 .three-column-title {
-  padding-top: 30px;
-  font-size: 2.2rem;
-  font-weight: bold;
-  margin-bottom: 40px;
+  font-size: 2rem;
+  margin-bottom: 20px;
 }
 
-.three-column-Subtitle{
-  padding-top: 30px;
-  font-size: 2.2rem;
-  font-weight: bold;
-  margin-bottom: 40px;
-  color: white;
-
-}
-
-
-/* Ensure columns align properly */
 .columns-wrapper {
   display: flex;
   justify-content: space-between;
-
-  width: 80%;
-  height: inherit;
-  margin: auto;
- 
-  
+  gap: 20px;
 }
 
-/* Each column */
-.column  { 
-  color: white;
-  width: 25%;
-  text-align: center;
+.column {
+  width: 30%;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 20px;
+  border-radius: 10px;
+  backdrop-filter: blur(5px);
 }
 
-
-
-
-
-h2 {
+.column h2 {
   font-size: 1.5rem;
-  font-weight: bold;
-  color: white;
   margin-bottom: 10px;
+  color: #ffb400;
 }
 
-p {
+.column p {
   font-size: 1rem;
+  color: #d1d1d1;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .slide-content {
+    width: 70%;
+  }
+
+  .side-image-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .side-image-content .text,
+  .side-image-content img {
+    width: 100%;
+  }
+
+  .columns-wrapper {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .column {
+    width: 100%;
+  }
 }

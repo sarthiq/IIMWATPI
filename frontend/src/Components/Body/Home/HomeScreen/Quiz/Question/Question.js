@@ -61,7 +61,7 @@ export const Question = ({ questions, setUserAnswer, setTimeDuration }) => {
           <>
             <Card.Body>
               <Card.Title className="question-title">
-                 {Q + (currentQuestion+1)}
+                 {"Complete the pattern? "}
               </Card.Title>
 
               {currentQ.imageUrl && (
