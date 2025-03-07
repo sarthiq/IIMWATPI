@@ -266,7 +266,7 @@ export const Result = ({
                 <strong>Overall Creativity Level:</strong> {result.label}
               </p>
 
-              <h5 className="category-title mb-3">Category Scores:{result.total}</h5>
+              <h5 className="category-title mb-3">Category Scores:{result.total.toFixed(2)}</h5>
               
               <table className="category-scores-table">
                 <tbody>
