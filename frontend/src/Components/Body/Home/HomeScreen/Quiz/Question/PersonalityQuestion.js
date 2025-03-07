@@ -32,11 +32,11 @@ export const PersonalityQuestion = ({
   };
 
   const options = [
-    { id: 1, text: "Strongly Agree",value:5 },
-    { id: 2, text: "Agree" ,value:4},
-    { id: 3, text: "Neutral" ,value:3},
-    { id: 4, text: "Disagree" ,value:2},
-    { id: 5, text: "Strongly Disagree",value:1 },
+    { id: 1, text: "Strongly Agree", value: 5 },
+    { id: 2, text: "Agree", value: 4 },
+    { id: 3, text: "Neutral", value: 3 },
+    { id: 4, text: "Disagree", value: 2 },
+    { id: 5, text: "Strongly Disagree", value: 1 }
   ];
 
   const handleAnswerSelect = (optionId) => {
@@ -102,18 +102,15 @@ export const PersonalityQuestion = ({
 
           <div className="question-circle">
             {options.map((option, index) => (
-              <Button
-                key={option.id}
-                variant={
-                  selectedAnswer === option.id ? "success" : "outline-primary"
-                }
-                className={`question-circle ${
-                  selectedAnswer === option.id ? "selected" : ""
-                }`}
-                onClick={() => handleAnswerSelect(index + 1)}
-              >
-                {option.text}
-              </Button>
+              <div key={option.id} className="option-wrapper">
+                <Button
+                  variant={selectedAnswer === option.id ? "success" : "outline-primary"}
+                  className={`question-circle ${selectedAnswer === option.id ? "selected" : ""}`}
+                  onClick={() => handleAnswerSelect(index + 1)}
+                >
+                </Button>
+                <span className="option-text">{option.text}</span>
+              </div>
             ))}
           </div>
         </Card.Body>
