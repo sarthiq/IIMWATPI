@@ -74,8 +74,8 @@ export const TestSection = () => {
         {quizzes.map((quiz) => {
           const quizContent = getQuizContent(quiz.typeId);
           return (
-            <div key={quiz.id} className="quiz-box-wrapper">
-              <Link to={`./quiz/${quiz.id}`} className="quiz-box">
+            <div key={quiz.id} className="quiz-box">
+              <div className="quiz-box-header">
                 <img
                   src={quiz.imageUrl
                     ? `${process.env.REACT_APP_REMOTE_ADDRESS}/${quiz.imageUrl}`
@@ -83,15 +83,12 @@ export const TestSection = () => {
                   alt={`${quiz.title} Test`}
                   className="quiz-box-image"
                 />
-                <div className="quiz-box-header">{quiz.title}</div>
-                <div className="quiz-box-body">
-                  <p className="desc-text">{quiz.description}</p>
-                </div>
-              </Link>
-              
+                <h3>{quiz.title}</h3>
+              </div>
+
               {quizContent && (
-                <div className="quiz-additional-content flex-grow-1 space-y-2" >
-                  <h3 className="content-title">{quizContent.title}</h3>
+                <div className="quiz-box-content">
+                  <h4 className="content-title">{quizContent.title}</h4>
                   <p className="content-description">{quizContent.description}</p>
                   <ul className="content-points">
                     {quizContent.points.map((point, index) => (
@@ -101,6 +98,10 @@ export const TestSection = () => {
                   <p className="content-cta">{quizContent.cta}</p>
                 </div>
               )}
+              
+              <Link to={`./quiz/${quiz.id}`} className="take-test-btn">
+                Take Test
+              </Link>
             </div>
           );
         })}

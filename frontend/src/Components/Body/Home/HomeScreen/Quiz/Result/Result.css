@@ -1,4 +1,65 @@
 .result-container {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  padding: 20px;
+  background-color: #f8f9fa;
+  min-height: 80vh;
+}
+
+.result-card {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.explanation-card {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.home-button {
+  margin-top: 20px;
+  width: 100%;
+  max-width: 300px;
+  margin: 0 auto;
+  display: block;
+}
+
+.result-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.result-details {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.result-details p {
+  margin: 5px 0;
+}
+
+/* Add these to your existing Result.css */
+.result-card .result-details {
+  margin: 2rem 0;
+  padding: 1rem;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+}
+
+.result-card .result-title {
+  color: #2c3e50;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.category-scores-table {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -294,5 +355,145 @@
 
   .timer-container {
     padding: 15px;
+  }
+}
+
+.result-explanation {
+  margin-top: 30px;
+  padding: 20px;
+}
+
+.explanation-title {
+  color: #1e3a8a;
+  font-size: 26px;
+  text-align: center;
+  margin-bottom: 25px;
+  font-weight: bold;
+}
+
+.trait-table {
+  width: 100%;
+}
+
+.trait-table table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+  font-size: 16px;
+}
+
+/* Updated column widths */
+.trait-table th:first-child,
+.trait-table td:first-child {
+  width: 180px !important; /* Increased width for personality type */
+}
+
+.trait-table th:nth-child(2),
+.trait-table td:nth-child(2) {
+  width: 35% !important; /* Slightly reduced */
+}
+
+.trait-table th:nth-child(3),
+.trait-table td:nth-child(3) {
+  width: calc(65% - 180px) !important; /* Adjusted remaining space */
+}
+
+/* Make text fit properly */
+.trait-table td:first-child {
+  padding: 15px;
+  font-weight: 600;
+  font-size: 17px;
+  white-space: nowrap; /* Prevent personality type from wrapping */
+}
+
+.trait-table td {
+  padding: 15px;
+  vertical-align: top;
+}
+
+.trait-table ol {
+  margin: 0;
+  padding-left: 25px;
+}
+
+.trait-table li {
+  margin-bottom: 10px;
+  line-height: 1.5;
+  font-size: 16px;
+}
+
+/* First column styling */
+.trait-table tr:nth-child(1) td:first-child {
+  color: #4a90e2; /* Extraversion */
+}
+.trait-table tr:nth-child(2) td:first-child {
+  color: #f5a623; /* Agreeableness */
+}
+.trait-table tr:nth-child(3) td:first-child {
+  color: #7ed321; /* Conscientiousness */
+}
+.trait-table tr:nth-child(4) td:first-child {
+  color: #9013fe; /* Neuroticism */
+}
+.trait-table tr:nth-child(5) td:first-child {
+  color: #ff5c5c; /* Openness */
+}
+
+/* High score column (darker) */
+.trait-table tr:nth-child(1) td:nth-child(2) { background-color: rgba(74, 144, 226, 0.8); }
+.trait-table tr:nth-child(2) td:nth-child(2) { background-color: rgba(245, 166, 35, 0.8); }
+.trait-table tr:nth-child(3) td:nth-child(2) { background-color: rgba(126, 211, 33, 0.8); }
+.trait-table tr:nth-child(4) td:nth-child(2) { background-color: rgba(144, 19, 254, 0.8); }
+.trait-table tr:nth-child(5) td:nth-child(2) { background-color: rgba(255, 92, 92, 0.8); }
+
+/* Low score column (lighter) */
+.trait-table tr:nth-child(1) td:nth-child(3) { background-color: rgba(74, 144, 226, 0.3); }
+.trait-table tr:nth-child(2) td:nth-child(3) { background-color: rgba(245, 166, 35, 0.3); }
+.trait-table tr:nth-child(3) td:nth-child(3) { background-color: rgba(126, 211, 33, 0.3); }
+.trait-table tr:nth-child(4) td:nth-child(3) { background-color: rgba(144, 19, 254, 0.3); }
+.trait-table tr:nth-child(5) td:nth-child(3) { background-color: rgba(255, 92, 92, 0.3); }
+
+/* Text color for high score column */
+.trait-table td:nth-child(2) {
+  color: white;
+}
+
+/* Text color for low score column */
+.trait-table td:nth-child(3) {
+  color: #333;
+}
+
+/* Hover effect on table rows */
+.trait-table tr:hover td {
+  opacity: 0.9;
+}
+
+@media (max-width: 768px) {
+  .explanation-card {
+    max-width: 100%;
+  }
+  
+  .trait-table {
+    overflow-x: auto;
+  }
+  
+  .trait-table table {
+    font-size: 14px;
+  }
+  
+  .trait-table th {
+    font-size: 16px;
+  }
+  
+  .trait-table td:first-child {
+    font-size: 15px;
+  }
+  
+  .trait-table li {
+    font-size: 14px;
+  }
+  
+  .explanation-title {
+    font-size: 22px;
   }
 }

@@ -113,40 +113,36 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 15px;
-  margin: 30px 0;
-  flex-wrap: nowrap; /* Prevent wrapping */
-  overflow-x: auto; /* Allow horizontal scroll if needed */
-  padding: 10px 5px;
-  width: 100%;
+  gap: 40px; /* Increased gap between options */
+  margin: 30px auto;
+  flex-wrap: nowrap;
+  width: 90%;
+  max-width: 700px; /* Added max-width for better spacing */
+  padding: 20px 10px;
 }
 
 .option-wrapper {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 10px;
-  flex-shrink: 0; /* Prevent shrinking */
+  justify-content: center;
+  position: relative;
+  min-width: 70px; /* Minimum width for each option */
 }
 
 .option-text {
-  font-size: 14px;
+  position: absolute;
+  bottom: -25px; /* Position text below the circles */
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 11px;
   color: #333;
   text-align: center;
-  margin-top: 5px;
-  width: 80px;
-  word-wrap: break-word;
+  width: max-content; /* Let text take its natural width */
+  white-space: nowrap; /* Keep text in one line */
 }
 
-.question-circle .btn {
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  transition: transform 0.2s ease-in-out;
-}
-
-/* Different sizes for options */
+/* Original colors and sizes */
 .option-wrapper:nth-child(1) .btn {
   width: 70px;
   height: 70px;
@@ -178,62 +174,37 @@
   background-color: #d97706;
 }
 
+.question-circle .btn {
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.2s ease-in-out;
+}
+
 /* Selected state */
 .btn.selected {
   transform: scale(1.1);
   border: 2px solid black;
 }
 
-/* 📱 Responsive Design */
 @media (max-width: 768px) {
-  .question-card {
-    width: 100%;
-    padding: 15px;
-    margin: 10px 0;
-  }
-  
-  .question-title {
-    font-size: 18px;
-    margin-bottom: 15px;
-  }
-
-  .language-toggle {
-    margin-bottom: 15px;
-  }
-
-  .language-toggle .btn {
-    padding: 5px 10px;
-    font-size: 14px;
-  }
-
-  .question-options {
-    grid-template-columns: repeat(1, 1fr); /* Stack options on small screens */
-  }
-
-  .question-option {
-    font-size: 12px;
-    padding: 6px;
-  }
-
-  .option-image {
-    max-width: 80px; /* Smaller images on small screens */
-  }
-
   .question-circle {
-    gap: 10px;
-    justify-content: space-between; /* Distribute space evenly */
-    padding: 10px 0;
-    overflow-x: visible; /* Show all circles */
+    gap: 20px; /* Reduced gap for mobile */
+    width: 100%;
+    padding: 15px 5px;
   }
 
   .option-text {
-    font-size: 10px; /* Smaller font for mobile */
-    width: 60px;
-    word-wrap: break-word;
-    text-align: center;
+    font-size: 10px;
+    bottom: -20px;
   }
 
-  /* Adjust circle sizes for mobile */
+  .option-wrapper {
+    min-width: 45px;
+  }
+
+  /* Mobile sizes */
   .option-wrapper:nth-child(1) .btn {
     width: 45px;
     height: 45px;
@@ -258,57 +229,17 @@
     width: 45px;
     height: 45px;
   }
-
-  /* Footer buttons */
-  .question-footer .btn {
-    padding: 8px 15px;
-    font-size: 14px;
-  }
 }
 
-/* Small Mobile Screens */
+/* Extra small screens */
 @media (max-width: 480px) {
-  .question-card {
-    padding: 10px;
-  }
-
-  .question-title {
-    font-size: 16px;
-  }
-
   .question-circle {
-    gap: 10px;
-  }
-
-  /* Further reduce circle sizes */
-  .option-wrapper:nth-child(1) .btn {
-    width: 50px;
-    height: 50px;
-  }
-
-  .option-wrapper:nth-child(2) .btn {
-    width: 40px;
-    height: 40px;
-  }
-
-  .option-wrapper:nth-child(3) .btn {
-    width: 20px;
-    height: 20px;
-  }
-
-  .option-wrapper:nth-child(4) .btn {
-    width: 40px;
-    height: 40px;
-  }
-
-  .option-wrapper:nth-child(5) .btn {
-    width: 50px;
-    height: 50px;
+    gap: 15px;
   }
 
   .option-text {
-    font-size: 11px;
-    width: 60px;
+    font-size: 9px;
+    bottom: -18px;
   }
 }
 
@@ -364,10 +295,6 @@
 
 /* Extra small screens */
 @media (max-width: 320px) {
-  .question-circle {
-    gap: 8px;
-  }
-
   .option-wrapper:nth-child(1) .btn {
     width: 40px;
     height: 40px;
@@ -395,6 +322,6 @@
 
   .option-text {
     font-size: 9px;
-    width: 50px;
+    width: 40px;
   }
 }

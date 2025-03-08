@@ -162,7 +162,7 @@ export const QuizHome = ({ quizInfo, setTimeDuration }) => {
           className="quiz-home-image"
         /> */}
         <Card.Body>
-          <Card.Title className="quiz-home-title">{quizInfo.title}</Card.Title>
+          <Card.Title className="quiz-home-title text-center">{quizInfo.title + " Test"}</Card.Title>
 
           {getTestInstructions(quizInfo.typeId)}
           <Button

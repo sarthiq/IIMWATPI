@@ -62,20 +62,20 @@ export const Result = ({
         }
       } else {
         // For other quiz types, proceed as normal
-        const response = await submitAnswersHandler(
-          {
+      const response = await submitAnswersHandler(
+        {
             answers: quizInfo.typeId === "personality" ? userPersonalityAnswer : userAnswer,
-            timeDuration,
-            quizId: quizInfo.id,
-          },
+          timeDuration,
+          quizId: quizInfo.id,
+        },
           quizInfo.typeId === "personality" ? "submitPersonalityQuiz" : "submitQuiz",
-          setLoading,
-          showAlert
-        );
+        setLoading,
+        showAlert
+      );
 
-        if (response) {
-          setResult(response.data);
-          setLoading(false);
+      if (response) {
+        setResult(response.data);
+        setLoading(false);
         }
       }
     };
@@ -123,10 +123,10 @@ export const Result = ({
 
     return (
       <>
-        <Spinner animation="border" role="status">
-          <span className="visually-hidden">Loading...</span>
-        </Spinner>
-        <p>Submitting your quiz and calculating results...</p>
+            <Spinner animation="border" role="status">
+              <span className="visually-hidden">Loading...</span>
+            </Spinner>
+            <p>Submitting your quiz and calculating results...</p>
       </>
     );
   };
@@ -244,8 +244,112 @@ export const Result = ({
               className="home-button"
               onClick={() => navigate("../certificate")}
             >
-              Download Certificate
+             Download Certificate
             </Button>
+          </Card.Body>
+        </Card>
+
+        <Card className="explanation-card">
+          <Card.Body>
+            <h3 className="explanation-title">Result Explanation</h3>
+            <div className="trait-table">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Personality Types</th>
+                    <th className="high-column">High (Score 60 or more)</th>
+                    <th className="low-column">Low (Score 30 or less)</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Extraversion (E)</td>
+                    <td>
+                      <ol>
+                        <li>Feel energized around people</li>
+                        <li>Wide social circle and friends</li>
+                        <li>Say before thinking</li>
+                      </ol>
+                    </td>
+                    <td>
+                      <ol>
+                        <li>Avoid attention and prefer solitude</li>
+                        <li>Find it difficult to start a conversation</li>
+                        <li>Perform best when alone</li>
+                      </ol>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Agreeableness (A)</td>
+                    <td>
+                      <ol>
+                        <li>Highly empathetic</li>
+                        <li>Enjoys helping others</li>
+                        <li>Cares for people around</li>
+                      </ol>
+                    </td>
+                    <td>
+                      <ol>
+                        <li>Self-centered and looks for self-interest</li>
+                        <li>Insult and belittle others</li>
+                        <li>Sometimes manipulate others for self-interest</li>
+                      </ol>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Contentiousness (C)</td>
+                    <td>
+                      <ol>
+                        <li>Like to be prepared beforehand</li>
+                        <li>Enjoys following schedules</li>
+                        <li>Pays attention to details</li>
+                      </ol>
+                    </td>
+                    <td>
+                      <ol>
+                        <li>Procrastinates and avoids tasks until the last moment</li>
+                        <li>Dislike structure and schedules</li>
+                        <li>Usually makes mess and fails to complete tasks on time</li>
+                      </ol>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Neuroticism (N)</td>
+                    <td>
+                      <ol>
+                        <li>Mood swings and stress</li>
+                        <li>Get upset easily</li>
+                        <li>Struggles to bounce back after failures</li>
+                      </ol>
+                    </td>
+                    <td>
+                      <ol>
+                        <li>Emotionally stable</li>
+                        <li>Deals with stress and usually relaxed</li>
+                        <li>Doesn't worry much</li>
+                      </ol>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Openness (O)</td>
+                    <td>
+                      <ol>
+                        <li>Gets involved in new things</li>
+                        <li>Creative</li>
+                        <li>Abstract thinking</li>
+                      </ol>
+                    </td>
+                    <td>
+                      <ol>
+                        <li>Dislike changes</li>
+                        <li>Resist New things</li>
+                        <li>Lack imagination</li>
+                      </ol>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
           </Card.Body>
         </Card>
       </Container>
@@ -334,3 +438,4 @@ export const Result = ({
     </Container>
   );
 };
+
