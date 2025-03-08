@@ -10,58 +10,71 @@ exports.calculateCreativityScore = async (datas) => {
     originality: 0,
     elaboration: 0,
   };
-  
+
   for (const id in datas) {
     const data = datas[id];
     const question = data.question;
-    const answers = data.answers;
+    const answers = data.answers.slice(0, 10); // Take max 10 answers
+
+    const scores = {
+      fluency: Math.min(answers.length, 10), // Calculate fluency score based on number of answers
+      flexibility: 0,
+      originality: 0,
+      elaboration: 0,
+    };
 
     const releventAnswers = await calculateSimilarity(question, answers);
 
-    const categories = {
-      flexibility: ["practical", "creativity"],
-      originality: ["unique"],
-      elaboration: ["elaborated"],
-    };
-    const scores = {
-      fluency: answers.length,
-    };
+    // Process each answer first
+    for (let i = 0; i < answers.length; i++) {
+      const answer = answers[i];
+      const similarity = releventAnswers[i];
+
+      // Calculate category scores for this answer
+      const flexibilityResult = await calculateCategoryScore(answer, [
+        "practical",
+        "creativity",
+      ]);
+      const originalityResult = await calculateCategoryScore(answer, [
+        "unique",
+      ]);
+      const elaborationResult = await calculateCategoryScore(answer, [
+        "elaborated",
+      ]);
+
+      // Calculate average score for each category
+      const flexibilityScore =
+        (flexibilityResult.scores.reduce((sum, score) => sum + score, 0) /
+          flexibilityResult.scores.length +
+          similarity) /
+        2;
+      const originalityScore = (originalityResult.scores[0] + similarity) / 2;
+      const elaborationScore = (elaborationResult.scores[0] + similarity) / 2;
+
+      // Add to category totals
+      scores.flexibility += flexibilityScore;
+      scores.originality += originalityScore;
+      scores.elaboration += elaborationScore;
+    }
+
+    // Calculate average for each category
+    scores.flexibility = parseFloat(scores.flexibility.toFixed(2));
+    scores.originality = parseFloat(scores.originality.toFixed(2));
+    scores.elaboration = parseFloat(scores.elaboration.toFixed(2));
+
+    // Add to whole category scores
     wholeCategoryScores.fluency += scores.fluency;
-    if (scores.fluency > 10) {
-      scores.fluency = 10;
-    }
+    wholeCategoryScores.flexibility += scores.flexibility;
+    wholeCategoryScores.originality += scores.originality;
+    wholeCategoryScores.elaboration += scores.elaboration;
 
-    for (const category in categories) {
-      const categoryScores = [];
-      for (const index in answers) {
-        const answer = answers[index];
-        const similarity = releventAnswers[index];
-        //  if (similarity > 0.5) {
-        const result = await calculateCategoryScore(
-          answer,
-          categories[category]
-        );
-        const cScore = result.scores;
-        
-        const averageScore =
-          cScore.reduce((sum, score) => sum + score, 0) / cScore.length;
-        const resultantAverageScore = (averageScore + similarity) / 2;
-
-        categoryScores.push(resultantAverageScore);
-        // } else {
-        //   categoryScores.push(0);
-        // }
-      }
-      const averageScore =
-        categoryScores.reduce((sum, score) => sum + score, 0) /
-        categoryScores.length;
-      wholeCategoryScores[category] = (averageScore.toFixed(2) * 10)+wholeCategoryScores[category];
-      scores[category] = averageScore.toFixed(2) * 10;
-    }
+    // Calculate total score for this question
     const totalScore = Object.values(scores).reduce(
       (sum, score) => sum + score,
       0
     );
+
+    // Assign creativity label
     if (totalScore < 15) {
       scores.label = "Low Creativity";
     } else if (totalScore >= 15 && totalScore < 24) {
@@ -72,24 +85,26 @@ exports.calculateCreativityScore = async (datas) => {
       scores.label = "High Creative";
     }
 
-    scores["total"] = totalScore.toFixed(2);
+    scores.total = totalScore.toFixed(2);
     results[id] = scores;
   }
+
+  // Calculate average scores across all questions
+  const numQuestions = Object.keys(datas).length;
   for (const category in wholeCategoryScores) {
-    wholeCategoryScores[category] =
-      wholeCategoryScores[category] / Object.keys(datas).length;
+    wholeCategoryScores[category] = parseFloat(
+      (wholeCategoryScores[category] / numQuestions).toFixed(2)
+    );
   }
 
+  // Calculate overall score and label
   let wholeScore = 0;
-  let wholeScoreLabel = "";
-
   for (const id in results) {
-    const score = parseFloat(results[id].total);
-    wholeScore += score;
+    wholeScore += parseFloat(results[id].total);
   }
+  wholeScore = wholeScore / numQuestions;
 
-  wholeScore = wholeScore / Object.keys(datas).length;
-
+  let wholeScoreLabel;
   if (wholeScore < 15 || !wholeScore) {
     wholeScoreLabel = "Low Creativity";
   } else if (wholeScore >= 15 && wholeScore < 24) {
@@ -100,9 +115,9 @@ exports.calculateCreativityScore = async (datas) => {
     wholeScoreLabel = "High Creative";
   }
 
-  results["total"] = wholeScore;
-  results["label"] = wholeScoreLabel;
-  results["categoryScores"] = wholeCategoryScores;
+  results.total = wholeScore;
+  results.label = wholeScoreLabel;
+  results.categoryScores = wholeCategoryScores;
 
   return results;
 };
