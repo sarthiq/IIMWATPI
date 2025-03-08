@@ -99,9 +99,15 @@ export const TestSection = () => {
                 </div>
               )}
               
-              <Link to={`./quiz/${quiz.id}`} className="take-test-btn">
-                Take Test
-              </Link>
+              {quiz.id === 3 ? (
+                <button className="take-test-btn" disabled>
+                  Coming Soon
+                </button>
+              ) : (
+                <Link to={`./quiz/${quiz.id}`} className="take-test-btn">
+                  Take Test
+                </Link>
+              )}
             </div>
           );
         })}
