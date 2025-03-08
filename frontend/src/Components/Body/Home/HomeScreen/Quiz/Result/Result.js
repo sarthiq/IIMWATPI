@@ -366,13 +366,13 @@ export const Result = ({
               Creativity Assessment Results
             </Card.Title>
             <div className="result-details">
-              <p className="overall-score mb-4">
-                <strong>Overall Creativity Level:</strong> {result.label}
+              <p className="overall-score mb-4 font-weight-bold font-color-black">
+                <strong>Creativity Level:</strong> {result.label}
               </p>
 
-              <h5 className="category-title mb-3">Category Scores:{result.total.toFixed(2)}</h5>
+              {/* <h5 className="category-title mb-3">Category Scores:{result.total.toFixed(2)}</h5> */}
               
-              <table className="category-scores-table">
+              {/* <table className="category-scores-table">
                 <tbody>
                   <tr>
                     <td>
@@ -399,7 +399,7 @@ export const Result = ({
                     <td>{result.categoryScores.elaboration.toFixed(1)}</td>
                   </tr>
                 </tbody>
-              </table>
+              </table> */}
             </div>
             <Button
               variant="primary"

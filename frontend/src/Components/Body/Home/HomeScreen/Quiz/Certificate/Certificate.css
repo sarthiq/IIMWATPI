@@ -1,5 +1,7 @@
+/* General Styles */
 .certificate-container {
-  padding: 20px;
+  width: 100%;
+  padding: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -9,16 +11,16 @@
   margin-bottom: 20px;
   padding: 8px 20px;
   font-size: 16px;
+  width: 300px;
 }
 
 .certificate {
   width: 800px;
-  height: 990px;
+  height: 1000px;
   position: relative;
-  background-size: 100% 100%;
-  background-position: center;
-  background-repeat: no-repeat;
+  background: center / contain no-repeat;
   margin: 0 auto;
+  image-rendering: crisp-edges;
 }
 
 .certificate-content {
@@ -28,144 +30,83 @@
   transform: translate(-50%, -50%);
   width: 75%;
   text-align: center;
-  padding: 20px;
-  color: #000000; /* Pure black color */
 }
 
-/* IQ Certificate */
-.certificate[data-type="IQ"] .certificate-content {
-  top: 45%;
-}
+/* Certificate Types */
+.certificate[data-type="IQ"] .certificate-content { top: 45%; }
 
-.certificate[data-type="IQ"] .certificate-content p {
-  font-size: 20px;
-  line-height: 1.5;
-  color: #333;
-}
-
-/* Personality Certificate */
 .certificate[data-type="personality"] .certificate-content {
   width: 85%;
   top: 48%;
 }
 
-.certificate[data-type="personality"] .scores-section {
-  text-align: left;
-  margin: 0 auto;
-  width: fit-content;
-}
+.certificate[data-type="creativity"] .certificate-content { width: 75%; }
 
-.certificate[data-type="personality"] .scores-section p {
-  font-size: 16px;
-  line-height: 1.4;
-  margin: 5px 0;
+/* Text Styles */
+.certificate-content p {
+  font-size: 18px;
+  margin-bottom: 25px;
   color: #333;
 }
 
-.certificate[data-type="personality"] .scores-section p:first-child {
-  text-align: center;
-  margin-bottom: 15px;
-  font-size: 18px;
-}
-
-.certificate[data-type="personality"] .certificate-content p {
-  margin-bottom: 30px;
-  font-size: 22px; /* Increased font size */
-  font-weight: 600; /* Made bolder */
-  text-align: center;
-  color: #000000; /* Pure black */
-  text-shadow: 0.5px 0.5px 0px rgba(0, 0, 0, 0.2); /* Added slight shadow for better visibility */
-}
-
 .certificate[data-type="personality"] .certificate-content strong {
-  font-weight: 700; /* Extra bold for name */
-  color: #000000;
+  font-weight: 700;
+  color: #000;
 }
 
-.certificate[data-type="personality"] .certificate-content p strong:last-of-type {
+.certificate[data-type="personality"] .certificate-content strong:last-of-type {
   color: #1e3a8a;
   font-size: 24px;
   display: block;
   margin-top: 10px;
 }
 
-/* Creativity Certificate */
-.certificate[data-type="creativity"] .certificate-content {
-  top: 45%;
-}
-
-.certificate[data-type="creativity"] .scores-section {
+/* Scores Section */
+.scores-section {
   text-align: left;
   margin: 0 auto;
   width: fit-content;
 }
 
-.certificate[data-type="creativity"] .scores-section p {
+.scores-section p {
   font-size: 16px;
   line-height: 1.4;
   margin: 5px 0;
   color: #333;
 }
 
-.certificate[data-type="creativity"] .scores-section p:first-child {
+.scores-section p:first-child {
   text-align: center;
   margin-bottom: 15px;
   font-size: 18px;
 }
 
-.certificate-logo {
-  width: 150px;
-  margin-bottom: 20px;
-}
+/* UI Elements */
+.certificate-logo { width: 150px; margin-bottom: 20px; }
+.certificate-footer { position: absolute; bottom: 40px; left: 0; right: 0; text-align: center; }
+.signature-line { width: 200px; height: 1px; background-color: #000; margin: 10px auto; }
+.certificate-medal { position: absolute; bottom: 20px; right: 20px; width: 80px; height: 80px; }
 
-.certificate-content h2 {
-  font-size: 32px;
-  margin-bottom: 20px;
+/* Progress Bars */
+.certificate-progress-bars { width: 70%; margin: 20px auto; }
+.progress-item { margin-bottom: 12px; }
+.progress-label { display: flex; justify-content: space-between; margin-bottom: 4px; }
+.progress-bar-bg {
+  width: 100%; height: 10px;
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
 }
-
-.certificate-footer {
-  position: absolute;
-  bottom: 40px;
-  left: 0;
-  right: 0;
-  text-align: center;
+.progress-bar-fill {
+  height: 100%; border-radius: 5px;
+  transition: width 1s ease-in-out;
 }
+.progress-bar-fill.extraversion { background-color: #2171d3; }
+.progress-bar-fill.agreeableness { background-color: #e19411; }
+.progress-bar-fill.conscientiousness { background-color: #63b516; }
+.progress-bar-fill.neuroticism { background-color: #7a0be7; }
+.progress-bar-fill.openness { background-color: #e64444; }
 
-.signature-line {
-  width: 200px;
-  height: 1px;
-  background-color: #000;
-  margin: 10px auto;
-}
-
-.certificate-medal {
-  position: absolute;
-  bottom: 20px;
-  right: 20px;
-  width: 80px;
-  height: 80px;
-}
-
-/* Print styles */
-@media print {
-  .download-button {
-    display: none;
-  }
-  
-  .certificate {
-    width: 297mm;
-    height: 210mm;
-    margin: 0;
-    padding: 0;
-    background-size: contain;
-  }
-  
-  .certificate-container {
-    padding: 0;
-    margin: 0;
-  }
-}
-
+/* Form Styles */
 .user-data-form-container {
   min-height: 100vh;
   display: flex;
@@ -174,44 +115,22 @@
   padding: 20px;
   background-color: #f8fafc;
 }
-
 .user-data-form-card {
   width: 100%;
   max-width: 500px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  border: none;
   border-radius: 15px;
 }
-
 .user-data-form-card .card-header {
   background-color: #1e3a8a;
   color: white;
   padding: 20px;
-  border-top-left-radius: 15px;
-  border-top-right-radius: 15px;
+  border-radius: 15px 15px 0 0;
   text-align: center;
 }
+.user-data-form-card .card-body { padding: 30px; }
 
-.user-data-form-card .card-body {
-  padding: 30px;
-}
-
-.form-label {
-  font-weight: 500;
-  color: #4b5563;
-}
-
-.form-control {
-  padding: 12px;
-  border-radius: 8px;
-  border: 1px solid #e5e7eb;
-}
-
-.form-control:focus {
-  border-color: #1e3a8a;
-  box-shadow: 0 0 0 0.2rem rgba(30, 58, 138, 0.25);
-}
-
+/* Buttons */
 .btn-primary {
   padding: 12px;
   font-weight: 500;
@@ -219,99 +138,122 @@
   border: none;
   transition: all 0.3s ease;
 }
-
 .btn-primary:hover {
   background-color: #1e40af;
   transform: translateY(-2px);
 }
 
-@media (max-width: 576px) {
-  .user-data-form-card {
-    margin: 10px;
-  }
-  
-  .user-data-form-card .card-body {
-    padding: 20px;
-  }
+/* Print Styles */
+@media print {
+  .download-button { display: none; }
+  .certificate { width: 210mm; height: 300mm; background-size: contain; }
+  .certificate-container { padding: 0; margin: 0; }
 }
 
-@media screen and (max-width: 1200px) {
+/* Responsive Design */
+@media (max-width: 768px) {
   .certificate {
-    width: 100%;
-    height: auto;
-    max-width: 1123px;
-    aspect-ratio: 1.414;
+    width: 95%;
+    height: 700px;
+  }
+
+  /* Common text styles for all certificates */
+  .certificate-content {
+    width: 80%;
+  }
+
+  .certificate-content p {
+    font-size: 16px !important;
+    line-height: 1.3;
+  }
+
+  .certificate-content strong {
+    font-size: 16px !important;
+  }
+
+  /* Personality specific */
+  .certificate[data-type="personality"] {
+    .certificate-content p {
+      font-size: 14px !important;
+    }
+
+    .progress-label span {
+      font-size: 12px;
+    }
+
+    .progress-bar-bg {
+      height: 6px;
+    }
+  }
+
+  .certificate-footer { bottom: 20px; transform: scale(0.8); }
+  .signature-line { width: 150px; margin: 5px auto; }
+  .certificate-medal { width: 60px; height: 60px; bottom: 15px; right: 15px; }
+  .download-button {
+    width: 300px;
   }
 }
 
-.certificate-progress-bars {
-  width: 70%;
-  margin: 30px auto;
+/* Small phones */
+@media (max-width: 480px) {
+  .certificate-content { 
+    width: 65%;
+    font-size: 12px;
+  }
+  .certificate-content p {
+    font-size: 13px !important;
+    line-height: 1.2;
+  }
+  .certificate-content strong {
+    font-size: 13px !important;
+  }
+  .certificate-footer { bottom: 15px; transform: scale(0.7); }
+  .certificate-progress-bars { transform: scale(0.85); }
+  .progress-label {
+    font-size: 10px;
+  }
+  .download-button {
+    width: 300px;
+  }
+
+  /* Personality specific */
+  .certificate[data-type="personality"] {
+    .certificate-content p {
+      font-size: 11px !important;
+    }
+
+    .progress-label span {
+      font-size: 10px;
+    }
+
+    .progress-bar-bg {
+      height: 4px;
+    }
+  }
 }
 
-.progress-item {
-  margin-bottom: 15px;
-}
+/* Extra small phones */
+@media (max-width: 360px) {
+  .certificate-content p {
+    font-size: 11px !important;
+  }
 
-.progress-label {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 5px;
-}
+  .certificate-content strong {
+    font-size: 11px !important;
+  }
 
-.progress-label span {
-  font-size: 18px;
-  color: #000;
-  font-weight: 500;
-}
+  /* Personality specific */
+  .certificate[data-type="personality"] {
+    .certificate-content p {
+      font-size: 9px !important;
+    }
 
-.progress-label span:last-child {
-  font-weight: 600;
-}
+    .progress-label span {
+      font-size: 8px;
+    }
 
-.progress-bar-bg {
-  width: 100%;
-  height: 10px;
-  background-color: rgba(0, 0, 0, 0.1);
-  border-radius: 5px;
-  overflow: hidden;
-}
-
-.progress-bar-fill {
-  height: 100%;
-  border-radius: 5px;
-  transition: width 1s ease-in-out;
-}
-
-/* Progress bar colors - made them slightly darker */
-.progress-bar-fill.extraversion {
-  background-color: #2171d3;
-}
-
-.progress-bar-fill.agreeableness {
-  background-color: #e19411;
-}
-
-.progress-bar-fill.conscientiousness {
-  background-color: #63b516;
-}
-
-.progress-bar-fill.neuroticism {
-  background-color: #7a0be7;
-}
-
-.progress-bar-fill.openness {
-  background-color: #e64444;
-}
-
-/* Certificate content adjustments */
-.certificate[data-type="personality"] .certificate-content {
-  width: 85%;
-  top: 48%;
-}
-
-.certificate[data-type="personality"] .certificate-content p {
-  margin-bottom: 25px;
-  font-size: 18px;
-  text-align: center;
+    .progress-bar-bg {
+      height: 3px;
+    }
+  }
 }
