@@ -26,9 +26,10 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 70%; /* कम width रखी है ताकि कंटेंट इमेज के अंदर रहे */
+  width: 75%;
   text-align: center;
   padding: 20px;
+  color: #000000; /* Pure black color */
 }
 
 /* IQ Certificate */
@@ -44,7 +45,8 @@
 
 /* Personality Certificate */
 .certificate[data-type="personality"] .certificate-content {
-  top: 45%;
+  width: 85%;
+  top: 48%;
 }
 
 .certificate[data-type="personality"] .scores-section {
@@ -64,6 +66,27 @@
   text-align: center;
   margin-bottom: 15px;
   font-size: 18px;
+}
+
+.certificate[data-type="personality"] .certificate-content p {
+  margin-bottom: 30px;
+  font-size: 22px; /* Increased font size */
+  font-weight: 600; /* Made bolder */
+  text-align: center;
+  color: #000000; /* Pure black */
+  text-shadow: 0.5px 0.5px 0px rgba(0, 0, 0, 0.2); /* Added slight shadow for better visibility */
+}
+
+.certificate[data-type="personality"] .certificate-content strong {
+  font-weight: 700; /* Extra bold for name */
+  color: #000000;
+}
+
+.certificate[data-type="personality"] .certificate-content p strong:last-of-type {
+  color: #1e3a8a;
+  font-size: 24px;
+  display: block;
+  margin-top: 10px;
 }
 
 /* Creativity Certificate */
@@ -130,6 +153,15 @@
   }
   
   .certificate {
+    width: 297mm;
+    height: 210mm;
+    margin: 0;
+    padding: 0;
+    background-size: contain;
+  }
+  
+  .certificate-container {
+    padding: 0;
     margin: 0;
   }
 }
@@ -203,9 +235,83 @@
   }
 }
 
-@media screen and (max-width: 850px) {
+@media screen and (max-width: 1200px) {
   .certificate {
-    width: 95%;
-    height: 1000px;
+    width: 100%;
+    height: auto;
+    max-width: 1123px;
+    aspect-ratio: 1.414;
   }
+}
+
+.certificate-progress-bars {
+  width: 70%;
+  margin: 30px auto;
+}
+
+.progress-item {
+  margin-bottom: 15px;
+}
+
+.progress-label {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5px;
+}
+
+.progress-label span {
+  font-size: 18px;
+  color: #000;
+  font-weight: 500;
+}
+
+.progress-label span:last-child {
+  font-weight: 600;
+}
+
+.progress-bar-bg {
+  width: 100%;
+  height: 10px;
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  border-radius: 5px;
+  transition: width 1s ease-in-out;
+}
+
+/* Progress bar colors - made them slightly darker */
+.progress-bar-fill.extraversion {
+  background-color: #2171d3;
+}
+
+.progress-bar-fill.agreeableness {
+  background-color: #e19411;
+}
+
+.progress-bar-fill.conscientiousness {
+  background-color: #63b516;
+}
+
+.progress-bar-fill.neuroticism {
+  background-color: #7a0be7;
+}
+
+.progress-bar-fill.openness {
+  background-color: #e64444;
+}
+
+/* Certificate content adjustments */
+.certificate[data-type="personality"] .certificate-content {
+  width: 85%;
+  top: 48%;
+}
+
+.certificate[data-type="personality"] .certificate-content p {
+  margin-bottom: 25px;
+  font-size: 18px;
+  text-align: center;
 }

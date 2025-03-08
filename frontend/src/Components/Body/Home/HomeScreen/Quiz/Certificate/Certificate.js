@@ -21,26 +21,34 @@ const Certificate = ({ quizInfo, userData, setUserData, result }) => {
       
       const certificate = certificateRef.current;
       const canvas = await html2canvas(certificate, {
-        scale: 2, // Better quality
+        scale: 2,
         useCORS: true,
         allowTaint: true,
         backgroundColor: null
       });
 
       // A4 size in mm
-      const a4Width = 297;  // A4 width in landscape
-      const a4Height = 210; // A4 height in landscape
+      const a4Width = 210;  // A4 width in landscape
+      const a4Height = 300; // A4 height in landscape
 
       // Create PDF in landscape orientation
       const pdf = new jsPDF({
-        orientation: 'landscape',
+        orientation: 'portrait',
         unit: 'mm',
         format: 'a4'
       });
 
-      // Calculate image dimensions to fit A4 while maintaining aspect ratio
-      const imgData = canvas.toDataURL('image/png');
-      pdf.addImage(imgData, 'PNG', 0, 0, a4Width, a4Height);
+      // Add image maintaining aspect ratio
+      pdf.addImage(
+        canvas.toDataURL('image/png'), 
+        'PNG', 
+        0, 
+        0, 
+        a4Width, 
+        a4Height,
+        undefined,
+        'FAST'
+      );
       
       const fileName = `${quizType}_certificate_${userData.name.replace(/\s+/g, '_')}.pdf`;
       pdf.save(fileName);
@@ -93,39 +101,109 @@ const Certificate = ({ quizInfo, userData, setUserData, result }) => {
       case "normal":
         return (
           <div className="certificate-content">
-            <p>
-              This is to certify that <strong>{userData.name}</strong> has completed 
-              the IQ Assessment with a score of <strong>{result.iqLevel || "Average"}</strong>
+            <p style={{color: "#000000", fontSize: "22px"}}>
+              This is to certify that <strong style={{color: "#000000"}}>{userData.name}</strong> has completed 
+              the IQ Assessment and has an IQ score <strong style={{color: "#000000"}}>{result.iqLevel || "Average"}</strong>
             </p>
           </div>
         );
 
         
       case "personality":
+        // Find the highest scoring personality trait
+        const traits = {
+          extraversion: result.extraversion,
+          agreeableness: result.agreeableness,
+          conscientiousness: result.conscientiousness,
+          neuroticism: result.neuroticism,
+          openness: result.openness
+        };
+        
+        const highestTrait = Object.entries(traits).reduce((a, b) => 
+          a[1] > b[1] ? a : b
+        )[0];
+
+        // Convert trait name to proper format
+        const getTraitName = (trait) => {
+          const names = {
+            extraversion: "Extraversion",
+            agreeableness: "Agreeableness",
+            conscientiousness: "Conscientiousness",
+            neuroticism: "Neuroticism",
+            openness: "Openness"
+          };
+          return names[trait];
+        };
+
         return (
           <div className="certificate-content">
-            <div className="scores-section">
-              <p>This is to certify that <strong>{userData.name}</strong> has completed 
-              the Big Five Personality Assessment with the following scores:</p>
-              <div style={{display: 'flex', justifyContent: 'space-between'}}>
-                <span>Extraversion:</span>
-                <span>{result.extraversion.toFixed(2)}%</span>
+            <p>This is to certify that <strong>{userData.name}</strong> has completed 
+            the Big Five Personality Assessment and has Dominating Personality: <strong>{getTraitName(highestTrait)}</strong></p>
+            
+            <div className="certificate-progress-bars">
+              <div className="progress-item">
+                <div className="progress-label">
+                  <span>Extraversion</span>
+                  <span>{result.extraversion.toFixed(0)}%</span>
+                </div>
+                <div className="progress-bar-bg">
+                  <div 
+                    className="progress-bar-fill extraversion"
+                    style={{width: `${result.extraversion}%`}}
+                  ></div>
+                </div>
               </div>
-              <div style={{display: 'flex', justifyContent: 'space-between'}}>
-                <span>Agreeableness:</span>
-                <span>{result.agreeableness.toFixed(2)}%</span>
+
+              <div className="progress-item">
+                <div className="progress-label">
+                  <span>Agreeableness</span>
+                  <span>{result.agreeableness.toFixed(0)}%</span>
+                </div>
+                <div className="progress-bar-bg">
+                  <div 
+                    className="progress-bar-fill agreeableness"
+                    style={{width: `${result.agreeableness}%`}}
+                  ></div>
+                </div>
               </div>
-              <div style={{display: 'flex', justifyContent: 'space-between'}}>
-                <span>Conscientiousness:</span>
-                <span>{result.conscientiousness.toFixed(2)}%</span>
+
+              <div className="progress-item">
+                <div className="progress-label">
+                  <span>Conscientiousness</span>
+                  <span>{result.conscientiousness.toFixed(0)}%</span>
+                </div>
+                <div className="progress-bar-bg">
+                  <div 
+                    className="progress-bar-fill conscientiousness"
+                    style={{width: `${result.conscientiousness}%`}}
+                  ></div>
+                </div>
               </div>
-              <div style={{display: 'flex', justifyContent: 'space-between'}}>
-                <span>Neuroticism:</span>
-                <span>{result.neuroticism.toFixed(2)}%</span>
+
+              <div className="progress-item">
+                <div className="progress-label">
+                  <span>Neuroticism</span>
+                  <span>{result.neuroticism.toFixed(0)}%</span>
+                </div>
+                <div className="progress-bar-bg">
+                  <div 
+                    className="progress-bar-fill neuroticism"
+                    style={{width: `${result.neuroticism}%`}}
+                  ></div>
+                </div>
               </div>
-              <div style={{display: 'flex', justifyContent: 'space-between'}}>
-                <span>Openness:</span>
-                <span>{result.openness.toFixed(2)}%</span>
+
+              <div className="progress-item">
+                <div className="progress-label">
+                  <span>Openness</span>
+                  <span>{result.openness.toFixed(0)}%</span>
+                </div>
+                <div className="progress-bar-bg">
+                  <div 
+                    className="progress-bar-fill openness"
+                    style={{width: `${result.openness}%`}}
+                  ></div>
+                </div>
               </div>
             </div>
           </div>
@@ -254,4 +332,5 @@ const Certificate = ({ quizInfo, userData, setUserData, result }) => {
 };
 
 export default Certificate;
+
 

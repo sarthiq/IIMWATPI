@@ -20,42 +20,96 @@
   color: #0a58ca;
 }
 .question-card {
-  width: 90%;  /* बढ़ा दिया 80% से 90% */
-  max-width: 800px;  /* बढ़ा दिया 500px से 800px */
+  width: 90%;
+  max-width: 800px;
+  margin: 10px auto;
+  padding: 20px;
   background: white;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  padding: 30px;  /* बढ़ा दिया 15px से 30px */
-  margin: 20px auto;
 }
 
 .question-title {
-  font-size: 22px;  /* बढ़ा दिया 18px से 22px */
+  font-size: 22px;
   font-weight: bold;
   text-align: left;
-  margin-bottom: 20px;  /* बढ़ा दिया 10px से 20px */
+  margin-bottom: 20px;
 }
 
 .question-image img {
   max-width: 100%;
   height: auto;
-  max-height: 150px; /* Reduced size for compactness */
+  max-height: 150px;
   display: block;
   margin: 0 auto;
   border-radius: 5px;
 }
 
+/* Base styles for desktop (4 columns) */
 .question-options {
   display: grid;
-  grid-template-rows: repeat(2, auto); /* 2 Rows */
-  grid-auto-flow: column; /* Columns will adjust automatically */
-  gap: 10px;
-  margin-top: 15px;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+  margin-top: 20px;
+  padding: 10px;
 }
 
+/* Tablet view (3 columns) */
+@media (max-width: 992px) {
+  .question-options {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+  }
+
+  .question-option {
+    padding: 10px;
+  }
+
+  .option-image {
+    max-width: 90px;
+  }
+}
+
+/* Mobile view (2 columns) */
+@media (max-width: 768px) {
+  .question-options {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    padding: 5px;
+  }
+
+  .question-option {
+    padding: 8px;
+  }
+
+  .option-image {
+    max-width: 80px;
+  }
+}
+
+/* Small mobile adjustments */
+@media (max-width: 480px) {
+  .question-options {
+    gap: 8px;
+    padding: 3px;
+  }
+
+  .question-option {
+    padding: 6px;
+  }
+
+  .option-image {
+    max-width: 70px;
+  }
+}
+
+/* Option styles */
 .question-option {
   width: 100%;
-  padding: 8px;
+  min-height: 44px; /* Minimum touch target size */
+  display: flex;
+  align-items: center;
+  justify-content: center;
   font-size: 14px;
   text-align: center;
   border: 1px solid #007bff;
@@ -65,20 +119,18 @@
   cursor: pointer;
 }
 
-/* ✅ Green border on hover */
 .question-option:hover {
   border: 2px solid #1035ad !important;
   background-color: #1035ad;
+  color: white;
 }
 
-/* ✅ Green background when selected */
 .question-option.selected {
   background-color: #1035ad !important;
   color: white !important;
   border: 2px solid #1035ad !important;
 }
 
-/* Image inside option */
 .option-image {
   max-width: 100px;
   height: auto;
@@ -97,27 +149,20 @@
   width: 100%;
 }
 
-
-
 .next-button:hover {
-  background-color: #1035ad; /* Darker shade of blue */
-  transform: scale(1.025); /* Slightly increase size */
+  background-color: #1035ad;
+  transform: scale(1.025);
 }
-
-
-
-
-/* personality test */
 
 .question-circle {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 40px; /* Increased gap between options */
+  gap: 40px;
   margin: 30px auto;
   flex-wrap: nowrap;
   width: 90%;
-  max-width: 700px; /* Added max-width for better spacing */
+  max-width: 700px;
   padding: 20px 10px;
 }
 
@@ -127,22 +172,21 @@
   align-items: center;
   justify-content: center;
   position: relative;
-  min-width: 70px; /* Minimum width for each option */
+  min-width: 70px;
 }
 
 .option-text {
   position: absolute;
-  bottom: -25px; /* Position text below the circles */
+  bottom: -25px;
   left: 50%;
   transform: translateX(-50%);
   font-size: 11px;
   color: #333;
   text-align: center;
-  width: max-content; /* Let text take its natural width */
-  white-space: nowrap; /* Keep text in one line */
+  width: max-content;
+  white-space: nowrap;
 }
 
-/* Original colors and sizes */
 .option-wrapper:nth-child(1) .btn {
   width: 70px;
   height: 70px;
@@ -182,29 +226,90 @@
   transition: transform 0.2s ease-in-out;
 }
 
-/* Selected state */
 .btn.selected {
   transform: scale(1.1);
   border: 2px solid black;
 }
 
 @media (max-width: 768px) {
-  .question-circle {
-    gap: 20px; /* Reduced gap for mobile */
+  .question-card {
     width: 100%;
-    padding: 15px 5px;
+    padding: 15px;
+    margin: 5px auto;
+  }
+
+  .question-title {
+    font-size: 18px;
+    margin-bottom: 15px;
+  }
+
+  .question-circle {
+    gap: 12px;
+    padding: 10px 5px;
+    margin: 15px auto;
+    width: 100%;
+  }
+
+  .option-wrapper:nth-child(1) .btn {
+    width: 50px;
+    height: 50px;
+  }
+
+  .option-wrapper:nth-child(2) .btn {
+    width: 40px;
+    height: 40px;
+  }
+
+  .option-wrapper:nth-child(3) .btn {
+    width: 30px;
+    height: 30px;
+  }
+
+  .option-wrapper:nth-child(4) .btn {
+    width: 40px;
+    height: 40px;
+  }
+
+  .option-wrapper:nth-child(5) .btn {
+    width: 50px;
+    height: 50px;
   }
 
   .option-text {
-    font-size: 10px;
-    bottom: -20px;
+    font-size: 11px;
+    bottom: -22px;
+    width: auto;
+    white-space: nowrap;
   }
 
-  .option-wrapper {
-    min-width: 45px;
+  .btn {
+    min-height: 44px;
+    padding: 10px;
   }
 
-  /* Mobile sizes */
+  .progress-label span {
+    font-size: 16px;
+  }
+
+  .progress-bar-bg {
+    height: 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .question-card {
+    padding: 12px;
+  }
+
+  .question-title {
+    font-size: 16px;
+  }
+
+  .question-circle {
+    gap: 10px;
+    margin: 10px auto;
+  }
+
   .option-wrapper:nth-child(1) .btn {
     width: 45px;
     height: 45px;
@@ -229,12 +334,45 @@
     width: 45px;
     height: 45px;
   }
+
+  .option-text {
+    font-size: 10px;
+    bottom: -20px;
+  }
 }
 
-/* Extra small screens */
-@media (max-width: 480px) {
+@media (max-width: 360px) {
+  .question-card {
+    padding: 10px;
+  }
+
   .question-circle {
-    gap: 15px;
+    gap: 8px;
+  }
+
+  .option-wrapper:nth-child(1) .btn {
+    width: 40px;
+    height: 40px;
+  }
+
+  .option-wrapper:nth-child(2) .btn {
+    width: 32px;
+    height: 32px;
+  }
+
+  .option-wrapper:nth-child(3) .btn {
+    width: 24px;
+    height: 24px;
+  }
+
+  .option-wrapper:nth-child(4) .btn {
+    width: 32px;
+    height: 32px;
+  }
+
+  .option-wrapper:nth-child(5) .btn {
+    width: 40px;
+    height: 40px;
   }
 
   .option-text {
@@ -243,7 +381,6 @@
   }
 }
 
-/* Landscape Mode */
 @media (max-height: 500px) and (orientation: landscape) {
   .question-container {
     padding: 5px;
@@ -251,18 +388,13 @@
 
   .question-card {
     margin: 5px auto;
+    padding: 10px;
   }
 
   .question-circle {
-    margin: 15px 0;
-  }
-
-  .option-wrapper {
-    margin: 5px;
+    margin: 10px 0;
   }
 }
-
-/* Creativity Question */
 
 .points-list {
   max-height: 300px;
@@ -293,7 +425,6 @@
   border-radius: 8px;
 }
 
-/* Extra small screens */
 @media (max-width: 320px) {
   .option-wrapper:nth-child(1) .btn {
     width: 40px;
