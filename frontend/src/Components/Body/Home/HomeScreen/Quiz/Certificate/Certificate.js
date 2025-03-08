@@ -86,11 +86,11 @@ const Certificate = ({ quizInfo, userData, setUserData, result }) => {
   const getCertificateBackground = () => {
     switch(quizType) {
       case "normal":
-        return "/CertificateIQ.png";
+        return "/CertificateIQ.png?quality=100";
       case "personality":
-        return "/CertificatePersonality.png";
+        return "/CertificatePersonality.png?quality=100";
       case "creativity":
-        return "/CertificateCreativity.png";
+        return "/CertificateCreativity.png?quality=100";
       default:
         return "";
     }
@@ -212,30 +212,10 @@ const Certificate = ({ quizInfo, userData, setUserData, result }) => {
       case "creativity":
         return (
           <div className="certificate-content">
-            <div className="scores-section">
-              <p>This is to certify that <strong>{userData.name}</strong> has completed 
-                the Creativity Assessment with the following scores:</p>
-              <div style={{display: 'flex', justifyContent: 'space-between'}}>
-                <span>Overall Level:</span>
-                <span>{result.total.toFixed(2)}</span>
-              </div>
-              <div style={{display: 'flex', justifyContent: 'space-between'}}>
-                <span>Fluency:</span>
-                <span>{result.categoryScores?.fluency.toFixed(2)}</span>
-              </div>
-              <div style={{display: 'flex', justifyContent: 'space-between'}}>
-                <span>Flexibility:</span>
-                <span>{result.categoryScores?.flexibility.toFixed(2)}</span>
-              </div>
-              <div style={{display: 'flex', justifyContent: 'space-between'}}>
-                <span>Originality:</span>
-                <span>{result.categoryScores?.originality.toFixed(2)}</span>
-              </div>
-              <div style={{display: 'flex', justifyContent: 'space-between'}}>
-                <span>Elaboration:</span>
-                <span>{result.categoryScores?.elaboration.toFixed(2)}</span>
-              </div>
-            </div>
+            <p style={{color: "#000000", fontSize: "22px"}}>
+              This is to certify that <strong style={{color: "#000000"}}>{userData.name}</strong> has completed 
+              the Creativity Assessment and has achieved a Creativity Level of <strong style={{color: "#000000"}}>{result.label}</strong>
+            </p>
           </div>
         );
 
