@@ -99,7 +99,7 @@ export const TestSection = () => {
                 </div>
               )}
               
-              {quiz.id === 3 ? (
+              {quiz.typeId =='creativity' ? (
                 <button className="take-test-btn" disabled>
                   Coming Soon
                 </button>
