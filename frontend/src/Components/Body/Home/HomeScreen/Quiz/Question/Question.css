@@ -181,7 +181,7 @@
   left: 50%;
   transform: translateX(-50%);
   font-size: 11px;
-  color: #333;
+  color: #000000;
   text-align: center;
   width: max-content;
   white-space: nowrap;
@@ -203,7 +203,7 @@
   width: 30px;
   height: 30px;
   border: 2px solid gray;
-  background-color: white;
+  background-color: rgb(88, 88, 88);
 }
 
 .option-wrapper:nth-child(4) .btn {
@@ -244,47 +244,40 @@
   }
 
   .question-circle {
-    gap: 12px;
+    gap: 15px;
     padding: 10px 5px;
     margin: 15px auto;
     width: 100%;
+    border: none !important;
+    border-bottom: none !important;
+    box-shadow: none !important;
+    text-decoration: none !important;
+    background-image: none !important;
   }
 
-  .option-wrapper:nth-child(1) .btn {
-    width: 50px;
-    height: 50px;
+  .option-wrapper {
+    min-width: 60px;
+    margin: 0 5px;
+    border: none !important;
+    border-bottom: none !important;
   }
 
-  .option-wrapper:nth-child(2) .btn {
-    width: 40px;
-    height: 40px;
+  .question-card hr,
+  .card hr {
+    display: none !important;
   }
 
-  .option-wrapper:nth-child(3) .btn {
-    width: 30px;
-    height: 30px;
+  .question-card,
+  .card-body,
+  .card-footer {
+    border: none !important;
+    box-shadow: none !important;
   }
 
-  .option-wrapper:nth-child(4) .btn {
-    width: 40px;
-    height: 40px;
-  }
-
-  .option-wrapper:nth-child(5) .btn {
-    width: 50px;
-    height: 50px;
-  }
-
-  .option-text {
-    font-size: 11px;
-    bottom: -22px;
-    width: auto;
-    white-space: nowrap;
-  }
-
-  .btn {
-    min-height: 44px;
-    padding: 10px;
+  .card,
+  .card-body,
+  .card-footer {
+    border: none !important;
   }
 
   .progress-label span {
@@ -306,13 +299,18 @@
   }
 
   .question-circle {
-    gap: 10px;
-    margin: 10px auto;
+    border: none !important;
+    border-bottom: none !important;
+  }
+
+  .option-wrapper {
+    min-width: 50px;
+    margin: 0 3px;
   }
 
   .option-wrapper:nth-child(1) .btn {
-    width: 45px;
-    height: 45px;
+    width: 40px;
+    height: 40px;
   }
 
   .option-wrapper:nth-child(2) .btn {
@@ -321,8 +319,8 @@
   }
 
   .option-wrapper:nth-child(3) .btn {
-    width: 25px;
-    height: 25px;
+    width: 30px;
+    height: 30px;
   }
 
   .option-wrapper:nth-child(4) .btn {
@@ -331,13 +329,14 @@
   }
 
   .option-wrapper:nth-child(5) .btn {
-    width: 45px;
-    height: 45px;
+    width: 40px;
+    height: 40px;
   }
 
   .option-text {
-    font-size: 10px;
+    font-size: 9px;
     bottom: -20px;
+    width: 50px;
   }
 }
 
@@ -348,36 +347,43 @@
 
   .question-circle {
     gap: 8px;
+    padding-bottom: 22px;
+  }
+
+  .option-wrapper {
+    min-width: 45px;
+    margin: 0 2px;
   }
 
   .option-wrapper:nth-child(1) .btn {
-    width: 40px;
-    height: 40px;
+    width: 35px;
+    height: 35px;
   }
 
   .option-wrapper:nth-child(2) .btn {
-    width: 32px;
-    height: 32px;
+    width: 30px;
+    height: 30px;
   }
 
   .option-wrapper:nth-child(3) .btn {
-    width: 24px;
-    height: 24px;
+    width: 25px;
+    height: 25px;
   }
 
   .option-wrapper:nth-child(4) .btn {
-    width: 32px;
-    height: 32px;
+    width: 30px;
+    height: 30px;
   }
 
   .option-wrapper:nth-child(5) .btn {
-    width: 40px;
-    height: 40px;
+    width: 35px;
+    height: 35px;
   }
 
   .option-text {
-    font-size: 9px;
+    font-size: 8px;
     bottom: -18px;
+    width: 45px;
   }
 }
 

@@ -474,26 +474,100 @@
   }
   
   .trait-table {
+    margin: 10px -15px;
     overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
   }
   
   .trait-table table {
-    font-size: 14px;
+    width: 100%;
+    min-width: 500px; /* Ensure minimum width for content */
   }
   
-  .trait-table th {
-    font-size: 16px;
-  }
-  
+  /* First column (Personality Types) */
+  .trait-table th:first-child,
   .trait-table td:first-child {
-    font-size: 15px;
+    position: sticky;
+    left: 0;
+    background: white;
+    z-index: 1;
+    width: 110px !important;
+    min-width: 110px;
+    font-size: 13px;
+    padding: 8px;
+    border-right: 1px solid #dee2e6;
+    white-space: normal; /* Allow text to wrap */
+    word-break: break-word;
   }
   
+  /* Other columns */
+  .trait-table td:nth-child(2),
+  .trait-table td:nth-child(3) {
+    min-width: 200px;
+    padding: 8px;
+  }
+  
+  /* List items in cells */
   .trait-table li {
-    font-size: 14px;
+    font-size: 12px;
+    margin-bottom: 5px;
+    line-height: 1.3;
   }
   
   .explanation-title {
-    font-size: 22px;
+    font-size: 18px;
+    margin-bottom: 15px;
+  }
+}
+
+/* Small phones */
+@media (max-width: 480px) {
+  .trait-table table {
+    min-width: 450px;
+  }
+
+  .trait-table th:first-child,
+  .trait-table td:first-child {
+    width: 100px !important;
+    min-width: 100px;
+    font-size: 12px;
+    padding: 6px;
+  }
+
+  .trait-table td:nth-child(2),
+  .trait-table td:nth-child(3) {
+    min-width: 180px;
+    padding: 6px;
+  }
+
+  .explanation-title {
+    font-size: 16px;
+    margin-bottom: 12px;
+  }
+}
+
+/* Extra small phones */
+@media (max-width: 360px) {
+  .trait-table table {
+    min-width: 400px;
+  }
+
+  .trait-table th:first-child,
+  .trait-table td:first-child {
+    width: 90px !important;
+    min-width: 90px;
+    font-size: 11px;
+    padding: 5px;
+  }
+
+  .trait-table td:nth-child(2),
+  .trait-table td:nth-child(3) {
+    min-width: 160px;
+    padding: 5px;
+  }
+
+  .explanation-title {
+    font-size: 16px;
+    margin-bottom: 12px;
   }
 }
