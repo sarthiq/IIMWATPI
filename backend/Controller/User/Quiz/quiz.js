@@ -244,11 +244,11 @@ exports.submitPersonalityQuiz = async (req, res) => {
       }
     );
     await transaction.commit();
-
+    result.token = token;
     return res.status(200).json({
       success: true,
       data: result,
-      token,
+
       message: "Personality quiz submitted successfully",
     });
   } catch (error) {
@@ -304,12 +304,11 @@ exports.submitCreativityQuiz = async (req, res) => {
       }
     );
     await transaction.commit();
-
+    result.token = token;
     return res.status(200).json({
       success: true,
       data: result,
       message: "Creativity quiz submitted successfully",
-      token,
     });
   } catch (error) {
     if (transaction) {
@@ -327,6 +326,14 @@ exports.submitCreativityQuiz = async (req, res) => {
 exports.updateStudentDetails = async (req, res) => {
   const { token, name, email } = req.body;
   try {
+    if (!token || !name || !email) {
+      return res
+        .status(400)
+        .json({
+          success: false,
+          message: "Missing required fields- token, name, email",
+        });
+    }
     const decoded = jwt.verify(token, process.env.JWT_SECRET_KEY);
     const user = await UnverifiedUser.findByPk(decoded.id);
     if (!user) {
@@ -337,8 +344,11 @@ exports.updateStudentDetails = async (req, res) => {
     user.name = name;
     user.email = email;
     await user.save();
-    return res.status(200).json({ success: true, message: "User details updated successfully" });
+    return res
+      .status(200)
+      .json({ success: true, message: "User details updated successfully" });
   } catch (error) {
+    console.error("Error updating student details:", error);
     return res
       .status(500)
       .json({ success: false, message: "Internal server error" });
