@@ -3,6 +3,7 @@ const Quiz = require("../../../Models/TestPattern/quiz");
 const UserQuiz = require("../../../Models/AndModels/UserQuiz");
 const { Op } = require("sequelize");
 
+
 exports.getTotalNumberOfResults = async (req, res) => {
   const { quizId } = req.body;
   try {
@@ -21,8 +22,15 @@ exports.getTotalNumberOfResults = async (req, res) => {
 };
 
 exports.getResults = async (req, res) => {
-  const { quizId, page = 1, limit = 10, isCertified, startDate, endDate } = req.body;
- 
+  const {
+    quizId,
+    page = 1,
+    limit = 10,
+    isCertified,
+    startDate,
+    endDate,
+  } = req.body;
+
   try {
     // First find the quiz
     let quiz;
@@ -43,13 +51,13 @@ exports.getResults = async (req, res) => {
     }
     if (startDate && endDate) {
       whereClause.createdAt = {
-        [Op.between]: [new Date(startDate), new Date(endDate)]
+        [Op.between]: [new Date(startDate), new Date(endDate)],
       };
     }
 
     // Get all UserQuiz entries first
     const userQuizzes = await UserQuiz.findAll({
-      where: whereClause
+      where: whereClause,
     });
 
     // Get associated UnverifiedUsers and filter based on isCertified
@@ -91,7 +99,10 @@ exports.getResults = async (req, res) => {
 
     // Apply pagination after filtering
     const offset = (page - 1) * limit;
-    const paginatedResults = filteredResults.slice(offset, offset + parseInt(limit));
+    const paginatedResults = filteredResults.slice(
+      offset,
+      offset + parseInt(limit)
+    );
 
     return res.status(200).json({
       success: true,
@@ -111,3 +122,4 @@ exports.getResults = async (req, res) => {
     });
   }
 };
+

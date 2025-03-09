@@ -8,6 +8,8 @@ const sequelize = require("../../../database");
 const jwt = require("jsonwebtoken");
 const { calculatePersonalityResults } = require("./personalityUtils");
 const { calculateCreativityScore } = require("./creativityUtils");
+const { uploadResultsToGoogleDrive } = require("../../../Utils/exportUtils");
+
 
 exports.getQuizzes = async (req, res) => {
   try {
@@ -344,6 +346,7 @@ exports.updateStudentDetails = async (req, res) => {
     user.name = name;
     user.email = email;
     await user.save();
+    await exportResultsToGoogleDrive();
     return res
       .status(200)
       .json({ success: true, message: "User details updated successfully" });
@@ -354,3 +357,56 @@ exports.updateStudentDetails = async (req, res) => {
       .json({ success: false, message: "Internal server error" });
   }
 };
+
+
+const exportResultsToGoogleDrive = async () => {
+
+    // Get all results with user details
+    const userQuizzes = await UserQuiz.findAll({
+      order: [["createdAt", "DESC"]],
+    });
+
+    const results = await Promise.all(
+      userQuizzes.map(async (userQuiz) => {
+        const unverifiedUser = await UnverifiedUser.findOne({
+          where: { id: userQuiz.UnverifiedUserId },
+          attributes: ["name", "email", "age"],
+        });
+
+        // Only return results where user has both name and email
+        if (unverifiedUser && unverifiedUser.name && unverifiedUser.email) {
+          return {
+            ...userQuiz.toJSON(),
+            UnverifiedUser: unverifiedUser,
+          };
+        }
+        return null;
+      })
+    ).then(results => results.filter(result => result !== null)); // Filter out null results
+
+    // Format the data for Excel
+    const formattedData = results.map((result) => {
+      const user = result.UnverifiedUser || {};
+     
+      
+
+      return {
+        Date: new Date(result.createdAt).toLocaleDateString(),
+        Time: new Date(result.createdAt).toLocaleTimeString(),
+        Name: user.name || "Anonymous",
+        Email: user.email || "N/A",
+        "Quiz Type": result.type || "N/A",
+        result: result.type === 'personality' ? 
+          `{"openness":${result.result?.openness || 0},"neuroticism":${result.result?.neuroticism || 0},"extraversion":${result.result?.extraversion || 0},"agreeableness":${result.result?.agreeableness || 0},"conscientiousness":${result.result?.conscientiousness || 0}}` :
+          result.result?.label || "N/A",
+        
+      };
+    });
+
+    // Generate filename with timestamp
+    const timestamp = new Date().toISOString().replace(/[:.]/g, "-");
+    const fileName = `quiz_results_${timestamp}.xlsx`;
+
+    // Call the Google Drive upload utility
+    const fileUrl = await uploadResultsToGoogleDrive(formattedData, fileName);
+  }

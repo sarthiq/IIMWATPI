@@ -2,6 +2,8 @@
 backend/node_modules/
 backend/.env
 backend/CustomFiles/
+backend/google-drive.json
+backend/temp/
 
 
 # Ignore for frontend (React.js)
