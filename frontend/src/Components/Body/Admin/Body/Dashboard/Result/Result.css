@@ -47,13 +47,49 @@
 
 .filters-wrapper {
   display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.filter-group {
+  display: flex;
   gap: 15px;
   align-items: center;
+  flex-wrap: wrap;
 }
 
 .filter-select,
 .records-select {
   min-width: 200px;
+}
+
+.certified-toggle {
+  min-width: 120px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 38px;
+}
+
+.date-range-picker {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.date-range-picker .form-control {
+  min-width: 220px;
+}
+
+.clear-dates-btn {
+  position: absolute;
+  right: 10px;
+  padding: 0;
+  color: #6c757d;
+}
+
+.clear-dates-btn:hover {
+  color: #dc3545;
 }
 
 .results-info {
@@ -100,6 +136,15 @@
   font-size: 1.1em;
 }
 
+/* React DatePicker customization */
+.react-datepicker-wrapper {
+  width: auto;
+}
+
+.react-datepicker__input-container input {
+  padding-right: 30px;
+}
+
 @media (max-width: 768px) {
   .result-admin-container {
     padding: 10px;
@@ -141,5 +186,20 @@
   .export-button {
     width: 100%;
     justify-content: center;
+  }
+
+  .filter-group {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .certified-toggle,
+  .date-range-picker,
+  .date-range-picker .form-control {
+    width: 100%;
+  }
+
+  .clear-dates-btn {
+    right: 10px;
   }
 }

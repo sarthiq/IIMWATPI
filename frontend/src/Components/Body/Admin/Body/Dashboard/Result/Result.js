@@ -1,16 +1,23 @@
 import React, { useState, useEffect } from "react";
-import { Container, Table, Form, Spinner, Pagination, Button } from "react-bootstrap";
+import { Container, Table, Form, Spinner, Pagination, Button, ToggleButton } from "react-bootstrap";
 import { useAlert } from "../../../../../UI/Alert/AlertContext";
 import { getResultsHandler, getResultCount } from "./apiHandler";
 import "./Result.css";
 import { quizHandler } from "../Quiz/apiHandler";
 import * as XLSX from 'xlsx';
+import DatePicker from 'react-datepicker';
+import "react-datepicker/dist/react-datepicker.css";
 
 export const Result = () => {
   const [results, setResults] = useState([]);
   const [loading, setLoading] = useState(true);
   const [filter, setFilter] = useState("all");
   const [quizzes, setQuizzes] = useState([]);
+  const [isCertified, setIsCertified] = useState(false);
+  const [dateRange, setDateRange] = useState({
+    startDate: null,
+    endDate: null
+  });
 
   const [pagination, setPagination] = useState({
     currentPage: 1,
@@ -22,21 +29,18 @@ export const Result = () => {
 
   const recordsPerPageOptions = [50, 100, 200, 500, 1000];
 
- 
   useEffect(() => {
     fetchQuizzes();
   }, []);
   
   useEffect(() => {
     fetchTotalCount();
-  }, [filter]);
+  }, [filter,isCertified, dateRange]);
 
   useEffect(() => {
     fetchResults();
-  }, [filter, pagination.currentPage, pagination.itemsPerPage]);
+  }, [filter, pagination.currentPage, pagination.itemsPerPage, isCertified, dateRange]);
 
-
-  
   const fetchQuizzes = async () => {
     const response = await quizHandler({}, "getQuizzes", setLoading, showAlert);
     if (response) {
@@ -47,7 +51,10 @@ export const Result = () => {
   const fetchTotalCount = async () => {
     const data = {
       quizId: filter !== "all" ? filter : null,
+      startDate: dateRange.startDate ? dateRange.startDate.toISOString() : null,
+      endDate: dateRange.endDate ? dateRange.endDate.toISOString() : null
     };
+   
     const response = await getResultCount(data, setLoading, showAlert);
     if (response && response.success) {
       setPagination((prev) => ({
@@ -63,6 +70,9 @@ export const Result = () => {
       quizId: filter !== "all" ? filter : null,
       page: pagination.currentPage,
       limit: pagination.itemsPerPage,
+      isCertified,
+      startDate: dateRange.startDate ? dateRange.startDate.toISOString() : null,
+      endDate: dateRange.endDate ? dateRange.endDate.toISOString() : null
     };
 
     const response = await getResultsHandler(data, setLoading, showAlert);
@@ -91,6 +101,13 @@ export const Result = () => {
       currentPage: 1, // Reset to first page when changing limit
       totalPages: Math.ceil(prev.totalItems / newLimit),
     }));
+  };
+
+  const handleDateRangeReset = () => {
+    setDateRange({
+      startDate: null,
+      endDate: null
+    });
   };
 
   const renderPagination = () => {
@@ -242,30 +259,73 @@ export const Result = () => {
           </Button>
         </div>
         <div className="filters-wrapper mt-3">
-          <Form.Select
-            value={filter}
-            onChange={(e) => setFilter(e.target.value)}
-            className="filter-select"
-          >
-            <option value="all">All Quizzes</option>
-            {quizzes.map((quiz) => (
-              <option key={quiz.id} value={quiz.id}>
-                {quiz.title}
-              </option>
-            ))}
-          </Form.Select>
+          <div className="filter-group">
+            <Form.Select
+              value={filter}
+              onChange={(e) => setFilter(e.target.value)}
+              className="filter-select"
+            >
+              <option value="all">All Quizzes</option>
+              {quizzes.map((quiz) => (
+                <option key={quiz.id} value={quiz.id}>
+                  {quiz.title}
+                </option>
+              ))}
+            </Form.Select>
 
-          <Form.Select
-            value={pagination.itemsPerPage}
-            onChange={handleRecordsPerPageChange}
-            className="records-select"
-          >
-            {recordsPerPageOptions.map((option) => (
-              <option key={option} value={option}>
-                {option} records per page
-              </option>
-            ))}
-          </Form.Select>
+            <Form.Select
+              value={pagination.itemsPerPage}
+              onChange={handleRecordsPerPageChange}
+              className="records-select"
+            >
+              {recordsPerPageOptions.map((option) => (
+                <option key={option} value={option}>
+                  {option} records per page
+                </option>
+              ))}
+            </Form.Select>
+          </div>
+
+          <div className="filter-group">
+            <ToggleButton
+              id="certified-toggle"
+              type="checkbox"
+              variant="outline-primary"
+              checked={isCertified}
+              value="1"
+              onChange={(e) => setIsCertified(e.currentTarget.checked)}
+              className="certified-toggle"
+            >
+              {isCertified ? 'Certified Only' : 'All Results'}
+            </ToggleButton>
+
+            <div className="date-range-picker">
+              <DatePicker
+                selectsRange={true}
+                startDate={dateRange.startDate}
+                endDate={dateRange.endDate}
+                onChange={(update) => {
+                  setDateRange({
+                    startDate: update[0],
+                    endDate: update[1]
+                  });
+                }}
+                isClearable={true}
+                placeholderText="Select date range"
+                className="form-control"
+               // maxDate={new Date()}
+              />
+              {(dateRange.startDate || dateRange.endDate) && (
+                <Button 
+                  variant="link" 
+                  className="clear-dates-btn"
+                  onClick={handleDateRangeReset}
+                >
+                  <i className="bi bi-x-circle"></i>
+                </Button>
+              )}
+            </div>
+          </div>
         </div>
       </div>
 
