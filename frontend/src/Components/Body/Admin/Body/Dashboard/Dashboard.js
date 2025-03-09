@@ -4,6 +4,7 @@ import "./Dashboard.css";
 import { useState } from "react";
 import { Home } from "./Home/Home";
 import { Quiz } from "./Quiz/Quiz";
+import { Result } from "./Result/Result";
 
 export const DashboardPage = () => {
   const [collapsed, setCollapsed] = useState(false);
@@ -38,7 +39,17 @@ export const DashboardPage = () => {
               {!collapsed && <span>Quiz</span>}
             </NavLink>
           </li>
-          
+          <li>
+            <NavLink
+              to="./result"
+              className={({ isActive }) =>
+                isActive ? "tab-link active-tab" : "tab-link"
+              }
+            >
+              <i className="tab-icon bi bi-clipboard-data"></i>
+              {!collapsed && <span>Results</span>}
+            </NavLink>
+          </li>
         </ul>
 
         <button className="toggle-button" onClick={toggleSidebar}>
@@ -46,11 +57,12 @@ export const DashboardPage = () => {
         </button>
       </div>
       <div className="content">
-      <Routes>
-        <Route path="" element={<Home />} />
-        <Route path="quiz/*" element={<Quiz />} />{" "}
-        <Route path="*" element={<Navigate to="/admin" replace />} />
-      </Routes>
+        <Routes>
+          <Route path="" element={<Home />} />
+          <Route path="quiz/*" element={<Quiz />} />
+          <Route path="result/*" element={<Result />} />
+          <Route path="*" element={<Navigate to="/admin" replace />} />
+        </Routes>
       </div>
     </div>
   );

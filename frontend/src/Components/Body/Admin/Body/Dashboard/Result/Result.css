@@ -1,0 +1,145 @@
+.result-admin-container {
+  padding: 20px;
+}
+
+.result-admin-container h2 {
+  color: #1e3a8a;
+  margin-bottom: 20px;
+}
+
+.table {
+  background-color: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+.table thead th {
+  background-color: #f8fafc;
+  color: #1e3a8a;
+  font-weight: 600;
+  border-bottom: 2px solid #e5e7eb;
+}
+
+.table tbody tr:hover {
+  background-color: #f1f5f9;
+}
+
+.form-select {
+  border-color: #e5e7eb;
+  border-radius: 6px;
+  padding: 8px 12px;
+  color: #1e3a8a;
+  font-weight: 500;
+}
+
+.form-select:focus {
+  border-color: #1e3a8a;
+  box-shadow: 0 0 0 0.2rem rgba(30, 58, 138, 0.25);
+}
+
+.filters-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.filters-wrapper {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+.filter-select,
+.records-select {
+  min-width: 200px;
+}
+
+.results-info {
+  color: #6b7280;
+  font-size: 0.9rem;
+}
+
+.pagination-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.pagination {
+  --bs-pagination-color: #1e3a8a;
+  --bs-pagination-active-bg: #1e3a8a;
+  --bs-pagination-active-border-color: #1e3a8a;
+}
+
+.table tbody td {
+  vertical-align: middle;
+}
+
+.export-button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.export-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.export-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.export-button i {
+  font-size: 1.1em;
+}
+
+@media (max-width: 768px) {
+  .result-admin-container {
+    padding: 10px;
+  }
+
+  .d-flex {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .form-select {
+    width: 100% !important;
+  }
+
+  .filters-container {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .filters-wrapper {
+    flex-direction: column;
+  }
+
+  .filter-select,
+  .records-select {
+    width: 100%;
+  }
+
+  .pagination {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .filters-container > div:first-child {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .export-button {
+    width: 100%;
+    justify-content: center;
+  }
+}
