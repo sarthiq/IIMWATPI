@@ -1,9 +1,11 @@
 import React, { useRef, useState } from "react";
 import { useReactToPrint } from "react-to-print";
 import { Container, Button, Form, Card } from "react-bootstrap";
-import html2canvas from 'html2canvas';
-import jsPDF from 'jspdf';
+import html2canvas from "html2canvas";
+import jsPDF from "jspdf";
 import "./Certificate.css";
+import { updateStudentDetailsHandler } from "../apiHandler";
+import { useAlert } from "../../../../../UI/Alert/AlertContext";
 
 const Certificate = ({ quizInfo, userData, setUserData, result }) => {
   console.log(result);
@@ -12,79 +14,98 @@ const Certificate = ({ quizInfo, userData, setUserData, result }) => {
   const [isDownloading, setIsDownloading] = useState(false);
   const [formData, setFormData] = useState({
     name: userData.name || "",
-    email: userData.email || ""
+    email: userData.email || "",
   });
   const [validated, setValidated] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const { showAlert } = useAlert();
+
   const handleDownload = async () => {
     try {
       setIsDownloading(true);
-      
+
       const certificate = certificateRef.current;
       const canvas = await html2canvas(certificate, {
         scale: 2,
         useCORS: true,
         allowTaint: true,
-        backgroundColor: null
+        backgroundColor: null,
       });
 
       // A4 size in mm
-      const a4Width = 210;  // A4 width in landscape
+      const a4Width = 210; // A4 width in landscape
       const a4Height = 300; // A4 height in landscape
 
       // Create PDF in landscape orientation
       const pdf = new jsPDF({
-        orientation: 'portrait',
-        unit: 'mm',
-        format: 'a4'
+        orientation: "portrait",
+        unit: "mm",
+        format: "a4",
       });
 
       // Add image maintaining aspect ratio
       pdf.addImage(
-        canvas.toDataURL('image/png'), 
-        'PNG', 
-        0, 
-        0, 
-        a4Width, 
+        canvas.toDataURL("image/png"),
+        "PNG",
+        0,
+        0,
+        a4Width,
         a4Height,
         undefined,
-        'FAST'
+        "FAST"
       );
-      
-      const fileName = `${quizType}_certificate_${userData.name.replace(/\s+/g, '_')}.pdf`;
+
+      const fileName = `${quizType}_certificate_${userData.name.replace(
+        /\s+/g,
+        "_"
+      )}.pdf`;
       pdf.save(fileName);
     } catch (error) {
-      console.error('Error generating PDF:', error);
+      console.error("Error generating PDF:", error);
     } finally {
       setIsDownloading(false);
     }
   };
 
-
-  
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
     const form = event.currentTarget;
-    
+
     if (form.checkValidity()) {
-      setUserData({
-        ...userData,
+      // Prepare data for API
+      const submitData = {
         name: formData.name,
-        email: formData.email
-      });
+        email: formData.email,
+        token: userData.token, // Assuming token is in result
+      };
+
+      const response = await updateStudentDetailsHandler(
+        submitData,
+        setIsSubmitting,
+        showAlert
+      );
+
+      if (response && response.success) {
+        setUserData({
+          ...userData,
+          name: formData.name,
+          email: formData.email,
+        });
+      }
     }
-    
+
     setValidated(true);
   };
 
   const handleChange = (e) => {
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     });
   };
 
   const getCertificateBackground = () => {
-    switch(quizType) {
+    switch (quizType) {
       case "normal":
         return "/CertificateIQ.png?quality=100";
       case "personality":
@@ -97,18 +118,21 @@ const Certificate = ({ quizInfo, userData, setUserData, result }) => {
   };
 
   const getCertificateContent = () => {
-    switch(quizType) {
+    switch (quizType) {
       case "normal":
         return (
           <div className="certificate-content">
-            <p style={{color: "#000000", fontSize: "22px"}}>
-              This is to certify that <strong style={{color: "#000000"}}>{userData.name}</strong> has completed 
-              the IQ Assessment and has an IQ score <strong style={{color: "#000000"}}>{result.iqLevel || "Average"}</strong>
+            <p style={{ color: "#000000", fontSize: "22px" }}>
+              This is to certify that{" "}
+              <strong style={{ color: "#000000" }}>{userData.name}</strong> has
+              completed the IQ Assessment and has an IQ score{" "}
+              <strong style={{ color: "#000000" }}>
+                {result.iqLevel || "Average"}
+              </strong>
             </p>
           </div>
         );
 
-        
       case "personality":
         // Find the highest scoring personality trait
         const traits = {
@@ -116,10 +140,10 @@ const Certificate = ({ quizInfo, userData, setUserData, result }) => {
           agreeableness: result.agreeableness,
           conscientiousness: result.conscientiousness,
           neuroticism: result.neuroticism,
-          openness: result.openness
+          openness: result.openness,
         };
-        
-        const highestTrait = Object.entries(traits).reduce((a, b) => 
+
+        const highestTrait = Object.entries(traits).reduce((a, b) =>
           a[1] > b[1] ? a : b
         )[0];
 
@@ -130,16 +154,19 @@ const Certificate = ({ quizInfo, userData, setUserData, result }) => {
             agreeableness: "Agreeableness",
             conscientiousness: "Conscientiousness",
             neuroticism: "Neuroticism",
-            openness: "Openness"
+            openness: "Openness",
           };
           return names[trait];
         };
 
         return (
           <div className="certificate-content">
-            <p>This is to certify that <strong>{userData.name}</strong> has completed 
-            the Big Five Personality Assessment and has Dominating Personality: <strong>{getTraitName(highestTrait)}</strong></p>
-            
+            <p>
+              This is to certify that <strong>{userData.name}</strong> has
+              completed the Big Five Personality Assessment and has Dominating
+              Personality: <strong>{getTraitName(highestTrait)}</strong>
+            </p>
+
             <div className="certificate-progress-bars">
               <div className="progress-item">
                 <div className="progress-label">
@@ -147,9 +174,9 @@ const Certificate = ({ quizInfo, userData, setUserData, result }) => {
                   <span>{result.extraversion.toFixed(0)}%</span>
                 </div>
                 <div className="progress-bar-bg">
-                  <div 
+                  <div
                     className="progress-bar-fill extraversion"
-                    style={{width: `${result.extraversion}%`}}
+                    style={{ width: `${result.extraversion}%` }}
                   ></div>
                 </div>
               </div>
@@ -160,9 +187,9 @@ const Certificate = ({ quizInfo, userData, setUserData, result }) => {
                   <span>{result.agreeableness.toFixed(0)}%</span>
                 </div>
                 <div className="progress-bar-bg">
-                  <div 
+                  <div
                     className="progress-bar-fill agreeableness"
-                    style={{width: `${result.agreeableness}%`}}
+                    style={{ width: `${result.agreeableness}%` }}
                   ></div>
                 </div>
               </div>
@@ -173,9 +200,9 @@ const Certificate = ({ quizInfo, userData, setUserData, result }) => {
                   <span>{result.conscientiousness.toFixed(0)}%</span>
                 </div>
                 <div className="progress-bar-bg">
-                  <div 
+                  <div
                     className="progress-bar-fill conscientiousness"
-                    style={{width: `${result.conscientiousness}%`}}
+                    style={{ width: `${result.conscientiousness}%` }}
                   ></div>
                 </div>
               </div>
@@ -186,9 +213,9 @@ const Certificate = ({ quizInfo, userData, setUserData, result }) => {
                   <span>{result.neuroticism.toFixed(0)}%</span>
                 </div>
                 <div className="progress-bar-bg">
-                  <div 
+                  <div
                     className="progress-bar-fill neuroticism"
-                    style={{width: `${result.neuroticism}%`}}
+                    style={{ width: `${result.neuroticism}%` }}
                   ></div>
                 </div>
               </div>
@@ -199,9 +226,9 @@ const Certificate = ({ quizInfo, userData, setUserData, result }) => {
                   <span>{result.openness.toFixed(0)}%</span>
                 </div>
                 <div className="progress-bar-bg">
-                  <div 
+                  <div
                     className="progress-bar-fill openness"
-                    style={{width: `${result.openness}%`}}
+                    style={{ width: `${result.openness}%` }}
                   ></div>
                 </div>
               </div>
@@ -212,9 +239,12 @@ const Certificate = ({ quizInfo, userData, setUserData, result }) => {
       case "creativity":
         return (
           <div className="certificate-content">
-            <p style={{color: "#000000", fontSize: "22px"}}>
-              This is to certify that <strong style={{color: "#000000"}}>{userData.name}</strong> has completed 
-              the Creativity Assessment and has achieved a Creativity Level of <strong style={{color: "#000000"}}>{result.label}</strong>
+            <p style={{ color: "#000000", fontSize: "22px" }}>
+              This is to certify that{" "}
+              <strong style={{ color: "#000000" }}>{userData.name}</strong> has
+              completed the Creativity Assessment and has achieved a Creativity
+              Level of{" "}
+              <strong style={{ color: "#000000" }}>{result.label}</strong>
             </p>
           </div>
         );
@@ -248,6 +278,7 @@ const Certificate = ({ quizInfo, userData, setUserData, result }) => {
                   value={formData.name}
                   onChange={handleChange}
                   placeholder="Enter your full name"
+                  disabled={isSubmitting}
                 />
                 <Form.Control.Feedback type="invalid">
                   Please enter your name.
@@ -263,14 +294,31 @@ const Certificate = ({ quizInfo, userData, setUserData, result }) => {
                   value={formData.email}
                   onChange={handleChange}
                   placeholder="Enter your email"
+                  disabled={isSubmitting}
                 />
                 <Form.Control.Feedback type="invalid">
                   Please enter a valid email.
                 </Form.Control.Feedback>
               </Form.Group>
 
-              <Button type="submit" variant="primary" className="w-100">
-                Proceed to Certificate
+              <Button
+                type="submit"
+                variant="primary"
+                className="w-100"
+                disabled={isSubmitting}
+              >
+                {isSubmitting ? (
+                  <>
+                    <span
+                      className="spinner-border spinner-border-sm me-2"
+                      role="status"
+                      aria-hidden="true"
+                    ></span>
+                    Updating...
+                  </>
+                ) : (
+                  "Proceed to Certificate"
+                )}
               </Button>
             </Form>
           </Card.Body>
@@ -281,36 +329,40 @@ const Certificate = ({ quizInfo, userData, setUserData, result }) => {
 
   return (
     <Container fluid className="certificate-container p-0">
-      <div 
-        ref={certificateRef} 
+      <div
+        ref={certificateRef}
         className="certificate"
         data-type={quizType}
         style={{
           backgroundImage: `url(${getCertificateBackground()})`,
-          backgroundSize: '100% 100%',
-          backgroundPosition: 'center',
-          backgroundRepeat: 'no-repeat'
+          backgroundSize: "100% 100%",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
         }}
       >
         {getCertificateContent()}
       </div>
 
-      <Button 
-        variant="primary" 
+      <Button
+        variant="primary"
         onClick={handleDownload}
         className="download-button mt-3"
       >
         {isDownloading ? (
           <>
             <span className="me-2">Generating PDF...</span>
-            <span className="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+            <span
+              className="spinner-border spinner-border-sm"
+              role="status"
+              aria-hidden="true"
+            ></span>
           </>
-        ) : 'Download Certificate'}
+        ) : (
+          "Download Certificate"
+        )}
       </Button>
     </Container>
   );
 };
 
 export default Certificate;
-
-

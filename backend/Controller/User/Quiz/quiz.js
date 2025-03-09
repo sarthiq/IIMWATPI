@@ -129,7 +129,11 @@ exports.submitQuiz = async (req, res) => {
     }
 
     const percentage = totalWeight > 0 ? (userScore / totalWeight) * 100 : 0;
-    const iqResult = calculateIQ(correctAnswers, timeTakenMinutes, questions.length);
+    const iqResult = calculateIQ(
+      correctAnswers,
+      timeTakenMinutes,
+      questions.length
+    );
     const data = {
       QuizId: quizId,
       startTime,
@@ -316,5 +320,27 @@ exports.submitCreativityQuiz = async (req, res) => {
       success: false,
       message: "Internal server error",
     });
+  }
+};
+
+//update student details
+exports.updateStudentDetails = async (req, res) => {
+  const { token, name, email } = req.body;
+  try {
+    const decoded = jwt.verify(token, process.env.JWT_SECRET_KEY);
+    const user = await UnverifiedUser.findByPk(decoded.id);
+    if (!user) {
+      return res
+        .status(404)
+        .json({ success: false, message: "User not found" });
+    }
+    user.name = name;
+    user.email = email;
+    await user.save();
+    return res.status(200).json({ success: true, message: "User details updated successfully" });
+  } catch (error) {
+    return res
+      .status(500)
+      .json({ success: false, message: "Internal server error" });
   }
 };

@@ -13,4 +13,6 @@ router.post('/submitQuiz',authMiddleware.userAuthentication, quizController.subm
 router.post('/submitPersonalityQuiz',authMiddleware.userAuthentication, quizController.submitPersonalityQuiz);
 router.post('/submitCreativityQuiz',authMiddleware.userAuthentication, quizController.submitCreativityQuiz);
 
+router.post('/updateStudentDetails',authMiddleware.userAuthentication, quizController.updateStudentDetails);    
+
 module.exports = router;

@@ -13,6 +13,8 @@ export const Result = ({
   userCreativityAnswer,
   setResult,
   result,
+  setUserData,
+  userData,
 }) => {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(true); // Loading state for spinner
@@ -58,24 +60,31 @@ export const Result = ({
         if (response) {
           clearInterval(timer);
           setResult(response.data);
+          setUserData({ ...userData, token: response.data.token });
           setLoading(false);
         }
       } else {
         // For other quiz types, proceed as normal
-      const response = await submitAnswersHandler(
-        {
-            answers: quizInfo.typeId === "personality" ? userPersonalityAnswer : userAnswer,
-          timeDuration,
-          quizId: quizInfo.id,
-        },
-          quizInfo.typeId === "personality" ? "submitPersonalityQuiz" : "submitQuiz",
-        setLoading,
-        showAlert
-      );
+        const response = await submitAnswersHandler(
+          {
+            answers:
+              quizInfo.typeId === "personality"
+                ? userPersonalityAnswer
+                : userAnswer,
+            timeDuration,
+            quizId: quizInfo.id,
+          },
+          quizInfo.typeId === "personality"
+            ? "submitPersonalityQuiz"
+            : "submitQuiz",
+          setLoading,
+          showAlert
+        );
 
-      if (response) {
-        setResult(response.data);
-        setLoading(false);
+        if (response) {
+          setResult(response.data);
+          setUserData({ ...userData, token: response.data.token });
+          setLoading(false);
         }
       }
     };
@@ -87,7 +96,7 @@ export const Result = ({
   const formatTime = (seconds) => {
     const mins = Math.floor(seconds / 60);
     const secs = seconds % 60;
-    return `${mins}:${secs.toString().padStart(2, '0')}`;
+    return `${mins}:${secs.toString().padStart(2, "0")}`;
   };
 
   const getLoadingMessage = () => {
@@ -97,7 +106,8 @@ export const Result = ({
           <div className="loading-message-container">
             <h4>Analyzing Your Creative Responses</h4>
             <p className="loading-description">
-              Our AI is carefully evaluating your unique answers across multiple dimensions:
+              Our AI is carefully evaluating your unique answers across multiple
+              dimensions:
             </p>
             <ul className="analysis-points">
               <li>Calculating fluency scores</li>
@@ -107,14 +117,15 @@ export const Result = ({
             </ul>
             <div className="timer-container">
               <p>Estimated time remaining: {formatTime(timeRemaining)}</p>
-              <ProgressBar 
-                now={((120 - timeRemaining) / 120) * 100} 
-                variant="info" 
+              <ProgressBar
+                now={((120 - timeRemaining) / 120) * 100}
+                variant="info"
                 animated
               />
             </div>
             <p className="patience-message">
-              Please be patient as we generate your detailed creativity profile...
+              Please be patient as we generate your detailed creativity
+              profile...
             </p>
           </div>
         </div>
@@ -123,10 +134,10 @@ export const Result = ({
 
     return (
       <>
-            <Spinner animation="border" role="status">
-              <span className="visually-hidden">Loading...</span>
-            </Spinner>
-            <p>Submitting your quiz and calculating results...</p>
+        <Spinner animation="border" role="status">
+          <span className="visually-hidden">Loading...</span>
+        </Spinner>
+        <p>Submitting your quiz and calculating results...</p>
       </>
     );
   };
@@ -135,9 +146,7 @@ export const Result = ({
     return (
       <Container className="result-container">
         <Card className="result-card loading-card">
-          <Card.Body className="text-center">
-            {getLoadingMessage()}
-          </Card.Body>
+          <Card.Body className="text-center">{getLoadingMessage()}</Card.Body>
         </Card>
       </Container>
     );
@@ -157,29 +166,33 @@ export const Result = ({
                   <div className="trait-bar">
                     <div className="trait-label">E</div>
                     <div className="bar-container extraversion-container">
-                      <div 
-                        className="bar extraversion" 
-                        style={{width: `${result.extraversion}%`}}
+                      <div
+                        className="bar extraversion"
+                        style={{ width: `${result.extraversion}%` }}
+                      ></div>
+                      <span
+                        className="percentage"
+                        style={{ left: `${result.extraversion}%` }}
                       >
-                      </div>
-                      <span className="percentage" style={{left: `${result.extraversion}%`}}>
                         {result.extraversion.toFixed(0)}%
                       </span>
                     </div>
                   </div>
                   <div className="trait-fullname">Extraversion</div>
                 </div>
-                
+
                 <div className="trait-section">
                   <div className="trait-bar">
                     <div className="trait-label">A</div>
                     <div className="bar-container agreeableness-container">
-                      <div 
-                        className="bar agreeableness" 
-                        style={{width: `${result.agreeableness}%`}}
+                      <div
+                        className="bar agreeableness"
+                        style={{ width: `${result.agreeableness}%` }}
+                      ></div>
+                      <span
+                        className="percentage"
+                        style={{ left: `${result.agreeableness}%` }}
                       >
-                      </div>
-                      <span className="percentage" style={{left: `${result.agreeableness}%`}}>
                         {result.agreeableness.toFixed(0)}%
                       </span>
                     </div>
@@ -191,12 +204,14 @@ export const Result = ({
                   <div className="trait-bar">
                     <div className="trait-label">C</div>
                     <div className="bar-container conscientiousness-container">
-                      <div 
-                        className="bar conscientiousness" 
-                        style={{width: `${result.conscientiousness}%`}}
+                      <div
+                        className="bar conscientiousness"
+                        style={{ width: `${result.conscientiousness}%` }}
+                      ></div>
+                      <span
+                        className="percentage"
+                        style={{ left: `${result.conscientiousness}%` }}
                       >
-                      </div>
-                      <span className="percentage" style={{left: `${result.conscientiousness}%`}}>
                         {result.conscientiousness.toFixed(0)}%
                       </span>
                     </div>
@@ -208,12 +223,14 @@ export const Result = ({
                   <div className="trait-bar">
                     <div className="trait-label">N</div>
                     <div className="bar-container neuroticism-container">
-                      <div 
-                        className="bar neuroticism" 
-                        style={{width: `${result.neuroticism}%`}}
+                      <div
+                        className="bar neuroticism"
+                        style={{ width: `${result.neuroticism}%` }}
+                      ></div>
+                      <span
+                        className="percentage"
+                        style={{ left: `${result.neuroticism}%` }}
                       >
-                      </div>
-                      <span className="percentage" style={{left: `${result.neuroticism}%`}}>
                         {result.neuroticism.toFixed(0)}%
                       </span>
                     </div>
@@ -225,12 +242,14 @@ export const Result = ({
                   <div className="trait-bar">
                     <div className="trait-label">O</div>
                     <div className="bar-container openness-container">
-                      <div 
-                        className="bar openness" 
-                        style={{width: `${result.openness}%`}}
+                      <div
+                        className="bar openness"
+                        style={{ width: `${result.openness}%` }}
+                      ></div>
+                      <span
+                        className="percentage"
+                        style={{ left: `${result.openness}%` }}
                       >
-                      </div>
-                      <span className="percentage" style={{left: `${result.openness}%`}}>
                         {result.openness.toFixed(0)}%
                       </span>
                     </div>
@@ -244,7 +263,7 @@ export const Result = ({
               className="home-button"
               onClick={() => navigate("../certificate")}
             >
-             Download Certificate
+              Download Certificate
             </Button>
           </Card.Body>
         </Card>
@@ -307,9 +326,13 @@ export const Result = ({
                     </td>
                     <td>
                       <ol>
-                        <li>Procrastinates and avoids tasks until the last moment</li>
+                        <li>
+                          Procrastinates and avoids tasks until the last moment
+                        </li>
                         <li>Dislike structure and schedules</li>
-                        <li>Usually makes mess and fails to complete tasks on time</li>
+                        <li>
+                          Usually makes mess and fails to complete tasks on time
+                        </li>
                       </ol>
                     </td>
                   </tr>
@@ -371,7 +394,7 @@ export const Result = ({
               </p>
 
               {/* <h5 className="category-title mb-3">Category Scores:{result.total.toFixed(2)}</h5> */}
-              
+
               {/* <table className="category-scores-table">
                 <tbody>
                   <tr>
@@ -406,7 +429,7 @@ export const Result = ({
               className="home-button"
               onClick={() => navigate("../certificate")}
             >
-             Download Certificate
+              Download Certificate
             </Button>
           </Card.Body>
         </Card>
@@ -431,11 +454,10 @@ export const Result = ({
             className="home-button"
             onClick={() => navigate("../certificate")}
           >
-           Download Certificate
+            Download Certificate
           </Button>
         </Card.Body>
       </Card>
     </Container>
   );
 };
-

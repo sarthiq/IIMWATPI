@@ -18,8 +18,9 @@ export const Home = () => {
   const [questions, setQuestions] = useState([]);
   const [timeDuration, setTimeDuration] = useState({});
   const [quizInfo, setQuizInfo] = useState({});
-  const [userData, setUserData] = useState({name: "", email: "", age: ""});
+  const [userData, setUserData] = useState({name: "", email: "", age: "",token: ""});
   const [result, setResult] = useState(null); // State to store quiz result
+
 
   const params = useParams();
 
@@ -94,6 +95,7 @@ export const Home = () => {
               setResult={setResult}
               result={result}
               setUserData={setUserData}
+              userData={userData}
             />
           }
         />
