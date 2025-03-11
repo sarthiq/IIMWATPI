@@ -87,6 +87,11 @@ export const CareerRecommendations = () => {
   };
 
   useEffect(() => {
+
+    setUserEducation({
+      institutionType: 'School',
+      standard: '10',
+    });
     setIsLoading(true);
     // Simulate API call to get user education details and recommendations
     setTimeout(() => {
@@ -94,7 +99,8 @@ export const CareerRecommendations = () => {
       setRecommendations(userRecommendations);
       setIsLoading(false);
     }, 1000);
-  }, [userEducation]);
+     // eslint-disable-next-line react-hooks/exhaustive-deps
+  },[]);
 
   if (isLoading) {
     return (

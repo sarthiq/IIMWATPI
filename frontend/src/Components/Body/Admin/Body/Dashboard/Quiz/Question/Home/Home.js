@@ -42,6 +42,7 @@ export const QuestionHome = () => {
 
   useEffect(() => {
     fetchDetails();
+     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [dataUpdated]);
 
   const fetchDetails = async () => {

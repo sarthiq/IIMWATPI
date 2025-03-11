@@ -12,6 +12,7 @@ export const TestResults = () => {
 
   useEffect(() => {
     fetchTestResults();
+     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const fetchTestResults = async () => {

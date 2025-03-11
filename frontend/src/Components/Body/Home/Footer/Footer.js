@@ -10,8 +10,8 @@ export const Footer = () => {
         <div className="footer-column">
           <h4>Products</h4>
           <ul>
-            <li><a href="#">Tests</a></li>
-            <li><a href="#">Career Counselling</a></li>
+            <li><a href="/quiz">Tests</a></li>
+            <li><a href="/career">Career Counselling</a></li>
           </ul>
         </div>
 
@@ -19,8 +19,8 @@ export const Footer = () => {
         <div className="footer-column">
           <h4>Terms and Conditions</h4>
           <ul>
-            <li><a href="#">Privacy Policy</a></li>
-            <li><a href="#">Refund Policy</a></li>
+            <li><a href="/privacy">Privacy Policy</a></li>
+            <li><a href="/refund">Refund Policy</a></li>
           </ul>
         </div>
 
@@ -35,9 +35,9 @@ export const Footer = () => {
 
       {/* Social Media Icons */}
       <div className="social-icons">
-        <a href="#" className="linkedin"><FaLinkedin /></a>
-        <a href="#" className="youtube"><FaYoutube /></a>
-        <a href="#" className="whatsapp"><FaWhatsapp /></a>
+        <a href="https://www.linkedin.com/company/sarthiq" className="linkedin"><FaLinkedin /></a>
+        <a href="https://www.youtube.com/@sarthiq" className="youtube"><FaYoutube /></a>
+        <a href="https://wa.me/9335532658" className="whatsapp"><FaWhatsapp /></a>
       </div>
 
       {/* Copyright Text */}

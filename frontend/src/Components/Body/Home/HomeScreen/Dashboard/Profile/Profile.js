@@ -1,15 +1,19 @@
-import React, { useState } from "react";
-import { Container, Card, Form, Button, Row, Col } from "react-bootstrap";
+import React, { useState, useEffect } from "react";
+import { Container, Card, Form, Button, Row, Col, Spinner } from "react-bootstrap";
+import { useAlert } from "../../../../../UI/Alert/AlertContext";
+import { getProfileHandler, updateProfileHandler } from "../apiHandler";
 import "./Profile.css";
 
 export const Profile = () => {
   const [isEditing, setIsEditing] = useState(false);
   const [showOtherField, setShowOtherField] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const { showAlert } = useAlert();
 
   const [userInfo, setUserInfo] = useState({
-    name: "John Doe", // Replace with actual user data
-    email: "john@example.com",
-    phone: "+91 9876543210",
+    name: "",
+    email: "",
+    phone: "",
     institutionName: "",
     institutionType: "",
     otherInstitution: "",
@@ -28,6 +32,34 @@ export const Profile = () => {
     Other: [],
   };
 
+  useEffect(() => {
+    fetchProfileData();
+     // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  const fetchProfileData = async () => {
+    const response = await getProfileHandler(setIsLoading, showAlert);
+    if (response && response.success) {
+      const userData = {
+        ...response.data,
+        ...response.data.User,
+        name: response.data.User?.name || "",
+        email: response.data.User?.email || "",
+        phone: response.data.User?.phone || "",
+        institutionName: response.data?.institutionName || "",
+        institutionType: response.data?.institutionType || "",
+        otherInstitution: response.data?.otherInstitution || "",
+        standard: response.data?.standard || "",
+        course: response.data?.course || "",
+        year: response.data?.year || "",
+        branch: response.data?.branch || "",
+      };
+      
+      setUserInfo(userData);
+      setShowOtherField(userData.institutionType === "Other");
+    }
+  };
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setUserInfo((prev) => ({
@@ -37,7 +69,6 @@ export const Profile = () => {
 
     if (name === "institutionType") {
       setShowOtherField(value === "Other");
-      // Reset standard when institution type changes
       setUserInfo((prev) => ({
         ...prev,
         standard: "",
@@ -46,14 +77,24 @@ export const Profile = () => {
     }
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Handle form submission here
-    console.log("Updated Info:", userInfo);
-    setIsEditing(false);
+    const response = await updateProfileHandler(userInfo, setIsLoading, showAlert);
+    if (response && response.success) {
+      showAlert("Profile updated successfully!", "success");
+      setIsEditing(false);
+    }
   };
 
-  // ... previous imports and initial code remains same until return statement ...
+  if (isLoading) {
+    return (
+      <div className="profile-loading">
+        <Spinner animation="border" role="status">
+          <span className="visually-hidden">Loading...</span>
+        </Spinner>
+      </div>
+    );
+  }
 
   return (
     <Container className="profile-container">

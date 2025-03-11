@@ -53,7 +53,7 @@ export const Question = ({ questions, setUserAnswer, setTimeDuration }) => {
   }
   
   const currentQ = questions[currentQuestion];
-  const Q = "Q.";
+  const Q = `Q.${currentQuestion + 1}`;
   return (
     <Container className="question-container">
       <Card className="question-card">
@@ -61,7 +61,7 @@ export const Question = ({ questions, setUserAnswer, setTimeDuration }) => {
           <>
             <Card.Body>
               <Card.Title className="question-title">
-                 {"Complete the pattern? "}
+                  {`${Q}`} {"Complete the pattern? "}
               </Card.Title>
 
               {currentQ.imageUrl && (

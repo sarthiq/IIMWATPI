@@ -1,5 +1,4 @@
 import React, { useRef, useState } from "react";
-import { useReactToPrint } from "react-to-print";
 import { Container, Button, Form, Card } from "react-bootstrap";
 import html2canvas from "html2canvas";
 import jsPDF from "jspdf";

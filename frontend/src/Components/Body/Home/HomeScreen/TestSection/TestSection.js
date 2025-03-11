@@ -12,6 +12,7 @@ export const TestSection = () => {
 
   useEffect(() => {
     fetchDetails();
+     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const fetchDetails = async () => {
@@ -99,7 +100,7 @@ export const TestSection = () => {
                 </div>
               )}
               
-              {quiz.typeId =='creativity' ? (
+              {quiz.typeId ==='creativity' ? (
                 <button className="take-test-btn" disabled>
                   Coming Soon
                 </button>

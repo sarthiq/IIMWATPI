@@ -15,20 +15,30 @@ exports.calculateCreativityScore = async (datas) => {
     const data = datas[id];
     const question = data.question;
     const answers = data.answers.slice(0, 10); // Take max 10 answers
+    const releventAnswers = await calculateSimilarity(question, answers);
 
     const scores = {
-      fluency: Math.min(answers.length, 10), // Calculate fluency score based on number of answers
+      fluency: 0, // Initialize fluency to 0, will calculate in loop
       flexibility: 0,
       originality: 0,
       elaboration: 0,
     };
 
-    const releventAnswers = await calculateSimilarity(question, answers);
-
+    
     // Process each answer first
     for (let i = 0; i < answers.length; i++) {
       const answer = answers[i];
-      const similarity = releventAnswers[i];
+      let similarity = releventAnswers[i];
+      if (similarity >= 0.5) {
+        similarity = 1;
+      } else if (similarity >= 0.25) {
+        similarity = similarity + ((1 - similarity) * (similarity - 0.25) / 0.25);
+      }
+
+      // Only count relevant answers for fluency (similarity > threshold)
+      if (similarity > 0.5) { // Using 0.5 as relevance threshold
+        scores.fluency += similarity;
+      }
 
       // Calculate category scores for this answer
       const flexibilityResult = await calculateCategoryScore(answer, [
@@ -42,14 +52,13 @@ exports.calculateCreativityScore = async (datas) => {
         "elaborated",
       ]);
 
-      // Calculate average score for each category
+      // Calculate scores using multiplication
       const flexibilityScore =
         (flexibilityResult.scores.reduce((sum, score) => sum + score, 0) /
-          flexibilityResult.scores.length +
-          similarity) /
-        2;
-      const originalityScore = (originalityResult.scores[0] + similarity) / 2;
-      const elaborationScore = (elaborationResult.scores[0] + similarity) / 2;
+          flexibilityResult.scores.length) *
+        similarity;
+      const originalityScore = originalityResult.scores[0] * similarity;
+      const elaborationScore = elaborationResult.scores[0] * similarity;
 
       // Add to category totals
       scores.flexibility += flexibilityScore;
@@ -124,7 +133,7 @@ exports.calculateCreativityScore = async (datas) => {
 
 async function calculateSimilarity(question, answers) {
   const output = await client.sentenceSimilarity({
-    model: "sentence-transformers/all-MiniLM-L6-v2",
+    model: "sentence-transformers/all-mpnet-base-v2",
     inputs: {
       source_sentence: question,
       sentences: answers,

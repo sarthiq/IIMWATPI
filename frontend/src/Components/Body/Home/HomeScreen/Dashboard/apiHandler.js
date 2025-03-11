@@ -5,7 +5,7 @@ export const getProfileHandler = async (setIsLoading, showAlert) => {
   const url = "/user/profile/get";
 
   setIsLoading(true);
-  const token = localStorage.getItem("userToken");
+  const token = localStorage.getItem("token");
   try {
     const result = await apiRequest(url, null, token, "get");
     const data = result.data;
@@ -25,7 +25,7 @@ export const updateProfileHandler = async (data, setIsLoading, showAlert) => {
   setIsLoading(true);
 
   try {
-    const token = localStorage.getItem("userToken");
+    const token = localStorage.getItem("token");
     const result = await apiRequest(url, obj, token, "post");
     const data = result.data;
 
@@ -59,7 +59,7 @@ export const getUserProfileHandler = async (setIsLoading, showAlert) => {
   const url = "/user/profile/getUserProfile";
 
   setIsLoading(true);
-  const token = localStorage.getItem("userToken");
+  const token = localStorage.getItem("token");
 
   try {
     const result = await apiRequest(url, null, token, "get");
@@ -72,6 +72,7 @@ export const getUserProfileHandler = async (setIsLoading, showAlert) => {
     setIsLoading(false);
   }
 };
+
 export const updateUserProfileHandler = async (
   data,
   setIsLoading,
@@ -83,7 +84,7 @@ export const updateUserProfileHandler = async (
   setIsLoading(true);
 
   try {
-    const token = localStorage.getItem("userToken");
+    const token = localStorage.getItem("token");
     const result = await apiRequest(url, obj, token, "post");
     const data = result.data;
 

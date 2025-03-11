@@ -31,14 +31,17 @@ export const Result = () => {
 
   useEffect(() => {
     fetchQuizzes();
+     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   
   useEffect(() => {
     fetchTotalCount();
+     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [filter,isCertified, dateRange]);
 
   useEffect(() => {
     fetchResults();
+     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [filter, pagination.currentPage, pagination.itemsPerPage, isCertified, dateRange]);
 
   const fetchQuizzes = async () => {
