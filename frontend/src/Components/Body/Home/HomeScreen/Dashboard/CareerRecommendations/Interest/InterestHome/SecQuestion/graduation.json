@@ -1,0 +1,123 @@
+{
+    "testName": "Graduation Level Interest & Aptitude Test",
+    "sections": [
+      {
+        "sectionName": "Student's Background",
+        "questions": [
+          {
+            "questionText": "Q1: What is your current educational background?",
+            "options": [
+              "(A) Science (PCM)",
+              "(B) Science (PCB)",
+              "(C) Commerce",
+              "(D) Humanities/Arts",
+              "(E) Other (Vocational/Polytechnic)"
+            ],
+            "type": "multiple-choice"
+          },
+          {
+            "questionText": "Q2: Have you decided on a career path?",
+            "options": [
+              "(A) Yes, but I need course recommendations.",
+              "(B) No, I need help choosing a career."
+            ],
+            "type": "multiple-choice",
+            "notes": "If (A), we refine their course choices. If (B), we proceed with interest-based questions to suggest career-focused courses."
+          }
+        ]
+      },
+      {
+        "sectionName": "Interest & Aptitude Questions",
+        "questions": [
+          {
+            "questionText": "Q3: What type of problems do you enjoy solving?",
+            "options": [
+              "(A) Technical problems like coding & AI ➝ Computer Science, Data Science, Engineering",
+              "(B) Health & human body-related issues ➝ MBBS, Pharmacy, Biotechnology",
+              "(C) Financial, business, and market-related problems ➝ BBA, CA, Finance, Economics",
+              "(D) Social, political, and legal issues ➝ Law, Public Policy, Political Science",
+              "(E) Creative & artistic challenges ➝ Media, Design, Film Studies, Animation"
+            ],
+            "type": "multiple-choice"
+          },
+          {
+            "questionText": "Q4: Which school subjects did you enjoy the most?",
+            "options": [
+              "(A) Math & Physics ➝ Engineering, AI, Data Science, Economics",
+              "(B) Biology & Chemistry ➝ MBBS, Biotechnology, Psychology",
+              "(C) Business Studies & Economics ➝ BBA, Finance, Marketing, CA",
+              "(D) History & Political Science➝ Law, Journalism, Civil Services",
+              "(E) Art, Media, & Design ➝ Filmmaking, UI/UX, Fine Arts, Fashion Design"
+            ],
+            "type": "multiple-choice"
+          },
+          {
+            "questionText": "Q5: If you had to work on a project for a year, what would it be?",
+            "options": [
+              "(A) Developing a software application or AI tool ➝ CS, AI, Data Science, Engineering",
+              "(B) Researching cures for diseases or mental health issues ➝ MBBS, Biotech, Psychology",
+              "(C) Creating a business plan & analyzing financial trends ➝ BBA, CA, Finance, Economics",
+              "(D) Writing a book on political/economic trends ➝ Law, Political Science, Journalism",
+              "(E) Making a short film, painting, or designing a website ➝ Media, Fine Arts, UI/UX, Animation"
+            ],
+            "type": "multiple-choice"
+          },
+          {
+            "questionText": "Q6: What type of work environment do you prefer?",
+            "options": [
+              "(A) Tech-driven, innovation-focused➝ Tech Startups, AI, Software Engineering",
+              "(B) Hospitals, research labs, or mental health clinics ➝ Medicine, Biotech, Psychology",
+              "(C) Corporate offices, banks, or consulting firms ➝ Finance, CA, Business, Marketing",
+              "(D) Courts, government offices, or newsrooms ➝ Law, Public Policy, Journalism",
+              "(E) Studios, creative agencies, or self-employment ➝ Filmmaking, Design, Advertising"
+            ],
+            "type": "multiple-choice"
+          },
+          {
+            "questionText": "Q7: How do you prefer to approach challenges?",
+            "options": [
+              "(A) Using logic, coding, and mathematical models ➝ CS, AI, Engineering",
+              "(B) Conducting experiments, analyzing biological data ➝ Biotech, MBBS, Neuroscience",
+              "(C) Studying market trends, building financial strategies ➝ Commerce, Economics, CA",
+              "(D) Engaging in debates, writing research papers ➝ Law, Public Policy, Journalism",
+              "(E) Creating visual or storytelling-based content ➝ Design, Film, Advertising"
+            ],
+            "type": "multiple-choice"
+          },
+          {
+            "questionText": "Q8: Which of these activities excites you the most?",
+            "options": [
+              "(A) Coding and developing new tech solutions ➝ CS, AI, Data Science",
+              "(B) Understanding human behavior & medical advancements ➝ Psychology, MBBS, Biotech",
+              "(C) Stock market investments & business growth ➝ Finance, BBA, Economics",
+              "(D) Legal debates & writing reports on policy changes ➝ Law, Political Science",
+              "(E) Designing graphics, filming, or writing screenplays ➝ Media, UI/UX, Film Studies"
+            ],
+            "type": "multiple-choice"
+          },
+          {
+            "questionText": "Q9: How do you prefer to work?",
+            "options": [
+              "(A) Independently, solving logical problems ➝ Tech, AI, Research",
+              "(B) In a team, researching & experimenting ➝ Healthcare, Biotech, Medicine",
+              "(C) Leading business discussions, managing people ➝ Finance, Management, Entrepreneurship",
+              "(D) Writing, debating, and making an impact on society ➝ Law, Journalism, Public Policy",
+              "(E) Expressing creativity through visuals, design, or storytelling ➝ Arts, Filmmaking, UI/UX"
+            ],
+            "type": "multiple-choice"
+          },
+          {
+            "questionText": "Q10: If you had unlimited resources, what would you study?",
+            "options": [
+              "(A) Artificial Intelligence & Future Technologies ➝ CS, AI, Robotics",
+              "(B) Medical Sciences & Human Psychology ➝ MBBS, Psychology, Biotech",
+              "(C) Business, Finance & Global Economy ➝ BBA, Economics, CA, Investment Banking",
+              "(D) Law, Political Science & Governance ➝ Law, Public Administration, Civil Services",
+              "(E) Art, Film, Design & Media Studies ➝ Fine Arts, Fashion, Filmmaking"
+            ],
+            "type": "multiple-choice"
+          }
+        ]
+      }
+    ]
+  }

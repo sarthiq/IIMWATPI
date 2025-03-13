@@ -1,0 +1,130 @@
+{
+    "testName": "Interest-Based Subject Selection Test for Class 9-10 Students",
+    "sections": [
+      {
+        "sectionName": "General Information",
+        "questions": [
+          {
+            "questionText": "Which board are you studying in?",
+            "options": [
+              "CBSE",
+              "ICSE",
+              "State Board",
+              "Other"
+            ],
+            "type": "multiple-choice"
+          },
+          {
+            "questionText": "Which subjects do you currently enjoy the most? (Select up to 3)",
+            "options": [
+              "Mathematics",
+              "Science (Physics, Chemistry, Biology)",
+              "Social Science (History, Civics, Geography)",
+              "English or Literature",
+              "Computers/Technology",
+              "Arts (Fine Arts, Performing Arts, Design)",
+              "Business/Finance"
+            ],
+            "type": "multiple-select"
+          }
+        ]
+      },
+      {
+        "sectionName": "Interest-Based Questions",
+        "questions": [
+          {
+            "questionText": "Which activity excites you the most?",
+            "options": [
+              "Solving puzzles and logical problems",
+              "Conducting science experiments",
+              "Reading books, writing essays/stories",
+              "Drawing, designing, or creating things",
+              "Discussing social issues and debating opinions"
+            ],
+            "type": "multiple-choice"
+          },
+          {
+            "questionText": "If you had a day to learn anything, what would you do?",
+            "options": [
+              "Explore space, robotics, or AI",
+              "Conduct chemical experiments in a lab",
+              "Read history books or watch documentaries",
+              "Write a story, poem, or script",
+              "Create an art piece or a new design"
+            ],
+            "type": "multiple-choice"
+          },
+          {
+            "questionText": "When given a task in school, how do you prefer to approach it?",
+            "options": [
+              "Using logic and calculations",
+              "Experimenting and testing practically",
+              "Writing and expressing ideas",
+              "Researching and analyzing facts",
+              "Using creativity and imagination"
+            ],
+            "type": "multiple-choice"
+          },
+          {
+            "questionText": "Which of these would you enjoy the most?",
+            "options": [
+              "Coding a computer program",
+              "Studying the human body and medicine",
+              "Learning about how economies and businesses work",
+              "Investigating past events and their impact",
+              "Designing posters, animations, or visual content"
+            ],
+            "type": "multiple-choice"
+          },
+          {
+            "questionText": "Which type of school project do you like the most?",
+            "options": [
+              "Science fair experiments",
+              "Math riddles and problem-solving",
+              "Writing an essay or a story",
+              "Making a history documentary",
+              "Creating an art project or performance"
+            ],
+            "type": "multiple-choice"
+          }
+        ]
+      },
+      {
+        "sectionName": "Thinking Style & Career Alignment",
+        "questions": [
+          {
+            "questionText": "How do you like to solve problems?",
+            "options": [
+              "By analyzing numbers and data",
+              "By experimenting and testing solutions",
+              "By discussing ideas with others",
+              "By thinking creatively and outside the box"
+            ],
+            "type": "multiple-choice"
+          },
+          {
+            "questionText": "Which statement best describes you?",
+            "options": [
+              "I love working with numbers and formulas",
+              "I am curious about how things work scientifically",
+              "I enjoy storytelling and writing",
+              "I like exploring cultures, history, and politics",
+              "I am artistic and like to express myself visually"
+            ],
+            "type": "multiple-choice"
+          },
+          {
+            "questionText": "If you could invent something, what would it be?",
+            "options": [
+              "A new AI-powered app",
+              "A medicine to cure diseases",
+              "A policy to solve social issues",
+              "A best-selling novel or screenplay",
+              "A unique fashion or design concept"
+            ],
+            "type": "multiple-choice"
+          }
+        ]
+      }
+    ]
+  }

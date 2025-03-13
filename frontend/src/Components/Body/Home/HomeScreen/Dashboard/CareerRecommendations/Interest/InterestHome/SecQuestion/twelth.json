@@ -1,0 +1,122 @@
+{
+    "testName": "Class 11-12 Interest & Aptitude Test",
+    "sections": [
+      {
+        "sectionName": "Student's Background",
+        "questions": [
+          {
+            "questionText": "Q1: Which board are you studying in?",
+            "options": [
+              "(A) CBSE",
+              "(B) ICSE",
+              "(C) State Board",
+              "(D) International (IB/IGCSE)"
+            ],
+            "type": "multiple-choice"
+          },
+          {
+            "questionText": "Q2: Have you already chosen a stream?",
+            "options": [
+              "(A) Yes, but I’m unsure about my subjects.",
+              "(B) No, I need help deciding."
+            ],
+            "type": "multiple-choice",
+            "notes": "If (A), we refine their subject choices. If (B), we proceed with interest-based questions to suggest a stream."
+          }
+        ]
+      },
+      {
+        "sectionName": "Interest & Aptitude Questions",
+        "questions": [
+          {
+            "questionText": "Q3: What type of challenges do you enjoy solving?",
+            "options": [
+              "(A) Math-based problems & coding ➝ Science (PCM), AI, Commerce (Finance)",
+              "(B) Biological experiments & health sciences ➝ Science (PCB), Medicine, Biotech",
+              "(C) Understanding society, politics, and human behavior ➝ Humanities, Law, Civil Services",
+              "(D) Managing money, businesses, and markets ➝ Commerce, Business Studies",
+              "(E) Designing, storytelling, or creating content ➝ Arts & Design"
+            ],
+            "type": "multiple-choice"
+          },
+          {
+            "questionText": "Q4: Which school subjects do you find most engaging?",
+            "options": [
+              "(A) Math & Physics ➝ Science (PCM), AI, Engineering",
+              "(B) Biology & Chemistry ➝ Science (PCB), Medicine, Biotech",
+              "(C) History & Political Science➝ Humanities, Law, Civil Services",
+              "(D) Business Studies & Economics ➝ Commerce, Finance, Marketing",
+              "(E) Fine Arts & Media Studies ➝ Arts & Design, Animation, Filmmaking"
+            ],
+            "type": "multiple-choice"
+          },
+          {
+            "questionText": "Q5: If you had to choose a weekend project, what would it be?",
+            "options": [
+              "(A) Building a robot or coding an AI model ➝ Science (PCM), Engineering, AI",
+              "(B) Researching how medicines work & conducting experiments ➝ Science (PCB), Medicine",
+              "(C) Writing a blog on current affairs or social issues ➝ Humanities, Journalism",
+              "(D) Creating a business plan or stock market analysis ➝ Commerce, Entrepreneurship",
+              "(E) Producing a short film, painting, or digital artwork ➝ Arts, Design, Media"
+            ],
+            "type": "multiple-choice"
+          },
+          {
+            "questionText": "Q6: Which career sounds most exciting to you?",
+            "options": [
+              "(A) AI Engineer, Space Scientist, Software Developer ➝ Science (PCM)",
+              "(B) Doctor, Biotechnologist, Neuroscientist ➝ Science (PCB)",
+              "(C) Lawyer, Civil Servant, Journalist ➝ Humanities",
+              "(D) Investment Banker, CA, Business Owner ➝ Commerce",
+              "(E) Graphic Designer, Filmmaker, Fashion Designer ➝ Arts"
+            ],
+            "type": "multiple-choice"
+          },
+          {
+            "questionText": "Q7: Which of these activities do you enjoy the most?",
+            "options": [
+              "(A) Programming & solving math puzzles ➝ Science (PCM), AI, Data Science",
+              "(B) Learning about human anatomy & medicine ➝ Science (PCB), Healthcare",
+              "(C) Debating, writing, and social activism ➝ Humanities, Law, Journalism",
+              "(D) Stock market analysis & business strategy ➝ Commerce, Finance",
+              "(E) Designing, photography, or animation ➝ Arts, Media, Design"
+            ],
+            "type": "multiple-choice"
+          },
+          {
+            "questionText": "Q8: How do you prefer to work on projects?",
+            "options": [
+              "(A) Individually, using logic and problem-solving ➝ Science (PCM), AI, Data Science",
+              "(B) Experimenting in labs & doing research ➝ Science (PCB), Medicine, Research",
+              "(C) Discussing & analyzing real-world issues with people ➝ Humanities, Law",
+              "(D) Organizing and managing people & resources ➝ Commerce, Business Studies",
+              "(E) Expressing ideas through visuals, music, or storytelling ➝ Arts, Design"
+            ],
+            "type": "multiple-choice"
+          },
+          {
+            "questionText": "Q9: How do you make decisions about your future?",
+            "options": [
+              "(A) Based on logic & problem-solving skills ➝ Science (PCM), AI, Engineering",
+              "(B) Based on curiosity about the human body & science ➝ Science (PCB), Medicine",
+              "(C) Based on societal issues & human behavior ➝ Humanities, Public Policy",
+              "(D) Based on financial opportunities & business growth ➝ Commerce, Finance",
+              "(E) Based on creativity & storytelling ability ➝ Arts, Media, Filmmaking"
+            ],
+            "type": "multiple-choice"
+          },
+          {
+            "questionText": "Q10: If you could take an extra subject, what would it be?",
+            "options": [
+              "(A) Computer Science ➝ Science (PCM), AI, Software Engineering",
+              "(B) Psychology ➝ Science (PCB), Neuroscience, Therapy",
+              "(C) Political Science ➝ Humanities, Law, Civil Services",
+              "(D) Business Studies ➝ Commerce, Marketing, Management",
+              "(E) Fine Arts ➝ Arts, Design, Filmmaking"
+            ],
+            "type": "multiple-choice"
+          }
+        ]
+      }
+    ]
+  }

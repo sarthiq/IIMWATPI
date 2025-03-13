@@ -1,0 +1,320 @@
+{
+  "Career Interest Test": {
+    "Class 9-10": {
+      "Goal": "Understand students’ natural preferences, strengths, and interests to recommend the best-fit subjects for their higher studies.",
+      "Step 1: General Information": {
+        "Q1": "Which board are you studying in?",
+        "Options": ["CBSE", "ICSE", "State Board", "Other (Specify)"],
+        "Q2": "Which subjects do you currently enjoy the most?",
+        "Options": [
+          "Mathematics",
+          "Science (Physics, Chemistry, Biology)",
+          "Social Science (History, Civics, Geography)",
+          "English or Literature",
+          "Computers/Technology",
+          "Arts (Fine Arts, Performing Arts, Design)",
+          "Business/Finance"
+        ]
+      },
+      "Step 2: Interest-Based Questions": {
+        "Q1": "Which activity excites you the most?",
+        "Options": [
+          "Solving puzzles and logical problems",
+          "Conducting science experiments",
+          "Reading books, writing essays/stories",
+          "Drawing, designing, or creating things",
+          "Discussing social issues and debating opinions"
+        ],
+        "Q2": "If you had a day to learn anything, what would you do?",
+        "Options": [
+          "Explore space, robotics, or AI",
+          "Conduct chemical experiments in a lab",
+          "Read history books or watch documentaries",
+          "Write a story, poem, or script",
+          "Create an art piece or a new design"
+        ],
+        "Q3": "When given a task in school, how do you prefer to approach it?",
+        "Options": [
+          "Using logic and calculations",
+          "Experimenting and testing practically",
+          "Writing and expressing ideas",
+          "Researching and analyzing facts",
+          "Using creativity and imagination"
+        ],
+        "Q4": "Which of these would you enjoy the most?",
+        "Options": [
+          "Coding a computer program",
+          "Studying the human body and medicine",
+          "Learning about how economies and businesses work",
+          "Investigating past events and their impact",
+          "Designing posters, animations, or visual content"
+        ],
+        "Q5": "Which type of school project do you like the most?",
+        "Options": [
+          "Science fair experiments",
+          "Math riddles and problem-solving",
+          "Writing an essay or a story",
+          "Making a history documentary",
+          "Creating an art project or performance"
+        ]
+      },
+      "Step 3: Thinking Style & Career Alignment": {
+        "Q1": "How do you like to solve problems?",
+        "Options": [
+          "By analyzing numbers and data",
+          "By experimenting and testing solutions",
+          "By discussing ideas with others",
+          "By thinking creatively and outside the box"
+        ],
+        "Q2": "Which statement best describes you?",
+        "Options": [
+          "I love working with numbers and formulas",
+          "I am curious about how things work scientifically",
+          "I enjoy storytelling and writing",
+          "I like exploring cultures, history, and politics",
+          "I am artistic and like to express myself visually"
+        ],
+        "Q3": "If you could invent something, what would it be?",
+        "Options": [
+          "A new AI-powered app",
+          "A medicine to cure diseases",
+          "A policy to solve social issues",
+          "A best-selling novel or screenplay",
+          "A unique fashion or design concept"
+        ]
+      },
+      "Step 4: Analysis & Subject Recommendations": {
+        "Subject Recommendations Based on Interests": {
+          "STEM Focus (Science & Math)": "If students prefer logic, experiments, and numbers → Recommend Science & Mathematics.",
+          "Humanities & Social Sciences": "If students prefer history, social issues, and writing → Recommend Social Science & English.",
+          "Business & Economics": "If students are interested in money, finance, and problem-solving → Recommend Business & Economics.",
+          "Creative Arts & Media": "If students enjoy visual expression, design, and storytelling → Recommend Arts & Literature.",
+          "Technology & Coding": "If students enjoy computers, AI, and programming → Recommend Computer Science."
+        }
+      }
+    },
+    "Class 10th Updated": {
+      "Goal": "We'll assign  levels (A, B, C, D, E)  to each option in every question. Each level corresponds to a specific subject category. Based on the responses, we will formulate the  top 3 subject recommendations  for students.",
+      "Step 1: Questions & Categorization": {
+        "Table": {
+          "Question": [
+            "1. What excites you most?",
+            "2. If you had one day to learn something new, what would it be?",
+            "3. How do you approach problem-solving?",
+            "4. Which school project interests you most?",
+            "5. What best describes you?",
+            "6. If you could invent something, what would it be?",
+            "7. Favorite way to spend time?",
+            "8. If you had to choose a career today, what field would you prefer?",
+            "9. What kind of books do you enjoy?",
+            "10. What kind of challenges excite you?"
+          ],
+          "A: STEM (Math, Physics, AI, Robotics)": [
+            "Solving puzzles, coding, robotics",
+            "AI, Space, Quantum Computing",
+            "Logical calculations, data-driven thinking",
+            "Programming a robot",
+            "Love numbers, logic & structure",
+            "AI-powered assistant",
+            "Coding, programming, AI research",
+            "Engineer, Data Scientist, Mathematician",
+            "Science fiction, problem-solving books",
+            "Creating new tech, solving complex math"
+          ],
+          "B: Science & Medical (Biology, Chemistry)": [
+            "Science experiments, exploring nature",
+            "Medicine, Human Body, Chemistry",
+            "Hands-on experiments, testing",
+            "Conducting a lab experiment",
+            "Curious about biology & nature",
+            "Cure for a disease",
+            "Observing nature, experiments",
+            "Doctor, Biotechnologist, Scientist",
+            "Medical research, biology books",
+            "Understanding human body & medicine"
+          ],
+          "C: Humanities & Social Sciences": [
+            "Writing & debating ideas",
+            "History, Literature, Philosophy",
+            "Discussing different viewpoints,Risk analysis & decision making",
+            "Writing a historical novel",
+            "Deep thinker, enjoys reading & writing",
+            "A new social philosophy",
+            "Reading history, debating social topics",
+            "Journalist, Historian, Author",
+            "History, philosophy, social science",
+            "Analyzing society, exploring global issues"
+          ],
+          "D: Business & Economics": [
+            "Understanding business, economy",
+            "Stock Market, Finance",
+            "Thinking outside the box, creative visualization",
+            "Creating a business pitch",
+            "Business-minded, leadership skills",
+            "A business startup idea",
+            "Learning about economy, markets",
+            "Entrepreneur, Economist, Banker",
+            "Business & finance",
+            "Making money, business strategy"
+          ],
+          "E: Arts & Design (Creative Fields, Tech Design)": [
+            "Creating designs, music, art",
+            "Animation, Film Making, Fashion Design",
+            "Thinking outside the box, creative visualization",
+            "Designing a digital artwork",
+            "Artistic, innovative, visually creative",
+            "A revolutionary art form",
+            "Designing, performing arts, music",
+            "Filmmaker, Designer, Digital Artist",
+            "Art, photography, creativity guides",
+            "Creating something new, artistic freedom"
+          ]
+        }
+      },
+      "Step 2: Scoring System": "Each answer will  add 1 point  to a respective category (A, B, C, D, or E). At the end of the test, the  top 3 categories with the highest scores  will determine the recommended subjects.",
+      "Step 3: Subject Recommendations": {
+        "Table": {
+          "Top Category": [
+            "A: STEM (Math, Physics, AI, Robotics)",
+            "B: Science & Medical",
+            "C: Humanities & Social Sciences",
+            "D: Business & Economics",
+            "E: Arts & Design"
+          ],
+          "Subjects Recommended": [
+            "Mathematics, Physics, Computer Science, Engineering Drawing",
+            "Biology, Chemistry, Physics, Mathematics",
+            "History, Political Science, Psychology, Sociology, English",
+            "Business Studies, Economics, Mathematics, Entrepreneurship",
+            "Fine Arts, Media Studies, Literature, Performing Arts"
+          ]
+        }
+      },
+      "Step 4: Generating the Top 3 Recommendations": {
+        "Recommendations": [
+          {
+            "If": "STEM (A)  is highest, followed by  Business (D)  and  Tech/Creative (E)",
+            "Recommendation 1": "Computer Science, Mathematics, Physics, Business Studies",
+            "Recommendation 2": "AI & Robotics, Entrepreneurship, Economics",
+            "Recommendation 3": "Computer Science, Media Studies, Creative Design"
+          },
+          {
+            "If": "Science (B)  is highest, followed by  STEM (A)  and  Humanities (C)",
+            "Recommendation 1": "Biology, Chemistry, Physics, Mathematics",
+            "Recommendation 2": "Biotechnology, AI, Data Science",
+            "Recommendation 3": "Psychology, Environmental Science, Public Policy"
+          },
+          {
+            "If": "Humanities (C)  is highest, followed by  Business (D)  and  Creative (E)",
+            "Recommendation 1": "Political Science, History, Economics, Sociology",
+            "Recommendation 2": "Media Studies, Literature, Psychology",
+            "Recommendation 3": "Journalism, Fine Arts, Business Studies"
+          },
+          {
+            "If": "Business (D)  is highest, followed by  STEM (A)  and  Science (B)",
+            "Recommendation 1": "Economics, Business Studies, Mathematics",
+            "Recommendation 2": "Finance, Entrepreneurship, Computer Science",
+            "Recommendation 3": "Marketing, AI-driven Business Strategy, Media Studies"
+          },
+          {
+            "If": "Creative/Arts (E)  is highest, followed by  Humanities (C)  and  STEM (A)",
+            "Recommendation 1": "Fine Arts, Literature, Performing Arts",
+            "Recommendation 2": "Animation, Film Making, Digital Media",
+            "Recommendation 3": "Graphic Design, Psychology, Marketing"
+          }
+        ]
+      },
+      "Final Step: Personalized Report for Students": "After taking the test, students will receive a  personalized report  that includes: ✅   Top 3 recommended subject combinations  ✅   Reasoning behind their recommendations  ✅   Career paths aligned  with their selected subjects",
+      "Table": {
+        "Top Subject Category": [
+          "A: STEM (Math, Physics, AI, Robotics)",
+          "B: Science & Medical (Biology, Chemistry, Physics, Mathematics)",
+          "C: Humanities & Social Sciences",
+          "D: Business & Economics",
+          "E: Arts & Design (Creative Fields, Tech Design)"
+        ],
+        "Recommended Career Paths": [
+          "✅  Engineer (Software, Mechanical, Civil, etc.)  ✅  Data Scientist, AI Engineer  ✅  Mathematician, Statistician  ✅  Space Scientist, Astronomer  ✅  Robotics Engineer, Game Developer  ✅  Cybersecurity Analyst, Ethical Hacker",
+          "✅  Doctor (MBBS, BDS, Ayurveda)  ✅  Biotechnologist, Pharmacist  ✅  Research Scientist, Genetic Engineer  ✅  Environmental Scientist, Marine Biologist  ✅  Forensic Scientist, Microbiologist  ✅  Neuroscientist, Nutritionist",
+          "✅  Journalist, Writer, Editor  ✅  Lawyer, Civil Services (IAS, IPS)  ✅  Psychologist, Social Worker  ✅  Historian, Anthropologist  ✅  Political Analyst, Diplomat  ✅  Teacher, Professor, Public Policy Expert",
+          "✅  Entrepreneur, Business Consultant  ✅  Economist, Financial Analyst  ✅  Chartered Accountant (CA), Investment Banker  ✅  Marketing & Advertising Professional  ✅  E-commerce, Digital Business Owner  ✅  Supply Chain & Logistics Manager",
+          "✅  Graphic Designer, UI/UX Designer  ✅  Filmmaker, Animator, Game Designer  ✅  Fashion Designer, Interior Designer  ✅  Photographer, Musician, Performing Artist  ✅  Advertising & Branding Professional  ✅  Social Media Content Creator"
+        ]
+      },
+      "Optional Career Paths Based on Subject Recommendations": "Once students complete the test and get their  top 3 recommended subject combinations , we can provide  career paths aligned with those subjects .",
+      "Example Personalized Report for a Student": {
+        "Student Name": "Riya Sharma",
+        "Class": "9th",
+        "Interest Areas": "Science & Medical (B), STEM (A), Humanities (C)",
+        "Recommended Subjects": "Biology, Chemistry, Physics, Mathematics",
+        "Career Path Suggestions": [
+          "🔹   Doctor (MBBS, BDS, Ayurveda, etc.)  – If you enjoy medical sciences and helping people, you can pursue a career in medicine.",
+          "🔹   Research Scientist  – If you love experimenting and discovering new things, research in genetics or biotechnology could be a great fit.",
+          "🔹   Psychologist  – If you are curious about the human mind, psychology could be an interesting career choice."
+        ]
+      }
+    },
+    "Class 11-12": {
+      "Goal": "Identify the student's  interest and aptitude . Determine  preferred subjects  based on responses. Recommend  top 3 subject combinations  for Class 11-12. Suggest  optional career paths  based on chosen subjects.",
+      "Step 1: Identify Student's Background": {
+        "Q1": "Which board are you studying in?",
+        "Options": [
+          "🔹  (A) CBSE",
+          "🔹  (B) ICSE",
+          "🔹  (C) State Board",
+          "🔹  (D) International (IB/IGCSE)"
+        ],
+        "Q2": "Have you already chosen a stream?",
+        "Options": [
+          "🔹  (A) Yes, but I’m unsure about my subjects.",
+          "🔹  (B) No, I need help deciding."
+        ],
+        "If (A)": "we refine their subject choices.",
+        "If (B)": "we proceed with interest-based questions to suggest a stream."
+      },
+      "Step 2: Interest & Aptitude Questions": "Each response will be assigned a  level (A, B, C, D, E) , helping us determine the  most suitable subjects and careers.",
+      "Questions": [
+        {
+          "Q3": "What type of challenges do you enjoy solving?",
+          "A": "Math-based problems & coding  ➝   Science (PCM), AI, Commerce (Finance)",
+          "B": "Biological experiments & health sciences  ➝   Science (PCB), Medicine, Biotech",
+          "C": "Understanding society, politics, and human behavior  ➝   Humanities, Law, Civil Services",
+          "D": "Managing money, businesses, and markets  ➝   Commerce, Business Studies",
+          "E": "Designing, storytelling, or creating content  ➝   Arts & Design"
+        },
+        {
+          "Q4": "Which school subjects do you find most engaging?",
+          "A": "Math & Physics  ➝   Science (PCM), AI, Engineering",
+          "B": "Biology & Chemistry  ➝   Science (PCB), Medicine, Biotech",
+          "C": "History & Political Science  ➝   Humanities, Law, Civil Services",
+          "D": "Business Studies & Economics  ➝   Commerce, Finance, Marketing",
+          "E": "Fine Arts & Media Studies  ➝   Arts & Design, Animation, Filmmaking"
+        },
+        {
+          "Q5": "If you had to choose a weekend project, what would it be?",
+          "A": "Building a robot or coding an AI model  ➝   Science (PCM), Engineering, AI",
+          "B": "Researching how medicines work & conducting experiments  ➝   Science (PCB), Medicine",
+          "C": "Writing a blog on current affairs or social issues  ➝   Humanities, Journalism",
+          "D": "Creating a business plan or stock market analysis  ➝   Commerce, Entrepreneurship",
+          "E": "Producing a short film, painting, or digital artwork  ➝   Arts, Design, Media"
+        },
+        {
+          "Q6": "Which career sounds most exciting to you?",
+          "A": "AI Engineer, Space Scientist, Software Developer  ➝   Science (PCM)",
+          "B": "Doctor, Biotechnologist, Neuroscientist  ➝   Science (PCB)",
+          "C": "Lawyer, Civil Servant, Journalist  ➝   Humanities",
+          "D": "Investment Banker, CA, Business Owner  ➝   Commerce",
+          "E": "Graphic Designer, Filmmaker, Fashion Designer  ➝   Arts"
+        },
+        {
+          "Q7": "Which of these activities do you enjoy the most?",
+          "A": "Programming & solving math puzzles  ➝   Science (PCM), AI, Data Science",
+          "B": "Learning about human anatomy & medicine  ➝   Science (PCB), Healthcare",
+          "C": "Debating, writing, and social activism  ➝   Humanities, Law, Journalism",
+          "D": "Stock market analysis & business strategy  ➝   Commerce, Finance",
+          "E": "Designing, photography, or animation  ➝   Arts, Media, Design"
+        }
+      ]
+    }
+  }
+}

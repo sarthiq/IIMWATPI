@@ -1,5 +1,13 @@
 import React, { useState, useEffect } from "react";
-import { Container, Card, Form, Button, Row, Col, Spinner } from "react-bootstrap";
+import {
+  Container,
+  Card,
+  Form,
+  Button,
+  Row,
+  Col,
+  Spinner,
+} from "react-bootstrap";
 import { useAlert } from "../../../../../UI/Alert/AlertContext";
 import { getProfileHandler, updateProfileHandler } from "../apiHandler";
 import "./Profile.css";
@@ -34,7 +42,7 @@ export const Profile = () => {
 
   useEffect(() => {
     fetchProfileData();
-     // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const fetchProfileData = async () => {
@@ -47,14 +55,19 @@ export const Profile = () => {
         email: response.data.User?.email || "",
         phone: response.data.User?.phone || "",
         institutionName: response.data?.institutionName || "",
-        institutionType: response.data?.institutionType || "",
+        institutionType: institutionTypes.includes(
+          response.data?.institutionType
+        )
+          ? response.data?.institutionType
+          : "Other",
         otherInstitution: response.data?.otherInstitution || "",
         standard: response.data?.standard || "",
         course: response.data?.course || "",
         year: response.data?.year || "",
         branch: response.data?.branch || "",
       };
-      
+      console.log(userData);
+
       setUserInfo(userData);
       setShowOtherField(userData.institutionType === "Other");
     }
@@ -79,7 +92,11 @@ export const Profile = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const response = await updateProfileHandler(userInfo, setIsLoading, showAlert);
+    const response = await updateProfileHandler(
+      userInfo,
+      setIsLoading,
+      showAlert
+    );
     if (response && response.success) {
       showAlert("Profile updated successfully!", "success");
       setIsEditing(false);
@@ -231,13 +248,13 @@ export const Profile = () => {
                         onChange={handleChange}
                       >
                         <option value="">Select Standard/Year</option>
-                        {standardOptions[userInfo.institutionType].map(
-                          (std) => (
-                            <option key={std} value={std}>
-                              {std}
-                            </option>
-                          )
-                        )}
+                        {standardOptions[
+                          userInfo.institutionType || "Other"
+                        ].map((std) => (
+                          <option key={std} value={std}>
+                            {std}
+                          </option>
+                        ))}
                       </Form.Select>
                     </Form.Group>
                   ) : (

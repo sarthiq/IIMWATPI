@@ -7,15 +7,17 @@ import { Provider } from "react-redux";
 import { Store } from "./Store";
 import { AlertProvider } from "./Components/UI/Alert/AlertContext";
 import { setAdminAuthToken, adminLogin } from "./Store/Admin/auth";
-
+import { setUserAuthToken, userLogin } from "./Store/User/auth";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
 const RootComponent = () => {
   const [isInitializing, setIsInitializing] = useState(true);
-
+  const env = process.env.REACT_APP_ENV;
+  console.log(env);
   useEffect(() => {
     const initializeApp = async () => {
       const adminToken = localStorage.getItem("adminToken");
+      const userToken = localStorage.getItem("token");
 
       if (adminToken) {
         // Dispatch to Redux store to set authentication state
@@ -23,10 +25,15 @@ const RootComponent = () => {
         Store.dispatch(setAdminAuthToken(adminToken)); // Update Redux token
       }
 
+      if (userToken) {
+        Store.dispatch(userLogin());
+        Store.dispatch(setUserAuthToken(userToken)); // Update Redux token
+      }
+
       // Add a 2-second delay to ensure the spinner shows for a minimum time
       setTimeout(() => {
         setIsInitializing(false); // Initialization complete
-      }, 500);
+      }, env==='testing' ? 500 : 4000);
     };
 
     initializeApp();
@@ -39,11 +46,21 @@ const RootComponent = () => {
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
+          flexDirection: "column",
           height: "100vh",
-          backgroundColor: "#f0f2f5",
+          backgroundColor: "#FCFCFF",
         }}
       >
-        <div className="spinner"></div>
+        <video
+          src="/Logo.webm"
+          autoPlay
+          loop
+          muted
+          style={{
+            width: "200px",
+            marginBottom: "20px",
+          }}
+        />
       </div>
     );
   }

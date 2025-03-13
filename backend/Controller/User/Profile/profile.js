@@ -49,7 +49,7 @@ exports.updateProfile = async (req, res) => {
     const userId = req.user.id; // Assuming you have user data in req from auth middleware
     const { institutionName, institutionType, standard, course, year, branch } =
       req.body;
-
+    
     // Validate required fields
     if (!institutionName || !institutionType) {
       return res.status(400).json({
@@ -68,10 +68,10 @@ exports.updateProfile = async (req, res) => {
       {
         institutionName,
         institutionType,
-        standard: institutionType === "SCHOOL" ? standard : null,
-        course: institutionType === "COLLEGE" ? course : null,
-        year: institutionType === "COLLEGE" ? year : null,
-        branch: institutionType === "COLLEGE" ? branch : null,
+        standard: standard || null,
+        course: course || null,
+        year: year || null,
+        branch: branch || null,
       },
       { where: { UserId: userId } }
     );
