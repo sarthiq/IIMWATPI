@@ -10,7 +10,7 @@ backend/temp/
 frontend/node_modules/
 frontend/.env
 frontend/.env.production
-frontend/build
+frontend/build/
 
 # Ignore for epe_gaming_client (Flutter)
 epe_gaming_client/android/app/google-services.json
