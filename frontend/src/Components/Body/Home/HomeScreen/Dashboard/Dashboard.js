@@ -72,7 +72,7 @@ export const Dashboard = () => {
             <Route path="profile" element={<Profile />} />
             <Route path="results" element={<TestResults />} />
             <Route path="ai-literacy" element={<AILiteracy />} />
-            <Route path="career-awareness" element={<CareerAwareness />} />
+            <Route path="career-awareness/*" element={<CareerAwareness />} />
             <Route path="recommendations/*" element={<CareerRecommendations />} />
             <Route path="*" element={<Navigate to="profile" replace />} />
           </Routes>
