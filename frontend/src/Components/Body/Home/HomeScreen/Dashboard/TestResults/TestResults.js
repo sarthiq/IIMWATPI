@@ -8,17 +8,19 @@ import { getTestResultsHandler } from "../apiHandler";
 export const TestResults = () => {
   const [results, setResults] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
+  const [quizzes, setQuizzes] = useState(null);
   const { showAlert } = useAlert();
-  console.log(results);
+
   useEffect(() => {
     fetchTestResults();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-
+  console.log(quizzes);
   const fetchTestResults = async () => {
     const response = await getTestResultsHandler(setIsLoading, showAlert);
     if (response && response.success) {
       setResults(response.data.results);
+      setQuizzes(response.data.quizzes);
     }
   };
 
@@ -54,7 +56,14 @@ export const TestResults = () => {
             {!data ? (
               <div className="result-details">
                 <p>You haven't taken this test yet.</p>
-                <Link to={`/quiz/${type}/`} className="take-test-link">
+                <Link
+                  to={`/quiz/${
+                    quizzes?.find(
+                      (quiz) => quiz.title.toLowerCase() === type.toLowerCase()
+                    )?.id || ""
+                  }`}
+                  className="take-test-link"
+                >
                   Take Test Now
                 </Link>
               </div>
@@ -85,15 +94,18 @@ export const TestResults = () => {
                         </li>
                         <li>
                           Conscientiousness:{" "}
-                          {data.detailedResult.result.conscientiousness.toFixed(1)}%
+                          {data.detailedResult.result.conscientiousness.toFixed(
+                            1
+                          )}
+                          %
                         </li>
                         <li>
                           Neuroticism:{" "}
                           {data.detailedResult.result.neuroticism.toFixed(1)}%
                         </li>
                         <li>
-                          Openness: {data.detailedResult.result.openness.toFixed(1)}
-                          %
+                          Openness:{" "}
+                          {data.detailedResult.result.openness.toFixed(1)}%
                         </li>
                       </ul>
                     </div>
@@ -132,7 +144,10 @@ export const TestResults = () => {
                     </div>
                   )}
                 </div>
-                <Link to={`/quiz/${data.quizId}/`} className="view-details-link">
+                <Link
+                  to={`/quiz/${data.quizId}/`}
+                  className="view-details-link"
+                >
                   Take Test Again
                 </Link>
               </>
