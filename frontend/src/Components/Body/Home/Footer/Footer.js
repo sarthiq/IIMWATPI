@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./Footer.css";
 import { FaLinkedin, FaYoutube, FaWhatsapp } from "react-icons/fa";
 
@@ -10,8 +11,8 @@ export const Footer = () => {
         <div className="footer-column">
           <h4>Products</h4>
           <ul>
-            <li><a href="/quiz">Tests</a></li>
-            <li><a href="/career">Career Counselling</a></li>
+            <li><Link to="/quiz">Tests</Link></li>
+            <li><Link to="/career">Career Counselling</Link></li>
           </ul>
         </div>
 
@@ -19,8 +20,8 @@ export const Footer = () => {
         <div className="footer-column">
           <h4>Terms and Conditions</h4>
           <ul>
-            <li><a href="/privacy">Privacy Policy</a></li>
-            <li><a href="/refund">Refund Policy</a></li>
+            <li><Link to="/privacy-policy">Privacy Policy</Link></li>
+            <li><Link to="/refund-policy">Refund Policy</Link></li>
           </ul>
         </div>
 
