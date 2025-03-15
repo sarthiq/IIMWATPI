@@ -257,10 +257,7 @@ button:hover {
 }
 
 /* Remove old button styles if they exist */
-.nav-buttons,
-.metric-buttons {
-  display: none;
-}
+
 
 .ai-box-layout,
 .career-box-layout {

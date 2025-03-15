@@ -9,7 +9,7 @@
 }
 
 /* Section styles */
-.section {
+.sections {
     margin-bottom: 20px;
     padding: 15px;
     background-color: #fff;
@@ -17,19 +17,19 @@
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
-.section-title {
+.sections-title {
     font-size: 1.5em;
     margin-bottom: 10px;
     color: #333;
 }
 
-.section-content {
+.sections-content {
     font-size: 1em;
     color: #666;
 }
 
 /* Icon styles */
-.section-icon {
+.sections-icon {
     width: 24px;
     height: 24px;
     margin-right: 10px;
@@ -48,7 +48,6 @@ ul li {
 }
 
 ul li:before {
-    content: "•";
     color: #4a90e2;
     font-weight: bold;
     position: absolute;
@@ -88,7 +87,7 @@ ul li:before {
 }
 
 /* Icon colors */
-.section-icon {
+.sections-icon {
     color: #4a90e2;
 }
 
@@ -97,7 +96,7 @@ ul li:before {
     position: relative;
 }
 
-.section-wrapper {
+.sections-wrapper {
     position: relative;
 }
 
@@ -124,12 +123,12 @@ ul li:before {
     transform: rotate(90deg);
 }
 
-.section {
+.sections {
     height: 100%;
     transition: transform 0.3s ease;
 }
 
-.section:hover {
+.sections:hover {
     transform: translateY(-5px);
 }
 
@@ -186,7 +185,7 @@ ul li:before {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.section-title {
+.sections-title {
     display: flex;
     align-items: center;
     border-bottom: 2px solid #4a90e2;
@@ -194,7 +193,7 @@ ul li:before {
     margin-bottom: 20px;
 }
 
-.section-icon {
+.sections-icon {
     margin-right: 10px;
     font-size: 1.5em;
 }

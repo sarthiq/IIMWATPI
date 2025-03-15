@@ -34,7 +34,7 @@
 
 .nav-menu ul {
   display: flex;
-  list-style: none;
+  text-decoration: none;
   gap: 30px;
 }
 
