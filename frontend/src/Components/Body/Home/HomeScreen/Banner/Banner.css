@@ -1,135 +1,350 @@
 .banner-container {
-  display: flex;
- 
-  align-items: center;
-  height: 60vh;
-  background: linear-gradient(135deg, #1c0b8b 0%, #343781 50%, #3a1c4b 100%);
+  height: 80vh;
+  background-color: #0a1d56;
+  padding: 2rem;
   color: white;
-  padding: 20px 20px 20px 20px;
+  overflow: hidden;
 }
 
-.banner-content {
-  width: 100%;
-
+.grid-layout {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 2rem;
+  height: 100%;
+  margin: auto;
 }
 
-.purple-text {
-  color: #ffffff;
-  font-size: 2.5rem;
+/* Grid Areas */
+.dashboard-section {
+  height: 35vh;
+  grid-column: 1;
+  grid-row: 1;
+  overflow: hidden;
+  background-color: #ffffff;
   font-weight: bold;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-  top: 10%;
-  text-align: center;
- 
-  display: block;
 }
 
-.blue-text {
-  color: #ffffff;
-  font-size: 2.5rem;
+.ai-literacy-section {
+  height: 35vh;
+  grid-column: 2;
+  grid-row: 1;
+  overflow: hidden;
+  background-color: #ffffff;
   font-weight: bold;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-  text-align: center;
- 
-  display: block;
 }
 
-.description {
-  margin-top: 70px;
-  color: #ffffff;
+.text-section {
+  height: 35vh;
+  grid-column: 1;
+  grid-row: 2;
+  overflow: hidden;
+}
+
+.career-section {
+  height: 35vh;
+  grid-column: 2;
+  grid-row: 2;
+  overflow: hidden;
+  background-color: #ffffff;
+  font-weight: bold;
+}
+
+/* Glass Container Styling */
+.glass-container {
+  height: 100%;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(2px);
+  border-radius: 20px;
+  padding: 1.5rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: white;
+}
+
+/* Text Styles */
+
+
+
+.dashboard-section h2,
+.ai-literacy-section h2,
+.career-section h2 {
+  color:#003479;
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  font-size: 3rem;
+}
+
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+  color: white;
+}
+
+h2 {
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  
+}
+
+p {
   font-size: 1.2rem;
   line-height: 1.6;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+  margin-bottom: 2rem;
+}
+
+/* Button Styles */
+button {
+  background: linear-gradient(135deg, #3b5bdb, #2c44b0);
+  color: white;
+  border: none;
+  padding: 0.8rem 1.2rem;
+  border-radius: 10px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  width: 100%;
+  margin-bottom: 0.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.highlight {
+  background: #003479;
+  color: #000;
+  font-weight: bold;
+  margin-top: 1rem;
+}
+
+.coming-soon {
+  background: #003479;
+  width: auto;
+  padding: 1rem 2rem;
+  border-radius: 20px;
+  font-size: 1.2rem;
+}
+
+/* Button Containers */
+.nav-buttons, .button-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.metric-buttons {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .banner-container {
+    height: auto;
+    padding: 1rem;
+  }
+
+  .grid-layout {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+  }
+
+  .dashboard-section,
+  .ai-literacy-section,
+  .text-section,
+  .career-section {
+    height: auto;
+    min-height: 300px;
+    grid-column: 1;
+  }
+
+  .dashboard-section { grid-row: 1; }
+  .ai-literacy-section { grid-row: 2; }
+  .text-section { grid-row: 3; }
+  .career-section { grid-row: 4; }
+}
+
+@media (max-width: 768px) {
+  .banner-container {
+    padding: 1rem;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  p {
+    font-size: 1rem;
+  }
+
+  .metric-buttons {
+    flex-direction: column;
+  }
+}
+
+.box-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 1rem;
+  margin: 1rem 0;
+}
+
+.metric-grid {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.box-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin: 1rem 0;
+}
+
+.box {
+  background: #003479;
+  border-radius: 8px;
+  padding: 1rem;
   text-align: center;
- 
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
+}
+
+.box:hover {
+  background: #034499;
+  transform: translateY(-2px);
+}
+
+.highlight-box {
+  background: #003479;
+  border-radius: 8px;
+  padding: 1rem;
+  text-align: center;
+  margin-top: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.highlight-box:hover {
+  background: #034fb3;
+  transform: translateY(-2px);
+}
+
+.coming-soon-box {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 1rem;
+  text-align: center;
+  display: inline-block;
+  width: fit-content;
+  margin-top: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Remove old button styles if they exist */
+.nav-buttons,
+.metric-buttons {
+  display: none;
+}
+
+.ai-box-layout,
+.career-box-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  height: 100%;
+  padding: 1rem 0;
+}
+
+.ai-box-layout .top-row,
+.career-box-layout .top-row {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.ai-box-layout .middle-row,
+.career-box-layout .middle-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  min-height: 60px;
+}
+
+.ai-literacy-section .box,
+.career-section .box {
+  padding: 0.8rem;
+  height: 100%;
+  min-height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  word-break: break-word;
+}
+
+.banner {
+  background: linear-gradient(135deg, #1a1a1a, #2d2d2d, #1a1a1a);
+  padding: 2rem 0;
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Optional: Add a subtle animation to the gradient */
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.banner {
+  background-size: 200% 200%;
+  animation: gradientAnimation 15s ease infinite;
 }
 
 .coming-soon-btn {
-  align-items: left;
-  margin-top: 20px;
-  padding: 12px 24px;
-  font-size: 1rem;
-  font-weight: bold;
+  background: linear-gradient(135deg, #070581, #510485);
   color: white;
-  background: linear-gradient(to right, #4834d4, #686de0);
+  padding: 0.6rem 1.2rem;
+  border-radius: 25px;
   border: none;
-  border-radius: 5px;
   cursor: pointer;
+  font-weight: 600;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow: 0 2px 10px rgb(89, 0, 100);
+  font-size: 0.9rem;
+  min-width: 120px;
+  max-width: 150px;
+  width: fit-content;
+  margin: 0 auto;
 }
 
 .coming-soon-btn:hover {
+  background: linear-gradient(135deg, #444, #555);
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
-}
-
-/* Responsive Styles */
-@media screen and (max-width: 768px) {
-  .banner-content {
-    height: 40vh;
-    padding: 20px;
-  }
-
-  .description {
-    padding-left: 40px;
-  }
-
-  .purple-text,
-  .blue-text {
-    font-size: 2rem;
-  }
-}
-
-@media screen and (max-width: 480px) {
-  .banner-container {
-    height: 40vh;
-    padding: 15px 15px 15px 15px;
-  }
-
-  .banner-content {
-    padding-left: 10px;
-  }
-
-  .description {
-    padding-left: 30px;
-    font-size: 0.9rem;
-  }
-
-  .purple-text,
-  .blue-text {
-    font-size: 1.5rem;
-  }
-}
-
-@media screen and (max-width: 360px) {
-  .banner-container {
-    padding: 20px 10px 10px 10px;
-  }
-
-  .banner-content {
-    padding-left: 5px;
-  }
-
-  .description {
-    padding-left: 20px;
-  }
-
-  .purple-text,
-  .blue-text {
-    font-size: 1.2rem;
-  }
-}
-
-/* Landscape Mode */
-@media screen and (max-height: 500px) {
-  .banner-container {
-    height: auto;
-    min-height: 100vh;
-    padding: 20px 0;
-  }
-
-  .banner-content {
-    padding: 20px;
-  }
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
 }

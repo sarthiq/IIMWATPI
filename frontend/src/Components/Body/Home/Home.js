@@ -5,7 +5,7 @@ import { Footer } from "./Footer/Footer";
 
 import { HomeScreen } from "./HomeScreen/HomeScreen";
 import { Quiz } from "./HomeScreen/Quiz/Quiz";
-import { Career } from "./HomeScreen/Career/Career";
+
 import { About } from "./About/About";
 import { Dashboard } from "./HomeScreen/Dashboard/Dashboard";
 import { Auth } from "./HomeScreen/Auth/Auth";
@@ -19,7 +19,7 @@ export const Home = () => {
           {/* Default route for homepage */}
 
           <Route path="/" element={<HomeScreen />} />
-          <Route path="resources" element={<Career />} />
+         
           <Route path="about" element={<About />} />
 
           <Route path="dashboard/*" element={<Dashboard />} />
