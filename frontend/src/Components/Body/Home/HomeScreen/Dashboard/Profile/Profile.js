@@ -10,13 +10,18 @@ import {
 } from "react-bootstrap";
 import { useAlert } from "../../../../../UI/Alert/AlertContext";
 import { getProfileHandler, updateProfileHandler } from "../apiHandler";
+import { useNavigate } from "react-router-dom";
 import "./Profile.css";
+import { useDispatch } from "react-redux";
+import { userLogOut, setUserAuthToken } from "../../../../../../Store/User/auth";
 
 export const Profile = () => {
   const [isEditing, setIsEditing] = useState(false);
   const [showOtherField, setShowOtherField] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const { showAlert } = useAlert();
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const [userInfo, setUserInfo] = useState({
     name: "",
@@ -103,6 +108,14 @@ export const Profile = () => {
     }
   };
 
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    dispatch(userLogOut());
+    dispatch(setUserAuthToken(null));
+    showAlert("Logged out successfully!", "success");
+    navigate("/auth");
+  };
+
   if (isLoading) {
     return (
       <div className="profile-loading">
@@ -119,15 +132,23 @@ export const Profile = () => {
         <Card.Body>
           <div className="profile-header">
             <h2>Profile Information</h2>
-            {!isEditing && (
+            <div>
+              {!isEditing && (
+                <Button
+                  variant="primary"
+                  onClick={() => setIsEditing(true)}
+                  className="edit-button me-2"
+                >
+                  Edit Profile
+                </Button>
+              )}
               <Button
-                variant="primary"
-                onClick={() => setIsEditing(true)}
-                className="edit-button"
+                variant="danger"
+                onClick={handleLogout}
               >
-                Edit Profile
+                Logout
               </Button>
-            )}
+            </div>
           </div>
 
           <Form onSubmit={handleSubmit}>

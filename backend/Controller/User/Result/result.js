@@ -18,6 +18,14 @@ exports.getUserResult = async (req, res) => {
 
     const userId = req.user.id;
 
+    const quizzes=await Quiz.findAll({
+      where:{
+        isActive:true
+      }
+    });
+
+    
+
     // Get the latest result for each quiz type
     const results = await UserQuiz.findAll({
       where: {
@@ -81,6 +89,7 @@ exports.getUserResult = async (req, res) => {
         userId: userId,
         userName: req.user.name,
         results: latestResults,
+        quizzes: quizzes,
       },
     });
   } catch (error) {
