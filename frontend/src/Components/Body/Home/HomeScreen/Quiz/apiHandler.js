@@ -40,6 +40,7 @@ export const fetchQuizzesHandler = async (setIsLoading, showAlert) => {
 export const submitAnswersHandler = async (
   data,
   urlPath,
+  token,
   setIsLoading,
   showAlert
 ) => {
@@ -51,7 +52,7 @@ export const submitAnswersHandler = async (
   setIsLoading(true);
 
   try {
-    const result = await apiRequest(url, obj, "", "post");
+    const result = await apiRequest(url, obj, token, "post");
     const data = result.data;
 
     return data;
@@ -78,6 +79,21 @@ export const updateStudentDetailsHandler = async (
     const data = result.data;
 
     return data;
+  } catch (e) {
+    handleErrors(e, showAlert);
+  } finally {
+    setIsLoading(false);
+  }
+};
+
+export const verifyTokenHandler = async (token, setIsLoading, showAlert) => {
+  const url = "/user/verify";
+  const obj = {};
+  setIsLoading(true);
+
+  try {
+    const result = await apiRequest(url, obj, token, "get");
+    return result;
   } catch (e) {
     handleErrors(e, showAlert);
   } finally {

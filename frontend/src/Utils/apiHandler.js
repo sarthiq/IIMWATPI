@@ -30,7 +30,7 @@ export const apiUploadRequest = async (url, obj = {}, token = "") => {
     Authorization: token || "", // Fallback for optional token
     "Content-Type": "multipart/form-data", // Standard for API requests
   };
-  
+
   const result = await axios.post(completeUrl, obj, { headers });
 
   return result; // Return only the response data
@@ -79,7 +79,7 @@ export const handleErrors = async (err, showAlert) => {
   if (alertMessage) {
     showAlert("error", "Error!", alertMessage, null, () => {
       if (response && response.status && response.status === 503) {
-        window.location = "/user/auth/login";
+        window.location = "/auth";
       }
     });
   }
@@ -87,24 +87,13 @@ export const handleErrors = async (err, showAlert) => {
   if (response && response.status === 503) {
     const state = Store.getState();
     const userType = state.commonInfo.userType;
-    
-    
-    if (userType === "user") {
-      localStorage.removeItem("userToken");
-      Store.dispatch(userLogOut());
-      Store.dispatch(setUserAuthToken(null));
-      //window.location='/user/auth/login'
-    } else if (userType === "admin") {
-      localStorage.removeItem('adminToken');
-      Store.dispatch(adminLogOut());
-      Store.dispatch(setAdminAuthToken(null));
-    } else {
-      showAlert(
-        "error",
-        "System Error!",
-        "Invalid User Type in Error Handler!"
-      );
-    }
+
+    localStorage.removeItem("token");
+    Store.dispatch(userLogOut());
+    Store.dispatch(setUserAuthToken(null));
+
+    localStorage.removeItem("adminToken");
+    Store.dispatch(adminLogOut());
+    Store.dispatch(setAdminAuthToken(null));
   }
- 
 };

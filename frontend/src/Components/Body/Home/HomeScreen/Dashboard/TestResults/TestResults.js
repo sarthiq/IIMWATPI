@@ -9,10 +9,10 @@ export const TestResults = () => {
   const [results, setResults] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const { showAlert } = useAlert();
-
+  console.log(results);
   useEffect(() => {
     fetchTestResults();
-     // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const fetchTestResults = async () => {
@@ -33,8 +33,6 @@ export const TestResults = () => {
   }
 
   const renderTestCard = (type, data) => {
-    if (!data) return null;
-
     const getTestTitle = () => {
       switch (type) {
         case "iq":
@@ -53,84 +51,92 @@ export const TestResults = () => {
         <Card className="result-card">
           <Card.Body>
             <Card.Title className="result-title">{getTestTitle()}</Card.Title>
-            <div className="result-details">
-              <p className="result-date">
-                Taken on: {new Date(data.completedAt).toLocaleDateString()}
-              </p>
+            {!data ? (
+              <div className="result-details">
+                <p>You haven't taken this test yet.</p>
+                <Link to={`/quiz/${type}/`} className="take-test-link">
+                  Take Test Now
+                </Link>
+              </div>
+            ) : (
+              <>
+                <div className="result-details">
+                  <p className="result-date">
+                    Taken on: {new Date(data.completedAt).toLocaleDateString()}
+                  </p>
 
-              {type === "iq" && (
-                <p className="result-score">
-                  IQ Level: {data.detailedResult.result.label}
-                </p>
-              )}
+                  {type === "iq" && (
+                    <p className="result-score">
+                      IQ Level: {data.detailedResult.result.label}
+                    </p>
+                  )}
 
-              {type === "personality" && (
-                <div className="personality-traits">
-                  <p>Personality Traits:</p>
-                  <ul>
-                    <li>
-                      Extraversion:{" "}
-                      {data.detailedResult.result.extraversion.toFixed(1)}%
-                    </li>
-                    <li>
-                      Agreeableness:{" "}
-                      {data.detailedResult.result.agreeableness.toFixed(1)}%
-                    </li>
-                    <li>
-                      Conscientiousness:{" "}
-                      {data.detailedResult.result.conscientiousness.toFixed(1)}%
-                    </li>
-                    <li>
-                      Neuroticism:{" "}
-                      {data.detailedResult.result.neuroticism.toFixed(1)}%
-                    </li>
-                    <li>
-                      Openness: {data.detailedResult.result.openness.toFixed(1)}
-                      %
-                    </li>
-                  </ul>
+                  {type === "personality" && (
+                    <div className="personality-traits">
+                      <p>Personality Traits:</p>
+                      <ul>
+                        <li>
+                          Extraversion:{" "}
+                          {data.detailedResult.result.extraversion.toFixed(1)}%
+                        </li>
+                        <li>
+                          Agreeableness:{" "}
+                          {data.detailedResult.result.agreeableness.toFixed(1)}%
+                        </li>
+                        <li>
+                          Conscientiousness:{" "}
+                          {data.detailedResult.result.conscientiousness.toFixed(1)}%
+                        </li>
+                        <li>
+                          Neuroticism:{" "}
+                          {data.detailedResult.result.neuroticism.toFixed(1)}%
+                        </li>
+                        <li>
+                          Openness: {data.detailedResult.result.openness.toFixed(1)}
+                          %
+                        </li>
+                      </ul>
+                    </div>
+                  )}
+
+                  {type === "creativity" && (
+                    <div className="creativity-scores">
+                      <p>Overall: {data.detailedResult.result.label}</p>
+                      <p>Category Scores:</p>
+                      <ul>
+                        <li>
+                          Fluency:{" "}
+                          {data.detailedResult.result.categoryScores.fluency.toFixed(
+                            1
+                          )}
+                        </li>
+                        <li>
+                          Flexibility:{" "}
+                          {data.detailedResult.result.categoryScores.flexibility.toFixed(
+                            1
+                          )}
+                        </li>
+                        <li>
+                          Originality:{" "}
+                          {data.detailedResult.result.categoryScores.originality.toFixed(
+                            1
+                          )}
+                        </li>
+                        <li>
+                          Elaboration:{" "}
+                          {data.detailedResult.result.categoryScores.elaboration.toFixed(
+                            1
+                          )}
+                        </li>
+                      </ul>
+                    </div>
+                  )}
                 </div>
-              )}
-
-              {type === "creativity" && (
-                <div className="creativity-scores">
-                  <p>Overall: {data.detailedResult.result.label}</p>
-                  <p>Category Scores:</p>
-                  <ul>
-                    <li>
-                      Fluency:{" "}
-                      {data.detailedResult.result.categoryScores.fluency.toFixed(
-                        1
-                      )}
-                    </li>
-                    <li>
-                      Flexibility:{" "}
-                      {data.detailedResult.result.categoryScores.flexibility.toFixed(
-                        1
-                      )}
-                    </li>
-                    <li>
-                      Originality:{" "}
-                      {data.detailedResult.result.categoryScores.originality.toFixed(
-                        1
-                      )}
-                    </li>
-                    <li>
-                      Elaboration:{" "}
-                      {data.detailedResult.result.categoryScores.elaboration.toFixed(
-                        1
-                      )}
-                    </li>
-                  </ul>
-                </div>
-              )}
-            </div>
-            <Link
-              to={`/quiz/${data.quizId}/`}
-              className="view-details-link"
-            >
-              Take Test Again
-            </Link>
+                <Link to={`/quiz/${data.quizId}/`} className="view-details-link">
+                  Take Test Again
+                </Link>
+              </>
+            )}
           </Card.Body>
         </Card>
       </Col>

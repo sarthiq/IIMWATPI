@@ -4,6 +4,7 @@ import { Container, Card, Button, Spinner, ProgressBar } from "react-bootstrap";
 import "./Result.css"; // Unique styles for result page
 import { submitAnswersHandler } from "../apiHandler";
 import { useAlert } from "../../../../../UI/Alert/AlertContext";
+import { useSelector } from "react-redux";
 
 export const Result = ({
   userAnswer,
@@ -20,6 +21,7 @@ export const Result = ({
   const [loading, setLoading] = useState(true); // Loading state for spinner
   const [timeRemaining, setTimeRemaining] = useState(120); // 2 minutes in seconds
   const { showAlert } = useAlert();
+  const token = useSelector((state) => state.userAuth.token);
   //console.log(userPersonalityAnswer);
   // console.log(userAnswer=={});
   // if (!userAnswer) {
@@ -53,6 +55,7 @@ export const Result = ({
             quizId: quizInfo.id,
           },
           "submitCreativityQuiz",
+          token,
           setLoading,
           showAlert
         );
@@ -77,6 +80,7 @@ export const Result = ({
           quizInfo.typeId === "personality"
             ? "submitPersonalityQuiz"
             : "submitQuiz",
+          token,
           setLoading,
           showAlert
         );

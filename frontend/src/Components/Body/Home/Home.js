@@ -1,4 +1,5 @@
 import { Navigate, Route, Routes } from "react-router-dom";
+import { useSelector } from "react-redux";
 import "./home.css";
 import { Header } from "./Header/Header";
 import { Footer } from "./Footer/Footer";
@@ -11,6 +12,8 @@ import { Dashboard } from "./HomeScreen/Dashboard/Dashboard";
 import { Auth } from "./HomeScreen/Auth/Auth";
 
 export const Home = () => {
+  const isLoggedIn = useSelector((state) => state.userAuth.isLoggedIn); // Access adminAuth state
+
   return (
     <div className="app-container">
       <Header />
@@ -22,8 +25,18 @@ export const Home = () => {
           <Route path="resources" element={<Career />} />
           <Route path="about" element={<About />} />
 
-          <Route path="dashboard/*" element={<Dashboard />} />
-          <Route path="auth/*" element={<Auth />} />
+          <Route
+            path="dashboard/*"
+            element={
+              isLoggedIn ? <Dashboard /> : <Navigate to="/auth/*" replace />
+            }
+          />
+          <Route
+            path="auth/*"
+            element={
+              !isLoggedIn ? <Auth /> : <Navigate to="/dashboard/*" replace />
+            }
+          />
 
           <Route path="quiz/*" element={<Quiz />} />
           {/* Catch-all for invalid routes, redirecting to homepage */}

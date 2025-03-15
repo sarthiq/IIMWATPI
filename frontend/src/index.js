@@ -13,7 +13,7 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 const RootComponent = () => {
   const [isInitializing, setIsInitializing] = useState(true);
   const env = process.env.REACT_APP_ENV;
-  console.log(env);
+  
   useEffect(() => {
     const initializeApp = async () => {
       const adminToken = localStorage.getItem("adminToken");

@@ -1,47 +1,49 @@
-import React, { useState } from 'react';
-import { Container, Card, Form, Button, Spinner } from 'react-bootstrap';
-import { Link, useNavigate } from 'react-router-dom';
-import { FaEye, FaEyeSlash } from 'react-icons/fa';
-import { loginHandler } from '../apiHandler';
-
-
-import './Login.css';
-import { useAlert } from '../../../../../UI/Alert/AlertContext';
+import React, { useState } from "react";
+import { Container, Card, Form, Button, Spinner } from "react-bootstrap";
+import { Link, useNavigate } from "react-router-dom";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
+import { loginHandler } from "../apiHandler";
+import { useDispatch } from "react-redux";
+import { setUserAuthToken,userLogin } from "../../../../../../Store/User/auth";
+import "./Login.css";
+import { useAlert } from "../../../../../UI/Alert/AlertContext";
+import { setUserType } from "../../../../../../Store/CommonInfo/commonInfo";
 
 export const Login = () => {
-  
+  const dispatch = useDispatch();
   const [showPassword, setShowPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const { showAlert } = useAlert();
   const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
-    emailOrPhone: '',
-    password: ''
+    emailOrPhone: "",
+    password: "",
   });
 
   const handleChange = (e) => {
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     });
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
+
     const response = await loginHandler(formData, setIsLoading, showAlert);
-    
+
     if (response) {
-      
       // Store the token in localStorage
-      localStorage.setItem('token', response.token);
-      
+      localStorage.setItem("token", response.token);
+      dispatch(setUserAuthToken(response.token));
+      dispatch(userLogin());
+      dispatch(setUserType());
       // Show success message
-      showAlert('Login successful!', 'success');
-      
+      showAlert("Login successful!", "success");
+
       // Redirect to dashboard or home
-      navigate('/dashboard');
+      navigate("/dashboard");
     }
   };
 
@@ -87,8 +89,8 @@ export const Login = () => {
               </div>
             </Form.Group>
 
-            <Button 
-              className="login-submit-btn" 
+            <Button
+              className="login-submit-btn"
               type="submit"
               disabled={isLoading}
             >
@@ -101,7 +103,7 @@ export const Login = () => {
                   aria-hidden="true"
                 />
               ) : (
-                'Login'
+                "Login"
               )}
             </Button>
 
