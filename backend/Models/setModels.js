@@ -11,7 +11,7 @@ const Admin = require("./User/admins");
 const UnverifiedUser = require("./User/unverifiedUser");
 const UserProfile = require("./User/userProfile");
 const User = require("./User/users");
-
+const Query = require("./Query/query");
 
 
 exports.setupModels = () => {
