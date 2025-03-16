@@ -146,41 +146,38 @@ button:hover {
 }
 
 /* Responsive Design */
-@media (max-width: 1024px) {
+@media (max-width: 1200px) {
+  .grid-layout {
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
   .grid-layout {
     grid-template-columns: 1fr;
     gap: 1rem;
   }
 
+  .dashboard-section,
+  .ai-literacy-section,
+  .text-section,
+  .career-section {
+    grid-column: auto;
+    grid-row: auto;
+  }
+
+  .text-section {
+    order: -1; /* Move text section to top on mobile */
+  }
+
   .box-grid {
-    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
   }
 
   .ai-box-layout .middle-row,
   .career-box-layout .middle-row {
-    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
-  }
-}
-
-@media (max-width: 768px) {
-  .banner-container {
-    padding: 1rem;
-  }
-
-  h1 {
-    font-size: 2rem;
-  }
-
-  h2 {
-    font-size: 1.5rem;
-  }
-
-  p {
-    font-size: 1rem;
-  }
-
-  .metric-buttons {
-    flex-direction: column;
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
@@ -189,22 +186,32 @@ button:hover {
     padding: 0.8rem;
   }
 
-  .glass-container {
-    padding: 1rem;
+  h1 {
+    font-size: clamp(1.2rem, 4vw, 1.5rem);
+    text-align: center;
   }
 
-  .coming-soon-btn {
-    min-width: 100px;
+  p {
+    text-align: center;
+  }
+
+  .box {
+    padding: 0.5rem;
     font-size: 0.8rem;
-    padding: 0.5rem 1rem;
+    text-align: center;
+  }
+
+  .ai-box-layout .middle-row,
+  .career-box-layout .middle-row {
+    grid-template-columns: 1fr;
   }
 }
 
 .box-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-  gap: 1rem;
-  margin: 1rem 0;
+  gap: 0.8rem;
+  margin: 0.8rem 0;
 }
 
 .metric-grid {
@@ -273,16 +280,15 @@ button:hover {
 .ai-box-layout .top-row,
 .career-box-layout .top-row {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
   gap: 1rem;
 }
 
 .ai-box-layout .middle-row,
 .career-box-layout .middle-row {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
   gap: 1rem;
-  min-height: 60px;
 }
 
 .ai-literacy-section .box,
