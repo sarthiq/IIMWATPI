@@ -1,50 +1,68 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./Footer.css";
-import { FaLinkedin, FaYoutube, FaWhatsapp } from "react-icons/fa";
+import { 
+  FaLinkedin, 
+  FaYoutube, 
+  FaWhatsapp,
+  FaQuestionCircle,
+  FaBriefcase,
+  FaFileContract,
+  FaShieldAlt,
+  FaMapMarkerAlt,
+  FaEnvelope,
+  FaPhone,
+  FaHeart
+} from "react-icons/fa";
 
 export const Footer = () => {
   return (
     <footer className="footer">
       <div className="footer-container">
-        {/* Product Section */}
         <div className="footer-column">
           <h4>Products</h4>
           <ul>
-            <li><Link to="/quiz">Tests</Link></li>
-            <li><Link to="/career">Career Counselling</Link></li>
+            <li>
+              <Link to="/quiz"><FaQuestionCircle className="footer-icon" /> Tests</Link>
+            </li>
+            <li>
+              <Link to="/career"><FaBriefcase className="footer-icon" /> Career Counselling</Link>
+            </li>
           </ul>
+          <div className="social-icons">
+            <a href="https://www.linkedin.com/company/sarthiq" className="linkedin"><FaLinkedin /></a>
+            <a href="https://www.youtube.com/@sarthiq" className="youtube"><FaYoutube /></a>
+            <a href="https://wa.me/9335532658" className="whatsapp"><FaWhatsapp /></a>
+          </div>
         </div>
 
-        {/* Policies Section */}
         <div className="footer-column">
           <h4>Terms and Conditions</h4>
           <ul>
-            <li><Link to="/privacy-policy">Privacy Policy</Link></li>
-            <li><Link to="/refund-policy">Refund Policy</Link></li>
+            <li>
+              <Link to="/privacy-policy"><FaShieldAlt className="footer-icon" /> Privacy Policy</Link>
+            </li>
+            <li>
+              <Link to="/refund-policy"><FaFileContract className="footer-icon" /> Refund Policy</Link>
+            </li>
           </ul>
         </div>
 
-        {/* Contact Details Section */}
         <div className="footer-column">
           <h4>Contact Details</h4>
-          <p><strong>Address:</strong> C-70, Sect 8, Jankipuram Extension, Lucknow, UP-226021</p>
-          <p><strong>Email:</strong> sarthiq@gmail.com</p>
-          <p><strong>WhatsApp:</strong> 9335532658</p>
+          <p><FaMapMarkerAlt className="footer-icon" /> C-70, Sect 8, Jankipuram Extension, Lucknow, UP-226021</p>
+          <p><FaEnvelope className="footer-icon" /> sarthiq@gmail.com</p>
+          <p><FaPhone className="footer-icon" /> +91 9335532658</p>
         </div>
       </div>
 
-      {/* Social Media Icons */}
-      <div className="social-icons">
-        <a href="https://www.linkedin.com/company/sarthiq" className="linkedin"><FaLinkedin /></a>
-        <a href="https://www.youtube.com/@sarthiq" className="youtube"><FaYoutube /></a>
-        <a href="https://wa.me/9335532658" className="whatsapp"><FaWhatsapp /></a>
-      </div>
-
-      {/* Copyright Text */}
       <div className="footer-bottom">
-        <p>© 2025 Sarthiq.</p>
+        <p>© 2025 Sarthiq. Made with <FaHeart className="heart-icon" /> in India | 
+          <Link to="/privacy-policy" className="footer-bottom-link">Privacy Policy</Link> | 
+          <Link to="/refund-policy" className="footer-bottom-link">Refund Policy</Link>
+        </p>
       </div>
     </footer>
   );
 };
+
