@@ -10,6 +10,9 @@ import { Quiz } from "./HomeScreen/Quiz/Quiz";
 import { About } from "./About/About";
 import { Dashboard } from "./HomeScreen/Dashboard/Dashboard";
 import { Auth } from "./HomeScreen/Auth/Auth";
+import { PrivacyPolicy } from "./PrivacyPolicy/PrivacyPolicy";
+import { RefundPolicy } from "./RefundPolicy/RefundPolicy";
+
 
 export const Home = () => {
   const isLoggedIn = useSelector((state) => state.userAuth.isLoggedIn); // Access adminAuth state
@@ -24,6 +27,9 @@ export const Home = () => {
           <Route path="/" element={<HomeScreen />} />
          
           <Route path="about" element={<About />} />
+          <Route path="privacy-policy" element={<PrivacyPolicy />} />
+          <Route path="refund-policy" element={<RefundPolicy />} />
+
 
           <Route
             path="dashboard/*"
