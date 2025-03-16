@@ -5,13 +5,16 @@
 
 .section-title {
   color: #2c3e50;
-  margin-bottom: 1.5rem;
+  margin-bottom: 0.75rem;
   font-weight: 600;
+  font-size: 1.75rem;
+  text-align: left;
 }
 
 .sub-title {
   color: #34495e;
-  margin-bottom: 1.5rem;
+  margin-bottom: 0.75rem;
+  font-size: 1.25rem;
 }
 
 .mission-card, .vision-card {
@@ -27,34 +30,29 @@
 .core-areas {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1.5rem;
-  margin-top: 2rem;
+  gap: 2rem;
+  margin-top: 1rem;
 }
 
-.core-area-card {
-  border: none;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  height: 100%;
-  transition: transform 0.3s ease;
+.core-area-item {
+  padding: 0.5rem 0;
 }
 
-.core-area-card:hover {
-  transform: translateY(-3px);
-}
-
-.core-area-card h4 {
+.core-area-item h4 {
   color: #2c3e50;
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
   font-weight: 600;
+  font-size: 1.1rem;
 }
 
 .feature-list {
   list-style-type: none;
   padding-left: 0;
+  margin: 0.75rem 0;
 }
 
 .feature-list li {
-  padding: 0.5rem 0;
+  padding: 0.25rem 0;
   position: relative;
   padding-left: 1.5rem;
 }
