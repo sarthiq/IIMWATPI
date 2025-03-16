@@ -47,7 +47,7 @@ export const Banner = () => {
         </div>
 
         {/* Bottom Left Text */}
-        <div className="section text-section">
+        <div className="text-section">
           <h1>Empowering Students to be AI-ready Career Professionals!</h1>
           <p>
             Equipping students with AI literacy and tools to navigate the future,
