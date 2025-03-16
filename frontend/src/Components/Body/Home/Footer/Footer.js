@@ -84,7 +84,7 @@ export const Footer = () => {
 
       <div className="footer-bottom">
         <p>
-          © 2025 Sarthiq. Made with <FaHeart className="heart-icon" /> in India
+          © 2025 Sarthiq
           |
           <Link to="/privacy-policy" className="footer-bottom-link">
             Privacy Policy
