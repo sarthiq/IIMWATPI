@@ -89,15 +89,15 @@ const BaseUIModel = () => {
     return (
         <Container fluid className="base-ui-model">
             {/* Streams and Subjects Section */}
-            <Row className="journey-section justify-content-center">
-                <Col lg={8} className="section-wrapper">
-                    <Card className="section streams-subjects">
+            <Row className="journey-sections justify-content-center">
+                <Col lg={8} className="sections-wrapper">
+                    <Card className="sections streams-subjects">
                         <Card.Body>
-                            <Card.Title className="section-title">
-                                <MdSubject className="section-icon" />
+                            <Card.Title className="sections-title">
+                                <MdSubject className="sections-icon" />
                                 {modelData.streams.title}
                             </Card.Title>
-                            <div className="section-content">
+                            <div className="sections-content">
                                 {modelData.streams.content.map((stream, index) => (
                                     <div key={index} className="stream-card">
                                         <h3>{stream.stream}</h3>
@@ -115,12 +115,12 @@ const BaseUIModel = () => {
             </Row>
 
             {/* Eligibility Criteria Section */}
-            <Row className="journey-section justify-content-center">
-                <Col lg={8} className="section-wrapper">
-                    <Card className="section eligibility-criteria">
+            <Row className="journey-sections justify-content-center">
+                <Col lg={8} className="sections-wrapper">
+                    <Card className="sections eligibility-criteria">
                         <Card.Body>
-                            <Card.Title className="section-title">
-                                <FaClipboardList className="section-icon" />
+                            <Card.Title className="sections-title">
+                                <FaClipboardList className="sections-icon" />
                                 {modelData.eligibility.title}
                             </Card.Title>
                             <div className="section-content">
@@ -136,15 +136,15 @@ const BaseUIModel = () => {
             </Row>
 
             {/* Career Pathways Section */}
-            <Row className="journey-section justify-content-center">
-                <Col lg={8} className="section-wrapper">
-                    <Card className="section career-pathways">
+            <Row className="journey-sections justify-content-center">
+                <Col lg={8} className="sections-wrapper">
+                    <Card className="sections career-pathways">
                         <Card.Body>
-                            <Card.Title className="section-title">
-                                <FaRoute className="section-icon" />
+                            <Card.Title className="sections-title">
+                                <FaRoute className="sections-icon" />
                                 {modelData.careerPathways.title}
                             </Card.Title>
-                            <div className="section-content">
+                            <div className="sections-content">
                                 {modelData.careerPathways.paths.map((path, index) => (
                                     <div key={index} className="pathway-card">
                                         <h3>
@@ -166,14 +166,14 @@ const BaseUIModel = () => {
 
             {/* Top Colleges Section */}
             <Row className="journey-section justify-content-center">
-                <Col lg={8} className="section-wrapper">
-                    <Card className="section top-colleges">
+                <Col lg={8} className="sections-wrapper">
+                    <Card className="sections top-colleges">
                         <Card.Body>
-                            <Card.Title className="section-title">
-                                <FaUniversity className="section-icon" />
+                            <Card.Title className="sections-title">
+                                <FaUniversity className="sections-icon" />
                                 {modelData.topColleges.title}
                             </Card.Title>
-                            <div className="section-content">
+                            <div className="sections-content">
                                 {modelData.topColleges.institutions.map((college, index) => (
                                     <Card key={index} className="college-card">
                                         <Card.Body>
