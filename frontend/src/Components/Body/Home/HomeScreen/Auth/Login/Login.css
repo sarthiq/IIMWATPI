@@ -27,22 +27,43 @@
   
   .password-input-group {
     position: relative;
-    display: flex;
-    align-items: center;
+    width: 100%;
+  }
+  
+  .password-input-group .form-control {
+    width: 100%;
+    padding-right: 40px;
   }
   
   .password-toggle {
     position: absolute;
-    right: 10px;
+    right: 12px;
+    top: 20%;
+    
     background: none;
     border: none;
     color: #6c757d;
     padding: 0;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
   }
   
   .password-toggle:hover {
     color: #1e3a8a;
-    background: none;
+  }
+  
+  .password-toggle:focus {
+    outline: none;
+    background: transparent;
+  }
+  
+  .password-toggle:active {
+    background: transparent;
   }
   
   .login-submit-btn {

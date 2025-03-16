@@ -77,15 +77,16 @@ export const Login = () => {
                   placeholder="Enter password"
                   required
                   disabled={isLoading}
+                  style={{ paddingRight: '40px' }}
                 />
-                <Button
+                <button
+                  type="button"
                   className="password-toggle"
                   onClick={() => setShowPassword(!showPassword)}
-                  type="button"
                   disabled={isLoading}
                 >
                   {showPassword ? <FaEyeSlash /> : <FaEye />}
-                </Button>
+                </button>
               </div>
             </Form.Group>
 
