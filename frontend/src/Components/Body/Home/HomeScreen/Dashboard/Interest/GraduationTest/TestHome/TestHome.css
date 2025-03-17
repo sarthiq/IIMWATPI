@@ -1,21 +1,56 @@
-.tenth-dashboard {
-    background-color: #f8f9fa;
-    border-radius: 10px;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+.graduation-dashboard {
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
-.tenth-intro-alert {
-    background-color: #e3f2fd;
-    border: none;
-    border-radius: 8px;
+.graduation-intro-alert {
+    border-radius: 10px;
+    margin-bottom: 2rem;
+}
+
+.degree-sections {
+    padding: 1rem 0;
 }
 
 .section-title {
     color: #2c3e50;
     margin-bottom: 1.5rem;
-    padding-bottom: 0.5rem;
-    border-bottom: 2px solid #3498db;
-    display: inline-block;
+    font-weight: 600;
+}
+
+.degree-card {
+    border: none;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    transition: transform 0.2s;
+}
+
+.degree-card:hover {
+    transform: translateY(-5px);
+}
+
+.degree-title {
+    color: #34495e;
+    font-weight: 600;
+}
+
+.alternative-card {
+    background-color: #f8f9fa;
+}
+
+.specialization-header {
+    font-weight: 500;
+    margin-top: 1rem;
+    color: #576574;
+}
+
+.specialization-list {
+    padding-left: 1.2rem;
+    margin-bottom: 0;
+}
+
+.specialization-list li {
+    margin-bottom: 0.5rem;
+    color: #666;
 }
 
 .subject-card {

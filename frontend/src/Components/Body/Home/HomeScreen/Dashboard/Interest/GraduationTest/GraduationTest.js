@@ -4,7 +4,7 @@ import { TestQuestion } from "./TestQuestion/TestQuestion";
 import { ResultUtils } from "../TestQuestionUtils/ResultUtils";
 import { useState } from "react";
 
-export const TenthTest = () => {   
+export const GraduationTest = () => { 
     const [results,setResults]=useState([])
    
    return (

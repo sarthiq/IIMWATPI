@@ -4,28 +4,31 @@ import './TestHome.css';
 import { Link } from 'react-router-dom';
 
 export const TestHome = () => {
-    
     return (
-        <Container className="tenth-dashboard py-4">
-            <Alert variant="info" className="tenth-intro-alert">
-                <h4 className="text-center mb-3">Class 10 Subject Recommendations</h4>
-                <p>Based on your interest test results, here are the recommended subjects and their importance for your academic journey.</p>
+        <Container className="graduation-dashboard py-4">
+            <Alert variant="info" className="graduation-intro-alert">
+                <h4 className="text-center mb-3">Higher Education Recommendations</h4>
+                <p>Based on your interest assessment, here are recommended degree programs and specializations for your academic journey.</p>
             </Alert>
 
-            <div className="subject-sections">
-                <h5 className="section-title">Core Subjects</h5>
+            <div className="degree-sections">
+                <h5 className="section-title">Popular Degree Programs</h5>
                 <Row className="g-4">
-                    {coreSubjects.map((subject, index) => (
+                    {degreePrograms.map((program, index) => (
                         <Col key={index} md={6} lg={4}>
-                            <Card className="subject-card h-100">
+                            <Card className="degree-card h-100">
                                 <Card.Body>
-                                    <Card.Title className="subject-title">{subject.name}</Card.Title>
-                                    {subject.topics && (
-                                        <ul className="subject-topics">
-                                            {subject.topics.map((topic, idx) => (
-                                                <li key={idx}>{topic}</li>
-                                            ))}
-                                        </ul>
+                                    <Card.Title className="degree-title">{program.name}</Card.Title>
+                                    <Card.Subtitle className="mb-2 text-muted">{program.duration}</Card.Subtitle>
+                                    {program.specializations && (
+                                        <>
+                                            <p className="specialization-header">Popular Specializations:</p>
+                                            <ul className="specialization-list">
+                                                {program.specializations.map((spec, idx) => (
+                                                    <li key={idx}>{spec}</li>
+                                                ))}
+                                            </ul>
+                                        </>
                                     )}
                                 </Card.Body>
                             </Card>
@@ -33,13 +36,14 @@ export const TestHome = () => {
                     ))}
                 </Row>
 
-                <h5 className="section-title mt-5">Optional Subjects</h5>
+                <h5 className="section-title mt-5">Additional Career Paths</h5>
                 <Row className="g-4">
-                    {optionalSubjects.map((subject, index) => (
+                    {additionalPaths.map((path, index) => (
                         <Col key={index} md={6} lg={4}>
-                            <Card className="subject-card optional-card h-100">
+                            <Card className="degree-card alternative-card h-100">
                                 <Card.Body>
-                                    <Card.Title className="subject-title">{subject}</Card.Title>
+                                    <Card.Title className="degree-title">{path.name}</Card.Title>
+                                    <Card.Subtitle className="mb-2 text-muted">{path.duration}</Card.Subtitle>
                                 </Card.Body>
                             </Card>
                         </Col>
@@ -52,7 +56,7 @@ export const TestHome = () => {
                         className="btn btn-primary btn-lg"
                         onClick={() => window.scrollTo(0, 0)}
                     >
-                        Start Interest Assessment Test
+                        Start Career Interest Assessment
                     </Link>
                 </div>
             </div>
@@ -60,46 +64,98 @@ export const TestHome = () => {
     );
 };
 
-const coreSubjects = [
+const degreePrograms = [
     {
-        name: "English",
-        topics: ["Language", "Literature"]
+        name: "B.Tech / B.E.",
+        duration: "4 Years",
+        specializations: [
+            "Computer Science & Engineering",
+            "Electronics & Communication",
+            "Mechanical Engineering",
+            "Civil Engineering",
+            "Artificial Intelligence & ML"
+        ]
     },
     {
-        name: "Hindi/Regional Language",
-        topics: ["Based on state/board"]
+        name: "BBA / MBA",
+        duration: "3-4 Years / 2 Years",
+        specializations: [
+            "Marketing",
+            "Finance",
+            "Human Resources",
+            "Operations Management",
+            "International Business"
+        ]
     },
     {
-        name: "Mathematics",
-        topics: ["Standard Math", "Basic Math"]
+        name: "BSc / MSc",
+        duration: "3 Years / 2 Years",
+        specializations: [
+            "Computer Science",
+            "Mathematics",
+            "Physics",
+            "Chemistry",
+            "Data Science"
+        ]
     },
     {
-        name: "Science",
-        topics: ["Physics", "Chemistry", "Biology"]
+        name: "BA / MA",
+        duration: "3 Years / 2 Years",
+        specializations: [
+            "Economics",
+            "Psychology",
+            "English Literature",
+            "Political Science",
+            "Sociology"
+        ]
     },
     {
-        name: "Social Science",
-        topics: ["History", "Geography", "Political Science", "Economics"]
+        name: "BCA / MCA",
+        duration: "3 Years / 2 Years",
+        specializations: [
+            "Software Development",
+            "Web Technologies",
+            "Mobile App Development",
+            "Cloud Computing",
+            "Cybersecurity"
+        ]
     },
     {
-        name: "Computer Science/IT",
-        topics: ["Mandatory in some schools"]
-    },
-    {
-        name: "Environmental Studies",
-        topics: ["Available in certain boards"]
-    },
-    {
-        name: "Health & Physical Education",
-        topics: ["Physical Fitness", "Health Education"]
+        name: "Medical Studies",
+        duration: "5.5 Years (MBBS)",
+        specializations: [
+            "General Medicine",
+            "Surgery",
+            "Pediatrics",
+            "Orthopedics",
+            "Cardiology"
+        ]
     }
 ];
 
-const optionalSubjects = [
-    "Sanskrit/Foreign Languages",
-    "Artificial Intelligence",
-    "Robotics",
-    "Home Science",
-    "Fine Arts/Performing Arts",
-    "Vedic Mathematics"
+const additionalPaths = [
+    {
+        name: "Diploma Courses",
+        duration: "1-3 Years"
+    },
+    {
+        name: "Professional Certifications",
+        duration: "3-12 Months"
+    },
+    {
+        name: "Vocational Training",
+        duration: "6-12 Months"
+    },
+    {
+        name: "Research Programs",
+        duration: "2-5 Years"
+    },
+    {
+        name: "Integrated Programs",
+        duration: "5 Years"
+    },
+    {
+        name: "Distance Learning",
+        duration: "Flexible"
+    }
 ];
