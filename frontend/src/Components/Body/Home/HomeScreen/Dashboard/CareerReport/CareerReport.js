@@ -9,11 +9,11 @@ const dummyData = {
     class: "12th Grade - Science"
   },
   personalityScores: {
-    extraversion: 53,
-    agreeableness: 55,
-    conscientiousness: 54,
-    neuroticism: 54,
-    openness: 51
+    extraversion: 81,
+    agreeableness: 75,
+    conscientiousness: 74,
+    neuroticism: 64,
+    openness: 71
   }
 };
 
@@ -121,13 +121,72 @@ export const CareerReport = () => {
     }
   ];
 
+  const handlePrint = () => {
+    const reportContent = document.getElementById('report');
+    const printWindow = window.open('', '', 'height=600,width=800');
+    
+    // Get all stylesheets from the current document
+    const styles = Array.from(document.styleSheets)
+      .map(styleSheet => {
+        try {
+          return Array.from(styleSheet.cssRules)
+            .map(rule => rule.cssText)
+            .join('');
+        } catch (e) {
+          return '';
+        }
+      })
+      .join('\n');
+
+    printWindow.document.write(`
+      <html>
+        <head>
+          <title>Student Assessment Report</title>
+          <style>
+            ${styles}
+            body {
+              padding: 0;
+              margin: 0;
+            }
+            .report-container {
+              padding: 40px;
+            }
+            @page {
+              size: A4;
+              margin: 0;
+            }
+            @media print {
+              body {
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+              }
+              .print-button {
+                display: none !important;
+              }
+            }
+          </style>
+        </head>
+        <body>
+          ${reportContent.outerHTML}
+        </body>
+      </html>
+    `);
+    
+    printWindow.document.close();
+    printWindow.focus();
+    setTimeout(() => {
+      printWindow.print();
+      printWindow.close();
+    }, 500);
+  };
+
   return (
     <div className="page-wrapper">
       <div id="report" className="report-container">
-        <h1>Student Assessment Report</h1>
+        <h1 className="report-title">Student Assessment Report</h1> 
         
         <div className="report-section">
-          <h2>Basic Details of Student</h2>
+          <h2 className="section-title">Basic Details of Student</h2>
           <div className="details">
             <p>Name : {studentData.studentDetails.studentName}</p>
             <p>School/College : {studentData.studentDetails.schoolName}</p>
@@ -136,10 +195,116 @@ export const CareerReport = () => {
         </div>
 
         <div className="report-section">
-          <h2>Personality Test Explanation</h2>
-          
+          <h2 className="section-title">Recommendation</h2>
+          <div className="recommendation-grid">
+            <div className="recommendation-box">
+              <h3 className="box-title">Career Options</h3>
+              <ul className="recommendation-list">
+                <li>Software Engineer</li>
+                <li>Data Scientist</li>
+                <li>Product Manager</li>
+                <li>UI/UX Designer</li>
+              </ul>
+            </div>
+            <div className="recommendation-box">
+              <h3 className="box-title">Higher Education</h3>
+              <ul className="recommendation-list">
+                <li>B.Tech in Computer Science</li>
+                <li>BCA</li>
+                <li>B.Sc in Data Science</li>
+                <li>B.Des in UI/UX</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div className="report-section">
+          <h2 className="section-title">Action Plan</h2>
+          <div className="action-grid">
+            <div className="action-box">
+              <h3 className="box-title">Immediate Steps (0-6 months)</h3>
+              <ul className="action-list">
+                <li>Complete Python Programming Course</li>
+                <li>Learn Basic Web Development</li>
+                <li>Create GitHub Profile</li>
+              </ul>
+            </div>
+            <div className="action-box">
+              <h3 className="box-title">Short Term (6-12 months)</h3>
+              <ul className="action-list">
+                <li>Build Portfolio Projects</li>
+                <li>Join Coding Communities</li>
+                <li>Participate in Hackathons</li>
+              </ul>
+            </div>
+            <div className="action-box">
+              <h3 className="box-title">Long Term (1-2 years)</h3>
+              <ul className="action-list">
+                <li>Internship in Tech Company</li>
+                <li>Industry Certifications</li>
+                <li>Specialized Skills Development</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div className="report-section">
+          <h2 className="section-title">IQ Test Result Explanation</h2>
+          <div className="iq-container">
+            <div className="iq-score-box">
+              <div className="score-circle">120</div>
+              <p className="score-label">IQ Score</p>
+            </div>
+            <div className="iq-details">
+              <div className="detail-box">
+                <h3 className="box-title">Strong Areas</h3>
+                <ul className="detail-list">
+                  <li>Logical Reasoning</li>
+                  <li>Pattern Recognition</li>
+                  <li>Numerical Ability</li>
+                </ul>
+              </div>
+              <div className="detail-box">
+                <h3 className="box-title">Areas for Improvement</h3>
+                <ul className="detail-list">
+                  <li>Verbal Reasoning</li>
+                  <li>Spatial Awareness</li>
+                  <li>Memory</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="report-section">
+          <h2 className="section-title">Interest Test Explanation</h2>
+          <div className="interest-container">
+            <div className="interest-bars">
+              <div className="interest-item">
+                <span className="interest-label">Technology</span>
+                <div className="interest-bar">
+                  <div className="bar-fill" style={{width: '85%'}}>85%</div>
+                </div>
+              </div>
+              <div className="interest-item">
+                <span className="interest-label">Science</span>
+                <div className="interest-bar">
+                  <div className="bar-fill" style={{width: '75%'}}>75%</div>
+                </div>
+              </div>
+              <div className="interest-item">
+                <span className="interest-label">Arts</span>
+                <div className="interest-bar">
+                  <div className="bar-fill" style={{width: '60%'}}>60%</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="report-section">
+          <h2 className="section-title">Personality Test Explanation</h2>
           <div className="personality-grid">
-            {/* Left Column - Personality Scores */}
             <div className="personality-scores">
               {personalityTraits.map((trait, index) => (
                 <div key={index} className="score-row">
@@ -175,7 +340,6 @@ export const CareerReport = () => {
               ))}
             </div>
 
-            {/* Right Column - Personality Table */}
             <div className="personality-table">
               <div className="table-header">
                 <div className="trait-header">Personality Types</div>
@@ -204,9 +368,9 @@ export const CareerReport = () => {
               ))}
             </div>
           </div>
-        </div>
       </div>
-      <button onClick={() => window.print()} className="print-button">
+      </div>
+      <button onClick={handlePrint} className="print-button">
         Download Report
       </button>
     </div>

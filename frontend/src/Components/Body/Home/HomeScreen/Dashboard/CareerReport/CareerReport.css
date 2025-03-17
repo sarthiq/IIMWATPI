@@ -10,7 +10,7 @@
   font-family: Arial, sans-serif;
 }
 
-h1 {
+.report-title {
   font-size: 24px;
   font-weight: bold;
   text-align: center;
@@ -18,7 +18,7 @@ h1 {
   color: #333;
 }
 
-h2 {
+.section-title {
   font-size: 20px;
   color: #444;
   margin: 25px 0 15px 0;
@@ -39,6 +39,7 @@ h2 {
 }
 
 .print-button {
+  width: 200px;
   display: block;
   margin: 20px auto 0;
   background-color: #007bff;
@@ -89,6 +90,7 @@ h2 {
 .personality-table {
   border: 1px solid #ddd;
   margin: 20px 0;
+  font-size: 11px;
 }
 
 .table-header {
@@ -96,12 +98,13 @@ h2 {
   grid-template-columns: 1fr 2fr 2fr;
   background-color: #f8f9fa;
   font-weight: bold;
-  border-bottom: 2px solid #ddd;
+  border-bottom: 1px solid #ddd;
 }
 
 .trait-header, .score-header {
-  padding: 12px;
+  padding: 6px;
   text-align: center;
+  font-size: 11px;
 }
 
 .trait-row {
@@ -111,31 +114,34 @@ h2 {
 }
 
 .trait-name {
-  padding: 12px;
+  padding: 6px;
   font-weight: bold;
   background-color: #f8f9fa;
+  font-size: 11px;
 }
 
 .trait-details {
-  padding: 12px;
+  padding: 6px;
 }
 
 .trait-details ul {
   list-style-type: decimal;
   margin: 0;
-  padding-left: 20px;
+  padding-left: 12px;
 }
 
 .trait-details li {
-  margin: 5px 0;
+  margin: 2px 0;
+  font-size: 11px;
+  line-height: 1.2;
 }
 
 /* Trait-specific background colors */
-.extraversion { background-color: rgba(173, 216, 230, 0.1); }
-.agreeableness { background-color: rgba(255, 165, 0, 0.1); }
-.contentiousness { background-color: rgba(144, 238, 144, 0.1); }
-.neuroticism { background-color: rgba(221, 160, 221, 0.1); }
-.openness { background-color: rgba(255, 99, 71, 0.1); }
+.extraversion { background-color: rgba(173, 216, 230, 0.05); }
+.agreeableness { background-color: rgba(255, 165, 0, 0.05); }
+.contentiousness { background-color: rgba(144, 238, 144, 0.05); }
+.neuroticism { background-color: rgba(221, 160, 221, 0.05); }
+.openness { background-color: rgba(255, 99, 71, 0.05); }
 
 @media print {
   .personality-table {
@@ -151,40 +157,44 @@ h2 {
 .personality-grid {
   display: grid;
   grid-template-columns: 45% 55%;
-  gap: 40px;
-  margin-top: 30px;
+  gap: 20px;
+  margin-top: 20px;
 }
 
 .personality-scores {
-  padding: 20px;
+  padding: 15px 10px;
   width: 100%;
 }
 
 .score-row {
-  margin-bottom: 60px;
+  margin-bottom: 45px;
   position: relative;
-  padding-top: 25px;
+  padding-top: 10px;
 }
 
 .score-labels {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 5px;
-  font-size: 14px;
+  margin-top: 2px;
+  font-size: 11px;
+  position: relative;
+  top: 12px;
 }
 
-.left-label, .right-label {
+.left-label,
+.right-label {
   font-weight: 500;
   color: #333;
+  margin-bottom: -30px;
 }
 
 .score-bar-container {
   position: relative;
-  height: 8px;
+  height: 6px;
   background-color: #e9ecef;
-  border-radius: 4px;
+  border-radius: 3px;
   width: 100%;
-  margin: 30px 0;
+  margin: 8px 0;
 }
 
 .score-bar {
@@ -197,35 +207,36 @@ h2 {
 
 .score-indicator {
   position: absolute;
-  top: 10px;
+  top: -20px;
   transform: translateX(-50%);
   background-color: #4a69bd;
   color: white;
-  padding: 8px 20px;
-  border-radius: 20px;
+  padding: 2px 8px;
+  border-radius: 15px;
   white-space: nowrap;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 14px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  font-size: 11px;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.1);
   z-index: 3;
 }
 
 .score-value {
   position: absolute;
-  top: -25px;
+  top: -20px;
   transform: translateX(-50%);
   color: #666;
   font-weight: 500;
+  font-size: 11px;
 }
 
 .circle-indicator {
   position: absolute;
-  width: 16px;
-  height: 16px;
+  width: 12px;
+  height: 12px;
   background: white;
-  border: 2px solid #999;
+  border: 1px solid #999;
   border-radius: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
@@ -263,6 +274,258 @@ h2 {
 
   .personality-scores,
   .personality-table {
+    break-inside: avoid;
+    background-color: #f8f9fa !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+}
+
+/* Add these new styles */
+.recommendation-content {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  margin: 20px 0;
+}
+
+.recommendation-card {
+  background: #f8f9fa;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.recommendation-card h3 {
+  color: #2c3e50;
+  margin-bottom: 15px;
+  font-size: 18px;
+  border-bottom: 2px solid #e9ecef;
+  padding-bottom: 10px;
+}
+
+.recommendation-card ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.recommendation-card li {
+  margin: 10px 0;
+  padding-left: 20px;
+  position: relative;
+}
+
+.recommendation-card li:before {
+  content: "•";
+  color: #4a69bd;
+  font-weight: bold;
+  position: absolute;
+  left: 0;
+}
+
+.action-plan {
+  margin: 20px 0;
+}
+
+.timeline {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.timeline-item {
+  background: #f8f9fa;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.timeline-item h3 {
+  color: #2c3e50;
+  margin-bottom: 15px;
+  font-size: 16px;
+  border-bottom: 2px solid #e9ecef;
+  padding-bottom: 10px;
+}
+
+.timeline-item ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.timeline-item li {
+  margin: 8px 0;
+  padding-left: 20px;
+  position: relative;
+  font-size: 14px;
+}
+
+.timeline-item li:before {
+  content: "→";
+  color: #4a69bd;
+  position: absolute;
+  left: 0;
+}
+
+@media (max-width: 768px) {
+  .recommendation-content,
+  .timeline {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+  
+  .recommendation-card,
+  .timeline-item {
+    padding: 15px;
+  }
+}
+
+@media print {
+  .recommendation-card,
+  .timeline-item {
+    break-inside: avoid;
+    background-color: #f8f9fa !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+}
+
+/* Add to your existing CSS */
+
+.recommendation-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.action-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.recommendation-box, .action-box, .detail-box {
+  background: #f8f9fa;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.box-title {
+  font-size: 16px;
+  color: #2c3e50;
+  margin-bottom: 15px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #dee2e6;
+}
+
+.recommendation-list, .action-list, .detail-list {
+  list-style: none;
+  padding: 0;
+}
+
+.recommendation-list li, .action-list li, .detail-list li {
+  margin: 10px 0;
+  padding-left: 20px;
+  position: relative;
+}
+
+.recommendation-list li:before, 
+.action-list li:before, 
+.detail-list li:before {
+  content: "•";
+  color: #4a69bd;
+  position: absolute;
+  left: 0;
+}
+
+/* IQ Test Styles */
+.iq-container {
+  display: flex;
+  gap: 30px;
+  margin-top: 20px;
+}
+
+.iq-score-box {
+  text-align: center;
+}
+
+.score-circle {
+  width: 100px;
+  height: 100px;
+  background: #4a69bd;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+  margin: 0 auto;
+}
+
+.score-label {
+  margin-top: 10px;
+  color: #666;
+}
+
+.iq-details {
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+/* Interest Test Styles */
+.interest-container {
+  margin-top: 20px;
+}
+
+.interest-item {
+  margin: 15px 0;
+}
+
+.interest-label {
+  display: block;
+  margin-bottom: 5px;
+  color: #444;
+}
+
+.interest-bar {
+  height: 25px;
+  background: #e9ecef;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.bar-fill {
+  height: 100%;
+  background: #4a69bd;
+  border-radius: 12px;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 10px;
+  font-size: 14px;
+  transition: width 0.3s ease;
+}
+
+@media (max-width: 768px) {
+  .recommendation-grid,
+  .action-grid,
+  .iq-container,
+  .iq-details {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media print {
+  .recommendation-box,
+  .action-box,
+  .detail-box {
     break-inside: avoid;
     background-color: #f8f9fa !important;
     -webkit-print-color-adjust: exact;
