@@ -9,6 +9,7 @@ const jwt = require("jsonwebtoken");
 const { calculatePersonalityResults } = require("./personalityUtils");
 const { calculateCreativityScore } = require("./creativityUtils");
 const { uploadResultsToGoogleDrive } = require("../../../Utils/exportUtils");
+const User = require("../../../Models/User/users");
 
 
 exports.getQuizzes = async (req, res) => {
@@ -365,30 +366,35 @@ const exportResultsToGoogleDrive = async () => {
     const userQuizzes = await UserQuiz.findAll({
       order: [["createdAt", "DESC"]],
     });
-
     const results = await Promise.all(
       userQuizzes.map(async (userQuiz) => {
-        const unverifiedUser = await UnverifiedUser.findOne({
-          where: { id: userQuiz.UnverifiedUserId },
-          attributes: ["name", "email", "age"],
-        });
+        let user;
+        if (userQuiz.UnverifiedUserId) {
+          user = await UnverifiedUser.findOne({
+            where: { id: userQuiz.UnverifiedUserId },
+            attributes: ["name", "email", "age"],
+          });
+        } else if (userQuiz.UserId) {
+          user = await User.findOne({
+            where: { id: userQuiz.UserId },
+            attributes: ["name", "email"], 
+          });
+        }
 
         // Only return results where user has both name and email
-        if (unverifiedUser && unverifiedUser.name && unverifiedUser.email) {
+        if (user && user.name && user.email) {
           return {
             ...userQuiz.toJSON(),
-            UnverifiedUser: unverifiedUser,
+            userDetails: user
           };
         }
         return null;
       })
     ).then(results => results.filter(result => result !== null)); // Filter out null results
-
+   
     // Format the data for Excel
     const formattedData = results.map((result) => {
-      const user = result.UnverifiedUser || {};
-     
-      
+      const user = result.userDetails || {};
 
       return {
         Date: new Date(result.createdAt).toLocaleDateString(),
@@ -399,7 +405,6 @@ const exportResultsToGoogleDrive = async () => {
         result: result.type === 'personality' ? 
           `{"openness":${result.result?.openness || 0},"neuroticism":${result.result?.neuroticism || 0},"extraversion":${result.result?.extraversion || 0},"agreeableness":${result.result?.agreeableness || 0},"conscientiousness":${result.result?.conscientiousness || 0}}` :
           result.result?.label || "N/A",
-        
       };
     });
 
@@ -408,5 +413,5 @@ const exportResultsToGoogleDrive = async () => {
     const fileName = `quiz_results_${timestamp}.xlsx`;
 
     // Call the Google Drive upload utility
-    const fileUrl = await uploadResultsToGoogleDrive(formattedData, fileName);
+    const fileUrl = await uploadResultsToGoogleDrive(formattedData);
   }
