@@ -8,6 +8,7 @@ import { CareerRecommendations } from "./CareerRecommendations/CareerRecommendat
 import { AILiteracy } from "./AILiteracy/AILiteracy";
 import { CareerAwareness } from "./CareerAwareness/CareerAwareness";
 import "./Dashboard.css";
+import { CareerReport } from "./CareerReport/CareerReport";
 
 export const Dashboard = () => {
   const location = useLocation();
@@ -63,6 +64,15 @@ export const Dashboard = () => {
             >
               Career Recommendations
             </Nav.Link>
+            <Nav.Link
+              as={Link}
+              to="career-report"
+              className={`sidebar-link ${
+                location.pathname.includes("/career-report") ? "active" : ""
+              }`}
+            >
+              Career Report
+            </Nav.Link>
           </Nav>
         </Col>
 
@@ -74,6 +84,7 @@ export const Dashboard = () => {
             <Route path="ai-literacy" element={<AILiteracy />} />
             <Route path="career-awareness/*" element={<CareerAwareness />} />
             <Route path="recommendations/*" element={<CareerRecommendations />} />
+            <Route path="career-report" element={<CareerReport />} />
             <Route path="*" element={<Navigate to="profile" replace />} />
           </Routes>
         </Col>
