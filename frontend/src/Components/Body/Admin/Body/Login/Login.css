@@ -1,15 +1,12 @@
-
-
-  
   /* Login Container */
-  .login-container {
+  .admin-login-container {
     background-color: #f8f9fa;
     padding: 15px;
     height: 84%;
   }
   
   /* Center the login form */
-  .login-card {
+  .admin-login-card {
     border-radius: 8px;
     background-color: white;
     padding: 30px;
@@ -20,7 +17,7 @@
   }
   
   /* Heading Style */
-  h2 {
+  .admin-login-title {
     font-size: 30px;
     font-weight: bold;
     color: #333;
@@ -28,14 +25,14 @@
   }
   
   /* Form Field Styles */
-  .form-control {
+  .admin-login-input {
     border-radius: 8px;
     border: 1px solid #ced4da;
     margin-bottom: 20px;
   }
   
   /* Button Style */
-  button[type="submit"] {
+  .admin-login-button {
     background-color: #007bff;
     border: none;
     border-radius: 8px;
@@ -46,17 +43,17 @@
     transition: background-color 0.3s ease;
   }
   
-  button[type="submit"]:hover {
+  .admin-login-button:hover {
     background-color: #0056b3;
   }
   
   /* Mobile Responsive Styles */
   @media (max-width: 576px) {
-    .login-card {
+    .admin-login-card {
       padding: 20px;
     }
   
-    h2 {
+    .admin-login-title {
       font-size: 26px;
       margin-bottom: 15px;
     }
@@ -64,7 +61,7 @@
   
   /* Tablet and Larger Devices */
   @media (min-width: 577px) and (max-width: 992px) {
-    .login-card {
+    .admin-login-card {
       padding: 25px;
     }
   }

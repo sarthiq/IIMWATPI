@@ -47,17 +47,18 @@ export const AdminLoginPage = () => {
   };
 
   return (
-    <Container className="login-container">
+    <Container className="admin-login-container">
       <Row className="justify-content-center align-items-center vh-100 vw-100">
         <Col xs={12} sm={10} md={8} lg={6} xl={5}>
-          <Card className="login-card shadow-lg">
+          <Card className="admin-login-card shadow-lg">
             <Card.Body>
-              <h2 className="text-center mb-4">Admin Login</h2>
+              <h2 className="admin-login-title text-center mb-4">Admin Login</h2>
 
               <Form onSubmit={handleSubmit}>
                 <Form.Group className="mb-3" controlId="userId">
                   <Form.Label>User ID</Form.Label>
                   <Form.Control
+                    className="admin-login-input"
                     type="text"
                     placeholder="Enter your User ID"
                     value={userId}
@@ -69,6 +70,7 @@ export const AdminLoginPage = () => {
                 <Form.Group className="mb-3" controlId="password">
                   <Form.Label>Password</Form.Label>
                   <Form.Control
+                    className="admin-login-input"
                     type="password"
                     placeholder="Enter your password"
                     value={password}
@@ -80,7 +82,7 @@ export const AdminLoginPage = () => {
                 <Button
                   variant="primary"
                   type="submit"
-                  className="w-100"
+                  className="admin-login-button w-100"
                   disabled={isSubmitting}
                 >
                   {isSubmitting ? (

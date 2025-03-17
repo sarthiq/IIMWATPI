@@ -1,11 +1,12 @@
 import React from "react";
 import { Typewriter } from "react-simple-typewriter";
 import "./Banner.css";
+import ReactDOM from "react-dom";
 
 const DashboardSection = () => (
   <div className="section dashboard-section">
     <div className="glass-container">
-      <h2>Students Dashboard</h2>
+      <h2 className="section-heading">Students Dashboard</h2>
       <div className="box-grid">
         <div className="box">Profile</div>
         <div className="box">Recommendation</div>
@@ -28,7 +29,7 @@ const DashboardSection = () => (
 const AILiteracySection = () => (
   <div className="section ai-literacy-section">
     <div className="glass-container">
-      <h2>AI Literacy</h2>
+      <h2 className="section-heading">AI Literacy</h2>
       <div className="ai-box-layout">
         <div className="top-row">
           <div className="box">AI Module</div>
@@ -45,24 +46,66 @@ const AILiteracySection = () => (
   </div>
 );
 
-const TextSection = () => (
-  <div className="text-section">
-    <h1>Empowering Students to be AI-ready Career Professionals!</h1>
-    <p>
-      Equipping students with AI literacy and tools to navigate the future,
-      fostering career awareness, and guiding subject choices to align with
-      their aspirations.
-    </p>
-    <div>
-      <button className="coming-soon-btn">Book Demo</button>
+const TextSection = () => {
+  const [isOpen, setIsOpen] = React.useState(false);
+
+  const openModal = () => setIsOpen(true);
+  const closeModal = () => setIsOpen(false);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // Add your form submission logic here
+    closeModal();
+  };
+
+  return (
+    <div className="text-section">
+      <h1 className="banner-heading">Empowering Students to be AI-ready Career Professionals!</h1>
+      <p className="banner-description">
+        Equipping students with AI literacy and tools to navigate the future,
+        fostering career awareness, and guiding subject choices to align with
+        their aspirations.
+      </p>
+      <div>
+        <button className="coming-soon-btn" onClick={openModal}>Book Demo</button>
+      </div>
+      {isOpen && ReactDOM.createPortal(
+        <div className="popup-overlay">
+          <div className="popup-content">
+            <h2>Query Form</h2>
+            <form onSubmit={handleSubmit}>
+              <div className="form-group">
+                <input type="text" placeholder="Name" required />
+              </div>
+              <div className="form-group">
+                <input type="email" placeholder="Email" required />
+              </div>
+              <div className="form-group">
+                <input type="tel" placeholder="Phone" required />
+              </div>
+              <div className="form-group">
+                <input type="text" placeholder="School/College" required />
+              </div>
+              <div className="form-group">
+                <textarea placeholder="Reason for inquiry" required />
+              </div>
+              <div className="form-actions">
+                <button className="form-submit-button" type="submit">Submit</button>
+                <button className="form-cancel-button" type="button" onClick={closeModal}>Cancel</button>
+              </div>
+            </form>
+          </div>
+        </div>,
+        document.getElementById('popup-portal-root')
+      )}
     </div>
-  </div>
-);
+  );
+};
 
 const CareerSection = () => (
   <div className="section career-section">
     <div className="glass-container">
-      <h2>Career Awareness</h2>
+      <h2 className="section-heading">Career Awareness</h2>
       <div className="career-box-layout">
         <div className="top-row">
           <div className="box">Top 50 Options</div>
