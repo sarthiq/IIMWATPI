@@ -14,6 +14,7 @@ import { PrivacyPolicy } from "./PrivacyPolicy/PrivacyPolicy";
 import { RefundPolicy } from "./RefundPolicy/RefundPolicy";
 
 
+
 export const Home = () => {
   const isLoggedIn = useSelector((state) => state.userAuth.isLoggedIn); // Access adminAuth state
 
