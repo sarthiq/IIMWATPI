@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./CareerReport.css";
+import { Spinner, Container, Row, Col, Card, ProgressBar, Badge } from 'react-bootstrap';
 
 // Dummy data simulating backend response
 const dummyData = {
@@ -28,9 +29,14 @@ export const CareerReport = () => {
       setLoading(false);
     }, 1000);
   }, []);
-
   if (loading) {
-    return <div>Loading report...</div>;
+    return (
+      <div className="profile-loading">
+        <Spinner animation="border" role="status">
+          <span className="visually-hidden">Loading...</span>
+        </Spinner>
+      </div>
+    );
   }
 
   const personalityTraits = [
@@ -181,18 +187,67 @@ export const CareerReport = () => {
   };
 
   return (
-    <div className="page-wrapper">
-      <div id="report" className="report-container">
-        <h1 className="report-title">Student Assessment Report</h1> 
-        
-        <div className="report-section">
-          <h2 className="section-title">Basic Details of Student</h2>
-          <div className="details">
-            <p>Name : {studentData.studentDetails.studentName}</p>
-            <p>School/College : {studentData.studentDetails.schoolName}</p>
-            <p>Class/Course : {studentData.studentDetails.class}</p>
-          </div>
-        </div>
+    <Container fluid className="cr-page-wrapper">
+      <div id="report" className="cr-report-container">
+        <Card className="cr-header-card mb-4">
+          <Card.Body className="text-center">
+            <h1 className="cr-report-title">Student Assessment Report</h1>
+            <div className="cr-student-meta">
+              <Badge bg="primary" className="cr-meta-badge">
+                {studentData.studentDetails.class}
+              </Badge>
+              <Badge bg="info" className="cr-meta-badge">
+                {studentData.studentDetails.schoolName}
+              </Badge>
+            </div>
+          </Card.Body>
+        </Card>
+
+        <Row className="g-4">
+          <Col lg={4}>
+            <Card className="cr-profile-card">
+              <Card.Body>
+                <div className="cr-profile-header">
+                  <div className="cr-avatar">
+                    {studentData.studentDetails.studentName.charAt(0)}
+                  </div>
+                  <h3 className="cr-student-name">
+                    {studentData.studentDetails.studentName}
+                  </h3>
+                </div>
+                <hr className="cr-divider" />
+                <div className="cr-profile-details">
+                  <p><strong>School:</strong> {studentData.studentDetails.schoolName}</p>
+                  <p><strong>Class:</strong> {studentData.studentDetails.class}</p>
+                </div>
+              </Card.Body>
+            </Card>
+          </Col>
+
+          <Col lg={8}>
+            <Card className="cr-score-card">
+              <Card.Body>
+                <h3 className="cr-section-title">Personality Assessment</h3>
+                {personalityTraits.map((trait, index) => (
+                  <div key={index} className="cr-score-item">
+                    <div className="cr-score-labels">
+                      <span>{trait.leftLabel}</span>
+                      <span className="cr-trait-name">{trait.trait}</span>
+                      <span>{trait.rightLabel}</span>
+                    </div>
+                    <ProgressBar 
+                      now={trait.score} 
+                      variant="custom"
+                      className="cr-custom-progress"
+                      style={{'--progress-color': trait.color}}
+                    />
+                    <div className="cr-score-value">{trait.score}%</div>
+                  </div>
+                ))}
+              </Card.Body>
+            </Card>
+          </Col>
+        </Row>
 
         <div className="report-section">
           <h2 className="section-title">Recommendation</h2>
@@ -368,12 +423,16 @@ export const CareerReport = () => {
               ))}
             </div>
           </div>
+        </div>
       </div>
+      
+      <div className="cr-print-button-wrapper">
+        <button onClick={handlePrint} className="cr-print-button">
+          <i className="bi bi-download me-2"></i>
+          Download Report
+        </button>
       </div>
-      <button onClick={handlePrint} className="print-button">
-        Download Report
-      </button>
-    </div>
+    </Container>
   );
 };
 

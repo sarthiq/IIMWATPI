@@ -1,3 +1,178 @@
+/* Modern design system variables */
+:root {
+  --cr-primary: #4361ee;
+  --cr-secondary: #3f37c9;
+  --cr-success: #4cc9f0;
+  --cr-info: #4895ef;
+  --cr-warning: #f72585;
+  --cr-danger: #e63946;
+  --cr-light: #f8f9fa;
+  --cr-dark: #212529;
+  --cr-shadow: 0 4px 6px rgba(0, 0, 0, 0.07);
+  --cr-radius: 12px;
+}
+
+.cr-page-wrapper {
+  background-color: #f5f7fa;
+  min-height: 100vh;
+  padding: 2rem;
+}
+
+.cr-report-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.cr-header-card {
+  border: none;
+  border-radius: var(--cr-radius);
+  box-shadow: var(--cr-shadow);
+  background: linear-gradient(135deg, var(--cr-primary), var(--cr-secondary));
+}
+
+.cr-report-title {
+  color: white;
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.cr-student-meta {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.cr-meta-badge {
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+  border-radius: 20px;
+}
+
+.cr-profile-card {
+  border: none;
+  border-radius: var(--cr-radius);
+  box-shadow: var(--cr-shadow);
+}
+
+.cr-avatar {
+  width: 80px;
+  height: 80px;
+  background: var(--cr-primary);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  font-weight: 600;
+  margin: 0 auto 1rem;
+}
+
+.cr-student-name {
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--cr-dark);
+}
+
+.cr-score-card {
+  border: none;
+  border-radius: var(--cr-radius);
+  box-shadow: var(--cr-shadow);
+}
+
+.cr-score-item {
+  margin-bottom: 1.5rem;
+}
+
+.cr-score-labels {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+  color: #6c757d;
+}
+
+.cr-trait-name {
+  font-weight: 600;
+  color: var(--cr-dark);
+}
+
+.cr-custom-progress {
+  height: 8px;
+  border-radius: 4px;
+  background-color: #e9ecef;
+}
+
+.cr-custom-progress .progress-bar {
+  background-color: var(--progress-color);
+  border-radius: 4px;
+  transition: width 0.6s ease;
+}
+
+.cr-print-button-wrapper {
+  display: flex;
+  justify-content: center;
+  margin: 2rem 0;
+  padding-bottom: 1rem;
+}
+
+.cr-print-button {
+  background: var(--cr-primary);
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: var(--cr-radius);
+  box-shadow: var(--cr-shadow);
+  transition: all 0.2s ease;
+  font-size: 0.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  width: 200px;
+}
+
+.cr-print-button:hover {
+  transform: translateY(-2px);
+  background: var(--cr-secondary);
+}
+
+/* Add responsive styles */
+@media (max-width: 768px) {
+  .cr-page-wrapper {
+    padding: 1rem;
+  }
+  
+  .cr-report-title {
+    font-size: 2rem;
+  }
+}
+
+/* Print styles remain the same */
+@media print {
+  @page {
+    size: A4;
+    margin: 20mm;
+  }
+
+  body {
+    margin: 0;
+    padding: 0;
+  }
+
+  .report-container {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+  }
+
+  .print-button {
+    display: none;
+  }
+}
+
 .page-wrapper {
   max-width: 100%;
   padding: 20px;
@@ -39,42 +214,20 @@
 }
 
 .print-button {
-  width: 200px;
+  width: 100px;
   display: block;
   margin: 20px auto 0;
   background-color: #007bff;
   color: white;
   border: none;
-  padding: 12px 24px;
+  padding: 8px 16px;
   border-radius: 4px;
   cursor: pointer;
-  font-size: 16px;
+  font-size: 14px;
 }
 
 .print-button:hover {
   background-color: #0056b3;
-}
-
-@media print {
-  @page {
-    size: A4;
-    margin: 20mm;
-  }
-
-  body {
-    margin: 0;
-    padding: 0;
-  }
-
-  .report-container {
-    width: 100%;
-    padding: 0;
-    margin: 0;
-  }
-
-  .print-button {
-    display: none;
-  }
 }
 
 @media (max-width: 768px) {
