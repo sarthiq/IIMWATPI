@@ -48,7 +48,7 @@ export const AdminLoginPage = () => {
 
   return (
     <Container className="login-container">
-      <Row className="justify-content-center align-items-center vh-100">
+      <Row className="justify-content-center align-items-center vh-100 vw-100">
         <Col xs={12} sm={10} md={8} lg={6} xl={5}>
           <Card className="login-card shadow-lg">
             <Card.Body>
