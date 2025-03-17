@@ -1,0 +1,52 @@
+.twelfth-dashboard {
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+.twelfth-intro-alert {
+    background-color: #e3f2fd;
+    border: none;
+    border-radius: 8px;
+}
+
+.section-title {
+    color: #2c3e50;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #3498db;
+    display: inline-block;
+}
+
+.subject-card {
+    transition: transform 0.2s;
+    border: none;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.subject-card:hover {
+    transform: translateY(-5px);
+}
+
+.subject-title {
+    color: #2c3e50;
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+}
+
+.subject-topics {
+    padding-left: 1.2rem;
+    color: #666;
+}
+
+.subject-topics li {
+    margin-bottom: 0.5rem;
+}
+
+.optional-card {
+    background-color: #f1f8ff;
+}
+
+.subject-sections {
+    padding: 1rem 0;
+} 
