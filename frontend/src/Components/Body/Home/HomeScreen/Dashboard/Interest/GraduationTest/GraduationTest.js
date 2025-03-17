@@ -2,7 +2,7 @@ import { Navigate, Route, Routes } from "react-router-dom";
 import { TestHome } from "./TestHome/TestHome";
 import { TestQuestion } from "./TestQuestion/TestQuestion";
 
-export const TenthTest = () => {   
+export const GraduationTest = () => {   
    
    return (
     <Routes>
