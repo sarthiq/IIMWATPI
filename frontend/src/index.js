@@ -31,9 +31,11 @@ const RootComponent = () => {
       }
 
       // Add a 2-second delay to ensure the spinner shows for a minimum time
-      setTimeout(() => {
-        setIsInitializing(false); // Initialization complete
-      }, env==='testing' ? 500 : 4000);
+      // setTimeout(() => {
+      //   setIsInitializing(false); // Initialization complete
+      // }, env==='testing' ? 500 : 4000);
+
+      setIsInitializing(false);
     };
 
     initializeApp();
