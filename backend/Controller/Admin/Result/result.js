@@ -58,6 +58,7 @@ exports.getResults = async (req, res) => {
     // Get all UserQuiz entries first
     const userQuizzes = await UserQuiz.findAll({
       where: whereClause,
+      order: [["createdAt", "DESC"]],
     });
 
     // Get associated UnverifiedUsers and filter based on isCertified
