@@ -1,6 +1,5 @@
-import React, { useState } from "react";
-import { Card, Form, Button, Container, ProgressBar } from "react-bootstrap";
-
+import React from "react";
+import { TestQuestionUtils } from "../../TestQuestionUtils/TestQuestionUtils";
 const questions = [
   {
     id: 1,
@@ -268,129 +267,9 @@ const questions = [
   },
 ];
 
-export const TestQuestion = () => {
-  const [currentQuestion, setCurrentQuestion] = useState(0);
-  const [answers, setAnswers] = useState(new Array(10).fill(''));
-
-  const handleOptionSelect = (questionId, value) => {
-    setAnswers(prev => {
-      const newAnswers = [...prev];
-      newAnswers[questionId - 1] = value;
-      return newAnswers;
-    });
-  };
-
-  const handleNext = () => {
-    if (!answers[currentQuestion]) {
-      alert('Please select an option before proceeding.');
-      return;
-    }
-    
-    if (currentQuestion < questions.length - 1) {
-      setCurrentQuestion((prev) => prev + 1);
-    }
-  };
-
-  const handlePrevious = () => {
-    if (currentQuestion > 0) {
-      setCurrentQuestion((prev) => prev - 1);
-    }
-  };
-
-  const handleSubmit = () => {
-    if (!answers[currentQuestion]) {
-      alert('Please select an option before submitting.');
-      return;
-    }
-
-    // Calculate results
-    const results = answers.reduce((acc, answer) => {
-      acc[answer] = (acc[answer] || 0) + 1;
-      return acc;
-    }, {});
-
-    // You can handle the results here (e.g., send to backend, show results page)
-    console.log('Test Results:', results);
-    // TODO: Add your submission logic here
-  };
-
-  return (
-    <Container className="test-question-container my-5">
-      <Card className="test-question-card">
-        <Card.Header className="test-question-header bg-primary text-white">
-          <h2 className="text-center mb-0">
-            Interest-Based Stream Selection Test
-          </h2>
-          <p className="text-center mb-0">Class 9-10th</p>
-        </Card.Header>
-
-        <Card.Body className="test-question-body">
-          <ProgressBar
-            now={(currentQuestion + 1) * 10}
-            label={`${currentQuestion + 1}/10`}
-            className="mb-4"
-          />
-
-          <div className="question-content">
-            <h4 className="question-number">Question {currentQuestion + 1}</h4>
-            <p className="question-text">
-              {questions[currentQuestion].question}
-            </p>
-
-            <Form className="options-form">
-              {questions[currentQuestion].options.map((option, index) => (
-                <div
-                  key={index}
-                  className="d-flex align-items-start option-item mb-3"
-                >
-                  <span className="me-2">{option.value}.</span>
-                  <Form.Check
-                    type="radio"
-                    id={`q${currentQuestion}-option${option.value}`}
-                    name={`question${currentQuestion}`}
-                    label={option.label}
-                    checked={answers[questions[currentQuestion].id - 1] === option.value}
-                    onChange={() =>
-                      handleOptionSelect(
-                        questions[currentQuestion].id,
-                        option.value
-                      )
-                    }
-                    className="ms-2"
-                  />
-                </div>
-              ))}
-            </Form>
-          </div>
-        </Card.Body>
-
-        <Card.Footer className="test-question-footer d-flex justify-content-between">
-          <Button
-            variant="secondary"
-            onClick={handlePrevious}
-            disabled={currentQuestion === 0}
-          >
-            Previous
-          </Button>
-          {currentQuestion === questions.length - 1 ? (
-            <Button
-              variant="success"
-              onClick={handleSubmit}
-              disabled={!answers[currentQuestion]}
-            >
-              Submit
-            </Button>
-          ) : (
-            <Button
-              variant="primary"
-              onClick={handleNext}
-              disabled={currentQuestion === questions.length - 1 || !answers[currentQuestion]}
-            >
-              Next
-            </Button>
-          )}
-        </Card.Footer>
-      </Card>
-    </Container>
-  );
+export const TestQuestion = ({setResults}) => {
+  const title1 = "Interest-Based Stream Selection Test for College Students";
+  const title2 = "Tenth Admission";
+  const grade = 10;
+  return <TestQuestionUtils questions={questions} title1={title1} title2={title2} grade={grade} setResults={setResults} />  ;
 };
