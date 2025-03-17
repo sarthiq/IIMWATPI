@@ -1,13 +1,12 @@
 .page-wrapper {
-  max-width: 800px;
-  margin: 0 auto;
+  max-width: 100%;
   padding: 20px;
 }
 
 .report-container {
   background: white;
-  padding: 40px;
-  margin: 0 auto;
+  padding: 20px;
+  
   font-family: Arial, sans-serif;
 }
 
@@ -84,5 +83,189 @@ h2 {
 
   .details p {
     font-size: 14px;
+  }
+}
+
+.personality-table {
+  border: 1px solid #ddd;
+  margin: 20px 0;
+}
+
+.table-header {
+  display: grid;
+  grid-template-columns: 1fr 2fr 2fr;
+  background-color: #f8f9fa;
+  font-weight: bold;
+  border-bottom: 2px solid #ddd;
+}
+
+.trait-header, .score-header {
+  padding: 12px;
+  text-align: center;
+}
+
+.trait-row {
+  display: grid;
+  grid-template-columns: 1fr 2fr 2fr;
+  border-bottom: 1px solid #ddd;
+}
+
+.trait-name {
+  padding: 12px;
+  font-weight: bold;
+  background-color: #f8f9fa;
+}
+
+.trait-details {
+  padding: 12px;
+}
+
+.trait-details ul {
+  list-style-type: decimal;
+  margin: 0;
+  padding-left: 20px;
+}
+
+.trait-details li {
+  margin: 5px 0;
+}
+
+/* Trait-specific background colors */
+.extraversion { background-color: rgba(173, 216, 230, 0.1); }
+.agreeableness { background-color: rgba(255, 165, 0, 0.1); }
+.contentiousness { background-color: rgba(144, 238, 144, 0.1); }
+.neuroticism { background-color: rgba(221, 160, 221, 0.1); }
+.openness { background-color: rgba(255, 99, 71, 0.1); }
+
+@media print {
+  .personality-table {
+    break-inside: avoid;
+  }
+  
+  .trait-row {
+    break-inside: avoid;
+  }
+}
+
+/* Add these new styles */
+.personality-grid {
+  display: grid;
+  grid-template-columns: 45% 55%;
+  gap: 40px;
+  margin-top: 30px;
+}
+
+.personality-scores {
+  padding: 20px;
+  width: 100%;
+}
+
+.score-row {
+  margin-bottom: 60px;
+  position: relative;
+  padding-top: 25px;
+}
+
+.score-labels {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5px;
+  font-size: 14px;
+}
+
+.left-label, .right-label {
+  font-weight: 500;
+  color: #333;
+}
+
+.score-bar-container {
+  position: relative;
+  height: 8px;
+  background-color: #e9ecef;
+  border-radius: 4px;
+  width: 100%;
+  margin: 30px 0;
+}
+
+.score-bar {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  border-radius: 4px;
+  opacity: 0.3;
+}
+
+.score-indicator {
+  position: absolute;
+  top: 10px;
+  transform: translateX(-50%);
+  background-color: #4a69bd;
+  color: white;
+  padding: 8px 20px;
+  border-radius: 20px;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  z-index: 3;
+}
+
+.score-value {
+  position: absolute;
+  top: -25px;
+  transform: translateX(-50%);
+  color: #666;
+  font-weight: 500;
+}
+
+.circle-indicator {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  background: white;
+  border: 2px solid #999;
+  border-radius: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+}
+
+/* Specific colors for each trait */
+.score-row:nth-child(1) .score-bar { background-color: #74b9cc; }
+.score-row:nth-child(2) .score-bar { background-color: #ffc107; }
+.score-row:nth-child(3) .score-bar { background-color: #4caf50; }
+.score-row:nth-child(4) .score-bar { background-color: #9c27b0; }
+.score-row:nth-child(5) .score-bar { background-color: #ff5252; }
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .score-row {
+    margin-bottom: 60px;
+  }
+
+  .score-bar-container {
+    margin: 25px 0;
+  }
+
+  .score-indicator {
+    padding: 6px 15px;
+    font-size: 12px;
+  }
+}
+
+/* Print styles */
+@media print {
+  .personality-grid {
+    gap: 20px;
+  }
+
+  .personality-scores,
+  .personality-table {
+    break-inside: avoid;
+    background-color: #f8f9fa !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
   }
 } 
