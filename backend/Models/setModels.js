@@ -12,6 +12,7 @@ const UnverifiedUser = require("./User/unverifiedUser");
 const UserProfile = require("./User/userProfile");
 const User = require("./User/users");
 const Query = require("./Query/query");
+const Interest = require("./TestPattern/interest");
 
 
 exports.setupModels = () => {
@@ -29,6 +30,9 @@ exports.setupModels = () => {
 
   User.hasOne(UserProfile);
   UserProfile.belongsTo(User);
+
+  User.hasMany(Interest);
+  Interest.belongsTo(User);
 
   
   UnverifiedUser.belongsToMany(Quiz,{through:UserQuiz})
