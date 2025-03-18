@@ -1,9 +1,27 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Container, Row, Col, Card } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import "./InterestHome.css";
+import { useAlert } from "../../../../../../UI/Alert/AlertContext";
+import { getInterestHandler } from "../../apiHandler";
+
 
 export const InterestHome = () => {
+  const [results, setResults] = useState([]);
+  const {showAlert}=useAlert();
+  const [isLoading, setIsLoading] = useState(false);
+
+  useEffect(() => {
+    getTestResultsHandler()
+  }, []);
+
+  const getTestResultsHandler=async()=>{
+    const response=await getInterestHandler(setIsLoading, showAlert);
+    if(response){
+      setResults(response.data);
+    }
+  }
+  console.log(results);
   return (
     <Container className="interest-home-container py-4">
       {/* Results Section */}
@@ -18,7 +36,17 @@ export const InterestHome = () => {
                 Class 10 Results
               </Card.Header>
               <Card.Body>
-                <Card.Text>No results available yet</Card.Text>
+                <Card.Text>
+                  {results[10]?.length > 0 ? (
+                    <ol>
+                      {results[10].map((result, index) => (
+                        <li key={index}>{result}</li>
+                      ))}
+                    </ol>
+                  ) : (
+                    "No results available yet"
+                  )}
+                </Card.Text>
               </Card.Body>
             </Card>
           </Col>
@@ -28,7 +56,17 @@ export const InterestHome = () => {
                 Class 12 Results
               </Card.Header>
               <Card.Body>
-                <Card.Text>No results available yet</Card.Text>
+                <Card.Text>
+                  {results[12]?.length > 0 ? (
+                    <ol>
+                      {results[12].map((result, index) => (
+                        <li key={index}>{result}</li>
+                      ))}
+                    </ol>
+                  ) : (
+                    "No results available yet"
+                  )}
+                </Card.Text>
               </Card.Body>
             </Card>
           </Col>
@@ -38,7 +76,17 @@ export const InterestHome = () => {
                 Graduation Results
               </Card.Header>
               <Card.Body>
-                <Card.Text>No results available yet</Card.Text>
+                <Card.Text>
+                  {results[16]?.length > 0 ? (
+                    <ol>
+                      {results[16].map((result, index) => (
+                        <li key={index}>{result}</li>
+                      ))}
+                    </ol>
+                  ) : (
+                    "No results available yet"
+                  )}
+                </Card.Text>
               </Card.Body>
             </Card>
           </Col>

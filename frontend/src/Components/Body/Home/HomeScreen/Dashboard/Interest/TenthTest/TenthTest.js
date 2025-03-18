@@ -11,7 +11,7 @@ export const TenthTest = () => {
     <Routes>
         <Route path="/" element={<TestHome />} />
         <Route path="test-question" element={<TestQuestion setResults={setResults} />} />
-        <Route path="result" element={<ResultUtils results={results} />} />
+        <Route path="result" element={<ResultUtils results={results} grade={10} />} />
         <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>
    );

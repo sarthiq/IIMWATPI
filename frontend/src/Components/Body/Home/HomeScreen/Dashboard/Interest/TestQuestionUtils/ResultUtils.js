@@ -1,4 +1,18 @@
+import { useEffect, useState } from "react";
+import { useAlert } from "../../../../../../UI/Alert/AlertContext";
+import { addInterestHandler } from "../../apiHandler";
+
 export const ResultUtils = ({ results, grade }) => {
+  const {showAlert}=useAlert();
+  const [isLoading, setIsLoading] = useState(false);
+
+  useEffect(() => {
+    addInterestHandler({
+      result: results,
+      type: grade,
+    }, setIsLoading, showAlert);
+  }, [results, grade]);
+  
   return (
     <div className="results-container">
       <h2 className="text-center mb-4">Your Career Recommendations</h2>
