@@ -2,6 +2,9 @@ import React from "react";
 import { Typewriter } from "react-simple-typewriter";
 import "./Banner.css";
 import ReactDOM from "react-dom";
+import { useAlert } from "../../../../UI/Alert/AlertContext";
+import { createQueryHandler } from "../Dashboard/apiHandler";
+import { Spinner } from "react-bootstrap";
 
 const DashboardSection = () => (
   <div className="section dashboard-section">
@@ -48,56 +51,97 @@ const AILiteracySection = () => (
 
 const TextSection = () => {
   const [isOpen, setIsOpen] = React.useState(false);
+  const [isLoading, setIsLoading] = React.useState(false);
+  const { showAlert } = useAlert();
 
   const openModal = () => setIsOpen(true);
   const closeModal = () => setIsOpen(false);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Add your form submission logic here
-    closeModal();
+
+    const formData = {
+      name: e.target.elements[0].value,
+      email: e.target.elements[1].value,
+      phone: e.target.elements[2].value,
+      schoolOrCollege: e.target.elements[3].value,
+      reason: e.target.elements[4].value,
+    };
+
+    const response = await createQueryHandler(
+      formData,
+      setIsLoading,
+      showAlert
+    );
+
+    if (response) {
+      showAlert("info", "Info", "Query submitted successfully",null, () => {
+        closeModal();
+      });
+    }
   };
 
   return (
     <div className="text-section">
-      <h1 className="banner-heading">Empowering Students to be AI-ready Career Professionals!</h1>
+      <h1 className="banner-heading">
+        Empowering Students to be AI-ready Career Professionals!
+      </h1>
       <p className="banner-description">
         Equipping students with AI literacy and tools to navigate the future,
         fostering career awareness, and guiding subject choices to align with
         their aspirations.
       </p>
       <div>
-        <button className="coming-soon-btn" onClick={openModal}>Book Demo</button>
+        <button className="coming-soon-btn" onClick={openModal}>
+          Book Demo
+        </button>
       </div>
-      {isOpen && ReactDOM.createPortal(
-        <div className="popup-overlay">
-          <div className="popup-content">
-            <h2>Query Form</h2>
-            <form onSubmit={handleSubmit}>
-              <div className="form-group">
-                <input type="text" placeholder="Name" required />
-              </div>
-              <div className="form-group">
-                <input type="email" placeholder="Email" required />
-              </div>
-              <div className="form-group">
-                <input type="tel" placeholder="Phone" required />
-              </div>
-              <div className="form-group">
-                <input type="text" placeholder="School/College Name" required />
-              </div>
-              <div className="form-group">
-                <textarea placeholder="Your Message" required />
-              </div>
-              <div className="form-actions">
-                <button className="form-submit-button" type="submit">Submit</button>
-                <button className="form-cancel-button" type="button" onClick={closeModal}>Cancel</button>
-              </div>
-            </form>
-          </div>
-        </div>,
-        document.getElementById('popup-portal-root')
-      )}
+      {isOpen &&
+        ReactDOM.createPortal(
+          <div className="popup-overlay">
+            <div className="popup-content">
+              <h2>Query Form</h2>
+              <form onSubmit={handleSubmit}>
+                <div className="form-group">
+                  <input type="text" placeholder="Name" required />
+                </div>
+                <div className="form-group">
+                  <input type="email" placeholder="Email" required />
+                </div>
+                <div className="form-group">
+                  <input type="tel" placeholder="Phone" required />
+                </div>
+                <div className="form-group">
+                  <input
+                    type="text"
+                    placeholder="School/College Name"
+                    required
+                  />
+                </div>
+                <div className="form-group">
+                  <textarea placeholder="Your Message" required />
+                </div>
+                <div className="form-actions">
+                  <button
+                    className="form-submit-button"
+                    type="submit"
+                    disabled={isLoading}
+                  >
+                    {isLoading ? <Spinner /> : "Submit"}
+                  </button>
+                  <button
+                    className="form-cancel-button"
+                    type="button"
+                    onClick={closeModal}
+                  >
+                    Cancel
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>,
+          document.getElementById("popup-portal-root")
+        )}
     </div>
   );
 };
@@ -134,5 +178,3 @@ export const Banner = () => {
     </div>
   );
 };
-
-
