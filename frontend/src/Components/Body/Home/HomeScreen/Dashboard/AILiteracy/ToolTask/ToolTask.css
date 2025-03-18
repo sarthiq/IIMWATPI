@@ -1,0 +1,54 @@
+.tooltask-container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.tooltask-title {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.tooltask-description {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+  color: #555;
+}
+
+.tooltask-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.tooltask-textarea {
+  height: 150px;
+  padding: 10px;
+  font-size: 1rem;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  margin-bottom: 15px;
+}
+
+.tooltask-submit-button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.tooltask-submit-button:hover {
+  background-color: #0056b3;
+}
+
+.tooltask-success-message {
+  margin-top: 15px;
+  color: #28a745;
+  font-weight: bold;
+}

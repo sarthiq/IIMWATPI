@@ -1,0 +1,70 @@
+.ai-literacy-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    gap: 20px;
+  }
+  
+  .ai-literacy-column {
+    flex: 1;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+  }
+  
+  .ai-literacy-theory {
+    background-color: #e0f7fa;
+  }
+  
+  .ai-literacy-tools-tasks {
+    background-color: #ffe0b2;
+  }
+  
+  .ai-literacy-column-title {
+    margin-bottom: 15px;
+    font-size: 1.5rem;
+    color: #333;
+  }
+  
+  .ai-literacy-item-list {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .ai-literacy-item {
+    margin-bottom: 10px;
+    font-size: 1rem;
+    color: #555;
+  }
+  
+  .ai-literacy-nav-button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .ai-literacy-nav-button:hover {
+    background-color: #0056b3;
+  }
+  
+  .ai-literacy-theory-button {
+    background-color: #00acc1;
+  }
+  
+  .ai-literacy-theory-button:hover {
+    background-color: #007c91;
+  }
+  
+  .ai-literacy-tools-button {
+    background-color: #ff9800;
+  }
+  
+  .ai-literacy-tools-button:hover {
+    background-color: #e68a00;
+  }
