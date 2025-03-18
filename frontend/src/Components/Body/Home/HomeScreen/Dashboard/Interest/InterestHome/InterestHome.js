@@ -20,8 +20,18 @@ export const InterestHome = () => {
     if(response){
       setResults(response.data);
     }
+  
   }
-  console.log(results);
+  if (isLoading) {
+    return (
+      <div className="spinner-container">
+        <div className="spinner-border" role="status">
+          <span className="sr-only">Loading...</span>
+        </div>
+      </div>
+    );
+  }
+  
   return (
     <Container className="interest-home-container py-4">
       {/* Results Section */}
