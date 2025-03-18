@@ -1,0 +1,107 @@
+.grad-exam-container {
+    padding: 2rem;
+    background-color: #f8f9fa;
+}
+
+.grad-header-row {
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.grad-main-title {
+    color: #2c3e50;
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.grad-subtitle {
+    color: #7f8c8d;
+    font-size: 1.2rem;
+}
+
+.grad-content-row {
+    margin-bottom: 2rem;
+}
+
+.grad-accordion {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.grad-accordion-item {
+    border: none;
+    margin-bottom: 1rem;
+}
+
+.grad-accordion-header button {
+    background-color: #3498db !important;
+    color: white !important;
+    font-weight: 600;
+    padding: 1rem;
+}
+
+.grad-accordion-header button:not(.collapsed) {
+    background-color: #2980b9 !important;
+}
+
+.grad-table-wrapper {
+    margin-top: 1rem;
+    overflow-x: auto;
+}
+
+.grad-exam-table {
+    background-color: white;
+    margin-bottom: 0;
+}
+
+.grad-exam-table thead {
+    background-color: #34495e;
+    color: white;
+}
+
+.grad-exam-table th {
+    font-weight: 600;
+    text-align: center;
+    vertical-align: middle;
+    padding: 1rem;
+}
+
+.grad-exam-table td {
+    padding: 0.75rem;
+    vertical-align: middle;
+    color: #2c3e50;
+}
+
+.grad-exam-table tbody tr:hover {
+    background-color: #ecf0f1;
+}
+
+@media (max-width: 768px) {
+    .grad-exam-container {
+        padding: 1rem;
+    }
+
+    .grad-main-title {
+        font-size: 2rem;
+    }
+
+    .grad-subtitle {
+        font-size: 1rem;
+    }
+}
+
+.btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+    padding: 0.25rem 0.5rem;
+    font-size: 0.875rem;
+    line-height: 1.5;
+    border-radius: 0.2rem;
+    color: white;
+    text-decoration: none;
+}
+
+.btn-primary:hover {
+    background-color: #0069d9;
+    border-color: #0062cc;
+} 
