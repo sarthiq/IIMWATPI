@@ -84,10 +84,10 @@ const TextSection = () => {
                 <input type="tel" placeholder="Phone" required />
               </div>
               <div className="form-group">
-                <input type="text" placeholder="School/College" required />
+                <input type="text" placeholder="School/College Name" required />
               </div>
               <div className="form-group">
-                <textarea placeholder="Reason for inquiry" required />
+                <textarea placeholder="Your Message" required />
               </div>
               <div className="form-actions">
                 <button className="form-submit-button" type="submit">Submit</button>
