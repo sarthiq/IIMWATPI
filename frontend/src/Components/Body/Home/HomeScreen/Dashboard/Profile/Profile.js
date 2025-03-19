@@ -34,6 +34,7 @@ export const Profile = () => {
     course: "",
     year: "",
     branch: "",
+    profilePhoto: null,
   });
 
   const institutionTypes = ["School", "College", "University", "Other"];
@@ -47,7 +48,6 @@ export const Profile = () => {
 
   useEffect(() => {
     fetchProfileData();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const fetchProfileData = async () => {
@@ -70,9 +70,8 @@ export const Profile = () => {
         course: response.data?.course || "",
         year: response.data?.year || "",
         branch: response.data?.branch || "",
+        profilePhoto: response.data?.profilePhoto || null,
       };
-      console.log(userData);
-
       setUserInfo(userData);
       setShowOtherField(userData.institutionType === "Other");
     }
@@ -91,6 +90,16 @@ export const Profile = () => {
         ...prev,
         standard: "",
         otherInstitution: "",
+      }));
+    }
+  };
+
+  const handlePhotoChange = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      setUserInfo((prev) => ({
+        ...prev,
+        profilePhoto: URL.createObjectURL(file),
       }));
     }
   };
@@ -129,213 +138,256 @@ export const Profile = () => {
   return (
     <Container className="profile-container">
       <Card className="profile-card">
-        <Card.Body>
+        <div className="profile-layout">
           <div className="profile-header">
-            <h2>Profile Information</h2>
-            <div>
+            <div className="profile-title">Profile Information</div>
+            <div className="profile-actions">
               {!isEditing && (
-                <Button
-                  variant="primary"
+                <button
+                  className="profile-edit-button"
                   onClick={() => setIsEditing(true)}
-                  className="edit-button me-2"
                 >
                   Edit Profile
-                </Button>
+                </button>
               )}
-              <Button
-                variant="danger"
+              <button
+                className="profile-logout-button"
                 onClick={handleLogout}
               >
                 Logout
-              </Button>
+              </button>
             </div>
           </div>
-
-          <Form onSubmit={handleSubmit}>
-            {/* Basic Information Section */}
-            <section className="info-section">
-              <h4>Basic Information</h4>
-              <Row>
-                <Col md={4}>
-                  <Form.Group className="mb-3">
-                    <Form.Label>Name</Form.Label>
-                    <Form.Control
-                      type="text"
-                      value={userInfo.name}
-                      disabled={!isEditing}
-                      onChange={handleChange}
-                      name="name"
-                    />
-                  </Form.Group>
-                </Col>
-                <Col md={4}>
-                  <Form.Group className="mb-3">
-                    <Form.Label>Email</Form.Label>
-                    <Form.Control
-                      type="email"
-                      value={userInfo.email}
-                      disabled={!isEditing}
-                      onChange={handleChange}
-                      name="email"
-                    />
-                  </Form.Group>
-                </Col>
-                <Col md={4}>
-                  <Form.Group className="mb-3">
-                    <Form.Label>Phone</Form.Label>
-                    <Form.Control
-                      type="tel"
-                      value={userInfo.phone}
-                      disabled={!isEditing}
-                      onChange={handleChange}
-                      name="phone"
-                    />
-                  </Form.Group>
-                </Col>
-              </Row>
-            </section>
-
-            {/* Educational Information Section */}
-            <section className="info-section">
-              <h4>Educational Information</h4>
-              <Row>
-                <Col md={6}>
-                  {isEditing ? (
-                    <Form.Group className="mb-3">
-                      <Form.Label>Institution Type</Form.Label>
-                      <Form.Select
-                        name="institutionType"
-                        value={userInfo.institutionType}
-                        onChange={handleChange}
-                      >
-                        <option value="">Select Institution Type</option>
-                        {institutionTypes.map((type) => (
-                          <option key={type} value={type}>
-                            {type}
-                          </option>
-                        ))}
-                      </Form.Select>
-                    </Form.Group>
-                  ) : (
-                    <Form.Group className="mb-3">
-                      <Form.Label>Institution Type</Form.Label>
-                      <Form.Control
-                        plaintext
-                        readOnly
-                        value={userInfo.institutionType || "Not specified"}
-                      />
-                    </Form.Group>
-                  )}
-                </Col>
-
-                <Col md={6}>
-                  <Form.Group className="mb-3">
-                    <Form.Label>Institution Name</Form.Label>
-                    <Form.Control
-                      type="text"
-                      name="institutionName"
-                      value={userInfo.institutionName}
-                      onChange={handleChange}
-                      disabled={!isEditing}
-                      placeholder={
-                        isEditing ? "Enter institution name" : "Not specified"
-                      }
-                    />
-                  </Form.Group>
-                </Col>
-
-                {showOtherField && isEditing && (
-                  <Col md={12}>
-                    <Form.Group className="mb-3">
-                      <Form.Label>Specify Institution Type</Form.Label>
-                      <Form.Control
-                        type="text"
-                        name="otherInstitution"
-                        value={userInfo.otherInstitution}
-                        onChange={handleChange}
-                        placeholder="Please specify your institution type"
-                      />
-                    </Form.Group>
-                  </Col>
+          <div className="profile-body">
+            <div className="profile-summary">
+              <div className="profile-photo-container">
+                {userInfo.profilePhoto ? (
+                  <img src={userInfo.profilePhoto} alt="Profile" className="profile-photo" />
+                ) : (
+                  <div className="profile-initial">{userInfo.name.charAt(0)}</div>
                 )}
-
-                <Col md={6}>
-                  {isEditing && userInfo.institutionType && !showOtherField ? (
-                    <Form.Group className="mb-3">
-                      <Form.Label>Standard/Year</Form.Label>
-                      <Form.Select
-                        name="standard"
-                        value={userInfo.standard}
-                        onChange={handleChange}
-                      >
-                        <option value="">Select Standard/Year</option>
-                        {standardOptions[
-                          userInfo.institutionType || "Other"
-                        ].map((std) => (
-                          <option key={std} value={std}>
-                            {std}
-                          </option>
-                        ))}
-                      </Form.Select>
-                    </Form.Group>
-                  ) : (
-                    <Form.Group className="mb-3">
-                      <Form.Label>Standard/Year</Form.Label>
+              </div>
+              <div className="profile-summary-details">
+                <div className="profile-name">{userInfo.name}</div>
+                <p className="profile-info"><strong>School:</strong> {userInfo.institutionName || "Not specified"}</p>
+                <p className="profile-info"><strong>Class:</strong> {userInfo.standard || "Not specified"}</p>
+              </div>
+            </div>
+            
+            <div className="profile-details">
+              <Form onSubmit={handleSubmit}>
+                {isEditing && (
+                  <div className="info-section">
+                    <div className="section-title">Profile Photo</div>
+                    <Form.Group className="form-group">
+                      <Form.Label>Upload New Photo</Form.Label>
                       <Form.Control
-                        plaintext
-                        readOnly
-                        value={userInfo.standard || "Not specified"}
+                        type="file"
+                        accept="image/*"
+                        onChange={handlePhotoChange}
+                        className="form-control-custom"
                       />
                     </Form.Group>
-                  )}
-                </Col>
+                  </div>
+                )}
+                
+                {/* Basic Information Section */}
+                <section className="info-section">
+                  <div className="section-title">Basic Information</div>
+                  <Row>
+                    <Col md={4}>
+                      <Form.Group className="form-group">
+                        <Form.Label>Name</Form.Label>
+                        <Form.Control
+                          type="text"
+                          value={userInfo.name}
+                          disabled={!isEditing}
+                          onChange={handleChange}
+                          name="name"
+                          className="form-control-custom"
+                        />
+                      </Form.Group>
+                    </Col>
+                    <Col md={4}>
+                      <Form.Group className="form-group">
+                        <Form.Label>Email</Form.Label>
+                        <Form.Control
+                          type="email"
+                          value={userInfo.email}
+                          disabled={!isEditing}
+                          onChange={handleChange}
+                          name="email"
+                          className="form-control-custom"
+                        />
+                      </Form.Group>
+                    </Col>
+                    <Col md={4}>
+                      <Form.Group className="form-group">
+                        <Form.Label>Phone</Form.Label>
+                        <Form.Control
+                          type="tel"
+                          value={userInfo.phone}
+                          disabled={!isEditing}
+                          onChange={handleChange}
+                          name="phone"
+                          className="form-control-custom"
+                        />
+                      </Form.Group>
+                    </Col>
+                  </Row>
+                </section>
 
-                <Col md={6}>
-                  <Form.Group className="mb-3">
-                    <Form.Label>Course</Form.Label>
-                    <Form.Control
-                      type="text"
-                      name="course"
-                      value={userInfo.course}
-                      onChange={handleChange}
-                      disabled={!isEditing}
-                      placeholder={isEditing ? "Enter course" : "Not specified"}
-                    />
-                  </Form.Group>
-                </Col>
+                {/* Educational Information Section */}
+                <section className="info-section">
+                  <div className="section-title">Educational Information</div>
+                  <Row>
+                    <Col md={6}>
+                      {isEditing ? (
+                        <Form.Group className="form-group">
+                          <Form.Label>Institution Type</Form.Label>
+                          <Form.Select
+                            name="institutionType"
+                            value={userInfo.institutionType}
+                            onChange={handleChange}
+                            className="form-select-custom"
+                          >
+                            <option value="">Select Institution Type</option>
+                            {institutionTypes.map((type) => (
+                              <option key={type} value={type}>
+                                {type}
+                              </option>
+                            ))}
+                          </Form.Select>
+                        </Form.Group>
+                      ) : (
+                        <Form.Group className="form-group">
+                          <Form.Label>Institution Type</Form.Label>
+                          <Form.Control
+                            plaintext
+                            readOnly
+                            value={userInfo.institutionType || "Not specified"}
+                            className="form-control-custom"
+                          />
+                        </Form.Group>
+                      )}
+                    </Col>
 
-                <Col md={6}>
-                  <Form.Group className="mb-3">
-                    <Form.Label>Branch</Form.Label>
-                    <Form.Control
-                      type="text"
-                      name="branch"
-                      value={userInfo.branch}
-                      onChange={handleChange}
-                      disabled={!isEditing}
-                      placeholder={isEditing ? "Enter branch" : "Not specified"}
-                    />
-                  </Form.Group>
-                </Col>
-              </Row>
-            </section>
+                    <Col md={6}>
+                      <Form.Group className="form-group">
+                        <Form.Label>Institution Name</Form.Label>
+                        <Form.Control
+                          type="text"
+                          name="institutionName"
+                          value={userInfo.institutionName}
+                          onChange={handleChange}
+                          disabled={!isEditing}
+                          placeholder={
+                            isEditing ? "Enter institution name" : "Not specified"
+                          }
+                          className="form-control-custom"
+                        />
+                      </Form.Group>
+                    </Col>
 
-            {isEditing && (
-              <div className="button-group">
-                <Button
-                  variant="secondary"
-                  onClick={() => setIsEditing(false)}
-                  className="me-2"
-                >
-                  Cancel
-                </Button>
-                <Button variant="primary" type="submit">
-                  Save Changes
-                </Button>
-              </div>
-            )}
-          </Form>
-        </Card.Body>
+                    {showOtherField && isEditing && (
+                      <Col md={12}>
+                        <Form.Group className="form-group">
+                          <Form.Label>Specify Institution Type</Form.Label>
+                          <Form.Control
+                            type="text"
+                            name="otherInstitution"
+                            value={userInfo.otherInstitution}
+                            onChange={handleChange}
+                            placeholder="Please specify your institution type"
+                            className="form-control-custom"
+                          />
+                        </Form.Group>
+                      </Col>
+                    )}
+
+                    <Col md={6}>
+                      {isEditing && userInfo.institutionType && !showOtherField ? (
+                        <Form.Group className="form-group">
+                          <Form.Label>Standard/Year</Form.Label>
+                          <Form.Select
+                            name="standard"
+                            value={userInfo.standard}
+                            onChange={handleChange}
+                            className="form-select-custom"
+                          >
+                            <option value="">Select Standard/Year</option>
+                            {standardOptions[
+                              userInfo.institutionType || "Other"
+                            ].map((std) => (
+                              <option key={std} value={std}>
+                                {std}
+                              </option>
+                            ))}
+                          </Form.Select>
+                        </Form.Group>
+                      ) : (
+                        <Form.Group className="form-group">
+                          <Form.Label>Standard/Year</Form.Label>
+                          <Form.Control
+                            plaintext
+                            readOnly
+                            value={userInfo.standard || "Not specified"}
+                            className="form-control-custom"
+                          />
+                        </Form.Group>
+                      )}
+                    </Col>
+
+                    <Col md={6}>
+                      <Form.Group className="form-group">
+                        <Form.Label>Course</Form.Label>
+                        <Form.Control
+                          type="text"
+                          name="course"
+                          value={userInfo.course}
+                          onChange={handleChange}
+                          disabled={!isEditing}
+                          placeholder={isEditing ? "Enter course" : "Not specified"}
+                          className="form-control-custom"
+                        />
+                      </Form.Group>
+                    </Col>
+
+                    <Col md={6}>
+                      <Form.Group className="form-group">
+                        <Form.Label>Branch</Form.Label>
+                        <Form.Control
+                          type="text"
+                          name="branch"
+                          value={userInfo.branch}
+                          onChange={handleChange}
+                          disabled={!isEditing}
+                          placeholder={isEditing ? "Enter branch" : "Not specified"}
+                          className="form-control-custom"
+                        />
+                      </Form.Group>
+                    </Col>
+                  </Row>
+                </section>
+
+                {isEditing && (
+                  <div className="button-group">
+                    <button
+                      className="cancel-button"
+                      onClick={() => setIsEditing(false)}
+                      type="button"
+                    >
+                      Cancel
+                    </button>
+                    <button className="save-button" type="submit">
+                      Save Changes
+                    </button>
+                  </div>
+                )}
+              </Form>
+            </div>
+          </div>
+        </div>
       </Card>
     </Container>
   );

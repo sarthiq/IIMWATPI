@@ -431,7 +431,7 @@ export const CareerReport = () => {
           <i className="bi bi-download me-2"></i>
           Download Report
         </button>
-      </div>
+    </div>
     </Container>
   );
 };
