@@ -1,0 +1,466 @@
+.career-tree-container {
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.career-tree-title {
+    text-align: center;
+    color: #2c3e50;
+    margin-bottom: 2rem;
+}
+
+.career-tree-content {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    transform-origin: center;
+    transition: transform 0.3s ease;
+}
+
+.root-node {
+    width: 300px;
+    text-align: center;
+    background: linear-gradient(145deg, #6a11cb, #2575fc);
+    color: white;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(106, 17, 203, 0.2);
+    position: relative;
+    z-index: 2;
+}
+
+.streams-container {
+    display: flex;
+    justify-content: space-around;
+    padding-top: 50px;
+    width: 100%;
+    position: relative;
+}
+
+/* Main trunk from root to streams */
+.streams-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 4px;
+    height: 50px;
+    background: #6a11cb;
+    transform: translateX(-50%);
+}
+
+/* Horizontal line connecting all streams */
+.streams-container::after {
+    content: '';
+    position: absolute;
+    top: 50px;
+    left: 20%;
+    width: 60%;
+    height: 4px;
+    background: #6a11cb;
+}
+
+.stream-branch {
+    position: relative;
+    padding-top: 30px;
+    width: 300px;
+    transition: all 0.3s ease;
+}
+
+/* Branch connection to main horizontal line */
+.stream-branch::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 4px;
+    height: 30px;
+    background: #6a11cb;
+    transform: translateX(-50%);
+}
+
+.stream-card {
+    background: white;
+    border: 2px solid #6a11cb;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.stream-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(106, 17, 203, 0.2);
+    border-color: #2575fc;
+}
+
+.career-paths {
+    position: relative;
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    width: 100%;
+    gap: 20px;
+    padding: 20px;
+}
+
+/* Modified branch styling for career paths */
+.career-paths::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 20%;
+    width: 60%;
+    height: 4px;
+    background: #6a11cb;
+}
+
+.path-card {
+    position: relative;
+    width: 280px;
+    margin: 30px 10px;
+    padding-top: 20px;
+}
+
+/* Modified connection to path cards */
+.path-card::before {
+    content: '';
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    width: 4px;
+    height: 20px;
+    background: #6a11cb;
+    transform: translateX(-50%);
+}
+
+/* Remove the previous after pseudo-element */
+.path-card::after {
+    display: none;
+}
+
+/* Add new styles for sub-specializations */
+.specializations-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    width: 100%;
+    margin-top: 30px;
+    position: relative;
+}
+
+.specialization-card {
+    width: 240px;
+    margin: 30px 10px;
+    position: relative;
+    padding-top: 20px;
+}
+
+/* Horizontal line for specializations */
+.specializations-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 20%;
+    width: 60%;
+    height: 4px;
+    background: #6a11cb;
+}
+
+/* Vertical connection for specialization cards */
+.specialization-card::before {
+    content: '';
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    width: 4px;
+    height: 20px;
+    background: #6a11cb;
+    transform: translateX(-50%);
+}
+
+.opportunities-section {
+    margin-top: 1rem;
+}
+
+.opportunities-section ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+/* Leaf styling for end nodes */
+.opportunities-section li {
+    position: relative;
+    padding: 0.3rem 0 0.3rem 20px;
+    color: #495057;
+}
+
+.opportunities-section li::before {
+    content: '🍃';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 12px;
+}
+
+.opportunities-section h6 {
+    color: #2c3e50;
+    margin-top: 1rem;
+}
+
+.tree-container {
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    position: relative;
+    padding: 2rem;
+}
+
+.tree-wrapper {
+    min-width: min-content;
+    transform-origin: center;
+    transition: transform 0.3s ease;
+}
+
+.tree-node {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+.node-content {
+    position: relative;
+    margin: 20px 0;
+}
+
+.tree-card {
+    background: white;
+    border: 2px solid #6a11cb;
+    border-radius: 12px;
+    padding: 15px;
+    min-width: 200px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.tree-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(106, 17, 203, 0.2);
+}
+
+.tree-card h3 {
+    margin: 0;
+    color: #2c3e50;
+    font-size: 1rem;
+}
+
+.tree-card p {
+    margin: 5px 0 0;
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.node-children {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    position: relative;
+    padding-top: 20px;
+}
+
+/* Vertical lines */
+.node-children::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 2px;
+    height: 20px;
+    background: #6a11cb;
+    transform: translateX(-50%);
+}
+
+/* Horizontal connector line */
+.node-children::after {
+    content: '';
+    position: absolute;
+    top: 20px;
+    left: 20%;
+    width: 60%;
+    height: 2px;
+    background: #6a11cb;
+}
+
+/* Level-specific styling */
+.level-0 > .node-content > .tree-card {
+    background: linear-gradient(145deg, #6a11cb, #2575fc);
+    color: white;
+}
+
+.level-0 > .node-content > .tree-card h3,
+.level-0 > .node-content > .tree-card p {
+    color: white;
+}
+
+.tree-zoom-controls {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: flex;
+    gap: 10px;
+    z-index: 1000;
+}
+
+.zoom-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: white;
+    border: 2px solid #6a11cb;
+    color: #6a11cb;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    transition: all 0.2s ease;
+}
+
+.zoom-btn:hover {
+    background: #6a11cb;
+    color: white;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .node-children {
+        gap: 20px;
+    }
+
+    .tree-card {
+        min-width: 150px;
+    }
+}
+
+/* Animation for expanding branches */
+.career-paths {
+    animation: growBranch 0.3s ease-out;
+    transform-origin: top center;
+}
+
+@keyframes growBranch {
+    from {
+        transform: scaleY(0);
+        opacity: 0;
+    }
+    to {
+        transform: scaleY(1);
+        opacity: 1;
+    }
+}
+
+@media (max-width: 1200px) {
+    .streams-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .streams-container::after {
+        display: none;
+    }
+
+    .stream-branch {
+        margin-bottom: 30px;
+    }
+
+    .stream-branch::before {
+        height: 30px;
+    }
+}
+
+.hidden-stream {
+    display: none;
+}
+
+/* Tree structure styling */
+.tree-branch {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.branch-content {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    padding: 20px 0;
+}
+
+/* Vertical lines */
+.branch-line {
+    position: absolute;
+    width: 2px;
+    background: #6a11cb;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* Horizontal connector lines */
+.branch-children {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    padding-top: 20px;
+}
+
+.branch-children::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 20%;
+    width: 60%;
+    height: 2px;
+    background: #6a11cb;
+}
+
+/* Card styling */
+.tree-card {
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 15px;
+    min-width: 200px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    z-index: 1;
+}
+
+.tree-card h3 {
+    margin: 0;
+    font-size: 16px;
+    color: #333;
+}
+
+.tree-card p {
+    margin: 5px 0 0;
+    font-size: 14px;
+    color: #666;
+}
+
+/* Hide children initially */
+.branch-children {
+    display: none;
+}
+
+.expanded > .branch-children {
+    display: flex;
+} 
