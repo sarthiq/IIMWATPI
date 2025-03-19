@@ -16,8 +16,10 @@
 }
 
 .career-table {
+    width: 100%;
     background-color: white;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-collapse: collapse;
 }
 
 .career-table th {
@@ -25,19 +27,41 @@
     color: white;
     padding: 1rem;
     font-weight: 600;
-    text-align: center;
+    text-align: left;
     vertical-align: middle;
 }
 
 .career-table td {
     padding: 1rem;
-    vertical-align: top;
+    border-bottom: 1px solid #e5e7eb;
 }
 
-.field-column {
+.career-option-column {
     font-weight: 600;
     color: #2c3e50;
     min-width: 150px;
+}
+
+.description-column {
+    min-width: 300px;
+}
+
+.education-column {
+    min-width: 200px;
+}
+
+.field-study-column {
+    min-width: 120px;
+}
+
+.salary-column {
+    min-width: 100px;
+    color: #059669;
+}
+
+.demand-column {
+    min-width: 120px;
+    color: #0369a1;
 }
 
 .careers-list {
@@ -53,23 +77,6 @@
 .education-details p {
     margin-bottom: 0.5rem;
     color: #4b5563;
-}
-
-.salary-column {
-    min-width: 120px;
-    text-align: center;
-    vertical-align: middle;
-}
-
-.salary-range {
-    color: #059669;
-    font-weight: 600;
-}
-
-.demand-column {
-    text-align: center;
-    vertical-align: middle;
-    min-width: 100px;
 }
 
 .education-pattern-message {
@@ -95,5 +102,9 @@
     .career-table td,
     .career-table th {
         padding: 0.75rem;
+    }
+
+    .description-column {
+        min-width: 200px;
     }
 } 
