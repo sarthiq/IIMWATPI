@@ -1,0 +1,123 @@
+.ch-container {
+    padding: 3rem 1rem;
+    max-width: 1200px;
+}
+
+.ch-title {
+    text-align: center;
+    color: #1a237e;
+    font-weight: 700;
+    margin-bottom: 3rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.ch-subtitle {
+    font-size: 1.1rem;
+    color: #666;
+    font-weight: 400;
+}
+
+.ch-cards-container {
+    gap: 2rem;
+}
+
+.ch-card-link {
+    text-decoration: none;
+    display: block;
+}
+
+.ch-card {
+    height: 100%;
+    border: none;
+    border-radius: 16px;
+    transition: all 0.3s ease;
+    background: linear-gradient(145deg, #ffffff, #f5f5f5);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+.ch-tree-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 30px rgba(26, 35, 126, 0.15);
+    background: linear-gradient(145deg, #ffffff, #e8eaf6);
+}
+
+.ch-summary-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 30px rgba(26, 35, 126, 0.15);
+    background: linear-gradient(145deg, #ffffff, #e8eaf6);
+}
+
+.ch-card-icon {
+    font-size: 2.5rem;
+    color: #1a237e;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 80px;
+    width: 80px;
+    border-radius: 50%;
+    background: linear-gradient(145deg, #f0f0f0, #ffffff);
+    box-shadow: 0 4px 15px rgba(26, 35, 126, 0.1);
+    margin: 0 auto 1.5rem;
+}
+
+.ch-card .card-title {
+    color: #1a237e;
+    font-size: 1.5rem;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.ch-card .card-text {
+    color: #555;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+.ch-feature-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1.5rem;
+}
+
+.ch-feature-list li {
+    color: #555;
+    padding: 0.5rem 0;
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+.ch-feature-list li::before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: #1a237e;
+}
+
+.ch-card-footer {
+    text-align: center;
+    color: #1a237e;
+    font-weight: 600;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(26, 35, 126, 0.1);
+}
+
+@media (max-width: 768px) {
+    .ch-container {
+        padding: 2rem 1rem;
+    }
+    
+    .ch-title {
+        margin-bottom: 2rem;
+    }
+    
+    .ch-cards-container {
+        gap: 1rem;
+    }
+} 

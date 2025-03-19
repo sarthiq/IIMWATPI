@@ -11,6 +11,7 @@ import { Interest } from "./Interest/Interest";
 import "./Dashboard.css";
 import { EntranceTestDetails } from "./EntranceTestDetails/EntranceTestDetails";
 import { CareerReport } from "./CareerReport/CareerReport";
+import { CareerOptions } from "./CareerOptions/CareerOptions";
 
 export const Dashboard = () => {
   const location = useLocation();
@@ -93,6 +94,15 @@ export const Dashboard = () => {
             >
               Entrance Test Details
             </Nav.Link>
+            <Nav.Link
+              as={Link}
+              to="career-options"
+              className={`sidebar-link ${
+                location.pathname.includes("/career-options") ? "active" : ""
+              }`}
+            >
+              Career Options
+            </Nav.Link>
           </Nav>
         </Col>
 
@@ -107,6 +117,7 @@ export const Dashboard = () => {
             <Route path="career-report" element={<CareerReport />} />
             <Route path="interest/*" element={<Interest />} />
             <Route path="entrance-test-details/*" element={<EntranceTestDetails />} />
+            <Route path="career-options/*" element={<CareerOptions />} />
             <Route path="*" element={<Navigate to="profile" replace />} />
           </Routes>
         </Col>
