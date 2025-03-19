@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, Container, Badge } from 'react-bootstrap';
+import { Container, Badge, Table } from 'react-bootstrap';
 import { careerData } from './careerData';
 import './CareerSummary.css';
 
@@ -13,53 +13,56 @@ export const CareerSummary = () => {
     return (
         <Container className="career-summary-container">
             <h1 className="career-summary-title">Career Options Summary</h1>
-            <div className="career-cards-list">
-                {careerData.map((field, index) => (
-                    <Card key={index} className="career-card">
-                        <Card.Header className="career-card-header">
-                            <h2>{field.field}</h2>
-                            <Badge bg={getDemandBadgeVariant(field.demand)}>
-                                {field.demand} Demand
-                            </Badge>
-                        </Card.Header>
-                        <Card.Body>
-                            <div className="career-info-section">
-                                <h3>Potential Careers</h3>
-                                <div className="careers-list">
-                                    {field.careers.map((career, idx) => (
-                                        <Badge key={idx} bg="light" text="dark" className="career-badge">
-                                            {career}
-                                        </Badge>
-                                    ))}
-                                </div>
-                            </div>
-                            
-                            <div className="career-info-section">
-                                <h3>Education Path</h3>
-                                <div className="education-path">
-                                    <span className="education-step">
-                                        📌 {field.education.stream}
-                                    </span>
-                                    <span className="education-arrow">→</span>
-                                    <span className="education-step">
-                                        🎓 {field.education.graduation}
-                                    </span>
-                                    <span className="education-arrow">→</span>
-                                    <span className="education-step">
-                                        🎖 {field.education.additional}
-                                    </span>
-                                </div>
-                            </div>
-
-                            <div className="career-info-section">
-                                <h3>Expected Salary</h3>
-                                <div className="salary-range">
-                                    {field.salary}
-                                </div>
-                            </div>
-                        </Card.Body>
-                    </Card>
-                ))}
+            <div className="education-pattern-message alert alert-info mb-4">
+                <h4>Best Education Patterns Till 2030</h4>
+                <ul>
+                    <li>Digital & Technical Skills</li>
+                    <li>Specialized Certifications</li>
+                    <li>Continuous Learning</li>
+                    <li>Hybrid Education</li>
+                </ul>
+            </div>
+            <div className="table-responsive">
+                <Table striped bordered hover className="career-table">
+                    <thead>
+                        <tr>
+                            <th>Field</th>
+                            <th>Potential Careers</th>
+                            <th>Education Required</th>
+                            <th>Expected Salary</th>
+                            <th>Demand</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {careerData.map((field, index) => (
+                            <tr key={index}>
+                                <td className="field-column">{field.field}</td>
+                                <td>
+                                    <ol className="careers-list">
+                                        {field.careers.map((career, idx) => (
+                                            <li key={idx}>{career}</li>
+                                        ))}
+                                    </ol>
+                                </td>
+                                <td>
+                                    <div className="education-details">
+                                        <p><strong>Stream:</strong> {field.education.stream}</p>
+                                        <p><strong>Graduation:</strong> {field.education.graduation}</p>
+                                        <p><strong>Additional:</strong> {field.education.additional}</p>
+                                    </div>
+                                </td>
+                                <td className="salary-column">
+                                    <span className="salary-range">{field.salary}</span>
+                                </td>
+                                <td className="demand-column">
+                                    <Badge bg={getDemandBadgeVariant(field.demand)}>
+                                        {field.demand}
+                                    </Badge>
+                                </td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </Table>
             </div>
         </Container>
     );
