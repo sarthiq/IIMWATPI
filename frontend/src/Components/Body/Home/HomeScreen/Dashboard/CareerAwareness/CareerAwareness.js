@@ -1,25 +1,69 @@
-import { Routes, Route, Navigate } from "react-router-dom";
-import { CAwarenessHome } from "./CAwarenessHome/CAwarenessHome";
-// Import the new components for each route
-import NinthGrade from "./NingthGrade/NinthGrade";
-import EleventhGrade from "./EleventhGrade/EleventhGrade";
-import Graduation from "./Graducation/Graduation";
-import PostGraduation from "./PostGraduation/PostGraduation";
-import AdvancedStudies from "./AdvancedStudies/AdvancedStudies";
-import BaseUIModel from "./BaseUIModel/BaseUIModel";
+import React from 'react';
+import { Container, Badge, Table } from 'react-bootstrap';
+import { careerData } from './careerData';
+import styles from './CareerAwareness.module.css';
 
 export const CareerAwareness = () => {
-  return (
-    <Routes>
-      <Route path="/" element={<CAwarenessHome />} />
-      <Route path="9th" element={<NinthGrade />} />
-      <Route path="11th" element={<EleventhGrade />} />
-      <Route path="graduation" element={<Graduation />} />
-      <Route path="post-graduation" element={<PostGraduation />} />
-      <Route path="advanced-studies" element={<AdvancedStudies />} /> 
-      <Route path="base-ui-model" element={<BaseUIModel />} />
-      <Route path="*" element={<Navigate to="/" replace />} />
-    </Routes> 
-  );
-};
+    const getDemandBadgeVariant = (demand) => {
+        return demand === "Very High" ? "danger" :
+               demand === "High" ? "warning" :
+               "info";
+    };
 
+    return (
+        <Container className={styles['career-summary-container']}>
+            <h1 className={styles['career-summary-title']}>Career Options Summary</h1>
+            <div className={`${styles['education-pattern-message']} alert alert-info mb-4`}>
+                <h4>Best Education Patterns Till 2030</h4>
+                <ul>
+                    <li>Digital & Technical Skills</li>
+                    <li>Specialized Certifications</li>
+                    <li>Continuous Learning</li>
+                    <li>Hybrid Education</li>
+                </ul>
+            </div>
+            <div className={styles['table-responsive']}>
+                <Table striped bordered hover className={styles['career-table']}>
+                    <thead>
+                        <tr>
+                            <th>Field</th>
+                            <th>Potential Careers</th>
+                            <th>Education Required</th>
+                            <th>Expected Salary</th>
+                            <th>Demand</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {careerData.map((field, index) => (
+                            <tr key={index}>
+                                <td className={styles['field-column']}>{field.field}</td>
+                                <td>
+                                    <ol className={styles['careers-list']}>
+                                        {field.careers.map((career, idx) => (
+                                            <li key={idx}>{career}</li>
+                                        ))}
+                                    </ol>
+                                </td>
+                                <td>
+                                    <div className={styles['education-details']}>
+                                        <p><strong>Stream:</strong> {field.education.stream}</p>
+                                        <p><strong>Graduation:</strong> {field.education.graduation}</p>
+                                        <p><strong>Additional:</strong> {field.education.additional}</p>
+                                    </div>
+                                </td>
+                                <td className={styles['salary-column']}>
+                                    <span className={styles['salary-range']}>{field.salary}</span>
+                                </td>
+                                <td className={styles['demand-column']}>
+                                    <Badge bg={getDemandBadgeVariant(field.demand)}>
+                                        {field.demand}
+                                    </Badge>
+                                </td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </Table>
+            </div>
+        </Container>
+    );
+};
