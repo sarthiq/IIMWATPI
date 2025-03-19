@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, Container, Row, Col, Badge } from 'react-bootstrap';
+import { Card, Container, Badge } from 'react-bootstrap';
 import { careerData } from './careerData';
 import './CareerSummary.css';
 
@@ -13,7 +13,7 @@ export const CareerSummary = () => {
     return (
         <Container className="career-summary-container">
             <h1 className="career-summary-title">Career Options Summary</h1>
-            <div className="career-cards-grid">
+            <div className="career-cards-list">
                 {careerData.map((field, index) => (
                     <Card key={index} className="career-card">
                         <Card.Header className="career-card-header">
