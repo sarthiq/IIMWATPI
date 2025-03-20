@@ -1,0 +1,128 @@
+.exam-details-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.exam-details-title {
+  color: #2c3e50;
+  font-weight: 600;
+  margin-bottom: 2rem;
+}
+
+.exam-details-main-card,
+.exam-details-pattern-card,
+.exam-details-syllabus-card {
+  border: none;
+  border-radius: 10px;
+  background-color: #ffffff;
+}
+
+.exam-details-section-title {
+  color: #2c3e50;
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid #e9ecef;
+}
+
+.exam-details-subsection-title {
+  color: #2c3e50;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.exam-details-table {
+  margin-bottom: 0;
+}
+
+.exam-details-table td {
+  padding: 0.75rem;
+}
+
+.exam-details-table td:first-child {
+  width: 40%;
+  background-color: #f8f9fa;
+}
+
+.exam-details-status {
+  padding: 0.25rem 0.75rem;
+  border-radius: 15px;
+  background-color: #e3f2fd;
+  color: #1976d2;
+  font-weight: 500;
+}
+
+.exam-details-text {
+  color: #495057;
+  line-height: 1.6;
+}
+
+.exam-section-item {
+  padding: 0.75rem;
+  margin-bottom: 0.75rem;
+  background-color: #f8f9fa;
+  border-radius: 5px;
+}
+
+.exam-section-item:last-child {
+  margin-bottom: 0;
+}
+
+.exam-syllabus-list {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.exam-syllabus-list li {
+  padding: 0.5rem 0;
+  color: #495057;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.exam-syllabus-list li:last-child {
+  border-bottom: none;
+}
+
+.exam-details-links {
+  margin-top: 2rem;
+}
+
+.exam-details-apply-btn,
+.exam-details-notification-btn {
+  padding: 0.75rem 1.5rem;
+  font-weight: 500;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+
+.exam-details-apply-btn:hover,
+.exam-details-notification-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.exam-pattern-info {
+  background-color: #f8f9fa;
+  padding: 1rem;
+  border-radius: 5px;
+  margin-bottom: 1rem;
+}
+
+.exam-details-error {
+  text-align: center;
+  padding: 2rem;
+  color: #dc3545;
+  font-size: 1.25rem;
+}
+
+@media (max-width: 768px) {
+  .exam-details-table td:first-child {
+    width: 50%;
+  }
+  
+  .exam-details-links .btn {
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+} 

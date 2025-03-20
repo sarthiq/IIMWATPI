@@ -9,9 +9,9 @@ export const EntranceTestDetails=()=>{
         
         <Routes>
             <Route path="/" element={<EntranceHome />} />
-            <Route path="/intermediate" element={<IntermediateExam />} />
-            <Route path="/graduation" element={<GraduationExam />} />
-            <Route path="/after-graduation" element={<AfterGraduation />} />
+            <Route path="intermediate/*" element={<IntermediateExam />} />
+            <Route path="graduation/*" element={<GraduationExam />} />
+            <Route path="after-graduation/*" element={<AfterGraduation />} />
             <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
     )
