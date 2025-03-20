@@ -9,10 +9,9 @@ import { AILiteracy } from "./AILiteracy/AILiteracy";
 import { CareerAwareness } from "./CareerAwareness/CareerAwareness";
 import { Interest } from "./Interest/Interest";
 import "./Dashboard.css";
-import { EntranceTestDetails } from "./EntranceTestDetails/EntranceTestDetails";
+
 import { CareerReport } from "./CareerReport/CareerReport";
 import { CareerOptions } from "./CareerOptions/CareerOptions";
-import { Schollarship } from "./Schollarship/Schollarship";
 
 export const Dashboard = () => {
   const location = useLocation();
@@ -72,7 +71,7 @@ export const Dashboard = () => {
               as={Link}
               to="career-report"
               className={`sidebar-link ${
-              location.pathname.includes("/career-report") ? "active" : ""
+                location.pathname.includes("/career-report") ? "active" : ""
               }`}
             >
               Career Report
@@ -86,15 +85,7 @@ export const Dashboard = () => {
             >
               Interest
             </Nav.Link>
-            <Nav.Link
-              as={Link}
-              to="entrance-test-details"
-              className={`sidebar-link ${
-                location.pathname.includes("/entrance-test-details") ? "active" : ""
-              }`}
-            >
-              Entrance Test Details
-            </Nav.Link>
+
             <Nav.Link
               as={Link}
               to="career-options"
@@ -103,15 +94,6 @@ export const Dashboard = () => {
               }`}
             >
               Career Options
-            </Nav.Link>
-            <Nav.Link
-              as={Link}
-              to="schollarship"
-              className={`sidebar-link ${
-                location.pathname.includes("/schollarship") ? "active" : ""
-              }`}
-            >
-              Schollarship
             </Nav.Link>
           </Nav>
         </Col>
@@ -123,12 +105,15 @@ export const Dashboard = () => {
             <Route path="results" element={<TestResults />} />
             <Route path="ai-literacy/*" element={<AILiteracy />} />
             <Route path="career-awareness/*" element={<CareerAwareness />} />
-            <Route path="recommendations/*" element={<CareerRecommendations />} />
+            <Route
+              path="recommendations/*"
+              element={<CareerRecommendations />}
+            />
             <Route path="career-report" element={<CareerReport />} />
             <Route path="interest/*" element={<Interest />} />
-            <Route path="entrance-test-details/*" element={<EntranceTestDetails />} />
+
             <Route path="career-options/*" element={<CareerOptions />} />
-            <Route path="schollarship/*" element={<Schollarship />} />
+
             <Route path="*" element={<Navigate to="profile" replace />} />
           </Routes>
         </Col>

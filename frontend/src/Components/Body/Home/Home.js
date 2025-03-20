@@ -12,7 +12,8 @@ import { Dashboard } from "./HomeScreen/Dashboard/Dashboard";
 import { Auth } from "./HomeScreen/Auth/Auth";
 import { PrivacyPolicy } from "./PrivacyPolicy/PrivacyPolicy";
 import { RefundPolicy } from "./RefundPolicy/RefundPolicy";
-
+import { Schollarship } from "./Schollarship/Schollarship";
+import { EntranceTestDetails } from "./EntranceTestDetails/EntranceTestDetails";
 
 
 export const Home = () => {
@@ -30,7 +31,7 @@ export const Home = () => {
           <Route path="about" element={<About />} />
           <Route path="privacy-policy" element={<PrivacyPolicy />} />
           <Route path="refund-policy" element={<RefundPolicy />} />
-
+          <Route path="schollarship/*" element={<Schollarship />} />
 
           <Route
             path="dashboard/*"
@@ -38,6 +39,7 @@ export const Home = () => {
               isLoggedIn ? <Dashboard /> : <Navigate to="/auth/*" replace />
             }
           />
+          <Route path="entrance-test-details/*" element={<EntranceTestDetails />} />
           <Route
             path="auth/*"
             element={

@@ -19,14 +19,13 @@ export const Header = () => {
         <nav className={isOpen ? "nav-menu open" : "nav-menu"}>
           <ul>
             <li>
-              <Link to="/" onClick={() => setIsOpen(false)}>
-                Tests
+              <Link to="/schollarship" onClick={() => setIsOpen(false)}>
+                Scholarship
               </Link>
             </li>
-            {/* <li><Link to="/resources" onClick={() => setIsOpen(false)}>Career Options</Link></li> */}
             <li>
-              <Link to="/about" onClick={() => setIsOpen(false)}>
-                About Us
+              <Link to="/entrance-test-details" onClick={() => setIsOpen(false)}>
+                Entrance Exam
               </Link>
             </li>
             {isLoggedIn ? (
