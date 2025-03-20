@@ -119,11 +119,13 @@ export const TestResults = () => {
                             </div>
                           </div>
 
+
+
                           {/* Agreeableness */}
                           <div className="score-row">
                             <div className="score-labels">
-                              <span className="left-label">Disagreeable</span>
-                              <span className="right-label">Agreeable</span>
+                              <span className="left-label">Self-Centered</span>
+                              <span className="right-label">Empathetic</span>
                             </div>
                             <div className="score-bar-container">
                               <div 
@@ -157,8 +159,8 @@ export const TestResults = () => {
                           {/* Conscientiousness */}
                           <div className="score-row">
                             <div className="score-labels">
-                              <span className="left-label">Spontaneous</span>
-                              <span className="right-label">Conscientious</span>
+                              <span className="left-label">Unorganized</span>
+                              <span className="right-label">Organized</span>
                             </div>
                             <div className="score-bar-container">
                               <div 
@@ -192,8 +194,8 @@ export const TestResults = () => {
                           {/* Neuroticism */}
                           <div className="score-row">
                             <div className="score-labels">
-                              <span className="left-label">Stable</span>
-                              <span className="right-label">Neurotic</span>
+                              <span className="left-label">Emotionally stable</span>
+                              <span className="right-label">Emotional</span>
                             </div>
                             <div className="score-bar-container">
                               <div 
@@ -227,8 +229,8 @@ export const TestResults = () => {
                           {/* Openness */}
                           <div className="score-row">
                             <div className="score-labels">
-                              <span className="left-label">Conventional</span>
-                              <span className="right-label">Open</span>
+                              <span className="left-label">Rigid</span>
+                              <span className="right-label">Early Adopter</span>
                             </div>
                             <div className="score-bar-container">
                               <div 
