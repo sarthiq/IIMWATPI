@@ -937,7 +937,7 @@ export const SchollarshipHome = () => {
                       Apply Now
                     </Button>
                     <Link
-                      to={`/scholarships/${scholarship.route}`}
+                      to={`./route/${scholarship.route}`}
                       className="btn btn-link scholarship-more-btn"
                     >
                       View Details →
@@ -999,7 +999,7 @@ export const SchollarshipHome = () => {
                           Apply Now
                         </Button>
                         <Link
-                          to={`/scholarships/state/${scholarship.route}`}
+                          to={`./route/${scholarship.route}`}
                           className="btn btn-link scholarship-more-btn"
                         >
                           View Details →
