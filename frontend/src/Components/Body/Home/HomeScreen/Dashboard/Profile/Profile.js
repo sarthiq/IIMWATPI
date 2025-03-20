@@ -140,7 +140,7 @@ export const Profile = () => {
       <Card className="profile-card">
         <div className="profile-layout">
           <div className="profile-header">
-            <div className="profile-title">Profile Information</div>
+            <div className="profile-title">Profile:</div>
             <div className="profile-actions">
               {!isEditing && (
                 <button
@@ -159,24 +159,56 @@ export const Profile = () => {
             </div>
           </div>
           <div className="profile-body">
-            <div className="profile-summary">
-              <div className="profile-photo-container">
-                {userInfo.profilePhoto ? (
-                  <img src={userInfo.profilePhoto} alt="Profile" className="profile-photo" />
-                ) : (
-                  <div className="profile-initial">{userInfo.name.charAt(0)}</div>
-                )}
+            <div className="profile-info-layout">
+              <div className="profile-left-section">
+                <div className="profile-photo-container">
+                  {userInfo.profilePhoto ? (
+                    <img src={userInfo.profilePhoto} alt="Profile" className="profile-photo" />
+                  ) : (
+                    <div className="profile-initial">{userInfo.name.charAt(0)}</div>
+                  )}
+                  <div className="profile-name">{userInfo.name || "Not specified"}</div>
+                </div>
               </div>
-              <div className="profile-summary-details">
-                <div className="profile-name">{userInfo.name}</div>
-                <p className="profile-info"><strong>School:</strong> {userInfo.institutionName || "Not specified"}</p>
-                <p className="profile-info"><strong>Class:</strong> {userInfo.standard || "Not specified"}</p>
+              <div className="profile-right-section">
+                <div className="profile-details-grid">
+                  <div className="details-column">
+                    <div className="detail-row">
+                      <span className="detail-label">School:</span>
+                      <span className="detail-value">{userInfo.institutionName || "Not specified"}</span>
+                    </div>
+                    <div className="detail-row">
+                      <span className="detail-label">Course:</span>
+                      <span className="detail-value">{userInfo.course || "Not specified"}</span>
+                    </div>
+                    <div className="detail-row">
+                      <span className="detail-label">Class:</span>
+                      <span className="detail-value">{userInfo.standard || "Not specified"}</span>
+                    </div>
+                  </div>
+                  <div className="details-column">
+                    <div className="detail-row">
+                      <span className="detail-label">Section:</span>
+                      <span className="detail-value">{userInfo.branch || "Not specified"}</span>
+                    </div>
+                    <div className="detail-row">
+                      <span className="detail-label">Email:</span>
+                      <span className="detail-value">{userInfo.email || "Not specified"}</span>
+                    </div>
+                    <div className="detail-row">
+                      <span className="detail-label">Phone No:</span>
+                      <span className="detail-value">{userInfo.phone || "Not specified"}</span>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
             
-            <div className="profile-details">
-              <Form onSubmit={handleSubmit}>
-                {isEditing && (
+            {/* Edit Form */}
+            {isEditing && (
+              <div className="profile-details">
+                <Form onSubmit={handleSubmit}>
+                  {/* Photo Upload Section */}
                   <div className="info-section">
                     <div className="section-title">Profile Photo</div>
                     <Form.Group className="form-group">
@@ -189,188 +221,98 @@ export const Profile = () => {
                       />
                     </Form.Group>
                   </div>
-                )}
-                
-                {/* Basic Information Section */}
-                <section className="info-section">
-                  <div className="section-title">Basic Information</div>
-                  <Row>
-                    <Col md={4}>
-                      <Form.Group className="form-group">
-                        <Form.Label>Name</Form.Label>
-                        <Form.Control
-                          type="text"
-                          value={userInfo.name}
-                          disabled={!isEditing}
-                          onChange={handleChange}
-                          name="name"
-                          className="form-control-custom"
-                        />
-                      </Form.Group>
-                    </Col>
-                    <Col md={4}>
-                      <Form.Group className="form-group">
-                        <Form.Label>Email</Form.Label>
-                        <Form.Control
-                          type="email"
-                          value={userInfo.email}
-                          disabled={!isEditing}
-                          onChange={handleChange}
-                          name="email"
-                          className="form-control-custom"
-                        />
-                      </Form.Group>
-                    </Col>
-                    <Col md={4}>
-                      <Form.Group className="form-group">
-                        <Form.Label>Phone</Form.Label>
-                        <Form.Control
-                          type="tel"
-                          value={userInfo.phone}
-                          disabled={!isEditing}
-                          onChange={handleChange}
-                          name="phone"
-                          className="form-control-custom"
-                        />
-                      </Form.Group>
-                    </Col>
-                  </Row>
-                </section>
 
-                {/* Educational Information Section */}
-                <section className="info-section">
-                  <div className="section-title">Educational Information</div>
-                  <Row>
-                    <Col md={6}>
-                      {isEditing ? (
+                  {/* Educational Information Section */}
+                  <section className="info-section">
+                    <div className="section-title">Educational Information</div>
+                    <Row>
+                      <Col md={6}>
                         <Form.Group className="form-group">
-                          <Form.Label>Institution Type</Form.Label>
-                          <Form.Select
-                            name="institutionType"
-                            value={userInfo.institutionType}
-                            onChange={handleChange}
-                            className="form-select-custom"
-                          >
-                            <option value="">Select Institution Type</option>
-                            {institutionTypes.map((type) => (
-                              <option key={type} value={type}>
-                                {type}
-                              </option>
-                            ))}
-                          </Form.Select>
-                        </Form.Group>
-                      ) : (
-                        <Form.Group className="form-group">
-                          <Form.Label>Institution Type</Form.Label>
-                          <Form.Control
-                            plaintext
-                            readOnly
-                            value={userInfo.institutionType || "Not specified"}
-                            className="form-control-custom"
-                          />
-                        </Form.Group>
-                      )}
-                    </Col>
-
-                    <Col md={6}>
-                      <Form.Group className="form-group">
-                        <Form.Label>Institution Name</Form.Label>
-                        <Form.Control
-                          type="text"
-                          name="institutionName"
-                          value={userInfo.institutionName}
-                          onChange={handleChange}
-                          disabled={!isEditing}
-                          placeholder={
-                            isEditing ? "Enter institution name" : "Not specified"
-                          }
-                          className="form-control-custom"
-                        />
-                      </Form.Group>
-                    </Col>
-
-                    {showOtherField && isEditing && (
-                      <Col md={12}>
-                        <Form.Group className="form-group">
-                          <Form.Label>Specify Institution Type</Form.Label>
+                          <Form.Label>Name</Form.Label>
                           <Form.Control
                             type="text"
-                            name="otherInstitution"
-                            value={userInfo.otherInstitution}
+                            value={userInfo.name}
                             onChange={handleChange}
-                            placeholder="Please specify your institution type"
+                            name="name"
                             className="form-control-custom"
                           />
                         </Form.Group>
                       </Col>
-                    )}
-
-                    <Col md={6}>
-                      {isEditing && userInfo.institutionType && !showOtherField ? (
+                      <Col md={6}>
                         <Form.Group className="form-group">
-                          <Form.Label>Standard/Year</Form.Label>
-                          <Form.Select
-                            name="standard"
-                            value={userInfo.standard}
-                            onChange={handleChange}
-                            className="form-select-custom"
-                          >
-                            <option value="">Select Standard/Year</option>
-                            {standardOptions[
-                              userInfo.institutionType || "Other"
-                            ].map((std) => (
-                              <option key={std} value={std}>
-                                {std}
-                              </option>
-                            ))}
-                          </Form.Select>
-                        </Form.Group>
-                      ) : (
-                        <Form.Group className="form-group">
-                          <Form.Label>Standard/Year</Form.Label>
+                          <Form.Label>Email</Form.Label>
                           <Form.Control
-                            plaintext
-                            readOnly
-                            value={userInfo.standard || "Not specified"}
+                            type="email"
+                            value={userInfo.email}
+                            onChange={handleChange}
+                            name="email"
                             className="form-control-custom"
                           />
                         </Form.Group>
-                      )}
-                    </Col>
+                      </Col>
+                      <Col md={6}>
+                        <Form.Group className="form-group">
+                          <Form.Label>Phone</Form.Label>
+                          <Form.Control
+                            type="tel"
+                            value={userInfo.phone}
+                            onChange={handleChange}
+                            name="phone"
+                            className="form-control-custom"
+                          />
+                        </Form.Group>
+                      </Col>
+                      <Col md={6}>
+                        <Form.Group className="form-group">
+                          <Form.Label>Institution Name</Form.Label>
+                          <Form.Control
+                            type="text"
+                            name="institutionName"
+                            value={userInfo.institutionName}
+                            onChange={handleChange}
+                            className="form-control-custom"
+                          />
+                        </Form.Group>
+                      </Col>
+                      <Col md={6}>
+                        <Form.Group className="form-group">
+                          <Form.Label>Class/Standard</Form.Label>
+                          <Form.Control
+                            type="text"
+                            name="standard"
+                            value={userInfo.standard}
+                            onChange={handleChange}
+                            className="form-control-custom"
+                          />
+                        </Form.Group>
+                      </Col>
+                      <Col md={6}>
+                        <Form.Group className="form-group">
+                          <Form.Label>Course</Form.Label>
+                          <Form.Control
+                            type="text"
+                            name="course"
+                            value={userInfo.course}
+                            onChange={handleChange}
+                            className="form-control-custom"
+                          />
+                        </Form.Group>
+                      </Col>
+                      <Col md={6}>
+                        <Form.Group className="form-group">
+                          <Form.Label>Section</Form.Label>
+                          <Form.Control
+                            type="text"
+                            name="branch"
+                            value={userInfo.branch}
+                            onChange={handleChange}
+                            className="form-control-custom"
+                          />
+                        </Form.Group>
+                      </Col>
+                    </Row>
+                  </section>
 
-                    <Col md={6}>
-                      <Form.Group className="form-group">
-                        <Form.Label>Course</Form.Label>
-                        <Form.Control
-                          type="text"
-                          name="course"
-                          value={userInfo.course}
-                          onChange={handleChange}
-                          disabled={!isEditing}
-                          placeholder={isEditing ? "Enter course" : "Not specified"}
-                          className="form-control-custom"
-                        />
-                      </Form.Group>
-                    </Col>
-
-                    <Col md={6}>
-                      <Form.Group className="form-group">
-                        <Form.Label>Branch</Form.Label>
-                        <Form.Control
-                          type="text"
-                          name="branch"
-                          value={userInfo.branch}
-                          onChange={handleChange}
-                          disabled={!isEditing}
-                          placeholder={isEditing ? "Enter branch" : "Not specified"}
-                          className="form-control-custom"
-                        />
-                      </Form.Group>
-                    </Col>
-                  </Row>
-                </section>
-
-                {isEditing && (
                   <div className="button-group">
                     <button
                       className="cancel-button"
@@ -383,9 +325,9 @@ export const Profile = () => {
                       Save Changes
                     </button>
                   </div>
-                )}
-              </Form>
-            </div>
+                </Form>
+              </div>
+            )}
           </div>
         </div>
       </Card>

@@ -87,8 +87,8 @@ export const TestResults = () => {
                           {/* Extraversion */}
                           <div className="score-row">
                             <div className="score-labels">
-                              <span className="left-label">Introversion</span>
-                              <span className="right-label">Extraversion</span>
+                              <span className="left-label">Introvert</span>
+                              <span className="right-label">Extravert</span>
                             </div>
                             <div className="score-bar-container">
                               <div 
