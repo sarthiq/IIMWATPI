@@ -137,3 +137,38 @@
 .region-header.main-region:last-of-type + .list-group-item:last-of-type {
     margin-bottom: 0;
 }
+
+.nav-tabs {
+    border-bottom: 2px solid #dee2e6;
+    margin-bottom: 2rem;
+}
+
+.nav-tabs .nav-link {
+    color: #495057;
+    border: none;
+    border-bottom: 2px solid transparent;
+    margin-bottom: -2px;
+    padding: 0.5rem 1rem;
+    font-weight: 500;
+}
+
+.nav-tabs .nav-link:hover {
+    border-color: transparent;
+    color: #007bff;
+}
+
+.nav-tabs .nav-link.active {
+    color: #007bff;
+    background-color: transparent;
+    border-bottom: 2px solid #007bff;
+}
+
+.scholarship-section {
+    margin-bottom: 2rem;
+}
+
+.scholarship-category-title {
+    color: #495057;
+    margin-bottom: 1rem;
+    font-size: 1.25rem;
+}
