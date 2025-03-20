@@ -47,12 +47,14 @@ body {
 .nav-menu ul {
   display: flex;
   text-decoration: none;
+  list-style-type: none;
   gap: 30px;
 }
 
 .nav-menu ul li a {
   color: white;
   text-decoration: none;
+  list-style-type: none;
   font-size: 22px;
   font-weight: 500;
   transition: color 0.3s ease;
