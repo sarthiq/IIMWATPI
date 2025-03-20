@@ -14,6 +14,7 @@ import { useNavigate } from "react-router-dom";
 import "./Profile.css";
 import { useDispatch } from "react-redux";
 import { userLogOut, setUserAuthToken } from "../../../../../../Store/User/auth";
+import { TestResults } from "../TestResults/TestResults";
 
 export const Profile = () => {
   const [isEditing, setIsEditing] = useState(false);
@@ -330,7 +331,9 @@ export const Profile = () => {
             )}
           </div>
         </div>
-      </Card>
+        <TestResults />
+      </Card> 
+      
     </Container>
   );
 };
