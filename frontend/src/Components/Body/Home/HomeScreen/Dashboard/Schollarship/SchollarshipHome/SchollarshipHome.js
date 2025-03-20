@@ -34,17 +34,17 @@ export const SchollarshipHome = () => {
     },
     {
       id: 3,
-      name: "Tata Trust Scholarship",
+      name: "Prime Minister's Scholarship for Minorities",
       eligibility:
-        "Students pursuing undergraduate studies with academic excellence",
-      deadline: "September 15, 2024",
-      provider: "Tata Trusts",
-      category: "Social Foundations",
-      description:
-        "Merit-based scholarship for promising undergraduate students",
-      applyLink: "https://www.tatatrusts.org/our-work/education",
-      route: "tata-trust-scholarship",
+        "Students from minority communities pursuing professional courses",
+      deadline: "November 15, 2024",
+      provider: "Ministry of Minority Affairs",
+      category: "Scholarship for Minorities",
+      description: "Supporting minority students in professional education",
+      applyLink: "https://scholarships.gov.in/",
+      route: "pm-minority-scholarship",
     },
+
     {
       id: 4,
       name: "CBSE Merit Scholarship",
@@ -113,15 +113,16 @@ export const SchollarshipHome = () => {
     },
     {
       id: 10,
-      name: "Prime Minister's Scholarship for Minorities",
+      name: "Tata Trust Scholarship",
       eligibility:
-        "Students from minority communities pursuing professional courses",
-      deadline: "November 15, 2024",
-      provider: "Ministry of Minority Affairs",
-      category: "Scholarship for Minorities",
-      description: "Supporting minority students in professional education",
-      applyLink: "https://scholarships.gov.in/",
-      route: "pm-minority-scholarship",
+        "Students pursuing undergraduate studies with academic excellence",
+      deadline: "September 15, 2024",
+      provider: "Tata Trusts",
+      category: "Social Foundations",
+      description:
+        "Merit-based scholarship for promising undergraduate students",
+      applyLink: "https://www.tatatrusts.org/our-work/education",
+      route: "tata-trust-scholarship",
     },
   ];
 
