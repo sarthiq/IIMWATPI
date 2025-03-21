@@ -1,12 +1,10 @@
-import React, { useState } from "react";
-import { Container, Row, Col, Card, Button, Nav } from "react-bootstrap";
+import React from "react";
+import { Container, Row, Col, Card, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { examCategories } from "../Data/examData";
 import "./GraduationExamHome.css";
 
 export const GraduationExamHome = () => {
-  const [activeCategory, setActiveCategory] = useState(1);
-
   const renderExamCards = (exams) => {
     return (
       <Row className="grad-exam-row g-4">
@@ -55,26 +53,11 @@ export const GraduationExamHome = () => {
         Graduation Entrance Exams
       </h2>
 
-      <Nav variant="tabs" className="grad-exam-tabs mb-4">
-        {examCategories.map((category) => (
-          <Nav.Item key={category.id}>
-            <Nav.Link
-              active={activeCategory === category.id}
-              onClick={() => setActiveCategory(category.id)}
-              className="grad-exam-tab"
-            >
-              {category.title}
-            </Nav.Link>
-          </Nav.Item>
-        ))}
-      </Nav>
-
       {examCategories.map((category) => (
-        category.id === activeCategory && (
-          <div key={category.id}>
-            {renderExamCards(category.exams)}
-          </div>
-        )
+        <div key={category.id} className="exam-section mb-5">
+          <h3 className="section-heading mb-4">{category.title}</h3>
+          {renderExamCards(category.exams)}
+        </div>
       ))}
     </Container>
   );
