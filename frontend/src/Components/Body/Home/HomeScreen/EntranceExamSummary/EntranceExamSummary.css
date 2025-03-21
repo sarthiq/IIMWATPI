@@ -1,0 +1,48 @@
+.entrance-exam-summary {
+  padding: 4rem 0;
+  background-color: #fff;
+  border-radius: 8px;
+}
+
+.summary-title {
+  color: #2c3e50;
+  font-size: 2.5rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.summary-subtitle {
+  color: #666;
+  font-size: 1.1rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.summary-card {
+  border: none;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease-in-out;
+}
+
+.summary-card:hover {
+  transform: translateY(-5px);
+}
+
+.feature-icon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.feature-title {
+  color: #2c3e50;
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.feature-description {
+  color: #6c757d;
+  font-size: 0.95rem;
+  line-height: 1.5;
+} 
