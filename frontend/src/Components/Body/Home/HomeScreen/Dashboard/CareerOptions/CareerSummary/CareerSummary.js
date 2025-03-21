@@ -2,9 +2,12 @@ import React, { useState } from 'react';
 import { Container, Badge, Table, Nav } from 'react-bootstrap';
 import { careerData } from './careerData';
 import './CareerSummary.css';
+import { PersonalitySummary } from './PersonalitySummary/PersonalitySummary';
+import { IQSummary } from './IQSummary/IQSummary';
 
 export const CareerSummary = () => {
     const [timeframe, setTimeframe] = useState('longTerm'); // 'longTerm' or 'shortTerm'
+    const [activeTab, setActiveTab] = useState('careers'); // Changed from timeframe to activeTab
 
     const getDemandBadgeVariant = (demand) => {
         if (demand.includes("High")) return "warning";
@@ -45,6 +48,41 @@ export const CareerSummary = () => {
         </div>
     );
 
+    const renderContent = () => {
+        switch (activeTab) {
+            case 'careers':
+                return (
+                    <>
+                        <Nav variant="tabs" className="mb-4">
+                            <Nav.Item>
+                                <Nav.Link 
+                                    active={timeframe === 'longTerm'}
+                                    onClick={() => setTimeframe('longTerm')}
+                                >
+                                    Next 5-10 Years
+                                </Nav.Link>
+                            </Nav.Item>
+                            <Nav.Item>
+                                <Nav.Link 
+                                    active={timeframe === 'shortTerm'}
+                                    onClick={() => setTimeframe('shortTerm')}
+                                >
+                                    Next 5 Years
+                                </Nav.Link>
+                            </Nav.Item>
+                        </Nav>
+                        {renderCareerTable(careerData[timeframe])}
+                    </>
+                );
+            case 'personality':
+                return <PersonalitySummary />;
+            case 'iq':
+                return <IQSummary />;
+            default:
+                return null;
+        }
+    };
+
     return (
         <Container className="career-summary-container">
             <h1 className="career-summary-title">Top Career Options</h1>
@@ -52,18 +90,26 @@ export const CareerSummary = () => {
             <Nav variant="tabs" className="mb-4">
                 <Nav.Item>
                     <Nav.Link 
-                        active={timeframe === 'longTerm'}
-                        onClick={() => setTimeframe('longTerm')}
+                        active={activeTab === 'careers'}
+                        onClick={() => setActiveTab('careers')}
                     >
-                        Next 5-10 Years
+                        Career Options
                     </Nav.Link>
                 </Nav.Item>
                 <Nav.Item>
                     <Nav.Link 
-                        active={timeframe === 'shortTerm'}
-                        onClick={() => setTimeframe('shortTerm')}
+                        active={activeTab === 'personality'}
+                        onClick={() => setActiveTab('personality')}
                     >
-                        Next 5 Years
+                        Personality Summary
+                    </Nav.Link>
+                </Nav.Item>
+                <Nav.Item>
+                    <Nav.Link 
+                        active={activeTab === 'iq'}
+                        onClick={() => setActiveTab('iq')}
+                    >
+                        IQ Summary
                     </Nav.Link>
                 </Nav.Item>
             </Nav>
@@ -78,7 +124,7 @@ export const CareerSummary = () => {
                 </ul>
             </div> */}
 
-            {renderCareerTable(careerData[timeframe])}
+            {renderContent()}
         </Container>
     );
 };
