@@ -1,13 +1,13 @@
 .test-results-container {
-    padding: 1rem;
-   width: 100%;
-  
+    width: 100%;
+    padding: 20px;
   }
   
   .results-title {
-    color: #1e3a8a;
-    margin-bottom: 1rem;
-    font-weight: 600;
+    font-size: 24px;
+    color: #1a237e;
+    margin-bottom: 20px;
+    padding-left: 10px;
   }
   
   .results-loading {
@@ -17,11 +17,27 @@
     min-height: 300px;
   }
   
+  .results-row {
+    display: flex;
+    width: 100% !important;
+    margin: 0 !important;
+  }
+  
+  .col-md-6 {
+    padding: 0 10px !important;
+    width: 50% !important;
+    flex: 0 0 50% !important;
+    max-width: 50% !important;
+  }
+  
   .result-card {
-    box-shadow: none;
-    border: none;
-    padding: 0;
-    margin-bottom: 1rem;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 100%;
+    height: 100%;
+    margin: 0;
   }
   
   .result-image-container {
@@ -37,10 +53,17 @@
     object-fit: cover;
   }
   
-  .result-title {
-    color: #1e3a8a;
-    font-size: 1.2rem;
-    margin-bottom: 1rem;
+  .test-title {
+    font-size: 20px;
+    color: #1a237e;
+    margin-bottom: 15px;
+    text-align: center;
+  }
+  
+  .test-date {
+    color: #666;
+    font-size: 14px;
+    margin-bottom: 20px;
   }
   
   .result-details {
@@ -59,15 +82,13 @@
     color: #1e3a8a;
   }
   
-  .personality-traits ul,
-  .creativity-scores ul {
+  .personality-traits ul {
     list-style: none;
     padding-left: 0;
     margin-top: 0.5rem;
   }
   
-  .personality-traits li,
-  .creativity-scores li {
+  .personality-traits li {
     margin-bottom: 0.25rem;
     color: #4b5563;
   }
@@ -92,34 +113,29 @@
     padding: 2rem;
   }
   
-  .take-test-link {
-    display: inline-block;
-    margin-top: 1rem;
-    padding: 0.5rem 1rem;
-    background-color: #1e3a8a;
+  .take-test-btn {
+    background: #1a237e;
     color: white;
-    text-decoration: none;
-    border-radius: 4px;
-    transition: background-color 0.2s ease;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    margin-top: 20px;
+    cursor: pointer;
+    width: fit-content;
   }
   
-  .take-test-link:hover {
-    background-color: #1c3175;
-    color: white;
+  .take-test-btn:hover {
+    background: #283593;
   }
   
   @media (max-width: 768px) {
-    .test-results-container {
-      padding: 1rem;
+    .results-row {
+      flex-direction: column;
     }
   
-    .result-card {
-      margin-bottom: 1rem;
-    }
-  
-    .score-value {
-      right: 0;
-      top: -20px;
+    .col-md-6 {
+      width: 100%;
+      margin-bottom: 20px;
     }
   }
 
@@ -139,92 +155,209 @@
 }
 
 .personality-grid {
-  padding: 10px 0;
-  width: 100%;
+  margin-top: 15px;
 }
 
-.personality-scores {
-  width: 100%;
+.trait-row {
+  margin-bottom: 15px;
 }
 
-.score-row {
-  position: relative;
-  margin-bottom: 50px;
-  padding: 0;
-  width: 100%;
-}
-
-.score-labels {
+.trait-label {
   display: flex;
   justify-content: space-between;
+  color: #333;
   margin-bottom: 5px;
-  font-size: 13px;
-  color: #4a5568;
+}
+
+.trait-bar-container {
+  width: 100%;
+  height: 8px;
+  background: #e0e0e0;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.trait-bar {
+  height: 100%;
+  border-radius: 4px;
+}
+
+.card-body {
+  width: 100%;
+  padding: 0;
+}
+
+.row {
+  width: 100%;
+  margin: 0;
+}
+
+.container {
+  max-width: none !important;
+  padding: 0;
+}
+
+/* Main container */
+.test-results-wrapper {
+  width: 100%;
+  padding: 20px 40px;
+}
+
+/* Cards layout */
+.test-cards-grid {
+  display: flex;
+  gap: 30px;
   width: 100%;
 }
 
-.left-label, .right-label {
+.test-card-wrapper {
+  flex: 1;
+  width: 50%;
+  min-width: 0; /* Prevent flex item from overflowing */
+}
+
+.test-card-container {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  padding: 24px;
+  height: 100%;
+}
+
+.test-card-header {
+  margin-bottom: 20px;
+}
+
+.test-card-title {
+  font-size: 22px;
+  color: #1a237e;
+  margin: 0;
+}
+
+.test-content {
+  margin-bottom: 20px;
+}
+
+.test-date-info {
+  color: #666;
+  font-size: 14px;
+  margin-bottom: 15px;
+}
+
+.test-iq-score {
+  font-size: 18px;
+  color: #1a237e;
   font-weight: 500;
 }
 
-.score-bar-container {
-  position: relative;
-  height: 8px;
-  width: 100%;
-  background-color: #e2e8f0;
-  border-radius: 4px;
-  margin-bottom: 5px;
+.test-action-button {
+  display: inline-block;
+  padding: 10px 20px;
+  background: #1a237e;
+  color: white;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: background 0.2s;
 }
 
-.score-bar {
-  position: absolute;
-  height: 100%;
-  width: 100%;
-  border-radius: 4px;
-  opacity: 0.7;
-  left: 0;
+.test-action-button:hover {
+  background: #283593;
+  color: white;
 }
 
-.score-value {
-  position: absolute;
-  transform: translateX(-50%);
-  font-size: 12px;
-  font-weight: 600;
-  color: #4a5568;
-  top: -18px;
+.test-empty-state {
+  text-align: center;
+  padding: 20px 0;
 }
 
-.circle-indicator {
-  position: absolute;
-  width: 16px;
-  height: 16px;
-  border-radius: 50%;
-  background-color: white;
-  border: 2px solid #4a5568;
-  transform: translate(-50%, -4px);
-  z-index: 1;
+/* Keep all the existing personality test bar styles as they are */
+.personality-section {
+  margin-top: 20px;
 }
 
-.score-indicator {
-  position: absolute;
-  transform: translateX(-50%);
-  font-size: 13px;
-  font-weight: 600;
-  color: #2d3748;
-  background-color: #ffffff;
-  padding: 2px 8px;
-  border-radius: 4px;
-  top: 20px;
-  white-space: nowrap;
-}
-
+/* Responsive design */
 @media (max-width: 768px) {
-  .score-indicator {
+  .test-cards-grid {
+    flex-direction: column;
+  }
+
+  .test-card-wrapper {
+    width: 100%;
+  }
+
+  .test-results-wrapper {
+    padding: 15px;
+  }
+}
+
+.iq-result-section {
+  margin-top: 20px;
+}
+
+.iq-table-container {
+  margin-top: 20px;
+  overflow-x: auto;
+}
+
+.iq-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 10px;
+  font-size: 13px;
+  line-height: 1.2;
+}
+
+.iq-table th,
+.iq-table td {
+  border: 1px solid #ddd;
+  padding: 4px 8px;
+  text-align: left;
+}
+
+.iq-table th {
+  background-color: #f8f9fa;
+  font-weight: 600;
+  color: #1a237e;
+}
+
+.iq-table tr:nth-child(even) {
+  background-color: #f8f9fa;
+}
+
+.iq-table td strong {
+  display: block;
+  margin-bottom: 2px;
+  line-height: 1.2;
+}
+
+.iq-table td {
+  vertical-align: top;
+}
+
+.iq-table td:last-child {
+  line-height: 1.2;
+}
+
+.iq-note {
+  font-size: 11px;
+  line-height: 1.2;
+  color: #666;
+  font-style: italic;
+  margin-top: 8px;
+  padding: 8px;
+  background-color: #f8f9fa;
+  border-radius: 4px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .iq-table {
     font-size: 11px;
   }
   
-  .left-label, .right-label {
-    font-size: 11px;
+  .iq-table th,
+  .iq-table td {
+    padding: 3px 6px;
   }
 }
 
