@@ -1,13 +1,12 @@
-import React, { useState } from "react";
-import { Container, Row, Col, Card, Button, Nav } from "react-bootstrap";
+import React from "react";
+import { Container, Row, Col, Card, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { nationalExamData, stateExamData, scholarshipExamData } from "../Data/examData";
 import "./ExamHome.css";
 
 export const ExamHome = () => {
-  const [activeTab, setActiveTab] = useState("national");
-
-  const renderExamCards = (exams,category) => {
+  
+  const renderExamCards = (exams, category) => {
     return (
       <Row className="entrance-exam-row g-4">
         {exams.map((exam) => (
@@ -55,39 +54,20 @@ export const ExamHome = () => {
         Entrance Examinations
       </h2>
 
-      <Nav variant="tabs" className="entrance-exam-tabs mb-4">
-        <Nav.Item>
-          <Nav.Link
-            active={activeTab === "national"}
-            onClick={() => setActiveTab("national")}
-            className="entrance-exam-tab"
-          >
-            National Exams
-          </Nav.Link>
-        </Nav.Item>
-        <Nav.Item>
-          <Nav.Link
-            active={activeTab === "state"}
-            onClick={() => setActiveTab("state")}
-            className="entrance-exam-tab"
-          >
-            State Exams
-          </Nav.Link>
-        </Nav.Item>
-        <Nav.Item>
-          <Nav.Link
-            active={activeTab === "scholarship"}
-            onClick={() => setActiveTab("scholarship")}
-            className="entrance-exam-tab"
-          >
-            Scholarship Exams
-          </Nav.Link>
-        </Nav.Item>
-      </Nav>
+      <div className="exam-section mb-5">
+        <h3 className="section-heading mb-4">National Exams</h3>
+        {renderExamCards(nationalExamData, "national")}
+      </div>
 
-      {activeTab === "national" && renderExamCards(nationalExamData, "national")}
-      {activeTab === "state" && renderExamCards(stateExamData, "state")}
-      {activeTab === "scholarship" && renderExamCards(scholarshipExamData, "scholarship")}
+      <div className="exam-section mb-5">
+        <h3 className="section-heading mb-4">State Exams</h3>
+        {renderExamCards(stateExamData, "state")}
+      </div>
+
+      <div className="exam-section mb-5">
+        <h3 className="section-heading mb-4">Scholarship Exams</h3>
+        {renderExamCards(scholarshipExamData, "scholarship")}
+      </div>
     </Container>
   );
 };
