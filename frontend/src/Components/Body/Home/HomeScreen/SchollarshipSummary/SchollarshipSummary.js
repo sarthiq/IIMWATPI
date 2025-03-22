@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Row, Col, Card } from 'react-bootstrap';
+import { Container } from 'react-bootstrap';
 import './SchollarshipSummary.css';
 import { Link } from 'react-router-dom';
 
@@ -28,44 +28,54 @@ export const ScholarshipSummary = () => {
   ];
 
   return (
-    <Card className="scholarship-summary">
-      <Card.Body>
-        <Container>
-          <div className="summary-header text-center mb-5">
-            <h2 className="summary-title">Scholarship Opportunities</h2>
-            <p className="summary-subtitle">
-              Discover financial aid options to support your educational journey
-            </p>
-          </div>
+    <div className="scholarship-section">
+      <Container>
+        <div className="section-header">
+          <h2 className="section-title">
+            Scholarship Opportunities
+            <span className="title-highlight">Your Path to Academic Success</span>
+          </h2>
+          <p className="section-description">
+            Discover financial aid options to support your educational journey and achieve your academic goals
+          </p>
+        </div>
 
-          <Row className="g-4">
-            {scholarships.map((scholarship, index) => (
-              <Col md={6} lg={3} key={index}>
-                <Card className="summary-card h-100 border-0 shadow-sm">
-                  <Card.Body className="text-center">
-                    <div className="feature-icon mb-3 display-4">
-                      {scholarship.icon}
-                    </div>
-                    <Card.Title className="feature-title h5 mb-3">
-                      {scholarship.title}
-                    </Card.Title>
-                    <Card.Text className="feature-description text-muted">
-                      {scholarship.description}
-                    </Card.Text>
-                  </Card.Body>
-                </Card>
-              </Col>
-            ))}
-          </Row>
+        <div className="feature-grid">
+          {scholarships.map((scholarship, index) => (
+            <div className="feature-card" key={index}>
+              <div className="icon-wrapper">
+                {scholarship.icon}
+              </div>
+              <h3>{scholarship.title}</h3>
+              <p>{scholarship.description}</p>
+            </div>
+          ))}
+        </div>
 
-          <div className="text-center mt-5">
-            <Link to="/schollarship" 
-              className="btn btn-primary btn-lg px-4">
-              View Scholarships
-            </Link>
+        <div className="stats-container">
+          <div className="stat-item">
+            <span className="stat-number">50+</span>
+            <span className="stat-label">Scholarships Available</span>
           </div>
-        </Container>
-      </Card.Body>
-    </Card>
+          <div className="stat-item">
+            <span className="stat-number">10K+</span>
+            <span className="stat-label">Students Funded</span>
+          </div>
+          <div className="stat-item">
+            <span className="stat-number">95%</span>
+            <span className="stat-label">Success Rate</span>
+          </div>
+        </div>
+
+        <div className="cta-section">
+          <Link to="/schollarship" className="primary-cta">
+            Browse Scholarships
+          </Link>
+          <Link to="/schollarship/apply" className="secondary-cta">
+            Apply Now
+          </Link>
+        </div>
+      </Container>
+    </div>
   );
 };

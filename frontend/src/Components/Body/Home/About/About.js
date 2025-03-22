@@ -2,20 +2,78 @@ import { Container, Row, Col } from "react-bootstrap";
 import "./About.css";
 
 export const About = () => {
+  const features = [
+    {
+      icon: "fas fa-graduation-cap",
+      title: "Educational Excellence",
+      description: "Personalized learning paths and AI-driven educational guidance for optimal academic success"
+    },
+    {
+      icon: "fas fa-robot",
+      title: "AI Integration",
+      description: "Cutting-edge AI tools and technologies to enhance learning and career development"
+    },
+    {
+      icon: "fas fa-chart-line",
+      title: "Career Growth",
+      description: "Data-driven career guidance and skill development for future-ready professionals"
+    },
+    {
+      icon: "fas fa-users",
+      title: "Student Success",
+      description: "Comprehensive support system ensuring students achieve their academic and career goals"
+    }
+  ];
+
   return (
     <div className="about-section">
       <Container>
-        <Row className="mb-5">
-          <Col>
-            <h1 className="about-title">About Us</h1>
-            <p className="about-text-bold">
-              Educating, enabling, and empowering students to achieve their dreams in the AI-driven world!
+        <div className="about-header">
+          <h1 className="about-title">
+            Empowering Future Leaders
+            <span className="title-highlight">Through AI-Enhanced Education</span>
+          </h1>
+          <p className="about-description">
+            We're revolutionizing education by combining traditional excellence with cutting-edge AI technology
+          </p>
+        </div>
+
+        <div className="feature-grid">
+          {features.map((feature, index) => (
+            <div className="feature-card" key={index}>
+              <div className="icon-wrapper">
+                <i className={feature.icon}></i>
+              </div>
+              <h3>{feature.title}</h3>
+              <p>{feature.description}</p>
+            </div>
+          ))}
+        </div>
+
+        <div className="about-content">
+          <div className="mission-statement">
+            <h2>Our Mission</h2>
+            <p>
+              Educating, enabling, and empowering students to achieve their dreams in the AI-driven world. We combine 
+              traditional educational excellence with innovative AI technologies to create future-ready professionals.
             </p>
-            <p className="about-text">
-              We help students select courses based on their strengths, interests, and aspirations. We guide them to achieve the best education in their field of interest; simultaneously, we educate and equip students with AI skills to enhance their capabilities to become future-ready professionals.
-            </p>
-          </Col>
-        </Row>
+          </div>
+
+          <div className="stats-container">
+            <div className="stat-item">
+              <span className="stat-number">15K+</span>
+              <span className="stat-label">Students Guided</span>
+            </div>
+            <div className="stat-item">
+              <span className="stat-number">50+</span>
+              <span className="stat-label">AI Tools Integrated</span>
+            </div>
+            <div className="stat-item">
+              <span className="stat-number">95%</span>
+              <span className="stat-label">Success Rate</span>
+            </div>
+          </div>
+        </div>
       </Container>
     </div>
   );

@@ -167,11 +167,11 @@ const CareerSection = () => (
 );
 
 const HeroSection = () => (
-  <div className="hero-section">
-    <div className="hero-content">
-      <h1 className="hero-title">
+  <div className="banner-hero-section">
+    <div className="banner-hero-content">
+      <h1 className="banner-hero-title">
         Your AI-Powered Education & Career Guide
-        <span className="gradient-text">
+        <span className="banner-gradient-text">
           <Typewriter
             words={[' for Success', ' for Growth', ' for Future']}
             loop={true}
@@ -183,47 +183,47 @@ const HeroSection = () => (
           />
         </span>
       </h1>
-      <p className="hero-description">
+      <p className="banner-hero-description">
         Navigate your educational journey with personalized AI guidance, explore career paths,
         and master the skills of tomorrow. Join thousands of students discovering their potential.
       </p>
-      <div className="cta-buttons">
-        <button className="primary-cta">Start Your Journey</button>
-        <button className="secondary-cta">Watch Demo</button>
+      <div className="banner-cta-buttons">
+        <button className="banner-primary-cta">Start Your Journey</button>
+        <button className="banner-secondary-cta">Watch Demo</button>
       </div>
-      <div className="stats-container">
-        <div className="stat-item">
-          <span className="stat-number">50K+</span>
-          <span className="stat-label">Students Guided</span>
+      <div className="banner-stats-container">
+        <div className="banner-stat-item">
+          <span className="banner-stat-number">50K+</span>
+          <span className="banner-stat-label">Students Guided</span>
         </div>
-        <div className="stat-item">
-          <span className="stat-number">100+</span>
-          <span className="stat-label">Career Paths</span>
+        <div className="banner-stat-item">
+          <span className="banner-stat-number">100+</span>
+          <span className="banner-stat-label">Career Paths</span>
         </div>
-        <div className="stat-item">
-          <span className="stat-number">24/7</span>
-          <span className="stat-label">AI Support</span>
+        <div className="banner-stat-item">
+          <span className="banner-stat-number">24/7</span>
+          <span className="banner-stat-label">AI Support</span>
         </div>
       </div>
     </div>
-    <div className="hero-visual">
-      <div className="feature-grid">
-        <div className="feature-card">
+    <div className="banner-hero-visual">
+      <div className="banner-feature-grid">
+        <div className="banner-feature-card">
           <i className="fas fa-brain"></i>
           <h3>Smart Learning</h3>
           <p>AI-powered personalized learning paths</p>
         </div>
-        <div className="feature-card">
+        <div className="banner-feature-card">
           <i className="fas fa-chart-line"></i>
           <h3>Career Tracking</h3>
           <p>Real-time progress monitoring</p>
         </div>
-        <div className="feature-card">
+        <div className="banner-feature-card">
           <i className="fas fa-graduation-cap"></i>
           <h3>Exam Prep</h3>
           <p>Comprehensive entrance exam guides</p>
         </div>
-        <div className="feature-card">
+        <div className="banner-feature-card">
           <i className="fas fa-robot"></i>
           <h3>AI Tools</h3>
           <p>Latest AI technology integration</p>

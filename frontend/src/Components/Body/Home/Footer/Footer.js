@@ -13,6 +13,9 @@ import {
   FaEnvelope,
   FaPhone,
   FaHeart,
+  FaGraduationCap,
+  FaRobot,
+  FaChartLine,
 } from "react-icons/fa";
 
 export const Footer = () => {
@@ -20,11 +23,11 @@ export const Footer = () => {
     <footer className="footer">
       <div className="footer-container">
         <div className="footer-column">
-          <h4>Products</h4>
+          <h4>Quick Links</h4>
           <ul>
             <li>
               <Link to="/quiz">
-                <FaQuestionCircle className="footer-icon" /> Tests
+                <FaQuestionCircle className="footer-icon" /> Assessment Tests
               </Link>
             </li>
             <li>
@@ -32,11 +35,21 @@ export const Footer = () => {
                 <FaBriefcase className="footer-icon" /> Career Counselling
               </Link>
             </li>
+            <li>
+              <Link to="/ai-literacy">
+                <FaRobot className="footer-icon" /> AI Literacy
+              </Link>
+            </li>
+            <li>
+              <Link to="/entrance-exams">
+                <FaGraduationCap className="footer-icon" /> Entrance Exams
+              </Link>
+            </li>
           </ul>
         </div>
 
         <div className="footer-column">
-          <h4>Terms and Conditions</h4>
+          <h4>Resources</h4>
           <ul>
             <li>
               <Link to="/privacy-policy">
@@ -48,52 +61,72 @@ export const Footer = () => {
                 <FaFileContract className="footer-icon" /> Refund Policy
               </Link>
             </li>
+            <li>
+              <Link to="/career-trends">
+                <FaChartLine className="footer-icon" /> Career Trends
+              </Link>
+            </li>
           </ul>
         </div>
 
         <div className="footer-column">
-          <h4>Contact Details</h4>
-          <p>
-            <FaMapMarkerAlt className="footer-icon" /> C-70, Sect 8, Jankipuram
-            Extension, Lucknow, UP-226021
-          </p>
-          <p>
-            <FaEnvelope className="footer-icon" /> sarthiq@gmail.com
-          </p>
-          <p>
-            <FaPhone className="footer-icon" /> +91 9335532658
-          </p>
+          <h4>Contact Us</h4>
+          <div className="contact-info">
+            <p>
+              <FaMapMarkerAlt className="footer-icon" />
+              C-70, Sect 8, Jankipuram Extension,
+              <span className="address-line">Lucknow, UP-226021</span>
+            </p>
+            <p>
+              <FaEnvelope className="footer-icon" />
+              <a href="mailto:sarthiq@gmail.com">sarthiq@gmail.com</a>
+            </p>
+            <p>
+              <FaPhone className="footer-icon" />
+              <a href="tel:+919335532658">+91 9335532658</a>
+            </p>
+          </div>
         </div>
-      </div>
-      <div className="footer-column">
-        <div className="social-icons">
-          <a
-            href="https://www.linkedin.com/company/sarthiq"
-            className="linkedin"
-          >
-            <FaLinkedin />
-          </a>
-          <a href="https://www.youtube.com/@sarthiq" className="youtube">
-            <FaYoutube />
-          </a>
-          <a href="https://wa.me/9335532658" className="whatsapp">
-            <FaWhatsapp />
-          </a>
+
+        <div className="footer-column">
+          <h4>Connect With Us</h4>
+          <div className="social-icons">
+            <a
+              href="https://linkedin.com"
+              className="social-link linkedin"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaLinkedin />
+            </a>
+            <a
+              href="https://youtube.com"
+              className="social-link youtube"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaYoutube />
+            </a>
+            <a
+              href="https://wa.me/919335532658"
+              className="social-link whatsapp"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaWhatsapp />
+            </a>
+          </div>
         </div>
       </div>
 
       <div className="footer-bottom">
-        <p>
-          © 2025 Sarthiq
-          |
-          <Link to="/privacy-policy" className="footer-bottom-link">
-            Privacy Policy
-          </Link>{" "}
-          |
-          <Link to="/refund-policy" className="footer-bottom-link">
-            Refund Policy
+        <div className="footer-bottom-links">
+          <Link to="/terms" className="footer-bottom-link">
+            Terms of Service
           </Link>
-        </p>
+          {/* <span className="separator">|</span>
+          <Link to="/sitemap" className="footer-bottom-link">Sitemap</Link> */}
+        </div>
       </div>
     </footer>
   );

@@ -61,57 +61,71 @@ export const TestSection = () => {
 
   if (isLoading) {
     return (
-      <Spinner animation="border" role="status">
-        <span className="visually-hidden">Loading...</span>
-      </Spinner>
+      <div className="loading-container">
+        <Spinner animation="border" role="status">
+          <span className="visually-hidden">Loading...</span>
+        </Spinner>
+      </div>
     );
   }
 
   return (
     <section className="test-section">
-      <h2 className="section-title">Discover Your Potential</h2>
+      <div className="test-section-container">
+        <div className="section-header">
+          <h2 className="section-title">
+            Discover Your Potential
+            <span className="title-highlight">Through Assessment</span>
+          </h2>
+          <p className="section-subtitle">
+            Take our scientifically designed tests to understand your strengths and chart your path to success
+          </p>
+        </div>
 
-      <div className="quiz-boxes-container">
-        {quizzes.map((quiz) => {
-          const quizContent = getQuizContent(quiz.typeId);
-          return (
-            <div key={quiz.id} className="quiz-box">
-              <div className="quiz-box-header">
-                <img
-                  src={quiz.imageUrl
-                    ? `${process.env.REACT_APP_REMOTE_ADDRESS}/${quiz.imageUrl}`
-                    : "/IQ.png"}
-                  alt={`${quiz.title} Test`}
-                  className="quiz-box-image"
-                />
-                <h3>{quiz.title}</h3>
-              </div>
-
-              {quizContent && (
-                <div className="quiz-box-content">
-                  <h4 className="content-title">{quizContent.title}</h4>
-                  <p className="content-description">{quizContent.description}</p>
-                  <ul className="content-points">
-                    {quizContent.points.map((point, index) => (
-                      <li key={index}>{point}</li>
-                    ))}
-                  </ul>
-                  <p className="content-cta">{quizContent.cta}</p>
+        <div className="quiz-boxes-container">
+          {quizzes.map((quiz) => {
+            const quizContent = getQuizContent(quiz.typeId);
+            return (
+              <div key={quiz.id} className="quiz-box">
+                <div className="quiz-box-header">
+                  <div className="image-container">
+                    <img
+                      src={quiz.imageUrl
+                        ? `${process.env.REACT_APP_REMOTE_ADDRESS}/${quiz.imageUrl}`
+                        : "/IQ.png"}
+                      alt={`${quiz.title} Test`}
+                      className="quiz-box-image"
+                    />
+                  </div>
+                  <h3>{quiz.title}</h3>
                 </div>
-              )}
-              
-              {quiz.typeId ==='creativity' ? (
-                <button className="take-test-btn" disabled>
-                  Coming Soon
-                </button>
-              ) : (
-                <Link to={`./quiz/${quiz.id}`} className="take-test-btn">
-                  Take Test
-                </Link>
-              )}
-            </div>
-          );
-        })}
+
+                {quizContent && (
+                  <div className="quiz-box-content">
+                    <h4 className="content-title">{quizContent.title}</h4>
+                    <p className="content-description">{quizContent.description}</p>
+                    <ul className="content-points">
+                      {quizContent.points.map((point, index) => (
+                        <li key={index}>{point}</li>
+                      ))}
+                    </ul>
+                    <p className="content-cta">{quizContent.cta}</p>
+                  </div>
+                )}
+                
+                {quiz.typeId === 'creativity' ? (
+                  <button className="take-test-btn disabled">
+                    Coming Soon
+                  </button>
+                ) : (
+                  <Link to={`./quiz/${quiz.id}`} className="take-test-btn">
+                    Take Test
+                  </Link>
+                )}
+              </div>
+            );
+          })}
+        </div>
       </div>
     </section>
   );
