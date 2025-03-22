@@ -452,6 +452,7 @@
 
 .banner-gradient-text {
   background: linear-gradient(90deg, #60a5fa, #a78bfa);
+  background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }

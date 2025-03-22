@@ -1,0 +1,270 @@
+.iq-summary-container {
+    padding: 1rem 0;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.iq-card {
+    margin-bottom: 1.5rem;
+    border: none;
+    border-radius: 20px;
+    background: #ffffff;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+    transform: translateY(20px);
+    opacity: 0;
+    animation: cardAppear 0.6s ease forwards;
+}
+
+.disclaimer-card {
+    background: #fff3e0;
+    border-radius: 20px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    border-left: 4px solid #ff9800;
+}
+
+.disclaimer-card h4 {
+    color: #e65100;
+    margin-bottom: 1rem;
+}
+
+.disclaimer-card ul {
+    margin: 0;
+    padding-left: 1.2rem;
+}
+
+.disclaimer-card li {
+    color: #424242;
+    margin-bottom: 0.5rem;
+    line-height: 1.4;
+}
+
+.iq-section {
+    padding: 1.25rem;
+    background: linear-gradient(to bottom, #fafafa, #ffffff);
+}
+
+/* Color schemes for IQ ranges */
+.iq-card:nth-child(2) .iq-header h3 { /* High IQ */
+    color: #2563eb;
+    background: linear-gradient(120deg, rgba(37, 99, 235, 0.1) 0%, transparent 100%);
+}
+
+.iq-card:nth-child(3) .iq-header h3 { /* Above Average */
+    color: #059669;
+    background: linear-gradient(120deg, rgba(5, 150, 105, 0.1) 0%, transparent 100%);
+}
+
+.iq-card:nth-child(4) .iq-header h3 { /* Average */
+    color: #7c3aed;
+    background: linear-gradient(120deg, rgba(124, 58, 237, 0.1) 0%, transparent 100%);
+}
+
+.iq-card:nth-child(5) .iq-header h3 { /* Low */
+    color: #0d9488;
+    background: linear-gradient(120deg, rgba(13, 148, 136, 0.1) 0%, transparent 100%);
+}
+
+.iq-card:nth-child(6) .iq-header h3 { /* Very Low */
+    color: #dc2626;
+    background: linear-gradient(120deg, rgba(220, 38, 38, 0.1) 0%, transparent 100%);
+}
+
+.iq-header {
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #f1f5f9;
+}
+
+.iq-header h3 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin: 0;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    letter-spacing: -0.5px;
+}
+
+.career-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0 0 1rem 0;
+}
+
+.career-list li {
+    padding: 0.6rem 0.8rem;
+    margin-bottom: 0.4rem;
+    background: #f8fafc;
+    border-radius: 8px;
+    color: #334155;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    border: 1px solid #e2e8f0;
+    display: flex;
+    align-items: center;
+}
+
+.career-list li::before {
+    content: '•';
+    font-weight: bold;
+    margin-right: 8px;
+    font-size: 1.1rem;
+}
+
+.career-list li:hover {
+    background: #f1f5f9;
+    transform: translateX(5px);
+    border-color: #cbd5e1;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.note-section {
+    background: #f8fafc;
+    border-radius: 10px;
+    padding: 1rem;
+    border: 1px solid #e2e8f0;
+    margin-top: 0.75rem;
+}
+
+.note-section h4 {
+    color: #1e293b;
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.note-section p {
+    color: #475569;
+    line-height: 1.5;
+    margin: 0;
+    font-size: 0.95rem;
+}
+
+@keyframes cardAppear {
+    0% {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.iq-comparison-card {
+    margin-bottom: 1.5rem;
+    border: none;
+    border-radius: 20px;
+    background: #ffffff;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+    transform: translateY(20px);
+    opacity: 0;
+    animation: cardAppear 0.6s ease forwards;
+}
+
+.iq-flex-container {
+    display: flex;
+    position: relative;
+    background: linear-gradient(to bottom, #fafafa, #ffffff);
+}
+
+.iq-section {
+    flex: 1;
+    position: relative;
+    padding: 1.25rem;
+}
+
+.vertical-divider {
+    position: absolute;
+    right: 0;
+    top: 10%;
+    height: 80%;
+    width: 1px;
+    background: #e2e8f0;
+}
+
+/* Update media queries */
+@media (max-width: 768px) {
+    .iq-flex-container {
+        flex-direction: column;
+    }
+
+    .vertical-divider {
+        display: none;
+    }
+
+    .iq-section {
+        padding: 1rem;
+    }
+
+    .iq-section:first-child {
+        border-bottom: 1px solid #e2e8f0;
+    }
+
+    .iq-header h3 {
+        font-size: 1.2rem;
+    }
+
+    .career-list li {
+        padding: 0.6rem 0.75rem;
+    }
+
+    .note-section {
+        padding: 0.875rem;
+    }
+}
+
+/* Color schemes for IQ pairs */
+/* High IQ - Above Average: Blue theme */
+.iq-comparison-card:nth-child(1) .iq-section:nth-child(1) .iq-header h3,
+.iq-comparison-card:nth-child(1) .iq-section:nth-child(2) .iq-header h3 {
+    color: #2563eb;
+    background: linear-gradient(120deg, rgba(37, 99, 235, 0.1) 0%, transparent 100%);
+}
+
+.iq-comparison-card:nth-child(1) .iq-header::after { background: #2563eb; }
+.iq-comparison-card:nth-child(1) .career-list li::before { color: #2563eb; }
+.iq-comparison-card:nth-child(1) .note-section { border-left: 4px solid #2563eb; }
+
+/* Average - Below Average: Green theme */
+.iq-comparison-card:nth-child(2) .iq-section:nth-child(1) .iq-header h3,
+.iq-comparison-card:nth-child(2) .iq-section:nth-child(2) .iq-header h3 {
+    color: #059669;
+    background: linear-gradient(120deg, rgba(5, 150, 105, 0.1) 0%, transparent 100%);
+}
+
+.iq-comparison-card:nth-child(2) .iq-header::after { background: #059669; }
+.iq-comparison-card:nth-child(2) .career-list li::before { color: #059669; }
+.iq-comparison-card:nth-child(2) .note-section { border-left: 4px solid #059669; }
+
+/* Low - Very Low: Specific colors */
+.iq-comparison-card:nth-child(3) .iq-section:nth-child(1) .iq-header h3 { /* Low */
+    color: #0d9488;
+    background: linear-gradient(120deg, rgba(13, 148, 136, 0.1) 0%, transparent 100%);
+}
+
+.iq-comparison-card:nth-child(3) .iq-section:nth-child(1) .career-list li::before { color: #0d9488; }
+.iq-comparison-card:nth-child(3) .iq-section:nth-child(1) .note-section { border-left: 4px solid #0d9488; }
+.iq-comparison-card:nth-child(3) .iq-section:nth-child(1) .iq-header::after { background: #0d9488; }
+
+.iq-comparison-card:nth-child(3) .iq-section:nth-child(2) .iq-header h3 { /* Very Low */
+    color: #dc2626;
+    background: linear-gradient(120deg, rgba(220, 38, 38, 0.1) 0%, transparent 100%);
+}
+
+.iq-comparison-card:nth-child(3) .iq-section:nth-child(2) .career-list li::before { color: #dc2626; }
+.iq-comparison-card:nth-child(3) .iq-section:nth-child(2) .note-section { border-left: 4px solid #dc2626; }
+.iq-comparison-card:nth-child(3) .iq-section:nth-child(2) .iq-header::after { background: #dc2626; }
+
+/* Update vertical divider for Low - Very Low pair */
+.iq-comparison-card:nth-child(3) .vertical-divider {
+    background: linear-gradient(
+        to bottom,
+        transparent,
+        rgba(13, 148, 136, 0.2),
+        rgba(220, 38, 38, 0.2),
+        transparent
+    );
+} 
