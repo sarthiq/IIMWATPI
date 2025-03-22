@@ -86,16 +86,13 @@
 }
 
 .feature-grid {
-  margin-bottom: 4rem;
- 
-  flex-wrap: nowrap;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
   gap: 2rem;
-  overflow-x: auto;
+  margin-bottom: 4rem;
 }
 
 .feature-card {
-  flex: 0 0 calc(25% - 1.5rem);
-  min-width: 250px;
   background: rgba(255, 255, 255, 0.05);
   backdrop-filter: blur(10px);
   padding: 2rem;
@@ -113,7 +110,6 @@
 
 .icon-wrapper {
   font-size: 2.5rem;
-  color: #60a5fa;
   margin-bottom: 1.5rem;
   height: 60px;
   width: 60px;
@@ -200,34 +196,15 @@
   box-shadow: 0 10px 20px rgba(59, 130, 246, 0.2);
 }
 
-@media (max-width: 768px) {
-  .entrance-exam-section {
-    padding: 4rem 1rem;
-  }
-
-  .stats-container {
-    grid-template-columns: 1fr;
-    gap: 2rem;
-    padding: 1.5rem;
-  }
-
-  .cta-section {
-    flex-direction: column;
-  }
-
-  .primary-cta, .secondary-cta {
-    width: 100%;
-    text-align: center;
-  }
-
+@media (max-width: 1024px) {
   .feature-grid {
-    flex-direction: column;
-    gap: 1.5rem;
-    overflow-x: visible;
+    grid-template-columns: repeat(2, 1fr);
   }
+}
 
-  .feature-card {
-    flex: none;
-    width: 100%;
+@media (max-width: 768px) {
+  .feature-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
   }
 } 

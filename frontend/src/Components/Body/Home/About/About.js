@@ -1,25 +1,25 @@
-import { Container, Row, Col } from "react-bootstrap";
+import { Container } from "react-bootstrap";
 import "./About.css";
 
 export const About = () => {
   const features = [
     {
-      icon: "fas fa-graduation-cap",
+      icon: "🎓",  // Graduation cap emoji
       title: "Educational Excellence",
       description: "Personalized learning paths and AI-driven educational guidance for optimal academic success"
     },
     {
-      icon: "fas fa-robot",
+      icon: "🤖",  // Robot emoji for AI
       title: "AI Integration",
       description: "Cutting-edge AI tools and technologies to enhance learning and career development"
     },
     {
-      icon: "fas fa-chart-line",
+      icon: "📈",  // Chart increasing emoji
       title: "Career Growth",
       description: "Data-driven career guidance and skill development for future-ready professionals"
     },
     {
-      icon: "fas fa-users",
+      icon: "👥",  // People emoji
       title: "Student Success",
       description: "Comprehensive support system ensuring students achieve their academic and career goals"
     }
@@ -42,7 +42,7 @@ export const About = () => {
           {features.map((feature, index) => (
             <div className="feature-card" key={index}>
               <div className="icon-wrapper">
-                <i className={feature.icon}></i>
+                {feature.icon}
               </div>
               <h3>{feature.title}</h3>
               <p>{feature.description}</p>

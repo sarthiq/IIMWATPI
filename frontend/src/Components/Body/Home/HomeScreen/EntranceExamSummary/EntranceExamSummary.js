@@ -2,27 +2,26 @@ import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import './EntranceExamSummary.css';
 import { Link } from 'react-router-dom';
-import { FaBookOpen, FaCalendarAlt, FaClipboardList, FaBullseye } from 'react-icons/fa';
 
 export const EntranceExamSummary = () => {
   const features = [
     {
-      icon: <FaBookOpen />,
+      icon: "📚",
       title: "Exam Patterns",
       description: "Detailed analysis of question patterns, marking schemes, and exam structure"
     },
     {
-      icon: <FaCalendarAlt />,
+      icon: "📅",
       title: "Important Dates",
       description: "Stay updated with application deadlines and exam schedules"
     },
     {
-      icon: <FaClipboardList />,
+      icon: "📋",
       title: "Syllabus Coverage",
       description: "Comprehensive subject-wise syllabus breakdown for all major entrance exams"
     },
     {
-      icon: <FaBullseye />,
+      icon: "🎯",
       title: "Preparation Tips",
       description: "Expert strategies and study materials for exam preparation"
     }
@@ -43,15 +42,13 @@ export const EntranceExamSummary = () => {
 
         <Row className="feature-grid">
           {features.map((feature, index) => (
-            <Col md={6} lg={3} key={index}>
-              <div className="feature-card">
-                <div className="icon-wrapper">
-                  {feature.icon}
-                </div>
-                <h3>{feature.title}</h3>
-                <p>{feature.description}</p>
+            <div className="feature-card" key={index}>
+              <div className="icon-wrapper">
+                {feature.icon}
               </div>
-            </Col>
+              <h3>{feature.title}</h3>
+              <p>{feature.description}</p>
+            </div>
           ))}
         </Row>
 

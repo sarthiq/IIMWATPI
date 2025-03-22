@@ -6,22 +6,22 @@ import { Link } from 'react-router-dom';
 export const AILiteracySummary = () => {
   const features = [
     {
-      icon: "fas fa-robot",
+      icon: "🤖",  // Robot emoji for ChatGPT/AI
       title: "ChatGPT",
       description: "Learn how to effectively use ChatGPT for coding assistance, content creation, and problem-solving"
     },
     {
-      icon: "fas fa-palette",
+      icon: "🎨",  // Artist palette for AI Image Tools
       title: "AI Image Tools",
       description: "Explore DALL-E, Midjourney, and other AI image generation tools for creative projects"
     },
     {
-      icon: "fas fa-pen-fancy",
+      icon: "✍️",  // Writing hand for Writing Assistants
       title: "Writing Assistants",
       description: "Discover AI writing tools for content improvement, grammar checking, and style enhancement"
     },
     {
-      icon: "fas fa-search",
+      icon: "🔍",  // Magnifying glass for Research
       title: "AI Research Tools",
       description: "Learn about AI-powered research assistants for efficient information gathering and analysis"
     }
@@ -44,7 +44,7 @@ export const AILiteracySummary = () => {
           {features.map((feature, index) => (
             <div className="feature-card" key={index}>
               <div className="icon-wrapper">
-                <i className={feature.icon}></i>
+                {feature.icon}
               </div>
               <h3>{feature.title}</h3>
               <p>{feature.description}</p>
