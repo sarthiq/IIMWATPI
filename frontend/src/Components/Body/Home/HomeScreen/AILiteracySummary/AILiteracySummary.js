@@ -30,20 +30,20 @@ export const AILiteracySummary = () => {
   return (
     <div className="ai-literacy-section">
       <Container>
-        <div className="section-header">
-          <h2 className="section-title">
+        <div className="ai-literacy-header">
+          <h2 className="ai-literacy-title">
             AI Tools Guide
-            <span className="title-highlight">Master Modern AI Technologies</span>
+            <span className="ai-literacy-title-highlight">Master Modern AI Technologies</span>
           </h2>
-          <p className="section-description">
+          <p className="ai-literacy-description">
             Enhance your productivity and creativity with cutting-edge AI tools and technologies
           </p>
         </div>
 
-        <div className="feature-grid">
+        <div className="ai-literacy-feature-grid">
           {features.map((feature, index) => (
-            <div className="feature-card" key={index}>
-              <div className="icon-wrapper">
+            <div className="ai-literacy-feature-card" key={index}>
+              <div className="ai-literacy-icon-wrapper">
                 {feature.icon}
               </div>
               <h3>{feature.title}</h3>
@@ -52,26 +52,26 @@ export const AILiteracySummary = () => {
           ))}
         </div>
 
-        <div className="stats-container">
-          <div className="stat-item">
-            <span className="stat-number">20+</span>
-            <span className="stat-label">AI Tools Covered</span>
+        <div className="ai-literacy-stats-container">
+          <div className="ai-literacy-stat-item">
+            <span className="ai-literacy-stat-number">20+</span>
+            <span className="ai-literacy-stat-label">AI Tools Covered</span>
           </div>
-          <div className="stat-item">
-            <span className="stat-number">5K+</span>
-            <span className="stat-label">Students Trained</span>
+          <div className="ai-literacy-stat-item">
+            <span className="ai-literacy-stat-number">5K+</span>
+            <span className="ai-literacy-stat-label">Students Trained</span>
           </div>
-          <div className="stat-item">
-            <span className="stat-number">100%</span>
-            <span className="stat-label">Hands-on Practice</span>
+          <div className="ai-literacy-stat-item">
+            <span className="ai-literacy-stat-number">100%</span>
+            <span className="ai-literacy-stat-label">Hands-on Practice</span>
           </div>
         </div>
 
-        <div className="cta-section">
-          <Link to="/dashboard/ai-literacy/tools-tasks" className="primary-cta">
+        <div className="ai-literacy-cta-section">
+          <Link to="/dashboard/ai-literacy/tools-tasks" className="ai-literacy-primary-cta">
             Explore AI Tools
           </Link>
-          <Link to="/dashboard/ai-literacy/start" className="secondary-cta">
+          <Link to="/dashboard/ai-literacy/start" className="ai-literacy-secondary-cta">
             Start Learning
           </Link>
         </div>

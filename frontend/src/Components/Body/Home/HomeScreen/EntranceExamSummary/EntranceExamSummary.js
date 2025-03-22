@@ -28,22 +28,22 @@ export const EntranceExamSummary = () => {
   ];
 
   return (
-    <section className="entrance-exam-section">
+    <section className="ees-entrance-exam-section">
       <Container>
-        <div className="section-header">
-          <h2 className="section-title">
+        <div className="ees-section-header">
+          <h2 className="ees-section-title">
             Entrance Exam Guide
-            <span className="title-highlight">Your Path to Success</span>
+            <span className="ees-title-highlight">Your Path to Success</span>
           </h2>
-          <p className="section-description">
+          <p className="ees-section-description">
             Comprehensive resources and guidance for your entrance exam preparation journey
           </p>
         </div>
 
-        <Row className="feature-grid">
+        <Row className="ees-feature-grid">
           {features.map((feature, index) => (
-            <div className="feature-card" key={index}>
-              <div className="icon-wrapper">
+            <div className="ees-feature-card" key={index}>
+              <div className="ees-icon-wrapper">
                 {feature.icon}
               </div>
               <h3>{feature.title}</h3>
@@ -52,26 +52,26 @@ export const EntranceExamSummary = () => {
           ))}
         </Row>
 
-        <div className="stats-container">
-          <div className="stat-item">
-            <span className="stat-number">50+</span>
-            <span className="stat-label">Exam Guides</span>
+        <div className="ees-stats-container">
+          <div className="ees-stat-item">
+            <span className="ees-stat-number">50+</span>
+            <span className="ees-stat-label">Exam Guides</span>
           </div>
-          <div className="stat-item">
-            <span className="stat-number">10K+</span>
-            <span className="stat-label">Students Guided</span>
+          <div className="ees-stat-item">
+            <span className="ees-stat-number">10K+</span>
+            <span className="ees-stat-label">Students Guided</span>
           </div>
-          <div className="stat-item">
-            <span className="stat-number">95%</span>
-            <span className="stat-label">Success Rate</span>
+          <div className="ees-stat-item">
+            <span className="ees-stat-number">95%</span>
+            <span className="ees-stat-label">Success Rate</span>
           </div>
         </div>
 
-        <div className="cta-section">
-          <Link to="/entrance-test-details" className="primary-cta">
+        <div className="ees-cta-section">
+          <Link to="/entrance-test-details" className="ees-primary-cta">
             Explore Exam Guides
           </Link>
-          <button className="secondary-cta">
+          <button className="ees-secondary-cta">
             Download Resources
           </button>
         </div>

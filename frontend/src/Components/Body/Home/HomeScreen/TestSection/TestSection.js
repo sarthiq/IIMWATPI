@@ -70,14 +70,14 @@ export const TestSection = () => {
   }
 
   return (
-    <section className="test-section">
-      <div className="test-section-container">
-        <div className="section-header">
-          <h2 className="section-title">
+    <section className="ts-test-section">
+      <div className="ts-container">
+        <div className="ts-header">
+          <h2 className="ts-title">
             Discover Your Potential
-            <span className="title-highlight">Through Assessment</span>
+            <span className="ts-title-highlight">Through Assessment</span>
           </h2>
-          <p className="section-subtitle">
+          <p className="ts-section-subtitle">
             Take our scientifically designed tests to understand your strengths and chart your path to success
           </p>
         </div>

@@ -71,7 +71,7 @@ export const Footer = () => {
 
         <div className="footer-column">
           <h4>Contact Us</h4>
-          <div className="contact-info">
+         
             <p>
               <FaMapMarkerAlt className="footer-icon" />
               C-70, Sect 8, Jankipuram Extension,
@@ -85,7 +85,7 @@ export const Footer = () => {
               <FaPhone className="footer-icon" />
               <a href="tel:+919335532658">+91 9335532658</a>
             </p>
-          </div>
+          
         </div>
 
         <div className="footer-column">

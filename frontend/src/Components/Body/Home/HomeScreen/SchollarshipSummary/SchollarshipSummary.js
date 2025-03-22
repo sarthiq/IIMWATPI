@@ -28,22 +28,22 @@ export const ScholarshipSummary = () => {
   ];
 
   return (
-    <div className="scholarship-section">
+    <div className="schollarship-summary-section">
       <Container>
-        <div className="section-header">
-          <h2 className="section-title">
+        <div className="schollarship-summary-header">
+          <h2 className="schollarship-summary-title">
             Scholarship Opportunities
-            <span className="title-highlight">Your Path to Academic Success</span>
+            <span className="schollarship-summary-title-highlight">Your Path to Academic Success</span>
           </h2>
-          <p className="section-description">
+          <p className="schollarship-summary-description">
             Discover financial aid options to support your educational journey and achieve your academic goals
           </p>
         </div>
 
-        <div className="feature-grid">
+        <div className="schollarship-summary-feature-grid">
           {scholarships.map((scholarship, index) => (
-            <div className="feature-card" key={index}>
-              <div className="icon-wrapper">
+            <div className="schollarship-summary-feature-card" key={index}>
+              <div className="schollarship-summary-icon-wrapper">
                 {scholarship.icon}
               </div>
               <h3>{scholarship.title}</h3>
@@ -52,26 +52,26 @@ export const ScholarshipSummary = () => {
           ))}
         </div>
 
-        <div className="stats-container">
-          <div className="stat-item">
-            <span className="stat-number">50+</span>
-            <span className="stat-label">Scholarships Available</span>
+        <div className="schollarship-summary-stats-container">
+          <div className="schollarship-summary-stat-item">
+            <span className="schollarship-summary-stat-number">50+</span>
+            <span className="schollarship-summary-stat-label">Scholarships Available</span>
           </div>
-          <div className="stat-item">
-            <span className="stat-number">10K+</span>
-            <span className="stat-label">Students Funded</span>
+          <div className="schollarship-summary-stat-item">
+            <span className="schollarship-summary-stat-number">10K+</span>
+            <span className="schollarship-summary-stat-label">Students Funded</span>
           </div>
-          <div className="stat-item">
-            <span className="stat-number">95%</span>
-            <span className="stat-label">Success Rate</span>
+          <div className="schollarship-summary-stat-item">
+            <span className="schollarship-summary-stat-number">95%</span>
+            <span className="schollarship-summary-stat-label">Success Rate</span>
           </div>
         </div>
 
-        <div className="cta-section">
-          <Link to="/schollarship" className="primary-cta">
+        <div className="schollarship-summary-cta-section">
+          <Link to="/schollarship" className="schollarship-summary-primary-cta">
             Browse Scholarships
           </Link>
-          <Link to="/schollarship/apply" className="secondary-cta">
+          <Link to="/schollarship/apply" className="schollarship-summary-secondary-cta">
             Apply Now
           </Link>
         </div>

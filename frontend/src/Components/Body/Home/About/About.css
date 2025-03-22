@@ -60,14 +60,16 @@
 }
 
 .icon-wrapper {
-  width: 60px;
-  height: 60px;
+  width: 80px;
+  height: 80px;
   background: rgba(96, 165, 250, 0.1);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   margin: 0 auto 1.5rem;
+  border: 2px solid rgba(96, 165, 250, 0.3);
+  font-size: 2.5rem;
 }
 
 .icon-wrapper i {

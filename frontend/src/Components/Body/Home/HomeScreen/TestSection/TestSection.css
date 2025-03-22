@@ -1,4 +1,4 @@
-.test-section {
+.ts-test-section {
   background: linear-gradient(135deg, #0f172a, #1e293b);
   padding: 6rem 2rem;
   color: #fff;
@@ -6,12 +6,12 @@
   overflow: hidden;
 }
 
-.test-section-container {
+.ts-container {
   max-width: 1400px;
   margin: 0 auto;
 }
 
-.section-header {
+.ts-header {
   text-align: center;
   margin-bottom: 4rem;
   background: rgba(255, 255, 255, 0.03);
@@ -21,7 +21,7 @@
   border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-.section-title {
+.ts-title {
   font-size: clamp(2rem, 4vw, 3rem);
   font-weight: 800;
   margin-bottom: 1rem;
@@ -30,7 +30,7 @@
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
-.title-highlight {
+.ts-title-highlight {
   display: block;
   background: linear-gradient(90deg, #60a5fa, #a78bfa);
   -webkit-background-clip: text;
@@ -39,7 +39,7 @@
   position: relative;
 }
 
-.title-highlight::after {
+.ts-title-highlight::after {
   content: '';
   position: absolute;
   bottom: -5px;
@@ -53,7 +53,7 @@
 
 .section-subtitle {
   font-size: clamp(1rem, 1.5vw, 1.25rem);
-  color: #94a3b8;
+  color: #cbd5e1;
   max-width: 700px;
   margin: 1.5rem auto 0;
   line-height: 1.6;
@@ -134,7 +134,7 @@
 }
 
 .content-description {
-  color: #94a3b8;
+  color: #cbd5e1;
   font-size: 1rem;
   margin-bottom: 1.5rem;
 }
@@ -146,7 +146,7 @@
 }
 
 .content-points li {
-  color: #e2e8f0;
+  color: #f1f5f9;
   font-size: 0.95rem;
   margin-bottom: 1rem;
   padding-left: 1.8rem;
@@ -163,7 +163,7 @@
 }
 
 .content-cta {
-  color: #94a3b8;
+  color: #cbd5e1;
   font-style: italic;
   font-size: 0.95rem;
   margin: 1.5rem 0;
@@ -204,7 +204,7 @@
 }
 
 @media (max-width: 768px) {
-  .test-section {
+  .ts-test-section {
     padding: 4rem 1rem;
   }
 
@@ -217,7 +217,7 @@
     padding: 1.5rem;
   }
 
-  .section-header {
+  .ts-header {
     padding: 2rem 1rem;
   }
 
