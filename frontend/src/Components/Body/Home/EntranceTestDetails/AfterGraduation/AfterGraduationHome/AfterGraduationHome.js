@@ -48,11 +48,7 @@ export const AfterGraduationHome = () => {
   };
 
   return (
-    <Container className="after-grad-container py-5">
-      <h2 className="after-grad-heading text-center mb-4">
-        After Graduation Opportunities
-      </h2>
-
+    <Container className="after-grad-container">
       {categories.map((category) => (
         <div key={category.id} className="exam-section mb-5">
           <h3 className="section-heading mb-4">{category.title}</h3>

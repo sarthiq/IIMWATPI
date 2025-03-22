@@ -49,11 +49,8 @@ export const ExamHome = () => {
   };
 
   return (
-    <Container className="entrance-exam-container py-5">
-      <h2 className="entrance-exam-heading text-center mb-4">
-        Entrance Examinations
-      </h2>
-
+    <Container className="entrance-exam-container">
+     
       <div className="exam-section mb-5">
         <h3 className="section-heading mb-4">National Exams</h3>
         {renderExamCards(nationalExamData, "national")}

@@ -1,0 +1,69 @@
+.personality-summary-container {
+    padding: 2rem 0;
+}
+
+.personality-card {
+    border: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    background-color: #ffffff;
+}
+
+.personality-card:hover {
+    transform: translateY(-5px);
+}
+
+.personality-card-header {
+    background: linear-gradient(135deg, #6c5ce7, #a363d9);
+    color: white;
+    border: none;
+    padding: 1rem;
+}
+
+.personality-card-header h3 {
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.career-list {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.career-list li {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #eee;
+    color: #444;
+}
+
+.career-list li:last-child {
+    border-bottom: none;
+}
+
+.advice-section {
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 2px dashed #eee;
+}
+
+.advice-section h4 {
+    color: #6c5ce7;
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+}
+
+.advice-section p {
+    color: #666;
+    font-style: italic;
+}
+
+@media (max-width: 768px) {
+    .personality-card {
+        margin-bottom: 1rem;
+    }
+    
+    .personality-card-header h3 {
+        font-size: 1.2rem;
+    }
+} 
