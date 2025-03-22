@@ -127,30 +127,41 @@ const personalityData = {
 };
 
 export const PersonalitySummary = () => {
+  const personalityPairs = [
+    ['Extroverts', 'Introverts'],
+    ['Organized', 'Unorganised'],
+    ['Altruist', 'Self-Centered'],
+    ['Emotionally Stable', 'Emotional'],
+    ['Openness', 'Rigid']
+  ];
+
   return (
     <Container className="personality-summary-container">
-      <Row xs={1} md={2} lg={3} className="g-4">
-        {Object.entries(personalityData).map(([type, data]) => (
-          <Col key={type}>
-            <Card className="personality-card h-100">
-              <Card.Header className="personality-card-header">
-                <h3>{type}</h3>
-              </Card.Header>
-              <Card.Body>
-                <ul className="career-list">
-                  {data.careers.map((career, index) => (
-                    <li key={index}>{career}</li>
-                  ))}
-                </ul>
-                <div className="advice-section">
-                  <h4>Recommendation:</h4>
-                  <p>{data.advice}</p>
+      {personalityPairs.map((pair, pairIndex) => (
+        <Card key={pairIndex} className="personality-comparison-card">
+          <div className="personality-flex-container">
+            {pair.map((type, index) => (
+              <div key={type} className="personality-section">
+                <div className="personality-header">
+                  <h3>{type}</h3>
                 </div>
-              </Card.Body>
-            </Card>
-          </Col>
-        ))}
-      </Row>
+                <div className="personality-content">
+                  <ul className="career-list">
+                    {personalityData[type].careers.map((career, idx) => (
+                      <li key={idx}>{career}</li>
+                    ))}
+                  </ul>
+                  <div className="advice-section">
+                    <h4>Recommendation:</h4>
+                    <p>{personalityData[type].advice}</p>
+                  </div>
+                </div>
+                {index === 0 && <div className="vertical-divider" />}
+              </div>
+            ))}
+          </div>
+        </Card>
+      ))}
     </Container>
   );
 };

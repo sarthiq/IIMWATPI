@@ -18,6 +18,12 @@
 .career-table {
     background-color: white;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border: 1px solid #dee2e6;
+}
+
+.career-table th,
+.career-table td {
+    border: 2px solid #9ca3af;
 }
 
 .career-table th {

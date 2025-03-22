@@ -20,6 +20,7 @@
     background-color: white;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     border-collapse: collapse;
+    border: 2px solid #2c3e50;
 }
 
 .career-table th {
@@ -33,7 +34,7 @@
 
 .career-table td {
     padding: 1rem;
-    border-bottom: 1px solid #e5e7eb;
+    border-bottom: 2px solid #2c3e50;
 }
 
 .career-option-column {

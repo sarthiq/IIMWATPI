@@ -6,7 +6,6 @@ import { Profile } from "./Profile/Profile";
 import { TestResults } from "./TestResults/TestResults";
 import { CareerRecommendations } from "./CareerRecommendations/CareerRecommendations";
 import { AILiteracy } from "./AILiteracy/AILiteracy";
-import { CareerAwareness } from "./CareerAwareness/CareerAwareness";
 import { Interest } from "./Interest/Interest";
 import "./Dashboard.css";
 
@@ -49,15 +48,7 @@ export const Dashboard = () => {
             >
               AI Literacy
             </Nav.Link>
-            <Nav.Link
-              as={Link}
-              to="career-awareness"
-              className={`sidebar-link ${
-                location.pathname.includes("/career-awareness") ? "active" : ""
-              }`}
-            >
-              Career Awareness
-            </Nav.Link>
+            
             <Nav.Link
               as={Link}
               to="recommendations"
@@ -88,7 +79,7 @@ export const Dashboard = () => {
 
             <Nav.Link
               as={Link}
-              to="career-options"
+              to="career-options/summary"
               className={`sidebar-link ${
                 location.pathname.includes("/career-options") ? "active" : ""
               }`}
@@ -104,7 +95,7 @@ export const Dashboard = () => {
             <Route path="profile" element={<Profile />} />
             <Route path="results" element={<TestResults />} />
             <Route path="ai-literacy/*" element={<AILiteracy />} />
-            <Route path="career-awareness/*" element={<CareerAwareness />} />
+            
             <Route
               path="recommendations/*"
               element={<CareerRecommendations />}
