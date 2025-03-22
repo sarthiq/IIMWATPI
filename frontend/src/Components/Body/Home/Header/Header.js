@@ -1,50 +1,60 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import "./Header.css";
 import { useSelector } from "react-redux";
+
 export const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
   const isLoggedIn = useSelector((state) => state.userAuth.isLoggedIn);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 20);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
-    <header className="header">
-      <div className="head-container">
-        {/* Logo - Aligned to Left */}
+    <header className={`header ${isScrolled ? 'scrolled' : ''}`}>
+      <div className="header-container">
+        {/* Logo */}
         <Link to="/" className="logo">
-          <img src="/Logo.png" alt="Logo" />
+          <img src="/Logo.png" alt="SarthiQ" className="logo-image" />
         </Link>
 
-        {/* Navigation - Centered */}
-        <nav className={isOpen ? "nav-menu open" : "nav-menu"}>
-          <ul>
-            <li>
-              <Link to="/schollarship" onClick={() => setIsOpen(false)}>
+        {/* Navigation */}
+        <nav className={`nav-menu ${isOpen ? 'open' : ''}`}>
+          <ul className="nav-list">
+            <li className="nav-item">
+              <Link to="/schollarship" 
+                    className="nav-link" 
+                    onClick={() => setIsOpen(false)}>
                 Scholarship
               </Link>
             </li>
-            <li>
-              <Link to="/entrance-test-details" onClick={() => setIsOpen(false)}>
+            <li className="nav-item">
+              <Link to="/entrance-test-details" 
+                    className="nav-link" 
+                    onClick={() => setIsOpen(false)}>
                 Entrance Exam
               </Link>
             </li>
             {isLoggedIn ? (
-              <li>
-                <Link
-                  to="/dashboard"
-                  className="dashboard-link"
-                  onClick={() => setIsOpen(false)}
-                >
+              <li className="nav-item">
+                <Link to="/dashboard" 
+                      className="nav-link nav-cta dashboard-link" 
+                      onClick={() => setIsOpen(false)}>
                   Dashboard
                 </Link>
               </li>
             ) : (
-              <li>
-                <Link
-                  to="/auth"
-                  className="login-link"
-                  onClick={() => setIsOpen(false)}
-                >
+              <li className="nav-item">
+                <Link to="/auth" 
+                      className="nav-link nav-cta login-link" 
+                      onClick={() => setIsOpen(false)}>
                   Login
                 </Link>
               </li>
@@ -53,7 +63,10 @@ export const Header = () => {
         </nav>
 
         {/* Mobile Menu Button */}
-        <button className="menu-toggle" onClick={() => setIsOpen(!isOpen)}>
+        <button 
+          className="menu-toggle" 
+          onClick={() => setIsOpen(!isOpen)}
+          aria-label="Toggle menu">
           {isOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
         </button>
       </div>
