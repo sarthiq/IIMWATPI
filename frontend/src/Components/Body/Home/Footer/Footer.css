@@ -1,7 +1,7 @@
 /* Footer Styling */
 .footer {
-  background: linear-gradient(135deg, #0f172a, #1e293b);
-  color: #e2e8f0;
+  background: linear-gradient(135deg, #f8fafc, #f1f5f9);
+  color: #334155;
   padding: 4rem 2rem 2rem;
   position: relative;
   overflow: hidden;
@@ -24,7 +24,7 @@
 }
 
 .footer-column h4 {
-  color: #fff;
+  color: #1e293b;
   font-size: 1.25rem;
   font-weight: 700;
   margin-bottom: 1.5rem;
@@ -53,7 +53,7 @@
 }
 
 .footer-column ul li a {
-  color: #94a3b8;
+  color: #64748b;
   text-decoration: none;
   display: flex;
   align-items: center;
@@ -61,32 +61,32 @@
 }
 
 .footer-column ul li a:hover {
-  color: #fff;
+  color: #1e293b;
   transform: translateX(5px);
 }
 
 .footer-icon {
   margin-right: 0.75rem;
   font-size: 1.1rem;
-  color: #60a5fa;
+  color: #3b82f6;
 }
 
 .contact-info p {
   display: flex;
   align-items: flex-start;
   margin-bottom: 1rem;
-  color: #94a3b8;
+  color: #64748b;
   line-height: 1.5;
 }
 
 .contact-info a {
-  color: #94a3b8;
+  color: #64748b;
   text-decoration: none;
   transition: color 0.3s ease;
 }
 
 .contact-info a:hover {
-  color: #fff;
+  color: #1e293b;
 }
 
 .address-line {
@@ -100,16 +100,16 @@
 }
 
 .social-link {
-  color: #94a3b8;
+  color: #64748b;
   font-size: 1.5rem;
   transition: all 0.3s ease;
   padding: 0.5rem;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(0, 0, 0, 0.05);
 }
 
 .social-link:hover {
-  color: #fff;
+  color: #1e293b;
   transform: translateY(-3px);
 }
 
@@ -129,12 +129,12 @@
 .footer-bottom {
   margin-top: 4rem;
   padding-top: 2rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
   text-align: center;
 }
 
 .footer-bottom p {
-  color: #94a3b8;
+  color: #64748b;
   margin-bottom: 1rem;
   display: flex;
   align-items: center;
@@ -155,18 +155,18 @@
 }
 
 .footer-bottom-link {
-  color: #94a3b8;
+  color: #64748b;
   text-decoration: none;
   font-size: 0.9rem;
   transition: color 0.3s ease;
 }
 
 .footer-bottom-link:hover {
-  color: #fff;
+  color: #1e293b;
 }
 
 .separator {
-  color: #4b5563;
+  color: #cbd5e1;
 }
 
 @keyframes heartbeat {

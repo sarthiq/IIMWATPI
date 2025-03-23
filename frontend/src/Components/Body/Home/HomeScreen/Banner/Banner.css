@@ -1,8 +1,8 @@
 .banner-container {
   min-height: 100vh;
   padding: clamp(1rem, 3vw, 2rem);
-  background-color: #0a1d56;
-  color: white;
+  background-color: #f8fafc;
+  color: #334155;
   overflow: hidden;
 }
 
@@ -56,21 +56,21 @@
 .glass-container {
   height: 100%;
   overflow: hidden;
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.8);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(2px);
   border-radius: 20px;
   padding: 1.5rem;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  color: white;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: #334155;
 }
 
 /* Text Styles */
 .dashboard-section .section-heading,
 .ai-literacy-section .section-heading,
 .career-section .section-heading {
-  color: #003479;
+  color: #3b82f6;
   font-size: 1.8rem;
   margin-bottom: 1rem;
   text-align: center;
@@ -81,13 +81,14 @@
   font-size: clamp(1.5rem, 4vw, 2.5rem);
   margin-bottom: 1rem;
   line-height: 1.2;
-  color: white !important;
+  color: #1e293b !important;
 }
 
 .banner-description {
   font-size: clamp(1rem, 2vw, 1.2rem);
   line-height: 1.6;
   margin-bottom: 2rem;
+  color: #475569;
 }
 
 .section-heading {
@@ -117,18 +118,19 @@
 }
 
 .highlight {
-  background: #003479;
-  color: #000;
+  background: #e0f2fe;
+  color: #1e40af;
   font-weight: bold;
   margin-top: 1rem;
 }
 
 .coming-soon {
-  background: #003479;
+  background: #e0f2fe;
   width: auto;
   padding: 1rem 2rem;
   border-radius: 20px;
   font-size: 1.2rem;
+  color: #1e40af;
 }
 
 /* Button Containers */
@@ -226,45 +228,48 @@
 }
 
 .box {
-  background: #003479;
+  background: #f1f5f9;
   border-radius: 8px;
   padding: 1rem;
   text-align: center;
   backdrop-filter: blur(5px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(203, 213, 225, 0.5);
   transition: all 0.3s ease;
+  color: #334155;
 }
 
 .box:hover {
-  background: #034499;
+  background: #e2e8f0;
   transform: translateY(-2px);
 }
 
 .highlight-box {
-  background: #003479;
+  background: #e0f2fe;
   border-radius: 8px;
   padding: 1rem;
   text-align: center;
   margin-top: 1rem;
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  border: 1px solid rgba(147, 197, 253, 0.5);
   font-weight: bold;
   transition: all 0.3s ease;
+  color: #1e40af;
 }
 
 .highlight-box:hover {
-  background: #034fb3;
+  background: #bfdbfe;
   transform: translateY(-2px);
 }
 
 .coming-soon-box {
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(241, 245, 249, 0.8);
   border-radius: 8px;
   padding: 1rem;
   text-align: center;
   display: inline-block;
   width: fit-content;
   margin-top: 1rem;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(203, 213, 225, 0.5);
+  color: #334155;
 }
 
 /* Remove old button styles if they exist */
@@ -304,7 +309,7 @@
 }
 
 .banner {
-  background: linear-gradient(135deg, #1a1a1a, #2d2d2d, #1a1a1a);
+  background: linear-gradient(135deg, #f8fafc, #f1f5f9, #f8fafc);
   padding: 2rem 0;
   min-height: 100vh;
   position: relative;
@@ -330,7 +335,7 @@
 }
 
 .coming-soon-btn {
-  background: linear-gradient(135deg, #070581, #510485);
+  background: linear-gradient(135deg, #3b82f6, #8b5cf6);
   color: white;
   padding: 0.6rem 1.2rem;
   border-radius: 25px;
@@ -340,7 +345,7 @@
   transition: all 0.3s ease;
   text-transform: uppercase;
   letter-spacing: 1px;
-  box-shadow: 0 2px 10px rgb(89, 0, 100);
+  box-shadow: 0 2px 10px rgba(59, 130, 246, 0.3);
   font-size: 0.9rem;
   min-width: 120px;
   max-width: 150px;
@@ -349,9 +354,9 @@
 }
 
 .coming-soon-btn:hover {
-  background: linear-gradient(135deg, #444, #555);
+  background: linear-gradient(135deg, #2563eb, #7c3aed);
   transform: translateY(-2px);
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4);
 }
 
 .popup-overlay {
@@ -422,8 +427,8 @@
 
 .modern-banner {
   min-height: 100vh;
-  background: linear-gradient(135deg, #0f172a, #1e293b);
-  color: #fff;
+  background: linear-gradient(135deg, #f8fafc, #f1f5f9);
+  color: #1e293b;
   padding: 2rem;
   position: relative;
   overflow: hidden;
@@ -460,7 +465,7 @@
 .banner-hero-description {
   font-size: clamp(1rem, 1.5vw, 1.25rem);
   line-height: 1.6;
-  color: #94a3b8;
+  color: #475569;
   margin-bottom: 2rem;
   max-width: 600px;
 }
@@ -506,12 +511,12 @@
   display: block;
   font-size: 2.5rem;
   font-weight: 700;
-  color: #60a5fa;
+  color: #3b82f6;
   margin-bottom: 0.5rem;
 }
 
 .banner-stat-label {
-  color: #94a3b8;
+  color: #64748b;
   font-size: 1rem;
 }
 
@@ -523,33 +528,35 @@
 }
 
 .banner-feature-card {
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.8);
   backdrop-filter: blur(10px);
   padding: 2rem;
   border-radius: 20px;
   text-align: center;
   transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
 }
 
 .banner-feature-card:hover {
   transform: translateY(-5px);
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.05);
 }
 
 .banner-feature-card i {
   font-size: 2rem;
-  color: #60a5fa;
+  color: #3b82f6;
   margin-bottom: 1rem;
 }
 
 .banner-feature-card h3 {
   font-size: 1.25rem;
   margin-bottom: 0.5rem;
-  color: #fff;
+  color: #1e293b;
 }
 
 .banner-feature-card p {
-  color: #94a3b8;
+  color: #64748b;
   font-size: 0.9rem;
 }
 
