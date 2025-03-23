@@ -24,7 +24,7 @@ export const GraduationExamHome = () => {
                 </div>
                 <div className="grad-exam-actions mt-auto">
                   <Button
-                    variant="outline-primary"
+                    variant="primary"
                     className="grad-exam-apply"
                     href={exam.application_link}
                     target="_blank"

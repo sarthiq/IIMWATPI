@@ -14,12 +14,28 @@ import { CareerOptions } from "./CareerOptions/CareerOptions";
 
 export const Dashboard = () => {
   const location = useLocation();
+  const [showSidebar, setShowSidebar] = React.useState(false);
+
+  const toggleSidebar = () => {
+    setShowSidebar(!showSidebar);
+  };
 
   return (
     <Container fluid className="dashboard-container">
       <Row>
+        {/* Mobile Toggle Button */}
+        <div className="d-md-none mobile-toggle-container">
+          <button className="mobile-sidebar-toggle" onClick={toggleSidebar}>
+            {showSidebar ? "✕" : "☰"} Menu
+          </button>
+        </div>
+
         {/* Left Panel Navigation */}
-        <Col md={3} lg={2} className="dashboard-sidebar">
+        <Col 
+          md={3} 
+          lg={2} 
+          className={`dashboard-sidebar ${showSidebar ? 'show-mobile-sidebar' : 'hide-mobile-sidebar'}`}
+        >
           <Nav className="flex-column sidebar-nav">
             <Nav.Link
               as={Link}
@@ -27,6 +43,7 @@ export const Dashboard = () => {
               className={`sidebar-link ${
                 location.pathname.includes("/profile") ? "active" : ""
               }`}
+              onClick={() => setShowSidebar(false)}
             >
               Profile
             </Nav.Link>
@@ -36,6 +53,7 @@ export const Dashboard = () => {
               className={`sidebar-link ${
                 location.pathname.includes("/results") ? "active" : ""
               }`}
+              onClick={() => setShowSidebar(false)}
             >
               Test Results
             </Nav.Link>
@@ -45,6 +63,7 @@ export const Dashboard = () => {
               className={`sidebar-link ${
                 location.pathname.includes("/ai-literacy") ? "active" : ""
               }`}
+              onClick={() => setShowSidebar(false)}
             >
               AI Literacy
             </Nav.Link>
@@ -55,6 +74,7 @@ export const Dashboard = () => {
               className={`sidebar-link ${
                 location.pathname.includes("/recommendations") ? "active" : ""
               }`}
+              onClick={() => setShowSidebar(false)}
             >
               Career Recommendations
             </Nav.Link>
@@ -64,6 +84,7 @@ export const Dashboard = () => {
               className={`sidebar-link ${
                 location.pathname.includes("/career-report") ? "active" : ""
               }`}
+              onClick={() => setShowSidebar(false)}
             >
               Career Report
             </Nav.Link>
@@ -73,6 +94,7 @@ export const Dashboard = () => {
               className={`sidebar-link ${
                 location.pathname.includes("/interest") ? "active" : ""
               }`}
+              onClick={() => setShowSidebar(false)}
             >
               Interest
             </Nav.Link>
@@ -83,6 +105,7 @@ export const Dashboard = () => {
               className={`sidebar-link ${
                 location.pathname.includes("/career-options") ? "active" : ""
               }`}
+              onClick={() => setShowSidebar(false)}
             >
               Career Options
             </Nav.Link>

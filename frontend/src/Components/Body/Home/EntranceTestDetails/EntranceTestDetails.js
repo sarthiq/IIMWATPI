@@ -11,6 +11,7 @@ import { EntranceHome } from "./EntranceHome/EntranceHome";
 import { IntermediateExam } from "./IntermediateExam/IntermediateExam";
 import { GraduationExam } from "./GraduationExam/GraduationExam";
 import { AfterGraduation } from "./AfterGraduation/AfterGraduation";
+import "./EntranceTestDetails.css";
 
 export const EntranceTestDetails = () => {
   const [activeTab, setActiveTab] = useState("intermediate");
@@ -54,14 +55,17 @@ export const EntranceTestDetails = () => {
   };
 
   return (
-    <Container className="grad-exam-container py-5">
+    <Container className="entrance-test-container py-5">
+      <h2 className="entrance-test-title text-center mb-4">
+        Entrance Exams in India
+      </h2>
       <Tab.Container activeKey={activeTab} onSelect={handleTabSelect}>
-        <Nav variant="tabs" className="grad-exam-tabs mb-4">
+        <Nav variant="tabs" className="entrance-test-tabs mb-4 justify-content-center">
           {tabs.map((tab) => (
             <Nav.Item key={tab.id}>
               <Nav.Link
                 eventKey={tab.id}
-                className="grad-exam-tab"
+                className="entrance-test-tab text-center"
                 active={activeTab === tab.id}
               >
                 {tab.label}

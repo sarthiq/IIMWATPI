@@ -1,5 +1,5 @@
 .after-grad-container {
-    background-color: #f8f9fa;
+    background-color: #f0f7ff;
     padding: 1.5rem;
     max-width: 1200px;
     margin: 0 auto;
@@ -8,8 +8,12 @@
 .section-heading {
     font-size: 1.75rem;
     margin-bottom: 1.5rem !important;
-    color: #2c3e50;
+    color: #1a3a6c;
     font-weight: 600;
+}
+
+.exam-section {
+    margin-bottom: 2.5rem;
 }
 
 .after-grad-heading {
@@ -38,18 +42,19 @@
 }
 
 .after-grad-exam-card {
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
     border: none;
-    border-radius: 12px;
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease;
     background: white;
+    border-radius: 12px;
     height: 100%;
     display: flex;
     flex-direction: column;
+    border-top: 4px solid #4285f4;
 }
 
 .after-grad-exam-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1) !important;
+    box-shadow: 0 10px 20px rgba(66, 133, 244, 0.15) !important;
 }
 
 .after-grad-exam-card .card-body {
@@ -64,20 +69,26 @@
 }
 
 .after-grad-exam-title {
-    color: #2c3e50;
+    color: #1a3a6c;
     font-weight: 600;
-    font-size: 1.1rem;
+    font-size: 1.2rem;
+    margin-top: 0.5rem;
     line-height: 1.4;
 }
 
 .after-grad-exam-body {
-    color: #495057;
-    font-size: 0.95rem;
+    font-size: 0.9rem;
+    color: #5f6368;
 }
 
 .after-grad-exam-date {
-    color: #6c757d;
     font-size: 0.9rem;
+    color: #5f6368;
+}
+
+.after-grad-exam-body strong,
+.after-grad-exam-date strong {
+    color: #1a3a6c;
 }
 
 .after-grad-exam-actions {
@@ -90,18 +101,35 @@
 }
 
 .after-grad-exam-apply {
-    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    padding: 0.375rem 1.5rem;
     font-weight: 500;
+    background-color: #4285f4;
+    border-color: #4285f4;
+    transition: all 0.3s ease;
+}
+
+.after-grad-exam-apply:hover {
+    background-color: #1a73e8;
+    border-color: #1a73e8;
+    transform: translateY(-2px);
 }
 
 .after-grad-exam-details {
-    color: #0d6efd;
     text-decoration: none;
+    color: #4285f4;
     font-weight: 500;
 }
 
 .after-grad-exam-details:hover {
     text-decoration: underline;
+    color: #1a73e8;
+}
+
+@media (max-width: 992px) {
+    .after-grad-container {
+        padding: 1.25rem;
+    }
 }
 
 @media (max-width: 768px) {
@@ -111,7 +139,7 @@
     
     .section-heading {
         font-size: 1.5rem;
-        margin-bottom: 1rem !important;
+        margin-bottom: 1.5rem !important;
     }
     
     .after-grad-exam-card .card-body {
@@ -123,25 +151,69 @@
         align-items: stretch;
     }
     
-    .after-grad-exam-actions .btn {
+    .after-grad-exam-actions .btn,
+    .after-grad-exam-actions .btn-link {
         width: 100%;
         margin-right: 0 !important;
         margin-bottom: 0.5rem;
+        text-align: center;
     }
     
-    .after-grad-exam-row {
-        margin-left: -0.5rem;
-        margin-right: -0.5rem;
+    .after-grad-exam-title {
+        font-size: 1.1rem;
     }
     
-    .after-grad-exam-row > [class*="col-"] {
-        padding-left: 0.5rem;
-        padding-right: 0.5rem;
+    .after-grad-exam-body,
+    .after-grad-exam-date {
+        font-size: 0.85rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .after-grad-container {
+        padding: 0.75rem 0.5rem;
     }
     
-    .after-grad-tab {
-        padding: 0.5rem 1rem;
+    .section-heading {
+        font-size: 1.35rem;
+        margin-bottom: 1.25rem !important;
+    }
+    
+    .after-grad-exam-title {
+        font-size: 1.1rem;
+    }
+    
+    .after-grad-exam-body,
+    .after-grad-exam-date {
         font-size: 0.9rem;
+    }
+    
+    .after-grad-exam-card .card-body {
+        padding: 1rem;
+    }
+    
+    .after-grad-exam-apply {
+        padding: 0.3rem 1rem;
+        font-size: 0.9rem;
+    }
+    
+    .after-grad-exam-details {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 375px) {
+    .after-grad-container {
+        padding: 0.5rem 0.25rem;
+    }
+    
+    .section-heading {
+        font-size: 1.25rem;
+        margin-bottom: 1rem !important;
+    }
+    
+    .after-grad-exam-card .card-body {
+        padding: 0.85rem;
     }
     
     .after-grad-exam-title {
@@ -152,15 +224,13 @@
     .after-grad-exam-date {
         font-size: 0.85rem;
     }
-}
-
-@media (max-width: 576px) {
-    .after-grad-exam-title {
-        font-size: 1.1rem;
+    
+    .after-grad-exam-apply {
+        padding: 0.25rem 0.75rem;
+        font-size: 0.85rem;
     }
     
-    .after-grad-exam-body,
-    .after-grad-exam-date {
-        font-size: 0.9rem;
+    .after-grad-exam-details {
+        font-size: 0.85rem;
     }
 }

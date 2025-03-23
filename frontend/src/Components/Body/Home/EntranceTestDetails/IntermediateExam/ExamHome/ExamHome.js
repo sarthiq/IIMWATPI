@@ -25,7 +25,7 @@ export const ExamHome = () => {
                 </div>
                 <div className="entrance-exam-actions">
                   <Button
-                    variant="outline-primary"
+                    variant="primary"
                     className="entrance-exam-apply"
                     href={exam.application_link}
                     target="_blank"

@@ -2,83 +2,98 @@
     min-height: 100vh;
     background-color: #f8f9fa;
     padding: 0;
-  }
+    position: relative;
+}
   
-  .dashboard-sidebar {
+.dashboard-sidebar {
     background-color: #003479;
     min-height: 100vh;
     padding: 0;
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
-  }
+}
   
-  .sidebar-header {
+.sidebar-header {
     padding: 1.5rem;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  }
+}
   
-  .sidebar-header h3 {
+.sidebar-header h3 {
     color: white;
     margin: 0;
     font-size: 1.5rem;
-  }
+}
   
-  .sidebar-nav {
+.sidebar-nav {
     padding: 1rem 0;
-  }
+}
   
-  .sidebar-link {
+.sidebar-link {
     color: rgba(255, 255, 255, 0.8) !important;
     padding: 0.75rem 1.5rem !important;
     transition: all 0.3s ease;
     border-left: 3px solid transparent;
-  }
+}
   
-  .sidebar-link:hover {
+.sidebar-link:hover {
     color: white !important;
     background-color: rgba(255, 255, 255, 0.1);
     border-left-color: #4f46e5;
-  }
+}
   
-  .sidebar-link.active {
+.sidebar-link.active {
     color: white !important;
     background-color: rgba(255, 255, 255, 0.1);
     border-left-color: #4f46e5;
     font-weight: 500;
-  }
+}
   
-  .dashboard-content {
+.dashboard-content {
     padding: 2rem;
     background-color: white;
     min-height: 100vh;
-  }
+}
   
-  /* Responsive Styles */
-  @media (max-width: 768px) {
+/* Enhanced Mobile Responsiveness */
+.mobile-toggle-container {
+    background-color: #003479;
+    padding: 10px;
+    width: 100%;
+    position: sticky;
+    top: 0;
+    z-index: 1001;
+}
+  
+.mobile-sidebar-toggle {
+    background-color: transparent;
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+  
+@media (max-width: 767px) {
     .dashboard-sidebar {
-      min-height: auto;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        width: 80%;
+        z-index: 1000;
+        transition: transform 0.3s ease;
+        overflow-y: auto;
     }
   
-    .sidebar-nav {
-      flex-direction: row !important;
-      justify-content: space-around;
-      padding: 0.5rem;
+    .hide-mobile-sidebar {
+        transform: translateX(-100%);
     }
   
-    .sidebar-link {
-      padding: 0.5rem !important;
-      border-left: none;
-      border-bottom: 3px solid transparent;
-    }
-  
-    .sidebar-link.active {
-      border-left: none;
-      border-bottom-color: #4f46e5;
+    .show-mobile-sidebar {
+        transform: translateX(0);
     }
   
     .dashboard-content {
-      padding: 1rem;
+        width: 100%;
+        padding: 1rem;
     }
-  }
+}

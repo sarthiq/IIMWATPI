@@ -876,7 +876,7 @@ export const SchollarshipHome = () => {
         Available Scholarships in India
       </h2>
 
-      <Nav variant="tabs" className="mb-4 justify-content-center">
+      <Nav variant="tabs" className="mb-4 justify-content-center scholarship-tabs">
         <Nav.Item>
           <Nav.Link
             active={activeTab === "national"}
@@ -910,7 +910,7 @@ export const SchollarshipHome = () => {
                     <h5 className="scholarship-name mt-2">
                       <Link
                         to={`/scholarships/${scholarship.route}`}
-                        className="text-decoration-none text-dark"
+                        className="text-decoration-none scholarship-link"
                       >
                         {scholarship.name}
                       </Link>
@@ -931,7 +931,7 @@ export const SchollarshipHome = () => {
 
                   <div className="scholarship-actions mt-3">
                     <Button
-                      variant="outline-primary"
+                      variant="primary"
                       className="scholarship-apply-btn"
                       href={scholarship.applyLink}
                       target="_blank"
