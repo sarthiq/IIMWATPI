@@ -9,7 +9,7 @@ export const AfterGraduationHome = () => {
     return (
       <Row className="after-grad-exam-row g-4">
         {exams.map((exam) => (
-          <Col key={exam.name} xs={12} md={6} lg={4}>
+          <Col key={exam.name} xs={12} sm={6} lg={4}>
             <Card className="after-grad-exam-card h-100 shadow-sm">
               <Card.Body>
                 <div className="after-grad-exam-header">
@@ -48,7 +48,7 @@ export const AfterGraduationHome = () => {
   };
 
   return (
-    <Container className="after-grad-container">
+    <Container fluid="lg" className="after-grad-container py-4">
       {categories.map((category) => (
         <div key={category.id} className="exam-section mb-5">
           <h3 className="section-heading mb-4">{category.title}</h3>

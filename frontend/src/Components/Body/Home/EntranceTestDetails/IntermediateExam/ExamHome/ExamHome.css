@@ -1,5 +1,13 @@
 .entrance-exam-container {
   background-color: #f8f9fa;
+  padding: 1.5rem;
+}
+
+.section-heading {
+  font-size: 1.75rem;
+  margin-bottom: 1.5rem !important;
+  color: #2c3e50;
+  font-weight: 600;
 }
 
 .entrance-exam-heading {
@@ -32,11 +40,25 @@
   border: none;
   border-radius: 12px;
   background: white;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 .entrance-exam-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1) !important;
+}
+
+.entrance-exam-card .card-body {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 1.5rem;
+}
+
+.entrance-exam-header {
+  flex: 1;
 }
 
 .entrance-exam-title {
@@ -59,7 +81,10 @@
 .entrance-exam-actions {
   display: flex;
   align-items: center;
-  margin-top: 1rem;
+  justify-content: space-between;
+  margin-top: 1.5rem;
+  flex-wrap: wrap;
+  gap: 0.5rem;
 }
 
 .entrance-exam-apply {
@@ -78,6 +103,40 @@
 }
 
 @media (max-width: 768px) {
+  .entrance-exam-container {
+    padding: 1rem 0.75rem;
+  }
+  
+  .section-heading {
+    font-size: 1.5rem;
+    margin-bottom: 1rem !important;
+  }
+  
+  .entrance-exam-card .card-body {
+    padding: 1.25rem;
+  }
+  
+  .entrance-exam-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .entrance-exam-actions .btn {
+    width: 100%;
+    margin-right: 0 !important;
+    margin-bottom: 0.5rem;
+  }
+  
+  .entrance-exam-row {
+    margin-left: -0.5rem;
+    margin-right: -0.5rem;
+  }
+  
+  .entrance-exam-row > [class*="col-"] {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+  
   .entrance-exam-tab {
     padding: 0.5rem 1rem;
     font-size: 0.9rem;
@@ -90,5 +149,16 @@
   .entrance-exam-body,
   .entrance-exam-date {
     font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .entrance-exam-title {
+    font-size: 1.1rem;
+  }
+  
+  .entrance-exam-body,
+  .entrance-exam-date {
+    font-size: 0.9rem;
   }
 }

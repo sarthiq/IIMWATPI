@@ -20,19 +20,19 @@ export const EntranceTestDetails = () => {
   const tabs = [
     {
       id: "intermediate",
-      label: "Intermediate",
+      label: "School Admission Entrance Exams",
       component: <IntermediateExam />,
       path: "intermediate",
     },
     {
       id: "graduation",
-      label: "Graduation",
+      label: "College Admission Entrance Exams",
       component: <GraduationExam />,
       path: "graduation",
     },
     {
       id: "after-graduation",
-      label: "After Graduation",
+      label: "Entrance Exams for Higher Studies",
       component: <AfterGraduation />,
       path: "after-graduation",
     },

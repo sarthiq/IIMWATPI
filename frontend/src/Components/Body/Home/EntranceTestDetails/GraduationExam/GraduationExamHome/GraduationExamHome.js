@@ -9,7 +9,7 @@ export const GraduationExamHome = () => {
     return (
       <Row className="grad-exam-row g-4">
         {exams.map((exam) => (
-          <Col key={exam.name} xs={12} md={6} lg={4}>
+          <Col key={exam.name} xs={12} sm={6} lg={4}>
             <Card className="grad-exam-card h-100 shadow-sm">
               <Card.Body>
                 <div className="grad-exam-header">
@@ -25,7 +25,7 @@ export const GraduationExamHome = () => {
                 <div className="grad-exam-actions mt-auto">
                   <Button
                     variant="outline-primary"
-                    className="grad-exam-apply me-2"
+                    className="grad-exam-apply"
                     href={exam.application_link}
                     target="_blank"
                     rel="noopener noreferrer"
@@ -48,9 +48,7 @@ export const GraduationExamHome = () => {
   };
 
   return (
-    <Container className="grad-exam-container">
-
-
+    <Container fluid="lg" className="grad-exam-container py-4">
       {examCategories.map((category) => (
         <div key={category.id} className="exam-section mb-5">
           <h3 className="section-heading mb-4">{category.title}</h3>
