@@ -871,16 +871,17 @@ export const SchollarshipHome = () => {
   ];
 
   return (
-    <Container className="scholarship-container py-5">
+    <Container fluid className="scholarship-container py-4">
       <h2 className="scholarship-title text-center mb-4">
         Available Scholarships in India
       </h2>
 
-      <Nav variant="tabs" className="mb-4">
+      <Nav variant="tabs" className="mb-4 justify-content-center">
         <Nav.Item>
           <Nav.Link
             active={activeTab === "national"}
             onClick={() => setActiveTab("national")}
+            className="text-center"
           >
             National Scholarships
           </Nav.Link>
@@ -889,6 +890,7 @@ export const SchollarshipHome = () => {
           <Nav.Link
             active={activeTab === "state"}
             onClick={() => setActiveTab("state")}
+            className="text-center"
           >
             State-Wise Scholarships
           </Nav.Link>
@@ -896,9 +898,9 @@ export const SchollarshipHome = () => {
       </Nav>
 
       {activeTab === "national" ? (
-        <Row className="g-4">
+        <Row className="g-3">
           {scholarships.map((scholarship) => (
-            <Col key={scholarship.id} xs={12} md={6} lg={4}>
+            <Col key={scholarship.id} xs={12} sm={6} lg={4}>
               <Card className="scholarship-card h-100 shadow-sm">
                 <Card.Body>
                   <div className="scholarship-header mb-3">
@@ -930,7 +932,7 @@ export const SchollarshipHome = () => {
                   <div className="scholarship-actions mt-3">
                     <Button
                       variant="outline-primary"
-                      className="me-2 scholarship-apply-btn"
+                      className="scholarship-apply-btn"
                       href={scholarship.applyLink}
                       target="_blank"
                       rel="noopener noreferrer"
@@ -951,15 +953,15 @@ export const SchollarshipHome = () => {
         </Row>
       ) : (
         stateScholarships.map((stateData) => (
-          <div key={stateData.id} className="state-scholarship-section mb-5">
-            <h3 className="state-title mb-4">
+          <div key={stateData.id} className="state-scholarship-section mb-4">
+            <h3 className="state-title mb-3">
               <Badge bg="secondary" className="state-badge me-2">
                 {stateData.state}
               </Badge>
             </h3>
-            <Row className="g-4">
+            <Row className="g-3">
               {stateData.scholarships.map((scholarship) => (
-                <Col key={scholarship.id} xs={12} md={6}>
+                <Col key={scholarship.id} xs={12}>
                   <Card className="state-scholarship-card h-100 shadow-sm">
                     <Card.Body>
                       <div className="scholarship-header mb-3">
@@ -992,7 +994,7 @@ export const SchollarshipHome = () => {
                       <div className="scholarship-actions mt-3">
                         <Button
                           variant="outline-primary"
-                          className="me-2 scholarship-apply-btn"
+                          className="scholarship-apply-btn"
                           href={scholarship.applyLink}
                           target="_blank"
                           rel="noopener noreferrer"
