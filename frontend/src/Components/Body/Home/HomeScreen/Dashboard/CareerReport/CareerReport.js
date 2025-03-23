@@ -189,81 +189,45 @@ export const CareerReport = () => {
   return (
     <Container fluid className="cr-page-wrapper">
       <div id="report" className="cr-report-container">
-        <Card className="cr-header-card mb-4">
-          <Card.Body className="text-center">
-            <h1 className="cr-report-title">Student Assessment Report</h1>
-            <div className="cr-student-meta">
-              <Badge bg="primary" className="cr-meta-badge">
-                {studentData.studentDetails.class}
-              </Badge>
-              <Badge bg="info" className="cr-meta-badge">
-                {studentData.studentDetails.schoolName}
-              </Badge>
+        {/* Header Section */}
+        <div className="report-header">
+          <div className="student-profile">
+            <div className="student-avatar">
+              {studentData.studentDetails.studentName.charAt(0)}
             </div>
-          </Card.Body>
-        </Card>
+            <div className="student-info">
+              <h1>{studentData.studentDetails.studentName}</h1>
+              <div className="student-details">
+                <span>{studentData.studentDetails.class}</span>
+                <span>•</span>
+                <span>{studentData.studentDetails.schoolName}</span>
+              </div>
+            </div>
+          </div>
+        </div>
 
-        <Row className="g-4">
-          <Col lg={4}>
-            <Card className="cr-profile-card">
-              <Card.Body>
-                <div className="cr-profile-header">
-                  <div className="cr-avatar">
-                    {studentData.studentDetails.studentName.charAt(0)}
-                  </div>
-                  <h3 className="cr-student-name">
-                    {studentData.studentDetails.studentName}
-                  </h3>
-                </div>
-                <hr className="cr-divider" />
-                <div className="cr-profile-details">
-                  <p><strong>School:</strong> {studentData.studentDetails.schoolName}</p>
-                  <p><strong>Class:</strong> {studentData.studentDetails.class}</p>
-                </div>
-              </Card.Body>
-            </Card>
-          </Col>
-
-          <Col lg={8}>
-            <Card className="cr-score-card">
-              <Card.Body>
-                <h3 className="cr-section-title">Personality Assessment</h3>
-                {personalityTraits.map((trait, index) => (
-                  <div key={index} className="cr-score-item">
-                    <div className="cr-score-labels">
-                      <span>{trait.leftLabel}</span>
-                      <span className="cr-trait-name">{trait.trait}</span>
-                      <span>{trait.rightLabel}</span>
-                    </div>
-                    <ProgressBar 
-                      now={trait.score} 
-                      variant="custom"
-                      className="cr-custom-progress"
-                      style={{'--progress-color': trait.color}}
-                    />
-                    <div className="cr-score-value">{trait.score}%</div>
-                  </div>
-                ))}
-              </Card.Body>
-            </Card>
-          </Col>
-        </Row>
-
+        {/* Recommendation Section */}
         <div className="report-section">
           <h2 className="section-title">Recommendation</h2>
-          <div className="recommendation-grid">
-            <div className="recommendation-box">
-              <h3 className="box-title">Career Options</h3>
-              <ul className="recommendation-list">
+          <div className="career-grid">
+            <div className="career-box">
+              <div className="box-header">
+                <i className="fas fa-briefcase"></i>
+                <h3>Career Options</h3>
+              </div>
+              <ul>
                 <li>Software Engineer</li>
                 <li>Data Scientist</li>
                 <li>Product Manager</li>
                 <li>UI/UX Designer</li>
               </ul>
             </div>
-            <div className="recommendation-box">
-              <h3 className="box-title">Higher Education</h3>
-              <ul className="recommendation-list">
+            <div className="career-box">
+              <div className="box-header">
+                <i className="fas fa-graduation-cap"></i>
+                <h3>Higher Education</h3>
+              </div>
+              <ul>
                 <li>B.Tech in Computer Science</li>
                 <li>BCA</li>
                 <li>B.Sc in Data Science</li>
@@ -273,28 +237,41 @@ export const CareerReport = () => {
           </div>
         </div>
 
+        {/* Action Plan Section */}
         <div className="report-section">
           <h2 className="section-title">Action Plan</h2>
-          <div className="action-grid">
-            <div className="action-box">
-              <h3 className="box-title">Immediate Steps (0-6 months)</h3>
-              <ul className="action-list">
+          <div className="timeline">
+            <div className="timeline-phase">
+              <div className="phase-header">
+                <span className="phase-marker">1</span>
+                <h3>Immediate Steps</h3>
+                <span className="phase-duration">0-6 months</span>
+              </div>
+              <ul>
                 <li>Complete Python Programming Course</li>
                 <li>Learn Basic Web Development</li>
                 <li>Create GitHub Profile</li>
               </ul>
             </div>
-            <div className="action-box">
-              <h3 className="box-title">Short Term (6-12 months)</h3>
-              <ul className="action-list">
+            <div className="timeline-phase">
+              <div className="phase-header">
+                <span className="phase-marker">2</span>
+                <h3>Short Term</h3>
+                <span className="phase-duration">6-12 months</span>
+              </div>
+              <ul>
                 <li>Build Portfolio Projects</li>
                 <li>Join Coding Communities</li>
                 <li>Participate in Hackathons</li>
               </ul>
             </div>
-            <div className="action-box">
-              <h3 className="box-title">Long Term (1-2 years)</h3>
-              <ul className="action-list">
+            <div className="timeline-phase">
+              <div className="phase-header">
+                <span className="phase-marker">3</span>
+                <h3>Long Term</h3>
+                <span className="phase-duration">1-2 years</span>
+              </div>
+              <ul>
                 <li>Internship in Tech Company</li>
                 <li>Industry Certifications</li>
                 <li>Specialized Skills Development</li>
@@ -303,25 +280,29 @@ export const CareerReport = () => {
           </div>
         </div>
 
+        {/* IQ Test Section */}
         <div className="report-section">
           <h2 className="section-title">IQ Test Result Explanation</h2>
-          <div className="iq-container">
-            <div className="iq-score-box">
-              <div className="score-circle">120</div>
-              <p className="score-label">IQ Score</p>
+          <div className="iq-content">
+            <div className="iq-score">
+              <div className="score-display">120</div>
+              <div className="score-info">
+                <h3>IQ Score</h3>
+                <p>High Range</p>
+              </div>
             </div>
-            <div className="iq-details">
-              <div className="detail-box">
-                <h3 className="box-title">Strong Areas</h3>
-                <ul className="detail-list">
+            <div className="iq-analysis">
+              <div className="analysis-box">
+                <h4>Strong Areas</h4>
+                <ul>
                   <li>Logical Reasoning</li>
                   <li>Pattern Recognition</li>
                   <li>Numerical Ability</li>
                 </ul>
               </div>
-              <div className="detail-box">
-                <h3 className="box-title">Areas for Improvement</h3>
-                <ul className="detail-list">
+              <div className="analysis-box">
+                <h4>Areas for Improvement</h4>
+                <ul>
                   <li>Verbal Reasoning</li>
                   <li>Spatial Awareness</li>
                   <li>Memory</li>
@@ -331,6 +312,7 @@ export const CareerReport = () => {
           </div>
         </div>
 
+        {/* Interest Test Section */}
         <div className="report-section">
           <h2 className="section-title">Interest Test Explanation</h2>
           <div className="interest-container">
@@ -357,6 +339,7 @@ export const CareerReport = () => {
           </div>
         </div>
 
+        {/* Personality Section */}
         <div className="report-section">
           <h2 className="section-title">Personality Test Explanation</h2>
           <div className="personality-grid">
@@ -385,9 +368,7 @@ export const CareerReport = () => {
                   </div>
                   <div 
                     className="score-indicator"
-                    style={{ 
-                      left: `${trait.score}%`,
-                    }}
+                    style={{ left: `${trait.score}%` }}
                   >
                     {trait.trait}
                   </div>
@@ -425,13 +406,13 @@ export const CareerReport = () => {
           </div>
         </div>
       </div>
-      
-      <div className="cr-print-button-wrapper">
-        <button onClick={handlePrint} className="cr-print-button">
-          <i className="bi bi-download me-2"></i>
+
+      <div className="report-actions">
+        <button onClick={handlePrint} className="print-button">
+          <i className="fas fa-download"></i>
           Download Report
         </button>
-    </div>
+      </div>
     </Container>
   );
 };
