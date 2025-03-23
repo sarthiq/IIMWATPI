@@ -5,6 +5,7 @@ import ReactDOM from "react-dom";
 import { useAlert } from "../../../../UI/Alert/AlertContext";
 import { createQueryHandler } from "../Dashboard/apiHandler";
 import { Spinner } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 const DashboardSection = () => (
   <div className="section dashboard-section">
@@ -49,77 +50,34 @@ const AILiteracySection = () => (
   </div>
 );
 
-const TextSection = () => {
-  const [isOpen, setIsOpen] = React.useState(false);
-  const [isLoading, setIsLoading] = React.useState(false);
-  const { showAlert } = useAlert();
-
-  const openModal = () => setIsOpen(true);
-  const closeModal = () => setIsOpen(false);
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-
-    const formData = {
-      name: e.target.elements[0].value,
-      email: e.target.elements[1].value,
-      phone: e.target.elements[2].value,
-      schoolOrCollege: e.target.elements[3].value,
-      reason: e.target.elements[4].value,
-    };
-
-    const response = await createQueryHandler(
-      formData,
-      setIsLoading,
-      showAlert
-    );
-
-    if (response) {
-      showAlert("info", "Info", "Query submitted successfully",null, () => {
-        closeModal();
-      });
-    }
-  };
-
+const TextSection = ({ isOpen, closeModal, handleSubmit, isLoading }) => {
   return (
-    <div className="text-section">
-      <h1 className="banner-heading">
-        Empowering Students to be AI-ready Career Professionals!
-      </h1>
-      <p className="banner-description">
-        Equipping students with AI literacy and tools to navigate the future,
-        fostering career awareness, and guiding subject choices to align with
-        their aspirations.
-      </p>
-      <div>
-        <button className="coming-soon-btn" onClick={openModal}>
-          Book Demo
-        </button>
-      </div>
+    <>
       {isOpen &&
         ReactDOM.createPortal(
           <div className="popup-overlay">
             <div className="popup-content">
-              <h2>Query Form</h2>
+              <h2 className="section-heading">Book a Demo</h2>
               <form onSubmit={handleSubmit}>
                 <div className="form-group">
-                  <input type="text" placeholder="Name" required />
+                  <input type="text" placeholder="Name" required className="form-control" />
                 </div>
                 <div className="form-group">
-                  <input type="email" placeholder="Email" required />
+                  <input type="email" placeholder="Email" required className="form-control" />
                 </div>
                 <div className="form-group">
-                  <input type="tel" placeholder="Phone" required />
+                  <input type="tel" placeholder="Phone" required className="form-control" />
                 </div>
                 <div className="form-group">
                   <input
                     type="text"
                     placeholder="School/College Name"
                     required
+                    className="form-control"
                   />
                 </div>
                 <div className="form-group">
-                  <textarea placeholder="Your Message" required />
+                  <textarea placeholder="Your Message" required className="form-control" />
                 </div>
                 <div className="form-actions">
                   <button
@@ -127,7 +85,7 @@ const TextSection = () => {
                     type="submit"
                     disabled={isLoading}
                   >
-                    {isLoading ? <Spinner /> : "Submit"}
+                    {isLoading ? <Spinner animation="border" size="sm" /> : "Submit"}
                   </button>
                   <button
                     className="form-cancel-button"
@@ -142,7 +100,7 @@ const TextSection = () => {
           </div>,
           document.getElementById("popup-portal-root")
         )}
-    </div>
+    </>
   );
 };
 
@@ -166,7 +124,7 @@ const CareerSection = () => (
   </div>
 );
 
-const HeroSection = () => (
+const HeroSection = ({ openModal }) => (
   <div className="banner-hero-section">
     <div className="banner-hero-content">
       <h1 className="banner-hero-title">
@@ -188,14 +146,14 @@ const HeroSection = () => (
         and master the skills of tomorrow. Join thousands of students discovering their potential.
       </p>
       <div className="banner-cta-buttons">
-        <button className="banner-primary-cta">Start Your Journey</button>
-        <button className="banner-secondary-cta">Watch Demo</button>
+        <Link to="/dashboard" className="banner-primary-cta">Start Your Journey</Link>
+        <button className="banner-secondary-cta" onClick={openModal}>Book Demo</button>
       </div>
       <div className="banner-stats-container">
-        <div className="banner-stat-item">
+        {/* <div className="banner-stat-item">
           <span className="banner-stat-number">50K+</span>
           <span className="banner-stat-label">Students Guided</span>
-        </div>
+        </div> */}
         <div className="banner-stat-item">
           <span className="banner-stat-number">100+</span>
           <span className="banner-stat-label">Career Paths</span>
@@ -234,9 +192,46 @@ const HeroSection = () => (
 );
 
 export const Banner = () => {
+  const [isOpen, setIsOpen] = React.useState(false);
+  const [isLoading, setIsLoading] = React.useState(false);
+  const { showAlert } = useAlert();
+
+  const openModal = () => setIsOpen(true);
+  const closeModal = () => setIsOpen(false);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    const formData = {
+      name: e.target.elements[0].value,
+      email: e.target.elements[1].value,
+      phone: e.target.elements[2].value,
+      schoolOrCollege: e.target.elements[3].value,
+      reason: e.target.elements[4].value,
+    };
+
+    const response = await createQueryHandler(
+      formData,
+      setIsLoading,
+      showAlert
+    );
+
+    if (response) {
+      showAlert("info", "Info", "Query submitted successfully", null, () => {
+        closeModal();
+      });
+    }
+  };
+
   return (
     <div className="modern-banner">
-      <HeroSection />
+      <HeroSection openModal={openModal} />
+      <TextSection 
+        isOpen={isOpen} 
+        closeModal={closeModal} 
+        handleSubmit={handleSubmit} 
+        isLoading={isLoading} 
+      />
     </div>
   );
 };
