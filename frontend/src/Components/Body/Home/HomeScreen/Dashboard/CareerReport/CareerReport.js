@@ -189,45 +189,39 @@ export const CareerReport = () => {
   return (
     <Container fluid className="cr-page-wrapper">
       <div id="report" className="cr-report-container">
-        {/* Header Section */}
+        {/* Modern Header with Gradient */}
         <div className="report-header">
-          <div className="student-profile">
-            <div className="student-avatar">
+          <div className="report-header-content">
+            <div className="student-avatar-large">
               {studentData.studentDetails.studentName.charAt(0)}
             </div>
-            <div className="student-info">
-              <h1>{studentData.studentDetails.studentName}</h1>
-              <div className="student-details">
-                <span>{studentData.studentDetails.class}</span>
-                <span>•</span>
-                <span>{studentData.studentDetails.schoolName}</span>
+            <div className="student-info-wrapper">
+              <h1 className="student-name">{studentData.studentDetails.studentName}</h1>
+              <div className="student-meta">
+                <span className="meta-badge">{studentData.studentDetails.class}</span>
+                <span className="meta-divider"></span>
+                <span className="meta-badge">{studentData.studentDetails.schoolName}</span>
               </div>
             </div>
           </div>
         </div>
 
-        {/* Recommendation Section */}
-        <div className="report-section">
-          <h2 className="section-title">Recommendation</h2>
+        {/* Career Recommendations section - removed icons */}
+        <div className="report-section recommendation-section">
+          <h2 className="section-title">Career Recommendations</h2>
           <div className="career-grid">
-            <div className="career-box">
-              <div className="box-header">
-                <i className="fas fa-briefcase"></i>
-                <h3>Career Options</h3>
-              </div>
-              <ul>
+            <div className="career-card">
+              <h3>Career Paths</h3>
+              <ul className="career-list">
                 <li>Software Engineer</li>
                 <li>Data Scientist</li>
                 <li>Product Manager</li>
                 <li>UI/UX Designer</li>
               </ul>
             </div>
-            <div className="career-box">
-              <div className="box-header">
-                <i className="fas fa-graduation-cap"></i>
-                <h3>Higher Education</h3>
-              </div>
-              <ul>
+            <div className="career-card">
+              <h3>Education Pathways</h3>
+              <ul className="career-list">
                 <li>B.Tech in Computer Science</li>
                 <li>BCA</li>
                 <li>B.Sc in Data Science</li>
@@ -237,76 +231,69 @@ export const CareerReport = () => {
           </div>
         </div>
 
-        {/* Action Plan Section */}
+        {/* Development Roadmap - removed icon */}
         <div className="report-section">
-          <h2 className="section-title">Action Plan</h2>
-          <div className="timeline">
-            <div className="timeline-phase">
-              <div className="phase-header">
-                <span className="phase-marker">1</span>
-                <h3>Immediate Steps</h3>
-                <span className="phase-duration">0-6 months</span>
-              </div>
-              <ul>
+          <h2 className="section-title">Development Roadmap</h2>
+          <div className="timeline-modern">
+            <div className="timeline-card">
+              <h3>First 6 Months</h3>
+              <ul className="timeline-list">
                 <li>Complete Python Programming Course</li>
                 <li>Learn Basic Web Development</li>
                 <li>Create GitHub Profile</li>
               </ul>
             </div>
-            <div className="timeline-phase">
-              <div className="phase-header">
-                <span className="phase-marker">2</span>
+            <div className="timeline-card">
+              <div className="timeline-content">
                 <h3>Short Term</h3>
-                <span className="phase-duration">6-12 months</span>
+                <ul className="timeline-list">
+                  <li>Build Portfolio Projects</li>
+                  <li>Join Coding Communities</li>
+                  <li>Participate in Hackathons</li>
+                </ul>
               </div>
-              <ul>
-                <li>Build Portfolio Projects</li>
-                <li>Join Coding Communities</li>
-                <li>Participate in Hackathons</li>
-              </ul>
             </div>
-            <div className="timeline-phase">
-              <div className="phase-header">
-                <span className="phase-marker">3</span>
+            <div className="timeline-card">
+              <div className="timeline-content">
                 <h3>Long Term</h3>
-                <span className="phase-duration">1-2 years</span>
+                <ul className="timeline-list">
+                  <li>Internship in Tech Company</li>
+                  <li>Industry Certifications</li>
+                  <li>Specialized Skills Development</li>
+                </ul>
               </div>
-              <ul>
-                <li>Internship in Tech Company</li>
-                <li>Industry Certifications</li>
-                <li>Specialized Skills Development</li>
-              </ul>
             </div>
           </div>
         </div>
 
-        {/* IQ Test Section */}
-        <div className="report-section">
-          <h2 className="section-title">IQ Test Result Explanation</h2>
-          <div className="iq-content">
-            <div className="iq-score">
-              <div className="score-display">120</div>
-              <div className="score-info">
-                <h3>IQ Score</h3>
-                <p>High Range</p>
+        {/* IQ Assessment - removed icon and arranged in row */}
+        <div className="report-section iq-section">
+          <h2 className="section-title">IQ Assessment</h2>
+          <div className="iq-content-modern">
+            <div className="iq-row">
+              <div className="iq-score-circle">
+                <div className="score-ring">
+                  <span className="score-number">120</span>
+                  <span className="score-label">IQ Score</span>
+                </div>
               </div>
-            </div>
-            <div className="iq-analysis">
-              <div className="analysis-box">
-                <h4>Strong Areas</h4>
-                <ul>
-                  <li>Logical Reasoning</li>
-                  <li>Pattern Recognition</li>
-                  <li>Numerical Ability</li>
-                </ul>
-              </div>
-              <div className="analysis-box">
-                <h4>Areas for Improvement</h4>
-                <ul>
-                  <li>Verbal Reasoning</li>
-                  <li>Spatial Awareness</li>
-                  <li>Memory</li>
-                </ul>
+              <div className="iq-details-grid">
+                <div className="analysis-box">
+                  <h4>Strong Areas</h4>
+                  <ul>
+                    <li>Logical Reasoning</li>
+                    <li>Pattern Recognition</li>
+                    <li>Numerical Ability</li>
+                  </ul>
+                </div>
+                <div className="analysis-box">
+                  <h4>Areas for Improvement</h4>
+                  <ul>
+                    <li>Verbal Reasoning</li>
+                    <li>Spatial Awareness</li>
+                    <li>Memory</li>
+                  </ul>
+                </div>
               </div>
             </div>
           </div>
