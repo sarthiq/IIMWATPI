@@ -900,7 +900,7 @@ export const SchollarshipHome = () => {
       {activeTab === "national" ? (
         <Row className="g-3">
           {scholarships.map((scholarship) => (
-            <Col key={scholarship.id} xs={12} sm={6} lg={4}>
+            <Col key={scholarship.id} xs={12} sm={6} >
               <Card className="scholarship-card h-100 shadow-sm">
                 <Card.Body>
                   <div className="scholarship-header mb-3">
@@ -961,7 +961,7 @@ export const SchollarshipHome = () => {
             </h3>
             <Row className="g-3">
               {stateData.scholarships.map((scholarship) => (
-                <Col key={scholarship.id} xs={12}>
+                <Col key={scholarship.id} xs={12} sm={6} >
                   <Card className="state-scholarship-card h-100 shadow-sm">
                     <Card.Body>
                       <div className="scholarship-header mb-3">
