@@ -26,201 +26,196 @@
     flex: 1;
     position: relative;
     padding: 1.25rem;
-}
-
-/* Color schemes for personality pairs */
-/* Extroverts - Introverts: Blue theme */
-.personality-comparison-card:nth-child(1) .personality-section:nth-child(1) .personality-header h3,
-.personality-comparison-card:nth-child(1) .personality-section:nth-child(2) .personality-header h3 {
-    color: #2563eb;
-    background: linear-gradient(120deg, rgba(37, 99, 235, 0.1) 0%, transparent 100%);
-    padding: 0.5rem 1rem;
-    border-radius: 8px;
-}
-
-.personality-comparison-card:nth-child(1) .personality-header::after { background: #2563eb; }
-.personality-comparison-card:nth-child(1) .career-list li::before { color: #2563eb; }
-.personality-comparison-card:nth-child(1) .advice-section { border-left-color: #2563eb; }
-
-/* Organized - Unorganised: Green theme */
-.personality-comparison-card:nth-child(2) .personality-section:nth-child(1) .personality-header h3,
-.personality-comparison-card:nth-child(2) .personality-section:nth-child(2) .personality-header h3 {
-    color: #059669;
-    background: linear-gradient(120deg, rgba(5, 150, 105, 0.1) 0%, transparent 100%);
-    padding: 0.5rem 1rem;
-    border-radius: 8px;
-}
-
-.personality-comparison-card:nth-child(2) .personality-header::after { background: #059669; }
-.personality-comparison-card:nth-child(2) .career-list li::before { color: #059669; }
-.personality-comparison-card:nth-child(2) .advice-section { border-left-color: #059669; }
-
-/* Altruist - Self-Centered: Purple theme */
-.personality-comparison-card:nth-child(3) .personality-section:nth-child(1) .personality-header h3,
-.personality-comparison-card:nth-child(3) .personality-section:nth-child(2) .personality-header h3 {
-    color: #7c3aed;
-    background: linear-gradient(120deg, rgba(124, 58, 237, 0.1) 0%, transparent 100%);
-    padding: 0.5rem 1rem;
-    border-radius: 8px;
-}
-
-.personality-comparison-card:nth-child(3) .personality-header::after { background: #7c3aed; }
-.personality-comparison-card:nth-child(3) .career-list li::before { color: #7c3aed; }
-.personality-comparison-card:nth-child(3) .advice-section { border-left-color: #7c3aed; }
-
-/* Emotionally Stable - Emotional: Orange theme */
-.personality-comparison-card:nth-child(4) .personality-section:nth-child(1) .personality-header h3,
-.personality-comparison-card:nth-child(4) .personality-section:nth-child(2) .personality-header h3 {
-    color: #ea580c;
-    background: linear-gradient(120deg, rgba(234, 88, 12, 0.1) 0%, transparent 100%);
-    padding: 0.5rem 1rem;
-    border-radius: 8px;
-}
-
-.personality-comparison-card:nth-child(4) .personality-header::after { background: #ea580c; }
-.personality-comparison-card:nth-child(4) .career-list li::before { color: #ea580c; }
-.personality-comparison-card:nth-child(4) .advice-section { border-left-color: #ea580c; }
-
-/* Openness - Rigid: Teal theme */
-.personality-comparison-card:nth-child(5) .personality-section:nth-child(1) .personality-header h3,
-.personality-comparison-card:nth-child(5) .personality-section:nth-child(2) .personality-header h3 {
-    color: #0d9488;
-    background: linear-gradient(120deg, rgba(13, 148, 136, 0.1) 0%, transparent 100%);
-    padding: 0.5rem 1rem;
-    border-radius: 8px;
-}
-
-.personality-comparison-card:nth-child(5) .personality-header::after { background: #0d9488; }
-.personality-comparison-card:nth-child(5) .career-list li::before { color: #0d9488; }
-.personality-comparison-card:nth-child(5) .advice-section { border-left-color: #0d9488; }
-
-/* Update vertical divider for each pair */
-.personality-comparison-card:nth-child(1) .vertical-divider {
-    background: linear-gradient(to bottom, transparent, rgba(37, 99, 235, 0.2), rgba(37, 99, 235, 0.4), rgba(37, 99, 235, 0.2), transparent);
-}
-
-.personality-comparison-card:nth-child(2) .vertical-divider {
-    background: linear-gradient(to bottom, transparent, rgba(5, 150, 105, 0.2), rgba(5, 150, 105, 0.4), rgba(5, 150, 105, 0.2), transparent);
-}
-
-.personality-comparison-card:nth-child(3) .vertical-divider {
-    background: linear-gradient(to bottom, transparent, rgba(124, 58, 237, 0.2), rgba(124, 58, 237, 0.4), rgba(124, 58, 237, 0.2), transparent);
-}
-
-.personality-comparison-card:nth-child(4) .vertical-divider {
-    background: linear-gradient(to bottom, transparent, rgba(234, 88, 12, 0.2), rgba(234, 88, 12, 0.4), rgba(234, 88, 12, 0.2), transparent);
-}
-
-.personality-comparison-card:nth-child(5) .vertical-divider {
-    background: linear-gradient(to bottom, transparent, rgba(13, 148, 136, 0.2), rgba(13, 148, 136, 0.4), rgba(13, 148, 136, 0.2), transparent);
+    background: linear-gradient(to bottom, #fafafa, #ffffff);
 }
 
 .personality-header {
     margin-bottom: 1rem;
     padding-bottom: 0.5rem;
     border-bottom: 2px solid #f1f5f9;
-    position: relative;
-}
-
-.personality-header::after {
-    content: '';
-    position: absolute;
-    bottom: -2px;
-    left: 0;
-    width: 60px;
-    height: 2px;
 }
 
 .personality-header h3 {
-    color: #1e293b;
     font-size: 1.4rem;
     font-weight: 700;
     margin: 0;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
     letter-spacing: -0.5px;
 }
 
-.personality-content {
-    padding: 0.5rem;
-}
-
-.career-list {
+.personality-career-list {
     list-style-type: none;
     padding: 0;
     margin: 0 0 1rem 0;
 }
 
-.career-list li {
-    padding: 0.6rem 0.8rem;
-    margin-bottom: 0.4rem;
-    background: #f8fafc;
-    border-radius: 8px;
+.personality-career-list li {
+    padding: 0.4rem 0;
+    margin-bottom: 0.2rem;
     color: #334155;
     font-size: 0.9rem;
     transition: all 0.3s ease;
-    border: 1px solid #e2e8f0;
     display: flex;
     align-items: center;
+    border: none;
+    background: none;
 }
 
-.career-list li::before {
-    content: '•';
-    font-weight: bold;
+.personality-career-list li::before {
+    content: '✓';
     margin-right: 8px;
-    font-size: 1.1rem;
-}
-
-.career-list li:hover {
-    background: #f1f5f9;
-    transform: translateX(5px);
-    border-color: #cbd5e1;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-}
-
-.advice-section {
-    background: #f8fafc;
-    border-radius: 10px;
-    padding: 1rem;
-    border: 1px solid #e2e8f0;
-    position: relative;
-    margin-top: 0.75rem;
-    border-left-width: 4px;
-}
-
-.advice-section::before {
-    content: '"';
-    position: absolute;
-    top: -12px;
-    left: 15px;
-    font-size: 2.5rem;
-    opacity: 0.2;
-    font-family: Georgia, serif;
-}
-
-.advice-section h4 {
-    color: #1e293b;
     font-size: 1rem;
+    font-weight: bold;
+}
+
+/* Extroverts - Introverts */
+.personality-comparison-card:nth-child(1) .personality-section:nth-child(1) .personality-career-list li::before,
+.personality-comparison-card:nth-child(1) .personality-section:nth-child(1) .personality-header h3 {
+    color: #2563eb;
+}
+
+.personality-comparison-card:nth-child(1) .personality-section:nth-child(2) .personality-career-list li::before,
+.personality-comparison-card:nth-child(1) .personality-section:nth-child(2) .personality-header h3 {
+    color: #059669;
+}
+
+/* Organized - Unorganised */
+.personality-comparison-card:nth-child(2) .personality-section:nth-child(1) .personality-career-list li::before,
+.personality-comparison-card:nth-child(2) .personality-section:nth-child(1) .personality-header h3 {
+    color: #7c3aed;
+}
+
+.personality-comparison-card:nth-child(2) .personality-section:nth-child(2) .personality-career-list li::before,
+.personality-comparison-card:nth-child(2) .personality-section:nth-child(2) .personality-header h3 {
+    color: #059669;
+}
+
+/* Altruist - Self-Centered */
+.personality-comparison-card:nth-child(3) .personality-section:nth-child(1) .personality-career-list li::before,
+.personality-comparison-card:nth-child(3) .personality-section:nth-child(1) .personality-header h3 {
+    color: #0d9488;
+}
+
+.personality-comparison-card:nth-child(3) .personality-section:nth-child(2) .personality-career-list li::before,
+.personality-comparison-card:nth-child(3) .personality-section:nth-child(2) .personality-header h3 {
+    color: #dc2626;
+}
+
+/* Emotionally Stable - Emotional */
+.personality-comparison-card:nth-child(4) .personality-section:nth-child(1) .personality-career-list li::before,
+.personality-comparison-card:nth-child(4) .personality-section:nth-child(1) .personality-header h3 {
+    color: #ea580c;
+}
+
+.personality-comparison-card:nth-child(4) .personality-section:nth-child(2) .personality-career-list li::before,
+.personality-comparison-card:nth-child(4) .personality-section:nth-child(2) .personality-header h3 {
+    color: #7c3aed;
+}
+
+/* Openness - Rigid */
+.personality-comparison-card:nth-child(5) .personality-section:nth-child(1) .personality-career-list li::before,
+.personality-comparison-card:nth-child(5) .personality-section:nth-child(1) .personality-header h3 {
+    color: #0d9488;
+}
+
+.personality-comparison-card:nth-child(5) .personality-section:nth-child(2) .personality-career-list li::before,
+.personality-comparison-card:nth-child(5) .personality-section:nth-child(2) .personality-header h3 {
+    color: #dc2626;
+}
+
+/* Hover effect */
+.personality-career-list li:hover {
+    transform: translateX(5px);
+    color: #1a202c;
+}
+
+.personality-note {
+    background: #f8fafc;
+    border-radius: 12px;
+    padding: 1rem 1.2rem;
+    margin-top: 1rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    position: relative;
+}
+
+/* Color-specific left borders for notes */
+.personality-comparison-card:nth-child(1) .personality-section:nth-child(1) .personality-note {
+    border-left: 4px solid #2563eb;
+}
+
+.personality-comparison-card:nth-child(1) .personality-section:nth-child(2) .personality-note {
+    border-left: 4px solid #059669;
+}
+
+.personality-comparison-card:nth-child(2) .personality-section:nth-child(1) .personality-note {
+    border-left: 4px solid #7c3aed;
+}
+
+.personality-comparison-card:nth-child(2) .personality-section:nth-child(2) .personality-note {
+    border-left: 4px solid #059669;
+}
+
+.personality-comparison-card:nth-child(3) .personality-section:nth-child(1) .personality-note {
+    border-left: 4px solid #0d9488;
+}
+
+.personality-comparison-card:nth-child(3) .personality-section:nth-child(2) .personality-note {
+    border-left: 4px solid #dc2626;
+}
+
+.personality-comparison-card:nth-child(4) .personality-section:nth-child(1) .personality-note {
+    border-left: 4px solid #ea580c;
+}
+
+.personality-comparison-card:nth-child(4) .personality-section:nth-child(2) .personality-note {
+    border-left: 4px solid #7c3aed;
+}
+
+.personality-comparison-card:nth-child(5) .personality-section:nth-child(1) .personality-note {
+    border-left: 4px solid #0d9488;
+}
+
+.personality-comparison-card:nth-child(5) .personality-section:nth-child(2) .personality-note {
+    border-left: 4px solid #dc2626;
+}
+
+.personality-note h4 {
+    color: #1e293b;
+    font-size: 0.95rem;
     font-weight: 600;
     margin-bottom: 0.5rem;
     display: flex;
     align-items: center;
 }
 
-.advice-section h4::after {
-    content: '';
-    flex: 1;
-    height: 1px;
-    background: #e2e8f0;
-    margin-left: 1rem;
+.personality-note h4::before {
+    content: '📝';
+    margin-right: 8px;
+    font-size: 1rem;
 }
 
-.advice-section p {
-    color: #475569;
+.personality-note p {
+    color: #64748b;
     line-height: 1.5;
     margin: 0;
+    font-size: 0.9rem;
     font-style: italic;
-    font-size: 0.95rem;
-    position: relative;
-    padding-left: 0.5rem;
+}
+
+.personality-vertical-divider {
+    position: absolute;
+    right: 0;
+    top: 10%;
+    height: 80%;
+    width: 1px;
+    background: linear-gradient(
+        to bottom,
+        transparent,
+        rgba(226, 232, 240, 0.5),
+        rgba(226, 232, 240, 0.5),
+        transparent
+    );
 }
 
 @keyframes cardAppear {
@@ -239,7 +234,7 @@
         flex-direction: column;
     }
 
-    .vertical-divider {
+    .personality-vertical-divider {
         display: none;
     }
 
@@ -255,11 +250,11 @@
         font-size: 1.2rem;
     }
 
-    .career-list li {
+    .personality-career-list li {
         padding: 0.6rem 0.75rem;
     }
 
-    .advice-section {
+    .personality-note {
         padding: 0.875rem;
     }
 } 

@@ -52,7 +52,7 @@ export const EntranceExamSummary = () => {
           ))}
         </Row>
 
-        <div className="ees-stats-container">
+        {/* <div className="ees-stats-container">
           <div className="ees-stat-item">
             <span className="ees-stat-number">50+</span>
             <span className="ees-stat-label">Exam Guides</span>
@@ -65,7 +65,7 @@ export const EntranceExamSummary = () => {
             <span className="ees-stat-number">95%</span>
             <span className="ees-stat-label">Success Rate</span>
           </div>
-        </div>
+        </div> */}
 
         <div className="ees-cta-section">
           <Link to="/entrance-test-details" className="ees-primary-cta">

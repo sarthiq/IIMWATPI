@@ -52,7 +52,7 @@ export const AILiteracySummary = () => {
           ))}
         </div>
 
-        <div className="ai-literacy-stats-container">
+        {/* <div className="ai-literacy-stats-container">
           <div className="ai-literacy-stat-item">
             <span className="ai-literacy-stat-number">20+</span>
             <span className="ai-literacy-stat-label">AI Tools Covered</span>
@@ -65,7 +65,7 @@ export const AILiteracySummary = () => {
             <span className="ai-literacy-stat-number">100%</span>
             <span className="ai-literacy-stat-label">Hands-on Practice</span>
           </div>
-        </div>
+        </div> */}
 
         <div className="ai-literacy-cta-section">
           <Link to="/dashboard/ai-literacy/tools-tasks" className="ai-literacy-primary-cta">

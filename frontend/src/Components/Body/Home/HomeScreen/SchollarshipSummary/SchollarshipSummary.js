@@ -51,7 +51,7 @@ export const ScholarshipSummary = () => {
             </div>
           ))}
         </div>
-
+{/* 
         <div className="schollarship-summary-stats-container">
           <div className="schollarship-summary-stat-item">
             <span className="schollarship-summary-stat-number">50+</span>
@@ -65,7 +65,7 @@ export const ScholarshipSummary = () => {
             <span className="schollarship-summary-stat-number">95%</span>
             <span className="schollarship-summary-stat-label">Success Rate</span>
           </div>
-        </div>
+        </div> */}
 
         <div className="schollarship-summary-cta-section">
           <Link to="/schollarship" className="schollarship-summary-primary-cta">

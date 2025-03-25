@@ -59,7 +59,7 @@ export const About = () => {
             </p>
           </div>
 
-          <div className="stats-container">
+          {/* <div className="stats-container">
             <div className="stat-item">
               <span className="stat-number">15K+</span>
               <span className="stat-label">Students Guided</span>
@@ -72,7 +72,7 @@ export const About = () => {
               <span className="stat-number">95%</span>
               <span className="stat-label">Success Rate</span>
             </div>
-          </div>
+          </div> */}
         </div>
       </Container>
     </div>

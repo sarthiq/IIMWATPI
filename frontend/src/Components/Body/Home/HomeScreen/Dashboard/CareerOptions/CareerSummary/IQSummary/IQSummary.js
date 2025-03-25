@@ -76,11 +76,7 @@ const iqData = {
     note: "This range is suited for structured and routine-based work.",
   },
   "Very Low IQ (Below 70)": {
-    careers: [
-      "Farming",
-      "Basic Labor Jobs",
-      "Small-scale Craftsmanship",
-    ],
+    careers: ["Farming", "Basic Labor Jobs", "Small-scale Craftsmanship"],
     note: "This range may require additional support and guidance in career choices.",
   },
 };
@@ -98,41 +94,52 @@ export const IQSummary = () => {
 
   return (
     <Container className="iq-summary-container">
-      <div className="disclaimer-card">
-        <h4>Important Note:</h4>
-        <ul>
-          <li>Jobs in Above-Average, Average, and Below-Average IQ categories can be interchangeable.</li>
-          <li>IQ levels can change based on how a person operates and faces situations in life.</li>
-          <li>Below-average IQ can improve to above average and vice versa.</li>
-          <li>High and Very Low IQ categories typically show only slight changes over time.</li>
-        </ul>
-      </div>
-      
       {iqPairs.map((pair, pairIndex) => (
-        <Card key={pairIndex} className="iq-comparison-card">
-          <div className="iq-flex-container">
+        <Card key={pairIndex} className="iq-summary-comparison-card">
+          <div className="iq-summary-flex-container">
             {pair.map(([range, data], index) => (
-              <div key={range} className="iq-section">
-                <div className="iq-header">
+              <div key={range} className="iq-summary-section">
+                <div className="iq-summary-header">
                   <h3>{range}</h3>
                 </div>
-                <div className="iq-content">
-                  <ul className="career-list">
+                <div className="iq-summary-content">
+                  <ul className="iq-summary-career-list">
                     {data.careers.map((career, idx) => (
                       <li key={idx}>{career}</li>
                     ))}
                   </ul>
-                  <div className="note-section">
+                  <div className="iq-summary-note">
                     <h4>Note:</h4>
                     <p>{data.note}</p>
                   </div>
                 </div>
-                {index === 0 && pair.length > 1 && <div className="vertical-divider" />}
+                {index === 0 && pair.length > 1 && (
+                  <div className="iq-summary-vertical-divider" />
+                )}
               </div>
             ))}
           </div>
         </Card>
       ))}
+
+      <div className="iq-summary-disclaimer">
+        <h4>Important Note:</h4>
+        <ul>
+          <li>
+            Jobs in Above-Average, Average, and Below-Average IQ categories can
+            be interchangeable.
+          </li>
+          <li>
+            IQ levels can change based on how a person operates and faces
+            situations in life.
+          </li>
+          <li>Below-average IQ can improve to above average and vice versa.</li>
+          <li>
+            High and Very Low IQ categories typically show only slight changes
+            over time.
+          </li>
+        </ul>
+      </div>
     </Container>
   );
 };

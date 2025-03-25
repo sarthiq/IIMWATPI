@@ -16,7 +16,7 @@
     animation: cardAppear 0.6s ease forwards;
 }
 
-.disclaimer-card {
+.iq-summary-disclaimer {
     background: #fff3e0;
     border-radius: 20px;
     padding: 1.5rem;
@@ -24,60 +24,36 @@
     border-left: 4px solid #ff9800;
 }
 
-.disclaimer-card h4 {
+.iq-summary-disclaimer h4 {
     color: #e65100;
     margin-bottom: 1rem;
 }
 
-.disclaimer-card ul {
+.iq-summary-disclaimer ul {
     margin: 0;
     padding-left: 1.2rem;
 }
 
-.disclaimer-card li {
+.iq-summary-disclaimer li {
     color: #424242;
     margin-bottom: 0.5rem;
     line-height: 1.4;
 }
 
-.iq-section {
+.iq-summary-section {
+    flex: 1;
+    position: relative;
     padding: 1.25rem;
     background: linear-gradient(to bottom, #fafafa, #ffffff);
 }
 
-/* Color schemes for IQ ranges */
-.iq-card:nth-child(2) .iq-header h3 { /* High IQ */
-    color: #2563eb;
-    background: linear-gradient(120deg, rgba(37, 99, 235, 0.1) 0%, transparent 100%);
-}
-
-.iq-card:nth-child(3) .iq-header h3 { /* Above Average */
-    color: #059669;
-    background: linear-gradient(120deg, rgba(5, 150, 105, 0.1) 0%, transparent 100%);
-}
-
-.iq-card:nth-child(4) .iq-header h3 { /* Average */
-    color: #7c3aed;
-    background: linear-gradient(120deg, rgba(124, 58, 237, 0.1) 0%, transparent 100%);
-}
-
-.iq-card:nth-child(5) .iq-header h3 { /* Low */
-    color: #0d9488;
-    background: linear-gradient(120deg, rgba(13, 148, 136, 0.1) 0%, transparent 100%);
-}
-
-.iq-card:nth-child(6) .iq-header h3 { /* Very Low */
-    color: #dc2626;
-    background: linear-gradient(120deg, rgba(220, 38, 38, 0.1) 0%, transparent 100%);
-}
-
-.iq-header {
+.iq-summary-header {
     margin-bottom: 1rem;
     padding-bottom: 0.5rem;
     border-bottom: 2px solid #f1f5f9;
 }
 
-.iq-header h3 {
+.iq-summary-header h3 {
     font-size: 1.4rem;
     font-weight: 700;
     margin: 0;
@@ -86,73 +62,144 @@
     letter-spacing: -0.5px;
 }
 
-.career-list {
+.iq-summary-career-list {
     list-style-type: none;
     padding: 0;
     margin: 0 0 1rem 0;
 }
 
-.career-list li {
-    padding: 0.6rem 0.8rem;
-    margin-bottom: 0.4rem;
-    background: #f8fafc;
-    border-radius: 8px;
+.iq-summary-career-list li {
+    padding: 0.4rem 0;
+    margin-bottom: 0.2rem;
     color: #334155;
     font-size: 0.9rem;
     transition: all 0.3s ease;
-    border: 1px solid #e2e8f0;
+    display: flex;
+    align-items: center;
+    border: none;
+    background: none;
+}
+
+.iq-summary-career-list li::before {
+    content: '✓';
+    margin-right: 8px;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+/* High IQ - Blue */
+.iq-summary-comparison-card:nth-child(1) .iq-summary-section:nth-child(1) .iq-summary-career-list li::before,
+.iq-summary-comparison-card:nth-child(1) .iq-summary-section:nth-child(1) .iq-summary-header h3 {
+    color: #2563eb;
+}
+
+/* Above Average IQ - Green */
+.iq-summary-comparison-card:nth-child(1) .iq-summary-section:nth-child(2) .iq-summary-career-list li::before,
+.iq-summary-comparison-card:nth-child(1) .iq-summary-section:nth-child(2) .iq-summary-header h3 {
+    color: #059669;
+}
+
+/* Average IQ - Purple */
+.iq-summary-comparison-card:nth-child(2) .iq-summary-section:nth-child(1) .iq-summary-career-list li::before,
+.iq-summary-comparison-card:nth-child(2) .iq-summary-section:nth-child(1) .iq-summary-header h3 {
+    color: #7c3aed;
+}
+
+/* Below Average IQ - Green */
+.iq-summary-comparison-card:nth-child(2) .iq-summary-section:nth-child(2) .iq-summary-career-list li::before,
+.iq-summary-comparison-card:nth-child(2) .iq-summary-section:nth-child(2) .iq-summary-header h3 {
+    color: #059669;
+}
+
+/* Low IQ - Teal */
+.iq-summary-comparison-card:nth-child(3) .iq-summary-section:nth-child(1) .iq-summary-career-list li::before,
+.iq-summary-comparison-card:nth-child(3) .iq-summary-section:nth-child(1) .iq-summary-header h3 {
+    color: #0d9488;
+}
+
+/* Very Low IQ - Red */
+.iq-summary-comparison-card:nth-child(3) .iq-summary-section:nth-child(2) .iq-summary-career-list li::before,
+.iq-summary-comparison-card:nth-child(3) .iq-summary-section:nth-child(2) .iq-summary-header h3 {
+    color: #dc2626;
+}
+
+/* Hover effect */
+.iq-summary-career-list li:hover {
+    transform: translateX(5px);
+    color: #1a202c;
+}
+
+.iq-summary-note {
+    background: #f8fafc;
+    border-radius: 12px;
+    padding: 1rem 1.2rem;
+    margin-top: 1rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    position: relative;
+}
+
+/* Color-specific left borders for notes */
+/* High IQ */
+.iq-summary-comparison-card:nth-child(1) .iq-summary-section:nth-child(1) .iq-summary-note {
+    border-left: 4px solid #2563eb;
+}
+
+/* Above Average IQ */
+.iq-summary-comparison-card:nth-child(1) .iq-summary-section:nth-child(2) .iq-summary-note {
+    border-left: 4px solid #059669;
+}
+
+/* Average IQ */
+.iq-summary-comparison-card:nth-child(2) .iq-summary-section:nth-child(1) .iq-summary-note {
+    border-left: 4px solid #7c3aed;
+}
+
+/* Below Average IQ */
+.iq-summary-comparison-card:nth-child(2) .iq-summary-section:nth-child(2) .iq-summary-note {
+    border-left: 4px solid #059669;
+}
+
+/* Low IQ */
+.iq-summary-comparison-card:nth-child(3) .iq-summary-section:nth-child(1) .iq-summary-note {
+    border-left: 4px solid #0d9488;
+}
+
+/* Very Low IQ */
+.iq-summary-comparison-card:nth-child(3) .iq-summary-section:nth-child(2) .iq-summary-note {
+    border-left: 4px solid #dc2626;
+}
+
+.iq-summary-note h4 {
+    color: #1e293b;
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
     display: flex;
     align-items: center;
 }
 
-.career-list li::before {
-    content: '•';
-    font-weight: bold;
+.iq-summary-note h4::before {
+    content: '📝';
     margin-right: 8px;
-    font-size: 1.1rem;
-}
-
-.career-list li:hover {
-    background: #f1f5f9;
-    transform: translateX(5px);
-    border-color: #cbd5e1;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-}
-
-.note-section {
-    background: #f8fafc;
-    border-radius: 10px;
-    padding: 1rem;
-    border: 1px solid #e2e8f0;
-    margin-top: 0.75rem;
-}
-
-.note-section h4 {
-    color: #1e293b;
     font-size: 1rem;
-    font-weight: 600;
-    margin-bottom: 0.5rem;
 }
 
-.note-section p {
-    color: #475569;
+.iq-summary-note p {
+    color: #64748b;
     line-height: 1.5;
     margin: 0;
-    font-size: 0.95rem;
+    font-size: 0.9rem;
+    font-style: italic;
 }
 
-@keyframes cardAppear {
-    0% {
-        transform: translateY(20px);
-        opacity: 0;
-    }
-    100% {
-        transform: translateY(0);
-        opacity: 1;
-    }
+/* Hover effect for note section */
+.iq-summary-note:hover {
+    transform: translateY(-2px);
+    transition: transform 0.2s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.07);
 }
 
-.iq-comparison-card {
+.iq-summary-comparison-card {
     margin-bottom: 1.5rem;
     border: none;
     border-radius: 20px;
@@ -164,55 +211,77 @@
     animation: cardAppear 0.6s ease forwards;
 }
 
-.iq-flex-container {
+.iq-summary-flex-container {
     display: flex;
     position: relative;
     background: linear-gradient(to bottom, #fafafa, #ffffff);
 }
 
-.iq-section {
-    flex: 1;
-    position: relative;
-    padding: 1.25rem;
-}
-
-.vertical-divider {
+.iq-summary-vertical-divider {
     position: absolute;
     right: 0;
     top: 10%;
     height: 80%;
     width: 1px;
-    background: #e2e8f0;
+    background: linear-gradient(
+        to bottom,
+        transparent,
+        rgba(226, 232, 240, 0.5),
+        rgba(226, 232, 240, 0.5),
+        transparent
+    );
 }
 
-/* Update media queries */
-@media (max-width: 768px) {
-    .iq-flex-container {
-        flex-direction: column;
-    }
+/* Color schemes for IQ ranges */
+.iq-summary-comparison-card:nth-child(1) .iq-summary-header h3 { /* High IQ */
+    color: #2563eb;
+    background: linear-gradient(120deg, rgba(37, 99, 235, 0.1) 0%, transparent 100%);
+}
 
-    .vertical-divider {
-        display: none;
-    }
+/* Average IQ */
+.iq-summary-comparison-card:nth-child(2) .iq-summary-header h3 {
+    color: #7c3aed;
+    background: linear-gradient(120deg, rgba(124, 58, 237, 0.1) 0%, transparent 100%);
+}
 
-    .iq-section {
-        padding: 1rem;
-    }
+/* Below Average IQ */
+.iq-summary-comparison-card:nth-child(2) .iq-summary-header h3 {
+    color: #059669;
+    background: linear-gradient(120deg, rgba(5, 150, 105, 0.1) 0%, transparent 100%);
+}
 
-    .iq-section:first-child {
-        border-bottom: 1px solid #e2e8f0;
-    }
+/* Low IQ */
+.iq-summary-comparison-card:nth-child(3) .iq-summary-header h3 {
+    color: #0d9488;
+    background: linear-gradient(120deg, rgba(13, 148, 136, 0.1) 0%, transparent 100%);
+}
 
-    .iq-header h3 {
-        font-size: 1.2rem;
-    }
+/* Very Low IQ */
+.iq-summary-comparison-card:nth-child(3) .iq-summary-header h3 {
+    color: #dc2626;
+    background: linear-gradient(120deg, rgba(220, 38, 38, 0.1) 0%, transparent 100%);
+}
 
-    .career-list li {
-        padding: 0.6rem 0.75rem;
-    }
+/* Career list hover effects */
+.iq-summary-career-list li {
+    transition: all 0.3s ease;
+}
 
-    .note-section {
-        padding: 0.875rem;
+.iq-summary-career-list li:hover {
+    background: #f1f5f9;
+    transform: translateX(5px);
+    border-color: #cbd5e1;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+@keyframes cardAppear {
+    0% {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
     }
 }
 
@@ -267,4 +336,35 @@
         rgba(220, 38, 38, 0.2),
         transparent
     );
+}
+
+/* Update media queries */
+@media (max-width: 768px) {
+    .iq-flex-container {
+        flex-direction: column;
+    }
+
+    .vertical-divider {
+        display: none;
+    }
+
+    .iq-section {
+        padding: 1rem;
+    }
+
+    .iq-section:first-child {
+        border-bottom: 1px solid #e2e8f0;
+    }
+
+    .iq-header h3 {
+        font-size: 1.2rem;
+    }
+
+    .career-list li {
+        padding: 0.6rem 0.75rem;
+    }
+
+    .note-section {
+        padding: 0.875rem;
+    }
 } 

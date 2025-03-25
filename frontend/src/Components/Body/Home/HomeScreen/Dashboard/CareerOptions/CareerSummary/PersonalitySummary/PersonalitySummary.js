@@ -1,5 +1,5 @@
 import React from "react";
-import { Card, Row, Col, Container } from "react-bootstrap";
+import { Card, Container } from "react-bootstrap";
 import "./PersonalitySummary.css";
 
 const personalityData = {
@@ -146,17 +146,19 @@ export const PersonalitySummary = () => {
                   <h3>{type}</h3>
                 </div>
                 <div className="personality-content">
-                  <ul className="career-list">
+                  <ul className="personality-career-list">
                     {personalityData[type].careers.map((career, idx) => (
                       <li key={idx}>{career}</li>
                     ))}
                   </ul>
-                  <div className="advice-section">
+                  <div className="personality-note">
                     <h4>Recommendation:</h4>
                     <p>{personalityData[type].advice}</p>
                   </div>
                 </div>
-                {index === 0 && <div className="vertical-divider" />}
+                {index === 0 && pair.length > 1 && (
+                  <div className="personality-vertical-divider" />
+                )}
               </div>
             ))}
           </div>
