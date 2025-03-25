@@ -181,6 +181,14 @@
   .career-box-layout .middle-row {
     grid-template-columns: repeat(2, 1fr);
   }
+
+  .typewriter-container {
+    height: 3.5rem;
+  }
+  
+  .banner-gradient-text {
+    min-height: 3rem;
+  }
 }
 
 @media (max-width: 480px) {
@@ -206,6 +214,14 @@
   .ai-box-layout .middle-row,
   .career-box-layout .middle-row {
     grid-template-columns: 1fr;
+  }
+
+  .typewriter-container {
+    height: 3rem;
+  }
+  
+  .banner-gradient-text {
+    min-height: 2.5rem;
   }
 }
 
@@ -448,11 +464,24 @@
   position: relative;
 }
 
+.banner-title-wrapper {
+  position: relative;
+  margin-bottom: 1.5rem;
+}
+
 .banner-hero-title {
   font-size: clamp(2.5rem, 5vw, 4rem);
   font-weight: 800;
   line-height: 1.2;
-  margin-bottom: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.typewriter-container {
+  height: 4.5rem; /* Fixed height to prevent layout shifts */
+  display: flex;
+  align-items: center;
 }
 
 .banner-gradient-text {
@@ -460,6 +489,8 @@
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  min-height: 4rem; /* Minimum height to prevent jumping */
+  display: block;
 }
 
 .banner-hero-description {
