@@ -14,7 +14,7 @@ import { PrivacyPolicy } from "./PrivacyPolicy/PrivacyPolicy";
 import { RefundPolicy } from "./RefundPolicy/RefundPolicy";
 import { Schollarship } from "./Schollarship/Schollarship";
 import { EntranceTestDetails } from "./EntranceTestDetails/EntranceTestDetails";
-
+import { Blog } from "./Blog/Blog";
 
 export const Home = () => {
   const isLoggedIn = useSelector((state) => state.userAuth.isLoggedIn); // Access adminAuth state
@@ -32,6 +32,7 @@ export const Home = () => {
           <Route path="privacy-policy" element={<PrivacyPolicy />} />
           <Route path="refund-policy" element={<RefundPolicy />} />
           <Route path="schollarship/*" element={<Schollarship />} />
+          <Route path="blog/*" element={<Blog />} />
 
           <Route
             path="dashboard/*"

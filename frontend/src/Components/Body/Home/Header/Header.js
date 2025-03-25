@@ -58,7 +58,14 @@ export const Header = () => {
                   Login
                 </Link>
               </li>
-            )}
+            )} 
+            <li className="nav-item">
+            <Link to="/blog" 
+                  className="nav-link" 
+                  onClick={() => setIsOpen(false)}>
+              Blog
+            </Link>
+          </li>
           </ul>
         </nav>
 
