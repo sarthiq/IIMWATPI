@@ -127,20 +127,24 @@ const CareerSection = () => (
 const HeroSection = ({ openModal }) => (
   <div className="banner-hero-section">
     <div className="banner-hero-content">
-      <h1 className="banner-hero-title">
-        Your AI-Powered Education & Career Guide
-        <span className="banner-gradient-text">
-          <Typewriter
-            words={[' for Success', ' for Growth', ' for Future']}
-            loop={true}
-            cursor={true}
-            cursorStyle="_"
-            typeSpeed={70}
-            deleteSpeed={50}
-            delaySpeed={1000}
-          />
-        </span>
-      </h1>
+      <div className="banner-title-wrapper">
+        <h1 className="banner-hero-title">
+          Your AI-Powered Education & Career Guide
+          <div className="typewriter-container">
+            <span className="banner-gradient-text">
+              <Typewriter
+                words={[' for Success', ' for Growth', ' for Future']}
+                loop={true}
+                cursor={true}
+                cursorStyle="_"
+                typeSpeed={70}
+                deleteSpeed={50}
+                delaySpeed={1000}
+              />
+            </span>
+          </div>
+        </h1>
+      </div>
       <p className="banner-hero-description">
         Navigate your educational journey with personalized AI guidance, explore career paths,
         and master the skills of tomorrow. Join thousands of students discovering their potential.
