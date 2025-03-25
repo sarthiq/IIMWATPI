@@ -13,12 +13,12 @@ export const Header = () => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
     };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
-    <header className={`header ${isScrolled ? 'scrolled' : ''}`}>
+    <header className={`header ${isScrolled ? "scrolled" : ""}`}>
       <div className="header-container">
         {/* Logo */}
         <Link to="/" className="logo">
@@ -26,54 +26,74 @@ export const Header = () => {
         </Link>
 
         {/* Navigation */}
-        <nav className={`nav-menu ${isOpen ? 'open' : ''}`}>
+        <nav className={`nav-menu ${isOpen ? "open" : ""}`}>
           <ul className="nav-list">
             <li className="nav-item">
-              <Link to="/schollarship" 
-                    className="nav-link" 
-                    onClick={() => setIsOpen(false)}>
+              <Link
+                to="/institute"
+                className="nav-link"
+                onClick={() => setIsOpen(false)}
+              >
+                Institute
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link
+                to="/schollarship"
+                className="nav-link"
+                onClick={() => setIsOpen(false)}
+              >
                 Scholarship
               </Link>
             </li>
             <li className="nav-item">
-              <Link to="/entrance-test-details" 
-                    className="nav-link" 
-                    onClick={() => setIsOpen(false)}>
+              <Link
+                to="/entrance-test-details"
+                className="nav-link"
+                onClick={() => setIsOpen(false)}
+              >
                 Entrance Exam
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link
+                to="/blog"
+                className="nav-link"
+                onClick={() => setIsOpen(false)}
+              >
+                Blog
               </Link>
             </li>
             {isLoggedIn ? (
               <li className="nav-item">
-                <Link to="/dashboard" 
-                      className="nav-link nav-cta dashboard-link" 
-                      onClick={() => setIsOpen(false)}>
+                <Link
+                  to="/dashboard"
+                  className="nav-link nav-cta dashboard-link"
+                  onClick={() => setIsOpen(false)}
+                >
                   Dashboard
                 </Link>
               </li>
             ) : (
               <li className="nav-item">
-                <Link to="/auth" 
-                      className="nav-link nav-cta login-link" 
-                      onClick={() => setIsOpen(false)}>
+                <Link
+                  to="/auth"
+                  className="nav-link nav-cta login-link"
+                  onClick={() => setIsOpen(false)}
+                >
                   Login
                 </Link>
               </li>
-            )} 
-            <li className="nav-item">
-            <Link to="/blog" 
-                  className="nav-link" 
-                  onClick={() => setIsOpen(false)}>
-              Blog
-            </Link>
-          </li>
+            )}
           </ul>
         </nav>
 
         {/* Mobile Menu Button */}
-        <button 
-          className="menu-toggle" 
+        <button
+          className="menu-toggle"
           onClick={() => setIsOpen(!isOpen)}
-          aria-label="Toggle menu">
+          aria-label="Toggle menu"
+        >
           {isOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
         </button>
       </div>

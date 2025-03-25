@@ -1,0 +1,129 @@
+.institute {
+  padding: 2.5rem 1.5rem;
+  max-width: 1400px;
+  margin: 0 auto;
+  background-color: #f8fafc;
+}
+
+.institute__title {
+  text-align: center;
+  margin-bottom: 2.5rem;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #1e293b;
+  position: relative;
+}
+
+.institute__title::after {
+  content: '';
+  position: absolute;
+  bottom: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 4px;
+  background: linear-gradient(90deg, #3b82f6, #2563eb);
+  border-radius: 2px;
+}
+
+.institute__table-wrapper {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  overflow: hidden;
+}
+
+.institute__table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+.institute__table-header {
+  background-color: #f1f5f9;
+}
+
+.institute__table-header th {
+  padding: 1rem 1.5rem;
+  text-align: left;
+  font-weight: 600;
+  color: #475569;
+  text-transform: uppercase;
+  font-size: 0.875rem;
+  letter-spacing: 0.05em;
+  border-bottom: 2px solid #e2e8f0;
+}
+
+.institute__table-cell {
+  padding: 1.25rem 1.5rem;
+  color: #334155;
+  border-bottom: 1px solid #e2e8f0;
+  font-size: 0.95rem;
+}
+
+.institute__table-row:hover {
+  background-color: #f8fafc;
+  transition: background-color 0.2s ease;
+}
+
+.institute__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.institute__list-item {
+  margin-bottom: 0.5rem;
+  color: #64748b;
+  font-size: 0.9rem;
+}
+
+.institute__list-item:last-child {
+  margin-bottom: 0;
+}
+
+.institute__view-btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.625rem 1.25rem;
+  background: linear-gradient(135deg, #3b82f6, #2563eb);
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: 500;
+  font-size: 0.875rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(59, 130, 246, 0.2);
+}
+
+.institute__view-btn:hover {
+  background: linear-gradient(135deg, #2563eb, #1d4ed8);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 6px rgba(59, 130, 246, 0.3);
+}
+
+@media (max-width: 768px) {
+  .institute {
+    padding: 1.5rem 1rem;
+  }
+
+  .institute__title {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .institute__table-header th,
+  .institute__table-cell {
+    padding: 0.75rem 1rem;
+    font-size: 0.875rem;
+  }
+
+  .institute__list-item {
+    font-size: 0.8rem;
+  }
+
+  .institute__view-btn {
+    padding: 0.5rem 1rem;
+    font-size: 0.8rem;
+  }
+} 
