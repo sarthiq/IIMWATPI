@@ -123,13 +123,13 @@ export const InstituteDetails = () => {
                 <div className="inst-placement-stats">
                   {college.placement.averagePackage && (
                     <div className="inst-placement-stat">
-                      <div className="inst-stat-value">₹{college.placement.averagePackage}</div>
+                      <div className="inst-stat-value">{college.placement.averagePackage}</div>
                       <div className="inst-stat-label">Average Package</div>
                     </div>
                   )}
                   {college.placement.highestPackage && (
                     <div className="inst-placement-stat">
-                      <div className="inst-stat-value">₹{college.placement.highestPackage}</div>
+                      <div className="inst-stat-value">{college.placement.highestPackage}</div>
                       <div className="inst-stat-label">Highest Package</div>
                     </div>
                   )}
