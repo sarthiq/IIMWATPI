@@ -65,6 +65,7 @@
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: 2rem;
   padding: 1rem;
+  align-items: stretch;
 }
 
 .quiz-box {
@@ -75,6 +76,9 @@
   transition: all 0.3s ease;
   border: 1px solid rgba(0, 0, 0, 0.05);
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 .quiz-box:hover {
@@ -126,6 +130,9 @@
 
 .quiz-box-content {
   text-align: left;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
 }
 
 .content-title {
@@ -168,7 +175,7 @@
   color: #475569;
   font-style: italic;
   font-size: 0.95rem;
-  margin: 1.5rem 0;
+  margin-bottom: 1.5rem;
 }
 
 .take-test-btn {
@@ -184,7 +191,7 @@
   transition: all 0.3s ease;
   border: none;
   cursor: pointer;
-  margin-top: 1.5rem;
+  margin-top: auto;
 }
 
 .take-test-btn:hover {
@@ -217,6 +224,7 @@
 
   .quiz-box {
     padding: 1.5rem;
+    min-height: auto;
   }
 
   .ts-header {

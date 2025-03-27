@@ -399,7 +399,7 @@ export const CareerReport = () => {
           <i className="fas fa-download"></i>
           Download Report
         </button>
-      </div>
+    </div>
     </Container>
   );
 };
