@@ -553,113 +553,107 @@ export const scholarshipDetails = {
     provider: "Government of Maharashtra",
     eligibility: [
       "Students from EBC families with annual income below 8 lakhs",
-      "Must be resident of Maharashtra",
-      "Minimum 60% marks in previous academic year",
-      "Enrolled in recognized institutions within Maharashtra"
+      "Minimum 60% marks in qualifying examination",
+      "Maharashtra state domicile",
+      "Enrolled in recognized institutions"
     ],
-    about: "The Rajarshi Chhatrapati Shahu Maharaj Merit Scholarship scheme aims to provide financial support to economically backward class students who demonstrate academic excellence.",
+    about: "The Rajarshi Chhatrapati Shahu Maharaj Merit Scholarship aims to support economically backward class students in pursuing higher education in Maharashtra.",
     benefits: [
-      "Tuition fee reimbursement up to ₹50,000 per year",
-      "Annual maintenance allowance of ₹10,000",
-      "Book allowance of ₹5,000 per year",
-      "Additional support for special courses",
-      "Merit-based incentives for outstanding performance"
+      "Annual scholarship up to ₹50,000",
+      "Book allowance",
+      "Skill development support",
+      "Career guidance",
+      "Merit recognition"
     ],
     applicationPeriod: {
-      startDate: "July 15, 2024",
+      startDate: "August 1, 2024",
       closeDate: "November 30, 2024"
     },
     applicationLink: "https://mahadbt.maharashtra.gov.in/",
     documents: [
-      "Domicile certificate of Maharashtra",
-      "Income certificate from competent authority",
-      "Previous year's marksheets",
-      "Current year admission proof",
+      "Income certificate",
+      "Domicile certificate",
+      "Previous academic records",
+      "Current admission proof",
       "Bank account details",
       "Aadhaar card",
-      "Recent photograph",
-      "Institution verification form"
+      "Recent photograph"
     ],
     selectionProcess: [
-      "Online application through MahaDBT portal",
-      "Document verification at institution level",
-      "Merit list generation",
-      "District-level verification",
-      "Final selection and fund disbursement"
+      "Online application submission",
+      "Document verification",
+      "Merit list preparation",
+      "Final selection"
     ],
     importantNotes: [
-      "Scholarship is available for full academic year",
-      "Minimum 75% attendance required",
-      "Cannot avail multiple scholarships simultaneously",
-      "Annual renewal based on academic performance",
-      "Must maintain minimum required CGPA/percentage"
+      "Merit-based selection",
+      "Regular attendance mandatory",
+      "Annual renewal based on performance",
+      "Income certificate verification yearly"
     ],
     contactInfo: {
-      helpline: "1800-22-3636",
-      email: "support.mahadbt@maharashtra.gov.in",
+      helpline: "1800-222-3456",
+      email: "rcshm@maharashtra.gov.in",
       website: "https://mahadbt.maharashtra.gov.in"
     },
     fundingType: "Merit-cum-Means",
-    renewalCriteria: "Minimum 60% marks in previous academic year",
-    category: "State Merit Scholarship",
+    renewalCriteria: "Minimum 60% marks in current course",
+    category: "EBC Support",
     quota: "Maharashtra State",
     route: "rcshm-scholarship"
   },
 
   "ycmou-scholarship": {
     name: "Maharashtra State Open University Scholarship",
-    provider: "Yashwantrao Chavan Maharashtra Open University (YCMOU)",
+    provider: "YCMOU",
     eligibility: [
-      "YCMOU enrolled students",
-      "Family income below 2.5 lakhs per annum",
-      "Minimum 50% marks in previous examination",
-      "Regular attendance in contact programs"
+      "YCMOU students with family income below 2.5 lakhs",
+      "Regular enrollment in distance learning programs",
+      "Maharashtra resident",
+      "Minimum 50% marks in previous examination"
     ],
-    about: "The YCMOU Scholarship scheme supports distance learning students from economically weaker sections to pursue higher education through open university system.",
+    about: "The YCMOU Scholarship supports distance learning students in Maharashtra to pursue higher education through flexible learning modes.",
     benefits: [
-      "Full tuition fee waiver",
-      "Study material cost reimbursement",
-      "Contact program attendance allowance",
-      "Examination fee waiver",
-      "Special support for practical courses"
+      "Tuition fee waiver up to 75%",
+      "Study material support",
+      "Examination fee concession",
+      "Special guidance sessions",
+      "Career counseling"
     ],
     applicationPeriod: {
-      startDate: "August 1, 2024",
+      startDate: "September 1, 2024",
       closeDate: "December 15, 2024"
     },
     applicationLink: "https://ycmou.ac.in/",
     documents: [
-      "YCMOU enrollment proof",
-      "Income certificate",
+      "Income proof",
+      "Residence proof",
       "Previous qualification certificates",
-      "Residential proof",
+      "Enrollment proof",
       "Bank account details",
       "Aadhaar card",
-      "Recent photograph",
-      "Income declaration form"
+      "Recent photograph"
     ],
     selectionProcess: [
-      "Online application submission",
+      "Online application",
       "Document verification",
-      "Regional center verification",
-      "Merit-based selection",
-      "Scholarship award notification"
+      "Income verification",
+      "Merit-based selection"
     ],
     importantNotes: [
-      "Must attend minimum required contact sessions",
-      "Regular submission of assignments mandatory",
-      "Scholarship valid for one academic year",
-      "Renewal based on academic progress",
-      "Separate application required for each year"
+      "Distance learning specific scholarship",
+      "Regular assignment submission required",
+      "Examination attendance mandatory",
+      "Annual renewal based on academic progress"
     ],
     contactInfo: {
-      helpline: "1800-220-111",
-      email: "scholarship.ycmou@gmail.com",
+      helpline: "1800-222-4567",
+      email: "scholarship@ycmou.ac.in",
       website: "https://ycmou.ac.in"
     },
-    fundingType: "Full Support",
-    renewalCriteria: "Passing previous year examinations with minimum 50% marks",
-    category: "Distance Education",
+    fundingType: "Distance Education Support",
+    renewalCriteria: "Minimum 50% marks in previous year",
+    category: "Open University",
     quota: "Maharashtra State",
     route: "ycmou-scholarship"
   },
@@ -669,55 +663,53 @@ export const scholarshipDetails = {
     provider: "Karnataka Social Welfare Department",
     eligibility: [
       "SC/ST students pursuing higher education in Karnataka",
-      "Family income should meet prescribed limits",
-      "Must be permanent resident of Karnataka",
-      "Enrolled in recognized institutions within Karnataka"
+      "Family income as per government norms",
+      "Karnataka state domicile",
+      "Regular course enrollment"
     ],
-    about: "The Karnataka Post Metric Scholarship aims to support SC/ST students in pursuing higher education by providing comprehensive financial assistance.",
+    about: "The Karnataka Post Metric Scholarship provides comprehensive support to SC/ST students pursuing higher education in various streams.",
     benefits: [
       "Full tuition fee reimbursement",
       "Monthly maintenance allowance",
-      "Book allowance and study material support",
-      "Hostel fees coverage where applicable",
-      "Additional allowance for professional courses"
+      "Book grant",
+      "Hostel fees coverage",
+      "Additional support for professional courses"
     ],
     applicationPeriod: {
-      startDate: "August 1, 2024",
+      startDate: "July 15, 2024",
       closeDate: "October 31, 2024"
     },
     applicationLink: "https://sw.kar.nic.in/",
     documents: [
       "Caste certificate",
       "Income certificate",
-      "Karnataka domicile certificate",
-      "Previous academic marksheets",
+      "Domicile proof",
+      "Previous academic records",
       "Current admission proof",
       "Bank account details",
-      "Aadhaar card",
-      "Recent photograph"
+      "Aadhaar card"
     ],
     selectionProcess: [
       "Online application submission",
-      "Document verification by institution",
-      "Social welfare department verification",
-      "District level committee approval",
-      "Final selection and fund disbursement"
+      "Document verification",
+      "Social welfare department approval",
+      "Fund disbursement"
     ],
     importantNotes: [
+      "Category-specific scholarship",
       "Regular attendance mandatory",
-      "Annual renewal based on academic performance",
-      "Income certificate must be renewed annually",
-      "Cannot avail multiple scholarships simultaneously"
+      "Annual renewal based on performance",
+      "Direct benefit transfer"
     ],
     contactInfo: {
-      helpline: "1800-425-8525",
-      email: "helpdesk-sw@karnataka.gov.in",
+      helpline: "1800-425-9339",
+      email: "scholarship.sw@karnataka.gov.in",
       website: "https://sw.kar.nic.in"
     },
     fundingType: "Full Support",
-    renewalCriteria: "Minimum 50% marks in previous academic year",
-    category: "Social Welfare",
-    quota: "Karnataka SC/ST",
+    renewalCriteria: "Minimum pass percentage in previous year",
+    category: "SC/ST Welfare",
+    quota: "Karnataka State",
     route: "karnataka-post-metric"
   },
 
@@ -1120,124 +1112,114 @@ export const scholarshipDetails = {
     route: "up-dashmottar"
   },
 
-  "up-abhyudaya-yojana": {
-    name: "Mukhyamantri Abhyudaya Yojana",
+  "up-general-scholarship": {
+    name: "UP Scholarship Scheme",
     provider: "Government of Uttar Pradesh",
     eligibility: [
-      "Students preparing for competitive examinations",
-      "Permanent resident of Uttar Pradesh",
-      "Age between 18-35 years",
-      "Family income below 8 lakhs per annum"
+      "Students with family income below 2 lakhs per annum",
+      "Resident of Uttar Pradesh",
+      "Regular enrollment in recognized institutions",
+      "Minimum 60% marks in previous examination"
     ],
-    about: "The Mukhyamantri Abhyudaya Yojana provides free coaching and support to students preparing for various competitive examinations like UPSC, SSC, NDA, CDS, NEET, JEE, and other state-level examinations.",
+    about: "A comprehensive scholarship scheme by UP government to support general category students in pursuing higher education.",
     benefits: [
-      "Free coaching for competitive exams",
-      "Study material and test series",
-      "Online and offline classes",
-      "Expert guidance from experienced faculty",
-      "Mock interviews and personality development",
-      "Library and digital resources access",
-      "Monthly stipend for selected candidates"
-    ],
-    applicationPeriod: {
-      startDate: "June 1, 2024",
-      closeDate: "September 30, 2024"
-    },
-    applicationLink: "https://abhyudaya.up.gov.in/",
-    documents: [
-      "UP domicile certificate",
-      "Income certificate",
-      "Age proof",
-      "Educational qualification certificates",
-      "Bank account details",
-      "Aadhaar card",
-      "Recent photograph",
-      "Category certificate (if applicable)"
-    ],
-    selectionProcess: [
-      "Online application submission",
-      "Screening test",
-      "Document verification",
-      "Personal interview",
-      "Final selection based on merit"
-    ],
-    importantNotes: [
-      "Regular attendance in coaching classes mandatory",
-      "Monthly performance assessment",
-      "Minimum 75% attendance required",
-      "Periodic mock tests participation compulsory",
-      "Mentorship support throughout preparation"
-    ],
-    contactInfo: {
-      helpline: "1800-419-2444",
-      email: "abhyudaya.support@up.gov.in",
-      website: "https://abhyudaya.up.gov.in"
-    },
-    fundingType: "Free Coaching and Support",
-    renewalCriteria: "Regular attendance and satisfactory performance in tests",
-    category: "Competitive Exam Preparation",
-    quota: "Uttar Pradesh State",
-    route: "up-abhyudaya-yojana"
-  },
-
-  "up-general-scholarship": {
-    name: "UP General Category Scholarship",
-    provider: "Department of Social Welfare, Uttar Pradesh",
-    eligibility: [
-      "Students from general category",
-      "Family income below 2 lakhs per annum",
-      "Minimum 60% marks in previous examination",
-      "Must be enrolled in recognized institutions in UP",
-      "Permanent resident of Uttar Pradesh"
-    ],
-    about: "The UP General Category Scholarship scheme provides financial assistance to economically weaker students from general category pursuing higher education in Uttar Pradesh institutions.",
-    benefits: [
-      "Tuition fee reimbursement up to ₹15,000 per year",
-      "Monthly maintenance allowance of ₹1,200",
-      "Annual book grant of ₹3,000",
-      "One-time equipment allowance for technical courses",
-      "Special incentives for girl students"
+      "Full tuition fee reimbursement",
+      "Annual maintenance allowance",
+      "Book grant",
+      "Special incentives for girl students",
+      "Additional support for professional courses"
     ],
     applicationPeriod: {
       startDate: "July 1, 2024",
-      closeDate: "October 31, 2024"
+      closeDate: "November 30, 2024"
     },
-    applicationLink: "https://scholarship.up.gov.in/general",
+    applicationLink: "https://scholarship.up.gov.in/",
     documents: [
-      "UP domicile certificate",
-      "Income certificate from competent authority",
-      "Previous year marksheets",
-      "Current admission proof",
+      "Income certificate",
+      "Domicile certificate",
+      "Previous academic records",
+      "Institution verification form",
       "Bank account details",
       "Aadhaar card",
-      "Recent photograph",
-      "Institution verification form",
-      "Income affidavit from parents"
+      "Recent photograph"
     ],
     selectionProcess: [
       "Online application submission",
-      "Document verification at institution level",
-      "Income verification by district authorities",
-      "Merit list preparation",
-      "Final selection and fund disbursement"
+      "Document verification",
+      "Income verification",
+      "Merit list preparation"
     ],
     importantNotes: [
-      "Annual renewal based on academic performance",
-      "Minimum 75% attendance mandatory",
-      "Income certificate must be renewed annually",
-      "Cannot avail any other scholarship simultaneously",
-      "Regular progress reports required from institution"
+      "Regular attendance mandatory",
+      "Annual renewal based on performance",
+      "Income certificate verification yearly",
+      "Direct benefit transfer to account"
     ],
     contactInfo: {
-      helpline: "1800-419-2444",
-      email: "general.scholarship@up.gov.in",
-      website: "https://scholarship.up.gov.in/general"
+      helpline: "1800-XXX-XXXX",
+      email: "scholarship.up@gov.in",
+      website: "https://scholarship.up.gov.in"
     },
     fundingType: "Merit-cum-Means",
-    renewalCriteria: "Minimum 60% marks in previous academic year",
+    renewalCriteria: "Minimum 60% marks in current course",
     category: "General Category Support",
-    quota: "Uttar Pradesh State",
+    quota: "Uttar Pradesh",
     route: "up-general-scholarship"
+  },
+
+  "up-abhyudaya-yojana": {
+    name: "Mukhyamantri Abhyudaya Yojana",
+    provider: "UP Higher Education Department",
+    eligibility: [
+      "Students preparing for competitive exams",
+      "Resident of Uttar Pradesh",
+      "Age below 35 years",
+      "Family income below prescribed limit"
+    ],
+    about: "Free coaching and scholarship scheme for students preparing for various competitive examinations including UPSC, SSC, Banking, etc.",
+    benefits: [
+      "Free coaching classes",
+      "Monthly stipend of ₹3,000",
+      "Study material support",
+      "Mock test series",
+      "Expert guidance and mentorship"
+    ],
+    applicationPeriod: {
+      startDate: "June 15, 2024",
+      closeDate: "October 15, 2024"
+    },
+    applicationLink: "https://abhyudaya.up.gov.in/",
+    documents: [
+      "Age proof",
+      "Income certificate",
+      "Domicile certificate",
+      "Educational certificates",
+      "Bank account details",
+      "Aadhaar card",
+      "Recent photograph"
+    ],
+    selectionProcess: [
+      "Online application",
+      "Entrance test",
+      "Document verification",
+      "Final selection"
+    ],
+    importantNotes: [
+      "Regular attendance in coaching",
+      "Monthly performance assessment",
+      "Biometric attendance",
+      "Progress monitoring"
+    ],
+    contactInfo: {
+      helpline: "1800-XXX-XXXX",
+      email: "abhyudaya.up@gov.in",
+      website: "https://abhyudaya.up.gov.in"
+    },
+    fundingType: "Coaching Support",
+    renewalCriteria: "Regular attendance and performance",
+    category: "Competitive Exam Preparation",
+    quota: "Uttar Pradesh",
+    route: "up-abhyudaya-yojana"
   },
 
   "bihar-post-matric": {
@@ -1415,17 +1397,17 @@ export const scholarshipDetails = {
     name: "Swami Vivekananda Merit-cum-Means Scholarship",
     provider: "Government of West Bengal",
     eligibility: [
-      "Permanent resident of West Bengal",
+      "Students pursuing higher education in West Bengal",
       "Family income below 2.5 lakhs per annum",
-      "Minimum 75% marks in higher secondary",
-      "Pursuing higher education in West Bengal institutions"
+      "Minimum 75% marks in previous examination",
+      "West Bengal resident"
     ],
-    about: "The Swami Vivekananda Merit-cum-Means Scholarship aims to support meritorious students from economically weaker sections in pursuing higher education in West Bengal.",
+    about: "Merit-cum-means scholarship scheme to support meritorious students from economically weaker sections in West Bengal.",
     benefits: [
-      "₹2,000 per month for Arts/Commerce students",
-      "₹2,500 per month for Science students",
-      "₹3,000 per month for Engineering/Medical students",
-      "Book grant of ₹5,000 annually",
+      "Annual scholarship of ₹20,000",
+      "Book grant",
+      "Tuition fee reimbursement",
+      "Special incentives for girl students",
       "Additional support for professional courses"
     ],
     applicationPeriod: {
@@ -1434,95 +1416,91 @@ export const scholarshipDetails = {
     },
     applicationLink: "https://www.wbhed.gov.in/",
     documents: [
-      "WB domicile certificate",
       "Income certificate",
-      "Higher secondary marksheet",
-      "Current admission proof",
+      "Domicile certificate",
+      "Previous academic records",
+      "Institution verification form",
       "Bank account details",
       "Aadhaar card",
-      "Recent photograph",
-      "Institution verification form"
+      "Recent photograph"
+    ],
+    selectionProcess: [
+      "Online application",
+      "Document verification",
+      "Merit list preparation",
+      "Final selection"
+    ],
+    importantNotes: [
+      "Regular attendance mandatory",
+      "Annual renewal based on performance",
+      "Income certificate verification yearly",
+      "Direct benefit transfer"
+    ],
+    contactInfo: {
+      helpline: "1800-103-0083",
+      email: "scholarship.wb@gov.in",
+      website: "https://www.wbhed.gov.in"
+    },
+    fundingType: "Merit-cum-Means",
+    renewalCriteria: "Minimum 75% marks in current course",
+    category: "General Merit",
+    quota: "West Bengal",
+    route: "wb-swami-vivekananda"
+  },
+
+  "raj-dev-narayan": {
+    name: "Dev Narayan Yojana Scholarship",
+    provider: "Government of Rajasthan",
+    eligibility: [
+      "Students from OBC communities",
+      "Family income below prescribed limit",
+      "Minimum 60% marks in qualifying examination",
+      "Rajasthan resident"
+    ],
+    about: "Scholarship scheme for OBC students to promote higher education in Rajasthan.",
+    benefits: [
+      "Full tuition fee reimbursement",
+      "Monthly maintenance allowance",
+      "Book allowance",
+      "Hostel fee support",
+      "Study material assistance"
+    ],
+    applicationPeriod: {
+      startDate: "July 15, 2024",
+      closeDate: "November 30, 2024"
+    },
+    applicationLink: "https://scholarship.rajasthan.gov.in/",
+    documents: [
+      "Caste certificate",
+      "Income certificate",
+      "Domicile certificate",
+      "Previous marksheets",
+      "Bank account details",
+      "Aadhaar card",
+      "Recent photograph"
     ],
     selectionProcess: [
       "Online application submission",
       "Document verification",
-      "Merit list preparation",
-      "District level verification",
-      "Final selection and award"
+      "Social welfare department approval",
+      "Final selection"
     ],
     importantNotes: [
-      "Regular attendance mandatory",
-      "Semester-wise academic progress review",
-      "Annual income verification required",
-      "Cannot avail other scholarships simultaneously"
+      "Category specific scholarship",
+      "Regular attendance required",
+      "Annual renewal based on performance",
+      "Direct benefit transfer"
     ],
     contactInfo: {
-      helpline: "1800-103-7777",
-      email: "svmcm-wb@gov.in",
-      website: "https://www.wbhed.gov.in"
+      helpline: "1800-180-6127",
+      email: "scholarship.raj@gov.in",
+      website: "https://scholarship.rajasthan.gov.in"
     },
-    fundingType: "Merit-cum-Means",
-    renewalCriteria: "Minimum 60% marks in each semester",
-    category: "State Merit Scholarship",
-    quota: "West Bengal State",
-    route: "wb-swami-vivekananda"
-  },
-
-  "wb-kanyashree": {
-    name: "Kanyashree Prakalpa",
-    provider: "Department of Women Development, West Bengal",
-    eligibility: [
-      "Unmarried girls aged 13-19 years",
-      "Family income below 2 lakhs per annum",
-      "Regular attendance in educational institution",
-      "Resident of West Bengal"
-    ],
-    about: "Kanyashree Prakalpa is a conditional cash transfer scheme aimed at improving the status and wellbeing of girls by incentivizing their education and preventing early marriage.",
-    benefits: [
-      "Annual scholarship of ₹1,000 (K1)",
-      "One-time grant of ₹25,000 at age 18 (K2)",
-      "Additional support for higher education (K3)",
-      "Skill development opportunities",
-      "Career counseling services"
-    ],
-    applicationPeriod: {
-      startDate: "Year-round application",
-      closeDate: "Open throughout the year"
-    },
-    applicationLink: "https://wbkanyashree.gov.in/",
-    documents: [
-      "Age proof",
-      "Income certificate",
-      "School/college enrollment proof",
-      "Bank account details",
-      "Aadhaar card",
-      "Recent photograph",
-      "Unmarried declaration",
-      "Institution verification form"
-    ],
-    selectionProcess: [
-      "Online application submission",
-      "School/institution verification",
-      "Block level verification",
-      "District approval",
-      "Fund disbursement"
-    ],
-    importantNotes: [
-      "Must remain unmarried till 18 years",
-      "Regular attendance in institution required",
-      "Annual renewal for K1 category",
-      "Direct benefit transfer to bank account"
-    ],
-    contactInfo: {
-      helpline: "1800-103-8100",
-      email: "kanyashree-wb@gov.in",
-      website: "https://wbkanyashree.gov.in"
-    },
-    fundingType: "Conditional Cash Transfer",
-    renewalCriteria: "Annual renewal based on continued education",
-    category: "Girl Child Education",
-    quota: "West Bengal State",
-    route: "wb-kanyashree"
+    fundingType: "Social Welfare",
+    renewalCriteria: "Minimum 60% marks in current course",
+    category: "OBC Welfare",
+    quota: "Rajasthan",
+    route: "raj-dev-narayan"
   },
 
   "mp-medhavi-yojana": {
@@ -1530,17 +1508,17 @@ export const scholarshipDetails = {
     provider: "Government of Madhya Pradesh",
     eligibility: [
       "Students scoring above 70% in Class 12",
-      "Permanent resident of Madhya Pradesh",
-      "Family income below 6 lakhs per annum",
-      "Enrolled in recognized institutions"
+      "Family income below prescribed limit",
+      "MP resident",
+      "Admission in recognized institutions"
     ],
-    about: "The Mukhyamantri Medhavi Vidyarthi Yojana aims to support meritorious students from Madhya Pradesh in pursuing professional and technical education.",
+    about: "Merit-based scholarship scheme for talented students pursuing professional courses in Madhya Pradesh.",
     benefits: [
-      "Full tuition fee reimbursement for professional courses",
-      "Annual maintenance allowance",
-      "Book and equipment allowance",
-      "Special incentives for female students",
-      "Duration covers entire course period"
+      "Full tuition fee waiver",
+      "Maintenance allowance",
+      "Book grant",
+      "Special incentives for professional courses",
+      "Career guidance support"
     ],
     applicationPeriod: {
       startDate: "July 1, 2024",
@@ -1548,36 +1526,35 @@ export const scholarshipDetails = {
     },
     applicationLink: "https://scholarshipportal.mp.nic.in/",
     documents: [
-      "MP domicile certificate",
-      "Income certificate",
       "Class 12 marksheet",
-      "Current admission proof",
+      "Income certificate",
+      "Domicile certificate",
+      "Institution verification form",
       "Bank account details",
       "Aadhaar card",
-      "Recent photograph",
-      "Institution verification form"
+      "Recent photograph"
     ],
     selectionProcess: [
-      "Online application submission",
-      "Document verification",
+      "Online application",
       "Merit list preparation",
-      "Final selection and award"
+      "Document verification",
+      "Final selection"
     ],
     importantNotes: [
-      "Must maintain minimum 60% marks during course",
+      "Merit-based selection",
       "Regular attendance mandatory",
-      "Annual renewal based on academic performance",
-      "Cannot avail other scholarships simultaneously"
+      "Semester-wise renewal",
+      "Progress monitoring"
     ],
     contactInfo: {
       helpline: "1800-233-1445",
-      email: "support.scholarship@mp.gov.in",
+      email: "medhavi.mp@gov.in",
       website: "https://scholarshipportal.mp.nic.in"
     },
     fundingType: "Merit-based",
-    renewalCriteria: "Minimum 60% marks in each academic year",
-    category: "State Merit Scholarship",
-    quota: "Madhya Pradesh State",
+    renewalCriteria: "Maintain 70% marks in professional course",
+    category: "Professional Education",
+    quota: "Madhya Pradesh",
     route: "mp-medhavi-yojana"
   },
 
@@ -1587,16 +1564,16 @@ export const scholarshipDetails = {
     eligibility: [
       "Girls from urban poor families",
       "Family income below 3 lakhs per annum",
-      "Minimum 60% marks in qualifying examination",
-      "Resident of urban areas in Madhya Pradesh"
+      "Minimum 60% marks in previous examination",
+      "MP resident"
     ],
-    about: "The Pratibha Kiran Yojana is designed to support higher education for girls from urban poor families in Madhya Pradesh.",
+    about: "Special scholarship scheme for supporting urban poor girls in higher education.",
     benefits: [
-      "Annual scholarship of ₹20,000",
-      "Book and stationery allowance",
-      "Skill development training",
-      "Career counseling support",
-      "Mentorship opportunities"
+      "Annual scholarship of ₹5,000",
+      "Tuition fee reimbursement",
+      "Book allowance",
+      "Skill development support",
+      "Career counseling"
     ],
     applicationPeriod: {
       startDate: "August 1, 2024",
@@ -1604,35 +1581,35 @@ export const scholarshipDetails = {
     },
     applicationLink: "https://highereducation.mp.gov.in/",
     documents: [
-      "Urban residence proof",
       "Income certificate",
-      "Previous academic records",
+      "Urban residence proof",
+      "Academic records",
+      "Institution verification",
       "Bank account details",
       "Aadhaar card",
-      "Recent photograph",
-      "Institution verification form"
+      "Recent photograph"
     ],
     selectionProcess: [
-      "Online application submission",
+      "Online application",
       "Document verification",
-      "Urban local body verification",
-      "Merit-based selection"
+      "Income verification",
+      "Final selection"
     ],
     importantNotes: [
-      "Exclusive for urban female students",
-      "Regular attendance mandatory",
+      "Only for urban poor girls",
+      "Regular attendance required",
       "Annual renewal based on performance",
-      "Must maintain minimum required CGPA"
+      "Skill development mandatory"
     ],
     contactInfo: {
       helpline: "1800-233-1445",
-      email: "pratibhakiran@mp.gov.in",
+      email: "pratibhakiran.mp@gov.in",
       website: "https://highereducation.mp.gov.in"
     },
-    fundingType: "Merit-cum-Means",
-    renewalCriteria: "Minimum 55% marks in previous year",
-    category: "Scholarship for Girls",
-    quota: "Madhya Pradesh State",
+    fundingType: "Gender-specific Support",
+    renewalCriteria: "Minimum 60% marks in current course",
+    category: "Girls Education",
+    quota: "Madhya Pradesh",
     route: "mp-pratibha-kiran"
   },
 
@@ -1640,54 +1617,54 @@ export const scholarshipDetails = {
     name: "Chief Minister's Scholarship for Civil Services",
     provider: "Government of Kerala",
     eligibility: [
-      "Kerala resident students preparing for civil services",
-      "Age between 21-32 years",
-      "Graduate from recognized university",
-      "Family income below 8 lakhs per annum"
+      "Students preparing for civil services",
+      "Kerala resident",
+      "Age below 32 years",
+      "Graduate in any discipline"
     ],
-    about: "The Chief Minister's Scholarship for Civil Services provides comprehensive support to Kerala students preparing for UPSC and other civil service examinations.",
+    about: "Specialized scholarship to support civil services aspirants from Kerala.",
     benefits: [
-      "Monthly stipend of ₹15,000",
-      "Free coaching at recognized institutes",
-      "Study material and test series",
-      "Mentorship from civil servants",
-      "Library and digital resources access"
+      "Monthly stipend of ₹10,000",
+      "Free coaching support",
+      "Study material allowance",
+      "Mock test series",
+      "Mentorship program"
     ],
     applicationPeriod: {
-      startDate: "June 1, 2024",
+      startDate: "July 1, 2024",
       closeDate: "September 30, 2024"
     },
     applicationLink: "https://dcescholarship.kerala.gov.in/",
     documents: [
-      "Kerala nativity certificate",
-      "Income certificate",
       "Graduation certificate",
       "Age proof",
+      "Domicile certificate",
+      "Study plan",
       "Bank account details",
       "Aadhaar card",
       "Recent photograph"
     ],
     selectionProcess: [
-      "Online application",
-      "Preliminary screening test",
+      "Entrance test",
       "Interview",
-      "Final merit list preparation"
+      "Document verification",
+      "Final selection"
     ],
     importantNotes: [
-      "Regular attendance in coaching mandatory",
-      "Monthly progress reports required",
-      "Maximum duration of support - 2 years",
+      "Regular mock tests mandatory",
+      "Monthly progress review",
+      "Attendance monitoring",
       "Performance-based continuation"
     ],
     contactInfo: {
-      helpline: "1800-425-4525",
+      helpline: "1800-425-1456",
       email: "civilservices.kerala@gov.in",
       website: "https://dcescholarship.kerala.gov.in"
     },
-    fundingType: "Merit-based Support",
-    renewalCriteria: "Satisfactory performance in mock tests",
-    category: "Civil Services Preparation",
-    quota: "Kerala State",
+    fundingType: "Competitive Exam Support",
+    renewalCriteria: "Satisfactory progress in mock tests",
+    category: "Civil Services",
+    quota: "Kerala",
     route: "kerala-civil-services"
   },
 
@@ -1696,493 +1673,162 @@ export const scholarshipDetails = {
     provider: "Kerala State Education Board",
     eligibility: [
       "Top performers in Plus Two examinations",
-      "Minimum 90% marks in qualifying examination",
-      "Kerala state board students",
+      "Minimum 95% marks in Plus Two",
+      "Kerala resident",
       "Pursuing higher education in Kerala"
     ],
-    about: "The Suvarna Jubilee Merit Scholarship recognizes and rewards academic excellence among Kerala state board students pursuing higher education.",
+    about: "Prestigious merit scholarship for outstanding students in Kerala higher secondary education.",
     benefits: [
       "Annual scholarship of ₹30,000",
       "Merit certificate",
-      "Special recognition at state level",
-      "Academic resources support",
-      "Career guidance services"
+      "Special recognition",
+      "Academic support",
+      "Career guidance"
     ],
     applicationPeriod: {
-      startDate: "July 15, 2024",
+      startDate: "August 1, 2024",
       closeDate: "October 31, 2024"
     },
     applicationLink: "https://www.education.kerala.gov.in/",
     documents: [
       "Plus Two marksheet",
-      "Kerala nativity certificate",
-      "Current admission proof",
+      "School certificate",
+      "Domicile proof",
+      "Institution admission proof",
       "Bank account details",
       "Aadhaar card",
-      "Recent photograph",
-      "Institution verification form"
+      "Recent photograph"
     ],
     selectionProcess: [
-      "Automatic consideration for top rankers",
-      "Document verification",
       "Merit list preparation",
-      "Final selection and award"
+      "Document verification",
+      "Final selection"
     ],
     importantNotes: [
+      "Purely merit-based",
+      "One-time award",
       "Must maintain academic excellence",
-      "Regular attendance required",
-      "Annual renewal based on performance",
-      "Cannot combine with other merit scholarships"
+      "Recognition ceremony"
     ],
     contactInfo: {
-      helpline: "1800-425-4525",
-      email: "suvarnajubilee@kerala.gov.in",
+      helpline: "1800-425-1456",
+      email: "suvarna.kerala@gov.in",
       website: "https://www.education.kerala.gov.in"
     },
     fundingType: "Merit-based",
-    renewalCriteria: "Minimum 80% marks in current course",
-    category: "State Merit Scholarship",
-    quota: "Kerala State",
+    renewalCriteria: "One-time award",
+    category: "Academic Excellence",
+    quota: "Kerala",
     route: "kerala-suvarna-jubilee"
-  },
-
-  "punjab-science-scholarship": {
-    name: "Punjab State Science Scholarship",
-    provider: "Department of Science & Technology, Punjab",
-    eligibility: [
-      "Students pursuing B.Sc/M.Sc in pure sciences",
-      "Minimum 75% marks in previous examination",
-      "Punjab resident students",
-      "Family income below 6 lakhs per annum"
-    ],
-    about: "The Punjab State Science Scholarship promotes excellence in pure science education by supporting meritorious students in pursuing higher studies in science streams.",
-    benefits: [
-      "Monthly stipend of ₹3,000",
-      "Annual book grant of ₹5,000",
-      "Research project support",
-      "Laboratory access benefits",
-      "Science conference participation support"
-    ],
-    applicationPeriod: {
-      startDate: "July 1, 2024",
-      closeDate: "October 31, 2024"
-    },
-    applicationLink: "https://dst.punjab.gov.in/",
-    documents: [
-      "Punjab domicile certificate",
-      "Income certificate",
-      "Previous academic records",
-      "Current enrollment proof",
-      "Bank account details",
-      "Aadhaar card",
-      "Recent photograph"
-    ],
-    selectionProcess: [
-      "Online application submission",
-      "Academic merit screening",
-      "Document verification",
-      "Final selection based on merit"
-    ],
-    importantNotes: [
-      "Must maintain science major throughout course",
-      "Regular attendance mandatory",
-      "Research participation encouraged",
-      "Annual renewal subject to performance"
-    ],
-    contactInfo: {
-      helpline: "1800-180-2065",
-      email: "sciencescholarship@punjab.gov.in",
-      website: "https://dst.punjab.gov.in"
-    },
-    fundingType: "Merit-based",
-    renewalCriteria: "Minimum 70% marks in current course",
-    category: "Science and Technology",
-    quota: "Punjab State",
-    route: "punjab-science-scholarship"
-  },
-
-  "punjab-sc-scholarship": {
-    name: "Dr. Ambedkar Post Matric Scholarship",
-    provider: "Social Welfare Department, Punjab",
-    eligibility: [
-      "SC students pursuing higher education",
-      "Family income below prescribed limit",
-      "Punjab domicile holders",
-      "Enrolled in recognized institutions"
-    ],
-    about: "The Dr. Ambedkar Post Matric Scholarship scheme aims to provide financial assistance to SC students for pursuing higher education in Punjab.",
-    benefits: [
-      "Full tuition fee reimbursement",
-      "Maintenance allowance",
-      "Study material support",
-      "Hostel fees coverage",
-      "Additional allowance for professional courses"
-    ],
-    applicationPeriod: {
-      startDate: "August 1, 2024",
-      closeDate: "November 30, 2024"
-    },
-    applicationLink: "https://scholarships.punjab.gov.in/",
-    documents: [
-      "SC certificate",
-      "Income certificate",
-      "Punjab domicile",
-      "Previous marksheets",
-      "Institution verification form",
-      "Bank account details",
-      "Aadhaar card"
-    ],
-    selectionProcess: [
-      "Online application",
-      "Document verification",
-      "Social welfare department verification",
-      "Final approval and disbursement"
-    ],
-    importantNotes: [
-      "Regular attendance required",
-      "Income certificate renewal yearly",
-      "Progress reports mandatory",
-      "Direct benefit transfer to account"
-    ],
-    contactInfo: {
-      helpline: "1800-180-2065",
-      email: "scscholarship@punjab.gov.in",
-      website: "https://scholarships.punjab.gov.in"
-    },
-    fundingType: "Social Welfare",
-    renewalCriteria: "Satisfactory academic progress",
-    category: "SC Scholarship",
-    quota: "Punjab State",
-    route: "punjab-sc-scholarship"
-  },
-
-  "telangana-epass": {
-    name: "Telangana ePass Scholarship",
-    provider: "Social Welfare Department, Telangana",
-    eligibility: [
-      "SC/ST/BC/EBC/Minority students",
-      "Family income as per category norms",
-      "Telangana state residents",
-      "Regular course students"
-    ],
-    about: "The Telangana ePass Scholarship provides comprehensive financial support to students from disadvantaged sections pursuing higher education in the state.",
-    benefits: [
-      "Full tuition fee reimbursement",
-      "Monthly maintenance charges",
-      "Book grant and exam fees",
-      "Hostel and mess charges",
-      "Special allowance for professional courses"
-    ],
-    applicationPeriod: {
-      startDate: "July 15, 2024",
-      closeDate: "October 31, 2024"
-    },
-    applicationLink: "https://telanganaepass.cgg.gov.in/",
-    documents: [
-      "Category certificate",
-      "Income certificate",
-      "Telangana residence proof",
-      "Previous academic records",
-      "Current admission proof",
-      "Bank account details",
-      "Aadhaar card"
-    ],
-    selectionProcess: [
-      "Online application through ePass portal",
-      "College level verification",
-      "District welfare officer verification",
-      "Final approval and sanction"
-    ],
-    importantNotes: [
-      "Biometric attendance mandatory",
-      "Minimum 75% attendance required",
-      "Annual income verification",
-      "Regular academic progress necessary"
-    ],
-    contactInfo: {
-      helpline: "1800-425-4599",
-      email: "epass-support@telangana.gov.in",
-      website: "https://telanganaepass.cgg.gov.in"
-    },
-    fundingType: "Social Welfare",
-    renewalCriteria: "Pass in previous year examinations",
-    category: "State Welfare Scholarship",
-    quota: "Telangana State",
-    route: "telangana-epass"
-  },
-
-  "telangana-overseas": {
-    name: "Chief Minister's Overseas Scholarship",
-    provider: "Government of Telangana",
-    eligibility: [
-      "Telangana students pursuing foreign education",
-      "Admission in top 100 global universities",
-      "Family income below 5 lakhs per annum",
-      "Age below 35 years"
-    ],
-    about: "The Chief Minister's Overseas Scholarship Scheme supports meritorious students from Telangana in pursuing higher education at prestigious international universities.",
-    benefits: [
-      "Tuition fee up to ₹20 lakhs",
-      "Travel grant",
-      "Visa fee reimbursement",
-      "Health insurance coverage",
-      "Living expense support"
-    ],
-    applicationPeriod: {
-      startDate: "June 1, 2024",
-      closeDate: "September 30, 2024"
-    },
-    applicationLink: "https://www.telangana.gov.in/",
-    documents: [
-      "Foreign university admission letter",
-      "Income certificate",
-      "Telangana nativity",
-      "Academic records",
-      "Passport copy",
-      "Bank account details",
-      "Statement of purpose"
-    ],
-    selectionProcess: [
-      "Online application submission",
-      "Document verification",
-      "Interview panel screening",
-      "Final selection and award"
-    ],
-    importantNotes: [
-      "Bond to return to India after studies",
-      "Regular progress reports required",
-      "University ranking criteria strict",
-      "One-time support only"
-    ],
-    contactInfo: {
-      helpline: "1800-425-4599",
-      email: "overseas.scholarship@telangana.gov.in",
-      website: "https://www.telangana.gov.in"
-    },
-    fundingType: "Merit-based",
-    renewalCriteria: "Not applicable (one-time award)",
-    category: "Overseas Education",
-    quota: "Telangana State",
-    route: "telangana-overseas"
-  },
-
-  "assam-pragyan-bharti": {
-    name: "Pragyan Bharti Scholarship",
-    provider: "Government of Assam",
-    eligibility: [
-      "Students securing above 75% in Class 12",
-      "Permanent resident of Assam",
-      "Family income below 5 lakhs per annum",
-      "Pursuing undergraduate studies in Assam"
-    ],
-    about: "The Pragyan Bharti Scholarship scheme aims to support meritorious students from Assam in pursuing higher education within the state.",
-    benefits: [
-      "Annual scholarship of ₹20,000",
-      "Book allowance of ₹5,000",
-      "Merit certificate",
-      "Special incentives for girl students",
-      "Career guidance support"
-    ],
-    applicationPeriod: {
-      startDate: "July 1, 2024",
-      closeDate: "October 31, 2024"
-    },
-    applicationLink: "https://directorateofhighereducation.assam.gov.in/",
-    documents: [
-      "Permanent Resident Certificate of Assam",
-      "Income certificate",
-      "Class 12 marksheet",
-      "Current admission proof",
-      "Bank account details",
-      "Aadhaar card",
-      "Recent photograph"
-    ],
-    selectionProcess: [
-      "Online application submission",
-      "Document verification",
-      "Merit list preparation",
-      "Final selection and award"
-    ],
-    importantNotes: [
-      "Must maintain 60% marks in current course",
-      "Regular attendance mandatory",
-      "Annual renewal based on performance",
-      "Cannot avail other state scholarships simultaneously"
-    ],
-    contactInfo: {
-      helpline: "1800-345-3665",
-      email: "pragyanbharti@assam.gov.in",
-      website: "https://directorateofhighereducation.assam.gov.in"
-    },
-    fundingType: "Merit-based",
-    renewalCriteria: "Minimum 60% marks in each semester",
-    category: "State Merit Scholarship",
-    quota: "Assam State",
-    route: "assam-pragyan-bharti"
-  },
-
-  "assam-ishan-uday": {
-    name: "Ishan Uday Special Scholarship",
-    provider: "UGC and Government of Assam",
-    eligibility: [
-      "Students from North Eastern states",
-      "Pursuing undergraduate studies",
-      "Family income below 4.5 lakhs per annum",
-      "Minimum 60% marks in Class 12"
-    ],
-    about: "The Ishan Uday Special Scholarship promotes higher education in North Eastern states by providing financial assistance to meritorious students.",
-    benefits: [
-      "Monthly stipend of ₹5,400 for general degrees",
-      "Monthly stipend of ₹7,800 for technical degrees",
-      "Study material allowance",
-      "Travel allowance",
-      "Additional support for differently-abled students"
-    ],
-    applicationPeriod: {
-      startDate: "August 1, 2024",
-      closeDate: "November 30, 2024"
-    },
-    applicationLink: "https://scholarships.gov.in/",
-    documents: [
-      "Domicile certificate",
-      "Income certificate",
-      "Previous academic records",
-      "Current admission proof",
-      "Bank account details",
-      "Aadhaar card",
-      "Recent photograph"
-    ],
-    selectionProcess: [
-      "Online application through NSP",
-      "Document verification",
-      "State-level screening",
-      "UGC final approval"
-    ],
-    importantNotes: [
-      "Applicable for full-time courses only",
-      "Regular attendance mandatory",
-      "Semester-wise progress monitoring",
-      "Maximum duration of 4 years"
-    ],
-    contactInfo: {
-      helpline: "1800-345-3665",
-      email: "ishanuday@ugc.ac.in",
-      website: "https://www.ugc.ac.in"
-    },
-    fundingType: "Special Category",
-    renewalCriteria: "Satisfactory academic progress",
-    category: "North East Region Scholarship",
-    quota: "North Eastern States",
-    route: "assam-ishan-uday"
   },
 
   "jharkhand-ekalyan": {
     name: "e-Kalyan Scholarship",
-    provider: "Welfare Department, Jharkhand",
+    provider: "Government of Jharkhand",
     eligibility: [
       "SC/ST/OBC/Minority students",
-      "Permanent resident of Jharkhand",
-      "Family income within prescribed limits",
+      "Family income below prescribed limit",
+      "Jharkhand resident",
       "Regular course enrollment"
     ],
-    about: "The e-Kalyan Scholarship scheme provides comprehensive financial support to students from disadvantaged sections in Jharkhand.",
+    about: "Comprehensive scholarship portal for various categories of students in Jharkhand.",
     benefits: [
-      "Full tuition fee reimbursement",
-      "Monthly maintenance allowance",
-      "Book and stationery grant",
-      "Hostel fees coverage where applicable",
-      "Special allowance for professional courses"
+      "Tuition fee reimbursement",
+      "Maintenance allowance",
+      "Book grant",
+      "Hostel expenses",
+      "Study material support"
     ],
     applicationPeriod: {
       startDate: "July 15, 2024",
-      closeDate: "October 31, 2024"
+      closeDate: "November 30, 2024"
     },
-    applicationLink: "https://jharkhandstudents.nic.in/",
+    applicationLink: "https://jharkhandstudents.in/",
     documents: [
-      "Caste certificate",
+      "Category certificate",
       "Income certificate",
       "Domicile certificate",
-      "Previous marksheets",
-      "Current admission proof",
+      "Institution verification",
       "Bank account details",
-      "Aadhaar card"
+      "Aadhaar card",
+      "Recent photograph"
     ],
     selectionProcess: [
-      "Online application through e-Kalyan portal",
-      "Institution verification",
-      "District welfare officer verification",
-      "Final approval and disbursement"
+      "Online application",
+      "Document verification",
+      "Category verification",
+      "Final selection"
     ],
     importantNotes: [
-      "Biometric attendance mandatory",
-      "Regular academic progress required",
-      "Annual income verification",
-      "Direct benefit transfer to account"
+      "Category specific benefits",
+      "Regular attendance mandatory",
+      "Annual renewal process",
+      "Direct benefit transfer"
     ],
     contactInfo: {
       helpline: "1800-345-6223",
-      email: "ekalyan@jharkhand.gov.in",
-      website: "https://jharkhandstudents.nic.in"
+      email: "ekalyan.jharkhand@gov.in",
+      website: "https://jharkhandstudents.in"
     },
     fundingType: "Social Welfare",
-    renewalCriteria: "Pass in previous academic year",
-    category: "State Welfare Scholarship",
-    quota: "Jharkhand State",
+    renewalCriteria: "Satisfactory academic progress",
+    category: "Multiple Categories",
+    quota: "Jharkhand",
     route: "jharkhand-ekalyan"
   },
 
   "jharkhand-laxmi-ladli": {
-    name: "Laxmi Ladli Yojana",
-    provider: "Women and Child Development, Jharkhand",
+    name: "Mukhya Mantri Laxmi Ladli Yojna",
+    provider: "Jharkhand Education Department",
     eligibility: [
-      "Girl students from Jharkhand",
-      "Family income below 3 lakhs per annum",
-      "Minimum 60% marks in previous examination",
-      "Single girl child (preferred)"
+      "Girl students from class 6 to graduation",
+      "Jharkhand resident",
+      "Regular school/college enrollment",
+      "Family income below prescribed limit"
     ],
-    about: "The Laxmi Ladli Yojana promotes girl child education in Jharkhand by providing financial support from school to higher education.",
+    about: "Comprehensive educational support scheme for girl students in Jharkhand.",
     benefits: [
-      "Annual scholarship of ₹18,000",
-      "Additional merit incentives",
+      "Annual scholarship amount",
+      "Additional incentives for higher education",
       "Skill development support",
       "Career counseling",
-      "Special benefits for single girl child"
+      "Merit recognition"
     ],
     applicationPeriod: {
       startDate: "August 1, 2024",
-      closeDate: "November 30, 2024"
+      closeDate: "December 31, 2024"
     },
-    applicationLink: "https://www.jharkhand.gov.in/women",
+    applicationLink: "https://www.jharkhand.gov.in/",
     documents: [
       "Birth certificate",
       "Income certificate",
+      "School/College enrollment proof",
       "Domicile certificate",
-      "Academic records",
       "Bank account details",
       "Aadhaar card",
-      "Single girl child affidavit (if applicable)"
+      "Recent photograph"
     ],
     selectionProcess: [
-      "Online application submission",
+      "Online application",
       "Document verification",
-      "District committee approval",
-      "Final selection and award"
+      "Institution verification",
+      "Final selection"
     ],
     importantNotes: [
-      "Must remain unmarried during scholarship period",
-      "Regular attendance mandatory",
-      "Annual renewal based on performance",
-      "Special monitoring for career progress"
+      "Girl child specific scheme",
+      "Regular attendance required",
+      "Annual renewal process",
+      "Progress monitoring"
     ],
     contactInfo: {
       helpline: "1800-345-6223",
-      email: "laxmiladli@jharkhand.gov.in",
-      website: "https://www.jharkhand.gov.in/women"
+      email: "laxmiladli.jharkhand@gov.in",
+      website: "https://www.jharkhand.gov.in"
     },
-    fundingType: "Girl Child Support",
-    renewalCriteria: "Minimum 60% marks in current course",
-    category: "Scholarship for Girls",
-    quota: "Jharkhand State",
+    fundingType: "Gender-specific Support",
+    renewalCriteria: "Regular attendance and academic progress",
+    category: "Girls Education",
+    quota: "Jharkhand",
     route: "jharkhand-laxmi-ladli"
   },
 
@@ -2624,6 +2270,2403 @@ export const scholarshipDetails = {
     category: "Professional Education",
     quota: "Goa State",
     route: "goa-cm-scholarship"
+  },
+
+  "bihar-credit-card": {
+    name: "Bihar Student Credit Card Scheme",
+    provider: "Government of Bihar",
+    eligibility: [
+      "Students pursuing higher education in Bihar",
+      "Age between 18-40 years",
+      "Resident of Bihar",
+      "Admission in recognized institutions"
+    ],
+    about: "The scheme provides financial support through education loans with government guarantee for higher studies.",
+    benefits: [
+      "Loan up to ₹4 lakhs",
+      "Interest subsidy",
+      "No collateral required",
+      "Extended repayment period",
+      "Government guarantee"
+    ],
+    applicationPeriod: {
+      startDate: "July 1, 2024",
+      closeDate: "December 31, 2024"
+    },
+    applicationLink: "https://www.7nishchay-yuvaupmission.bihar.gov.in/",
+    documents: [
+      "Age proof",
+      "Residence certificate",
+      "Institution admission proof",
+      "Previous academic records",
+      "Bank account details",
+      "Aadhaar card",
+      "Recent photograph"
+    ],
+    selectionProcess: [
+      "Online application",
+      "Document verification",
+      "Bank processing",
+      "Loan sanction"
+    ],
+    importantNotes: [
+      "Simple interest rate",
+      "Moratorium period available",
+      "Regular academic progress required",
+      "Annual renewal of loan"
+    ],
+    contactInfo: {
+      helpline: "1800-XXX-XXXX",
+      email: "creditcard.bihar@gov.in",
+      website: "https://www.7nishchay-yuvaupmission.bihar.gov.in"
+    },
+    fundingType: "Education Loan",
+    renewalCriteria: "Satisfactory academic progress",
+    category: "Education Loan Support",
+    quota: "Bihar State",
+    route: "bihar-credit-card"
+  },
+
+  "bihar-kanya-utthan": {
+    name: "Mukhyamantri Kanya Utthan Yojana",
+    provider: "Bihar Education Department",
+    eligibility: [
+      "Girl students who passed intermediate",
+      "Bihar resident",
+      "Regular enrollment in recognized institution",
+      "Family income within prescribed limit"
+    ],
+    about: "Financial assistance scheme to promote higher education among girl students in Bihar.",
+    benefits: [
+      "Education loan support",
+      "Annual scholarship amount",
+      "Skill development training",
+      "Career counseling",
+      "Special incentives for professional courses"
+    ],
+    applicationPeriod: {
+      startDate: "July 15, 2024",
+      closeDate: "November 15, 2024"
+    },
+    applicationLink: "https://www.bihareduloan.in/",
+    documents: [
+      "Intermediate passing certificate",
+      "Income certificate",
+      "Residence proof",
+      "Institution verification form",
+      "Bank account details",
+      "Aadhaar card",
+      "Recent photograph"
+    ],
+    selectionProcess: [
+      "Online application",
+      "Document verification",
+      "Institution verification",
+      "Final selection"
+    ],
+    importantNotes: [
+      "Only for girl students",
+      "Regular attendance mandatory",
+      "Annual renewal process",
+      "Direct benefit transfer"
+    ],
+    contactInfo: {
+      helpline: "1800-XXX-XXXX",
+      email: "kanyautthan.bihar@gov.in",
+      website: "https://www.bihareduloan.in"
+    },
+    fundingType: "Gender-specific Support",
+    renewalCriteria: "Satisfactory academic progress",
+    category: "Girls Education",
+    quota: "Bihar State",
+    route: "bihar-kanya-utthan"
+  },
+
+  "wb-kanyashree": {
+    name: "Kanyashree Prakalpa",
+    provider: "West Bengal Women Development",
+    eligibility: [
+      "Unmarried girl students aged 13-19 years",
+      "West Bengal resident",
+      "Regular school/college enrollment",
+      "Family income criteria as per guidelines"
+    ],
+    about: "Award-winning scheme to prevent child marriage and promote girl child education in West Bengal.",
+    benefits: [
+      "Annual scholarship of ₹1,000 (K1)",
+      "One-time grant of ₹25,000 (K2)",
+      "Additional benefits for higher education",
+      "Skill development opportunities",
+      "Career guidance support"
+    ],
+    applicationPeriod: {
+      startDate: "August 1, 2024",
+      closeDate: "December 15, 2024"
+    },
+    applicationLink: "https://www.wbkanyashree.gov.in/",
+    documents: [
+      "Age proof",
+      "Unmarried certificate",
+      "Institution enrollment proof",
+      "Income certificate",
+      "Bank account details",
+      "Aadhaar card",
+      "Recent photograph"
+    ],
+    selectionProcess: [
+      "Online application",
+      "School/college verification",
+      "District level approval",
+      "Final selection"
+    ],
+    importantNotes: [
+      "Must maintain unmarried status",
+      "Regular attendance required",
+      "Annual renewal for K1 category",
+      "Special provisions for higher studies"
+    ],
+    contactInfo: {
+      helpline: "1800-XXX-XXXX",
+      email: "kanyashree.wb@gov.in",
+      website: "https://www.wbkanyashree.gov.in"
+    },
+    fundingType: "Girl Child Education",
+    renewalCriteria: "Continuation of education and unmarried status",
+    category: "Girls Education",
+    quota: "West Bengal",
+    route: "wb-kanyashree"
+  },
+
+  "rajasthan-higher-edu": {
+    name: "Mukhyamantri Uchcha Shiksha Chhatravriti",
+    provider: "Government of Rajasthan",
+    eligibility: [
+      "Students pursuing higher education in state",
+      "Rajasthan resident",
+      "Merit based selection",
+      "Family income within prescribed limit"
+    ],
+    about: "Comprehensive scholarship scheme for students pursuing technical and professional courses in Rajasthan.",
+    benefits: [
+      "Tuition fee reimbursement",
+      "Monthly maintenance allowance",
+      "Book grant",
+      "Special incentives for professional courses",
+      "Merit recognition"
+    ],
+    applicationPeriod: {
+      startDate: "July 1, 2024",
+      closeDate: "November 30, 2024"
+    },
+    applicationLink: "https://scholarship.rajasthan.gov.in/",
+    documents: [
+      "Academic records",
+      "Income certificate",
+      "Domicile certificate",
+      "Institution verification form",
+      "Bank account details",
+      "Aadhaar card",
+      "Recent photograph"
+    ],
+    selectionProcess: [
+      "Online application",
+      "Merit assessment",
+      "Document verification",
+      "Final selection"
+    ],
+    importantNotes: [
+      "Merit-based selection",
+      "Regular attendance mandatory",
+      "Annual renewal process",
+      "Progress monitoring"
+    ],
+    contactInfo: {
+      helpline: "1800-XXX-XXXX",
+      email: "scholarship.raj@gov.in",
+      website: "https://scholarship.rajasthan.gov.in"
+    },
+    fundingType: "Merit-based",
+    renewalCriteria: "Satisfactory academic performance",
+    category: "Higher Education",
+    quota: "Rajasthan",
+    route: "rajasthan-higher-edu"
+  },
+
+  "mp-pratibha-kiran": {
+    name: "Pratibha Kiran Yojana",
+    provider: "MP Higher Education Department",
+    eligibility: [
+      "Girls from urban poor families",
+      "Madhya Pradesh resident",
+      "Regular enrollment in recognized institutions",
+      "Family income below prescribed limit"
+    ],
+    about: "Special scholarship scheme to support education of girls from urban poor families in Madhya Pradesh.",
+    benefits: [
+      "Annual scholarship amount",
+      "Book allowance",
+      "Skill development support",
+      "Career counseling",
+      "Additional support for professional courses"
+    ],
+    applicationPeriod: {
+      startDate: "August 1, 2024",
+      closeDate: "November 15, 2024"
+    },
+    applicationLink: "https://highereducation.mp.gov.in/",
+    documents: [
+      "Urban area residence proof",
+      "Income certificate",
+      "Institution enrollment proof",
+      "Previous academic records",
+      "Bank account details",
+      "Aadhaar card",
+      "Recent photograph"
+    ],
+    selectionProcess: [
+      "Online application",
+      "Document verification",
+      "Urban local body verification",
+      "Final selection"
+    ],
+    importantNotes: [
+      "Urban poor focus",
+      "Regular attendance mandatory",
+      "Annual renewal process",
+      "Progress monitoring"
+    ],
+    contactInfo: {
+      helpline: "1800-XXX-XXXX",
+      email: "pratibhakiran.mp@gov.in",
+      website: "https://highereducation.mp.gov.in"
+    },
+    fundingType: "Urban Poor Support",
+    renewalCriteria: "Satisfactory academic progress",
+    category: "Girls Education",
+    quota: "Madhya Pradesh",
+    route: "mp-pratibha-kiran"
+  },
+
+  "mizoram-post-matric": {
+    name: "Post Matric Scholarship",
+    provider: "Government of Mizoram",
+    eligibility: [
+      "Students from ST communities",
+      "Permanent resident of Mizoram",
+      "Regular enrollment in post-matric courses",
+      "Family income as per guidelines"
+    ],
+    about: "The Post Matric Scholarship scheme by Government of Mizoram aims to support tribal students in pursuing higher education and professional courses.",
+    benefits: [
+      "Full tuition fee reimbursement",
+      "Monthly maintenance allowance",
+      "Study material allowance",
+      "Additional support for professional courses",
+      "Special allowance for differently-abled students"
+    ],
+    applicationPeriod: {
+      startDate: "August 1, 2024",
+      closeDate: "November 15, 2024"
+    },
+    applicationLink: "https://scholarship.mizoram.gov.in/",
+    documents: [
+      "ST certificate",
+      "Domicile certificate",
+      "Income certificate",
+      "Previous academic records",
+      "Current admission proof",
+      "Bank account details",
+      "Aadhaar card",
+      "Recent photograph"
+    ],
+    selectionProcess: [
+      "Online application submission",
+      "Document verification",
+      "Tribal department approval",
+      "Final selection"
+    ],
+    importantNotes: [
+      "Exclusive for ST students",
+      "Regular attendance mandatory",
+      "Annual renewal based on performance",
+      "Direct benefit transfer to account"
+    ],
+    contactInfo: {
+      helpline: "1800-345-6789",
+      email: "scholarship.mizoram@gov.in",
+      website: "https://scholarship.mizoram.gov.in"
+    },
+    fundingType: "Full Support",
+    renewalCriteria: "Minimum pass percentage in current course",
+    category: "Tribal Welfare",
+    quota: "Mizoram State",
+    route: "mizoram-post-matric"
+  },
+
+  "mizoram-merit-scholarship": {
+    name: "Merit Scholarship Scheme",
+    provider: "Education Department, Mizoram",
+    eligibility: [
+      "Meritorious students from Mizoram",
+      "Minimum 80% marks in qualifying examination",
+      "Regular enrollment in recognized institutions",
+      "Mizoram state domicile"
+    ],
+    about: "The Merit Scholarship Scheme encourages academic excellence among Mizoram students by providing financial support to top performers.",
+    benefits: [
+      "Annual scholarship of ₹30,000",
+      "Academic excellence award",
+      "Book grant",
+      "Research support allowance",
+      "Merit certificate"
+    ],
+    applicationPeriod: {
+      startDate: "September 1, 2024",
+      closeDate: "December 31, 2024"
+    },
+    applicationLink: "https://education.mizoram.gov.in/",
+    documents: [
+      "Academic marksheets",
+      "Domicile certificate",
+      "Institution verification form",
+      "Character certificate",
+      "Bank account details",
+      "Aadhaar card",
+      "Recent photograph"
+    ],
+    selectionProcess: [
+      "Merit-based selection",
+      "Document verification",
+      "Academic record review",
+      "Final merit list preparation"
+    ],
+    importantNotes: [
+      "Purely merit-based selection",
+      "Must maintain academic excellence",
+      "Annual renewal subject to performance",
+      "Special recognition for toppers"
+    ],
+    contactInfo: {
+      helpline: "1800-234-5678",
+      email: "merit.edu@mizoram.gov.in",
+      website: "https://education.mizoram.gov.in"
+    },
+    fundingType: "Merit-based",
+    renewalCriteria: "Minimum 75% marks in current course",
+    category: "State Merit",
+    quota: "Mizoram State",
+    route: "mizoram-merit-scholarship"
+  },
+
+  "nagaland-merit-scholarship": {
+    name: "State Merit Scholarship",
+    provider: "Government of Nagaland",
+    eligibility: [
+      "Top performers in Class 10 and 12",
+      "Permanent resident of Nagaland",
+      "Regular enrollment in higher education",
+      "Minimum 85% marks in qualifying examination"
+    ],
+    about: "The Nagaland State Merit Scholarship recognizes and supports academic excellence among students from Nagaland pursuing higher education.",
+    benefits: [
+      "Annual scholarship of ₹40,000",
+      "Special merit recognition",
+      "Book and equipment allowance",
+      "Research support grant",
+      "Career guidance services"
+    ],
+    applicationPeriod: {
+      startDate: "July 15, 2024",
+      closeDate: "October 31, 2024"
+    },
+    applicationLink: "https://education.nagaland.gov.in/",
+    documents: [
+      "Academic certificates",
+      "Nagaland domicile proof",
+      "Institution enrollment proof",
+      "Merit rank certificate",
+      "Bank account details",
+      "Aadhaar card",
+      "Recent photograph"
+    ],
+    selectionProcess: [
+      "Merit list preparation",
+      "Document verification",
+      "Interview round",
+      "Final selection"
+    ],
+    importantNotes: [
+      "Competitive selection process",
+      "Regular academic monitoring",
+      "Progress reports required",
+      "Annual merit review"
+    ],
+    contactInfo: {
+      helpline: "1800-567-8901",
+      email: "merit.nagaland@gov.in",
+      website: "https://education.nagaland.gov.in"
+    },
+    fundingType: "Merit-based",
+    renewalCriteria: "Minimum 80% marks in current course",
+    category: "State Merit",
+    quota: "Nagaland State",
+    route: "nagaland-merit-scholarship"
+  },
+
+  "nagaland-research-scholarship": {
+    name: "Research Scholarship Scheme",
+    provider: "Higher Education Department, Nagaland",
+    eligibility: [
+      "Students pursuing research in state universities",
+      "Minimum 65% marks in post-graduation",
+      "Nagaland domicile",
+      "Age below 35 years"
+    ],
+    about: "The Research Scholarship Scheme promotes research and innovation among scholars in Nagaland's higher education institutions.",
+    benefits: [
+      "Monthly research stipend of ₹25,000",
+      "Annual contingency grant",
+      "Conference attendance support",
+      "Laboratory access",
+      "Research publication assistance"
+    ],
+    applicationPeriod: {
+      startDate: "August 1, 2024",
+      closeDate: "November 30, 2024"
+    },
+    applicationLink: "https://www.nagaland.gov.in/",
+    documents: [
+      "Research proposal",
+      "Academic certificates",
+      "Supervisor recommendation",
+      "Institution NOC",
+      "Domicile certificate",
+      "Bank account details",
+      "Aadhaar card",
+      "Recent photograph"
+    ],
+    selectionProcess: [
+      "Research proposal evaluation",
+      "Academic screening",
+      "Interview with expert panel",
+      "Final selection"
+    ],
+    importantNotes: [
+      "Regular progress reports mandatory",
+      "Six-monthly review presentations",
+      "Publication requirements",
+      "Maximum duration of 3 years"
+    ],
+    contactInfo: {
+      helpline: "1800-345-9012",
+      email: "research.nagaland@gov.in",
+      website: "https://www.nagaland.gov.in"
+    },
+    fundingType: "Research Support",
+    renewalCriteria: "Satisfactory research progress",
+    category: "Research Scholarship",
+    quota: "Nagaland State",
+    route: "nagaland-research-scholarship"
+  },
+
+  "kerala-merit-scholarship": {
+    name: "Kerala State Merit Scholarship",
+    provider: "Kerala State Higher Education Council",
+    eligibility: [
+      "Top 1% students in state board examinations",
+      "Kerala state domicile",
+      "Regular enrollment in recognized institutions",
+      "Family income below prescribed limit"
+    ],
+    about: "The Kerala State Merit Scholarship recognizes academic excellence and supports meritorious students in pursuing higher education within the state.",
+    benefits: [
+      "Annual scholarship of ₹35,000",
+      "Academic excellence award",
+      "Book allowance",
+      "Skill development support",
+      "Career guidance"
+    ],
+    applicationPeriod: {
+      startDate: "July 15, 2024",
+      closeDate: "October 31, 2024"
+    },
+    applicationLink: "https://kshec.kerala.gov.in/",
+    documents: [
+      "State board marksheets",
+      "Income certificate",
+      "Domicile proof",
+      "Institution enrollment proof",
+      "Bank account details",
+      "Aadhaar card",
+      "Recent photograph"
+    ],
+    selectionProcess: [
+      "Merit-based selection",
+      "Document verification",
+      "Income verification",
+      "Final merit list"
+    ],
+    importantNotes: [
+      "Merit-cum-means based selection",
+      "Regular attendance mandatory",
+      "Annual renewal based on performance",
+      "Special consideration for rural students"
+    ],
+    contactInfo: {
+      helpline: "1800-425-2444",
+      email: "scholarship.kerala@gov.in",
+      website: "https://kshec.kerala.gov.in"
+    },
+    fundingType: "Merit-cum-Means",
+    renewalCriteria: "Minimum 75% marks in current course",
+    category: "State Merit",
+    quota: "Kerala State",
+    route: "kerala-merit-scholarship"
+  },
+
+  "kerala-tech-scholarship": {
+    name: "Kerala Technology Scholarship",
+    provider: "Kerala State IT Mission",
+    eligibility: [
+      "Students pursuing technology courses",
+      "Minimum 80% marks in qualifying examination",
+      "Kerala resident",
+      "Family income below 8 lakhs per annum"
+    ],
+    about: "The Kerala Technology Scholarship aims to nurture tech talent in the state by supporting students pursuing courses in emerging technologies.",
+    benefits: [
+      "Annual scholarship of ₹50,000",
+      "Industry internship opportunities",
+      "Technical workshop access",
+      "Project development support",
+      "Mentorship from industry experts"
+    ],
+    applicationPeriod: {
+      startDate: "August 1, 2024",
+      closeDate: "November 30, 2024"
+    },
+    applicationLink: "https://itmission.kerala.gov.in/",
+    documents: [
+      "Academic records",
+      "Income certificate",
+      "Domicile certificate",
+      "Course enrollment proof",
+      "Bank account details",
+      "Aadhaar card",
+      "Recent photograph",
+      "Project proposal (if applicable)"
+    ],
+    selectionProcess: [
+      "Online application",
+      "Technical aptitude test",
+      "Interview round",
+      "Final selection"
+    ],
+    importantNotes: [
+      "Focus on emerging technologies",
+      "Project completion mandatory",
+      "Industry interaction required",
+      "Quarterly progress review"
+    ],
+    contactInfo: {
+      helpline: "1800-425-1556",
+      email: "techscholarship@kerala.gov.in",
+      website: "https://itmission.kerala.gov.in"
+    },
+    fundingType: "Merit-based",
+    renewalCriteria: "Minimum 70% marks and project completion",
+    category: "Technology Education",
+    quota: "Kerala State",
+    route: "kerala-tech-scholarship"
+  },
+
+  "rajasthan-higher-education": {
+    name: "Rajasthan Higher Education Scholarship",
+    provider: "Department of Higher Education, Rajasthan",
+    eligibility: [
+      "Students pursuing undergraduate/postgraduate courses",
+      "Rajasthan domicile",
+      "Minimum 60% marks in qualifying examination",
+      "Family income below 6 lakhs per annum"
+    ],
+    about: "The Rajasthan Higher Education Scholarship supports meritorious students from the state in pursuing quality higher education across various disciplines.",
+    benefits: [
+      "Tuition fee reimbursement up to ₹45,000 annually",
+      "Monthly maintenance allowance",
+      "Book and stationery grant",
+      "Special incentives for girl students",
+      "Career counseling support"
+    ],
+    applicationPeriod: {
+      startDate: "July 15, 2024",
+      closeDate: "October 31, 2024"
+    },
+    applicationLink: "https://hte.rajasthan.gov.in/",
+    documents: [
+      "Domicile certificate",
+      "Income certificate",
+      "Previous academic records",
+      "Current admission proof",
+      "Bank account details",
+      "Aadhaar card",
+      "Recent photograph"
+    ],
+    selectionProcess: [
+      "Online application submission",
+      "Document verification",
+      "Merit list preparation",
+      "Final selection"
+    ],
+    importantNotes: [
+      "Merit-cum-means based selection",
+      "Regular attendance mandatory",
+      "Annual renewal based on performance",
+      "Additional benefits for STEM courses"
+    ],
+    contactInfo: {
+      helpline: "1800-180-6127",
+      email: "scholarship.raj@gov.in",
+      website: "https://hte.rajasthan.gov.in"
+    },
+    fundingType: "Merit-cum-Means",
+    renewalCriteria: "Minimum 60% marks in current course",
+    category: "State Higher Education",
+    quota: "Rajasthan State",
+    route: "rajasthan-higher-education"
+  },
+
+  "rajasthan-girl-scholarship": {
+    name: "Rajasthan Girls Merit Scholarship",
+    provider: "Women and Child Development Department, Rajasthan",
+    eligibility: [
+      "Girl students with excellent academic record",
+      "Permanent resident of Rajasthan",
+      "Family income below 8 lakhs per annum",
+      "Regular enrollment in recognized institutions"
+    ],
+    about: "This scholarship aims to promote higher education among girl students in Rajasthan and support their academic aspirations.",
+    benefits: [
+      "Annual scholarship of ₹40,000",
+      "Hostel fee reimbursement",
+      "Special coaching support",
+      "Skill development programs",
+      "Career mentorship"
+    ],
+    applicationPeriod: {
+      startDate: "August 1, 2024",
+      closeDate: "November 30, 2024"
+    },
+    applicationLink: "https://wcd.rajasthan.gov.in/",
+    documents: [
+      "Academic certificates",
+      "Domicile certificate",
+      "Income proof",
+      "Institution verification form",
+      "Bank account details",
+      "Aadhaar card",
+      "Recent photograph"
+    ],
+    selectionProcess: [
+      "Online application",
+      "Merit-based screening",
+      "Document verification",
+      "Final selection"
+    ],
+    importantNotes: [
+      "Exclusive for girl students",
+      "Priority to first-generation learners",
+      "Regular progress monitoring",
+      "Leadership development opportunities"
+    ],
+    contactInfo: {
+      helpline: "1800-180-6128",
+      email: "girlscholarship.raj@gov.in",
+      website: "https://wcd.rajasthan.gov.in"
+    },
+    fundingType: "Merit-based",
+    renewalCriteria: "Minimum 65% marks in current course",
+    category: "Girl Child Education",
+    quota: "Rajasthan State",
+    route: "rajasthan-girl-scholarship"
+  },
+
+  "jharkhand-pragya-kiran": {
+    name: "Pragya Kiran Scholarship",
+    provider: "Government of Jharkhand",
+    eligibility: [
+      "Girl students from rural areas",
+      "Minimum 60% marks in Class 12",
+      "Jharkhand domicile",
+      "Family income below 4 lakhs per annum"
+    ],
+    about: "The Pragya Kiran Scholarship aims to promote higher education among girl students from rural areas of Jharkhand, with special focus on STEM education.",
+    benefits: [
+      "Annual scholarship of ₹30,000",
+      "Additional STEM course incentive",
+      "Hostel fee support",
+      "Mentorship program",
+      "Skill development workshops"
+    ],
+    applicationPeriod: {
+      startDate: "July 15, 2024",
+      closeDate: "October 31, 2024"
+    },
+    applicationLink: "https://jharkhandscholarships.gov.in/",
+    documents: [
+      "Rural residence certificate",
+      "Income certificate",
+      "Academic records",
+      "Domicile certificate",
+      "Bank account details",
+      "Aadhaar card",
+      "Recent photograph",
+      "Institution verification form"
+    ],
+    selectionProcess: [
+      "Online application",
+      "Document verification",
+      "Rural background verification",
+      "Merit-based selection"
+    ],
+    importantNotes: [
+      "Exclusive for rural girl students",
+      "Priority to STEM courses",
+      "Regular attendance mandatory",
+      "Quarterly progress review"
+    ],
+    contactInfo: {
+      helpline: "1800-345-6789",
+      email: "pragyakiran.jhk@gov.in",
+      website: "https://jharkhandscholarships.gov.in"
+    },
+    fundingType: "Merit-cum-Means",
+    renewalCriteria: "Minimum 60% marks in current course",
+    category: "Girl Child Education",
+    quota: "Jharkhand State",
+    route: "jharkhand-pragya-kiran"
+  },
+
+  "jharkhand-sports-scholarship": {
+    name: "Jharkhand Sports Talent Scholarship",
+    provider: "Sports Authority of Jharkhand",
+    eligibility: [
+      "State/National level sports achievers",
+      "Regular students in recognized institutions",
+      "Jharkhand resident",
+      "Age below 25 years"
+    ],
+    about: "This scholarship supports talented athletes pursuing education while excelling in sports, aiming to promote sports education in Jharkhand.",
+    benefits: [
+      "Monthly stipend of ₹8,000",
+      "Sports equipment allowance",
+      "Training facility access",
+      "Competition participation support",
+      "Sports medicine coverage"
+    ],
+    applicationPeriod: {
+      startDate: "August 1, 2024",
+      closeDate: "November 30, 2024"
+    },
+    applicationLink: "https://sports.jharkhand.gov.in/",
+    documents: [
+      "Sports certificates",
+      "Coach recommendation",
+      "Medical fitness certificate",
+      "Academic enrollment proof",
+      "Domicile certificate",
+      "Bank account details",
+      "Aadhaar card",
+      "Recent photograph"
+    ],
+    selectionProcess: [
+      "Sports achievement verification",
+      "Physical fitness test",
+      "Interview with sports committee",
+      "Final selection"
+    ],
+    importantNotes: [
+      "Regular sports practice mandatory",
+      "Participation in state events required",
+      "Academic progress monitoring",
+      "Performance-based continuation"
+    ],
+    contactInfo: {
+      helpline: "1800-345-6790",
+      email: "sports.scholarship@jharkhand.gov.in",
+      website: "https://sports.jharkhand.gov.in"
+    },
+    fundingType: "Sports Excellence",
+    renewalCriteria: "Continued sports achievement and academic progress",
+    category: "Sports",
+    quota: "Jharkhand State",
+    route: "jharkhand-sports-scholarship"
+  },
+
+  "odisha-medhabruti": {
+    name: "Medhabruti Scholarship",
+    provider: "Higher Education Department, Odisha",
+    eligibility: [
+      "Top 1% in HSC examination",
+      "Permanent resident of Odisha",
+      "Pursuing higher studies in Odisha",
+      "Family income below prescribed limit"
+    ],
+    about: "The Medhabruti Scholarship recognizes academic excellence and supports meritorious students from Odisha in pursuing higher education within the state.",
+    benefits: [
+      "Monthly scholarship of ₹10,000",
+      "Research project funding",
+      "Academic resources support",
+      "International conference grants",
+      "Industry internship opportunities"
+    ],
+    applicationPeriod: {
+      startDate: "September 1, 2024",
+      closeDate: "December 15, 2024"
+    },
+    applicationLink: "https://www.samsodisha.gov.in/",
+    documents: [
+      "HSC marksheet",
+      "Domicile certificate",
+      "Income proof",
+      "Current admission proof",
+      "Bank account details",
+      "Aadhaar card",
+      "Recent photograph",
+      "Research proposal (if applicable)"
+    ],
+    selectionProcess: [
+      "Merit-based shortlisting",
+      "Document verification",
+      "Academic review",
+      "Final selection"
+    ],
+    importantNotes: [
+      "Excellence-focused program",
+      "Research component mandatory",
+      "Regular progress presentations",
+      "Publication encouragement"
+    ],
+    contactInfo: {
+      helpline: "1800-345-6791",
+      email: "medhabruti@odisha.gov.in",
+      website: "https://www.samsodisha.gov.in"
+    },
+    fundingType: "Merit-based",
+    renewalCriteria: "Maintaining academic excellence",
+    category: "State Merit",
+    quota: "Odisha State",
+    route: "odisha-medhabruti"
+  },
+
+  "odisha-green-scholar": {
+    name: "Green Scholarship Program",
+    provider: "Environment Department, Odisha",
+    eligibility: [
+      "Students pursuing environmental sciences",
+      "Minimum 70% marks in qualifying examination",
+      "Odisha domicile",
+      "Research interest in environmental conservation"
+    ],
+    about: "The Green Scholarship Program supports students dedicated to environmental studies and research, promoting sustainable development in Odisha.",
+    benefits: [
+      "Annual scholarship of ₹40,000",
+      "Field research funding",
+      "Environmental project grants",
+      "Workshop participation support",
+      "Industry collaboration opportunities"
+    ],
+    applicationPeriod: {
+      startDate: "August 15, 2024",
+      closeDate: "November 30, 2024"
+    },
+    applicationLink: "https://environmentodisha.gov.in/",
+    documents: [
+      "Academic certificates",
+      "Research proposal",
+      "Domicile certificate",
+      "Institution recommendation",
+      "Bank account details",
+      "Aadhaar card",
+      "Recent photograph",
+      "Environmental project plan"
+    ],
+    selectionProcess: [
+      "Proposal evaluation",
+      "Academic merit review",
+      "Interview round",
+      "Final selection"
+    ],
+    importantNotes: [
+      "Focus on environmental research",
+      "Regular project updates required",
+      "Field work participation mandatory",
+      "Publication of findings encouraged"
+    ],
+    contactInfo: {
+      helpline: "1800-345-6792",
+      email: "greenscholar@odisha.gov.in",
+      website: "https://environmentodisha.gov.in"
+    },
+    fundingType: "Research Support",
+    renewalCriteria: "Satisfactory research progress",
+    category: "Environmental Studies",
+    quota: "Odisha State",
+    route: "odisha-green-scholar"
+  },
+
+  "chhattisgarh-nishtha": {
+    name: "Nishtha Scholarship Scheme",
+    provider: "Government of Chhattisgarh",
+    eligibility: [
+      "First-generation learners",
+      "Family income below 3 lakhs per annum",
+      "Minimum 60% marks in Class 12",
+      "Chhattisgarh domicile"
+    ],
+    about: "The Nishtha Scholarship Scheme supports first-generation learners from Chhattisgarh in pursuing higher education and breaking educational barriers.",
+    benefits: [
+      "Full tuition fee coverage",
+      "Monthly stipend of ₹3,000",
+      "Book and stationery allowance",
+      "Special mentorship support",
+      "Career guidance sessions"
+    ],
+    applicationPeriod: {
+      startDate: "July 1, 2024",
+      closeDate: "October 31, 2024"
+    },
+    applicationLink: "https://scholarships.cg.nic.in/",
+    documents: [
+      "First-generation learner certificate",
+      "Income certificate",
+      "Domicile proof",
+      "Academic records",
+      "Bank account details",
+      "Aadhaar card",
+      "Recent photograph",
+      "Parent's declaration"
+    ],
+    selectionProcess: [
+      "Online application",
+      "Background verification",
+      "Document validation",
+      "Merit-based selection"
+    ],
+    importantNotes: [
+      "Exclusive for first-generation students",
+      "Regular attendance mandatory",
+      "Parent-teacher meetings required",
+      "Additional support services available"
+    ],
+    contactInfo: {
+      helpline: "1800-233-8989",
+      email: "nishtha.cg@gov.in",
+      website: "https://scholarships.cg.nic.in"
+    },
+    fundingType: "Social Support",
+    renewalCriteria: "Minimum 55% marks in current course",
+    category: "First Generation Learners",
+    quota: "Chhattisgarh State",
+    route: "chhattisgarh-nishtha"
+  },
+
+  "chhattisgarh-tribal": {
+    name: "Tribal Excellence Scholarship",
+    provider: "Tribal Development Department, Chhattisgarh",
+    eligibility: [
+      "Students from scheduled tribes",
+      "Minimum 65% marks in previous examination",
+      "Chhattisgarh resident",
+      "Pursuing higher education in recognized institutions"
+    ],
+    about: "The Tribal Excellence Scholarship promotes higher education among tribal students in Chhattisgarh, with special focus on professional and technical education.",
+    benefits: [
+      "Annual scholarship of ₹60,000",
+      "Hostel accommodation support",
+      "Educational equipment allowance",
+      "Skill development training",
+      "Language proficiency courses"
+    ],
+    applicationPeriod: {
+      startDate: "August 1, 2024",
+      closeDate: "November 30, 2024"
+    },
+    applicationLink: "https://tribal.cg.gov.in/",
+    documents: [
+      "Tribal community certificate",
+      "Academic marksheets",
+      "Domicile certificate",
+      "Institution verification form",
+      "Bank account details",
+      "Aadhaar card",
+      "Recent photograph",
+      "Income certificate"
+    ],
+    selectionProcess: [
+      "Online application submission",
+      "Tribal status verification",
+      "Merit assessment",
+      "Final selection"
+    ],
+    importantNotes: [
+      "Specific to tribal students",
+      "Cultural preservation focus",
+      "Regular progress monitoring",
+      "Additional language support"
+    ],
+    contactInfo: {
+      helpline: "1800-233-8990",
+      email: "tribalscholarship.cg@gov.in",
+      website: "https://tribal.cg.gov.in"
+    },
+    fundingType: "Tribal Welfare",
+    renewalCriteria: "Minimum 60% marks and regular attendance",
+    category: "Tribal Development",
+    quota: "Chhattisgarh State",
+    route: "chhattisgarh-tribal"
+  },
+
+  "uttarakhand-veer-gatha": {
+    name: "Veer Gatha Scholarship",
+    provider: "Government of Uttarakhand",
+    eligibility: [
+      "Children of armed forces personnel",
+      "Uttarakhand domicile",
+      "Minimum 60% marks in previous examination",
+      "Regular enrollment in recognized institutions"
+    ],
+    about: "The Veer Gatha Scholarship honors the sacrifices of armed forces personnel by supporting the education of their children in Uttarakhand.",
+    benefits: [
+      "Full tuition fee coverage",
+      "Monthly stipend of ₹5,000",
+      "Book and uniform allowance",
+      "Hostel accommodation support",
+      "Career counseling services"
+    ],
+    applicationPeriod: {
+      startDate: "July 15, 2024",
+      closeDate: "October 31, 2024"
+    },
+    applicationLink: "https://scholarship.uk.gov.in/",
+    documents: [
+      "Armed forces dependent certificate",
+      "Domicile certificate",
+      "Academic records",
+      "Service proof of parent",
+      "Bank account details",
+      "Aadhaar card",
+      "Recent photograph",
+      "Institution verification form"
+    ],
+    selectionProcess: [
+      "Online application submission",
+      "Document verification",
+      "Service record validation",
+      "Final selection"
+    ],
+    importantNotes: [
+      "Priority to martyrs' children",
+      "Additional support for professional courses",
+      "Regular attendance mandatory",
+      "Special mentorship program"
+    ],
+    contactInfo: {
+      helpline: "1800-180-4566",
+      email: "veergatha.uk@gov.in",
+      website: "https://scholarship.uk.gov.in"
+    },
+    fundingType: "Defense Personnel Support",
+    renewalCriteria: "Minimum 60% marks in current course",
+    category: "Armed Forces",
+    quota: "Uttarakhand State",
+    route: "uttarakhand-veer-gatha"
+  },
+
+  "uttarakhand-himalayan": {
+    name: "Himalayan Studies Scholarship",
+    provider: "Higher Education Department, Uttarakhand",
+    eligibility: [
+      "Students pursuing Himalayan studies/Environmental sciences",
+      "Uttarakhand resident",
+      "Minimum 70% marks in qualifying examination",
+      "Research interest in mountain ecology"
+    ],
+    about: "The Himalayan Studies Scholarship promotes research and studies related to Himalayan ecology, culture, and sustainable development.",
+    benefits: [
+      "Annual scholarship of ₹45,000",
+      "Field research funding",
+      "Equipment and tools support",
+      "Conference participation grants",
+      "Publication assistance"
+    ],
+    applicationPeriod: {
+      startDate: "August 1, 2024",
+      closeDate: "November 30, 2024"
+    },
+    applicationLink: "https://he.uk.gov.in/",
+    documents: [
+      "Research proposal",
+      "Academic certificates",
+      "Domicile proof",
+      "Recommendation letters",
+      "Bank account details",
+      "Aadhaar card",
+      "Recent photograph",
+      "Project timeline"
+    ],
+    selectionProcess: [
+      "Proposal evaluation",
+      "Academic screening",
+      "Expert committee interview",
+      "Final selection"
+    ],
+    importantNotes: [
+      "Focus on Himalayan research",
+      "Field work mandatory",
+      "Regular progress reports required",
+      "Publication expectations"
+    ],
+    contactInfo: {
+      helpline: "1800-180-4567",
+      email: "himalayan.scholarship@uk.gov.in",
+      website: "https://he.uk.gov.in"
+    },
+    fundingType: "Research Support",
+    renewalCriteria: "Satisfactory research progress",
+    category: "Environmental Research",
+    quota: "Uttarakhand State",
+    route: "uttarakhand-himalayan"
+  },
+
+  "sikkim-excellence": {
+    name: "Sikkim Academic Excellence Scholarship",
+    provider: "Education Department, Sikkim",
+    eligibility: [
+      "Top 5% students in Sikkim board examinations",
+      "Permanent resident of Sikkim",
+      "Pursuing higher education in premier institutions",
+      "Family income below prescribed limit"
+    ],
+    about: "The Sikkim Academic Excellence Scholarship recognizes and supports top performers from the state pursuing higher education in prestigious institutions.",
+    benefits: [
+      "Annual scholarship of ₹1,00,000",
+      "Travel allowance",
+      "Research support grant",
+      "Laptop/equipment allowance",
+      "Professional development support"
+    ],
+    applicationPeriod: {
+      startDate: "September 1, 2024",
+      closeDate: "December 15, 2024"
+    },
+    applicationLink: "https://www.sikkimhrdd.org/",
+    documents: [
+      "Sikkim board marksheet",
+      "Domicile certificate",
+      "Income proof",
+      "Institution admission letter",
+      "Bank account details",
+      "Aadhaar card",
+      "Recent photograph",
+      "Merit rank certificate"
+    ],
+    selectionProcess: [
+      "Merit-based shortlisting",
+      "Document verification",
+      "Interview round",
+      "Final selection"
+    ],
+    importantNotes: [
+      "Focus on premier institutions",
+      "Academic excellence mandatory",
+      "Regular progress monitoring",
+      "Leadership development opportunities"
+    ],
+    contactInfo: {
+      helpline: "1800-345-7890",
+      email: "excellence.sikkim@gov.in",
+      website: "https://www.sikkimhrdd.org"
+    },
+    fundingType: "Merit-based",
+    renewalCriteria: "Maintaining top academic performance",
+    category: "State Merit",
+    quota: "Sikkim State",
+    route: "sikkim-excellence"
+  },
+
+  "sikkim-vocational": {
+    name: "Sikkim Vocational Training Scholarship",
+    provider: "Technical Education Department, Sikkim",
+    eligibility: [
+      "Students pursuing vocational courses",
+      "Sikkim resident",
+      "Minimum 55% marks in Class 10",
+      "Family income below 5 lakhs per annum"
+    ],
+    about: "The Sikkim Vocational Training Scholarship supports skill development and vocational education among youth in Sikkim, focusing on employability and entrepreneurship.",
+    benefits: [
+      "Course fee coverage up to ₹30,000",
+      "Monthly stipend of ₹2,500",
+      "Tool kit allowance",
+      "Internship opportunities",
+      "Placement assistance"
+    ],
+    applicationPeriod: {
+      startDate: "July 15, 2024",
+      closeDate: "October 31, 2024"
+    },
+    applicationLink: "https://sikkimskill.gov.in/",
+    documents: [
+      "Educational certificates",
+      "Income certificate",
+      "Domicile proof",
+      "Course enrollment proof",
+      "Bank account details",
+      "Aadhaar card",
+      "Recent photograph",
+      "Trade selection form"
+    ],
+    selectionProcess: [
+      "Trade aptitude test",
+      "Document verification",
+      "Counseling session",
+      "Final selection"
+    ],
+    importantNotes: [
+      "Skill-based assessment",
+      "Practical training mandatory",
+      "Industry exposure provided",
+      "Entrepreneurship guidance"
+    ],
+    contactInfo: {
+      helpline: "1800-345-7891",
+      email: "vocational.sikkim@gov.in",
+      website: "https://sikkimskill.gov.in"
+    },
+    fundingType: "Skill Development",
+    renewalCriteria: "Satisfactory practical performance",
+    category: "Vocational Education",
+    quota: "Sikkim State",
+    route: "sikkim-vocational"
+  },
+
+  "meghalaya-achievers": {
+    name: "Meghalaya State Achievers Scholarship",
+    provider: "Education Department, Meghalaya",
+    eligibility: [
+      "Top performers in Meghalaya board examinations",
+      "Permanent resident of Meghalaya",
+      "Pursuing undergraduate studies",
+      "Regular enrollment in recognized institutions"
+    ],
+    about: "The Meghalaya State Achievers Scholarship recognizes academic excellence and supports talented students in pursuing higher education within and outside the state.",
+    benefits: [
+      "Annual scholarship of ₹50,000",
+      "Academic resources support",
+      "Special coaching assistance",
+      "Leadership development programs",
+      "Career guidance workshops"
+    ],
+    applicationPeriod: {
+      startDate: "August 1, 2024",
+      closeDate: "November 30, 2024"
+    },
+    applicationLink: "https://megeducation.gov.in/",
+    documents: [
+      "Board examination marksheet",
+      "Domicile certificate",
+      "Institution admission proof",
+      "Achievement certificates",
+      "Bank account details",
+      "Aadhaar card",
+      "Recent photograph",
+      "Character certificate"
+    ],
+    selectionProcess: [
+      "Merit-based screening",
+      "Document verification",
+      "Personal interview",
+      "Final selection"
+    ],
+    importantNotes: [
+      "Merit-based selection",
+      "Regular progress monitoring",
+      "Leadership activities participation",
+      "Community service component"
+    ],
+    contactInfo: {
+      helpline: "1800-345-7892",
+      email: "achievers.meghalaya@gov.in",
+      website: "https://megeducation.gov.in"
+    },
+    fundingType: "Merit-based",
+    renewalCriteria: "Minimum 75% marks in current course",
+    category: "State Merit",
+    quota: "Meghalaya State",
+    route: "meghalaya-achievers"
+  },
+
+  "meghalaya-research": {
+    name: "Meghalaya Research Fellowship",
+    provider: "Higher Education Department, Meghalaya",
+    eligibility: [
+      "Postgraduate students pursuing research",
+      "Meghalaya domicile",
+      "Minimum 65% marks in post-graduation",
+      "Research proposal in state-priority areas"
+    ],
+    about: "The Meghalaya Research Fellowship supports advanced research in areas crucial to the state's development, focusing on local issues and solutions.",
+    benefits: [
+      "Monthly fellowship of ₹15,000",
+      "Research contingency grant",
+      "Conference travel support",
+      "Publication assistance",
+      "Laboratory access"
+    ],
+    applicationPeriod: {
+      startDate: "September 1, 2024",
+      closeDate: "December 15, 2024"
+    },
+    applicationLink: "https://megresearch.gov.in/",
+    documents: [
+      "Research proposal",
+      "Academic certificates",
+      "Supervisor recommendation",
+      "Institution NOC",
+      "Bank account details",
+      "Aadhaar card",
+      "Recent photograph",
+      "Publications list"
+    ],
+    selectionProcess: [
+      "Proposal evaluation",
+      "Expert committee review",
+      "Presentation round",
+      "Final selection"
+    ],
+    importantNotes: [
+      "Focus on local research topics",
+      "Regular progress seminars",
+      "Publication requirement",
+      "Community impact assessment"
+    ],
+    contactInfo: {
+      helpline: "1800-345-7893",
+      email: "research.meghalaya@gov.in",
+      website: "https://megresearch.gov.in"
+    },
+    fundingType: "Research Fellowship",
+    renewalCriteria: "Satisfactory research progress",
+    category: "Research Support",
+    quota: "Meghalaya State",
+    route: "meghalaya-research"
+  },
+
+  "manipur-science": {
+    name: "Manipur Science Talent Scholarship",
+    provider: "Science & Technology Department, Manipur",
+    eligibility: [
+      "Students pursuing pure science courses",
+      "Minimum 80% marks in science subjects",
+      "Manipur resident",
+      "Regular enrollment in recognized institutions"
+    ],
+    about: "The Manipur Science Talent Scholarship promotes excellence in pure sciences and supports promising students in pursuing advanced scientific education.",
+    benefits: [
+      "Annual scholarship of ₹40,000",
+      "Laboratory access support",
+      "Science equipment allowance",
+      "Research project funding",
+      "Science conference participation"
+    ],
+    applicationPeriod: {
+      startDate: "August 1, 2024",
+      closeDate: "October 31, 2024"
+    },
+    applicationLink: "https://manipurscience.gov.in/",
+    documents: [
+      "Academic marksheets",
+      "Domicile certificate",
+      "Institution verification",
+      "Research interest statement",
+      "Bank account details",
+      "Aadhaar card",
+      "Recent photograph",
+      "Science project proposal"
+    ],
+    selectionProcess: [
+      "Academic merit screening",
+      "Science aptitude test",
+      "Interview round",
+      "Final selection"
+    ],
+    importantNotes: [
+      "Focus on pure sciences",
+      "Research component mandatory",
+      "Regular progress evaluation",
+      "Science fair participation required"
+    ],
+    contactInfo: {
+      helpline: "1800-345-7894",
+      email: "sciencetalent.manipur@gov.in",
+      website: "https://manipurscience.gov.in"
+    },
+    fundingType: "Merit-based",
+    renewalCriteria: "Minimum 75% marks in science subjects",
+    category: "Science Education",
+    quota: "Manipur State",
+    route: "manipur-science"
+  },
+
+  "manipur-sports": {
+    name: "Manipur Sports Excellence Scholarship",
+    provider: "Sports Authority of Manipur",
+    eligibility: [
+      "State/National level sports achievers",
+      "Manipur domicile",
+      "Regular student status",
+      "Age below 25 years"
+    ],
+    about: "The Manipur Sports Excellence Scholarship supports talented athletes in pursuing education while excelling in sports, maintaining Manipur's sporting legacy.",
+    benefits: [
+      "Monthly stipend of ₹10,000",
+      "Sports equipment support",
+      "Training facility access",
+      "Competition travel allowance",
+      "Sports medicine coverage"
+    ],
+    applicationPeriod: {
+      startDate: "July 15, 2024",
+      closeDate: "November 30, 2024"
+    },
+    applicationLink: "https://manipursports.gov.in/",
+    documents: [
+      "Sports certificates",
+      "Performance records",
+      "Medical fitness certificate",
+      "Coach recommendation",
+      "Bank account details",
+      "Aadhaar card",
+      "Recent photograph",
+      "Training schedule"
+    ],
+    selectionProcess: [
+      "Sports achievement verification",
+      "Physical fitness assessment",
+      "Selection trials",
+      "Final selection"
+    ],
+    importantNotes: [
+      "Regular training mandatory",
+      "Competition participation required",
+      "Academic progress monitoring",
+      "Performance-based continuation"
+    ],
+    contactInfo: {
+      helpline: "1800-345-7895",
+      email: "sports.manipur@gov.in",
+      website: "https://manipursports.gov.in"
+    },
+    fundingType: "Sports Excellence",
+    renewalCriteria: "Continued sports achievement",
+    category: "Sports",
+    quota: "Manipur State",
+    route: "manipur-sports"
+  },
+
+  "tripura-pragati": {
+    name: "Tripura Pragati Scholarship",
+    provider: "Higher Education Department, Tripura",
+    eligibility: [
+      "First-generation college students",
+      "Family income below 4 lakhs per annum",
+      "Minimum 60% marks in Class 12",
+      "Tripura resident"
+    ],
+    about: "The Tripura Pragati Scholarship aims to support first-generation learners from economically weaker sections in pursuing higher education.",
+    benefits: [
+      "Full tuition fee waiver",
+      "Monthly stipend of ₹3,500",
+      "Book and stationery allowance",
+      "Special mentorship support",
+      "Career guidance sessions"
+    ],
+    applicationPeriod: {
+      startDate: "August 15, 2024",
+      closeDate: "November 30, 2024"
+    },
+    applicationLink: "https://highereducation.tripura.gov.in/",
+    documents: [
+      "First-generation learner certificate",
+      "Income certificate",
+      "Domicile proof",
+      "Academic records",
+      "Bank account details",
+      "Aadhaar card",
+      "Recent photograph",
+      "Parent's declaration"
+    ],
+    selectionProcess: [
+      "Document verification",
+      "Background check",
+      "Need assessment",
+      "Final selection"
+    ],
+    importantNotes: [
+      "Priority to rural students",
+      "Regular attendance mandatory",
+      "Parent-teacher meetings",
+      "Additional academic support"
+    ],
+    contactInfo: {
+      helpline: "1800-345-7896",
+      email: "pragati.tripura@gov.in",
+      website: "https://highereducation.tripura.gov.in"
+    },
+    fundingType: "Social Support",
+    renewalCriteria: "Minimum 55% marks in current course",
+    category: "First Generation Learners",
+    quota: "Tripura State",
+    route: "tripura-pragati"
+  },
+
+  "tripura-tribal": {
+    name: "Tripura Tribal Development Scholarship",
+    provider: "Tribal Welfare Department, Tripura",
+    eligibility: [
+      "Students from scheduled tribes",
+      "Permanent resident of Tripura",
+      "Minimum 55% marks in previous examination",
+      "Family income below prescribed limit"
+    ],
+    about: "The Tripura Tribal Development Scholarship aims to promote higher education among tribal students while preserving their cultural heritage.",
+    benefits: [
+      "Full tuition fee coverage",
+      "Monthly maintenance allowance of ₹4,000",
+      "Cultural activity support",
+      "Language preservation incentives",
+      "Skill development training"
+    ],
+    applicationPeriod: {
+      startDate: "July 1, 2024",
+      closeDate: "October 31, 2024"
+    },
+    applicationLink: "https://tribal.tripura.gov.in/",
+    documents: [
+      "ST certificate",
+      "Income proof",
+      "Domicile certificate",
+      "Academic records",
+      "Bank account details",
+      "Aadhaar card",
+      "Recent photograph",
+      "Institution verification form"
+    ],
+    selectionProcess: [
+      "Document verification",
+      "Tribal status validation",
+      "Need assessment",
+      "Final selection"
+    ],
+    importantNotes: [
+      "Cultural participation encouraged",
+      "Regular attendance required",
+      "Language courses included",
+      "Community service component"
+    ],
+    contactInfo: {
+      helpline: "1800-345-7897",
+      email: "tribal.tripura@gov.in",
+      website: "https://tribal.tripura.gov.in"
+    },
+    fundingType: "Tribal Welfare",
+    renewalCriteria: "Satisfactory academic progress",
+    category: "Tribal Development",
+    quota: "Tripura State",
+    route: "tripura-tribal"
+  },
+
+  "mizoram-merit": {
+    name: "Mizoram State Merit Scholarship",
+    provider: "Education Department, Mizoram",
+    eligibility: [
+      "Top 5% in Mizoram board examinations",
+      "Permanent resident of Mizoram",
+      "Regular enrollment in recognized institutions",
+      "Outstanding academic record"
+    ],
+    about: "The Mizoram State Merit Scholarship recognizes academic excellence and supports top performers in pursuing higher education.",
+    benefits: [
+      "Annual scholarship of ₹75,000",
+      "Academic excellence awards",
+      "Research opportunity grants",
+      "Leadership development programs",
+      "International exposure visits"
+    ],
+    applicationPeriod: {
+      startDate: "August 1, 2024",
+      closeDate: "November 30, 2024"
+    },
+    applicationLink: "https://education.mizoram.gov.in/",
+    documents: [
+      "Merit rank certificate",
+      "Academic transcripts",
+      "Domicile proof",
+      "Institution admission letter",
+      "Bank account details",
+      "Aadhaar card",
+      "Recent photograph",
+      "Achievement certificates"
+    ],
+    selectionProcess: [
+      "Merit list verification",
+      "Document validation",
+      "Interview round",
+      "Final selection"
+    ],
+    importantNotes: [
+      "Excellence-focused program",
+      "Leadership activities mandatory",
+      "Research participation encouraged",
+      "International collaboration opportunities"
+    ],
+    contactInfo: {
+      helpline: "1800-345-7898",
+      email: "merit.mizoram@gov.in",
+      website: "https://education.mizoram.gov.in"
+    },
+    fundingType: "Merit-based",
+    renewalCriteria: "Maintaining top academic performance",
+    category: "State Merit",
+    quota: "Mizoram State",
+    route: "mizoram-merit"
+  },
+
+  "arunachal-innovation": {
+    name: "Arunachal Innovation Scholarship",
+    provider: "Science & Technology Department, Arunachal Pradesh",
+    eligibility: [
+      "Students with innovative project ideas",
+      "Arunachal Pradesh resident",
+      "Minimum 70% marks in previous examination",
+      "Project focused on local challenges"
+    ],
+    about: "The Arunachal Innovation Scholarship supports creative solutions to local challenges through student innovation and research projects.",
+    benefits: [
+      "Project funding up to ₹2,00,000",
+      "Monthly stipend of ₹8,000",
+      "Innovation lab access",
+      "Mentorship from experts",
+      "Patent filing support"
+    ],
+    applicationPeriod: {
+      startDate: "September 1, 2024",
+      closeDate: "December 15, 2024"
+    },
+    applicationLink: "https://arunachalst.gov.in/",
+    documents: [
+      "Project proposal",
+      "Academic certificates",
+      "Domicile proof",
+      "Prototype details (if any)",
+      "Bank account details",
+      "Aadhaar card",
+      "Recent photograph",
+      "Recommendation letters"
+    ],
+    selectionProcess: [
+      "Project evaluation",
+      "Innovation assessment",
+      "Presentation round",
+      "Final selection"
+    ],
+    importantNotes: [
+      "Focus on practical solutions",
+      "Regular progress reviews",
+      "Patent rights sharing",
+      "Commercialization support"
+    ],
+    contactInfo: {
+      helpline: "1800-345-7899",
+      email: "innovation.arunachal@gov.in",
+      website: "https://arunachalst.gov.in"
+    },
+    fundingType: "Innovation Support",
+    renewalCriteria: "Satisfactory project progress",
+    category: "Innovation & Research",
+    quota: "Arunachal Pradesh State",
+    route: "arunachal-innovation"
+  },
+
+  "arunachal-cultural": {
+    name: "Arunachal Cultural Heritage Scholarship",
+    provider: "Department of Cultural Affairs, Arunachal Pradesh",
+    eligibility: [
+      "Students pursuing traditional arts and culture",
+      "Arunachal Pradesh resident",
+      "Active participation in cultural activities",
+      "Knowledge of local traditions"
+    ],
+    about: "The Cultural Heritage Scholarship promotes preservation and study of Arunachal Pradesh's rich cultural heritage among young students.",
+    benefits: [
+      "Annual scholarship of ₹35,000",
+      "Traditional art materials support",
+      "Cultural event participation funding",
+      "Workshop and training programs",
+      "Performance opportunities"
+    ],
+    applicationPeriod: {
+      startDate: "August 15, 2024",
+      closeDate: "November 30, 2024"
+    },
+    applicationLink: "https://culture.arunachal.gov.in/",
+    documents: [
+      "Cultural activity certificates",
+      "Domicile proof",
+      "Artist recommendation",
+      "Performance portfolio",
+      "Bank account details",
+      "Aadhaar card",
+      "Recent photograph",
+      "Training history"
+    ],
+    selectionProcess: [
+      "Portfolio review",
+      "Performance assessment",
+      "Interview with experts",
+      "Final selection"
+    ],
+    importantNotes: [
+      "Regular performance mandatory",
+      "Cultural events participation",
+      "Documentation of art forms",
+      "Community engagement required"
+    ],
+    contactInfo: {
+      helpline: "1800-345-8001",
+      email: "culture.arunachal@gov.in",
+      website: "https://culture.arunachal.gov.in"
+    },
+    fundingType: "Cultural Preservation",
+    renewalCriteria: "Active cultural participation",
+    category: "Arts and Culture",
+    quota: "Arunachal Pradesh State",
+    route: "arunachal-cultural"
+  },
+
+  "nagaland-agriculture": {
+    name: "Nagaland Agricultural Studies Scholarship",
+    provider: "Agriculture Department, Nagaland",
+    eligibility: [
+      "Students pursuing agricultural sciences",
+      "Nagaland resident",
+      "Minimum 60% marks in science subjects",
+      "Interest in sustainable farming"
+    ],
+    about: "The Agricultural Studies Scholarship supports students pursuing education in agriculture and related fields, promoting sustainable farming practices in Nagaland.",
+    benefits: [
+      "Annual scholarship of ₹45,000",
+      "Field research support",
+      "Agricultural equipment allowance",
+      "Training programs",
+      "Internship opportunities"
+    ],
+    applicationPeriod: {
+      startDate: "July 15, 2024",
+      closeDate: "October 31, 2024"
+    },
+    applicationLink: "https://agriculture.nagaland.gov.in/",
+    documents: [
+      "Academic records",
+      "Domicile certificate",
+      "Research proposal",
+      "Farmer family background (if any)",
+      "Bank account details",
+      "Aadhaar card",
+      "Recent photograph",
+      "Institution verification"
+    ],
+    selectionProcess: [
+      "Academic merit review",
+      "Project proposal evaluation",
+      "Field knowledge test",
+      "Final selection"
+    ],
+    importantNotes: [
+      "Focus on sustainable practices",
+      "Field work mandatory",
+      "Regular progress reports",
+      "Community farming projects"
+    ],
+    contactInfo: {
+      helpline: "1800-345-8002",
+      email: "agri.nagaland@gov.in",
+      website: "https://agriculture.nagaland.gov.in"
+    },
+    fundingType: "Agricultural Education",
+    renewalCriteria: "Satisfactory academic and field performance",
+    category: "Agriculture",
+    quota: "Nagaland State",
+    route: "nagaland-agriculture"
+  },
+
+  "goa-maritime": {
+    name: "Goa Maritime Studies Scholarship",
+    provider: "Maritime Board, Goa",
+    eligibility: [
+      "Students pursuing maritime courses",
+      "Goa domicile",
+      "Minimum 65% marks in Class 12",
+      "Physical fitness as per standards"
+    ],
+    about: "The Maritime Studies Scholarship supports students pursuing careers in maritime sector, leveraging Goa's coastal advantage.",
+    benefits: [
+      "Course fee coverage up to ₹2,00,000",
+      "Monthly stipend of ₹8,000",
+      "Marine training support",
+      "Safety equipment allowance",
+      "International certification assistance"
+    ],
+    applicationPeriod: {
+      startDate: "August 1, 2024",
+      closeDate: "November 30, 2024"
+    },
+    applicationLink: "https://ports.goa.gov.in/",
+    documents: [
+      "Academic certificates",
+      "Medical fitness certificate",
+      "Domicile proof",
+      "Swimming proficiency certificate",
+      "Bank account details",
+      "Aadhaar card",
+      "Recent photograph",
+      "Character certificate"
+    ],
+    selectionProcess: [
+      "Physical fitness test",
+      "Maritime aptitude test",
+      "Document verification",
+      "Final selection"
+    ],
+    importantNotes: [
+      "Physical fitness mandatory",
+      "Safety training required",
+      "Regular medical check-ups",
+      "Placement assistance provided"
+    ],
+    contactInfo: {
+      helpline: "1800-345-8003",
+      email: "maritime.goa@gov.in",
+      website: "https://ports.goa.gov.in"
+    },
+    fundingType: "Maritime Education",
+    renewalCriteria: "Physical and academic standards maintenance",
+    category: "Maritime Studies",
+    quota: "Goa State",
+    route: "goa-maritime"
+  },
+
+  "goa-tourism": {
+    name: "Goa Tourism & Hospitality Scholarship",
+    provider: "Tourism Department, Goa",
+    eligibility: [
+      "Students pursuing hospitality management",
+      "Goa resident",
+      "Minimum 60% marks in qualifying examination",
+      "Proficiency in English and local languages"
+    ],
+    about: "The Tourism & Hospitality Scholarship supports students pursuing careers in tourism sector, enhancing Goa's hospitality industry.",
+    benefits: [
+      "Annual scholarship of ₹50,000",
+      "Industry internship support",
+      "Language training programs",
+      "International exposure visits",
+      "Placement assistance"
+    ],
+    applicationPeriod: {
+      startDate: "July 15, 2024",
+      closeDate: "October 31, 2024"
+    },
+    applicationLink: "https://tourism.goa.gov.in/",
+    documents: [
+      "Academic records",
+      "Language proficiency certificates",
+      "Domicile proof",
+      "Institution enrollment proof",
+      "Bank account details",
+      "Aadhaar card",
+      "Recent photograph",
+      "Character certificate"
+    ],
+    selectionProcess: [
+      "Language assessment",
+      "Personality test",
+      "Industry orientation",
+      "Final selection"
+    ],
+    importantNotes: [
+      "Industry exposure mandatory",
+      "Language skills important",
+      "Regular training sessions",
+      "Internship requirements"
+    ],
+    contactInfo: {
+      helpline: "1800-345-8004",
+      email: "tourism.scholarship@goa.gov.in",
+      website: "https://tourism.goa.gov.in"
+    },
+    fundingType: "Industry Specific",
+    renewalCriteria: "Satisfactory academic and internship performance",
+    category: "Tourism Education",
+    quota: "Goa State",
+    route: "goa-tourism"
+  },
+
+  "puducherry-tech": {
+    name: "Puducherry Technology Scholarship",
+    provider: "Department of Science & Technology, Puducherry",
+    eligibility: [
+      "Engineering and technology students",
+      "Puducherry domicile",
+      "Minimum 75% marks in PCM subjects",
+      "JEE/NEET qualified (if applicable)"
+    ],
+    about: "The Technology Scholarship promotes technical education among Puducherry students, focusing on emerging technologies and innovation.",
+    benefits: [
+      "Tuition fee coverage up to ₹1,50,000",
+      "Monthly stipend of ₹5,000",
+      "Research project funding",
+      "Technical workshop support",
+      "Industry certification assistance"
+    ],
+    applicationPeriod: {
+      startDate: "August 1, 2024",
+      closeDate: "November 30, 2024"
+    },
+    applicationLink: "https://dst.puducherry.gov.in/",
+    documents: [
+      "JEE/NEET scorecard",
+      "Academic certificates",
+      "Domicile certificate",
+      "Income proof",
+      "Bank account details",
+      "Aadhaar card",
+      "Recent photograph",
+      "Institution verification"
+    ],
+    selectionProcess: [
+      "Merit-based screening",
+      "Technical aptitude test",
+      "Interview round",
+      "Final selection"
+    ],
+    importantNotes: [
+      "Focus on technical excellence",
+      "Project work mandatory",
+      "Regular skill assessment",
+      "Industry collaboration"
+    ],
+    contactInfo: {
+      helpline: "1800-345-8005",
+      email: "tech.puducherry@gov.in",
+      website: "https://dst.puducherry.gov.in"
+    },
+    fundingType: "Technical Education",
+    renewalCriteria: "Minimum 7.5 CGPA maintenance",
+    category: "Technology",
+    quota: "Puducherry UT",
+    route: "puducherry-tech"
+  },
+
+  "andaman-marine": {
+    name: "Andaman Marine Studies Scholarship",
+    provider: "Department of Fisheries, Andaman & Nicobar",
+    eligibility: [
+      "Students pursuing marine sciences",
+      "Andaman & Nicobar resident",
+      "Minimum 65% marks in science subjects",
+      "Interest in marine conservation"
+    ],
+    about: "The Marine Studies Scholarship supports education in marine sciences and conservation, utilizing the unique marine ecosystem of Andaman & Nicobar Islands.",
+    benefits: [
+      "Annual scholarship of ₹60,000",
+      "Field research funding",
+      "Diving certification support",
+      "Marine equipment allowance",
+      "Conservation project grants"
+    ],
+    applicationPeriod: {
+      startDate: "September 1, 2024",
+      closeDate: "December 15, 2024"
+    },
+    applicationLink: "https://andaman.gov.in/fisheries/",
+    documents: [
+      "Academic records",
+      "Swimming certificate",
+      "Medical fitness proof",
+      "Research proposal",
+      "Bank account details",
+      "Aadhaar card",
+      "Recent photograph",
+      "Institution recommendation"
+    ],
+    selectionProcess: [
+      "Academic merit review",
+      "Physical fitness test",
+      "Project proposal evaluation",
+      "Final selection"
+    ],
+    importantNotes: [
+      "Marine conservation focus",
+      "Field work mandatory",
+      "Regular progress reports",
+      "Environmental impact studies"
+    ],
+    contactInfo: {
+      helpline: "1800-345-8006",
+      email: "marine.andaman@gov.in",
+      website: "https://andaman.gov.in/fisheries"
+    },
+    fundingType: "Marine Education",
+    renewalCriteria: "Satisfactory academic and field performance",
+    category: "Marine Sciences",
+    quota: "Andaman & Nicobar UT",
+    route: "andaman-marine"
+  },
+
+  "ladakh-altitude": {
+    name: "Ladakh High-Altitude Studies Scholarship",
+    provider: "Higher Education Department, Ladakh",
+    eligibility: [
+      "Students pursuing mountain ecology studies",
+      "Ladakh resident",
+      "Minimum 60% marks in previous examination",
+      "Research interest in high-altitude ecosystems"
+    ],
+    about: "The High-Altitude Studies Scholarship supports research and education related to Ladakh's unique mountain ecosystem and environmental conservation.",
+    benefits: [
+      "Annual scholarship of ₹55,000",
+      "Field research support",
+      "High-altitude equipment allowance",
+      "Winter study grants",
+      "Research publication support"
+    ],
+    applicationPeriod: {
+      startDate: "August 1, 2024",
+      closeDate: "October 31, 2024"
+    },
+    applicationLink: "https://education.ladakh.gov.in/",
+    documents: [
+      "Academic certificates",
+      "Research proposal",
+      "Domicile proof",
+      "Medical fitness certificate",
+      "Bank account details",
+      "Aadhaar card",
+      "Recent photograph",
+      "Institution recommendation"
+    ],
+    selectionProcess: [
+      "Proposal evaluation",
+      "Physical fitness assessment",
+      "Expert committee review",
+      "Final selection"
+    ],
+    importantNotes: [
+      "High-altitude research focus",
+      "Winter fieldwork component",
+      "Regular health monitoring",
+      "Environmental impact studies"
+    ],
+    contactInfo: {
+      helpline: "1800-345-8007",
+      email: "altitude.ladakh@gov.in",
+      website: "https://education.ladakh.gov.in"
+    },
+    fundingType: "Research Support",
+    renewalCriteria: "Satisfactory research progress",
+    category: "Environmental Studies",
+    quota: "Ladakh UT",
+    route: "ladakh-altitude"
+  },
+
+  "delhi-creative": {
+    name: "Delhi Creative Arts Scholarship",
+    provider: "Department of Art & Culture, Delhi",
+    eligibility: [
+      "Students pursuing fine arts/performing arts",
+      "Delhi resident",
+      "Portfolio of creative work",
+      "Regular enrollment in recognized institutions"
+    ],
+    about: "The Creative Arts Scholarship nurtures artistic talent among Delhi students, promoting cultural excellence and creative expression.",
+    benefits: [
+      "Annual scholarship of ₹48,000",
+      "Art materials allowance",
+      "Exhibition opportunities",
+      "Workshop participation",
+      "Performance venue support"
+    ],
+    applicationPeriod: {
+      startDate: "July 15, 2024",
+      closeDate: "November 30, 2024"
+    },
+    applicationLink: "https://art.delhi.gov.in/",
+    documents: [
+      "Portfolio submission",
+      "Previous performances/exhibitions proof",
+      "Institution enrollment",
+      "Residence proof",
+      "Bank account details",
+      "Aadhaar card",
+      "Recent photograph",
+      "Artist statement"
+    ],
+    selectionProcess: [
+      "Portfolio review",
+      "Live performance/presentation",
+      "Interview with art panel",
+      "Final selection"
+    ],
+    importantNotes: [
+      "Regular showcase participation",
+      "Community art projects",
+      "Documentation of work",
+      "Public engagement required"
+    ],
+    contactInfo: {
+      helpline: "1800-345-8008",
+      email: "creative.delhi@gov.in",
+      website: "https://art.delhi.gov.in"
+    },
+    fundingType: "Arts Support",
+    renewalCriteria: "Active artistic production",
+    category: "Creative Arts",
+    quota: "Delhi NCT",
+    route: "delhi-creative"
+  },
+
+  "chandigarh-innovation": {
+    name: "Chandigarh Innovation Fellowship",
+    provider: "Department of Science & Technology, Chandigarh",
+    eligibility: [
+      "Students with innovative tech projects",
+      "Chandigarh resident",
+      "Minimum 70% marks in relevant subjects",
+      "Working prototype/proof of concept"
+    ],
+    about: "The Innovation Fellowship supports technological innovation and entrepreneurship among students in Chandigarh, focusing on smart city solutions.",
+    benefits: [
+      "Project funding up to ₹3,00,000",
+      "Monthly stipend of ₹10,000",
+      "Incubation support",
+      "Mentorship program",
+      "Patent filing assistance"
+    ],
+    applicationPeriod: {
+      startDate: "September 1, 2024",
+      closeDate: "December 15, 2024"
+    },
+    applicationLink: "https://dst.chd.gov.in/",
+    documents: [
+      "Project proposal",
+      "Prototype documentation",
+      "Academic records",
+      "Residence proof",
+      "Bank account details",
+      "Aadhaar card",
+      "Recent photograph",
+      "Mentor recommendation"
+    ],
+    selectionProcess: [
+      "Innovation screening",
+      "Technical feasibility check",
+      "Pitch presentation",
+      "Final selection"
+    ],
+    importantNotes: [
+      "Focus on practical solutions",
+      "Regular milestone reviews",
+      "Market viability important",
+      "Intellectual property rights"
+    ],
+    contactInfo: {
+      helpline: "1800-345-8009",
+      email: "innovation.chd@gov.in",
+      website: "https://dst.chd.gov.in"
+    },
+    fundingType: "Innovation Support",
+    renewalCriteria: "Project milestone achievement",
+    category: "Technology Innovation",
+    quota: "Chandigarh UT",
+    route: "chandigarh-innovation"
+  },
+
+  "daman-diu-marine": {
+    name: "Daman & Diu Marine Technology Scholarship",
+    provider: "Department of Fisheries, Daman & Diu",
+    eligibility: [
+      "Students pursuing marine engineering/technology",
+      "Daman & Diu resident",
+      "Minimum 65% marks in PCM",
+      "Interest in maritime technology"
+    ],
+    about: "The Marine Technology Scholarship supports students in marine engineering and technology fields, leveraging the coastal advantage of Daman & Diu.",
+    benefits: [
+      "Annual scholarship of ₹70,000",
+      "Marine equipment support",
+      "Technical training programs",
+      "Industry internships",
+      "Certification assistance"
+    ],
+    applicationPeriod: {
+      startDate: "August 15, 2024",
+      closeDate: "November 30, 2024"
+    },
+    applicationLink: "https://daman.nic.in/",
+    documents: [
+      "Academic records",
+      "Domicile certificate",
+      "Technical aptitude proof",
+      "Medical fitness certificate",
+      "Bank account details",
+      "Aadhaar card",
+      "Recent photograph",
+      "Institution verification"
+    ],
+    selectionProcess: [
+      "Technical assessment",
+      "Physical fitness test",
+      "Interview round",
+      "Final selection"
+    ],
+    importantNotes: [
+      "Focus on maritime technology",
+      "Safety training mandatory",
+      "Regular skill assessment",
+      "Industry exposure required"
+    ],
+    contactInfo: {
+      helpline: "1800-345-8010",
+      email: "marine.daman@gov.in",
+      website: "https://daman.nic.in"
+    },
+    fundingType: "Technical Education",
+    renewalCriteria: "Satisfactory academic performance",
+    category: "Marine Technology",
+    quota: "Daman & Diu UT",
+    route: "daman-diu-marine"
+  },
+
+  "lakshadweep-ocean": {
+    name: "Lakshadweep Ocean Studies Scholarship",
+    provider: "Department of Science, Lakshadweep",
+    eligibility: [
+      "Students pursuing oceanography/marine biology",
+      "Lakshadweep resident",
+      "Minimum 60% marks in science subjects",
+      "Interest in coral reef conservation"
+    ],
+    about: "The Ocean Studies Scholarship promotes research and education in marine sciences, focusing on the unique coral reef ecosystem of Lakshadweep.",
+    benefits: [
+      "Annual scholarship of ₹65,000",
+      "Research equipment support",
+      "Diving certification",
+      "Field study grants",
+      "Conservation project funding"
+    ],
+    applicationPeriod: {
+      startDate: "July 1, 2024",
+      closeDate: "October 31, 2024"
+    },
+    applicationLink: "https://lakshadweep.gov.in/",
+    documents: [
+      "Academic certificates",
+      "Research proposal",
+      "Swimming proficiency proof",
+      "Medical fitness certificate",
+      "Bank account details",
+      "Aadhaar card",
+      "Recent photograph",
+      "Institution recommendation"
+    ],
+    selectionProcess: [
+      "Academic merit review",
+      "Research proposal evaluation",
+      "Swimming test",
+      "Final selection"
+    ],
+    importantNotes: [
+      "Focus on marine conservation",
+      "Field work essential",
+      "Regular progress reports",
+      "Community engagement required"
+    ],
+    contactInfo: {
+      helpline: "1800-345-8011",
+      email: "ocean.lakshadweep@gov.in",
+      website: "https://lakshadweep.gov.in"
+    },
+    fundingType: "Research Support",
+    renewalCriteria: "Research progress and field work completion",
+    category: "Marine Sciences",
+    quota: "Lakshadweep UT",
+    route: "lakshadweep-ocean"
+  },
+
+  "international-exchange": {
+    name: "International Student Exchange Scholarship",
+    provider: "Ministry of Education, Government of India",
+    eligibility: [
+      "Indian students selected for foreign exchange programs",
+      "Minimum CGPA of 8.0 or equivalent",
+      "Acceptance from recognized foreign institution",
+      "Proficiency in required foreign language"
+    ],
+    about: "The International Exchange Scholarship supports Indian students participating in international exchange programs, promoting global educational exposure.",
+    benefits: [
+      "Travel grant up to ₹2,00,000",
+      "Monthly stipend of $1,000",
+      "Health insurance coverage",
+      "Language course support",
+      "Cultural integration programs"
+    ],
+    applicationPeriod: {
+      startDate: "Throughout the year",
+      closeDate: "Rolling basis"
+    },
+    applicationLink: "https://education.gov.in/international/",
+    documents: [
+      "Academic transcripts",
+      "Foreign acceptance letter",
+      "Language proficiency certificate",
+      "Research/Study proposal",
+      "Bank account details",
+      "Passport",
+      "Recent photograph",
+      "Recommendation letters"
+    ],
+    selectionProcess: [
+      "Academic screening",
+      "Language assessment",
+      "Interview panel",
+      "Final selection"
+    ],
+    importantNotes: [
+      "Duration specific funding",
+      "Regular progress reports",
+      "Cultural ambassador role",
+      "Return commitment required"
+    ],
+    contactInfo: {
+      helpline: "1800-345-8012",
+      email: "international.exchange@education.gov.in",
+      website: "https://education.gov.in/international"
+    },
+    fundingType: "International Education",
+    renewalCriteria: "Satisfactory academic performance abroad",
+    category: "International Exchange",
+    quota: "All India",
+    route: "international-exchange"
   }
-  // Add more scholarship details here...
 }; 

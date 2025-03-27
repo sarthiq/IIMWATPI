@@ -168,7 +168,11 @@ const HeroSection = ({ openModal }) => (
         </div>
       </div>
     </div>
-    <div className="banner-hero-visual">
+    <div className="banner-hero-visual" 
+         style={{ 
+           opacity: 0, 
+           animation: 'fadeInUp 1s ease-out 0.8s forwards'
+         }}>
       <div className="banner-feature-grid">
         <div className="banner-feature-card">
           <i className="fas fa-brain"></i>
