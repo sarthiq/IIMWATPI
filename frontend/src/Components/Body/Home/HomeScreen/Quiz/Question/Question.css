@@ -5,7 +5,7 @@
   justify-content: center;
   min-height: 100vh;
   background-color: #f8f9fa;
-  padding: 10px;
+  padding: 20px;
 }
 
 
@@ -22,136 +22,246 @@
 .question-card {
   width: 90%;
   max-width: 800px;
-  margin: 10px auto;
-  padding: 20px;
+  margin: 20px auto;
+  padding: 30px;
   background: white;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  border: none;
+  transition: all 0.3s ease;
 }
 
 .question-title {
-  font-size: 22px;
-  font-weight: bold;
+  font-size: 24px;
+  font-weight: 600;
   text-align: left;
-  margin-bottom: 20px;
+  margin-bottom: 24px;
+  color: #333;
+  line-height: 1.3;
+  position: relative;
+  padding-bottom: 12px;
+}
+
+.question-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 60px;
+  height: 3px;
+  background-color: #1035ad;
+  border-radius: 3px;
+}
+
+.question-image {
+  margin: 20px 0;
+  text-align: center;
 }
 
 .question-image img {
   max-width: 100%;
   height: auto;
-  max-height: 150px;
+  max-height: 200px;
   display: block;
   margin: 0 auto;
-  border-radius: 5px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
-/* Base styles for desktop (4 columns) */
+/* Options layout - now with more flexible design */
 .question-options {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 15px;
-  margin-top: 20px;
-  padding: 10px;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 18px;
+  margin-top: 30px;
+  padding: 10px 0;
 }
 
-/* Tablet view (3 columns) */
-@media (max-width: 992px) {
-  .question-options {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 12px;
-  }
-
-  .question-option {
-    padding: 10px;
-  }
-
-  .option-image {
-    max-width: 90px;
-  }
-}
-
-/* Mobile view (2 columns) */
-@media (max-width: 768px) {
-  .question-options {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
-    padding: 5px;
-  }
-
-  .question-option {
-    padding: 8px;
-  }
-
-  .option-image {
-    max-width: 80px;
-  }
-}
-
-/* Small mobile adjustments */
-@media (max-width: 480px) {
-  .question-options {
-    gap: 8px;
-    padding: 3px;
-  }
-
-  .question-option {
-    padding: 6px;
-  }
-
-  .option-image {
-    max-width: 70px;
-  }
-}
-
-/* Option styles */
 .question-option {
   width: 100%;
-  min-height: 44px; /* Minimum touch target size */
+  min-height: 50px;
+  padding: 12px 15px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 14px;
+  font-size: 16px;
+  font-weight: 500;
   text-align: center;
-  border: 1px solid #007bff;
-  border-radius: 5px;
+  border: 2px solid #e0e7ff;
+  border-radius: 10px;
   background-color: white;
-  transition: all 0.3s ease-in-out;
+  transition: all 0.25s ease-in-out;
   cursor: pointer;
+  color: #333;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
 .question-option:hover {
-  border: 2px solid #1035ad !important;
-  background-color: #1035ad;
-  color: white;
+  border-color: #1035ad;
+  background-color: #f0f4ff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(16, 53, 173, 0.15);
 }
 
 .question-option.selected {
   background-color: #1035ad !important;
   color: white !important;
   border: 2px solid #1035ad !important;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(16, 53, 173, 0.25);
 }
 
 .option-image {
-  max-width: 100px;
+  max-width: 100%;
   height: auto;
+  max-height: 120px;
   display: block;
   margin: 0 auto;
+  border-radius: 6px;
 }
 
 .question-footer {
   display: flex;
   justify-content: center;
-  margin-top: 15px;
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 1px solid #eaecef;
 }
 
 .next-button,
 .submit-button {
-  width: 100%;
+  min-width: 180px;
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: 500;
+  border-radius: 8px;
+  background-color: #1035ad;
+  border: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(16, 53, 173, 0.2);
 }
 
-.next-button:hover {
-  background-color: #1035ad;
-  transform: scale(1.025);
+.next-button:hover,
+.submit-button:hover {
+  background-color: #0a2885;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(16, 53, 173, 0.3);
+}
+
+/* Age input styling */
+.age-input {
+  padding: 14px;
+  font-size: 16px;
+  border-radius: 8px;
+  border: 2px solid #e0e7ff;
+  margin-bottom: 20px;
+  width: 100%;
+  max-width: 300px;
+  display: block;
+  margin: 20px auto;
+  transition: border 0.3s ease;
+}
+
+.age-input:focus {
+  border-color: #1035ad;
+  box-shadow: 0 0 0 3px rgba(16, 53, 173, 0.1);
+  outline: none;
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+  .question-options {
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 15px;
+  }
+  
+  .question-card {
+    padding: 25px;
+  }
+}
+
+@media (max-width: 768px) {
+  .question-container {
+    padding: 15px;
+  }
+  
+  .question-card {
+    width: 95%;
+    padding: 20px;
+    margin: 10px auto;
+  }
+  
+  .question-title {
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .question-options {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 12px;
+    padding: 5px 0;
+  }
+  
+  .question-option {
+    padding: 10px;
+    font-size: 14px;
+    min-height: 44px;
+  }
+  
+  .next-button, .submit-button {
+    min-width: 150px;
+    padding: 10px 20px;
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .question-container {
+    padding: 10px;
+  }
+  
+  .question-card {
+    width: 100%;
+    padding: 16px;
+    border-radius: 8px;
+  }
+  
+  .question-title {
+    font-size: 18px;
+    padding-bottom: 10px;
+  }
+  
+  .question-title::after {
+    width: 40px;
+    height: 2px;
+  }
+  
+  .question-options {
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-top: 20px;
+  }
+  
+  .question-option {
+    padding: 8px;
+    font-size: 13px;
+    border-radius: 8px;
+  }
+  
+  .question-image img {
+    max-height: 150px;
+  }
+  
+  .next-button, .submit-button {
+    min-width: 120px;
+    padding: 8px 16px;
+    font-size: 14px;
+  }
+  
+  .question-footer {
+    margin-top: 20px;
+    padding-top: 15px;
+  }
 }
 
 .question-circle {
