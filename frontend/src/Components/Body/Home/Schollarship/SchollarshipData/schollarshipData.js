@@ -1523,6 +1523,1107 @@ export const scholarshipDetails = {
     category: "Girl Child Education",
     quota: "West Bengal State",
     route: "wb-kanyashree"
+  },
+
+  "mp-medhavi-yojana": {
+    name: "Mukhyamantri Medhavi Vidyarthi Yojana",
+    provider: "Government of Madhya Pradesh",
+    eligibility: [
+      "Students scoring above 70% in Class 12",
+      "Permanent resident of Madhya Pradesh",
+      "Family income below 6 lakhs per annum",
+      "Enrolled in recognized institutions"
+    ],
+    about: "The Mukhyamantri Medhavi Vidyarthi Yojana aims to support meritorious students from Madhya Pradesh in pursuing professional and technical education.",
+    benefits: [
+      "Full tuition fee reimbursement for professional courses",
+      "Annual maintenance allowance",
+      "Book and equipment allowance",
+      "Special incentives for female students",
+      "Duration covers entire course period"
+    ],
+    applicationPeriod: {
+      startDate: "July 1, 2024",
+      closeDate: "December 31, 2024"
+    },
+    applicationLink: "https://scholarshipportal.mp.nic.in/",
+    documents: [
+      "MP domicile certificate",
+      "Income certificate",
+      "Class 12 marksheet",
+      "Current admission proof",
+      "Bank account details",
+      "Aadhaar card",
+      "Recent photograph",
+      "Institution verification form"
+    ],
+    selectionProcess: [
+      "Online application submission",
+      "Document verification",
+      "Merit list preparation",
+      "Final selection and award"
+    ],
+    importantNotes: [
+      "Must maintain minimum 60% marks during course",
+      "Regular attendance mandatory",
+      "Annual renewal based on academic performance",
+      "Cannot avail other scholarships simultaneously"
+    ],
+    contactInfo: {
+      helpline: "1800-233-1445",
+      email: "support.scholarship@mp.gov.in",
+      website: "https://scholarshipportal.mp.nic.in"
+    },
+    fundingType: "Merit-based",
+    renewalCriteria: "Minimum 60% marks in each academic year",
+    category: "State Merit Scholarship",
+    quota: "Madhya Pradesh State",
+    route: "mp-medhavi-yojana"
+  },
+
+  "mp-pratibha-kiran": {
+    name: "Pratibha Kiran Yojana",
+    provider: "MP Higher Education Department",
+    eligibility: [
+      "Girls from urban poor families",
+      "Family income below 3 lakhs per annum",
+      "Minimum 60% marks in qualifying examination",
+      "Resident of urban areas in Madhya Pradesh"
+    ],
+    about: "The Pratibha Kiran Yojana is designed to support higher education for girls from urban poor families in Madhya Pradesh.",
+    benefits: [
+      "Annual scholarship of ₹20,000",
+      "Book and stationery allowance",
+      "Skill development training",
+      "Career counseling support",
+      "Mentorship opportunities"
+    ],
+    applicationPeriod: {
+      startDate: "August 1, 2024",
+      closeDate: "November 15, 2024"
+    },
+    applicationLink: "https://highereducation.mp.gov.in/",
+    documents: [
+      "Urban residence proof",
+      "Income certificate",
+      "Previous academic records",
+      "Bank account details",
+      "Aadhaar card",
+      "Recent photograph",
+      "Institution verification form"
+    ],
+    selectionProcess: [
+      "Online application submission",
+      "Document verification",
+      "Urban local body verification",
+      "Merit-based selection"
+    ],
+    importantNotes: [
+      "Exclusive for urban female students",
+      "Regular attendance mandatory",
+      "Annual renewal based on performance",
+      "Must maintain minimum required CGPA"
+    ],
+    contactInfo: {
+      helpline: "1800-233-1445",
+      email: "pratibhakiran@mp.gov.in",
+      website: "https://highereducation.mp.gov.in"
+    },
+    fundingType: "Merit-cum-Means",
+    renewalCriteria: "Minimum 55% marks in previous year",
+    category: "Scholarship for Girls",
+    quota: "Madhya Pradesh State",
+    route: "mp-pratibha-kiran"
+  },
+
+  "kerala-civil-services": {
+    name: "Chief Minister's Scholarship for Civil Services",
+    provider: "Government of Kerala",
+    eligibility: [
+      "Kerala resident students preparing for civil services",
+      "Age between 21-32 years",
+      "Graduate from recognized university",
+      "Family income below 8 lakhs per annum"
+    ],
+    about: "The Chief Minister's Scholarship for Civil Services provides comprehensive support to Kerala students preparing for UPSC and other civil service examinations.",
+    benefits: [
+      "Monthly stipend of ₹15,000",
+      "Free coaching at recognized institutes",
+      "Study material and test series",
+      "Mentorship from civil servants",
+      "Library and digital resources access"
+    ],
+    applicationPeriod: {
+      startDate: "June 1, 2024",
+      closeDate: "September 30, 2024"
+    },
+    applicationLink: "https://dcescholarship.kerala.gov.in/",
+    documents: [
+      "Kerala nativity certificate",
+      "Income certificate",
+      "Graduation certificate",
+      "Age proof",
+      "Bank account details",
+      "Aadhaar card",
+      "Recent photograph"
+    ],
+    selectionProcess: [
+      "Online application",
+      "Preliminary screening test",
+      "Interview",
+      "Final merit list preparation"
+    ],
+    importantNotes: [
+      "Regular attendance in coaching mandatory",
+      "Monthly progress reports required",
+      "Maximum duration of support - 2 years",
+      "Performance-based continuation"
+    ],
+    contactInfo: {
+      helpline: "1800-425-4525",
+      email: "civilservices.kerala@gov.in",
+      website: "https://dcescholarship.kerala.gov.in"
+    },
+    fundingType: "Merit-based Support",
+    renewalCriteria: "Satisfactory performance in mock tests",
+    category: "Civil Services Preparation",
+    quota: "Kerala State",
+    route: "kerala-civil-services"
+  },
+
+  "kerala-suvarna-jubilee": {
+    name: "Suvarna Jubilee Merit Scholarship",
+    provider: "Kerala State Education Board",
+    eligibility: [
+      "Top performers in Plus Two examinations",
+      "Minimum 90% marks in qualifying examination",
+      "Kerala state board students",
+      "Pursuing higher education in Kerala"
+    ],
+    about: "The Suvarna Jubilee Merit Scholarship recognizes and rewards academic excellence among Kerala state board students pursuing higher education.",
+    benefits: [
+      "Annual scholarship of ₹30,000",
+      "Merit certificate",
+      "Special recognition at state level",
+      "Academic resources support",
+      "Career guidance services"
+    ],
+    applicationPeriod: {
+      startDate: "July 15, 2024",
+      closeDate: "October 31, 2024"
+    },
+    applicationLink: "https://www.education.kerala.gov.in/",
+    documents: [
+      "Plus Two marksheet",
+      "Kerala nativity certificate",
+      "Current admission proof",
+      "Bank account details",
+      "Aadhaar card",
+      "Recent photograph",
+      "Institution verification form"
+    ],
+    selectionProcess: [
+      "Automatic consideration for top rankers",
+      "Document verification",
+      "Merit list preparation",
+      "Final selection and award"
+    ],
+    importantNotes: [
+      "Must maintain academic excellence",
+      "Regular attendance required",
+      "Annual renewal based on performance",
+      "Cannot combine with other merit scholarships"
+    ],
+    contactInfo: {
+      helpline: "1800-425-4525",
+      email: "suvarnajubilee@kerala.gov.in",
+      website: "https://www.education.kerala.gov.in"
+    },
+    fundingType: "Merit-based",
+    renewalCriteria: "Minimum 80% marks in current course",
+    category: "State Merit Scholarship",
+    quota: "Kerala State",
+    route: "kerala-suvarna-jubilee"
+  },
+
+  "punjab-science-scholarship": {
+    name: "Punjab State Science Scholarship",
+    provider: "Department of Science & Technology, Punjab",
+    eligibility: [
+      "Students pursuing B.Sc/M.Sc in pure sciences",
+      "Minimum 75% marks in previous examination",
+      "Punjab resident students",
+      "Family income below 6 lakhs per annum"
+    ],
+    about: "The Punjab State Science Scholarship promotes excellence in pure science education by supporting meritorious students in pursuing higher studies in science streams.",
+    benefits: [
+      "Monthly stipend of ₹3,000",
+      "Annual book grant of ₹5,000",
+      "Research project support",
+      "Laboratory access benefits",
+      "Science conference participation support"
+    ],
+    applicationPeriod: {
+      startDate: "July 1, 2024",
+      closeDate: "October 31, 2024"
+    },
+    applicationLink: "https://dst.punjab.gov.in/",
+    documents: [
+      "Punjab domicile certificate",
+      "Income certificate",
+      "Previous academic records",
+      "Current enrollment proof",
+      "Bank account details",
+      "Aadhaar card",
+      "Recent photograph"
+    ],
+    selectionProcess: [
+      "Online application submission",
+      "Academic merit screening",
+      "Document verification",
+      "Final selection based on merit"
+    ],
+    importantNotes: [
+      "Must maintain science major throughout course",
+      "Regular attendance mandatory",
+      "Research participation encouraged",
+      "Annual renewal subject to performance"
+    ],
+    contactInfo: {
+      helpline: "1800-180-2065",
+      email: "sciencescholarship@punjab.gov.in",
+      website: "https://dst.punjab.gov.in"
+    },
+    fundingType: "Merit-based",
+    renewalCriteria: "Minimum 70% marks in current course",
+    category: "Science and Technology",
+    quota: "Punjab State",
+    route: "punjab-science-scholarship"
+  },
+
+  "punjab-sc-scholarship": {
+    name: "Dr. Ambedkar Post Matric Scholarship",
+    provider: "Social Welfare Department, Punjab",
+    eligibility: [
+      "SC students pursuing higher education",
+      "Family income below prescribed limit",
+      "Punjab domicile holders",
+      "Enrolled in recognized institutions"
+    ],
+    about: "The Dr. Ambedkar Post Matric Scholarship scheme aims to provide financial assistance to SC students for pursuing higher education in Punjab.",
+    benefits: [
+      "Full tuition fee reimbursement",
+      "Maintenance allowance",
+      "Study material support",
+      "Hostel fees coverage",
+      "Additional allowance for professional courses"
+    ],
+    applicationPeriod: {
+      startDate: "August 1, 2024",
+      closeDate: "November 30, 2024"
+    },
+    applicationLink: "https://scholarships.punjab.gov.in/",
+    documents: [
+      "SC certificate",
+      "Income certificate",
+      "Punjab domicile",
+      "Previous marksheets",
+      "Institution verification form",
+      "Bank account details",
+      "Aadhaar card"
+    ],
+    selectionProcess: [
+      "Online application",
+      "Document verification",
+      "Social welfare department verification",
+      "Final approval and disbursement"
+    ],
+    importantNotes: [
+      "Regular attendance required",
+      "Income certificate renewal yearly",
+      "Progress reports mandatory",
+      "Direct benefit transfer to account"
+    ],
+    contactInfo: {
+      helpline: "1800-180-2065",
+      email: "scscholarship@punjab.gov.in",
+      website: "https://scholarships.punjab.gov.in"
+    },
+    fundingType: "Social Welfare",
+    renewalCriteria: "Satisfactory academic progress",
+    category: "SC Scholarship",
+    quota: "Punjab State",
+    route: "punjab-sc-scholarship"
+  },
+
+  "telangana-epass": {
+    name: "Telangana ePass Scholarship",
+    provider: "Social Welfare Department, Telangana",
+    eligibility: [
+      "SC/ST/BC/EBC/Minority students",
+      "Family income as per category norms",
+      "Telangana state residents",
+      "Regular course students"
+    ],
+    about: "The Telangana ePass Scholarship provides comprehensive financial support to students from disadvantaged sections pursuing higher education in the state.",
+    benefits: [
+      "Full tuition fee reimbursement",
+      "Monthly maintenance charges",
+      "Book grant and exam fees",
+      "Hostel and mess charges",
+      "Special allowance for professional courses"
+    ],
+    applicationPeriod: {
+      startDate: "July 15, 2024",
+      closeDate: "October 31, 2024"
+    },
+    applicationLink: "https://telanganaepass.cgg.gov.in/",
+    documents: [
+      "Category certificate",
+      "Income certificate",
+      "Telangana residence proof",
+      "Previous academic records",
+      "Current admission proof",
+      "Bank account details",
+      "Aadhaar card"
+    ],
+    selectionProcess: [
+      "Online application through ePass portal",
+      "College level verification",
+      "District welfare officer verification",
+      "Final approval and sanction"
+    ],
+    importantNotes: [
+      "Biometric attendance mandatory",
+      "Minimum 75% attendance required",
+      "Annual income verification",
+      "Regular academic progress necessary"
+    ],
+    contactInfo: {
+      helpline: "1800-425-4599",
+      email: "epass-support@telangana.gov.in",
+      website: "https://telanganaepass.cgg.gov.in"
+    },
+    fundingType: "Social Welfare",
+    renewalCriteria: "Pass in previous year examinations",
+    category: "State Welfare Scholarship",
+    quota: "Telangana State",
+    route: "telangana-epass"
+  },
+
+  "telangana-overseas": {
+    name: "Chief Minister's Overseas Scholarship",
+    provider: "Government of Telangana",
+    eligibility: [
+      "Telangana students pursuing foreign education",
+      "Admission in top 100 global universities",
+      "Family income below 5 lakhs per annum",
+      "Age below 35 years"
+    ],
+    about: "The Chief Minister's Overseas Scholarship Scheme supports meritorious students from Telangana in pursuing higher education at prestigious international universities.",
+    benefits: [
+      "Tuition fee up to ₹20 lakhs",
+      "Travel grant",
+      "Visa fee reimbursement",
+      "Health insurance coverage",
+      "Living expense support"
+    ],
+    applicationPeriod: {
+      startDate: "June 1, 2024",
+      closeDate: "September 30, 2024"
+    },
+    applicationLink: "https://www.telangana.gov.in/",
+    documents: [
+      "Foreign university admission letter",
+      "Income certificate",
+      "Telangana nativity",
+      "Academic records",
+      "Passport copy",
+      "Bank account details",
+      "Statement of purpose"
+    ],
+    selectionProcess: [
+      "Online application submission",
+      "Document verification",
+      "Interview panel screening",
+      "Final selection and award"
+    ],
+    importantNotes: [
+      "Bond to return to India after studies",
+      "Regular progress reports required",
+      "University ranking criteria strict",
+      "One-time support only"
+    ],
+    contactInfo: {
+      helpline: "1800-425-4599",
+      email: "overseas.scholarship@telangana.gov.in",
+      website: "https://www.telangana.gov.in"
+    },
+    fundingType: "Merit-based",
+    renewalCriteria: "Not applicable (one-time award)",
+    category: "Overseas Education",
+    quota: "Telangana State",
+    route: "telangana-overseas"
+  },
+
+  "assam-pragyan-bharti": {
+    name: "Pragyan Bharti Scholarship",
+    provider: "Government of Assam",
+    eligibility: [
+      "Students securing above 75% in Class 12",
+      "Permanent resident of Assam",
+      "Family income below 5 lakhs per annum",
+      "Pursuing undergraduate studies in Assam"
+    ],
+    about: "The Pragyan Bharti Scholarship scheme aims to support meritorious students from Assam in pursuing higher education within the state.",
+    benefits: [
+      "Annual scholarship of ₹20,000",
+      "Book allowance of ₹5,000",
+      "Merit certificate",
+      "Special incentives for girl students",
+      "Career guidance support"
+    ],
+    applicationPeriod: {
+      startDate: "July 1, 2024",
+      closeDate: "October 31, 2024"
+    },
+    applicationLink: "https://directorateofhighereducation.assam.gov.in/",
+    documents: [
+      "Permanent Resident Certificate of Assam",
+      "Income certificate",
+      "Class 12 marksheet",
+      "Current admission proof",
+      "Bank account details",
+      "Aadhaar card",
+      "Recent photograph"
+    ],
+    selectionProcess: [
+      "Online application submission",
+      "Document verification",
+      "Merit list preparation",
+      "Final selection and award"
+    ],
+    importantNotes: [
+      "Must maintain 60% marks in current course",
+      "Regular attendance mandatory",
+      "Annual renewal based on performance",
+      "Cannot avail other state scholarships simultaneously"
+    ],
+    contactInfo: {
+      helpline: "1800-345-3665",
+      email: "pragyanbharti@assam.gov.in",
+      website: "https://directorateofhighereducation.assam.gov.in"
+    },
+    fundingType: "Merit-based",
+    renewalCriteria: "Minimum 60% marks in each semester",
+    category: "State Merit Scholarship",
+    quota: "Assam State",
+    route: "assam-pragyan-bharti"
+  },
+
+  "assam-ishan-uday": {
+    name: "Ishan Uday Special Scholarship",
+    provider: "UGC and Government of Assam",
+    eligibility: [
+      "Students from North Eastern states",
+      "Pursuing undergraduate studies",
+      "Family income below 4.5 lakhs per annum",
+      "Minimum 60% marks in Class 12"
+    ],
+    about: "The Ishan Uday Special Scholarship promotes higher education in North Eastern states by providing financial assistance to meritorious students.",
+    benefits: [
+      "Monthly stipend of ₹5,400 for general degrees",
+      "Monthly stipend of ₹7,800 for technical degrees",
+      "Study material allowance",
+      "Travel allowance",
+      "Additional support for differently-abled students"
+    ],
+    applicationPeriod: {
+      startDate: "August 1, 2024",
+      closeDate: "November 30, 2024"
+    },
+    applicationLink: "https://scholarships.gov.in/",
+    documents: [
+      "Domicile certificate",
+      "Income certificate",
+      "Previous academic records",
+      "Current admission proof",
+      "Bank account details",
+      "Aadhaar card",
+      "Recent photograph"
+    ],
+    selectionProcess: [
+      "Online application through NSP",
+      "Document verification",
+      "State-level screening",
+      "UGC final approval"
+    ],
+    importantNotes: [
+      "Applicable for full-time courses only",
+      "Regular attendance mandatory",
+      "Semester-wise progress monitoring",
+      "Maximum duration of 4 years"
+    ],
+    contactInfo: {
+      helpline: "1800-345-3665",
+      email: "ishanuday@ugc.ac.in",
+      website: "https://www.ugc.ac.in"
+    },
+    fundingType: "Special Category",
+    renewalCriteria: "Satisfactory academic progress",
+    category: "North East Region Scholarship",
+    quota: "North Eastern States",
+    route: "assam-ishan-uday"
+  },
+
+  "jharkhand-ekalyan": {
+    name: "e-Kalyan Scholarship",
+    provider: "Welfare Department, Jharkhand",
+    eligibility: [
+      "SC/ST/OBC/Minority students",
+      "Permanent resident of Jharkhand",
+      "Family income within prescribed limits",
+      "Regular course enrollment"
+    ],
+    about: "The e-Kalyan Scholarship scheme provides comprehensive financial support to students from disadvantaged sections in Jharkhand.",
+    benefits: [
+      "Full tuition fee reimbursement",
+      "Monthly maintenance allowance",
+      "Book and stationery grant",
+      "Hostel fees coverage where applicable",
+      "Special allowance for professional courses"
+    ],
+    applicationPeriod: {
+      startDate: "July 15, 2024",
+      closeDate: "October 31, 2024"
+    },
+    applicationLink: "https://jharkhandstudents.nic.in/",
+    documents: [
+      "Caste certificate",
+      "Income certificate",
+      "Domicile certificate",
+      "Previous marksheets",
+      "Current admission proof",
+      "Bank account details",
+      "Aadhaar card"
+    ],
+    selectionProcess: [
+      "Online application through e-Kalyan portal",
+      "Institution verification",
+      "District welfare officer verification",
+      "Final approval and disbursement"
+    ],
+    importantNotes: [
+      "Biometric attendance mandatory",
+      "Regular academic progress required",
+      "Annual income verification",
+      "Direct benefit transfer to account"
+    ],
+    contactInfo: {
+      helpline: "1800-345-6223",
+      email: "ekalyan@jharkhand.gov.in",
+      website: "https://jharkhandstudents.nic.in"
+    },
+    fundingType: "Social Welfare",
+    renewalCriteria: "Pass in previous academic year",
+    category: "State Welfare Scholarship",
+    quota: "Jharkhand State",
+    route: "jharkhand-ekalyan"
+  },
+
+  "jharkhand-laxmi-ladli": {
+    name: "Laxmi Ladli Yojana",
+    provider: "Women and Child Development, Jharkhand",
+    eligibility: [
+      "Girl students from Jharkhand",
+      "Family income below 3 lakhs per annum",
+      "Minimum 60% marks in previous examination",
+      "Single girl child (preferred)"
+    ],
+    about: "The Laxmi Ladli Yojana promotes girl child education in Jharkhand by providing financial support from school to higher education.",
+    benefits: [
+      "Annual scholarship of ₹18,000",
+      "Additional merit incentives",
+      "Skill development support",
+      "Career counseling",
+      "Special benefits for single girl child"
+    ],
+    applicationPeriod: {
+      startDate: "August 1, 2024",
+      closeDate: "November 30, 2024"
+    },
+    applicationLink: "https://www.jharkhand.gov.in/women",
+    documents: [
+      "Birth certificate",
+      "Income certificate",
+      "Domicile certificate",
+      "Academic records",
+      "Bank account details",
+      "Aadhaar card",
+      "Single girl child affidavit (if applicable)"
+    ],
+    selectionProcess: [
+      "Online application submission",
+      "Document verification",
+      "District committee approval",
+      "Final selection and award"
+    ],
+    importantNotes: [
+      "Must remain unmarried during scholarship period",
+      "Regular attendance mandatory",
+      "Annual renewal based on performance",
+      "Special monitoring for career progress"
+    ],
+    contactInfo: {
+      helpline: "1800-345-6223",
+      email: "laxmiladli@jharkhand.gov.in",
+      website: "https://www.jharkhand.gov.in/women"
+    },
+    fundingType: "Girl Child Support",
+    renewalCriteria: "Minimum 60% marks in current course",
+    category: "Scholarship for Girls",
+    quota: "Jharkhand State",
+    route: "jharkhand-laxmi-ladli"
+  },
+
+  "hp-irdp-scholarship": {
+    name: "IRDP Scholarship Scheme",
+    provider: "Education Department, Himachal Pradesh",
+    eligibility: [
+      "Students from IRDP families",
+      "Permanent resident of Himachal Pradesh",
+      "Minimum 50% marks in qualifying examination",
+      "Regular course enrollment in HP institutions"
+    ],
+    about: "The IRDP Scholarship Scheme supports students from families below poverty line in Himachal Pradesh to pursue higher education.",
+    benefits: [
+      "Tuition fee waiver",
+      "Monthly maintenance allowance of ₹1,500",
+      "Annual book grant of ₹3,000",
+      "Hostel accommodation support",
+      "Additional support for technical courses"
+    ],
+    applicationPeriod: {
+      startDate: "July 1, 2024",
+      closeDate: "October 31, 2024"
+    },
+    applicationLink: "https://hpepass.cgg.gov.in/",
+    documents: [
+      "IRDP certificate",
+      "HP domicile certificate",
+      "Previous marksheets",
+      "Current admission proof",
+      "Bank account details",
+      "Aadhaar card",
+      "Recent photograph"
+    ],
+    selectionProcess: [
+      "Online application submission",
+      "IRDP status verification",
+      "Institution level verification",
+      "District committee approval"
+    ],
+    importantNotes: [
+      "Annual IRDP status verification required",
+      "Regular attendance mandatory",
+      "Cannot avail other scholarships simultaneously",
+      "Progress reports submission necessary"
+    ],
+    contactInfo: {
+      helpline: "1800-180-8028",
+      email: "scholarship.hp@gov.in",
+      website: "https://hpepass.cgg.gov.in"
+    },
+    fundingType: "Poverty Alleviation",
+    renewalCriteria: "Minimum 50% marks in previous year",
+    category: "Economic Support",
+    quota: "Himachal Pradesh State",
+    route: "hp-irdp-scholarship"
+  },
+
+  "hp-ambedkar-scholarship": {
+    name: "Dr. Ambedkar Medhavi Scholarship",
+    provider: "Social Justice Department, Himachal Pradesh",
+    eligibility: [
+      "SC/ST students with 60% or above marks",
+      "Family income below 4 lakhs per annum",
+      "Permanent resident of Himachal Pradesh",
+      "Pursuing higher education in recognized institutions"
+    ],
+    about: "The Dr. Ambedkar Medhavi Scholarship promotes higher education among meritorious SC/ST students in Himachal Pradesh.",
+    benefits: [
+      "Annual scholarship of ₹25,000",
+      "Monthly stipend of ₹2,000",
+      "Book and equipment allowance",
+      "Research support for PG students",
+      "Career guidance services"
+    ],
+    applicationPeriod: {
+      startDate: "August 1, 2024",
+      closeDate: "November 30, 2024"
+    },
+    applicationLink: "https://socialJustice.hp.gov.in/",
+    documents: [
+      "Caste certificate",
+      "Income certificate",
+      "HP domicile",
+      "Academic records",
+      "Bank account details",
+      "Aadhaar card",
+      "Institution verification form"
+    ],
+    selectionProcess: [
+      "Online application",
+      "Merit-based screening",
+      "Document verification",
+      "Final selection by committee"
+    ],
+    importantNotes: [
+      "Merit-based continuation",
+      "Regular attendance required",
+      "Annual income verification",
+      "Research component for PG students"
+    ],
+    contactInfo: {
+      helpline: "1800-180-8028",
+      email: "ambedkar.scholarship@hp.gov.in",
+      website: "https://socialJustice.hp.gov.in"
+    },
+    fundingType: "Merit-cum-Means",
+    renewalCriteria: "Minimum 60% marks in each year",
+    category: "SC/ST Scholarship",
+    quota: "Himachal Pradesh State",
+    route: "hp-ambedkar-scholarship"
+  },
+
+  "haryana-sc-scholarship": {
+    name: "Post Matric Scholarship for SC Students",
+    provider: "Welfare of SC & BC Department, Haryana",
+    eligibility: [
+      "SC students of Haryana",
+      "Family income below prescribed limit",
+      "Regular course enrollment",
+      "Minimum 50% marks in previous examination"
+    ],
+    about: "The Post Matric Scholarship scheme provides comprehensive financial support to SC students pursuing higher education in Haryana.",
+    benefits: [
+      "Full tuition fee reimbursement",
+      "Maintenance allowance",
+      "Study material support",
+      "Hostel fees coverage",
+      "Additional allowance for professional courses"
+    ],
+    applicationPeriod: {
+      startDate: "July 15, 2024",
+      closeDate: "October 31, 2024"
+    },
+    applicationLink: "https://scholarships.highereduhry.ac.in/",
+    documents: [
+      "SC certificate",
+      "Income certificate",
+      "Haryana domicile",
+      "Previous marksheets",
+      "Current admission proof",
+      "Bank account details",
+      "Aadhaar card"
+    ],
+    selectionProcess: [
+      "Online application submission",
+      "Document verification",
+      "District welfare officer approval",
+      "Final selection and disbursement"
+    ],
+    importantNotes: [
+      "Regular attendance mandatory",
+      "Income certificate renewal yearly",
+      "Cannot avail multiple scholarships",
+      "Direct benefit transfer to account"
+    ],
+    contactInfo: {
+      helpline: "1800-180-2087",
+      email: "sc.scholarship@haryana.gov.in",
+      website: "https://scholarships.highereduhry.ac.in"
+    },
+    fundingType: "Social Welfare",
+    renewalCriteria: "Pass in previous academic year",
+    category: "SC Scholarship",
+    quota: "Haryana State",
+    route: "haryana-sc-scholarship"
+  },
+
+  "haryana-samrasta": {
+    name: "Samrasta Scholarship Scheme",
+    provider: "Government of Haryana",
+    eligibility: [
+      "Students from general category",
+      "Family income below 3 lakhs per annum",
+      "Minimum 60% marks in qualifying examination",
+      "Haryana domicile"
+    ],
+    about: "The Samrasta Scholarship Scheme aims to support meritorious students from economically weaker sections of general category in Haryana.",
+    benefits: [
+      "Annual scholarship of ₹20,000",
+      "Book allowance of ₹5,000",
+      "Merit certificate",
+      "Career counseling support",
+      "Skill development opportunities"
+    ],
+    applicationPeriod: {
+      startDate: "August 1, 2024",
+      closeDate: "November 30, 2024"
+    },
+    applicationLink: "https://highereduhry.ac.in/",
+    documents: [
+      "Income certificate",
+      "Haryana domicile",
+      "Academic records",
+      "Current admission proof",
+      "Bank account details",
+      "Aadhaar card",
+      "Recent photograph"
+    ],
+    selectionProcess: [
+      "Online application",
+      "Merit list preparation",
+      "Document verification",
+      "Final selection and award"
+    ],
+    importantNotes: [
+      "Merit-based continuation",
+      "Regular attendance required",
+      "Annual income verification",
+      "Cannot avail other state scholarships"
+    ],
+    contactInfo: {
+      helpline: "1800-180-2087",
+      email: "samrasta@haryana.gov.in",
+      website: "https://highereduhry.ac.in"
+    },
+    fundingType: "Merit-cum-Means",
+    renewalCriteria: "Minimum 60% marks in current course",
+    category: "General Category Support",
+    quota: "Haryana State",
+    route: "haryana-samrasta"
+  },
+
+  "jk-special-scholarship": {
+    name: "Prime Minister's Special Scholarship Scheme for J&K",
+    provider: "Ministry of Education, Government of India",
+    eligibility: [
+      "Permanent residents of Jammu & Kashmir",
+      "Family income below 8 lakhs per annum",
+      "Minimum 60% marks in Class 12",
+      "Age below 30 years"
+    ],
+    about: "The Prime Minister's Special Scholarship Scheme (PMSSS) aims to support students from J&K to pursue higher education in other states of India.",
+    benefits: [
+      "Academic fee up to ₹1.30 lakhs per annum",
+      "Maintenance allowance of ₹1 lakh per annum",
+      "Book allowance",
+      "Hostel accommodation support",
+      "Travel expenses coverage"
+    ],
+    applicationPeriod: {
+      startDate: "June 15, 2024",
+      closeDate: "September 30, 2024"
+    },
+    applicationLink: "https://www.aicte-jk-scholarship-gov.in/",
+    documents: [
+      "Domicile certificate of J&K",
+      "Income certificate",
+      "Class 12 marksheet",
+      "Admission proof",
+      "Bank account details",
+      "Aadhaar card",
+      "Recent photograph"
+    ],
+    selectionProcess: [
+      "Online application submission",
+      "Merit list preparation",
+      "Document verification",
+      "Counseling and seat allocation"
+    ],
+    importantNotes: [
+      "Valid only for institutions outside J&K",
+      "Online counseling mandatory",
+      "Regular attendance required",
+      "Annual renewal based on performance"
+    ],
+    contactInfo: {
+      helpline: "1800-112-1265",
+      email: "pmsss-jk@aicte-india.org",
+      website: "https://www.aicte-jk-scholarship-gov.in"
+    },
+    fundingType: "Special Category",
+    renewalCriteria: "Minimum 50% marks in previous year",
+    category: "Regional Development",
+    quota: "Jammu & Kashmir",
+    route: "jk-special-scholarship"
+  },
+
+  "ladakh-scholarship": {
+    name: "Ladakh Scholar Scheme",
+    provider: "UT Administration of Ladakh",
+    eligibility: [
+      "Permanent residents of Ladakh",
+      "Students pursuing higher education",
+      "Merit-based selection",
+      "Family income criteria as per guidelines"
+    ],
+    about: "The Ladakh Scholar Scheme provides educational support to students from Ladakh region pursuing higher education across India.",
+    benefits: [
+      "Tuition fee coverage up to ₹1 lakh",
+      "Monthly maintenance allowance",
+      "Winter clothing allowance",
+      "Travel assistance",
+      "Special altitude adjustment support"
+    ],
+    applicationPeriod: {
+      startDate: "July 1, 2024",
+      closeDate: "October 31, 2024"
+    },
+    applicationLink: "https://leh.nic.in/",
+    documents: [
+      "Ladakh resident certificate",
+      "Income certificate",
+      "Academic records",
+      "Admission proof",
+      "Bank account details",
+      "Aadhaar card",
+      "Medical fitness certificate"
+    ],
+    selectionProcess: [
+      "Online application",
+      "Merit screening",
+      "Document verification",
+      "Final selection by committee"
+    ],
+    importantNotes: [
+      "Priority to remote area students",
+      "Health check-up mandatory",
+      "Regular progress monitoring",
+      "Winter vacation support included"
+    ],
+    contactInfo: {
+      helpline: "1800-345-3388",
+      email: "scholarship.ladakh@gov.in",
+      website: "https://leh.nic.in"
+    },
+    fundingType: "Regional Support",
+    renewalCriteria: "Satisfactory academic progress",
+    category: "Special Region Scholarship",
+    quota: "Ladakh UT",
+    route: "ladakh-scholarship"
+  },
+
+  "goa-merit-scholarship": {
+    name: "Goa State Merit Scholarship",
+    provider: "Directorate of Higher Education, Goa",
+    eligibility: [
+      "Permanent residents of Goa",
+      "Minimum 75% marks in Class 12",
+      "Pursuing higher education in Goa",
+      "Regular course enrollment"
+    ],
+    about: "The Goa State Merit Scholarship recognizes and supports academic excellence among students pursuing higher education in Goa.",
+    benefits: [
+      "Annual scholarship of ₹25,000",
+      "Book allowance of ₹5,000",
+      "Merit certificate",
+      "Research support for PG students",
+      "Career guidance services"
+    ],
+    applicationPeriod: {
+      startDate: "July 15, 2024",
+      closeDate: "October 31, 2024"
+    },
+    applicationLink: "https://www.dhe.goa.gov.in/",
+    documents: [
+      "Goa domicile certificate",
+      "Class 12 marksheet",
+      "Current admission proof",
+      "Bank account details",
+      "Aadhaar card",
+      "Recent photograph",
+      "Institution verification form"
+    ],
+    selectionProcess: [
+      "Online application submission",
+      "Merit-based screening",
+      "Document verification",
+      "Final selection and award"
+    ],
+    importantNotes: [
+      "Must maintain 70% marks in current course",
+      "Regular attendance mandatory",
+      "Annual renewal based on performance",
+      "Research component for PG students"
+    ],
+    contactInfo: {
+      helpline: "1800-345-3611",
+      email: "scholarship.dhe@goa.gov.in",
+      website: "https://www.dhe.goa.gov.in"
+    },
+    fundingType: "Merit-based",
+    renewalCriteria: "Minimum 70% marks each year",
+    category: "State Merit Scholarship",
+    quota: "Goa State",
+    route: "goa-merit-scholarship"
+  },
+
+  "goa-cm-scholarship": {
+    name: "Chief Minister's Scholarship Scheme",
+    provider: "Government of Goa",
+    eligibility: [
+      "Goan students pursuing professional courses",
+      "Family income below 6 lakhs per annum",
+      "Minimum 60% marks in qualifying examination",
+      "Admission in recognized institutions"
+    ],
+    about: "The Chief Minister's Scholarship Scheme supports Goan students in pursuing professional and technical education within and outside the state.",
+    benefits: [
+      "Tuition fee reimbursement up to ₹2 lakhs",
+      "Living allowance for outstation students",
+      "Book and equipment grant",
+      "Travel allowance",
+      "Career mentorship support"
+    ],
+    applicationPeriod: {
+      startDate: "August 1, 2024",
+      closeDate: "November 30, 2024"
+    },
+    applicationLink: "https://www.goa.gov.in/",
+    documents: [
+      "Goa domicile certificate",
+      "Income certificate",
+      "Previous academic records",
+      "Admission proof",
+      "Bank account details",
+      "Aadhaar card",
+      "Recent photograph"
+    ],
+    selectionProcess: [
+      "Online application",
+      "Document verification",
+      "Income verification",
+      "Merit-based selection"
+    ],
+    importantNotes: [
+      "Priority to professional courses",
+      "Regular progress reports required",
+      "Income certificate renewal yearly",
+      "Cannot combine with other state schemes"
+    ],
+    contactInfo: {
+      helpline: "1800-345-3611",
+      email: "cm.scholarship@goa.gov.in",
+      website: "https://www.goa.gov.in"
+    },
+    fundingType: "Merit-cum-Means",
+    renewalCriteria: "Minimum 60% marks in current course",
+    category: "Professional Education",
+    quota: "Goa State",
+    route: "goa-cm-scholarship"
   }
   // Add more scholarship details here...
 }; 

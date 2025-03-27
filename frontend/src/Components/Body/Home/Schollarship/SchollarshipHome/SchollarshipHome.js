@@ -952,69 +952,61 @@ export const SchollarshipHome = () => {
           ))}
         </Row>
       ) : (
-        stateScholarships.map((stateData) => (
-          <div key={stateData.id} className="state-scholarship-section mb-4">
-            <h3 className="state-title mb-3">
-              <Badge bg="secondary" className="state-badge me-2">
-                {stateData.state}
-              </Badge>
-            </h3>
-            <Row className="g-3">
-              {stateData.scholarships.map((scholarship) => (
-                <Col key={scholarship.id} xs={12} sm={6} >
-                  <Card className="state-scholarship-card h-100 shadow-sm">
-                    <Card.Body>
-                      <div className="scholarship-header mb-3">
-                        <h5 className="scholarship-name">
-                          <Link
-                            to={`/scholarships/state/${scholarship.route}`}
-                            className="text-decoration-none text-dark"
-                          >
-                            {scholarship.name}
-                          </Link>
-                        </h5>
-                      </div>
-
-                      <div className="scholarship-details">
-                        <p className="scholarship-provider">
-                          <strong>Provider:</strong> {scholarship.provider}
-                        </p>
-                        <p className="scholarship-eligibility">
-                          <strong>Eligibility:</strong>{" "}
-                          {scholarship.eligibility}
-                        </p>
-                        <p className="scholarship-deadline">
-                          <strong>Apply Before:</strong> {scholarship.deadline}
-                        </p>
-                        <p className="scholarship-description">
-                          {scholarship.description}
-                        </p>
-                      </div>
-
-                      <div className="scholarship-actions mt-3">
-                        <Button
-                          variant="outline-primary"
-                          className="scholarship-apply-btn"
-                          href={scholarship.applyLink}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          Apply Now
-                        </Button>
+        <Row className="g-3">
+          {stateScholarships.map((stateData) => (
+            stateData.scholarships.map((scholarship) => (
+              <Col key={scholarship.id} xs={12} sm={6}>
+                <Card className="scholarship-card h-100 shadow-sm">
+                  <Card.Body>
+                    <div className="scholarship-header mb-3">
+                      <Badge bg="primary" className="scholarship-category">
+                        {stateData.state}
+                      </Badge>
+                      <h5 className="scholarship-name mt-2">
                         <Link
-                          to={`./route/${scholarship.route}`}
-                          className="btn btn-link scholarship-more-btn"
+                          to={`/scholarships/state/${scholarship.route}`}
+                          className="text-decoration-none scholarship-link"
                         >
-                          View Details →
+                          {scholarship.name}
                         </Link>
-                      </div>
-                    </Card.Body>
-                  </Card>
-                </Col>
-              ))}
-            </Row>
-          </div>
-        ))
+                      </h5>
+                    </div>
+
+                    <div className="scholarship-details">
+                      <p className="scholarship-provider">
+                        <strong>Provider:</strong> {scholarship.provider}
+                      </p>
+                      <p className="scholarship-eligibility">
+                        <strong>Eligibility:</strong> {scholarship.eligibility}
+                      </p>
+                      <p className="scholarship-deadline">
+                        <strong>Apply Before:</strong> {scholarship.deadline}
+                      </p>
+                    </div>
+
+                    <div className="scholarship-actions mt-3">
+                      <Button
+                        variant="primary"
+                        className="scholarship-apply-btn"
+                        href={scholarship.applyLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        Apply Now
+                      </Button>
+                      <Link
+                        to={`./route/${scholarship.route}`}
+                        className="btn btn-link scholarship-more-btn"
+                      >
+                        View Details →
+                      </Link>
+                    </div>
+                  </Card.Body>
+                </Card>
+              </Col>
+            ))
+          ))}
+        </Row>
       )}
     </Container>
   );
