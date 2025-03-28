@@ -1,0 +1,368 @@
+.scholarship-container {
+    background-color: #f0f7ff;
+    padding: 1.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.scholarship-title {
+    color: #1a3a6c;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    font-size: 1.75rem;
+}
+
+.scholarship-card {
+    border: none;
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease;
+    background: white;
+    border-radius: 12px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    border-top: 4px solid #4285f4;
+}
+
+.scholarship-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(66, 133, 244, 0.15) !important;
+}
+
+.scholarship-card .card-body {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: 1.5rem;
+}
+
+.scholarship-header {
+    flex: 1;
+}
+
+.scholarship-category {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    background-color: #4285f4 !important;
+}
+
+.scholarship-name {
+    color: #1a3a6c;
+    font-weight: 600;
+    font-size: 1.2rem;
+    margin-top: 0.5rem;
+    line-height: 1.4;
+}
+
+.scholarship-link {
+    color: #1a3a6c;
+    transition: color 0.2s ease;
+}
+
+.scholarship-link:hover {
+    color: #4285f4;
+}
+
+.scholarship-details {
+    font-size: 0.9rem;
+    color: #5f6368;
+}
+
+.scholarship-details p {
+    margin-bottom: 0.5rem;
+}
+
+.scholarship-details strong {
+    color: #1a3a6c;
+}
+
+.scholarship-actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 1.5rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.scholarship-apply-btn {
+    border-radius: 20px;
+    padding: 0.375rem 1.5rem;
+    font-weight: 500;
+    color: white;
+    background-color: #4285f4;
+    border-color: #4285f4;
+    transition: all 0.3s ease;
+}
+
+.scholarship-apply-btn:hover {
+    background-color: #1a73e8;
+    border-color: #1a73e8;
+    transform: translateY(-2px);
+}
+
+.scholarship-more-btn {
+    text-decoration: none;
+    color: #4285f4;
+    font-weight: 500;
+}
+
+.scholarship-more-btn:hover {
+    text-decoration: underline;
+    color: #1a73e8;
+}
+
+.state-scholarship-section {
+    padding: 20px 0;
+    border-bottom: 1px solid #e0e9ff;
+}
+
+.state-title {
+    font-size: 1.5rem;
+    color: #1a3a6c;
+    margin-bottom: 1.5rem;
+}
+
+.state-badge {
+    font-size: 1rem;
+    padding: 8px 16px;
+    border-radius: 20px;
+    background-color: #34a853 !important;
+}
+
+.state-scholarship-card {
+    border: none;
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease;
+    background: white;
+    border-radius: 12px;
+    border-left: 4px solid #34a853;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.state-scholarship-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(52, 168, 83, 0.15) !important;
+}
+
+.state-scholarship-card .card-body {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: 1.5rem;
+}
+
+.state-scholarship-card .scholarship-description {
+    font-size: 0.9rem;
+    color: #5f6368;
+    margin-top: 10px;
+}
+
+.scholarship-tabs {
+    border-bottom: 2px solid #d2e3fc;
+    margin-bottom: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.nav-tabs {
+    border-bottom: 2px solid #d2e3fc;
+}
+
+.nav-tabs .nav-link {
+    color: #5f6368;
+    border: none;
+    padding: 1rem 2rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.nav-tabs .nav-link:hover {
+    color: #4285f4;
+    border: none;
+    background: transparent;
+}
+
+.nav-tabs .nav-link.active {
+    color: #4285f4;
+    border: none;
+    border-bottom: 2px solid #4285f4;
+    background: transparent;
+    font-weight: 600;
+}
+
+.tab-content {
+    padding-top: 2rem;
+}
+
+@media (max-width: 992px) {
+    .scholarship-container {
+        padding: 1.25rem;
+    }
+    
+    .nav-tabs .nav-link {
+        padding: 0.85rem 1.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .scholarship-container {
+        padding: 1rem 0.75rem;
+    }
+    
+    .scholarship-title {
+        font-size: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .scholarship-card .card-body,
+    .state-scholarship-card .card-body {
+        padding: 1.25rem;
+    }
+    
+    .scholarship-actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .scholarship-actions .btn,
+    .scholarship-actions .btn-link {
+        width: 100%;
+        margin-right: 0 !important;
+        margin-bottom: 0.5rem;
+        text-align: center;
+    }
+    
+    .state-scholarship-section {
+        padding: 15px 0;
+    }
+    
+    .state-title {
+        font-size: 1.3rem;
+        margin-bottom: 1rem;
+    }
+    
+    .nav-tabs {
+        justify-content: center;
+    }
+    
+    .nav-tabs .nav-link {
+        padding: 0.75rem 1rem;
+        font-size: 0.9rem;
+    }
+    
+    .scholarship-name {
+        font-size: 1.1rem;
+    }
+    
+    .scholarship-details {
+        font-size: 0.85rem;
+    }
+    
+    .state-scholarship-card .scholarship-description {
+        font-size: 0.85rem;
+    }
+    
+    .nav-tabs .nav-item {
+        width: 50%;
+        text-align: center;
+    }
+    
+    .nav-tabs .nav-link {
+        width: 100%;
+        padding: 0.75rem 0.5rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .scholarship-container {
+        padding: 0.75rem 0.5rem;
+    }
+    
+    .scholarship-title {
+        font-size: 1.35rem;
+        margin-bottom: 1.25rem;
+    }
+    
+    .scholarship-name {
+        font-size: 1.1rem;
+    }
+    
+    .scholarship-details,
+    .state-scholarship-card .scholarship-description {
+        font-size: 0.9rem;
+    }
+    
+    .state-badge {
+        font-size: 0.9rem;
+        padding: 6px 12px;
+    }
+    
+    .nav-tabs .nav-link {
+        padding: 0.5rem 0.75rem;
+        font-size: 0.85rem;
+    }
+    
+    .scholarship-card .card-body,
+    .state-scholarship-card .card-body {
+        padding: 1rem;
+    }
+    
+    .scholarship-category {
+        font-size: 0.75rem;
+    }
+    
+    .scholarship-apply-btn {
+        padding: 0.3rem 1rem;
+        font-size: 0.9rem;
+    }
+    
+    .scholarship-more-btn {
+        font-size: 0.9rem;
+    }
+    
+    .state-title {
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 375px) {
+    .scholarship-container {
+        padding: 0.5rem 0.25rem;
+    }
+    
+    .scholarship-title {
+        font-size: 1.25rem;
+        margin-bottom: 1rem;
+    }
+    
+    .nav-tabs .nav-link {
+        padding: 0.4rem 0.5rem;
+        font-size: 0.8rem;
+    }
+    
+    .scholarship-card .card-body,
+    .state-scholarship-card .card-body {
+        padding: 0.85rem;
+    }
+    
+    .scholarship-name {
+        font-size: 1rem;
+    }
+    
+    .scholarship-details,
+    .state-scholarship-card .scholarship-description {
+        font-size: 0.85rem;
+    }
+    
+    .scholarship-apply-btn {
+        padding: 0.25rem 0.75rem;
+        font-size: 0.85rem;
+    }
+    
+    .scholarship-more-btn {
+        font-size: 0.85rem;
+    }
+} 
