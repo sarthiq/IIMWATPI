@@ -18,7 +18,9 @@ export const CRHome = () => {
     fetchTestResults();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-  
+  console.log(iqResults);
+  console.log(personalityResults);
+  console.log(interestResults);
   const fetchTestResults = async () => {
     const response = await getTestResultsHandler(setIsLoading, showAlert);
  
@@ -28,34 +30,164 @@ export const CRHome = () => {
       setInterestResults(response.data.interests);
     }
   };
-  console.log("iqResults", iqResults);
-  console.log("personalityResults",   personalityResults);
-  console.log("interestResults", interestResults);
 
-  // Simulated test results - in real app, this would come from your backend
-  const testResults = {
-    hasResults: true, // Toggle this based on whether user has taken tests
-    iq: {
-      score: 125,
-      percentile: "93rd",
-      category: "High IQ"
-    },
-    personality: {
-      traits: [
-        { name: "Extraversion", score: 81, poles: ["Self-Centered", "Empathetic"] },
-        { name: "Agreeableness", score: 75, poles: ["Unorganized", "Organized"] },
-        { name: "Conscientiousness", score: 74, poles: ["Emotionally stable", "Emotional"] },
-        { name: "Neuroticism", score: 64, poles: ["Rigid", "Early Adopter"] }
-      ]
-    },
-    interests: {
-      topAreas: [
-        { subject: "Technology", score: 92 },
-        { subject: "Science", score: 88 },
-        { subject: "Mathematics", score: 85 },
-        { subject: "Engineering", score: 82 }
-      ]
+  const renderResults = () => {
+    if (isLoading) {
+      return <div className={styles.loader}>Loading...</div>;
     }
+
+    if (!iqResults || !personalityResults || !interestResults) {
+      return (
+        <div className={styles.noResults}>
+          Please complete all assessments to view your results
+        </div>
+      );
+    }
+
+    return (
+      <>
+        <section className={styles.resultsSection}>
+          <h2 className={styles.sectionTitle}>Your Assessment Results</h2>
+          
+          <div className={styles.resultCards}>
+            {/* IQ Results */}
+            <div className={styles.resultCard}>
+              <h3>IQ Assessment</h3>
+              <div className={styles.iqScore}>
+                <span className={styles.score}>{iqResults?.result?.label || 'N/A'}</span>
+              </div>
+            </div>
+
+            {/* Personality Results */}
+            <div className={styles.resultCard}>
+              <h3>Personality Profile</h3>
+              <div className={styles.traitsList}>
+                {personalityResults?.result && (
+                  <>
+                    <div className={styles.traitItem}>
+                      <div className={styles.traitHeader}>
+                        <span>Extraversion</span>
+                        <span>{personalityResults.result.extraversion.toFixed(2)}%</span>
+                      </div>
+                      <div className={styles.traitBar}>
+                        <div className={styles.traitProgress} style={{width: `${personalityResults.result.extraversion.toFixed(2)}%`}}></div>
+                      </div>
+                      <div className={styles.traitPoles}>
+                        <span>Introvert</span>
+                        <span>Extrovert</span>
+                      </div>
+                    </div>
+
+                    <div className={styles.traitItem}>
+                      <div className={styles.traitHeader}>
+                        <span>Agreeableness</span>
+                        <span>{personalityResults.result.agreeableness.toFixed(2)}%</span>
+                      </div>
+                      <div className={styles.traitBar}>
+                        <div className={styles.traitProgress} style={{width: `${personalityResults.result.agreeableness.toFixed(2)}%`}}></div>
+                      </div>
+                      <div className={styles.traitPoles}>
+                        <span>Self-Centered</span>
+                        <span>Empathetic</span>
+                      </div>
+                    </div>
+
+                    <div className={styles.traitItem}>
+                      <div className={styles.traitHeader}>
+                        <span>Conscientiousness</span>
+                        <span>{personalityResults.result.conscientiousness.toFixed(2)}%</span>
+                      </div>
+                      <div className={styles.traitBar}>
+                        <div className={styles.traitProgress} style={{width: `${personalityResults.result.conscientiousness.toFixed(2)}%`}}></div>
+                      </div>
+                      <div className={styles.traitPoles}>
+                        <span>Unorganized</span>
+                        <span>Organized</span>
+                      </div>
+                    </div>
+
+                    <div className={styles.traitItem}>
+                      <div className={styles.traitHeader}>
+                        <span>Neuroticism</span>
+                        <span>{personalityResults.result.neuroticism.toFixed(2)}%</span>
+                      </div>
+                      <div className={styles.traitBar}>
+                        <div className={styles.traitProgress} style={{width: `${personalityResults.result.neuroticism.toFixed(2)}%`}}></div>
+                      </div>
+                      <div className={styles.traitPoles}>
+                        <span>Emotionally Stable</span>
+                        <span>Emotional</span>
+                      </div>
+                    </div>
+
+                    <div className={styles.traitItem}>
+                      <div className={styles.traitHeader}>
+                        <span>Openness</span>
+                        <span>{personalityResults.result.openness.toFixed(2)}%</span>
+                      </div>
+                      <div className={styles.traitBar}>
+                        <div className={styles.traitProgress} style={{width: `${personalityResults.result.openness.toFixed(2)}%`}}></div>
+                      </div>
+                      <div className={styles.traitPoles}>
+                        <span>Rigid</span>
+                        <span>Early Adopter</span>
+                      </div>
+                    </div>
+                  </>
+                )}
+              </div>
+            </div>
+
+            {/* Interests Results */}
+            <div className={styles.resultCard}>
+              <h3>Interest Areas</h3>
+              {interestResults?.['16'] ? (
+                <div className={styles.interestsList}>
+                  {Object.entries(interestResults['16']).map(([subject, score], index) => (
+                    <div key={index} className={styles.interestItem}>
+                      <span>{subject}</span>
+                      <div className={styles.interestBar}>
+                        <div className={styles.interestProgress} style={{width: `${score}%`}}></div>
+                      </div>
+                      <span>{score}%</span>
+                    </div>
+                  ))}
+                </div>
+              ) : (
+                <div className={styles.noResults}>Please complete the interest assessment</div>
+              )}
+            </div>
+          </div>
+        </section>
+
+        <section className={styles.recommendationsSection}>
+          <h2 className={styles.sectionTitle}>Recommended Career Paths</h2>
+          <div className={styles.recommendationsGrid}>
+            {careerRecommendations.map((category, index) => (
+              <div key={index} className={styles.categorySection}>
+                <h3>{category.category}</h3>
+                <div className={styles.careersList}>
+                  {category.careers.map((career, careerIndex) => (
+                    <div key={careerIndex} className={styles.careerCard}>
+                      <div className={styles.matchScore}>{career.match}% Match</div>
+                      <h4>{career.title}</h4>
+                      <p>{career.description}</p>
+                      <div className={styles.careerDetails}>
+                        <span>Salary: {career.salary}</span>
+                        <span>Growth: {career.growth}</span>
+                      </div>
+                      <button className={styles.exploreButton}>
+                        Explore Career
+                      </button>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+      </>
+    );
   };
 
   const careerRecommendations = [
@@ -133,97 +265,7 @@ export const CRHome = () => {
           </div>
         </div>
       </section>
-
-      {testResults.hasResults && (
-        <>
-          <section className={styles.resultsSection}>
-            <h2 className={styles.sectionTitle}>Your Assessment Results</h2>
-            
-            {/* IQ Results */}
-            <div className={styles.resultCards}>
-              <div className={styles.resultCard}>
-                <h3>IQ Assessment</h3>
-                <div className={styles.iqScore}>
-                  <span className={styles.score}>{testResults.iq.score}</span>
-                  <span className={styles.percentile}>{testResults.iq.percentile} Percentile</span>
-                </div>
-                <div className={styles.category}>{testResults.iq.category}</div>
-              </div>
-
-              {/* Personality Results */}
-              <div className={styles.resultCard}>
-                <h3>Personality Profile</h3>
-                <div className={styles.traitsList}>
-                  {testResults.personality.traits.map((trait, index) => (
-                    <div key={index} className={styles.traitItem}>
-                      <div className={styles.traitHeader}>
-                        <span>{trait.name}</span>
-                        <span>{trait.score}%</span>
-                      </div>
-                      <div className={styles.traitBar}>
-                        <div 
-                          className={styles.traitProgress} 
-                          style={{width: `${trait.score}%`}}
-                        ></div>
-                      </div>
-                      <div className={styles.traitPoles}>
-                        <span>{trait.poles[0]}</span>
-                        <span>{trait.poles[1]}</span>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              {/* Interests Results */}
-              <div className={styles.resultCard}>
-                <h3>Interest Areas</h3>
-                <div className={styles.interestsList}>
-                  {testResults.interests.topAreas.map((area, index) => (
-                    <div key={index} className={styles.interestItem}>
-                      <span>{area.subject}</span>
-                      <div className={styles.interestBar}>
-                        <div 
-                          className={styles.interestProgress} 
-                          style={{width: `${area.score}%`}}
-                        ></div>
-                      </div>
-                      <span>{area.score}%</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </section>
-
-          <section className={styles.recommendationsSection}>
-            <h2 className={styles.sectionTitle}>Recommended Career Paths</h2>
-            <div className={styles.recommendationsGrid}>
-              {careerRecommendations.map((category, index) => (
-                <div key={index} className={styles.categorySection}>
-                  <h3>{category.category}</h3>
-                  <div className={styles.careersList}>
-                    {category.careers.map((career, careerIndex) => (
-                      <div key={careerIndex} className={styles.careerCard}>
-                        <div className={styles.matchScore}>{career.match}% Match</div>
-                        <h4>{career.title}</h4>
-                        <p>{career.description}</p>
-                        <div className={styles.careerDetails}>
-                          <span>Salary: {career.salary}</span>
-                          <span>Growth: {career.growth}</span>
-                        </div>
-                        <button className={styles.exploreButton}>
-                          Explore Career
-                        </button>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              ))}
-            </div>
-          </section>
-        </>
-      )}
+      {renderResults()}
     </div>
   );
 };
