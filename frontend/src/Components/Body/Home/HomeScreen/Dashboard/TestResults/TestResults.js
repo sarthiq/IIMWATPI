@@ -15,7 +15,7 @@ export const TestResults = () => {
     fetchTestResults();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-  console.log(quizzes);
+  
   const fetchTestResults = async () => {
     const response = await getTestResultsHandler(setIsLoading, showAlert);
     if (response && response.success) {

@@ -1,8 +1,37 @@
 import styles from './CRHome.module.css';
 import { Link } from 'react-router-dom';
 import { FaBrain, FaUserCircle, FaSearch } from 'react-icons/fa';
+import { useAlert } from '../../../../../../UI/Alert/AlertContext';
+import { useEffect, useState } from 'react';
+import { getTestResultsHandler } from '../../apiHandler';
+
 
 export const CRHome = () => {
+  
+  const [isLoading, setIsLoading] = useState(false);
+  const [iqResults, setIqResults] = useState(null);
+  const [personalityResults, setPersonalityResults] = useState(null);
+  const [interestResults, setInterestResults] = useState(null);
+  const { showAlert } = useAlert();
+
+  useEffect(() => {
+    fetchTestResults();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+  
+  const fetchTestResults = async () => {
+    const response = await getTestResultsHandler(setIsLoading, showAlert);
+ 
+    if (response && response.success) {
+     setIqResults(response.data.results.iq.detailedResult);
+     setPersonalityResults(response.data.results.personality.detailedResult);
+      setInterestResults(response.data.interests);
+    }
+  };
+  console.log("iqResults", iqResults);
+  console.log("personalityResults",   personalityResults);
+  console.log("interestResults", interestResults);
+
   // Simulated test results - in real app, this would come from your backend
   const testResults = {
     hasResults: true, // Toggle this based on whether user has taken tests
@@ -100,7 +129,7 @@ export const CRHome = () => {
               <li>Career Goals</li>
               <li>Industry Interests</li>
             </ul>
-            <Link to="./interest-section" className={styles.startButton}>Start Interest Test</Link>
+            <Link to="/dashboard/interest/graduation-test" className={styles.startButton}>Start Interest Test</Link>
           </div>
         </div>
       </section>

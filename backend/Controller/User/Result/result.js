@@ -4,6 +4,8 @@ const Question = require("../../../Models/TestPattern/question");
 const Quiz = require("../../../Models/TestPattern/quiz");
 const UserQuizPQuestion = require("../../../Models/AndModels/UserQuizPQuestion");
 const UserQuizQuestion = require("../../../Models/AndModels/UserQuizQuestion");
+const Interest = require("../../../Models/TestPattern/interest");
+const UserProfile = require("../../../Models/User/userProfile");
 
 exports.getUserResult = async (req, res) => {
   try {
@@ -82,6 +84,19 @@ exports.getUserResult = async (req, res) => {
       }
     }
 
+
+    const interests = await Interest.findAll({ where: { UserId: req.user.id } });
+    const mappedInterests = { 10: null, 12: null, 16: null };
+
+    interests.forEach(interest => {
+      if (interest.type in mappedInterests) {
+        mappedInterests[interest.type] = interest.result;
+      }
+    });
+
+    const userProfile = await UserProfile.findOne({ where: { UserId: userId } });
+
+
     return res.status(200).json({
       success: true,
       message: "User results retrieved successfully",
@@ -90,6 +105,8 @@ exports.getUserResult = async (req, res) => {
         userName: req.user.name,
         results: latestResults,
         quizzes: quizzes,
+        interests: mappedInterests,
+        profile: userProfile,
       },
     });
   } catch (error) {
