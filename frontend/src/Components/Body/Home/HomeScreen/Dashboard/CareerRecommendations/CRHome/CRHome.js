@@ -4,6 +4,7 @@ import { FaBrain, FaUserCircle, FaSearch } from 'react-icons/fa';
 import { useAlert } from '../../../../../../UI/Alert/AlertContext';
 import { useEffect, useState } from 'react';
 import { getTestResultsHandler } from '../../apiHandler';
+import { stem_careers, medical_careers, biz_econ_finance_careers, social_science_careers, arts_media_comm_careers } from './data';
 
 
 export const CRHome = () => {
@@ -18,9 +19,7 @@ export const CRHome = () => {
     fetchTestResults();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-  console.log(iqResults);
-  console.log(personalityResults);
-  console.log(interestResults);
+  
   const fetchTestResults = async () => {
     const response = await getTestResultsHandler(setIsLoading, showAlert);
  
@@ -29,6 +28,156 @@ export const CRHome = () => {
      setPersonalityResults(response.data.results.personality.detailedResult);
       setInterestResults(response.data.interests);
     }
+  };
+
+  const getCareerRecommendations = (iqResults, personalityResults, interestResults) => {
+    // Get IQ category (treat below 70 as 0-80 range)
+    const iqScore = iqResults?.result?.score || 0;
+    const iqCategory = [
+      iqScore < 80 ? 0 : iqScore < 90 ? 80 : 
+      iqScore < 100 ? 90 : iqScore < 120 ? 100 : 120,
+      iqScore < 80 ? 80 : iqScore < 90 ? 90 : 
+      iqScore < 100 ? 100 : iqScore < 120 ? 120 : 1000
+    ];
+
+    // Get top 3 personality traits with exact matching to data.js values
+    const personalityTraits = personalityResults?.result ? 
+      Object.entries({
+        extraversion: personalityResults.result.extraversion,
+        agreeableness: personalityResults.result.agreeableness,
+        conscientiousness: personalityResults.result.conscientiousness,
+        neuroticism: personalityResults.result.neuroticism,
+        openness: personalityResults.result.openness
+      })
+      .sort(([,a], [,b]) => b - a)
+      .slice(0, 3)
+      .map(([trait, score]) => {
+        // Ensure exact matches with data.js personality types
+        const traitMappings = {
+          extraversion: score > 50 ? "Extrovert" : "Introvert",
+          agreeableness: score > 50 ? "Altruist" : "Self-Centered",
+          conscientiousness: score > 50 ? "Organized" : "Unorganized",
+          neuroticism: score > 50 ? "Emotional" : "Emotionally Stable",
+          openness: score > 50 ? "Openness" : "Rigid"
+        };
+        return traitMappings[trait];
+      }) : [];
+      
+      // Add subject category mapping
+      const subjectToCategory = {
+        // STEM category
+        'Science': 'STEM',
+        'Technology': 'STEM',
+        'Engineering': 'STEM',
+        'Mathematics': 'STEM',
+        'STEM': 'STEM',
+        'Computer Science': 'STEM',
+        'Information Technology': 'STEM',
+        'Physics': 'STEM',
+        'Chemistry': 'STEM',
+        'Biology': 'STEM',
+        
+        // Medical category
+        'Medical': 'Medical',
+        'Healthcare': 'Medical',
+        'Life Sciences': 'Medical',
+        'Medicine': 'Medical',
+        'Nursing': 'Medical',
+        'Pharmacy': 'Medical',
+        
+        // Business category
+        'Business': 'Business',
+        'Economics': 'Business',
+        'Finance': 'Business',
+        'Management': 'Business',
+        'Accounting': 'Business',
+        'Marketing': 'Business',
+        
+        // Social Sciences category
+        'Social': 'Social',
+        'Political': 'Social',
+        'Psychology': 'Social',
+        'Sociology': 'Social',
+        'History': 'Social',
+        'Philosophy': 'Social',
+        'Humanities': 'Social',
+        
+        // Arts & Media category
+        'Arts': 'Arts',
+        'Media': 'Arts',
+        'Communication': 'Arts',
+        'Journalism': 'Arts',
+        'Design': 'Arts',
+        'Music': 'Arts',
+        'Theatre': 'Arts'
+      };
+
+    // Map categories to career data arrays
+    const careerDataMap = {
+      'STEM': stem_careers,
+      'Medical': medical_careers,
+      'Business': biz_econ_finance_careers,
+      'Social': social_science_careers,
+      'Arts': arts_media_comm_careers
+    };
+
+    const recommendations = [];
+
+    if (interestResults?.['16']) {
+      const interests = Array.isArray(interestResults['16']) ? 
+        interestResults['16'] : 
+        Object.entries(interestResults['16'])
+          .sort(([,a], [,b]) => b - a)
+          .map(([subject]) => subject);
+
+      interests.forEach(interest => {
+        // Simplified category mapping based on keyword presence
+        let mappedCategory;
+        if (interest.toLowerCase().includes('stem')) {
+          mappedCategory = 'STEM';
+        } else if (interest.toLowerCase().includes('medical') || 
+                   interest.toLowerCase().includes('health') || 
+                   interest.toLowerCase().includes('life sciences')) {
+          mappedCategory = 'Medical';
+        } else if (interest.toLowerCase().includes('business') || 
+                   interest.toLowerCase().includes('economics') || 
+                   interest.toLowerCase().includes('finance')) {
+          mappedCategory = 'Business';
+        } else if (interest.toLowerCase().includes('social') || 
+                   interest.toLowerCase().includes('political') || 
+                   interest.toLowerCase().includes('humanities')) {
+          mappedCategory = 'Social';
+        } else if (interest.toLowerCase().includes('art') || 
+                   interest.toLowerCase().includes('media') || 
+                   interest.toLowerCase().includes('communication')) {
+          mappedCategory = 'Arts';
+        }
+        
+        const careerData = mappedCategory ? careerDataMap[mappedCategory] : null;
+        
+        if (careerData) {
+          personalityTraits.forEach(trait => {
+            // Find exact matching careers based on IQ category and personality type
+            const matchingCareers = careerData.find(
+              c => c["IQ Category"][0] === iqCategory[0] && 
+                  c["IQ Category"][1] === iqCategory[1] && 
+                  c["Personality Type"] === trait
+            );
+            
+            if (matchingCareers) {
+              const careers = matchingCareers["Top 5 Career Recommendations"].split(", ");
+            
+              recommendations.push({
+                category: `${mappedCategory} - ${trait}`,
+                careers: careers
+              });
+            }
+          });
+        }
+      });
+    }
+
+    return recommendations;
   };
 
   const renderResults = () => {
@@ -43,6 +192,12 @@ export const CRHome = () => {
         </div>
       );
     }
+
+    const careerRecommendations = getCareerRecommendations(
+      iqResults, 
+      personalityResults, 
+      interestResults
+    );
 
     return (
       <>
@@ -143,15 +298,25 @@ export const CRHome = () => {
               <h3>Interest Areas</h3>
               {interestResults?.['16'] ? (
                 <div className={styles.interestsList}>
-                  {Object.entries(interestResults['16']).map(([subject, score], index) => (
-                    <div key={index} className={styles.interestItem}>
-                      <span>{subject}</span>
-                      <div className={styles.interestBar}>
-                        <div className={styles.interestProgress} style={{width: `${score}%`}}></div>
+                  {Array.isArray(interestResults['16']) ? (
+                    // Display as simple list when data is an array
+                    interestResults['16'].map((interest, index) => (
+                      <div key={index} className={styles.interestItem}>
+                        <span>{interest}</span>
                       </div>
-                      <span>{score}%</span>
-                    </div>
-                  ))}
+                    ))
+                  ) : (
+                    // Display with progress bars when data has scores
+                    Object.entries(interestResults['16']).map(([subject, score], index) => (
+                      <div key={index} className={styles.interestItem}>
+                        <span>{subject}</span>
+                        <div className={styles.interestBar}>
+                          <div className={styles.interestProgress} style={{width: `${score}%`}}></div>
+                        </div>
+                        <span>{score}%</span>
+                      </div>
+                    ))
+                  )}
                 </div>
               ) : (
                 <div className={styles.noResults}>Please complete the interest assessment</div>
@@ -162,57 +327,34 @@ export const CRHome = () => {
 
         <section className={styles.recommendationsSection}>
           <h2 className={styles.sectionTitle}>Recommended Career Paths</h2>
-          <div className={styles.recommendationsGrid}>
-            {careerRecommendations.map((category, index) => (
-              <div key={index} className={styles.categorySection}>
-                <h3>{category.category}</h3>
-                <div className={styles.careersList}>
-                  {category.careers.map((career, careerIndex) => (
-                    <div key={careerIndex} className={styles.careerCard}>
-                      <div className={styles.matchScore}>{career.match}% Match</div>
-                      <h4>{career.title}</h4>
-                      <p>{career.description}</p>
-                      <div className={styles.careerDetails}>
-                        <span>Salary: {career.salary}</span>
-                        <span>Growth: {career.growth}</span>
-                      </div>
-                      <button className={styles.exploreButton}>
-                        Explore Career
-                      </button>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            ))}
+          <div className={styles.recommendationsTable}>
+            <table>
+              <thead>
+                <tr>
+                  <th>Category</th>
+                  <th>Recommended Careers</th>
+                </tr>
+              </thead>
+              <tbody>
+                {careerRecommendations.map((category, index) => (
+                  <tr key={index}>
+                    <td>{category.category}</td>
+                    <td>
+                      <ol className={styles.careersList}>
+                        {category.careers.map((career, careerIndex) => (
+                          <li key={careerIndex}>{career}</li>
+                        ))}
+                      </ol>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
           </div>
         </section>
       </>
     );
   };
-
-  const careerRecommendations = [
-    {
-      category: "High IQ + Extrovert",
-      careers: [
-        {
-          title: "AI/ML Engineer",
-          match: 95,
-          description: "Design and implement machine learning models and AI systems",
-          salary: "$120,000 - $180,000",
-          growth: "34% (Much faster than average)"
-        },
-        {
-          title: "Robotics Engineer",
-          match: 92,
-          description: "Design, build, and program robots for various applications",
-          salary: "$110,000 - $160,000",
-          growth: "29% (Much faster than average)"
-        }
-        // Add more careers as needed
-      ]
-    }
-    // Add more categories based on combinations
-  ];
 
   return (
     <div className={styles.container}>
