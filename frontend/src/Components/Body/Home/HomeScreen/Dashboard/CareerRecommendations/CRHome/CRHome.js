@@ -6,6 +6,19 @@ import { useEffect, useState } from 'react';
 import { getTestResultsHandler } from '../../apiHandler';
 import { stem_careers, medical_careers, biz_econ_finance_careers, social_science_careers, arts_media_comm_careers } from './data';
 
+const getPersonalityLabel = (trait, score) => {
+  const labels = {
+    extraversion: { low: 'Introvert', high: 'Extrovert' },
+    agreeableness: { low: 'Self-Centered', high: 'Empathetic' },
+    conscientiousness: { low: 'Unorganized', high: 'Organized' },
+    neuroticism: { low: 'Emotionally Stable', high: 'Emotional' },
+    openness: { low: 'Rigid', high: 'Early Adopter' }
+  };
+  
+  return score > 50 ? labels[trait].high : labels[trait].low;
+};
+
+
 
 export const CRHome = () => {
   
@@ -22,11 +35,17 @@ export const CRHome = () => {
   
   const fetchTestResults = async () => {
     const response = await getTestResultsHandler(setIsLoading, showAlert);
- 
-    if (response && response.success) {
-     setIqResults(response.data.results.iq.detailedResult);
-     setPersonalityResults(response.data.results.personality.detailedResult);
-      setInterestResults(response.data.interests);
+
+    if (response && response.success && response.data && response.data.results) {
+      // Safely access nested properties with optional chaining
+      setIqResults(response.data.results?.iq?.detailedResult || null);
+      setPersonalityResults(response.data.results?.personality?.detailedResult || null);
+      setInterestResults(response.data?.interests || null);
+    } else {
+      // Set all results to null if no data is available
+      setIqResults(null);
+      setPersonalityResults(null);
+      setInterestResults(null);
     }
   };
 
@@ -185,234 +204,165 @@ export const CRHome = () => {
     return recommendations;
   };
 
-  const renderResults = () => {
-    if (isLoading) {
-      return <div className={styles.loader}>Loading...</div>;
-    }
-
-    if (!iqResults || !personalityResults || !interestResults) {
-      return (
-        <div className={styles.noResults}>
-          Please complete all assessments to view your results
-        </div>
-      );
-    }
-
-    const careerRecommendations = getCareerRecommendations(
-      iqResults, 
-      personalityResults, 
-      interestResults
-    );
-
-    return (
-      <>
-        <section className={styles.resultsSection}>
-          <h2 className={styles.sectionTitle}>Your Assessment Results</h2>
-          
-          <div className={styles.resultCards}>
-            {/* IQ Results */}
-            <div className={styles.resultCard}>
-              <h3>IQ Assessment</h3>
-              <div className={styles.iqScore}>
-                <span className={styles.score}>{iqResults?.result?.label || 'N/A'}</span>
-              </div>
-            </div>
-
-            {/* Personality Results */}
-            <div className={styles.resultCard}>
-              <h3>Personality Profile</h3>
-              <div className={styles.traitsList}>
-                {personalityResults?.result && (
-                  <>
-                    <div className={styles.traitItem}>
-                      <div className={styles.traitHeader}>
-                        <span>Extraversion</span>
-                        <span>{personalityResults.result.extraversion.toFixed(2)}%</span>
-                      </div>
-                      <div className={styles.traitBar}>
-                        <div className={styles.traitProgress} style={{width: `${personalityResults.result.extraversion.toFixed(2)}%`}}></div>
-                      </div>
-                      <div className={styles.traitPoles}>
-                        <span>Introvert</span>
-                        <span>Extrovert</span>
-                      </div>
-                    </div>
-
-                    <div className={styles.traitItem}>
-                      <div className={styles.traitHeader}>
-                        <span>Agreeableness</span>
-                        <span>{personalityResults.result.agreeableness.toFixed(2)}%</span>
-                      </div>
-                      <div className={styles.traitBar}>
-                        <div className={styles.traitProgress} style={{width: `${personalityResults.result.agreeableness.toFixed(2)}%`}}></div>
-                      </div>
-                      <div className={styles.traitPoles}>
-                        <span>Self-Centered</span>
-                        <span>Empathetic</span>
-                      </div>
-                    </div>
-
-                    <div className={styles.traitItem}>
-                      <div className={styles.traitHeader}>
-                        <span>Conscientiousness</span>
-                        <span>{personalityResults.result.conscientiousness.toFixed(2)}%</span>
-                      </div>
-                      <div className={styles.traitBar}>
-                        <div className={styles.traitProgress} style={{width: `${personalityResults.result.conscientiousness.toFixed(2)}%`}}></div>
-                      </div>
-                      <div className={styles.traitPoles}>
-                        <span>Unorganized</span>
-                        <span>Organized</span>
-                      </div>
-                    </div>
-
-                    <div className={styles.traitItem}>
-                      <div className={styles.traitHeader}>
-                        <span>Neuroticism</span>
-                        <span>{personalityResults.result.neuroticism.toFixed(2)}%</span>
-                      </div>
-                      <div className={styles.traitBar}>
-                        <div className={styles.traitProgress} style={{width: `${personalityResults.result.neuroticism.toFixed(2)}%`}}></div>
-                      </div>
-                      <div className={styles.traitPoles}>
-                        <span>Emotionally Stable</span>
-                        <span>Emotional</span>
-                      </div>
-                    </div>
-
-                    <div className={styles.traitItem}>
-                      <div className={styles.traitHeader}>
-                        <span>Openness</span>
-                        <span>{personalityResults.result.openness.toFixed(2)}%</span>
-                      </div>
-                      <div className={styles.traitBar}>
-                        <div className={styles.traitProgress} style={{width: `${personalityResults.result.openness.toFixed(2)}%`}}></div>
-                      </div>
-                      <div className={styles.traitPoles}>
-                        <span>Rigid</span>
-                        <span>Early Adopter</span>
-                      </div>
-                    </div>
-                  </>
-                )}
-              </div>
-            </div>
-
-            {/* Interests Results */}
-            <div className={styles.resultCard}>
-              <h3>Interest Areas</h3>
-              {interestResults?.['16'] ? (
-                <div className={styles.interestsList}>
-                  {Array.isArray(interestResults['16']) ? (
-                    // Display as simple list when data is an array
-                    interestResults['16'].map((interest, index) => (
-                      <div key={index} className={styles.interestItem}>
-                        <span>{interest}</span>
-                      </div>
-                    ))
-                  ) : (
-                    // Display with progress bars when data has scores
-                    Object.entries(interestResults['16']).map(([subject, score], index) => (
-                      <div key={index} className={styles.interestItem}>
-                        <span>{subject}</span>
-                        <div className={styles.interestBar}>
-                          <div className={styles.interestProgress} style={{width: `${score}%`}}></div>
-                        </div>
-                        <span>{score}%</span>
-                      </div>
-                    ))
-                  )}
-                </div>
-              ) : (
-                <div className={styles.noResults}>Please complete the interest assessment</div>
-              )}
-            </div>
-          </div>
-        </section>
-
-        <section className={styles.recommendationsSection}>
-          <h2 className={styles.sectionTitle}>Recommended Career Paths</h2>
-          <div className={styles.recommendationsTable}>
-            <table>
-              <thead>
-                <tr>
-                  <th>Category</th>
-                  <th>Recommended Careers</th>
-                </tr>
-              </thead>
-              <tbody>
-                {careerRecommendations.map((category, index) => (
-                  <tr key={index}>
-                    <td>{category.category}</td>
-                    <td>
-                      <ol className={styles.careersList}>
-                        {category.careers.map((career, careerIndex) => (
-                          <li key={careerIndex}>{career}</li>
-                        ))}
-                      </ol>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </section>
-      </>
-    );
-  };
-
   return (
     <div className={styles.container}>
-      <section className={styles.assessmentSection}>
-        <h1 className={styles.mainTitle}>Career Assessment Center</h1>
-        <div className={styles.assessmentGrid}>
-          <div className={styles.assessmentCard}>
-            <div className={styles.assessmentIcon}>
-              <FaBrain />
-            </div>
+      <h1 className={styles.mainTitle}>Career Assessment Center</h1>
+      
+      <div className={styles.assessmentCards}>
+        {/* IQ Assessment Card */}
+        <div className={styles.assessmentCard}>
+          <div className={styles.cardHeader}>
+            <FaBrain className={styles.cardIcon} />
             <h2>IQ Assessment</h2>
-            <p>45-minute comprehensive cognitive ability test</p>
-            <ul className={styles.testDetails}>
-              <li>Logical Reasoning</li>
-              <li>Pattern Recognition</li>
-              <li>Numerical Ability</li>
-              <li>Spatial Visualization</li>
-            </ul>
-            <Link to="/quiz/1" className={styles.startButton}>Start IQ Test</Link>
           </div>
-
-          <div className={styles.assessmentCard}>
-            <div className={styles.assessmentIcon}>
-              <FaUserCircle />
+          
+          {iqResults ? (
+            <div className={styles.resultContent}>
+              <div className={styles.iqResult}>
+                <div className={styles.iqScore}>
+                  {iqResults.result.label}
+                </div>
+                
+              </div>
+              <Link to="/quiz/1" className={styles.retakeButton}>Take Test Again</Link>
             </div>
+          ) : (
+            <div className={styles.emptyContent}>
+              <div className={styles.testDescription}>
+                <h3>Comprehensive IQ Assessment</h3>
+                <p>45-minute test measuring cognitive abilities across multiple domains</p>
+              </div>
+              <ul className={styles.testPoints}>
+                <li>Logical Reasoning</li>
+                <li>Pattern Recognition</li>
+                <li>Numerical Ability</li>
+                <li>Spatial Visualization</li>
+              </ul>
+              <Link to="/quiz/1" className={styles.startButton}>Start Test</Link>
+            </div>
+          )}
+        </div>
+
+        {/* Personality Assessment Card */}
+        <div className={styles.assessmentCard}>
+          <div className={styles.cardHeader}>
+            <FaUserCircle className={styles.cardIcon} />
             <h2>Personality Assessment</h2>
-            <p>30-minute personality profiling test</p>
-            <ul className={styles.testDetails}>
-              <li>Work Style Analysis</li>
-              <li>Behavioral Patterns</li>
-              <li>Team Dynamics</li>
-              <li>Stress Management</li>
-            </ul>
-            <Link to="/quiz/2" className={styles.startButton}>Start Personality Test</Link>
           </div>
-
-          <div className={styles.assessmentCard}>
-            <div className={styles.assessmentIcon}>
-              <FaSearch />
+          
+          {personalityResults ? (
+            <div className={styles.resultContent}>
+              <div className={styles.personalityTraits}>
+                {Object.entries(personalityResults.result).map(([trait, score]) => (
+                  <div key={trait} className={styles.traitContainer}>
+                    <div className={styles.traitHeader}>
+                      <span className={styles.traitTitle}>
+                        {trait.charAt(0).toUpperCase() + trait.slice(1)}
+                      </span>
+                      <span className={styles.traitScore}>{score.toFixed(0)}%</span>
+                    </div>
+                    <div className={styles.traitBar}>
+                      <div 
+                        className={styles.traitProgress} 
+                        style={{width: `${score}%`}}
+                      />
+                    </div>
+                    <div className={styles.traitLabels}>
+                      <span className={styles.lowLabel}>
+                        {getPersonalityLabel(trait, 0)}
+                      </span>
+                      <span className={styles.highLabel}>
+                        {getPersonalityLabel(trait, 100)}
+                      </span>
+                    </div>
+                  </div>
+                ))}
+              </div>
+              <Link to="/quiz/2" className={styles.retakeButton}>Take Test Again</Link>
             </div>
+          ) : (
+            <div className={styles.emptyContent}>
+              <div className={styles.testDescription}>
+                <h3>Personality Profile Analysis</h3>
+                <p>30-minute assessment of your personality dimensions</p>
+              </div>
+              <ul className={styles.testPoints}>
+                <li>Work Style Analysis</li>
+                <li>Behavioral Patterns</li>
+                <li>Team Dynamics</li>
+                <li>Stress Management</li>
+              </ul>
+              <Link to="/quiz/2" className={styles.startButton}>Start Test</Link>
+            </div>
+          )}
+        </div>
+
+        {/* Interest Assessment Card */}
+        <div className={styles.assessmentCard}>
+          <div className={styles.cardHeader}>
+            <FaSearch className={styles.cardIcon} />
             <h2>Interest Analysis</h2>
-            <p>25-minute career interest inventory</p>
-            <ul className={styles.testDetails}>
-              <li>Subject Preferences</li>
-              <li>Work Environment</li>
-              <li>Career Goals</li>
-              <li>Industry Interests</li>
-            </ul>
-            <Link to="/dashboard/interest/graduation-test" className={styles.startButton}>Start Interest Test</Link>
+          </div>
+          
+          {interestResults && interestResults['16'] ? (
+            <div className={styles.resultContent}>
+              <div className={styles.interestAreas}>
+                {(Array.isArray(interestResults['16']) ? 
+                  interestResults['16'].map(subject => ({ subject })) : 
+                  Object.entries(interestResults['16']).map(([subject, score]) => ({ subject }))
+                ).map(({ subject }, index) => (
+                  <div key={subject} className={styles.interestItem}>
+                    <span className={styles.interestNumber}>{index + 1}.</span>
+                    <span className={styles.interestName}>{subject}</span>
+                  </div>
+                ))}
+              </div>
+              <Link to="/dashboard/interest/graduation-test" className={styles.retakeButton}>
+                Take Test Again
+              </Link>
+            </div>
+          ) : (
+            <div className={styles.emptyContent}>
+              <div className={styles.testDescription}>
+                <h3>Career Interest Inventory</h3>
+                <p>25-minute assessment to discover your career interests</p>
+              </div>
+              <ul className={styles.testPoints}>
+                <li>Subject Preferences</li>
+                <li>Work Environment</li>
+                <li>Career Goals</li>
+                <li>Industry Interests</li>
+              </ul>
+              <Link to="/dashboard/interest/graduation-test" className={styles.startButton}>
+                Start Test
+              </Link>
+            </div>
+          )}
+        </div>
+      </div>
+
+      {/* Career Recommendations Section */}
+      {(iqResults && personalityResults && interestResults) && (
+        <div className={styles.recommendationsSection}>
+          <h2 className={styles.sectionTitle}>Recommended Career Paths</h2>
+          <div className={styles.careerGrid}>
+            {getCareerRecommendations(iqResults, personalityResults, interestResults)
+              .map((category, index) => (
+                <div key={index} className={styles.careerCard}>
+                  <h3 className={styles.categoryTitle}>{category.category}</h3>
+                  <div className={styles.careerList}>
+                    {category.careers.map((career, idx) => (
+                      <div key={idx} className={styles.careerItem}>
+                        <span className={styles.careerRank}>{idx + 1}</span>
+                        <span className={styles.careerName}>{career}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+            ))}
           </div>
         </div>
-      </section>
-      {renderResults()}
+      )}
     </div>
   );
 };

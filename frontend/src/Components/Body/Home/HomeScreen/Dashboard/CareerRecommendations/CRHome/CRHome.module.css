@@ -2,14 +2,271 @@
   max-width: 1200px;
   margin: 0 auto;
   padding: 2rem;
+  background: #f8f9fa;
 }
 
 .mainTitle {
   text-align: center;
-  color: #1a237e;
-  font-size: 2.5rem;
+  color: #2c3e50;
   margin-bottom: 3rem;
+  font-size: 2.5rem;
   font-weight: 700;
+}
+
+.assessmentCards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.assessmentCard {
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  padding: 2rem;
+  transition: transform 0.2s;
+}
+
+.assessmentCard:hover {
+  transform: translateY(-5px);
+}
+
+.cardHeader {
+  display: flex;
+  align-items: center;
+  margin-bottom: 2rem;
+  gap: 1rem;
+}
+
+.cardHeader h2 {
+  color: #2c3e50;
+  font-size: 1.5rem;
+  margin: 0;
+}
+
+.cardIcon {
+  font-size: 2.5rem;
+  color: #3498db;
+}
+
+.resultContent, .emptyContent {
+  min-height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* IQ Score Styles */
+.iqResult {
+  text-align: center;
+  padding: 2rem 0;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.iqScore {
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: #2c3e50;
+  margin-bottom: 0.5rem;
+}
+
+.iqCategory {
+  font-size: 1.2rem;
+  color: #666;
+  font-weight: 500;
+}
+
+/* Personality Traits Styles */
+.traitContainer {
+  margin-bottom: 1.5rem;
+}
+
+.traitHeader {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+}
+
+.traitTitle {
+  color: #2c3e50;
+  font-weight: 600;
+}
+
+.traitScore {
+  color: #3498db;
+  font-weight: 600;
+}
+
+.traitBar {
+  height: 10px;
+  background: #f1f1f1;
+  border-radius: 5px;
+  overflow: hidden;
+  margin-bottom: 0.5rem;
+}
+
+.traitProgress {
+  height: 100%;
+  background: linear-gradient(to right, #3498db, #2980b9);
+  border-radius: 5px;
+  transition: width 0.3s ease;
+}
+
+.traitLabels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.85rem;
+  color: #666;
+}
+
+/* Interest Areas Styles */
+.interestAreas {
+  padding: 1rem 0;
+}
+
+.interestItem {
+  display: flex;
+  align-items: center;
+  padding: 0.8rem 0;
+  border-bottom: 1px solid #f1f1f1;
+}
+
+.interestNumber {
+  color: #3498db;
+  font-weight: 600;
+  margin-right: 1rem;
+  min-width: 25px;
+}
+
+.interestName {
+  color: #2c3e50;
+  font-size: 1rem;
+}
+
+/* Empty State Styles */
+.testDescription {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.testDescription h3 {
+  color: #2c3e50;
+  margin-bottom: 0.5rem;
+  font-size: 1.3rem;
+}
+
+.testDescription p {
+  color: #666;
+  font-size: 1rem;
+}
+
+.testPoints {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 2rem;
+}
+
+.testPoints li {
+  padding: 0.8rem 0;
+  color: #555;
+  display: flex;
+  align-items: center;
+  font-size: 1rem;
+}
+
+.testPoints li:before {
+  content: "•";
+  color: #3498db;
+  font-size: 1.5rem;
+  margin-right: 0.8rem;
+  line-height: 0;
+}
+
+/* Button Styles */
+.startButton, .retakeButton {
+  display: block;
+  width: 100%;
+  padding: 1rem;
+  text-align: center;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.2s;
+}
+
+.startButton {
+  background: linear-gradient(135deg, #3498db, #2980b9);
+  color: white;
+}
+
+.retakeButton {
+  background: #f8f9fa;
+  color: #2c3e50;
+  border: 2px solid #e9ecef;
+}
+
+.startButton:hover, .retakeButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Recommendations Section */
+.recommendationsSection {
+  margin-top: 3rem;
+}
+
+.sectionTitle {
+  text-align: center;
+  color: #2c3e50;
+  margin-bottom: 2rem;
+}
+
+.careerGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.careerCard {
+  background: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.categoryTitle {
+  color: #2c3e50;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid #3498db;
+}
+
+.careerItem {
+  display: flex;
+  align-items: center;
+  padding: 0.8rem 0;
+  border-bottom: 1px solid #f1f1f1;
+}
+
+.careerRank {
+  width: 24px;
+  height: 24px;
+  background: #3498db;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 1rem;
+  font-size: 0.9rem;
+}
+
+.careerName {
+  color: #2c3e50;
 }
 
 /* Assessment Section Styles */
@@ -21,32 +278,6 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 2rem;
-}
-
-.assessmentCard {
-  background: white;
-  border-radius: 16px;
-  padding: 2rem;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.assessmentCard:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 30px rgba(26, 35, 126, 0.15);
-}
-
-.assessmentIcon {
-  width: 70px;
-  height: 70px;
-  background: #e8eaf6;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0 auto 1.5rem;
-  font-size: 2rem;
-  color: #1a237e;
 }
 
 .assessmentCard h2 {
@@ -82,32 +313,9 @@
   left: 0;
 }
 
-.startButton {
-  width: 100%;
-  padding: 1rem;
-  background: #1a237e;
-  color: white;
-  border: none;
-  border-radius: 25px;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: background 0.3s ease;
-}
-
-.startButton:hover {
-  background: #283593;
-}
-
 /* Results Section Styles */
 .resultsSection {
   margin-bottom: 4rem;
-}
-
-.sectionTitle {
-  text-align: center;
-  color: #1a237e;
-  font-size: 2rem;
-  margin-bottom: 2rem;
 }
 
 .resultCards {
@@ -128,31 +336,6 @@
   text-align: center;
   margin-bottom: 1.5rem;
   font-size: 1.3rem;
-}
-
-/* IQ Score Styles */
-.iqScore {
-  text-align: center;
-  margin-bottom: 1rem;
-}
-
-.score {
-  font-size: 3rem;
-  color: #1a237e;
-  font-weight: 700;
-  display: block;
-}
-
-.percentile {
-  color: #666;
-  font-size: 1.1rem;
-}
-
-.category {
-  text-align: center;
-  color: #1a237e;
-  font-weight: 600;
-  font-size: 1.2rem;
 }
 
 /* Personality Traits Styles */
@@ -203,12 +386,6 @@
   gap: 1rem;
 }
 
-.interestItem {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-}
-
 .interestBar {
   flex: 1;
   height: 8px;
@@ -225,10 +402,6 @@
 }
 
 /* Career Recommendations Styles */
-.recommendationsSection {
-  margin-bottom: 4rem;
-}
-
 .recommendationsGrid {
   display: grid;
   gap: 2rem;
@@ -251,13 +424,6 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 1.5rem;
-}
-
-.careerCard {
-  background: #f8f9fa;
-  border-radius: 12px;
-  padding: 1.5rem;
-  position: relative;
 }
 
 .matchScore {
@@ -308,14 +474,20 @@
 
   .mainTitle {
     font-size: 2rem;
+    margin-bottom: 2rem;
   }
 
-  .resultCards {
+  .assessmentCards {
     grid-template-columns: 1fr;
   }
 
-  .careersList {
-    grid-template-columns: 1fr;
+  .scoreCircle {
+    width: 120px;
+    height: 120px;
+  }
+
+  .scoreValue {
+    font-size: 2rem;
   }
 }
 
