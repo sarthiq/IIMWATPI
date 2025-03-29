@@ -171,9 +171,9 @@ export const CRHome = () => {
             
             if (matchingCareers) {
               const careers = matchingCareers["Top 5 Career Recommendations"].split(", ");
-            
+              
               recommendations.push({
-                category: `${mappedCategory} - ${trait}`,
+                category: `${mappedCategory} - ${trait.replace('Altruist', 'Empathetic').replace('Openness', 'Early Adopter')}`,
                 careers: careers
               });
             }

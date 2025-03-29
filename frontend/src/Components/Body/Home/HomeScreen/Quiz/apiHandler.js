@@ -73,6 +73,7 @@ export const updateStudentDetailsHandler = async (
   const url = "/user/quiz/updateStudentDetails";
 
   setIsLoading(true);
+  
 
   try {
     const result = await apiRequest(url, obj, "", "post");
