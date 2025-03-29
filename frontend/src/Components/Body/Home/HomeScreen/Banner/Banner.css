@@ -455,9 +455,16 @@
   margin: 0 auto;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 4rem;
-  align-items: center;
+  gap: 2rem;
+  align-items: start;
   padding: 4rem 2rem;
+}
+
+.banner-hero-visual {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 600px;
 }
 
 .banner-hero-content {
@@ -685,4 +692,443 @@
   .banner-feature-grid {
     grid-template-columns: 1fr;
   }
+}
+
+/* Career Journey Container */
+.career-journey-container {
+  position: relative;
+  width: 100%;
+  max-width: 600px; /* Increased from 500px */
+  height: 100%;
+  padding: 1rem;
+  perspective: 2000px;
+}
+
+.journey-background {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+}
+
+.floating-shape {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(60px);
+  opacity: 0.1;
+  animation: float 15s infinite ease-in-out;
+}
+
+.phases-wrapper {
+  position: relative;
+  height: 100%;
+  min-height: 500px;
+}
+
+.career-phase {
+  position: absolute;
+  width: 100%;
+  opacity: 0;
+  transform: translateX(-30px) rotateY(-10deg);
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  pointer-events: none;
+  left: 0;
+  top: 0;
+}
+
+.career-phase.active {
+  opacity: 1;
+  transform: translateX(0) rotateY(0);
+  pointer-events: auto;
+  z-index: 2;
+}
+
+.career-phase.exiting {
+  opacity: 0;
+  transform: translateX(30px) rotateY(10deg);
+  transition-duration: 0.6s;
+}
+
+.phase-card {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 1.8rem;
+  width: 100%;
+  max-width: 600px;
+  margin: 0;
+  box-shadow: 
+    0 10px 30px rgba(0, 0, 0, 0.1),
+    0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+/* Adjust content spacing */
+.phase-content {
+  padding: 0.5rem;
+}
+
+.phase-header {
+  margin-bottom: 1.5rem;
+}
+
+.key-points {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+  .banner-hero-section {
+    gap: 1.5rem;
+    padding: 3rem 1.5rem;
+  }
+
+  .career-journey-container {
+    padding: 0.5rem;
+  }
+}
+
+@media (max-width: 1024px) {
+  .banner-hero-section {
+    grid-template-columns: 1fr;
+  }
+
+  .banner-hero-visual {
+    min-height: 500px;
+  }
+
+  .career-journey-container {
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 640px) {
+  .banner-hero-section {
+    padding: 2rem 1rem;
+  }
+
+  .key-points {
+    grid-template-columns: 1fr;
+  }
+
+  .phase-card {
+    padding: 1.2rem;
+  }
+}
+
+/* Ensure proper stacking context */
+.banner-hero-visual {
+  z-index: 1;
+}
+
+.career-phase.active {
+  opacity: 1;
+  transform: translateX(0) rotateY(0);
+  pointer-events: auto;
+  z-index: 2;
+}
+
+/* Adjust animation timing */
+.career-phase.exiting {
+  opacity: 0;
+  transform: translateX(30px) rotateY(10deg);
+  transition-duration: 0.6s;
+}
+
+/* Enhance visibility */
+.phase-content {
+  background: rgba(255, 255, 255, 0.98);
+  border-radius: 16px;
+}
+
+.point-section {
+  background: rgba(248, 250, 252, 0.95);
+  padding: 1rem;
+  border-radius: 10px;
+  margin-bottom: 0.8rem;
+}
+
+/* Add subtle transitions */
+.phase-card,
+.phase-content,
+.point-section {
+  transition: all 0.3s ease-in-out;
+}
+
+/* Improve spacing for content */
+.main-point {
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  background: rgba(248, 250, 252, 0.95);
+  border-radius: 12px;
+}
+
+.main-point h4 {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+
+.main-point p {
+  font-size: 0.95rem;
+  color: #475569;
+}
+
+/* Enhanced visibility for phase badge */
+.phase-badge {
+  background: linear-gradient(135deg, #3b82f6, #2563eb);
+  color: white;
+  padding: 0.4rem 1rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  display: inline-block;
+  margin-bottom: 0.6rem;
+  box-shadow: 0 2px 4px rgba(59, 130, 246, 0.2);
+}
+
+/* Progress Bar Styles */
+.progress-container {
+  margin-bottom: 2rem;
+}
+
+.progress-steps {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1rem;
+}
+
+.progress-step {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+}
+
+.step-number {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: #e2e8f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  color: #64748b;
+  position: relative;
+  z-index: 2;
+  transition: all 0.4s ease;
+}
+
+.progress-step.active .step-number {
+  background: #3b82f6;
+  color: white;
+  animation: pulseStep 2s infinite;
+}
+
+.progress-step.completed .step-number {
+  background: #10b981;
+  color: white;
+}
+
+.progress-line {
+  position: absolute;
+  top: 15px;
+  left: 50%;
+  width: 100%;
+  height: 3px;
+  background: #e2e8f0;
+  z-index: 1;
+}
+
+.progress-fill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background: linear-gradient(90deg, #3b82f6, #60a5fa);
+  transition: width 0.1s linear;
+}
+
+/* Enhanced Animations */
+@keyframes pulseStep {
+  0% { box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.4); }
+  70% { box-shadow: 0 0 0 10px rgba(59, 130, 246, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(59, 130, 246, 0); }
+}
+
+/* Particle Animation */
+.icon-particles {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.particle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #3b82f6;
+  opacity: 0;
+}
+
+.active .particle {
+  animation: particleFloat 2s infinite;
+}
+
+@keyframes particleFloat {
+  0% {
+    transform: translate(0, 0);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(
+      calc(cos(var(--angle)) * 40px),
+      calc(sin(var(--angle)) * 40px)
+    );
+    opacity: 0;
+  }
+}
+
+.particle:nth-child(1) { --angle: 0deg; }
+.particle:nth-child(2) { --angle: 60deg; }
+.particle:nth-child(3) { --angle: 120deg; }
+.particle:nth-child(4) { --angle: 180deg; }
+.particle:nth-child(5) { --angle: 240deg; }
+.particle:nth-child(6) { --angle: 300deg; }
+
+/* Content Animations */
+.title-animate {
+  animation: slideInTitle 0.6s ease-out;
+}
+
+.slide-in {
+  animation: slideInRight 0.5s ease-out;
+}
+
+.fade-in {
+  animation: fadeIn 0.5s ease-out;
+}
+
+.point-section {
+  animation: scaleIn 0.4s ease-out forwards;
+  opacity: 0;
+  transform: scale(0.9);
+}
+
+.point-item {
+  animation: slideInBottom 0.3s ease-out forwards;
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+@keyframes slideInTitle {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInBottom {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Enhanced Hover Effects */
+.point-section {
+  transition: all 0.3s ease;
+}
+
+.point-section:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 
+    0 10px 20px rgba(0, 0, 0, 0.1),
+    0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.phase-icon:hover {
+  transform: scale(1.1);
+}
+
+.phase-icon:hover .particle {
+  animation-duration: 1.5s;
+}
+
+/* Progress Indicator Glow */
+.progress-fill::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 20px;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, #60a5fa);
+  filter: blur(2px);
+  animation: progressGlow 2s infinite;
+}
+
+@keyframes progressGlow {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 1; }
+}
+
+/* Additional Visual Enhancements */
+.point-header {
+  position: relative;
+  padding-left: 20px;
+}
+
+.point-header::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 12px;
+  height: 12px;
+  background: #3b82f6;
+  border-radius: 50%;
+  transform: translateY(-50%);
+  box-shadow: 0 0 0 rgba(59, 130, 246, 0.4);
+  animation: pointPulse 2s infinite;
+}
+
+@keyframes pointPulse {
+  0% { box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.4); }
+  70% { box-shadow: 0 0 0 10px rgba(59, 130, 246, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(59, 130, 246, 0); }
 }

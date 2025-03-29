@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from 'react';
 import { Typewriter } from "react-simple-typewriter";
 import "./Banner.css";
 import ReactDOM from "react-dom";
@@ -124,6 +124,225 @@ const CareerSection = () => (
   </div>
 );
 
+const CareerPhase = ({ phase, isActive, isCompleted, onComplete }) => {
+  const [showDetails, setShowDetails] = useState(false);
+  const [progress, setProgress] = useState(0);
+  const [initialLoad, setInitialLoad] = useState(true);
+
+  useEffect(() => {
+    // Initial card animation
+    if (initialLoad) {
+      setTimeout(() => setInitialLoad(false), 1000);
+    }
+
+    if (isActive) {
+      setShowDetails(true);
+      
+      const progressInterval = setInterval(() => {
+        setProgress(prev => {
+          if (prev >= 100) {
+            clearInterval(progressInterval);
+            return 100;
+          }
+          return prev + 1;
+        });
+      }, 60);
+
+      const timer = setTimeout(() => {
+        setShowDetails(false);
+        setTimeout(onComplete, 500);
+        setProgress(0);
+      }, 6000);
+
+      return () => {
+        clearTimeout(timer);
+        clearInterval(progressInterval);
+      };
+    }
+  }, [isActive, onComplete, initialLoad]);
+
+  const phaseContent = {
+    1: {
+      title: "Academic Foundation",
+      icon: "fa-graduation-cap",
+      mainPoint: "Building Your Base",
+      description: "Start your journey with strong foundations",
+      keyPoints: [
+        {
+          title: "Stream Selection",
+          points: ["Aptitude Assessment", "Subject Analysis"]
+        },
+        {
+          title: "Skills",
+          points: ["Critical Thinking", "Digital Literacy"]
+        }
+      ]
+    },
+    2: {
+      title: "Higher Education",
+      icon: "fa-university",
+      mainPoint: "Specialization",
+      description: "Develop expertise in your field",
+      keyPoints: [
+        {
+          title: "Course Focus",
+          points: ["College Selection", "Specialization"]
+        },
+        {
+          title: "Development",
+          points: ["Technical Skills", "Practical Learning"]
+        }
+      ]
+    },
+    3: {
+      title: "Professional Growth",
+      icon: "fa-laptop-code",
+      mainPoint: "Industry Ready",
+      description: "Build practical experience",
+      keyPoints: [
+        {
+          title: "Experience",
+          points: ["Internships", "Projects"]
+        },
+        {
+          title: "Skills",
+          points: ["Technical Expertise", "Soft Skills"]
+        }
+      ]
+    },
+    4: {
+      title: "Career Launch",
+      icon: "fa-rocket",
+      mainPoint: "Take Off",
+      description: "Launch your career journey",
+      keyPoints: [
+        {
+          title: "Preparation",
+          points: ["Interview Ready", "Portfolio"]
+        },
+        {
+          title: "Growth",
+          points: ["Career Path", "Industry Network"]
+        }
+      ]
+    }
+  };
+
+  const content = phaseContent[phase];
+
+  return (
+    <div className={`career-phase ${initialLoad ? 'initial-load' : ''} 
+                    ${isActive ? 'active' : ''} 
+                    ${isCompleted ? 'completed' : ''}`}>
+      <div className="phase-card">
+        <div className="progress-container">
+          <div className="progress-steps">
+            {[1, 2, 3, 4].map(step => (
+              <div 
+                key={step} 
+                className={`progress-step ${step <= phase ? 'active' : ''} 
+                           ${step < phase ? 'completed' : ''}`}
+              >
+                <div className="step-number">
+                  {step}
+                  <div className="step-pulse"></div>
+                </div>
+                <div className="progress-line">
+                  <div 
+                    className="progress-fill"
+                    style={{
+                      width: step === phase && isActive ? `${progress}%` : 
+                            step < phase ? '100%' : '0%'
+                    }}
+                  ></div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="phase-content">
+          <div className="phase-header">
+            <div className="phase-icon-wrapper">
+              <div className="phase-icon">
+                <i className={`fas ${content.icon}`}></i>
+                <div className="icon-particles">
+                  {[...Array(6)].map((_, i) => (
+                    <div key={i} className="particle"></div>
+                  ))}
+                </div>
+              </div>
+            </div>
+            <div className="phase-title">
+              <span className="phase-badge">Phase {phase}</span>
+              <h3>{content.title}</h3>
+            </div>
+          </div>
+
+          <div className="phase-details">
+            <div className={`content-wrapper ${showDetails ? 'show' : 'hide'}`}>
+              <div className="main-point">
+                <h4>{content.mainPoint}</h4>
+                <p>{content.description}</p>
+              </div>
+
+              <div className="key-points">
+                {content.keyPoints.map((section, index) => (
+                  <div 
+                    key={index} 
+                    className="point-section"
+                    style={{ animationDelay: `${0.2 * index}s` }}
+                  >
+                    <h5 className="point-header">
+                      <span className="point-icon"></span>
+                      {section.title}
+                    </h5>
+                    <ul className="point-list">
+                      {section.points.map((point, idx) => (
+                        <li key={idx}>{point}</li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+const CareerJourney = () => {
+  const [activePhase, setActivePhase] = useState(1);
+  const totalPhases = 4;
+
+  const handlePhaseComplete = () => {
+    setActivePhase(current => current < totalPhases ? current + 1 : 1);
+  };
+
+  return (
+    <div className="career-journey-container">
+      <div className="journey-background">
+        <div className="floating-shape shape1"></div>
+        <div className="floating-shape shape2"></div>
+      </div>
+      
+      <div className="phases-wrapper">
+        {[1, 2, 3, 4].map(phase => (
+          <CareerPhase
+            key={phase}
+            phase={phase}
+            isActive={phase === activePhase}
+            isCompleted={phase < activePhase}
+            onComplete={handlePhaseComplete}
+          />
+        ))}
+      </div>
+    </div>
+  );
+};
+
 const HeroSection = ({ openModal }) => (
   <div className="banner-hero-section">
     <div className="banner-hero-content">
@@ -168,33 +387,8 @@ const HeroSection = ({ openModal }) => (
         </div>
       </div>
     </div>
-    <div className="banner-hero-visual" 
-         style={{ 
-           opacity: 0, 
-           animation: 'fadeInUp 1s ease-out 0.8s forwards'
-         }}>
-      <div className="banner-feature-grid">
-        <div className="banner-feature-card">
-          <i className="fas fa-brain"></i>
-          <h3>Smart Learning</h3>
-          <p>AI-powered personalized learning paths</p>
-        </div>
-        <div className="banner-feature-card">
-          <i className="fas fa-chart-line"></i>
-          <h3>Career Tracking</h3>
-          <p>Real-time progress monitoring</p>
-        </div>
-        <div className="banner-feature-card">
-          <i className="fas fa-graduation-cap"></i>
-          <h3>Exam Prep</h3>
-          <p>Comprehensive entrance exam guides</p>
-        </div>
-        <div className="banner-feature-card">
-          <i className="fas fa-robot"></i>
-          <h3>AI Tools</h3>
-          <p>Latest AI technology integration</p>
-        </div>
-      </div>
+    <div className="banner-hero-visual">
+      <CareerJourney />
     </div>
   </div>
 );
