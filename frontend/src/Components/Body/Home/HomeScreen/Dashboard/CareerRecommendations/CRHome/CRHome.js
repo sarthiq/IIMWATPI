@@ -31,14 +31,19 @@ export const CRHome = () => {
   };
 
   const getCareerRecommendations = (iqResults, personalityResults, interestResults) => {
+    //console.log(iqResults);
     // Get IQ category (treat below 70 as 0-80 range)
-    const iqScore = iqResults?.result?.score || 0;
+    iqResults.result.label='Below Average'
+    //console.log(iqResults);
+    const iqScore = iqResults?.result?.label ? (!isNaN(iqResults.result.label) ? Number(iqResults.result.label) : 0) : 0;
+    //console.log("iqScore",iqScore);
     const iqCategory = [
       iqScore < 80 ? 0 : iqScore < 90 ? 80 : 
       iqScore < 100 ? 90 : iqScore < 120 ? 100 : 120,
       iqScore < 80 ? 80 : iqScore < 90 ? 90 : 
       iqScore < 100 ? 100 : iqScore < 120 ? 120 : 1000
     ];
+    
 
     // Get top 3 personality traits with exact matching to data.js values
     const personalityTraits = personalityResults?.result ? 

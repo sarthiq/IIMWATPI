@@ -61,6 +61,7 @@ exports.getUserResult = async (req, res) => {
                 through: UserQuizPQuestion,
               },
             ],
+            order: [["createdAt", "DESC"]]
           });
         } else if (quizType === "iq" || quizType === "creativity") {
           // Fetch IQ or Creativity quiz details
@@ -72,9 +73,9 @@ exports.getUserResult = async (req, res) => {
                 through: UserQuizQuestion,
               },
             ],
+            order: [["createdAt", "DESC"]]
           });
         }
-
         latestResults[quizType] = {
           quizId: result.QuizId,
           score: result.score,
