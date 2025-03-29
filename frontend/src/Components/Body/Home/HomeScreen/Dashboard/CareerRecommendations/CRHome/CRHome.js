@@ -33,7 +33,7 @@ export const CRHome = () => {
   const getCareerRecommendations = (iqResults, personalityResults, interestResults) => {
     //console.log(iqResults);
     // Get IQ category (treat below 70 as 0-80 range)
-    iqResults.result.label='Below Average'
+    //iqResults.result.label='Below Average'
     //console.log(iqResults);
     const iqScore = iqResults?.result?.label ? (!isNaN(iqResults.result.label) ? Number(iqResults.result.label) : 0) : 0;
     //console.log("iqScore",iqScore);
