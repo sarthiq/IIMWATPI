@@ -249,15 +249,19 @@ const CareerPhase = ({ phase, isActive, isCompleted, onComplete, onPhaseClick })
                     className="point-section"
                     style={{ 
                       animationDelay: `${0.2 * index}s`,
-                      fontSize: '0.9rem',
+                      fontSize: '0.85rem',
                       textAlign: 'left'
                     }}
                   >
-                    <h5 className="point-header" style={{ fontSize: '0.8rem', textAlign: 'left' }}>
+                    <h5 className="point-header" style={{ fontSize: '0.95rem', textAlign: 'left' }}>
                       <span className="point-icon"></span>
                       {section.title}
                     </h5>
-                    <ul className="point-list" style={{ textAlign: 'left', paddingLeft: '15px' }}>
+                    <ul className="point-list" style={{ 
+                      textAlign: 'left', 
+                      paddingLeft: '15px',
+                      fontSize: '0.8rem'
+                    }}>
                       {section.points.map((point, idx) => (
                         <li key={idx}>{point}</li>
                       ))}
