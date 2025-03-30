@@ -163,66 +163,67 @@ const CareerPhase = ({ phase, isActive, isCompleted, onComplete }) => {
 
   const phaseContent = {
     1: {
-      title: "Academic Foundation",
+      title: "Career & Course Selection",
       icon: "fa-graduation-cap",
-      mainPoint: "Building Your Base",
-      description: "Start your journey with strong foundations",
+      mainPoint: "Know yourself first",
+      description: "Recommendation based on your interest, IQ, and Personality test.",
       keyPoints: [
         {
-          title: "Stream Selection",
-          points: ["Aptitude Assessment", "Subject Analysis"]
+          title: "IQ",
+          points: ["Learning efficiency"]
         },
         {
-          title: "Skills",
-          points: ["Critical Thinking", "Digital Literacy"]
+          title: "Personality",
+          points: ["Whether introvert/extrovert or organized, etc."]
         }
       ]
     },
     2: {
-      title: "Higher Education",
+      title: "College Selection & Admission Assistance",
       icon: "fa-university",
-      mainPoint: "Specialization",
-      description: "Develop expertise in your field",
+      mainPoint: "Best College to Evolve",
+      description: "Challenging academics and an atmosphere to hit and trial to develop your expertise.",
       keyPoints: [
         {
-          title: "Course Focus",
-          points: ["College Selection", "Specialization"]
+          title: "College shortlisting",
+          points: ["Entrance exams","Upcoming exams"]
+          
         },
         {
-          title: "Development",
-          points: ["Technical Skills", "Practical Learning"]
+          title: "Admission Assistance",
+          points: ["College cutoff", "Past trends "]
         }
       ]
     },
     3: {
-      title: "Professional Growth",
+      title: "AI skilling & soft skill training",
       icon: "fa-laptop-code",
-      mainPoint: "Industry Ready",
-      description: "Build practical experience",
+      mainPoint: "Getting Professionally Ready",
+      description: "Let AI complement your talent to develop professionally.",
       keyPoints: [
         {
-          title: "Experience",
-          points: ["Internships", "Projects"]
+          title: "AI Skilling",
+          points: ["AI tools training","Projects/Assignments"]
         },
         {
-          title: "Skills",
-          points: ["Technical Expertise", "Soft Skills"]
+          title: "Soft skill training",
+          points: ["Communication Workshop", "Presentation of Projects"]
         }
       ]
     },
     4: {
-      title: "Career Launch",
+      title: "Career Launch Pad",
       icon: "fa-rocket",
       mainPoint: "Take Off",
-      description: "Launch your career journey",
+      description: "Providing platform to your dreams and aspirations",
       keyPoints: [
         {
           title: "Preparation",
-          points: ["Interview Ready", "Portfolio"]
+          points: ["Resume Building", "Interview Ready"]
         },
         {
-          title: "Growth",
-          points: ["Career Path", "Industry Network"]
+          title: "Recruiters Connect",
+          points: ["Need based training", "Student & Recruiter  connect"]
         }
       ]
     }
