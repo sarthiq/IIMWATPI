@@ -16,10 +16,12 @@
 }
 
 .cr-report-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
   max-width: 1200px;
   margin: 0 auto;
-  background: white;
-  padding: clamp(15px, 2vw, 30px);
+  padding: 2rem;
 }
 
 /* Header Section */
@@ -75,6 +77,8 @@
 }
 
 .career-card {
+  flex: 1;
+  max-width: calc(50% - 0.75rem);
   background: white;
   border-radius: 15px;
   padding: 25px;
@@ -106,9 +110,9 @@
 }
 
 .timeline-modern {
-  display: grid;
-  gap: 20px;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
 }
 
 .timeline-card {
@@ -117,6 +121,8 @@
   padding: 25px;
   position: relative;
   box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+  width: 100%;
+  margin: 0;
 }
 
 .timeline-card h3 {
@@ -182,18 +188,20 @@
 
 /* Section Styles */
 .report-section {
-  background: white;
+  width: 100%;
+  background: #fff;
   border-radius: 12px;
-  padding: clamp(15px, 3vw, 30px);
-  margin-bottom: 20px;
-  box-shadow: var(--cr-shadow);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  margin-bottom: 2rem;
 }
 
 /* Career and Education Section */
 .career-grid {
-  display: grid;
-  gap: 15px;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  display: flex;
+  flex-direction: row;
+  gap: 1.5rem;
+  justify-content: space-between;
 }
 
 .career-box {
@@ -261,8 +269,7 @@
 
 /* Interest Test Section */
 .interest-container {
-  max-width: 800px;
-  margin: 0 auto;
+  width: 100%;
 }
 
 .interest-item {
@@ -312,6 +319,7 @@
   margin: 20px 0;
   font-size: 11px;
   border-collapse: collapse;
+  width: 100%;
 }
 
 .table-header {
@@ -369,15 +377,14 @@
 
 /* Personality grid */
 .personality-grid {
-  display: grid;
-  grid-template-columns: 45% 55%;
-  gap: 20px;
-  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
 }
 
 .personality-scores {
-  padding: 15px 10px;
   width: 100%;
+  margin-bottom: 2rem;
 }
 
 .score-row {
@@ -498,6 +505,14 @@
   .timeline-modern {
     grid-template-columns: 1fr;
   }
+
+  .career-grid {
+    flex-direction: column;
+  }
+
+  .career-card {
+    max-width: 100%;
+  }
 }
 
 @media screen and (min-width: 768px) {
@@ -551,15 +566,18 @@
 /* Update IQ section layout */
 .iq-row {
   display: flex;
-  align-items: center;
-  gap: 40px;
-  margin-bottom: 20px;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 2rem;
+  justify-content: space-between;
 }
 
 .iq-details-grid {
   display: flex;
-  gap: 20px;
-  flex-grow: 1;
+  flex-direction: row;
+  gap: 1.5rem;
+  flex: 1;
+  margin-top: 0;
 }
 
 .analysis-box {
@@ -590,11 +608,17 @@
   .iq-row {
     flex-direction: column;
     align-items: center;
-    text-align: center;
   }
   
   .iq-details-grid {
     flex-direction: column;
     width: 100%;
+    margin-top: 1.5rem;
+  }
+
+  .analysis-box {
+    margin-bottom: 1rem;
   }
 }
+
+/* Add or update these CSS rules */

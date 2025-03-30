@@ -335,7 +335,7 @@ export const CareerReport = () => {
         </div>
 
         {/* Development Roadmap - removed icon */}
-        <div className="report-section">
+        {/* <div className="report-section">
           <h2 className="section-title">Development Roadmap</h2>
           <div className="timeline-modern">
             <div className="timeline-card">
@@ -367,7 +367,7 @@ export const CareerReport = () => {
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
 
         {/* Updated IQ Assessment Section */}
         <div className="report-section iq-section">
