@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 import { Typewriter } from "react-simple-typewriter";
 import "./Banner.css";
 import ReactDOM from "react-dom";
@@ -6,8 +6,6 @@ import { useAlert } from "../../../../UI/Alert/AlertContext";
 import { createQueryHandler } from "../Dashboard/apiHandler";
 import { Spinner } from "react-bootstrap";
 import { Link } from "react-router-dom";
-
-
 
 const TextSection = ({ isOpen, closeModal, handleSubmit, isLoading }) => {
   return (
@@ -19,13 +17,28 @@ const TextSection = ({ isOpen, closeModal, handleSubmit, isLoading }) => {
               <h2 className="section-heading">Book a Demo</h2>
               <form onSubmit={handleSubmit}>
                 <div className="form-group">
-                  <input type="text" placeholder="Name" required className="form-control" />
+                  <input
+                    type="text"
+                    placeholder="Name"
+                    required
+                    className="form-control"
+                  />
                 </div>
                 <div className="form-group">
-                  <input type="email" placeholder="Email" required className="form-control" />
+                  <input
+                    type="email"
+                    placeholder="Email"
+                    required
+                    className="form-control"
+                  />
                 </div>
                 <div className="form-group">
-                  <input type="tel" placeholder="Phone" required className="form-control" />
+                  <input
+                    type="tel"
+                    placeholder="Phone"
+                    required
+                    className="form-control"
+                  />
                 </div>
                 <div className="form-group">
                   <input
@@ -36,7 +49,11 @@ const TextSection = ({ isOpen, closeModal, handleSubmit, isLoading }) => {
                   />
                 </div>
                 <div className="form-group">
-                  <textarea placeholder="Your Message" required className="form-control" />
+                  <textarea
+                    placeholder="Your Message"
+                    required
+                    className="form-control"
+                  />
                 </div>
                 <div className="form-actions">
                   <button
@@ -44,7 +61,11 @@ const TextSection = ({ isOpen, closeModal, handleSubmit, isLoading }) => {
                     type="submit"
                     disabled={isLoading}
                   >
-                    {isLoading ? <Spinner animation="border" size="sm" /> : "Submit"}
+                    {isLoading ? (
+                      <Spinner animation="border" size="sm" />
+                    ) : (
+                      "Submit"
+                    )}
                   </button>
                   <button
                     className="form-cancel-button"
@@ -63,13 +84,18 @@ const TextSection = ({ isOpen, closeModal, handleSubmit, isLoading }) => {
   );
 };
 
-
-const CareerPhase = ({ phase, isActive, isCompleted, onComplete, onPhaseClick }) => {
+const CareerPhase = ({
+  phase,
+  isActive,
+  isCompleted,
+  onComplete,
+  onPhaseClick,
+}) => {
   const [showDetails, setShowDetails] = useState(false);
   const [progress, setProgress] = useState(0);
   const [initialLoad, setInitialLoad] = useState(true);
   const [isPaused, setIsPaused] = useState(false);
-  
+
   useEffect(() => {
     // Initial card animation
     if (initialLoad) {
@@ -78,9 +104,9 @@ const CareerPhase = ({ phase, isActive, isCompleted, onComplete, onPhaseClick })
 
     if (isActive && !isPaused) {
       setShowDetails(true);
-      
+
       const progressInterval = setInterval(() => {
-        setProgress(prev => {
+        setProgress((prev) => {
           if (prev >= 100) {
             clearInterval(progressInterval);
             return 100;
@@ -115,33 +141,35 @@ const CareerPhase = ({ phase, isActive, isCompleted, onComplete, onPhaseClick })
       title: "Career & Course Selection",
       icon: "fa-graduation-cap",
       mainPoint: "Know yourself first",
-      description: "Recommendation based on your interest, IQ, and Personality test.",
+      description:
+        "Recommendation based on your interest, IQ, and Personality test.",
       keyPoints: [
         {
           title: "IQ Test",
-          points: ["Aptitude Assessment", "Learning Style Analysis"]
+          points: ["Aptitude Assessment", "Learning Style Analysis"],
         },
         {
           title: "Personality Test",
-          points: ["Career Compatibility Test", "Behavioral Assessment"]
-        }
-      ]
+          points: ["Career Compatibility Test", "Behavioral Assessment"],
+        },
+      ],
     },
     2: {
       title: "College Selection & Admission Assistance",
       icon: "fa-university",
       mainPoint: "Best College to Evolve",
-      description: "Challenging academics and an atmosphere to hit and trial to develop your expertise.",
+      description:
+        "Challenging academics and an atmosphere to hit and trial to develop your expertise.",
       keyPoints: [
         {
           title: "College shortlisting",
-          points: ["Course-wise Rankings", "Admission Requirements"]
+          points: ["Course-wise Rankings", "Admission Requirements"],
         },
         {
           title: "Admission Assistance",
-          points: ["Application Timeline", "Document Preparation"]
-        }
-      ]
+          points: ["Application Timeline", "Document Preparation"],
+        },
+      ],
     },
     3: {
       title: "AI skilling & soft skill training",
@@ -151,13 +179,13 @@ const CareerPhase = ({ phase, isActive, isCompleted, onComplete, onPhaseClick })
       keyPoints: [
         {
           title: "AI Skilling",
-          points: ["Industry Tools Training", "Hands-on Projects"]
+          points: ["Industry Tools Training", "Hands-on Projects"],
         },
         {
           title: "Soft skill training",
-          points: ["Communication Workshop", "Leadership Development"]
-        }
-      ]
+          points: ["Communication Workshop", "Leadership Development"],
+        },
+      ],
     },
     4: {
       title: "Career Launch Pad",
@@ -167,47 +195,51 @@ const CareerPhase = ({ phase, isActive, isCompleted, onComplete, onPhaseClick })
       keyPoints: [
         {
           title: "Preparation",
-          points: ["Interview Preparation", "Portfolio Building"]
+          points: ["Interview Preparation", "Portfolio Building"],
         },
         {
           title: "Recruiters Connect",
-          points: ["Industry Networking", "Job Placement Support"]
-        }
-      ]
-    }
+          points: ["Industry Networking", "Job Placement Support"],
+        },
+      ],
+    },
   };
 
   const content = phaseContent[phase];
 
   return (
-    <div 
-      className={`career-phase ${initialLoad ? 'initial-load' : ''} 
-                  ${isActive ? 'active' : ''} 
-                  ${isCompleted ? 'completed' : ''}`}
+    <div
+      className={`career-phase ${initialLoad ? "initial-load" : ""} 
+                  ${isActive ? "active" : ""} 
+                  ${isCompleted ? "completed" : ""}`}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
       <div className="phase-card">
         <div className="progress-container">
           <div className="progress-steps">
-            {[1, 2, 3, 4].map(step => (
-              <div 
-                key={step} 
-                className={`progress-step ${step <= phase ? 'active' : ''} 
-                           ${step < phase ? 'completed' : ''}`}
+            {[1, 2, 3, 4].map((step) => (
+              <div
+                key={step}
+                className={`progress-step ${step <= phase ? "active" : ""} 
+                           ${step < phase ? "completed" : ""}`}
                 onClick={() => onPhaseClick(step)}
-                style={{ cursor: 'pointer' }}
+                style={{ cursor: "pointer" }}
               >
                 <div className="step-number">
                   {step}
                   <div className="step-pulse"></div>
                 </div>
                 <div className="progress-line">
-                  <div 
+                  <div
                     className="progress-fill"
                     style={{
-                      width: step === phase && isActive ? `${progress}%` : 
-                            step < phase ? '100%' : '0%'
+                      width:
+                        step === phase && isActive
+                          ? `${progress}%`
+                          : step < phase
+                          ? "100%"
+                          : "0%",
                     }}
                   ></div>
                 </div>
@@ -235,33 +267,41 @@ const CareerPhase = ({ phase, isActive, isCompleted, onComplete, onPhaseClick })
           </div>
 
           <div className="phase-details">
-            <div className={`content-wrapper ${showDetails ? 'show' : 'hide'}`}
-                 style={{ textAlign: 'left' }}>
+            <div
+              className={`content-wrapper ${showDetails ? "show" : "hide"}`}
+              style={{ textAlign: "left" }}
+            >
               <div className="main-point">
                 <h4>{content.mainPoint}</h4>
                 <p>{content.description}</p>
               </div>
 
-              <div className="key-points" style={{ paddingLeft: '15px' }}>
+              <div className="key-points" style={{ paddingLeft: "15px" }}>
                 {content.keyPoints.map((section, index) => (
-                  <div 
-                    key={index} 
+                  <div
+                    key={index}
                     className="point-section"
-                    style={{ 
+                    style={{
                       animationDelay: `${0.2 * index}s`,
-                      fontSize: '0.85rem',
-                      textAlign: 'left'
+                      fontSize: "0.85rem",
+                      textAlign: "left",
                     }}
                   >
-                    <h5 className="point-header" style={{ fontSize: '0.95rem', textAlign: 'left' }}>
+                    <h5
+                      className="point-header"
+                      style={{ fontSize: "0.95rem", textAlign: "left" }}
+                    >
                       <span className="point-icon"></span>
                       {section.title}
                     </h5>
-                    <ul className="point-list" style={{ 
-                      textAlign: 'left', 
-                      paddingLeft: '15px',
-                      fontSize: '0.8rem'
-                    }}>
+                    <ul
+                      className="point-list"
+                      style={{
+                        textAlign: "left",
+                        paddingLeft: "15px",
+                        fontSize: "0.8rem",
+                      }}
+                    >
                       {section.points.map((point, idx) => (
                         <li key={idx}>{point}</li>
                       ))}
@@ -282,7 +322,7 @@ const CareerJourney = () => {
   const totalPhases = 4;
 
   const handlePhaseComplete = () => {
-    setActivePhase(current => current < totalPhases ? current + 1 : 1);
+    setActivePhase((current) => (current < totalPhases ? current + 1 : 1));
   };
 
   const handlePhaseClick = (phaseNumber) => {
@@ -295,9 +335,9 @@ const CareerJourney = () => {
         <div className="floating-shape shape1"></div>
         <div className="floating-shape shape2"></div>
       </div>
-      
+
       <div className="phases-wrapper">
-        {[1, 2, 3, 4].map(phase => (
+        {[1, 2, 3, 4].map((phase) => (
           <CareerPhase
             key={phase}
             phase={phase}
@@ -317,11 +357,16 @@ const HeroSection = ({ openModal }) => (
     <div className="banner-hero-content">
       <div className="banner-title-wrapper">
         <h1 className="banner-hero-title">
-          Your AI-Powered Education & Career Guide
+          Your AI-Powered Career Sarthi
           <div className="typewriter-container">
             <span className="banner-gradient-text">
               <Typewriter
-                words={[' for Success', ' for Growth', ' for Future']}
+                words={[
+                  "for Success",
+                  "for Growth",
+                  "for Future",
+                  "for College",
+                ]}
                 loop={true}
                 cursor={true}
                 cursorStyle="_"
@@ -334,12 +379,18 @@ const HeroSection = ({ openModal }) => (
         </h1>
       </div>
       <p className="banner-hero-description">
-        Navigate your educational journey with personalized AI guidance, explore career paths,
-        and master the skills of tomorrow. Join thousands of students discovering their potential.
+        We guide students in choosing the right field, securing admissions, and
+        unlocking scholarships. Beyond academics, we empower them with <strong>AI
+        skills</strong>, <strong>soft skills</strong>, <strong>internships</strong>, and <strong>industry connections</strong>, ensuring
+        they graduate job-ready and future-proof.
       </p>
       <div className="banner-cta-buttons">
-        <Link to="/dashboard" className="banner-primary-cta">Start Your Journey</Link>
-        <button className="banner-secondary-cta" onClick={openModal}>Book Demo</button>
+        <Link to="/dashboard" className="banner-primary-cta">
+          Start Your Journey
+        </Link>
+        <button className="banner-secondary-cta" onClick={openModal}>
+          Book Demo
+        </button>
       </div>
       <div className="banner-stats-container">
         {/* <div className="banner-stat-item">
@@ -397,11 +448,11 @@ export const Banner = () => {
   return (
     <div className="modern-banner">
       <HeroSection openModal={openModal} />
-      <TextSection 
-        isOpen={isOpen} 
-        closeModal={closeModal} 
-        handleSubmit={handleSubmit} 
-        isLoading={isLoading} 
+      <TextSection
+        isOpen={isOpen}
+        closeModal={closeModal}
+        handleSubmit={handleSubmit}
+        isLoading={isLoading}
       />
     </div>
   );
