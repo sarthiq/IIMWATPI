@@ -198,12 +198,21 @@
     justify-content: center;
   }
 
-  .contact-info p {
+  .footer-column p {
     justify-content: center;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
   }
-
+  
+  .footer-column a {
+    display: inline-block;
+  }
+  
   .address-line {
     margin-left: 0;
+    width: 100%;
     text-align: center;
   }
 

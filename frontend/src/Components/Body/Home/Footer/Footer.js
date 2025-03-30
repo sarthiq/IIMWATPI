@@ -91,7 +91,7 @@ export const Footer = () => {
          
             <p>
               <FaMapMarkerAlt className="footer-icon" />
-              C-70, Sect 8, Jankipuram Extension,
+              C-70,Sect8,Jankipuram Extension,
               <span className="address-line">Lucknow, UP-226021</span>
             </p>
             <p>
@@ -109,7 +109,7 @@ export const Footer = () => {
           <h4>Connect With Us</h4>
           <div className="social-icons">
             <a
-              href="https://linkedin.com"
+              href="https://www.linkedin.com/company/sarthiq"
               className="social-link linkedin"
               target="_blank"
               rel="noopener noreferrer"
@@ -117,7 +117,7 @@ export const Footer = () => {
               <FaLinkedin />
             </a>
             <a
-              href="https://youtube.com"
+              href="https://www.youtube.com/@Sarthiq"
               className="social-link youtube"
               target="_blank"
               rel="noopener noreferrer"
