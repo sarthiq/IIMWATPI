@@ -7,48 +7,7 @@ import { createQueryHandler } from "../Dashboard/apiHandler";
 import { Spinner } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
-const DashboardSection = () => (
-  <div className="section dashboard-section">
-    <div className="glass-container">
-      <h2 className="section-heading">Students Dashboard</h2>
-      <div className="box-grid">
-        <div className="box">Profile</div>
-        <div className="box">Recommendation</div>
-        <div className="box">AI Modules</div>
-      </div>
-      <div className="box-grid career-grid">
-        <div className="box">Career Awareness</div>
-        <div className="box">Entrance/Job</div>
-      </div>
-      <div className="box-grid metric-grid">
-        <div className="box">IQ</div>
-        <div className="box">Personality</div>
-        <div className="box">Interest</div>
-      </div>
-      <div className="highlight-box">Top 5 recommended career options</div>
-    </div>
-  </div>
-);
 
-const AILiteracySection = () => (
-  <div className="section ai-literacy-section">
-    <div className="glass-container">
-      <h2 className="section-heading">AI Literacy</h2>
-      <div className="ai-box-layout">
-        <div className="top-row">
-          <div className="box">AI Module</div>
-          <div className="box">Basics Videos</div>
-        </div>
-        <div className="middle-row">
-          <div className="box">AI for learning</div>
-          <div className="box">AI for projects</div>
-          <div className="box">AI trends</div>
-        </div>
-        <div className="highlight-box">Learn & Use AI</div>
-      </div>
-    </div>
-  </div>
-);
 
 const TextSection = ({ isOpen, closeModal, handleSubmit, isLoading }) => {
   return (
@@ -104,38 +63,20 @@ const TextSection = ({ isOpen, closeModal, handleSubmit, isLoading }) => {
   );
 };
 
-const CareerSection = () => (
-  <div className="section career-section">
-    <div className="glass-container">
-      <h2 className="section-heading">Career Awareness</h2>
-      <div className="career-box-layout">
-        <div className="top-row">
-          <div className="box">Top 50 Options</div>
-          <div className="box">Recommended</div>
-        </div>
-        <div className="middle-row">
-          <div className="box">Practice</div>
-          <div className="box">Trends</div>
-          <div className="box">Projects</div>
-        </div>
-        <div className="highlight-box">Learn, Practice, & Earn</div>
-      </div>
-    </div>
-  </div>
-);
 
-const CareerPhase = ({ phase, isActive, isCompleted, onComplete }) => {
+const CareerPhase = ({ phase, isActive, isCompleted, onComplete, onPhaseClick }) => {
   const [showDetails, setShowDetails] = useState(false);
   const [progress, setProgress] = useState(0);
   const [initialLoad, setInitialLoad] = useState(true);
-
+  const [isPaused, setIsPaused] = useState(false);
+  
   useEffect(() => {
     // Initial card animation
     if (initialLoad) {
       setTimeout(() => setInitialLoad(false), 1000);
     }
 
-    if (isActive) {
+    if (isActive && !isPaused) {
       setShowDetails(true);
       
       const progressInterval = setInterval(() => {
@@ -159,70 +100,78 @@ const CareerPhase = ({ phase, isActive, isCompleted, onComplete }) => {
         clearInterval(progressInterval);
       };
     }
-  }, [isActive, onComplete, initialLoad]);
+  }, [isActive, onComplete, initialLoad, isPaused]);
+
+  const handleMouseEnter = () => {
+    setIsPaused(true);
+  };
+
+  const handleMouseLeave = () => {
+    setIsPaused(false);
+  };
 
   const phaseContent = {
     1: {
-      title: "Academic Foundation",
+      title: "Career & Course Selection",
       icon: "fa-graduation-cap",
-      mainPoint: "Building Your Base",
-      description: "Start your journey with strong foundations",
+      mainPoint: "Know yourself first",
+      description: "Recommendation based on your interest, IQ, and Personality test.",
       keyPoints: [
         {
-          title: "Stream Selection",
-          points: ["Aptitude Assessment", "Subject Analysis"]
+          title: "IQ Test",
+          points: ["Aptitude Assessment", "Learning Style Analysis"]
         },
         {
-          title: "Skills",
-          points: ["Critical Thinking", "Digital Literacy"]
+          title: "Personality Test",
+          points: ["Career Compatibility Test", "Behavioral Assessment"]
         }
       ]
     },
     2: {
-      title: "Higher Education",
+      title: "College Selection & Admission Assistance",
       icon: "fa-university",
-      mainPoint: "Specialization",
-      description: "Develop expertise in your field",
+      mainPoint: "Best College to Evolve",
+      description: "Challenging academics and an atmosphere to hit and trial to develop your expertise.",
       keyPoints: [
         {
-          title: "Course Focus",
-          points: ["College Selection", "Specialization"]
+          title: "College shortlisting",
+          points: ["Course-wise Rankings", "Admission Requirements"]
         },
         {
-          title: "Development",
-          points: ["Technical Skills", "Practical Learning"]
+          title: "Admission Assistance",
+          points: ["Application Timeline", "Document Preparation"]
         }
       ]
     },
     3: {
-      title: "Professional Growth",
+      title: "AI skilling & soft skill training",
       icon: "fa-laptop-code",
-      mainPoint: "Industry Ready",
-      description: "Build practical experience",
+      mainPoint: "Getting Professionally Ready",
+      description: "Let AI complement your talent to develop professionally.",
       keyPoints: [
         {
-          title: "Experience",
-          points: ["Internships", "Projects"]
+          title: "AI Skilling",
+          points: ["Industry Tools Training", "Hands-on Projects"]
         },
         {
-          title: "Skills",
-          points: ["Technical Expertise", "Soft Skills"]
+          title: "Soft skill training",
+          points: ["Communication Workshop", "Leadership Development"]
         }
       ]
     },
     4: {
-      title: "Career Launch",
+      title: "Career Launch Pad",
       icon: "fa-rocket",
       mainPoint: "Take Off",
-      description: "Launch your career journey",
+      description: "Providing platform to your dreams and aspirations",
       keyPoints: [
         {
           title: "Preparation",
-          points: ["Interview Ready", "Portfolio"]
+          points: ["Interview Preparation", "Portfolio Building"]
         },
         {
-          title: "Growth",
-          points: ["Career Path", "Industry Network"]
+          title: "Recruiters Connect",
+          points: ["Industry Networking", "Job Placement Support"]
         }
       ]
     }
@@ -231,9 +180,13 @@ const CareerPhase = ({ phase, isActive, isCompleted, onComplete }) => {
   const content = phaseContent[phase];
 
   return (
-    <div className={`career-phase ${initialLoad ? 'initial-load' : ''} 
-                    ${isActive ? 'active' : ''} 
-                    ${isCompleted ? 'completed' : ''}`}>
+    <div 
+      className={`career-phase ${initialLoad ? 'initial-load' : ''} 
+                  ${isActive ? 'active' : ''} 
+                  ${isCompleted ? 'completed' : ''}`}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+    >
       <div className="phase-card">
         <div className="progress-container">
           <div className="progress-steps">
@@ -242,6 +195,8 @@ const CareerPhase = ({ phase, isActive, isCompleted, onComplete }) => {
                 key={step} 
                 className={`progress-step ${step <= phase ? 'active' : ''} 
                            ${step < phase ? 'completed' : ''}`}
+                onClick={() => onPhaseClick(step)}
+                style={{ cursor: 'pointer' }}
               >
                 <div className="step-number">
                   {step}
@@ -280,24 +235,33 @@ const CareerPhase = ({ phase, isActive, isCompleted, onComplete }) => {
           </div>
 
           <div className="phase-details">
-            <div className={`content-wrapper ${showDetails ? 'show' : 'hide'}`}>
+            <div className={`content-wrapper ${showDetails ? 'show' : 'hide'}`}
+                 style={{ textAlign: 'left' }}>
               <div className="main-point">
                 <h4>{content.mainPoint}</h4>
                 <p>{content.description}</p>
               </div>
 
-              <div className="key-points">
+              <div className="key-points" style={{ paddingLeft: '15px' }}>
                 {content.keyPoints.map((section, index) => (
                   <div 
                     key={index} 
                     className="point-section"
-                    style={{ animationDelay: `${0.2 * index}s` }}
+                    style={{ 
+                      animationDelay: `${0.2 * index}s`,
+                      fontSize: '0.85rem',
+                      textAlign: 'left'
+                    }}
                   >
-                    <h5 className="point-header">
+                    <h5 className="point-header" style={{ fontSize: '0.95rem', textAlign: 'left' }}>
                       <span className="point-icon"></span>
                       {section.title}
                     </h5>
-                    <ul className="point-list">
+                    <ul className="point-list" style={{ 
+                      textAlign: 'left', 
+                      paddingLeft: '15px',
+                      fontSize: '0.8rem'
+                    }}>
                       {section.points.map((point, idx) => (
                         <li key={idx}>{point}</li>
                       ))}
@@ -321,6 +285,10 @@ const CareerJourney = () => {
     setActivePhase(current => current < totalPhases ? current + 1 : 1);
   };
 
+  const handlePhaseClick = (phaseNumber) => {
+    setActivePhase(phaseNumber);
+  };
+
   return (
     <div className="career-journey-container">
       <div className="journey-background">
@@ -336,6 +304,7 @@ const CareerJourney = () => {
             isActive={phase === activePhase}
             isCompleted={phase < activePhase}
             onComplete={handlePhaseComplete}
+            onPhaseClick={handlePhaseClick}
           />
         ))}
       </div>
