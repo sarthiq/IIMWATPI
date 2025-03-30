@@ -206,62 +206,127 @@
 /* Cards layout */
 .test-cards-grid {
   display: flex;
+  flex-direction: column;
   gap: 30px;
   width: 100%;
 }
 
+/* Card Container Optimization */
 .test-card-wrapper {
-  flex: 1;
-  width: 50%;
-  min-width: 0; /* Prevent flex item from overflowing */
+  width: 100%;
+  max-width: 800px; /* Limit maximum width */
+  margin: 0 auto;
 }
 
 .test-card-container {
   background: white;
   border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  padding: 24px;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  padding: 20px;
 }
 
 .test-card-header {
-  margin-bottom: 20px;
+  margin-bottom: 15px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #edf2f7;
 }
 
 .test-card-title {
-  font-size: 22px;
+  font-size: 20px;
   color: #1a237e;
   margin: 0;
 }
 
 .test-content {
-  margin-bottom: 20px;
-  flex: 1;
+  margin-bottom: 15px;
 }
 
 .test-date-info {
   color: #666;
-  font-size: 14px;
+  font-size: 13px;
   margin-bottom: 15px;
 }
 
-.test-iq-score {
-  font-size: 18px;
-  color: #1a237e;
-  font-weight: 500;
+/* IQ Result Section Optimization */
+.iq-result-section {
+  padding: 15px;
+  background: #ffffff;
+  border-radius: 8px;
 }
 
+.test-iq-score {
+  font-size: 20px;
+  color: #1a237e;
+  font-weight: 600;
+  margin: 15px 0;
+  padding: 12px 16px;
+  background: #f8f9fa;
+  border-radius: 6px;
+  text-align: center;
+  border: 1px solid #edf2f7;
+}
+
+.iq-table-container {
+  margin: 15px 0;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.iq-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  font-size: 13px;
+  line-height: 1.3;
+}
+
+.iq-table th {
+  background-color: #f8f9fa;
+  font-weight: 600;
+  color: #1a237e;
+  padding: 10px;
+  text-transform: uppercase;
+  font-size: 12px;
+  letter-spacing: 0.5px;
+  border-bottom: 1px solid #edf2f7;
+}
+
+.iq-table td {
+  padding: 8px 10px;
+  border-bottom: 1px solid #edf2f7;
+  color: #333;
+}
+
+.iq-table td strong {
+  color: #1a237e;
+  display: block;
+  margin-bottom: 2px;
+  font-size: 13px;
+}
+
+.iq-note {
+  font-size: 12px;
+  line-height: 1.5;
+  color: #666;
+  background-color: #f8f9fa;
+  padding: 12px;
+  border-radius: 6px;
+  margin-top: 12px;
+  border-left: 3px solid #1a237e;
+}
+
+/* Action Button Optimization */
 .test-action-button {
   display: inline-block;
-  padding: 10px 20px;
+  padding: 8px 16px;
   background: #1a237e;
   color: white;
   border-radius: 6px;
   text-decoration: none;
-  transition: background 0.2s;
-  align-self: flex-start;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.2s ease;
 }
 
 .test-action-button:hover {
@@ -269,14 +334,16 @@
   color: white;
 }
 
-.test-empty-state {
-  text-align: center;
-  padding: 20px 0;
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+@media (max-width: 768px) {
+  .test-card-container {
+    padding: 15px;
+  }
+
+  .iq-table th,
+  .iq-table td {
+    padding: 8px;
+    font-size: 12px;
+  }
 }
 
 /* Keep all the existing personality test bar styles as they are */
@@ -286,93 +353,8 @@
 
 /* Responsive design */
 @media (max-width: 768px) {
-  .test-cards-grid {
-    flex-direction: column;
-  }
-
-  .test-card-wrapper {
-    width: 100%;
-  }
-
   .test-results-wrapper {
     padding: 15px;
-  }
-}
-
-.iq-result-section {
-  margin-top: 20px;
-}
-
-.iq-table-container {
-  margin-top: 20px;
-  overflow-x: auto;
-}
-
-.iq-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-bottom: 8px;
-  font-size: 12px;
-  line-height: 1.1;
-}
-
-.iq-table th,
-.iq-table td {
-  border: 1px solid #ddd;
-  padding: 3px 6px;
-  text-align: left;
-}
-
-.iq-table th {
-  background-color: #f8f9fa;
-  font-weight: 600;
-  color: #1a237e;
-  font-size: 12px;
-  padding: 2px 6px;
-}
-
-.iq-table tr:nth-child(even) {
-  background-color: #f8f9fa;
-}
-
-.iq-table td strong {
-  display: block;
-  margin-bottom: 0px;
-  line-height: 1.1;
-  font-size: 12px;
-}
-
-.iq-table td {
-  vertical-align: top;
-  line-height: 1.1;
-}
-
-.iq-table td br {
-  display: block;
-  margin: 0;
-  content: "";
-}
-
-.iq-note {
-  font-size: 10px;
-  line-height: 1.1;
-  color: #666;
-  font-style: italic;
-  margin-top: 6px;
-  padding: 6px;
-  background-color: #f8f9fa;
-  border-radius: 4px;
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .iq-table {
-    font-size: 11px;
-  }
-  
-  .iq-table th,
-  .iq-table td {
-    padding: 3px 6px;
   }
 }
 

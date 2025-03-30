@@ -146,16 +146,15 @@ export const TestResults = () => {
                   <div className="personality-section">
                     <div className="personality-scores">
                       {/* Extraversion */}
-                      <div className="score-row">
+                      <div className="score-row" data-trait="extraversion">
                         <div className="score-labels">
                           <span className="left-label">Introvert</span>
                           <span className="right-label">Extravert</span>
                         </div>
                         <div className="score-bar-container">
                           <div 
-                            className="score-bar"
+                            className="score-bar extraversion"
                             style={{ 
-                              backgroundColor: "#4287f5",
                               width: `${data.detailedResult.result.extraversion}%` 
                             }}
                           />
@@ -181,16 +180,15 @@ export const TestResults = () => {
                       </div>
 
                       {/* Agreeableness */}
-                      <div className="score-row">
+                      <div className="score-row" data-trait="agreeableness">
                         <div className="score-labels">
                           <span className="left-label">Self-Centered</span>
                           <span className="right-label">Empathetic</span>
                         </div>
                         <div className="score-bar-container">
                           <div 
-                            className="score-bar"
+                            className="score-bar agreeableness"
                             style={{ 
-                              backgroundColor: "#f542a7",
                               width: `${data.detailedResult.result.agreeableness}%`
                             }}
                           />
@@ -216,16 +214,15 @@ export const TestResults = () => {
                       </div>
 
                       {/* Conscientiousness */}
-                      <div className="score-row">
+                      <div className="score-row" data-trait="conscientiousness">
                         <div className="score-labels">
                           <span className="left-label">Unorganized</span>
                           <span className="right-label">Organized</span>
                         </div>
                         <div className="score-bar-container">
                           <div 
-                            className="score-bar"
+                            className="score-bar conscientiousness"
                             style={{ 
-                              backgroundColor: "#42f5b3",
                               width: `${data.detailedResult.result.conscientiousness}%`
                             }}
                           />
@@ -251,16 +248,15 @@ export const TestResults = () => {
                       </div>
 
                       {/* Neuroticism */}
-                      <div className="score-row">
+                      <div className="score-row" data-trait="neuroticism">
                         <div className="score-labels">
                           <span className="left-label">Emotionally stable</span>
                           <span className="right-label">Emotional</span>
                         </div>
                         <div className="score-bar-container">
                           <div 
-                            className="score-bar"
+                            className="score-bar neuroticism"
                             style={{ 
-                              backgroundColor: "#f5a742",
                               width: `${data.detailedResult.result.neuroticism}%`
                             }}
                           />
@@ -286,16 +282,15 @@ export const TestResults = () => {
                       </div>
 
                       {/* Openness */}
-                      <div className="score-row">
+                      <div className="score-row" data-trait="openness">
                         <div className="score-labels">
                           <span className="left-label">Rigid</span>
                           <span className="right-label">Early Adopter</span>
                         </div>
                         <div className="score-bar-container">
                           <div 
-                            className="score-bar"
+                            className="score-bar openness"
                             style={{ 
-                              backgroundColor: "#9042f5",
                               width: `${data.detailedResult.result.openness}%`
                             }}
                           />
@@ -341,7 +336,7 @@ export const TestResults = () => {
         </Col>
       </Row>
 
-      <Row className="results-row" style={{ display: 'flex', margin: '0', width: '100%' }}>
+      <div className="test-cards-grid">
         {!results ? (
           <Col>
             <Card className="no-results-card">
@@ -359,7 +354,7 @@ export const TestResults = () => {
             {renderTestCard("personality", results.personality)}
           </>
         )}
-      </Row>
+      </div>
     </Container>
   );
 };

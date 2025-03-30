@@ -71,13 +71,13 @@
 .testDescription h3 {
   color: #2c3e50;
   margin-bottom: 1rem;
-  font-size: 1.4rem;
+  font-size: 1.6rem;
 }
 
 .testDescription p {
   color: #666;
   margin: 0;
-  font-size: 1.1rem;
+  font-size: 1rem;
   line-height: 1.6;
 }
 
@@ -92,7 +92,7 @@
   color: #666;
   display: flex;
   align-items: center;
-  font-size: 1.1rem;
+  font-size: 1rem;
 }
 
 .testPoints li:before {
@@ -254,6 +254,7 @@
   margin-bottom: 1rem;
   padding-bottom: 0.5rem;
   border-bottom: 2px solid #3498db;
+  font-size: 1.6rem;
 }
 
 .careerItem {
@@ -278,6 +279,7 @@
 
 .careerName {
   color: #2c3e50;
+  font-size: 1rem;
 }
 
 /* Assessment Section Styles */
@@ -497,15 +499,21 @@
   }
   
   .testDescription h3 {
-    font-size: 1.2rem;
+    font-size: 1.4rem;
   }
   
-  .testPoints li, .testDescription p {
-    font-size: 1rem;
+  .testDescription p,
+  .testPoints li,
+  .careerName {
+    font-size: 0.95rem;
   }
   
   .startButton, .retakeButton {
     width: 100%;
+  }
+
+  .categoryTitle {
+    font-size: 1.4rem;
   }
 }
 
