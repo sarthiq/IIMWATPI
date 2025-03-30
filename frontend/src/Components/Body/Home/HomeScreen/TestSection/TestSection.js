@@ -70,7 +70,7 @@ export const TestSection = () => {
   }
 
   return (
-    <section className="ts-test-section">
+    <section className="ts-test-section" id="test-section">
       <div className="ts-container">
         <div className="ts-header">
           <h2 className="ts-title">
