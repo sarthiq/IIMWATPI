@@ -26,22 +26,22 @@ export const Footer = () => {
           <h4>Quick Links</h4>
           <ul>
             <li>
-              <Link to="/quiz#test-section">
+              <Link to="/quiz-selection-page#test-section">
                 <FaQuestionCircle className="footer-icon" /> Assessment Tests
               </Link>
             </li>
             <li>
-              <Link to="/career">
+              <Link to="dashboard/*">
                 <FaBriefcase className="footer-icon" /> Career Counselling
               </Link>
             </li>
             <li>
-              <Link to="/ai-literacy">
+              <Link to="dashboard/ai-literacy">
                 <FaRobot className="footer-icon" /> AI Literacy
               </Link>
             </li>
             <li>
-              <Link to="/entrance-exams">
+              <Link to="/entrance-test-details#entrance-test-container">
                 <FaGraduationCap className="footer-icon" /> Entrance Exams
               </Link>
             </li>

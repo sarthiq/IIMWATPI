@@ -55,7 +55,7 @@ export const EntranceTestDetails = () => {
   };
 
   return (
-    <Container className="entrance-test-container py-5">
+    <Container className="entrance-test-container py-5" id="entrance-test-container">
       <h2 className="entrance-test-title text-center mb-4">
         Entrance Exams in India
       </h2>
