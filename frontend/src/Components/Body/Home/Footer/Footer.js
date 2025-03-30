@@ -91,7 +91,7 @@ export const Footer = () => {
          
             <p>
               <FaMapMarkerAlt className="footer-icon" />
-              C-70,Sect8,Jankipuram Extension,
+              C-70, Sect8, Jankipuram Ext,
               <span className="address-line">Lucknow, UP-226021</span>
             </p>
             <p>
