@@ -254,7 +254,10 @@
   margin-bottom: 1rem;
   padding-bottom: 0.5rem;
   border-bottom: 2px solid #3498db;
-  font-size: 1.6rem;
+  font-size: 1.2rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .careerItem {
@@ -280,6 +283,9 @@
 .careerName {
   color: #2c3e50;
   font-size: 1rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 /* Assessment Section Styles */
@@ -513,7 +519,7 @@
   }
 
   .categoryTitle {
-    font-size: 1.4rem;
+    font-size: 1.1rem;
   }
 }
 
