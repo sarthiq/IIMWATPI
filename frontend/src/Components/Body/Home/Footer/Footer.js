@@ -26,7 +26,7 @@ export const Footer = () => {
           <h4>Quick Links</h4>
           <ul>
             <li>
-              <Link to="/quiz">
+              <Link to="/quiz#test-section">
                 <FaQuestionCircle className="footer-icon" /> Assessment Tests
               </Link>
             </li>

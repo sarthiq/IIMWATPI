@@ -1,6 +1,6 @@
 .ai-literacy-section {
   background: linear-gradient(135deg, #f8fafc, #f1f5f9);
-  padding: 6rem 2rem;
+  padding: 3rem 2rem;
   color: #1e293b;
   position: relative;
   overflow: hidden;
@@ -8,7 +8,7 @@
 
 .ai-literacy-header {
   text-align: center;
-  margin-bottom: 4rem;
+  margin-bottom: 2rem;
 }
 
 .ai-literacy-title {
@@ -40,13 +40,13 @@
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 2rem;
-  margin-bottom: 4rem;
+  margin-bottom: 2rem;
 }
 
 .ai-literacy-feature-card {
   background: rgba(255, 255, 255, 0.9);
   backdrop-filter: blur(10px);
-  padding: 2rem;
+  padding: 1.5rem;
   border-radius: 20px;
   text-align: center;
   transition: all 0.3s ease;
@@ -127,7 +127,7 @@
   display: flex;
   gap: 1rem;
   justify-content: center;
-  margin-top: 3rem;
+  margin-top: 2rem;
 }
 
 .ai-literacy-primary-cta,
@@ -166,7 +166,7 @@
 
 @media (max-width: 768px) {
   .ai-literacy-section {
-    padding: 4rem 1rem;
+    padding: 2rem 1rem;
   }
 
   .ai-literacy-feature-grid {

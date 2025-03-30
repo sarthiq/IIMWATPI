@@ -1,6 +1,6 @@
 .ts-test-section {
   background: linear-gradient(135deg, #f8fafc, #f1f5f9);
-  padding: 6rem 2rem;
+  padding: 2rem 2rem;
   color: #1e293b;
   position: relative;
   overflow: hidden;
@@ -13,7 +13,7 @@
 
 .ts-header {
   text-align: center;
-  margin-bottom: 4rem;
+  margin-bottom: 2rem;
   background: rgba(255, 255, 255, 0.8);
   padding: 3rem;
   border-radius: 20px;
