@@ -25,9 +25,9 @@
   
   .col-md-6 {
     padding: 0 10px !important;
-    width: 50% !important;
-    flex: 0 0 50% !important;
-    max-width: 50% !important;
+    width: 60% !important;
+    flex: 0 0 60% !important;
+    max-width: 60% !important;
   }
   
   .result-card {
@@ -214,7 +214,7 @@
 /* Card Container Optimization */
 .test-card-wrapper {
   width: 100%;
-  max-width: 800px; /* Limit maximum width */
+  max-width: 1000px;
   margin: 0 auto;
 }
 
@@ -270,7 +270,8 @@
   margin: 15px 0;
   border-radius: 8px;
   overflow: hidden;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  border: 2px solid #1a237e;
 }
 
 .iq-table {
@@ -278,7 +279,7 @@
   border-collapse: separate;
   border-spacing: 0;
   font-size: 13px;
-  line-height: 1.3;
+  line-height: 1.2;
 }
 
 .iq-table th {
@@ -289,20 +290,38 @@
   text-transform: uppercase;
   font-size: 12px;
   letter-spacing: 0.5px;
-  border-bottom: 1px solid #edf2f7;
+  border-bottom: 2px solid #1a237e;
+  border-right: 1px solid #1a237e;
 }
 
 .iq-table td {
-  padding: 8px 10px;
-  border-bottom: 1px solid #edf2f7;
+  padding: 6px 10px;
+  border-bottom: 2px solid #1a237e;
+  border-right: 1px solid #1a237e;
   color: #333;
 }
 
 .iq-table td strong {
   color: #1a237e;
   display: block;
-  margin-bottom: 2px;
+  margin-bottom: 1px;
   font-size: 13px;
+}
+
+.iq-table th:first-child,
+.iq-table td:first-child {
+  width: 15%;
+}
+
+.iq-table th:nth-child(2),
+.iq-table td:nth-child(2) {
+  width: 25%;
+}
+
+.iq-table th:last-child,
+.iq-table td:last-child {
+  width: 60%;
+  border-right: none;
 }
 
 .iq-note {
@@ -310,9 +329,9 @@
   line-height: 1.5;
   color: #666;
   background-color: #f8f9fa;
-  padding: 12px;
+  padding: 12px 20px;
   border-radius: 6px;
-  margin-top: 12px;
+  margin: 12px 15px;
   border-left: 3px solid #1a237e;
 }
 
