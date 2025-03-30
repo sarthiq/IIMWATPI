@@ -56,7 +56,7 @@ export const getTestResultsHandler = async (setIsLoading, showAlert) => {
 };
 
 export const getUserProfileHandler = async (setIsLoading, showAlert) => {
-  const url = "/user/profile/getUserProfile";
+  const url = "/user/profile/get";
 
   setIsLoading(true);
   const token = localStorage.getItem("token");

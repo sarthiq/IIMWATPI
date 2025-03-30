@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import "./CareerReport.css";
 import { Spinner, Container, Row, Col, Card, ProgressBar, Badge } from 'react-bootstrap';
+import { updateUserProfileHandler, getUserProfileHandler, getTestResultsHandler } from "../apiHandler";
+import { useAlert } from "../../../../../UI/Alert/AlertContext";
 
 // Dummy data simulating backend response
 const dummyData = {
@@ -19,16 +21,110 @@ const dummyData = {
 };
 
 export const CareerReport = () => {
-  const [studentData, setStudentData] = useState(null);
+  // Initialize studentData with default values
+  const [studentData, setStudentData] = useState({
+    studentDetails: {
+      studentName: "N/A",
+      schoolName: "N/A",
+      class: "N/A"
+    }
+  });
+  const [testResults, setTestResults] = useState(null);
   const [loading, setLoading] = useState(true);
+  const { showAlert } = useAlert();
 
   useEffect(() => {
-    // Simulate API call
-    setTimeout(() => {
-      setStudentData(dummyData);
-      setLoading(false);
-    }, 1000);
+    const fetchData = async () => {
+      try {
+        const [profileResponse, testResponse] = await Promise.all([
+          getUserProfileHandler(setLoading, showAlert),
+          getTestResultsHandler(setLoading, showAlert)
+        ]);
+
+        if (profileResponse && profileResponse.success && profileResponse.data) {
+          const userData = {
+            studentDetails: {
+              studentName: profileResponse.data.User?.name || "N/A",
+              schoolName: profileResponse.data.institutionName || "N/A",
+              class: `${profileResponse.data.standard || "N/A"} - ${profileResponse.data.course || "N/A"} ${profileResponse.data.branch ? `(${profileResponse.data.branch})` : ''}`
+            }
+          };
+          setStudentData(userData);
+        }
+
+        if (testResponse && testResponse.success && testResponse.data) {
+          // Transform the API response to match our component structure
+          setTestResults({
+            iq: {
+              score: testResponse.data.results.iq?.detailedResult?.result?.label || "0",
+              strongAreas: ["Logical Reasoning", "Pattern Recognition"], // These would need to be derived from the actual data
+              improvementAreas: ["Verbal Reasoning", "Spatial Awareness"] // These would need to be derived from the actual data
+            },
+            interest: {
+              // Transform interests data from the response
+              technology: testResponse.data.interests["10"] ? 75 : 0,
+              science: testResponse.data.interests["12"] ? 75 : 0,
+              arts: testResponse.data.interests["16"]?.includes("Social Sciences, Humanities, and Political Studies") ? 75 : 0
+            },
+            personality: {
+              // Map personality scores from the response
+              extraversion: testResponse.data.results.personality?.detailedResult?.result?.extraversion || 0,
+              agreeableness: testResponse.data.results.personality?.detailedResult?.result?.agreeableness || 0,
+              conscientiousness: testResponse.data.results.personality?.detailedResult?.result?.conscientiousness || 0,
+              neuroticism: testResponse.data.results.personality?.detailedResult?.result?.neuroticism || 0,
+              openness: testResponse.data.results.personality?.detailedResult?.result?.openness || 0
+            },
+            creativity: {
+              // Add creativity scores if needed
+              score: testResponse.data.results.creativity?.detailedResult?.result?.total || 0,
+              label: testResponse.data.results.creativity?.detailedResult?.result?.label || "N/A",
+              categories: testResponse.data.results.creativity?.detailedResult?.result?.categoryScores || {}
+            }
+          });
+        }
+      } catch (error) {
+        console.error("Error fetching data:", error);
+        showAlert("error", "Error", "Failed to load test results");
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchData();
   }, []);
+
+  // Add a function to update the user profile if needed
+  const updateProfile = async (updatedData) => {
+    try {
+      setLoading(true);
+      const response = await updateUserProfileHandler(updatedData, setLoading, showAlert);
+      if (response) {
+        showAlert("success", "Success", "Profile updated successfully");
+        // Refresh data after update
+        const userData = {
+          studentDetails: {
+            studentName: response.name || "N/A",
+            schoolName: response.institute || "N/A",
+            class: response.grade || "N/A"
+          },
+          personalityScores: {
+            extraversion: response.extraversion || 50,
+            agreeableness: response.agreeableness || 50,
+            conscientiousness: response.conscientiousness || 50,
+            neuroticism: response.neuroticism || 50,
+            openness: response.openness || 50
+          }
+        };
+        setStudentData(userData);
+      }
+    } catch (error) {
+      console.error("Error updating profile:", error);
+      showAlert("error", "Error", "Failed to update profile");
+    } finally {
+      setLoading(false);
+    }
+  };
+
   if (loading) {
     return (
       <div className="profile-loading">
@@ -39,10 +135,11 @@ export const CareerReport = () => {
     );
   }
 
+  // Move personalityTraits inside the component and use testResults
   const personalityTraits = [
     {
       trait: "Extraversion",
-      score: studentData.personalityScores.extraversion,
+      score: testResults?.personality?.extraversion || 0,
       leftLabel: "Introvert",
       rightLabel: "Extrovert",
       color: "#74b9cc",
@@ -59,7 +156,7 @@ export const CareerReport = () => {
     },
     {
       trait: "Agreeableness",
-      score: studentData.personalityScores.agreeableness,
+      score: testResults?.personality?.agreeableness || 0,
       leftLabel: "Self-Centered",
       rightLabel: "Empathetic",
       color: "#ffc107",
@@ -76,7 +173,7 @@ export const CareerReport = () => {
     },
     {
       trait: "Conscientiousness",
-      score: studentData.personalityScores.conscientiousness,
+      score: testResults?.personality?.conscientiousness || 0,
       leftLabel: "Unorganized",
       rightLabel: "Organized",
       color: "#4caf50",
@@ -93,7 +190,7 @@ export const CareerReport = () => {
     },
     {
       trait: "Neuroticism",
-      score: studentData.personalityScores.neuroticism,
+      score: testResults?.personality?.neuroticism || 0,
       leftLabel: "Emotionally stable",
       rightLabel: "Emotional",
       color: "#9c27b0",
@@ -110,7 +207,7 @@ export const CareerReport = () => {
     },
     {
       trait: "Openness",
-      score: studentData.personalityScores.openness,
+      score: testResults?.personality?.openness || 0,
       leftLabel: "Rigid",
       rightLabel: "Early Adopter",
       color: "#ff5252",
@@ -193,14 +290,20 @@ export const CareerReport = () => {
         <div className="report-header">
           <div className="report-header-content">
             <div className="student-avatar-large">
-              {studentData.studentDetails.studentName.charAt(0)}
+              {studentData?.studentDetails?.studentName?.charAt(0) || "?"}
             </div>
             <div className="student-info-wrapper">
-              <h1 className="student-name">{studentData.studentDetails.studentName}</h1>
+              <h1 className="student-name">
+                {studentData?.studentDetails?.studentName || "N/A"}
+              </h1>
               <div className="student-meta">
-                <span className="meta-badge">{studentData.studentDetails.class}</span>
+                <span className="meta-badge">
+                  {studentData?.studentDetails?.class || "N/A"}
+                </span>
                 <span className="meta-divider"></span>
-                <span className="meta-badge">{studentData.studentDetails.schoolName}</span>
+                <span className="meta-badge">
+                  {studentData?.studentDetails?.schoolName || "N/A"}
+                </span>
               </div>
             </div>
           </div>
@@ -266,14 +369,14 @@ export const CareerReport = () => {
           </div>
         </div>
 
-        {/* IQ Assessment - removed icon and arranged in row */}
+        {/* Updated IQ Assessment Section */}
         <div className="report-section iq-section">
           <h2 className="section-title">IQ Assessment</h2>
           <div className="iq-content-modern">
             <div className="iq-row">
               <div className="iq-score-circle">
                 <div className="score-ring">
-                  <span className="score-number">120</span>
+                  <span className="score-number">{testResults?.iq?.score || "N/A"}</span>
                   <span className="score-label">IQ Score</span>
                 </div>
               </div>
@@ -281,17 +384,17 @@ export const CareerReport = () => {
                 <div className="analysis-box">
                   <h4>Strong Areas</h4>
                   <ul>
-                    <li>Logical Reasoning</li>
-                    <li>Pattern Recognition</li>
-                    <li>Numerical Ability</li>
+                    {testResults?.iq?.strongAreas?.map((area, index) => (
+                      <li key={index}>{area}</li>
+                    )) || <li>No data available</li>}
                   </ul>
                 </div>
                 <div className="analysis-box">
                   <h4>Areas for Improvement</h4>
                   <ul>
-                    <li>Verbal Reasoning</li>
-                    <li>Spatial Awareness</li>
-                    <li>Memory</li>
+                    {testResults?.iq?.improvementAreas?.map((area, index) => (
+                      <li key={index}>{area}</li>
+                    )) || <li>No data available</li>}
                   </ul>
                 </div>
               </div>
@@ -299,34 +402,26 @@ export const CareerReport = () => {
           </div>
         </div>
 
-        {/* Interest Test Section */}
+        {/* Updated Interest Test Section */}
         <div className="report-section">
           <h2 className="section-title">Interest Test Explanation</h2>
           <div className="interest-container">
             <div className="interest-bars">
-              <div className="interest-item">
-                <span className="interest-label">Technology</span>
-                <div className="interest-bar">
-                  <div className="bar-fill" style={{width: '85%'}}>85%</div>
+              {Object.entries(testResults?.interest || {}).map(([key, value]) => (
+                <div key={key} className="interest-item">
+                  <span className="interest-label">{key.charAt(0).toUpperCase() + key.slice(1)}</span>
+                  <div className="interest-bar">
+                    <div className="bar-fill" style={{width: `${value}%`}}>
+                      {value}%
+                    </div>
+                  </div>
                 </div>
-              </div>
-              <div className="interest-item">
-                <span className="interest-label">Science</span>
-                <div className="interest-bar">
-                  <div className="bar-fill" style={{width: '75%'}}>75%</div>
-                </div>
-              </div>
-              <div className="interest-item">
-                <span className="interest-label">Arts</span>
-                <div className="interest-bar">
-                  <div className="bar-fill" style={{width: '60%'}}>60%</div>
-                </div>
-              </div>
+              ))}
             </div>
           </div>
         </div>
 
-        {/* Personality Section */}
+        {/* Updated Personality Section */}
         <div className="report-section">
           <h2 className="section-title">Personality Test Explanation</h2>
           <div className="personality-grid">
@@ -344,18 +439,18 @@ export const CareerReport = () => {
                     />
                     <span 
                       className="score-value" 
-                      style={{ left: `${trait.score}%` }}
+                      style={{ left: `${trait.score.toFixed(2)}%` }}
                     >
-                      {trait.score}%
+                      {trait.score.toFixed(2)}%
                     </span>
                     <div 
                       className="circle-indicator"
-                      style={{ left: `${trait.score}%` }}
+                      style={{ left: `${trait.score.toFixed(2)}%` }}
                     />
                   </div>
                   <div 
                     className="score-indicator"
-                    style={{ left: `${trait.score}%` }}
+                    style={{ left: `${trait.score.toFixed(2)}%` }}
                   >
                     {trait.trait}
                   </div>
