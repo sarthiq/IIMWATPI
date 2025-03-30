@@ -189,11 +189,70 @@
   .banner-gradient-text {
     min-height: 3rem;
   }
+
+  /* Make key points easier to read */
+  .key-points {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+  
+  .main-point {
+    padding: 0.8rem;
+    margin-bottom: 1rem;
+  }
+  
+  .main-point h4 {
+    font-size: 1rem;
+  }
+  
+  .main-point p {
+    font-size: 0.9rem;
+  }
+  
+  /* Improve touch interface for progress steps */
+  .progress-step .step-number {
+    margin-bottom: 0.5rem;
+  }
+
+  /* Improve performance by disabling some animations */
+  .phase-card:hover {
+    transform: none;
+    box-shadow: none;
+  }
+  
+  /* Make phase transitions more direct */
+  .career-phase {
+    transform: translateX(-15px); /* Less dramatic animation */
+  }
+  
+  .career-phase.exiting {
+    transform: translateX(15px);
+  }
+
+  /* Increase the overall banner height for mobile */
+  .modern-banner {
+    min-height: 120vh; /* Increase from 100vh to give more space */
+  }
+  
+  /* Increase the banner hero visual height */
+  .banner-hero-visual {
+    min-height: 650px; /* Increase this value to make the visual area taller */
+  }
+  
+  /* Make sure the career journey container matches */
+  .career-journey-container {
+    height: 650px;
+  }
+  
+  /* Ensure phases wrapper has enough height */
+  .phases-wrapper {
+    min-height: 650px;
+  }
 }
 
 @media (max-width: 480px) {
   .banner-container {
-    padding: 0.8rem;
+    padding: 0.1rem;
   }
 
   .banner-heading {
@@ -222,6 +281,20 @@
   
   .banner-gradient-text {
     min-height: 2.5rem;
+  }
+
+  /* Even more height for very small screens */
+  .modern-banner {
+    min-height: 130vh;
+  }
+  
+  .banner-hero-visual {
+    min-height: 700px;
+  }
+  
+  .career-journey-container,
+  .phases-wrapper {
+    height: 700px;
   }
 }
 
@@ -652,45 +725,100 @@
 
 @media (max-width: 1024px) {
   .banner-hero-section {
-    grid-template-columns: 1fr;
-    text-align: center;
-    gap: 2rem;
+    display: flex;
+    flex-direction: column;
+    padding: 2rem 1rem;
+    gap: 1rem; /* Reduced gap */
   }
-
+  
+  /* This will make the visual (phase content) appear first */
+  .banner-hero-visual {
+    order: -1;
+    min-height: 600px; /* Reduced from 800px */
+  }
+  
   .banner-hero-content {
-    order: 1;
+    order: 2;
+    margin-top: 1rem; /* Reduced spacing */
+    text-align: center; /* Center text on mobile */
   }
-
-  .banner-hero-description {
-    margin: 0 auto 2rem;
-  }
-
+  
+  /* Center CTA buttons */
   .banner-cta-buttons {
     justify-content: center;
   }
+}
 
-  .banner-feature-grid {
-    max-width: 600px;
-    margin: 0 auto;
+@media (max-width: 768px) {
+  .banner-hero-visual {
+    min-height: 550px; /* Reduced further for phone */
+  }
+  
+  .career-journey-container {
+    height: 550px;
+  }
+  
+  .phase-card {
+    padding: 0.8rem; /* Make more compact */
   }
 }
 
-@media (max-width: 640px) {
-  .banner-hero-section {
-    padding: 2rem 1rem;
+@media (max-width: 480px) {
+  .banner-hero-visual {
+    min-height: 520px; /* Even more compact */
   }
-
+  
+  .career-journey-container {
+    height: 520px;
+    padding: 0.5rem;
+  }
+  
+  /* Make content more compact */
+  .phase-content {
+    font-size: 0.85rem;
+  }
+  
+  .point-section {
+    padding: 0.6rem;
+    margin-bottom: 0.4rem;
+  }
+  
+  /* Make progress steps smaller */
+  .progress-step .step-number {
+    width: 22px;
+    height: 22px;
+    font-size: 0.75rem;
+  }
+  
+  .progress-line {
+    top: 11px;
+  }
+  
+  /* Adjust title and text size */
+  .banner-hero-title {
+    font-size: clamp(1.8rem, 5vw, 2.5rem);
+  }
+  
+  .banner-gradient-text {
+    min-height: 2.5rem;
+  }
+  
+  .typewriter-container {
+    height: 3rem;
+  }
+  
+  /* Make CTA buttons stack on very small screens */
   .banner-cta-buttons {
     flex-direction: column;
+    align-items: center;
+    gap: 0.8rem;
   }
-
-  .banner-stats-container {
-    grid-template-columns: 1fr;
-    gap: 1rem;
-  }
-
-  .banner-feature-grid {
-    grid-template-columns: 1fr;
+  
+  .banner-primary-cta, .banner-secondary-cta {
+    width: 100%;
+    text-align: center;
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
   }
 }
 
@@ -1258,7 +1386,7 @@
 
 /* Progress container perspective effect */
 .progress-container {
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
   text-align: left;
   padding-right: 30px;
   perspective: 1000px;
@@ -1292,5 +1420,45 @@
 
   .progress-step .step-label {
     font-size: 0.7rem;
+  }
+}
+
+/* Try adding these rules to your CSS file */
+
+@media screen and (max-width: 768px) {
+  .modern-banner {
+    min-height: 100vh !important;
+  }
+  
+  .banner-hero-visual {
+    min-height: 750px !important;
+  }
+  
+  .career-journey-container {
+    height: 750px !important;
+  }
+  
+  .phases-wrapper {
+    min-height: 750px !important;
+  }
+  
+  /* Add extra space between sections */
+  .banner-hero-section {
+    padding-bottom: 4rem !important;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .modern-banner {
+    min-height: 100vh !important;
+  }
+  
+  .banner-hero-visual {
+    min-height: 800px !important;
+  }
+  
+  .career-journey-container,
+  .phases-wrapper {
+    height: 800px !important;
   }
 }
