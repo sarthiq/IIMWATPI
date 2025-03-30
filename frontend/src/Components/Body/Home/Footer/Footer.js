@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import "./Footer.css";
 import {
   FaLinkedin,
@@ -19,6 +19,23 @@ import {
 } from "react-icons/fa";
 
 export const Footer = () => {
+  const location = useLocation();
+
+  const scrollToSection = (elementId) => {
+    const element = document.querySelector(elementId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  const handleAssessmentClick = (e) => {
+    // If we're already on the home page
+    if (location.pathname === '/') {
+      e.preventDefault();
+      scrollToSection('#test-section');
+    }
+  };
+
   return (
     <footer className="footer">
       <div className="footer-container">
@@ -26,7 +43,7 @@ export const Footer = () => {
           <h4>Quick Links</h4>
           <ul>
             <li>
-              <Link to="/quiz-selection-page#test-section">
+              <Link to="/#test-section" onClick={handleAssessmentClick}>
                 <FaQuestionCircle className="footer-icon" /> Assessment Tests
               </Link>
             </li>
