@@ -27,6 +27,7 @@ export const CRHome = () => {
   const [personalityResults, setPersonalityResults] = useState(null);
   const [interestResults, setInterestResults] = useState(null);
   const { showAlert } = useAlert();
+  const [animationStarted, setAnimationStarted] = useState(false);
 
   useEffect(() => {
     fetchTestResults();
@@ -48,6 +49,12 @@ export const CRHome = () => {
       setInterestResults(null);
     }
   };
+
+  useEffect(() => {
+    if (personalityResults && !animationStarted) {
+      setAnimationStarted(true);
+    }
+  }, [personalityResults]);
 
   const getCareerRecommendations = (iqResults, personalityResults, interestResults) => {
     //console.log(iqResults);
@@ -259,12 +266,18 @@ export const CRHome = () => {
                       <span className={styles.traitTitle}>
                         {trait.charAt(0).toUpperCase() + trait.slice(1)}
                       </span>
-                      <span className={styles.traitScore}>{score.toFixed(0)}%</span>
+                      <span 
+                        className={styles.traitScoreAnimated}
+                        style={{ 
+                          '--score-width': `${score}%`,
+                          '--score-number': Math.round(score)
+                        }}
+                      />
                     </div>
                     <div className={styles.traitBar}>
                       <div 
                         className={styles.traitProgress} 
-                        style={{width: `${score}%`}}
+                        style={{ '--score-width': `${score}%` }}
                       />
                     </div>
                     <div className={styles.traitLabels}>
