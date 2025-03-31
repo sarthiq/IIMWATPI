@@ -76,7 +76,7 @@ export const Dashboard = () => {
               }`}
               onClick={() => setShowSidebar(false)}
             >
-              Career Recommendations
+              Post 12th Guide - & Career Options
             </Nav.Link>
             <Nav.Link
               as={Link}

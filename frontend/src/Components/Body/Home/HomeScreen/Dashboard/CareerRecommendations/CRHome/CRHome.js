@@ -376,6 +376,25 @@ export const CRHome = () => {
           </div>
         </div>
       )}
+
+      {/* Exploration Links Section */}
+      <div className={styles.explorationSection}>
+        <h2 className={styles.sectionTitle}>Explore More Options</h2>
+        <div className={styles.explorationLinks}>
+          <Link to="/institute" className={styles.explorationCard}>
+            <h3>Explore Colleges</h3>
+            <p>Discover top institutions and find your perfect fit</p>
+          </Link>
+          <Link to="/entrance-test-details" className={styles.explorationCard}>
+            <h3>Explore Entrance Exams</h3>
+            <p>Learn about important entrance tests and preparation tips</p>
+          </Link>
+          <Link to="/dashboard/career-options/summary" className={styles.explorationCard}>
+            <h3>Explore Career Options</h3>
+            <p>Research various career paths and opportunities</p>
+          </Link>
+        </div>
+      </div>
     </div>
   );
 };

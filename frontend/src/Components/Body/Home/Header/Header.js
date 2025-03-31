@@ -3,6 +3,7 @@ import { FaBars, FaTimes } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import "./Header.css";
 import { useSelector } from "react-redux";
+import { useLocation } from "react-router-dom";
 
 export const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -16,7 +17,21 @@ export const Header = () => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+  const location = useLocation();
+  const scrollToSection = (elementId) => {
+    const element = document.querySelector(elementId);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
 
+  const handleAssessmentClick = (e) => {
+    // If we're already on the home page
+    if (location.pathname === "/") {
+     // e.preventDefault();
+      scrollToSection("#test-section");
+    }
+  };
   return (
     <header className={`header ${isScrolled ? "scrolled" : ""}`}>
       <div className="header-container">
@@ -30,20 +45,32 @@ export const Header = () => {
           <ul className="nav-list">
             <li className="nav-item">
               <Link
-                to="/institute"
+                to="/dashboard/recommendations"
                 className="nav-link"
                 onClick={() => setIsOpen(false)}
               >
-                Institute
+                Post-12th Guide
               </Link>
             </li>
             <li className="nav-item">
               <Link
-                to="/schollarship"
+                to="/#test-section"
+                className="nav-link"
+                onClick={() => {
+                  setIsOpen(false)
+                  handleAssessmentClick();
+                }}
+              >
+                Tests
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link
+                to="/institute"
                 className="nav-link"
                 onClick={() => setIsOpen(false)}
               >
-                Scholarship
+                Colleges
               </Link>
             </li>
             <li className="nav-item">
@@ -52,7 +79,25 @@ export const Header = () => {
                 className="nav-link"
                 onClick={() => setIsOpen(false)}
               >
-                Entrance Exam
+                Entrance Exams
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link
+                to="/schollarship"
+                className="nav-link"
+                onClick={() => setIsOpen(false)}
+              >
+                Scholarships
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link
+                to="/dashboard/career-options/summary"
+                className="nav-link"
+                onClick={() => setIsOpen(false)}
+              >
+                Career Options
               </Link>
             </li>
             <li className="nav-item">
