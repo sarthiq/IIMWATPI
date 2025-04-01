@@ -73,10 +73,10 @@ export const updateStudentDetailsHandler = async (
   const url = "/user/quiz/updateStudentDetails";
 
   setIsLoading(true);
-  
+  const token = localStorage.getItem("token");
 
   try {
-    const result = await apiRequest(url, obj, "", "post");
+    const result = await apiRequest(url, obj, token, "post");
     const data = result.data;
 
     return data;

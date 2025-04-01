@@ -54,6 +54,15 @@ export const Header = () => {
             </li>
             <li className="nav-item">
               <Link
+                to="/dashboard/ai-literacy"
+                className="nav-link"
+                onClick={() => setIsOpen(false)}
+              >
+                AI Literacy
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link
                 to="/#test-section"
                 className="nav-link"
                 onClick={() => {
