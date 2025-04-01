@@ -32,7 +32,7 @@ export const AILiteracySummary = () => {
       <Container>
         <div className="ai-literacy-header">
           <h2 className="ai-literacy-title">
-            AI Tools Guide
+            AI Literacy Guide
             <span className="ai-literacy-title-highlight">Master Modern AI Technologies</span>
           </h2>
           <p className="ai-literacy-description">
