@@ -216,6 +216,7 @@ const CareerPhase = ({
       onMouseLeave={handleMouseLeave}
     >
       <div className="phase-card">
+        <h2 className="post12thguide" style={{textAlign: 'center'}}>Post-12th Guide</h2>
         <div className="progress-container">
           <div className="progress-steps">
             {[1, 2, 3, 4].map((step) => (
