@@ -565,6 +565,25 @@
   align-items: center;
 }
 
+
+
+@media screen and (max-width: 768px) {
+  .banner-hero-title {
+    text-align: center;
+  }
+  
+  .typewriter-container {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .banner-gradient-text {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+
 .banner-gradient-text {
   background: linear-gradient(90deg, #60a5fa, #a78bfa);
   background-clip: text;
