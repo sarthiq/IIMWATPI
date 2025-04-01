@@ -686,4 +686,31 @@
   margin: 0;
   color: #666;
   font-size: 0.9rem;
+}
+
+/* Add new styles */
+.cardContent {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.arrowButton {
+  width: 30px;
+  height: 30px;
+  background: #3498db;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  font-weight: bold;
+  transition: transform 0.2s, background-color 0.2s;
+}
+
+.explorationCard:hover .arrowButton {
+  transform: translateX(5px);
+  background: #2980b9;
 } 
