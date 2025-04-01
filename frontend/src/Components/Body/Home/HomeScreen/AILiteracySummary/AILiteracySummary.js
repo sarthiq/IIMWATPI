@@ -32,8 +32,8 @@ export const AILiteracySummary = () => {
       <Container>
         <div className="ai-literacy-header">
           <h2 className="ai-literacy-title">
-            AI Literacy Guide
-            <span className="ai-literacy-title-highlight">Master Modern AI Technologies</span>
+            AI Literacy 
+            <span className="ai-literacy-title-highlight">Master Modern AI Tools</span>
           </h2>
           <p className="ai-literacy-description">
             Enhance your productivity and creativity with cutting-edge AI tools and technologies
