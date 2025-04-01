@@ -60,6 +60,19 @@ export const PersonalityQuestion = ({
     }
   };
 
+  const handlePrevious = () => {
+    if (currentQuestion > 0) {
+      setCurrentQuestion(currentQuestion - 1);
+      setSelectedAnswer(null);
+      // Remove the last answer when going back
+      setUserPersonalityAnswer((prevAnswers) => {
+        const newAnswers = [...prevAnswers];
+        newAnswers.pop();
+        return newAnswers;
+      });
+    }
+  };
+
   if (questions.length === 0) {
     return <h1>No Questions Found</h1>;
   }
@@ -116,14 +129,24 @@ export const PersonalityQuestion = ({
         </Card.Body>
 
         <Card.Footer className="question-footer">
-          <Button
-            variant="primary"
-            className="next-button"
-            onClick={handleNext}
-            disabled={selectedAnswer === null}
-          >
-            {currentQuestion === questions.length - 1 ? "Finish Quiz" : "Next"}
-          </Button>
+          <div className="button-group">
+            <Button
+              variant="primary"
+              className="nav-button prev-button"
+              onClick={handlePrevious}
+              disabled={currentQuestion === 0}
+            >
+              Previous
+            </Button>
+            <Button
+              variant="primary"
+              className="nav-button next-button"
+              onClick={handleNext}
+              disabled={selectedAnswer === null}
+            >
+              {currentQuestion === questions.length - 1 ? "Finish Quiz" : "Next"}
+            </Button>
+          </div>
         </Card.Footer>
       </Card>
     </Container>

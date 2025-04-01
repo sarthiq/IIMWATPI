@@ -1,6 +1,6 @@
 import styles from './CRHome.module.css';
 import { Link } from 'react-router-dom';
-import { FaBrain, FaUserCircle, FaSearch } from 'react-icons/fa';
+import { FaBrain, FaUserCircle, FaSearch, FaChevronRight } from 'react-icons/fa';
 import { useAlert } from '../../../../../../UI/Alert/AlertContext';
 import { useEffect, useState } from 'react';
 import { getTestResultsHandler } from '../../apiHandler';
@@ -382,16 +382,37 @@ export const CRHome = () => {
         <h2 className={styles.sectionTitle}>Explore More Options</h2>
         <div className={styles.explorationLinks}>
           <Link to="/institute" className={styles.explorationCard}>
-            <h3>Explore Colleges</h3>
-            <p>Discover top institutions and find your perfect fit</p>
+            <div className={styles.cardContent}>
+              <div>
+                <h3>Explore Colleges</h3>
+                <p>Discover top institutions and find your perfect fit</p>
+              </div>
+              <span className={styles.arrowButton}>
+                <FaChevronRight />
+              </span>
+            </div>
           </Link>
           <Link to="/entrance-test-details" className={styles.explorationCard}>
-            <h3>Explore Entrance Exams</h3>
-            <p>Learn about important entrance tests and preparation tips</p>
+            <div className={styles.cardContent}>
+              <div>
+                <h3>Explore Entrance Exams</h3>
+                <p>Learn about important entrance tests and preparation tips</p>
+              </div>
+              <span className={styles.arrowButton}>
+                <FaChevronRight />
+              </span>
+            </div>
           </Link>
           <Link to="/dashboard/career-options/summary" className={styles.explorationCard}>
-            <h3>Explore Career Options</h3>
-            <p>Research various career paths and opportunities</p>
+            <div className={styles.cardContent}>
+              <div>
+                <h3>Explore Career Options</h3>
+                <p>Research various career paths and opportunities</p>
+              </div>
+              <span className={styles.arrowButton}>
+                <FaChevronRight />
+              </span>
+            </div>
           </Link>
         </div>
       </div>

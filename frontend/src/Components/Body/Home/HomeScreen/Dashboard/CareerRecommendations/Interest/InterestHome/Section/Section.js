@@ -34,15 +34,15 @@ export const Section = () => {
                     <h3>{questionData.question}</h3>
                     <Form.Group className="options">
                         {questionData.options.map((option) => (
-                            <Form.Check
-                                key={option.id}
-                                type="radio"
-                                id={option.id}
-                                className="option"
-                                label={option.label}
-                                name="education"
-                                value={option.value}
-                            />
+                            <div key={option.id} className="option">
+                                <Form.Check
+                                    type="radio"
+                                    id={option.id}
+                                    label={option.label}
+                                    name="education"
+                                    value={option.value}
+                                />
+                            </div>
                         ))}
                     </Form.Group>
                 </div>
