@@ -48,6 +48,20 @@ export const Question = ({ questions, setUserAnswer, setTimeDuration }) => {
     navigate(`/quiz/${id}/result`);
   };
 
+  const handlePrevious = () => {
+    if (currentQuestion > 0) {
+      setCurrentQuestion(currentQuestion - 1);
+      setSelectedAnswer(null);
+    }
+  };
+
+  const handleSkip = () => {
+    if (currentQuestion < questions.length - 1) {
+      setCurrentQuestion(currentQuestion + 1);
+      setSelectedAnswer(null);
+    }
+  };
+
   if (questions.length === 0) {
     return <h1>No Questions Found</h1>;
   }
@@ -102,15 +116,34 @@ export const Question = ({ questions, setUserAnswer, setTimeDuration }) => {
             </Card.Body>
 
             <Card.Footer className="question-footer">
-              <Button
-                variant="primary"
-                className="next-button"
-                onClick={handleNext}
-              >
-                {currentQuestion === questions.length - 1
-                  ? "Finish Quiz"
-                  : "Next"}
-              </Button>
+              <div className="button-group">
+                <Button
+                  variant="primary"
+                  className="nav-button"
+                  onClick={handlePrevious}
+                  disabled={currentQuestion === 0}
+                >
+                  Previous
+                </Button>
+                
+                <Button
+                  variant="primary"
+                  className="nav-button"
+                  onClick={handleSkip}
+                  disabled={currentQuestion === questions.length - 1 || selectedAnswer !== null}
+                >
+                  Skip
+                </Button>
+
+                <Button
+                  variant="primary"
+                  className="nav-button"
+                  onClick={handleNext}
+                  disabled={selectedAnswer === null}
+                >
+                  {currentQuestion === questions.length - 1 ? "Finish Quiz" : "Next"}
+                </Button>
+              </div>
             </Card.Footer>
           </>
         ) : (
