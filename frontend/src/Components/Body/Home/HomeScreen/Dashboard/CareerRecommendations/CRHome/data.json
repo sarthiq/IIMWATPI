@@ -1,0 +1,1087 @@
+{
+  "Common Personality Types": {
+    "The Leader": ["Extrovert", "Organized", "Emotionally Stable"],
+    "The Innovator": ["Introvert", "Organized", "Early Adopter"],
+    "The Caregiver": ["Altruist", "Emotional", "Organized"],
+    "The Strategist": ["Introvert", "Organized", "Emotionally Stable"],
+    "The Traditionalist": ["Rigid", "Self-Centered", "Unorganized"],
+    "The Free Spirit": ["Extrovert", "Unorganized", "Early Adopter"]
+  },
+  "Career Recommendations": [
+    {
+      "Field": "STEM (Science, Technology, Engineering, and Mathematics)",
+      "Tables": [
+        {
+          "IQ Range": [120,1000],
+          "Personality Cluster": "The Innovator",
+          "Recommended Field of Study": "Artificial Intelligence & Robotics",
+          "Relevant Courses": "BTech AI & ML, BTech Robotics, MSc AI",
+          "Potential Career Pathways": "AI Engineer, Robotics Engineer, Data Scientist"
+        },
+        {
+          "IQ Range": [120,1000],
+          "Personality Cluster": "The Analytical Thinker",
+          "Recommended Field of Study": "Theoretical Physics & Mathematics",
+          "Relevant Courses": "BSc Physics, BSc Mathematics, MSc Theoretical Physics",
+          "Potential Career Pathways": "Research Scientist, Mathematician, Cryptographer"
+        },
+        {
+          "IQ Range": [120,1000],
+          "Personality Cluster": "The Practical Engineer",
+          "Recommended Field of Study": "Mechanical & Electrical Engineering",
+          "Relevant Courses": "BTech Mechanical, BTech Electrical, MTech",
+          "Potential Career Pathways": "Mechanical Engineer, Electrical Engineer, Automation Specialist"
+        },
+        {
+          "IQ Range": [120,1000],
+          "Personality Cluster": "The Visionary Leader",
+          "Recommended Field of Study": "Technology Management & Entrepreneurship",
+          "Relevant Courses": "BTech + MBA, MSc Innovation & Tech",
+          "Potential Career Pathways": "Tech Entrepreneur, CTO, Product Manager"
+        },
+        {
+          "IQ Range": [120,1000],
+          "Personality Cluster": "The Systematic Researcher",
+          "Recommended Field of Study": "Biotechnology & Biomedical Engineering",
+          "Relevant Courses": "BTech Biotech, BSc Microbiology, MSc Bioinformatics",
+          "Potential Career Pathways": "Biotechnologist, Biomedical Scientist, Genetic Engineer"
+        },
+        {
+          "IQ Range": [120,1000],
+          "Personality Cluster": "The Adaptive Problem-Solver",
+          "Recommended Field of Study": "Software Development & Cybersecurity",
+          "Relevant Courses": "BTech CS, MSc Cybersecurity, Ethical Hacking Certification",
+          "Potential Career Pathways": "Software Engineer, Cybersecurity Analyst, Ethical Hacker"
+        },
+        {
+          "IQ Range": [100,120],
+          "Personality Cluster": "The Innovator",
+          "Recommended Field of Study": "Data Science & Analytics",
+          "Relevant Courses": "BSc Data Science, MSc Analytics",
+          "Potential Career Pathways": "Data Analyst, Business Intelligence Specialist"
+        },
+        {
+          "IQ Range": [100,120],
+          "Personality Cluster": "The Analytical Thinker",
+          "Recommended Field of Study": "Applied Physics & Electronics",
+          "Relevant Courses": "BTech Electronics, BSc Applied Physics",
+          "Potential Career Pathways": "Electronics Engineer, Research Associate"
+        },
+        {
+          "IQ Range": [100,120],
+          "Personality Cluster": "The Practical Engineer",
+          "Recommended Field of Study": "Civil & Structural Engineering",
+          "Relevant Courses": "BTech Civil, MSc Structural Engineering",
+          "Potential Career Pathways": "Civil Engineer, Construction Manager"
+        },
+        {
+          "IQ Range": [100,120],
+          "Personality Cluster": "The Visionary Leader",
+          "Recommended Field of Study": "IT & Digital Business",
+          "Relevant Courses": "BSc IT, MBA Digital Business",
+          "Potential Career Pathways": "IT Consultant, Business Analyst"
+        },
+        {
+          "IQ Range": [100,120],
+          "Personality Cluster": "The Systematic Researcher",
+          "Recommended Field of Study": "Environmental Science & Renewable Energy",
+          "Relevant Courses": "BSc Environmental Science, MSc Renewable Energy",
+          "Potential Career Pathways": "Environmental Scientist, Sustainability Consultant"
+        },
+        {
+          "IQ Range": [100,120],
+          "Personality Cluster": "The Adaptive Problem-Solver",
+          "Recommended Field of Study": "Software Development & Web Technologies",
+          "Relevant Courses": "BSc CS, Diploma in Web Development",
+          "Potential Career Pathways": "Software Developer, Web Developer"
+        },
+        {
+          "IQ Range": [90,100],
+          "Personality Cluster": "The Innovator",
+          "Recommended Field of Study": "Computer Networking & IT Support",
+          "Relevant Courses": "Diploma in IT, BSc Networking",
+          "Potential Career Pathways": "IT Support Specialist, Network Engineer"
+        },
+        {
+          "IQ Range": [90,100],
+          "Personality Cluster": "The Analytical Thinker",
+          "Recommended Field of Study": "Technical & Industrial Training",
+          "Relevant Courses": "Diploma in Engineering, ITI Certification",
+          "Potential Career Pathways": "Industrial Technician, Maintenance Engineer"
+        },
+        {
+          "IQ Range": [90,100],
+          "Personality Cluster": "The Practical Engineer",
+          "Recommended Field of Study": "Mechanical & Electrical Technician",
+          "Relevant Courses": "Diploma in Mechanical, Electrical Training",
+          "Potential Career Pathways": "Technical Support Engineer, Maintenance Specialist"
+        },
+        {
+          "IQ Range": [90,100],
+          "Personality Cluster": "The Visionary Leader",
+          "Recommended Field of Study": "Business & Tech Management",
+          "Relevant Courses": "BBA IT, Digital Marketing Certification",
+          "Potential Career Pathways": "IT Project Manager, Tech Entrepreneur"
+        },
+        {
+          "IQ Range": [90,100],
+          "Personality Cluster": "The Systematic Researcher",
+          "Recommended Field of Study": "Quality Assurance & Testing",
+          "Relevant Courses": "Diploma in QA Testing, Software Testing Course",
+          "Potential Career Pathways": "QA Tester, Product Inspector"
+        },
+        {
+          "IQ Range": [90,100],
+          "Personality Cluster": "The Adaptive Problem-Solver",
+          "Recommended Field of Study": "Computer Applications & Multimedia",
+          "Relevant Courses": "Diploma in Computer Applications, BCA",
+          "Potential Career Pathways": "UI/UX Designer, Multimedia Developer"
+        },
+        {
+          "IQ Range": [80,90],
+          "Personality Cluster": "The Innovator",
+          "Recommended Field of Study": "IT Support & Technical Assistance",
+          "Relevant Courses": "Certificate in IT Support, Diploma in Hardware",
+          "Potential Career Pathways": "IT Helpdesk, Technical Assistant"
+        },
+        {
+          "IQ Range": [80,90],
+          "Personality Cluster": "The Analytical Thinker",
+          "Recommended Field of Study": "Industrial & Mechanical Work",
+          "Relevant Courses": "ITI Certification, Diploma in Welding",
+          "Potential Career Pathways": "Industrial Technician, Manufacturing Worker"
+        },
+        {
+          "IQ Range": [80,90],
+          "Personality Cluster": "The Practical Engineer",
+          "Recommended Field of Study": "Electrical & Plumbing",
+          "Relevant Courses": "ITI Electrician, Diploma in Plumbing",
+          "Potential Career Pathways": "Electrician, Plumber"
+        },
+        {
+          "IQ Range": [80,90],
+          "Personality Cluster": "The Visionary Leader",
+          "Recommended Field of Study": "Retail & Technology Support",
+          "Relevant Courses": "Diploma in E-commerce, IT Retail Training",
+          "Potential Career Pathways": "Retail Tech Manager, Customer Support Specialist"
+        },
+        {
+          "IQ Range": [80,90],
+          "Personality Cluster": "The Systematic Researcher",
+          "Recommended Field of Study": "Lab Assistance & Instrumentation",
+          "Relevant Courses": "Certificate in Lab Tech, ITI Instrumentation",
+          "Potential Career Pathways": "Lab Technician, Instrumentation Assistant"
+        },
+        {
+          "IQ Range": [80,90],
+          "Personality Cluster": "The Adaptive Problem-Solver",
+          "Recommended Field of Study": "Basic Software & Digital Skills",
+          "Relevant Courses": "Certificate in Digital Skills, Office Automation",
+          "Potential Career Pathways": "Office Assistant, Data Entry Operator"
+        },
+        {
+          "IQ Range": [0,80],
+          "Personality Cluster": "The Innovator",
+          "Recommended Field of Study": "Basic IT & Computer Literacy",
+          "Relevant Courses": "Certificate in IT Literacy",
+          "Potential Career Pathways": "Data Entry Clerk, Office Assistant"
+        },
+        {
+          "IQ Range": [0,80],
+          "Personality Cluster": "The Analytical Thinker",
+          "Recommended Field of Study": "Mechanical & Technical Assistance",
+          "Relevant Courses": "ITI Fitter, Certificate in Technical Work",
+          "Potential Career Pathways": "Factory Worker, Machine Operator"
+        },
+        {
+          "IQ Range": [0,80],
+          "Personality Cluster": "The Practical Engineer",
+          "Recommended Field of Study": "Electrical & Home Appliances Repair",
+          "Relevant Courses": "ITI Electrician, Diploma in Home Repair",
+          "Potential Career Pathways": "Appliance Repair Technician, Electrical Assistant"
+        },
+        {
+          "IQ Range": [0,80],
+          "Personality Cluster": "The Visionary Leader",
+          "Recommended Field of Study": "Small Business & Retail",
+          "Relevant Courses": "Certificate in Entrepreneurship, Retail Management",
+          "Potential Career Pathways": "Small Business Owner, Shop Manager"
+        },
+        {
+          "IQ Range": [0,80],
+          "Personality Cluster": "The Systematic Researcher",
+          "Recommended Field of Study": "Machine Operation & Manufacturing",
+          "Relevant Courses": "ITI Machine Operator, Diploma in Manufacturing",
+          "Potential Career Pathways": "Machine Operator, Assembly Line Worker"
+        },
+        {
+          "IQ Range": [0,80],
+          "Personality Cluster": "The Adaptive Problem-Solver",
+          "Recommended Field of Study": "Basic Computer Applications",
+          "Relevant Courses": "Certificate in Office Automation",
+          "Potential Career Pathways": "Office Assistant, Entry-Level IT Support"
+        }
+      ]
+    },
+
+    {
+      "Medical, Healthcare, and Life Sciences": [
+        {
+          "IQ Range": [120,1000],
+          "Personality Cluster": "The Innovator",
+          "Recommended Field of Study": "Medical Research & Biotechnology",
+          "Relevant Courses": "MBBS + PhD, BSc Biotechnology, MSc Bioinformatics",
+          "Potential Career Pathways": "Medical Researcher, Biotechnologist, Genetic Engineer"
+        },
+        {
+          "IQ Range": [120,1000],
+          "Personality Cluster": "The Analytical Thinker",
+          "Recommended Field of Study": "Medicine & Surgery",
+          "Relevant Courses": "MBBS, MS, MD",
+          "Potential Career Pathways": "Surgeon, Physician, Medical Specialist"
+        },
+        {
+          "IQ Range": [120,1000],
+          "Personality Cluster": "The Practical Healer",
+          "Recommended Field of Study": "Pharmacy & Pharmacology",
+          "Relevant Courses": "BPharm, MPharm, PharmD",
+          "Potential Career Pathways": "Pharmacist, Clinical Researcher, Toxicologist"
+        },
+        {
+          "IQ Range": [120,1000],
+          "Personality Cluster": "The Visionary Leader",
+          "Recommended Field of Study": "Healthcare Management & Policy",
+          "Relevant Courses": "BHA (Bachelor of Healthcare Administration), MBA Healthcare",
+          "Potential Career Pathways": "Hospital Administrator, Healthcare Consultant, Policy Maker"
+        },
+        {
+          "IQ Range": [120,1000],
+          "Personality Cluster": "The Systematic Researcher",
+          "Recommended Field of Study": "Neuroscience & Mental Health",
+          "Relevant Courses": "BSc Neuroscience, MSc Clinical Psychology",
+          "Potential Career Pathways": "Neuroscientist, Psychiatrist, Clinical Psychologist"
+        },
+        {
+          "IQ Range": [120,1000],
+          "Personality Cluster": "The Adaptive Problem-Solver",
+          "Recommended Field of Study": "Biomedical Engineering & Technology",
+          "Relevant Courses": "BTech Biomedical, MSc Medical Electronics",
+          "Potential Career Pathways": "Biomedical Engineer, Medical Device Designer"
+        },
+        {
+          "IQ Range": [100,120],
+          "Personality Cluster": "The Innovator",
+          "Recommended Field of Study": "Public Health & Epidemiology",
+          "Relevant Courses": "BSc Public Health, MSc Epidemiology",
+          "Potential Career Pathways": "Epidemiologist, Public Health Officer"
+        },
+        {
+          "IQ Range": [100,120],
+          "Personality Cluster": "The Analytical Thinker",
+          "Recommended Field of Study": "Dentistry & Oral Health",
+          "Relevant Courses": "BDS, MDS",
+          "Potential Career Pathways": "Dentist, Orthodontist, Oral Surgeon"
+        },
+        {
+          "IQ Range": [100,120],
+          "Personality Cluster": "The Practical Healer",
+          "Recommended Field of Study": "Nursing & Patient Care",
+          "Relevant Courses": "BSc Nursing, MSc Nursing",
+          "Potential Career Pathways": "Nurse, Critical Care Specialist"
+        },
+        {
+          "IQ Range": [100,120],
+          "Personality Cluster": "The Visionary Leader",
+          "Recommended Field of Study": "Alternative Medicine & Holistic Healing",
+          "Relevant Courses": "BAMS, BHMS, BNYS",
+          "Potential Career Pathways": "Ayurveda Doctor, Homeopathic Practitioner, Naturopath"
+        },
+        {
+          "IQ Range": [100,120],
+          "Personality Cluster": "The Systematic Researcher",
+          "Recommended Field of Study": "Clinical Laboratory Science",
+          "Relevant Courses": "BMLT, MSc Clinical Lab Science",
+          "Potential Career Pathways": "Medical Lab Technologist, Pathologist"
+        },
+        {
+          "IQ Range": [100,120],
+          "Personality Cluster": "The Adaptive Problem-Solver",
+          "Recommended Field of Study": "Nutrition & Dietetics",
+          "Relevant Courses": "BSc Nutrition, MSc Clinical Dietetics",
+          "Potential Career Pathways": "Dietitian, Nutritionist, Health Coach"
+        },
+        {
+          "IQ Range": [90,100],
+          "Personality Cluster": "The Innovator",
+          "Recommended Field of Study": "Radiology & Medical Imaging",
+          "Relevant Courses": "BSc Radiology, MSc Medical Imaging",
+          "Potential Career Pathways": "Radiologist, MRI/CT Technician"
+        },
+        {
+          "IQ Range": [90,100],
+          "Personality Cluster": "The Analytical Thinker",
+          "Recommended Field of Study": "Physiotherapy & Rehabilitation",
+          "Relevant Courses": "BPT, MPT",
+          "Potential Career Pathways": "Physiotherapist, Rehabilitation Specialist"
+        },
+        {
+          "IQ Range": [90,100],
+          "Personality Cluster": "The Practical Healer",
+          "Recommended Field of Study": "Medical Assistance & Healthcare Support",
+          "Relevant Courses": "Diploma in Medical Assistance, Certificate in Healthcare Support",
+          "Potential Career Pathways": "Medical Assistant, Healthcare Aide"
+        },
+        {
+          "IQ Range": [90,100],
+          "Personality Cluster": "The Visionary Leader",
+          "Recommended Field of Study": "Health Informatics & Medical Coding",
+          "Relevant Courses": "BSc Health Informatics, Diploma in Medical Coding",
+          "Potential Career Pathways": "Health Information Specialist, Medical Coder"
+        },
+        {
+          "IQ Range": [90,100],
+          "Personality Cluster": "The Systematic Researcher",
+          "Recommended Field of Study": "Veterinary Science",
+          "Relevant Courses": "BVSc, MVSc",
+          "Potential Career Pathways": "Veterinarian, Animal Healthcare Specialist"
+        },
+        {
+          "IQ Range": [90,100],
+          "Personality Cluster": "The Adaptive Problem-Solver",
+          "Recommended Field of Study": "Occupational Therapy & Disability Support",
+          "Relevant Courses": "BOT, MSc Occupational Therapy",
+          "Potential Career Pathways": "Occupational Therapist, Disability Support Worker"
+        },
+        {
+          "IQ Range": [80,90],
+          "Personality Cluster": "The Innovator",
+          "Recommended Field of Study": "Medical Equipment Operation",
+          "Relevant Courses": "Diploma in Medical Equipment Technology, Certificate in Medical Equipment Maintenance",
+          "Potential Career Pathways": "Medical Equipment Technician"
+        },
+        {
+          "IQ Range": [80,90],
+          "Personality Cluster": "The Analytical Thinker",
+          "Recommended Field of Study": "Home Healthcare & Elderly Care",
+          "Relevant Courses": "Certificate in Geriatric Care, Diploma in Home Nursing",
+          "Potential Career Pathways": "Caregiver, Elderly Care Specialist"
+        },
+        {
+          "IQ Range": [80,90],
+          "Personality Cluster": "The Practical Healer",
+          "Recommended Field of Study": "Paramedical Sciences",
+          "Relevant Courses": "Diploma in Paramedical Sciences, Emergency Medical Technician (EMT) Certification",
+          "Potential Career Pathways": "Paramedic, EMT, Ambulance Technician"
+        },
+        {
+          "IQ Range": [80,90],
+          "Personality Cluster": "The Visionary Leader",
+          "Recommended Field of Study": "Hospital & Healthcare Support Services",
+          "Relevant Courses": "Diploma in Hospital Administration, Certificate in Healthcare Support",
+          "Potential Career Pathways": "Hospital Receptionist, Healthcare Coordinator"
+        },
+        {
+          "IQ Range": [80,90],
+          "Personality Cluster": "The Systematic Researcher",
+          "Recommended Field of Study": "Medical Record Keeping & Billing",
+          "Relevant Courses": "Certificate in Medical Billing & Coding",
+          "Potential Career Pathways": "Medical Biller, Health Records Manager"
+        },
+        {
+          "IQ Range": [80,90],
+          "Personality Cluster": "The Adaptive Problem-Solver",
+          "Recommended Field of Study": "Community Health & First Aid",
+          "Relevant Courses": "Certificate in Community Health Work, Diploma in First Aid Training",
+          "Potential Career Pathways": "Community Health Worker, First Aid Trainer"
+        },
+        {
+          "IQ Range": [0,80],
+          "Personality Cluster": "The Innovator",
+          "Recommended Field of Study": "Basic Healthcare Assistance",
+          "Relevant Courses": "Certificate in Basic Healthcare Support",
+          "Potential Career Pathways": "Hospital Attendant, Ward Assistant"
+        },
+        {
+          "IQ Range": [0,80],
+          "Personality Cluster": "The Analytical Thinker",
+          "Recommended Field of Study": "Home & Patient Care Assistance",
+          "Relevant Courses": "Certificate in Home Nursing, Diploma in Caregiving",
+          "Potential Career Pathways": "Home Nurse, Personal Care Assistant"
+        },
+        {
+          "IQ Range": [0,80],
+          "Personality Cluster": "The Practical Healer",
+          "Recommended Field of Study": "Healthcare Facility Maintenance",
+          "Relevant Courses": "Certificate in Hospital Support Services",
+          "Potential Career Pathways": "Hospital Cleaner, Equipment Maintenance Worker"
+        },
+        {
+          "IQ Range": [0,80],
+          "Personality Cluster": "The Visionary Leader",
+          "Recommended Field of Study": "Community Health Outreach",
+          "Relevant Courses": "Certificate in Health Outreach Programs",
+          "Potential Career Pathways": "Health Promoter, Community Health Aide"
+        },
+        {
+          "IQ Range": [0,80],
+          "Personality Cluster": "The Systematic Researcher",
+          "Recommended Field of Study": "Basic Laboratory Assistance",
+          "Relevant Courses": "Certificate in Lab Support",
+          "Potential Career Pathways": "Lab Helper, Medical Lab Assistant"
+        },
+        {
+          "IQ Range": [0,80],
+          "Personality Cluster": "The Adaptive Problem-Solver",
+          "Recommended Field of Study": "First Aid & Safety Training",
+          "Relevant Courses": "Basic First Aid Certification",
+          "Potential Career Pathways": "First Aid Responder, Safety Assistant"
+        }
+      ]
+    },
+
+    {
+      "Business, Economics, and Finance": [
+        {
+          "IQ Range": [120,1000],
+          "Personality Cluster": "The Strategic Visionary",
+          "Recommended Field of Study": "Business Strategy & Management",
+          "Relevant Courses": "BBA, MBA Strategy, MSc Business Analytics",
+          "Potential Career Pathways": "Management Consultant, Business Strategist, Corporate Executive"
+        },
+        {
+          "IQ Range": [120,1000],
+          "Personality Cluster": "The Financial Analyst",
+          "Recommended Field of Study": "Finance & Investment",
+          "Relevant Courses": "BCom Finance, CFA, MSc Financial Engineering",
+          "Potential Career Pathways": "Investment Banker, Financial Analyst, Portfolio Manager"
+        },
+        {
+          "IQ Range": [120,1000],
+          "Personality Cluster": "The Entrepreneurial Leader",
+          "Recommended Field of Study": "Entrepreneurship & Startups",
+          "Relevant Courses": "BBA Entrepreneurship, MBA Innovation",
+          "Potential Career Pathways": "Entrepreneur, Startup Founder, Business Development Manager"
+        },
+        {
+          "IQ Range": [120,1000],
+          "Personality Cluster": "The Market Disruptor",
+          "Recommended Field of Study": "Marketing & Brand Management",
+          "Relevant Courses": "BBA Marketing, MBA Digital Marketing",
+          "Potential Career Pathways": "Marketing Manager, Brand Strategist, Digital Marketing Expert"
+        },
+        {
+          "IQ Range": [120,1000],
+          "Personality Cluster": "The Policy Expert",
+          "Recommended Field of Study": "Economics & Public Policy",
+          "Relevant Courses": "BA Economics, MSc Development Economics",
+          "Potential Career Pathways": "Economist, Policy Analyst, Economic Consultant"
+        },
+        {
+          "IQ Range": [120,1000],
+          "Personality Cluster": "The Analytical Planner",
+          "Recommended Field of Study": "Accounting & Auditing",
+          "Relevant Courses": "BCom Accounting, CA, CPA",
+          "Potential Career Pathways": "Chartered Accountant, Auditor, Forensic Accountant"
+        },
+        {
+          "IQ Range": [100,120],
+          "Personality Cluster": "The Strategic Visionary",
+          "Recommended Field of Study": "Business Administration & Operations",
+          "Relevant Courses": "BBA, PG Diploma in Operations Management",
+          "Potential Career Pathways": "Business Administrator, Operations Manager"
+        },
+        {
+          "IQ Range": [100,120],
+          "Personality Cluster": "The Financial Analyst",
+          "Recommended Field of Study": "Banking & Financial Services",
+          "Relevant Courses": "BCom Banking, Diploma in Financial Planning",
+          "Potential Career Pathways": "Banker, Financial Planner, Loan Officer"
+        },
+        {
+          "IQ Range": [100,120],
+          "Personality Cluster": "The Entrepreneurial Leader",
+          "Recommended Field of Study": "Small Business & Retail Management",
+          "Relevant Courses": "Diploma in Retail Management, BBA Small Business",
+          "Potential Career Pathways": "Retail Manager, Small Business Owner"
+        },
+        {
+          "IQ Range": [100,120],
+          "Personality Cluster": "The Market Disruptor",
+          "Recommended Field of Study": "Advertising & Sales",
+          "Relevant Courses": "BA Advertising, MBA Sales & Distribution",
+          "Potential Career Pathways": "Sales Manager, Advertising Executive, PR Specialist"
+        },
+        {
+          "IQ Range": [100,120],
+          "Personality Cluster": "The Policy Expert",
+          "Recommended Field of Study": "Development Economics & Trade",
+          "Relevant Courses": "BA International Economics, MSc Trade Policy",
+          "Potential Career Pathways": "Trade Analyst, Development Consultant, Economist"
+        },
+        {
+          "IQ Range": [100,120],
+          "Personality Cluster": "The Analytical Planner",
+          "Recommended Field of Study": "Corporate Law & Compliance",
+          "Relevant Courses": "LLB Corporate Law, MSc Compliance",
+          "Potential Career Pathways": "Corporate Lawyer, Compliance Officer, Legal Consultant"
+        },
+        {
+          "IQ Range": [90,100],
+          "Personality Cluster": "The Strategic Visionary",
+          "Recommended Field of Study": "Business Support Services",
+          "Relevant Courses": "Diploma in Business Administration, BCom",
+          "Potential Career Pathways": "Administrative Manager, Office Supervisor"
+        },
+        {
+          "IQ Range": [90,100],
+          "Personality Cluster": "The Financial Analyst",
+          "Recommended Field of Study": "Accounting & Taxation",
+          "Relevant Courses": "Diploma in Taxation, BCom Taxation",
+          "Potential Career Pathways": "Tax Consultant, Accountant, Payroll Specialist"
+        },
+        {
+          "IQ Range": [90,100],
+          "Personality Cluster": "The Entrepreneurial Leader",
+          "Recommended Field of Study": "Retail & Customer Service",
+          "Relevant Courses": "Certificate in Retail Management, BBA Service Management",
+          "Potential Career Pathways": "Retail Supervisor, Customer Service Manager"
+        },
+        {
+          "IQ Range": [90,100],
+          "Personality Cluster": "The Market Disruptor",
+          "Recommended Field of Study": "Sales & E-commerce",
+          "Relevant Courses": "Diploma in Digital Marketing, BBA E-commerce",
+          "Potential Career Pathways": "Sales Executive, E-commerce Manager"
+        },
+        {
+          "IQ Range": [90,100],
+          "Personality Cluster": "The Policy Expert",
+          "Recommended Field of Study": "Economic Policy & Administration",
+          "Relevant Courses": "Diploma in Public Administration, BA Economics",
+          "Potential Career Pathways": "Economic Research Assistant, Public Administration Officer"
+        },
+        {
+          "IQ Range": [90,100],
+          "Personality Cluster": "The Analytical Planner",
+          "Recommended Field of Study": "Business Process Outsourcing (BPO)",
+          "Relevant Courses": "Certificate in BPO Management, Diploma in Call Center Operations",
+          "Potential Career Pathways": "BPO Executive, Call Center Manager"
+        },
+        {
+          "IQ Range": [80,90],
+          "Personality Cluster": "The Strategic Visionary",
+          "Recommended Field of Study": "Office & Administrative Support",
+          "Relevant Courses": "Certificate in Office Management, Diploma in Clerical Work",
+          "Potential Career Pathways": "Office Assistant, Administrative Clerk"
+        },
+        {
+          "IQ Range": [80,90],
+          "Personality Cluster": "The Financial Analyst",
+          "Recommended Field of Study": "Basic Accounting & Billing",
+          "Relevant Courses": "Certificate in Bookkeeping, Diploma in Accounts Assistance",
+          "Potential Career Pathways": "Bookkeeping Assistant, Accounts Clerk"
+        },
+        {
+          "IQ Range": [80,90],
+          "Personality Cluster": "The Entrepreneurial Leader",
+          "Recommended Field of Study": "Small-Scale Entrepreneurship",
+          "Relevant Courses": "Certificate in Entrepreneurship, Diploma in Small Business",
+          "Potential Career Pathways": "Shop Owner, Independent Business Operator"
+        },
+        {
+          "IQ Range": [80,90],
+          "Personality Cluster": "The Market Disruptor",
+          "Recommended Field of Study": "Sales & Customer Relations",
+          "Relevant Courses": "Certificate in Customer Service, Diploma in Sales Techniques",
+          "Potential Career Pathways": "Customer Service Representative, Sales Associate"
+        },
+        {
+          "IQ Range": [80,90],
+          "Personality Cluster": "The Policy Expert",
+          "Recommended Field of Study": "Trade & Logistics Support",
+          "Relevant Courses": "Certificate in Supply Chain, Diploma in Import-Export",
+          "Potential Career Pathways": "Logistics Assistant, Trade Coordinator"
+        },
+        {
+          "IQ Range": [80,90],
+          "Personality Cluster": "The Analytical Planner",
+          "Recommended Field of Study": "Entry-Level Banking & Finance",
+          "Relevant Courses": "Certificate in Banking",
+          "Potential Career Pathways": "Bank Teller, Finance Assistant"
+        },
+        {
+          "IQ Range": [0,80],
+          "Personality Cluster": "The Strategic Visionary",
+          "Recommended Field of Study": "Basic Office Skills",
+          "Relevant Courses": "Certificate in Office Basics",
+          "Potential Career Pathways": "Office Helper, Messenger"
+        },
+        {
+          "IQ Range": [0,80],
+          "Personality Cluster": "The Financial Analyst",
+          "Recommended Field of Study": "Entry-Level Accounting",
+          "Relevant Courses": "Certificate in Basic Accounting",
+          "Potential Career Pathways": "Accounts Assistant, Billing Clerk"
+        },
+        {
+          "IQ Range": [0,80],
+          "Personality Cluster": "The Entrepreneurial Leader",
+          "Recommended Field of Study": "Basic Retailing",
+          "Relevant Courses": "Certificate in Retail Basics",
+          "Potential Career Pathways": "Shop Assistant, Sales Helper"
+        },
+        {
+          "IQ Range": [0,80],
+          "Personality Cluster": "The Market Disruptor",
+          "Recommended Field of Study": "Basic Sales Skills",
+          "Relevant Courses": "Certificate in Sales Techniques",
+          "Potential Career Pathways": "Sales Helper, Counter Staff"
+        },
+        {
+          "IQ Range": [0,80],
+          "Personality Cluster": "The Policy Expert",
+          "Recommended Field of Study": "Basic Office Administration",
+          "Relevant Courses": "Certificate in Office Administration",
+          "Potential Career Pathways": "Office Assistant, Data Entry Clerk"
+        },
+        {
+          "IQ Range": [0,80],
+          "Personality Cluster": "The Analytical Planner",
+          "Recommended Field of Study": "Entry-Level Finance",
+          "Relevant Courses": "Certificate in Basic Finance",
+          "Potential Career Pathways": "Finance Helper, Cashier Assistant"
+        }
+      ]
+    },
+    
+    {
+      "Social Sciences, Humanities, and Political Studies": [
+        {
+          "IQ Range": [120,1000],
+          "Personality Cluster": "The Creative Visionary",
+          "Recommended Field of Study": "Literature & Creative Writing",
+          "Relevant Courses": "BA English Literature, MFA Creative Writing",
+          "Potential Career Pathways": "Author, Poet, Screenwriter"
+        },
+        {
+          "IQ Range": [120,1000],
+          "Personality Cluster": "The Storyteller",
+          "Recommended Field of Study": "Journalism & Media Studies",
+          "Relevant Courses": "BA Journalism, MA Mass Communication",
+          "Potential Career Pathways": "Journalist, Editor, Broadcaster"
+        },
+        {
+          "IQ Range": [120,1000],
+          "Personality Cluster": "The Media Strategist",
+          "Recommended Field of Study": "Communication & Public Relations",
+          "Relevant Courses": "BA Communication Studies, MA Public Relations",
+          "Potential Career Pathways": "Public Relations Specialist, Communication Manager"
+        },
+        {
+          "IQ Range": [120,1000],
+          "Personality Cluster": "The Cultural Communicator",
+          "Recommended Field of Study": "Sociology & Anthropology",
+          "Relevant Courses": "BA Sociology, MA Anthropology",
+          "Potential Career Pathways": "Sociologist, Anthropologist, Cultural Researcher"
+        },
+        {
+          "IQ Range": [120,1000],
+          "Personality Cluster": "The Performing Artist",
+          "Recommended Field of Study": "Fine Arts & Performing Arts",
+          "Relevant Courses": "BFA, MFA, BA Theatre Arts",
+          "Potential Career Pathways": "Actor, Musician, Visual Artist"
+        },
+        {
+          "IQ Range": [120,1000],
+          "Personality Cluster": "The Philosophical Thinker",
+          "Recommended Field of Study": "Philosophy & Ethics",
+          "Relevant Courses": "BA Philosophy, MA Applied Ethics",
+          "Potential Career Pathways": "Philosopher, Ethicist, Academic"
+        },
+        {
+          "IQ Range": [100,120],
+          "Personality Cluster": "The Creative Visionary",
+          "Recommended Field of Study": "Digital Arts & Design",
+          "Relevant Courses": "BA Graphic Design, MA Digital Media",
+          "Potential Career Pathways": "Graphic Designer, Web Designer, Digital Artist"
+        },
+        {
+          "IQ Range": [100,120],
+          "Personality Cluster": "The Storyteller",
+          "Recommended Field of Study": "Film & Television Studies",
+          "Relevant Courses": "BA Film Studies, MA Screenwriting",
+          "Potential Career Pathways": "Filmmaker, Screenwriter, Film Critic"
+        },
+        {
+          "IQ Range": [100,120],
+          "Personality Cluster": "The Media Strategist",
+          "Recommended Field of Study": "Advertising & Marketing",
+          "Relevant Courses": "BA Advertising, MBA Marketing",
+          "Potential Career Pathways": "Advertising Executive, Marketing Manager"
+        },
+        {
+          "IQ Range": [100,120],
+          "Personality Cluster": "The Cultural Communicator",
+          "Recommended Field of Study": "History & Archaeology",
+          "Relevant Courses": "BA History, MA Archaeology",
+          "Potential Career Pathways": "Historian, Archaeologist, Archivist"
+        },
+        {
+          "IQ Range": [100,120],
+          "Personality Cluster": "The Performing Artist",
+          "Recommended Field of Study": "Music & Dance",
+          "Relevant Courses": "BA Music, MA Dance",
+          "Potential Career Pathways": "Musician, Dancer, Choreographer"
+        },
+        {
+          "IQ Range": [100,120],
+          "Personality Cluster": "The Philosophical Thinker",
+          "Recommended Field of Study": "Political Science & International Relations",
+          "Relevant Courses": "BA Political Science, MA International Relations",
+          "Potential Career Pathways": "Political Analyst, Diplomat, Policy Advisor"
+        },
+        {
+          "IQ Range": [90,100],
+          "Personality Cluster": "The Creative Visionary",
+          "Recommended Field of Study": "Visual Arts & Crafts",
+          "Relevant Courses": "BA Fine Arts, Diploma in Crafts",
+          "Potential Career Pathways": "Painter, Sculptor, Craftsperson"
+        },
+        {
+          "IQ Range": [90,100],
+          "Personality Cluster": "The Storyteller",
+          "Recommended Field of Study": "Creative Writing & Content Creation",
+          "Relevant Courses": "BA Creative Writing, Diploma in Content Writing",
+          "Potential Career Pathways": "Content Writer, Copywriter, Blogger"
+        },
+        {
+          "IQ Range": [90,100],
+          "Personality Cluster": "The Media Strategist",
+          "Recommended Field of Study": "Digital Marketing & Social Media",
+          "Relevant Courses": "BA Digital Marketing, Diploma in Social Media",
+          "Potential Career Pathways": "Digital Marketing Specialist, Social Media Coordinator"
+        },
+        {
+          "IQ Range": [90,100],
+          "Personality Cluster": "The Cultural Communicator",
+          "Recommended Field of Study": "Cultural Studies & Heritage Management",
+          "Relevant Courses": "BA Cultural Studies, MA Heritage Management",
+          "Potential Career Pathways": "Cultural Officer, Heritage Manager"
+        },
+        {
+          "IQ Range": [90,100],
+          "Personality Cluster": "The Performing Artist",
+          "Recommended Field of Study": "Drama & Theatre Arts",
+          "Relevant Courses": "BA Drama, Diploma in Theatre Arts",
+          "Potential Career Pathways": "Theatre Actor, Drama Teacher"
+        },
+        {
+          "IQ Range": [90,100],
+          "Personality Cluster": "The Philosophical Thinker",
+          "Recommended Field of Study": "Civic Studies & Community Development",
+          "Relevant Courses": "BA Civic Studies, MA Community Development",
+          "Potential Career Pathways": "Community Organizer, Social Worker"
+        },
+        {
+          "IQ Range": [80,90],
+          "Personality Cluster": "The Creative Visionary",
+          "Recommended Field of Study": "Applied Arts & Design",
+          "Relevant Courses": "Certificate in Graphic Design, Diploma in Applied Arts",
+          "Potential Career Pathways": "Design Assistant, Art Technician"
+        },
+        {
+          "IQ Range": [80,90],
+          "Personality Cluster": "The Storyteller",
+          "Recommended Field of Study": "Community Journalism & Storytelling",
+          "Relevant Courses": "Certificate in Community Journalism, Diploma in Storytelling",
+          "Potential Career Pathways": "Local Reporter, Community Blogger, Oral Storyteller"
+        },
+        {
+          "IQ Range": [80,90],
+          "Personality Cluster": "The Media Strategist",
+          "Recommended Field of Study": "Social Media Management",
+          "Relevant Courses": "Certificate in Social Media Marketing, Diploma in Digital Media",
+          "Potential Career Pathways": "Social Media Manager, Online Community Coordinator"
+        },
+        {
+          "IQ Range": [80,90],
+          "Personality Cluster": "The Cultural Communicator",
+          "Recommended Field of Study": "Theatre & Drama Therapy",
+          "Relevant Courses": "Diploma in Drama Therapy, BA Applied Theatre",
+          "Potential Career Pathways": "Drama Therapist, Theatre Coach, Performance Artist"
+        },
+        {
+          "IQ Range": [80,90],
+          "Personality Cluster": "The Performing Artist",
+          "Recommended Field of Study": "Local Music & Performance",
+          "Relevant Courses": "Certificate in Music Performance, Diploma in Ethnomusicology",
+          "Potential Career Pathways": "Street Performer, Local Musician, Music Educator"
+        },
+        {
+          "IQ Range": [80,90],
+          "Personality Cluster": "The Philosophical Thinker",
+          "Recommended Field of Study": "Basic Civic Engagement",
+          "Relevant Courses": "Certificate in Community Service",
+          "Potential Career Pathways": "Community Volunteer, Civic Engagement Worker"
+        },
+        {
+          "IQ Range": [0,80],
+          "Personality Cluster": "The Creative Visionary",
+          "Recommended Field of Study": "Basic Art & Crafts",
+          "Relevant Courses": "Certificate in Visual Arts",
+          "Potential Career Pathways": "Art Assistant, Craft Maker, Mural Painter"
+        },
+        {
+          "IQ Range": [0,80],
+          "Personality Cluster": "The Storyteller",
+          "Recommended Field of Study": "Local History & Folk Narratives",
+          "Relevant Courses": "Certificate in Oral Traditions",
+          "Potential Career Pathways": "Folk Storyteller, Heritage Guide, Cultural Narrator"
+        },
+        {
+          "IQ Range": [0,80],
+          "Personality Cluster": "The Media Strategist",
+          "Recommended Field of Study": "Entry-Level Multimedia & Digital Skills",
+          "Relevant Courses": "Certificate in Digital Media Basics",
+          "Potential Career Pathways": "Multimedia Assistant, Junior Content Creator"
+        },
+        {
+          "IQ Range": [0,80],
+          "Personality Cluster": "The Cultural Communicator",
+          "Recommended Field of Study": "Grassroots Cultural Advocacy",
+          "Relevant Courses": "Certificate in Community Cultural Work",
+          "Potential Career Pathways": "Cultural Worker, Local Arts Promoter"
+        },
+        {
+          "IQ Range": [0,80],
+          "Personality Cluster": "The Performing Artist",
+          "Recommended Field of Study": "Street Performance & Entertainment",
+          "Relevant Courses": "Certificate in Performing Arts",
+          "Potential Career Pathways": "Street Performer, Small-Scale Entertainer, Theatre Crew"
+        },
+        {
+          "IQ Range": [0,80],
+          "Personality Cluster": "The Philosophical Thinker",
+          "Recommended Field of Study": "Basic Community Support",
+          "Relevant Courses": "Certificate in Community Support",
+          "Potential Career Pathways": "Community Helper, Event Support Staff"
+        }
+      ]
+    },
+
+    {
+      "Arts, Media, and Communication": [
+        {
+          "IQ Range": [120,1000],
+          "Personality Cluster": "The Creative Visionary",
+          "Recommended Field of Study": "Literature & Creative Writing",
+          "Relevant Courses": "BA English Literature, MFA Creative Writing",
+          "Potential Career Pathways": "Author, Poet, Screenwriter"
+        },
+        {
+          "IQ Range": [120,1000],
+          "Personality Cluster": "The Storyteller",
+          "Recommended Field of Study": "Journalism & Media Studies",
+          "Relevant Courses": "BA Journalism, MA Mass Communication",
+          "Potential Career Pathways": "Journalist, Editor, Broadcaster"
+        },
+        {
+          "IQ Range": [120,1000],
+          "Personality Cluster": "The Media Strategist",
+          "Recommended Field of Study": "Communication & Public Relations",
+          "Relevant Courses": "BA Communication Studies, MA Public Relations",
+          "Potential Career Pathways": "Public Relations Specialist, Communication Manager"
+        },
+        {
+          "IQ Range": [120,1000],
+          "Personality Cluster": "The Cultural Communicator",
+          "Recommended Field of Study": "Sociology & Anthropology",
+          "Relevant Courses": "BA Sociology, MA Anthropology",
+          "Potential Career Pathways": "Sociologist, Anthropologist, Cultural Researcher"
+        },
+        {
+          "IQ Range": [120,1000],
+          "Personality Cluster": "The Performing Artist",
+          "Recommended Field of Study": "Fine Arts & Performing Arts",
+          "Relevant Courses": "BFA, MFA, BA Theatre Arts",
+          "Potential Career Pathways": "Actor, Musician, Visual Artist"
+        },
+        {
+          "IQ Range": [120,1000],
+          "Personality Cluster": "The Philosophical Thinker",
+          "Recommended Field of Study": "Philosophy & Ethics",
+          "Relevant Courses": "BA Philosophy, MA Applied Ethics",
+          "Potential Career Pathways": "Philosopher, Ethicist, Academic"
+        },
+        {
+          "IQ Range": [100,120],
+          "Personality Cluster": "The Creative Visionary",
+          "Recommended Field of Study": "Digital Arts & Design",
+          "Relevant Courses": "BA Graphic Design, MA Digital Media",
+          "Potential Career Pathways": "Graphic Designer, Web Designer, Digital Artist"
+        },
+        {
+          "IQ Range": [100,120],
+          "Personality Cluster": "The Storyteller",
+          "Recommended Field of Study": "Film & Television Studies",
+          "Relevant Courses": "BA Film Studies, MA Screenwriting",
+          "Potential Career Pathways": "Filmmaker, Screenwriter, Film Critic"
+        },
+        {
+          "IQ Range": [100,120],
+          "Personality Cluster": "The Media Strategist",
+          "Recommended Field of Study": "Advertising & Marketing",
+          "Relevant Courses": "BA Advertising, MBA Marketing",
+          "Potential Career Pathways": "Advertising Executive, Marketing Manager"
+        },
+        {
+          "IQ Range": [100,120],
+          "Personality Cluster": "The Cultural Communicator",
+          "Recommended Field of Study": "History & Archaeology",
+          "Relevant Courses": "BA History, MA Archaeology",
+          "Potential Career Pathways": "Historian, Archaeologist, Archivist"
+        },
+        {
+          "IQ Range": [100,120],
+          "Personality Cluster": "The Performing Artist",
+          "Recommended Field of Study": "Music & Dance",
+          "Relevant Courses": "BA Music, MA Dance",
+          "Potential Career Pathways": "Musician, Dancer, Choreographer"
+        },
+        {
+          "IQ Range": [100,120],
+          "Personality Cluster": "The Philosophical Thinker",
+          "Recommended Field of Study": "Political Science & International Relations",
+          "Relevant Courses": "BA Political Science, MA International Relations",
+          "Potential Career Pathways": "Political Analyst, Diplomat, Policy Advisor"
+        },
+        {
+          "IQ Range": [90,100],
+          "Personality Cluster": "The Creative Visionary",
+          "Recommended Field of Study": "Visual Arts & Crafts",
+          "Relevant Courses": "BA Fine Arts, Diploma in Crafts",
+          "Potential Career Pathways": "Painter, Sculptor, Craftsperson"
+        },
+        {
+          "IQ Range": [90,100],
+          "Personality Cluster": "The Storyteller",
+          "Recommended Field of Study": "Creative Writing & Content Creation",
+          "Relevant Courses": "BA Creative Writing, Diploma in Content Writing",
+          "Potential Career Pathways": "Content Writer, Copywriter, Blogger"
+        },
+        {
+          "IQ Range": [90,100],
+          "Personality Cluster": "The Media Strategist",
+          "Recommended Field of Study": "Digital Marketing & Social Media",
+          "Relevant Courses": "BA Digital Marketing, Diploma in Social Media",
+          "Potential Career Pathways": "Digital Marketing Specialist, Social Media Coordinator"
+        },
+        {
+          "IQ Range": [90,100],
+          "Personality Cluster": "The Cultural Communicator",
+          "Recommended Field of Study": "Cultural Studies & Heritage Management",
+          "Relevant Courses": "BA Cultural Studies, MA Heritage Management",
+          "Potential Career Pathways": "Cultural Officer, Heritage Manager"
+        },
+        {
+          "IQ Range": [90,100],
+          "Personality Cluster": "The Performing Artist",
+          "Recommended Field of Study": "Drama & Theatre Arts",
+          "Relevant Courses": "BA Drama, Diploma in Theatre Arts",
+          "Potential Career Pathways": "Theatre Actor, Drama Teacher"
+        },
+        {
+          "IQ Range": [90,100],
+          "Personality Cluster": "The Philosophical Thinker",
+          "Recommended Field of Study": "Civic Studies & Community Development",
+          "Relevant Courses": "BA Civic Studies, MA Community Development",
+          "Potential Career Pathways": "Community Organizer, Social Worker"
+        },
+        {
+          "IQ Range": [80,90],
+          "Personality Cluster": "The Creative Visionary",
+          "Recommended Field of Study": "Applied Arts & Design",
+          "Relevant Courses": "Certificate in Graphic Design, Diploma in Applied Arts",
+          "Potential Career Pathways": "Design Assistant, Art Technician"
+        },
+        {
+          "IQ Range": [80,90],
+          "Personality Cluster": "The Storyteller",
+          "Recommended Field of Study": "Community Journalism & Storytelling",
+          "Relevant Courses": "Certificate in Community Journalism, Diploma in Storytelling",
+          "Potential Career Pathways": "Local Reporter, Community Blogger, Oral Storyteller"
+        },
+        {
+          "IQ Range": [80,90],
+          "Personality Cluster": "The Media Strategist",
+          "Recommended Field of Study": "Social Media Management",
+          "Relevant Courses": "Certificate in Social Media Marketing, Diploma in Digital Media",
+          "Potential Career Pathways": "Social Media Manager, Online Community Coordinator"
+        },
+        {
+          "IQ Range": [80,90],
+          "Personality Cluster": "The Cultural Communicator",
+          "Recommended Field of Study": "Theatre & Drama Therapy",
+          "Relevant Courses": "Diploma in Drama Therapy, BA Applied Theatre",
+          "Potential Career Pathways": "Drama Therapist, Theatre Coach, Performance Artist"
+        },
+        {
+          "IQ Range": [80,90],
+          "Personality Cluster": "The Performing Artist",
+          "Recommended Field of Study": "Local Music & Performance",
+          "Relevant Courses": "Certificate in Music Performance, Diploma in Ethnomusicology",
+          "Potential Career Pathways": "Street Performer, Local Musician, Music Educator"
+        },
+        {
+          "IQ Range": [80,90],
+          "Personality Cluster": "The Philosophical Thinker",
+          "Recommended Field of Study": "Basic Civic Engagement",
+          "Relevant Courses": "Certificate in Community Service",
+          "Potential Career Pathways": "Community Volunteer, Civic Engagement Worker"
+        },
+        {
+          "IQ Range": [0,80],
+          "Personality Cluster": "The Creative Visionary",
+          "Recommended Field of Study": "Basic Art & Crafts",
+          "Relevant Courses": "Certificate in Visual Arts",
+          "Potential Career Pathways": "Art Assistant, Craft Maker, Mural Painter"
+        },
+        {
+          "IQ Range": [0,80],
+          "Personality Cluster": "The Storyteller",
+          "Recommended Field of Study": "Local History & Folk Narratives",
+          "Relevant Courses": "Certificate in Oral Traditions",
+          "Potential Career Pathways": "Folk Storyteller, Heritage Guide, Cultural Narrator"
+        },
+        {
+          "IQ Range": [0,80],
+          "Personality Cluster": "The Media Strategist",
+          "Recommended Field of Study": "Entry-Level Multimedia & Digital Skills",
+          "Relevant Courses": "Certificate in Digital Media Basics",
+          "Potential Career Pathways": "Multimedia Assistant, Junior Content Creator"
+        },
+        {
+          "IQ Range": [0,80],
+          "Personality Cluster": "The Cultural Communicator",
+          "Recommended Field of Study": "Grassroots Cultural Advocacy",
+          "Relevant Courses": "Certificate in Community Cultural Work",
+          "Potential Career Pathways": "Cultural Worker, Local Arts Promoter"
+        },
+        {
+          "IQ Range": [0,80],
+          "Personality Cluster": "The Performing Artist",
+          "Recommended Field of Study": "Street Performance & Entertainment",
+          "Relevant Courses": "Certificate in Performing Arts",
+          "Potential Career Pathways": "Street Performer, Small-Scale Entertainer, Theatre Crew"
+        },
+        {
+          "IQ Range": [0,80],
+          "Personality Cluster": "The Philosophical Thinker",
+          "Recommended Field of Study": "Basic Community Support",
+          "Relevant Courses": "Certificate in Community Support",
+          "Potential Career Pathways": "Community Helper, Event Support Staff"
+        }
+      ]
+    }
+  ]
+}
