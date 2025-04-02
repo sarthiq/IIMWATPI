@@ -49,7 +49,7 @@
 .careers-list {
     padding-left: 1.5rem;
     margin: 0;
-    min-width: 400px;
+    min-width: 300px;
 }
 
 .careers-list li {
@@ -58,7 +58,7 @@
 }
 
 .education-details {
-    max-width: 350px;
+    max-width: 400px;
 }
 
 .education-details p {
