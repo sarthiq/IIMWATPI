@@ -78,7 +78,7 @@ export const InstituteHome = () => {
           </thead>
           <tbody>
             {currentColleges.map((college, index) => (
-              <tr key={college.id} className="institute__table-row">
+              <tr key={index+1} className="institute__table-row">
                 <td className="institute__table-cell">{indexOfFirstCollege + index + 1}</td>
                 <td className="institute__table-cell">{college.name}</td>
                 <td className="institute__table-cell">

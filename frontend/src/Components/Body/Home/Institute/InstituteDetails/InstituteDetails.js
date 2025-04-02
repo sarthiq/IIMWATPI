@@ -28,19 +28,19 @@ export const InstituteDetails = () => {
                 <h4 className="inst-details-section-title">Rankings</h4>
                 <Table striped bordered hover className="inst-details-table">
                   <tbody>
-                    {college.rankings.nirf && (
+                    {college?.rankings?.nirf && (
                       <tr>
                         <td><strong>NIRF Ranking</strong></td>
                         <td>#{college.rankings.nirf}</td>
                       </tr>
                     )}
-                    {college.rankings.qsWorld && (
+                    {college?.rankings?.qsWorld && (
                       <tr>
                         <td><strong>QS World Ranking</strong></td>
                         <td>#{college.rankings.qsWorld}</td>
                       </tr>
                     )}
-                    {college.rankings.category && (
+                    {college?.rankings?.category && college?.rankings?.nirf && (
                       <tr>
                         <td><strong>Category Ranking</strong></td>
                         <td>#{college.rankings.nirf} in {college.rankings.category}</td>
@@ -65,22 +65,30 @@ export const InstituteDetails = () => {
               {/* Eligibility Section */}
               <div className="inst-details-section mb-4">
                 <h4 className="inst-details-section-title">Eligibility Criteria</h4>
-                <Table striped bordered hover className="inst-details-table">
-                  <tbody>
-                    <tr>
-                      <td><strong>Academic Requirements</strong></td>
-                      <td>{college.eligibility.academicCriteria}</td>
-                    </tr>
-                    <tr>
-                      <td><strong>Entrance Requirement</strong></td>
-                      <td>{college.eligibility.entranceRequirement}</td>
-                    </tr>
-                    <tr>
-                      <td><strong>Age Limit</strong></td>
-                      <td>{college.eligibility.ageLimit}</td>
-                    </tr>
-                  </tbody>
-                </Table>
+                {college?.eligibility && (
+                  <Table striped bordered hover className="inst-details-table">
+                    <tbody>
+                      {college.eligibility.academicCriteria && (
+                        <tr>
+                          <td><strong>Academic Requirements</strong></td>
+                          <td>{college.eligibility.academicCriteria}</td>
+                        </tr>
+                      )}
+                      {college.eligibility.entranceRequirement && (
+                        <tr>
+                          <td><strong>Entrance Requirement</strong></td>
+                          <td>{college.eligibility.entranceRequirement}</td>
+                        </tr>
+                      )}
+                      {college.eligibility.ageLimit && (
+                        <tr>
+                          <td><strong>Age Limit</strong></td>
+                          <td>{college.eligibility.ageLimit}</td>
+                        </tr>
+                      )}
+                    </tbody>
+                  </Table>
+                )}
               </div>
 
               {/* Infrastructure Section */}

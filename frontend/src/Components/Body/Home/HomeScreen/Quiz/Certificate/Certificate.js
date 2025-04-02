@@ -78,15 +78,15 @@ const Certificate = ({ quizInfo, userData, setUserData, result }) => {
         token: userData.token, // Assuming token is in result
       };
 
-      // const response = await updateStudentDetailsHandler(
-      //   submitData,
-      //   setIsSubmitting,
-      //   showAlert
-      // );
+      const response = await updateStudentDetailsHandler(
+        submitData,
+        setIsSubmitting,
+        showAlert
+      );
 
-      // if (response && response.success) {
+      if (response && response.success) {
        
-      // }
+      }
       setUserData({
         ...userData,
         name: formData.name,
