@@ -337,16 +337,16 @@ exports.updateStudentDetails = async (req, res) => {
           message: "Missing required fields- token, name, email",
         });
     }
-    const decoded = jwt.verify(token, process.env.JWT_SECRET_KEY);
-    const user = await UnverifiedUser.findByPk(decoded.id);
-    if (!user) {
-      return res
-        .status(404)
-        .json({ success: false, message: "User not found" });
-    }
-    user.name = name;
-    user.email = email;
-    await user.save();
+    // const decoded = jwt.verify(token, process.env.JWT_SECRET_KEY);
+    // const user = await UnverifiedUser.findByPk(decoded.id);
+    // if (!user) {
+    //   return res
+    //     .status(404)
+    //     .json({ success: false, message: "User not found" });
+    // }
+    // user.name = name;
+    // user.email = email;
+    // await user.save();
     await exportResultsToGoogleDrive();
     return res
       .status(200)

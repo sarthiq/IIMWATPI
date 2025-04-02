@@ -1493,155 +1493,161 @@ export const collegeData = [
   },
   {
     id: 29,
-    name: "Shri Ram College of Commerce (SRCC)",
+    name: "Shri Ram College of Commerce",
     routes: "srcc-delhi",
-    categories: ["Commerce", "Business"],
+    categories: ["Commerce", "Economics", "Business"],
     courses: [
-      "B.Com (Hons.)",
-      "B.A. (Hons.) Economics",
+      "B.Com (Hons)",
+      "B.A. Economics (Hons)",
+      "M.Com",
       "Global Business Operations",
+      "Professional Courses"
     ],
     entranceExams: [
       {
         name: "CUET",
         description: "Common University Entrance Test",
         minPercentile: 98,
-      },
+      }
     ],
     location: {
       city: "New Delhi",
       state: "Delhi",
-      address: "Maurice Nagar, Delhi 110007",
+      address: "Maurice Nagar, University of Delhi, Delhi 110007",
     },
     eligibility: {
-      academicCriteria: "Minimum 98% in 12th standard",
-      entranceRequirement: "CUET score",
-      ageLimit: "No age limit",
+      academicCriteria: "Minimum 95% in 12th standard",
+      entranceRequirement: "Must qualify CUET",
+      subjects: "Mathematics/Business Mathematics in 12th",
     },
     rankings: {
-      nirf: 2,
-      category: "Commerce",
+      nirf: 1,
+      naac: "A++",
     },
     infrastructure: {
-      campus: "Premium commerce college campus",
+      campus: "Premium college in North Campus",
       facilities: [
-        "Trading lab",
-        "Research center",
-        "Seminar halls",
-        "Sports complex",
+        "Research Center",
+        "Commerce Lab",
+        "Digital Library",
+        "Seminar Halls",
+        "Sports Complex"
       ],
     },
     placement: {
-      averagePackage: "₹12 LPA",
+      averagePackage: "₹9.5 LPA",
       highestPackage: "₹31 LPA",
-      recruiters: ["Bain & Company", "Goldman Sachs", "Deutsche Bank", "BCG"],
+      recruiters: ["Deloitte", "PwC", "EY", "KPMG", "Goldman Sachs"],
     },
     fees: {
       tuition: "₹25,000 per year",
-      hostel: "₹90,000 per year",
+      hostel: "₹80,000 per year",
     },
   },
   {
     id: 30,
-    name: "National Institute of Pharmaceutical Education and Research (NIPER)",
-    routes: "niper-mohali",
-    categories: ["Pharmacy", "Healthcare"],
+    name: "St. Xavier's College",
+    routes: "st-xaviers-kolkata",
+    categories: ["Commerce", "Business", "Economics"],
     courses: [
-      "B.Pharm (Hons.)",
-      "B.S. Pharmaceutical Chemistry",
-      "B.Tech Biotechnology",
-      "Integrated M.Pharm",
+      "B.Com (Hons)",
+      "B.Com Morning",
+      "M.Com",
+      "BBA",
+      "Professional Studies"
     ],
     entranceExams: [
       {
-        name: "NIPER JEE",
-        description: "Joint Entrance Examination",
-        minPercentile: 85,
-      },
+        name: "SXCCAT",
+        description: "St. Xavier's College Admission Test",
+        minPercentile: 90,
+      }
     ],
     location: {
-      city: "Mohali",
-      state: "Punjab",
-      address: "Sector 67, SAS Nagar, Mohali 160062",
+      city: "Kolkata",
+      state: "West Bengal",
+      address: "30, Mother Teresa Sarani, Kolkata 700016",
     },
     eligibility: {
-      academicCriteria: "Minimum 70% in PCB/PCM in 12th standard",
-      entranceRequirement: "NIPER JEE qualification",
-      ageLimit: "No age limit",
+      academicCriteria: "Minimum 85% in 12th standard",
+      entranceRequirement: "Must qualify SXCCAT",
+      subjects: "Commerce/Mathematics in 12th",
     },
     rankings: {
-      nirf: 1,
-      category: "Pharmacy",
+      nirf: 2,
+      naac: "A++",
     },
     infrastructure: {
-      campus: "130-acre pharmaceutical research campus",
+      campus: "Heritage campus with modern facilities",
       facilities: [
-        "Advanced research laboratories",
-        "Drug testing center",
-        "Medicinal garden",
-        "GMP facility",
-      ],
-    },
-    placement: {
-      averagePackage: "₹8 LPA",
-      highestPackage: "₹16 LPA",
-      recruiters: ["Sun Pharma", "Dr. Reddy's", "Cipla", "GSK"],
-    },
-    fees: {
-      tuition: "₹1.8 Lakhs per year",
-      hostel: "₹72,000 per year",
-    },
-  },
-  {
-    id: 31,
-    name: "Miranda House, University of Delhi",
-    routes: "miranda-house-delhi",
-    categories: ["Humanities", "Arts"],
-    courses: [
-      "B.Sc (Hons.) Physics",
-      "B.Sc (Hons.) Chemistry",
-      "B.A. (Hons.) English",
-      "B.Sc (Hons.) Mathematics",
-      "B.A. (Hons.) History",
-    ],
-    entranceExams: [
-      {
-        name: "CUET",
-        description: "Common University Entrance Test",
-        minPercentile: 95,
-      },
-    ],
-    location: {
-      city: "New Delhi",
-      state: "Delhi",
-      address: "Patel Chest, University Enclave, Delhi 110007",
-    },
-    eligibility: {
-      academicCriteria: "Minimum 95% in 12th standard",
-      entranceRequirement: "CUET score",
-      ageLimit: "No age limit",
-    },
-    rankings: {
-      nirf: 1,
-      category: "College",
-    },
-    infrastructure: {
-      campus: "Historic women's college campus",
-      facilities: [
-        "Science laboratories",
-        "Research centers",
-        "Digital library",
-        "Amphitheatre",
+        "Commerce Block",
+        "Computer Labs",
+        "Central Library",
+        "Auditorium",
+        "Sports Facilities"
       ],
     },
     placement: {
       averagePackage: "₹8 LPA",
       highestPackage: "₹25 LPA",
-      recruiters: ["Google", "Microsoft", "ISRO", "Think Tanks"],
+      recruiters: ["PwC", "Deloitte", "JP Morgan", "HSBC", "EY"],
     },
     fees: {
-      tuition: "₹25,000 per year",
-      hostel: "₹80,000 per year",
+      tuition: "₹35,000 per year",
+      hostel: "₹75,000 per year",
+    },
+  },
+  {
+    id: 31,
+    name: "Loyola College",
+    routes: "loyola-chennai",
+    categories: ["Commerce", "Business", "Economics"],
+    courses: [
+      "B.Com (Hons)",
+      "B.Com Corporate Secretaryship",
+      "M.Com",
+      "Professional Accounting",
+      "Business Analytics"
+    ],
+    entranceExams: [
+      {
+        name: "Loyola Entrance Test",
+        description: "College specific entrance exam",
+        minPercentile: 85,
+      }
+    ],
+    location: {
+      city: "Chennai",
+      state: "Tamil Nadu",
+      address: "Sterling Road, Nungambakkam, Chennai 600034",
+    },
+    eligibility: {
+      academicCriteria: "Minimum 80% in 12th standard",
+      entranceRequirement: "Must qualify Loyola Entrance Test",
+      subjects: "Commerce/Accountancy in 12th",
+    },
+    rankings: {
+      nirf: 3,
+      naac: "A++",
+    },
+    infrastructure: {
+      campus: "Sprawling green campus",
+      facilities: [
+        "Commerce Department Block",
+        "Digital Library",
+        "Computer Centers",
+        "Placement Cell",
+        "Sports Grounds"
+      ],
+    },
+    placement: {
+      averagePackage: "₹7.5 LPA",
+      highestPackage: "₹22 LPA",
+      recruiters: ["Deloitte", "TCS", "Accenture", "KPMG", "HCL"],
+    },
+    fees: {
+      tuition: "₹45,000 per year",
+      hostel: "₹70,000 per year",
     },
   },
   {
@@ -3125,33 +3131,34 @@ export const collegeData = [
     location: {
       city: "New Delhi",
       state: "Delhi",
-      address: "I.P. Estate, New Delhi 110002",
+      address: "4, Block B, I.P. Estate, New Delhi 110002",
     },
     eligibility: {
       academicCriteria: "Minimum 50% in PCM in 12th standard",
-      entranceRequirement: "JEE Main Paper 2/NATA + Portfolio",
-      ageLimit: "No age limit",
+      entranceRequirement: "Must qualify JEE Main Paper 2/NATA",
+      subjects: "Mathematics mandatory in 12th",
     },
     rankings: {
       nirf: 1,
-      category: "Architecture",
+      naac: "A+",
     },
     infrastructure: {
-      campus: "Urban design-focused campus",
+      campus: "Urban campus with modern facilities",
       facilities: [
-        "Design studios",
-        "Model making workshop",
-        "Material museum",
-        "Conservation laboratory"
+        "Design Studios",
+        "Model Making Workshop",
+        "Material Museum",
+        "Digital Library",
+        "Computer Labs"
       ],
     },
     placement: {
       averagePackage: "₹8 LPA",
       highestPackage: "₹18 LPA",
-      recruiters: ["Leading Architecture Firms", "Urban Development Authorities", "MNCs", "Government Organizations"],
+      recruiters: ["Architect Hafeez Contractor", "Morphogenesis", "CPWD", "DDA", "Leading Architecture Firms"],
     },
     fees: {
-      tuition: "₹1.25 Lakhs per year",
+      tuition: "₹85,000 per year",
       hostel: "₹75,000 per year",
     },
   },
@@ -5034,7 +5041,2833 @@ export const collegeData = [
       tuition: "₹32,000 per year",
       hostel: "₹70,000 per year",
     },
+  },
+  {
+    id: 16,
+    name: "Jawaharlal Institute of Postgraduate Medical Education & Research (JIPMER)",
+    routes: "jipmer-puducherry",
+    categories: ["Medical", "Research", "Healthcare"],
+    courses: [
+      "MBBS",
+      "MD/MS Programs",
+      "DM/MCh Super Speciality",
+      "BSc Nursing",
+      "PhD Medical Sciences"
+    ],
+    entranceExams: [
+      {
+        name: "NEET-UG",
+        description: "National Eligibility cum Entrance Test",
+        minPercentile: 95,
+      },
+      {
+        name: "JIPMER MBBS",
+        description: "Institute specific entrance exam",
+        minPercentile: 90,
+      }
+    ],
+    location: {
+      city: "Puducherry",
+      state: "Puducherry",
+      address: "Dhanvantari Nagar, Puducherry 605006",
+    },
+    eligibility: {
+      academicCriteria: "Minimum 60% in PCB in 12th standard",
+      entranceRequirement: "Must qualify NEET-UG",
+      ageLimit: "17-25 years",
+    },
+    rankings: {
+      nirf: 5,
+      qsWorld: 551,
+    },
+    infrastructure: {
+      campus: "Modern 195-acre campus",
+      facilities: [
+        "Super Specialty Block",
+        "Advanced Research Labs",
+        "Digital Library",
+        "Simulation Center",
+        "24x7 Emergency Care"
+      ],
+    },
+    placement: {
+      averagePackage: "₹10-13 LPA (Starting salary)",
+      highestPackage: "Varies by specialization",
+      recruiters: ["Government Hospitals", "Private Healthcare", "Research Institutions"],
+    },
+    fees: {
+      tuition: "₹12,000 per year",
+      hostel: "₹72,000 per year",
+    },
+  },
+  {
+    id: 17,
+    name: "King George's Medical University",
+    routes: "kgmu-lucknow",
+    categories: ["Medical", "Dental", "Healthcare"],
+    courses: [
+      "MBBS",
+      "BDS",
+      "MD/MS Programs",
+      "MDS Programs",
+      "PhD Medical Sciences"
+    ],
+    entranceExams: [
+      {
+        name: "NEET-UG",
+        description: "National Eligibility cum Entrance Test",
+        minPercentile: 92,
+      }
+    ],
+    location: {
+      city: "Lucknow",
+      state: "Uttar Pradesh",
+      address: "Shah Mina Road, Lucknow 226003",
+    },
+    eligibility: {
+      academicCriteria: "Minimum 60% in PCB in 12th standard",
+      entranceRequirement: "Must qualify NEET-UG",
+      ageLimit: "17-25 years",
+    },
+    rankings: {
+      nirf: 6,
+      qsWorld: 601,
+    },
+    infrastructure: {
+      campus: "Historic medical campus",
+      facilities: [
+        "Trauma Center",
+        "Research Labs",
+        "Central Library",
+        "Skill Development Center",
+        "Multi-Specialty Clinics"
+      ],
+    },
+    placement: {
+      averagePackage: "₹9-12 LPA (Starting salary)",
+      highestPackage: "Varies by specialization",
+      recruiters: ["Government Hospitals", "Private Clinics", "Research Centers"],
+    },
+    fees: {
+      tuition: "₹25,000 per year",
+      hostel: "₹65,000 per year",
+    },
+  },
+  {
+    id: 18,
+    name: "AIIMS Bhubaneswar",
+    routes: "aiims-bhubaneswar",
+    categories: ["Medical", "Research", "Healthcare"],
+    courses: [
+      "MBBS",
+      "MD/MS Programs",
+      "DM/MCh Super Speciality",
+      "BSc Nursing",
+      "Paramedical Courses"
+    ],
+    entranceExams: [
+      {
+        name: "NEET-UG",
+        description: "National Eligibility cum Entrance Test",
+        minPercentile: 95,
+      }
+    ],
+    location: {
+      city: "Bhubaneswar",
+      state: "Odisha",
+      address: "Sijua, Patrapada, Bhubaneswar 751019",
+    },
+    eligibility: {
+      academicCriteria: "Minimum 60% in PCB in 12th standard",
+      entranceRequirement: "Must qualify NEET-UG",
+      ageLimit: "17-25 years",
+    },
+    rankings: {
+      nirf: 7,
+      qsWorld: 701,
+    },
+    infrastructure: {
+      campus: "Modern 150-acre campus",
+      facilities: [
+        "Multi-Specialty Hospital",
+        "Research Centers",
+        "Digital Library",
+        "Skills Lab",
+        "Emergency Services"
+      ],
+    },
+    placement: {
+      averagePackage: "₹10-14 LPA (Starting salary)",
+      highestPackage: "Varies by specialization",
+      recruiters: ["Government Sector", "Private Hospitals", "Research Organizations"],
+    },
+    fees: {
+      tuition: "₹6,900 per year",
+      hostel: "₹70,000 per year",
+    },
+  },
+  {
+    id: 19,
+    name: "Kasturba Medical College, Manipal",
+    routes: "kmc-manipal",
+    categories: ["Medical", "Research", "Healthcare"],
+    courses: [
+      "MBBS",
+      "MD/MS Programs",
+      "DM/MCh Programs",
+      "MSc Medical Sciences",
+      "PhD Programs"
+    ],
+    entranceExams: [
+      {
+        name: "NEET-UG",
+        description: "National Eligibility cum Entrance Test",
+        minPercentile: 90,
+      }
+    ],
+    location: {
+      city: "Manipal",
+      state: "Karnataka",
+      address: "Madhav Nagar, Manipal 576104",
+    },
+    eligibility: {
+      academicCriteria: "Minimum 60% in PCB in 12th standard",
+      entranceRequirement: "Must qualify NEET-UG",
+      ageLimit: "17-25 years",
+    },
+    rankings: {
+      nirf: 8,
+      qsWorld: 751,
+    },
+    infrastructure: {
+      campus: "World-class medical campus",
+      facilities: [
+        "Teaching Hospital",
+        "Research Labs",
+        "Medical Library",
+        "Clinical Skills Lab",
+        "Sports Facilities"
+      ],
+    },
+    placement: {
+      averagePackage: "₹8-12 LPA (Starting salary)",
+      highestPackage: "Varies by specialization",
+      recruiters: ["Corporate Hospitals", "Government Sector", "Global Healthcare Organizations"],
+    },
+    fees: {
+      tuition: "₹7.5 Lakhs per year",
+      hostel: "₹1.2 Lakhs per year",
+    },
+  },
+  {
+    id: 20,
+    name: "National Law School of India University",
+    routes: "nlsiu-bangalore",
+    categories: ["Law", "Legal Studies", "Research"],
+    courses: [
+      "B.A. LL.B (Hons.)",
+      "LL.M",
+      "Master of Public Policy",
+      "PhD in Law",
+      "PG Diploma Programs"
+    ],
+    entranceExams: [
+      {
+        name: "CLAT",
+        description: "Common Law Admission Test",
+        minPercentile: 98,
+      },
+      {
+        name: "NLAT",
+        description: "NLS Admission Test",
+        minPercentile: 95,
+      }
+    ],
+    location: {
+      city: "Bangalore",
+      state: "Karnataka",
+      address: "Nagarbhavi, Bangalore 560072",
+    },
+    eligibility: {
+      academicCriteria: "Minimum 60% in 12th standard",
+      entranceRequirement: "Must qualify CLAT/NLAT",
+      ageLimit: "Below 20 years for UG",
+    },
+    rankings: {
+      nirf: 1,
+      qsWorld: 251,
+    },
+    infrastructure: {
+      campus: "23-acre green campus",
+      facilities: [
+        "Comprehensive Law Library",
+        "Moot Court Halls",
+        "Legal Aid Clinic",
+        "Research Centers",
+        "Sports Complex"
+      ],
+    },
+    placement: {
+      averagePackage: "₹18 LPA",
+      highestPackage: "₹45 LPA",
+      recruiters: ["Top Law Firms", "Corporate Legal Departments", "Judiciary", "International Organizations"],
+    },
+    fees: {
+      tuition: "₹2.3 Lakhs per year",
+      hostel: "₹1.2 Lakhs per year",
+    },
+  },
+  {
+    id: 21,
+    name: "National Law University, Delhi",
+    routes: "nlu-delhi",
+    categories: ["Law", "Legal Studies", "Research"],
+    courses: [
+      "B.A. LL.B (Hons.)",
+      "LL.M",
+      "PhD in Law",
+      "PG Diploma in Law",
+      "Executive Programs"
+    ],
+    entranceExams: [
+      {
+        name: "CLAT",
+        description: "Common Law Admission Test",
+        minPercentile: 98,
+      },
+      {
+        name: "AILET",
+        description: "All India Law Entrance Test",
+        minPercentile: 95,
+      }
+    ],
+    location: {
+      city: "New Delhi",
+      state: "Delhi",
+      address: "Sector 14, Dwarka, New Delhi 110078",
+    },
+    eligibility: {
+      academicCriteria: "Minimum 50% in 12th standard",
+      entranceRequirement: "Must qualify CLAT/AILET",
+      ageLimit: "Below 20 years for UG",
+    },
+    rankings: {
+      nirf: 2,
+      qsWorld: 301,
+    },
+    infrastructure: {
+      campus: "Modern campus with state-of-the-art facilities",
+      facilities: [
+        "Justice T.P.S. Chawla Library",
+        "Moot Court Complex",
+        "Legal Aid Center",
+        "Conference Halls",
+        "Sports Facilities"
+      ],
+    },
+    placement: {
+      averagePackage: "₹16.5 LPA",
+      highestPackage: "₹40 LPA",
+      recruiters: ["Law Firms", "Corporate Houses", "PSUs", "International Organizations"],
+    },
+    fees: {
+      tuition: "₹2.1 Lakhs per year",
+      hostel: "₹1 Lakh per year",
+    },
+  },
+  {
+    id: 22,
+    name: "NALSAR University of Law",
+    routes: "nalsar-hyderabad",
+    categories: ["Law", "Legal Studies", "Research"],
+    courses: [
+      "B.A. LL.B (Hons.)",
+      "LL.M",
+      "MBA in Legal Management",
+      "PhD in Law",
+      "PG Diploma Programs"
+    ],
+    entranceExams: [
+      {
+        name: "CLAT",
+        description: "Common Law Admission Test",
+        minPercentile: 97,
+      }
+    ],
+    location: {
+      city: "Hyderabad",
+      state: "Telangana",
+      address: "Justice City, Shameerpet, Hyderabad 500101",
+    },
+    eligibility: {
+      academicCriteria: "Minimum 45% in 12th standard",
+      entranceRequirement: "Must qualify CLAT",
+      ageLimit: "Below 20 years for UG",
+    },
+    rankings: {
+      nirf: 3,
+      qsWorld: 401,
+    },
+    infrastructure: {
+      campus: "Sprawling 55-acre campus",
+      facilities: [
+        "Extensive Law Library",
+        "Moot Court Hall",
+        "Legal Aid Clinic",
+        "Research Centers",
+        "Indoor Sports Complex"
+      ],
+    },
+    placement: {
+      averagePackage: "₹15 LPA",
+      highestPackage: "₹35 LPA",
+      recruiters: ["Top Law Firms", "Corporate Legal Teams", "Government Organizations"],
+    },
+    fees: {
+      tuition: "₹2.2 Lakhs per year",
+      hostel: "₹1.1 Lakhs per year",
+    },
+  },
+  {
+    id: 23,
+    name: "West Bengal National University of Juridical Sciences",
+    routes: "nujs-kolkata",
+    categories: ["Law", "Legal Studies", "Research"],
+    courses: [
+      "B.A. LL.B (Hons.)",
+      "LL.M",
+      "PhD in Law",
+      "Diploma in Business Laws",
+      "Certificate Courses"
+    ],
+    entranceExams: [
+      {
+        name: "CLAT",
+        description: "Common Law Admission Test",
+        minPercentile: 96,
+      }
+    ],
+    location: {
+      city: "Kolkata",
+      state: "West Bengal",
+      address: "12 LB Block, Salt Lake City, Kolkata 700098",
+    },
+    eligibility: {
+      academicCriteria: "Minimum 45% in 12th standard",
+      entranceRequirement: "Must qualify CLAT",
+      ageLimit: "Below 20 years for UG",
+    },
+    rankings: {
+      nirf: 4,
+      qsWorld: 451,
+    },
+    infrastructure: {
+      campus: "Modern urban campus",
+      facilities: [
+        "Digital Law Library",
+        "Moot Court Complex",
+        "Legal Aid Clinic",
+        "Conference Center",
+        "Sports Facilities"
+      ],
+    },
+    placement: {
+      averagePackage: "₹14.5 LPA",
+      highestPackage: "₹32 LPA",
+      recruiters: ["Law Firms", "Corporate Houses", "Legal Startups", "Government Bodies"],
+    },
+    fees: {
+      tuition: "₹2 Lakhs per year",
+      hostel: "₹90,000 per year",
+    },
+  },
+  {
+    id: 24,
+    name: "Indian Institute of Management Ahmedabad",
+    routes: "iim-ahmedabad",
+    categories: ["Management", "Business", "Research"],
+    courses: [
+      "Post Graduate Programme (PGP)",
+      "PGP-FABM (Food & Agri-Business)",
+      "Executive MBA",
+      "PhD Programme",
+      "Executive Education"
+    ],
+    entranceExams: [
+      {
+        name: "CAT",
+        description: "Common Admission Test",
+        minPercentile: 99,
+      }
+    ],
+    location: {
+      city: "Ahmedabad",
+      state: "Gujarat",
+      address: "Vastrapur, Ahmedabad 380015",
+    },
+    eligibility: {
+      academicCriteria: "Minimum 50% in Bachelor's degree",
+      entranceRequirement: "Must qualify CAT with high percentile",
+      workExperience: "Preferred but not mandatory",
+    },
+    rankings: {
+      nirf: 1,
+      qsWorld: 37,
+    },
+    infrastructure: {
+      campus: "Historic 67-acre campus",
+      facilities: [
+        "Harvard-style classrooms",
+        "World-class Library",
+        "Case Study Rooms",
+        "Management Development Centre",
+        "Sports Complex"
+      ],
+    },
+    placement: {
+      averagePackage: "₹32 LPA",
+      highestPackage: "₹1.2 Cr",
+      recruiters: ["McKinsey", "BCG", "Goldman Sachs", "Google", "Microsoft"],
+    },
+    fees: {
+      tuition: "₹23 Lakhs (2 years)",
+      hostel: "₹1.8 Lakhs per year",
+    },
+  },
+  {
+    id: 25,
+    name: "Indian Institute of Management Bangalore",
+    routes: "iim-bangalore",
+    categories: ["Management", "Business", "Research"],
+    courses: [
+      "Post Graduate Programme in Management",
+      "Executive Post Graduate Programme",
+      "PhD Programme",
+      "Executive Education",
+      "Digital Business"
+    ],
+    entranceExams: [
+      {
+        name: "CAT",
+        description: "Common Admission Test",
+        minPercentile: 98,
+      }
+    ],
+    location: {
+      city: "Bangalore",
+      state: "Karnataka",
+      address: "Bannerghatta Road, Bangalore 560076",
+    },
+    eligibility: {
+      academicCriteria: "Minimum 50% in Bachelor's degree",
+      entranceRequirement: "Must qualify CAT with high percentile",
+      workExperience: "Preferred but not mandatory",
+    },
+    rankings: {
+      nirf: 2,
+      qsWorld: 45,
+    },
+    infrastructure: {
+      campus: "Modern 100-acre green campus",
+      facilities: [
+        "Smart Classrooms",
+        "Research Centers",
+        "Innovation Lab",
+        "Digital Library",
+        "Executive Training Center"
+      ],
+    },
+    placement: {
+      averagePackage: "₹29.5 LPA",
+      highestPackage: "₹1 Cr",
+      recruiters: ["Amazon", "Microsoft", "Bain & Co", "JP Morgan", "Google"],
+    },
+    fees: {
+      tuition: "₹22 Lakhs (2 years)",
+      hostel: "₹1.6 Lakhs per year",
+    },
+  },
+  {
+    id: 26,
+    name: "Indian Institute of Management Calcutta",
+    routes: "iim-calcutta",
+    categories: ["Management", "Business", "Research"],
+    courses: [
+      "Post Graduate Programme in Management",
+      "Executive MBA",
+      "PhD Programme",
+      "Business Analytics",
+      "Executive Education"
+    ],
+    entranceExams: [
+      {
+        name: "CAT",
+        description: "Common Admission Test",
+        minPercentile: 98,
+      }
+    ],
+    location: {
+      city: "Kolkata",
+      state: "West Bengal",
+      address: "Diamond Harbour Road, Joka, Kolkata 700104",
+    },
+    eligibility: {
+      academicCriteria: "Minimum 50% in Bachelor's degree",
+      entranceRequirement: "Must qualify CAT with high percentile",
+      workExperience: "Preferred but not mandatory",
+    },
+    rankings: {
+      nirf: 3,
+      qsWorld: 51,
+    },
+    infrastructure: {
+      campus: "135-acre lake-side campus",
+      facilities: [
+        "Financial Research Lab",
+        "Management Library",
+        "Analytics Center",
+        "Auditorium",
+        "Sports Complex"
+      ],
+    },
+    placement: {
+      averagePackage: "₹28 LPA",
+      highestPackage: "₹90 LPA",
+      recruiters: ["BCG", "McKinsey", "Goldman Sachs", "Amazon", "Microsoft"],
+    },
+    fees: {
+      tuition: "₹21 Lakhs (2 years)",
+      hostel: "₹1.5 Lakhs per year",
+    },
+  },
+  {
+    id: 27,
+    name: "XLRI - Xavier School of Management",
+    routes: "xlri-jamshedpur",
+    categories: ["Management", "Business", "HR"],
+    courses: [
+      "Post Graduate Programme in Management - HRM",
+      "Post Graduate Programme in Management - BM",
+      "Executive MBA",
+      "PhD Programme",
+      "Global MBA"
+    ],
+    entranceExams: [
+      {
+        name: "XAT",
+        description: "Xavier Aptitude Test",
+        minPercentile: 95,
+      },
+      {
+        name: "GMAT",
+        description: "Graduate Management Admission Test",
+        minPercentile: 90,
+      }
+    ],
+    location: {
+      city: "Jamshedpur",
+      state: "Jharkhand",
+      address: "Circuit House Area, Jamshedpur 831001",
+    },
+    eligibility: {
+      academicCriteria: "Minimum 50% in Bachelor's degree",
+      entranceRequirement: "Must qualify XAT/GMAT",
+      workExperience: "Preferred but not mandatory",
+    },
+    rankings: {
+      nirf: 4,
+      qsWorld: 251,
+    },
+    infrastructure: {
+      campus: "Modern 50-acre campus",
+      facilities: [
+        "International Center",
+        "HR Learning Center",
+        "Digital Library",
+        "Bloomberg Lab",
+        "Sports Complex"
+      ],
+    },
+    placement: {
+      averagePackage: "₹25.5 LPA",
+      highestPackage: "₹75 LPA",
+      recruiters: ["Microsoft", "Amazon", "ITC", "P&G", "HUL"],
+    },
+    fees: {
+      tuition: "₹23.5 Lakhs (2 years)",
+      hostel: "₹1.4 Lakhs per year",
+    },
   }
+  ,{
+    id: 28,
+    name: "Shri Ram College of Commerce",
+    routes: "srcc-delhi",
+    categories: ["Commerce", "Economics", "Business"],
+    courses: [
+      "B.Com (Hons)",
+      "B.A. Economics (Hons)",
+      "M.Com",
+      "Global Business Operations",
+      "Professional Courses"
+    ],
+    entranceExams: [
+      {
+        name: "CUET",
+        description: "Common University Entrance Test",
+        minPercentile: 98,
+      }
+    ],
+    location: {
+      city: "New Delhi",
+      state: "Delhi",
+      address: "Maurice Nagar, University of Delhi, Delhi 110007",
+    },
+    eligibility: {
+      academicCriteria: "Minimum 95% in 12th standard",
+      entranceRequirement: "Must qualify CUET",
+      subjects: "Mathematics/Business Mathematics in 12th",
+    },
+    rankings: {
+      nirf: 1,
+      naac: "A++",
+    },
+    infrastructure: {
+      campus: "Premium college in North Campus",
+      facilities: [
+        "Research Center",
+        "Commerce Lab",
+        "Digital Library",
+        "Seminar Halls",
+        "Sports Complex"
+      ],
+    },
+    placement: {
+      averagePackage: "₹9.5 LPA",
+      highestPackage: "₹31 LPA",
+      recruiters: ["Deloitte", "PwC", "EY", "KPMG", "Goldman Sachs"],
+    },
+    fees: {
+      tuition: "₹25,000 per year",
+      hostel: "₹80,000 per year",
+    },
+  },
+  {
+    id: 29,
+    name: "St. Xavier's College",
+    routes: "st-xaviers-kolkata",
+    categories: ["Commerce", "Business", "Economics"],
+    courses: [
+      "B.Com (Hons)",
+      "B.Com Morning",
+      "M.Com",
+      "BBA",
+      "Professional Studies"
+    ],
+    entranceExams: [
+      {
+        name: "SXCCAT",
+        description: "St. Xavier's College Admission Test",
+        minPercentile: 90,
+      }
+    ],
+    location: {
+      city: "Kolkata",
+      state: "West Bengal",
+      address: "30, Mother Teresa Sarani, Kolkata 700016",
+    },
+    eligibility: {
+      academicCriteria: "Minimum 85% in 12th standard",
+      entranceRequirement: "Must qualify SXCCAT",
+      subjects: "Commerce/Mathematics in 12th",
+    },
+    rankings: {
+      nirf: 2,
+      naac: "A++",
+    },
+    infrastructure: {
+      campus: "Heritage campus with modern facilities",
+      facilities: [
+        "Commerce Block",
+        "Computer Labs",
+        "Central Library",
+        "Auditorium",
+        "Sports Facilities"
+      ],
+    },
+    placement: {
+      averagePackage: "₹8 LPA",
+      highestPackage: "₹25 LPA",
+      recruiters: ["PwC", "Deloitte", "JP Morgan", "HSBC", "EY"],
+    },
+    fees: {
+      tuition: "₹35,000 per year",
+      hostel: "₹75,000 per year",
+    },
+  },
+  {
+    id: 30,
+    name: "Loyola College",
+    routes: "loyola-chennai",
+    categories: ["Commerce", "Business", "Economics"],
+    courses: [
+      "B.Com (Hons)",
+      "B.Com Corporate Secretaryship",
+      "M.Com",
+      "Professional Accounting",
+      "Business Analytics"
+    ],
+    entranceExams: [
+      {
+        name: "Loyola Entrance Test",
+        description: "College specific entrance exam",
+        minPercentile: 85,
+      }
+    ],
+    location: {
+      city: "Chennai",
+      state: "Tamil Nadu",
+      address: "Sterling Road, Nungambakkam, Chennai 600034",
+    },
+    eligibility: {
+      academicCriteria: "Minimum 80% in 12th standard",
+      entranceRequirement: "Must qualify Loyola Entrance Test",
+      subjects: "Commerce/Accountancy in 12th",
+    },
+    rankings: {
+      nirf: 3,
+      naac: "A++",
+    },
+    infrastructure: {
+      campus: "Sprawling green campus",
+      facilities: [
+        "Commerce Department Block",
+        "Digital Library",
+        "Computer Centers",
+        "Placement Cell",
+        "Sports Grounds"
+      ],
+    },
+    placement: {
+      averagePackage: "₹7.5 LPA",
+      highestPackage: "₹22 LPA",
+      recruiters: ["Deloitte", "TCS", "Accenture", "KPMG", "HCL"],
+    },
+    fees: {
+      tuition: "₹45,000 per year",
+      hostel: "₹70,000 per year",
+    },
+  },
+  {
+    id: 31,
+    name: "Christ University",
+    routes: "christ-bangalore",
+    categories: ["Commerce", "Business", "Economics"],
+    courses: [
+      "B.Com (Hons)",
+      "B.Com Finance & Analytics",
+      "B.Com Professional",
+      "M.Com",
+      "Integrated Commerce Programs"
+    ],
+    entranceExams: [
+      {
+        name: "CUET",
+        description: "Christ University Entrance Test",
+        minPercentile: 85,
+      }
+    ],
+    location: {
+      city: "Bangalore",
+      state: "Karnataka",
+      address: "Hosur Road, Bangalore 560029",
+    },
+    eligibility: {
+      academicCriteria: "Minimum 75% in 12th standard",
+      entranceRequirement: "Must qualify CUET",
+      subjects: "Any stream with Mathematics",
+    },
+    rankings: {
+      nirf: 4,
+      naac: "A+",
+    },
+    infrastructure: {
+      campus: "Modern multi-building campus",
+      facilities: [
+        "Bloomberg Lab",
+        "Commerce Block",
+        "Research Center",
+        "Digital Library",
+        "Indoor Sports Complex"
+      ],
+    },
+    placement: {
+      averagePackage: "₹7 LPA",
+      highestPackage: "₹20 LPA",
+      recruiters: ["EY", "KPMG", "Goldman Sachs", "Morgan Stanley", "Deutsche Bank"],
+    },
+    fees: {
+      tuition: "₹1.2 Lakhs per year",
+      hostel: "₹1 Lakh per year",
+    },
+  },
+  {
+    id: 32,
+    name: "Indian Institute of Technology Roorkee - Department of Architecture",
+    routes: "iit-roorkee-architecture",
+    categories: ["Architecture", "Planning", "Design"],
+    courses: [
+      "Bachelor of Architecture",
+      "Master of Architecture",
+      "Master in Urban and Rural Planning",
+      "PhD in Architecture",
+      "Integrated Design Programs"
+    ],
+    entranceExams: [
+      {
+        name: "JEE Main Paper 2",
+        description: "Architecture Aptitude Test",
+        minPercentile: 95,
+      }
+    ],
+    location: {
+      city: "Roorkee",
+      state: "Uttarakhand",
+      address: "IIT Roorkee, Roorkee 247667",
+    },
+    eligibility: {
+      academicCriteria: "Minimum 60% in PCM in 12th standard",
+      entranceRequirement: "Must qualify JEE Main Paper 2",
+      subjects: "Mathematics mandatory in 12th",
+    },
+    rankings: {
+      nirf: 2,
+      naac: "A++",
+    },
+    infrastructure: {
+      campus: "Historic campus with modern architecture facilities",
+      facilities: [
+        "Advanced Design Studios",
+        "Building Science Lab",
+        "CAD Center",
+        "Material Testing Lab",
+        "Environmental Lab"
+      ],
+    },
+    placement: {
+      averagePackage: "₹9 LPA",
+      highestPackage: "₹20 LPA",
+      recruiters: ["Gensler", "HOK", "Aedas", "Top Architecture Firms"],
+    },
+    fees: {
+      tuition: "₹2.2 Lakhs per year",
+      hostel: "₹70,000 per year",
+    },
+  },
+  {
+    id: 33,
+    name: "Centre for Environmental Planning and Technology University",
+    routes: "cept-ahmedabad",
+    categories: ["Architecture", "Planning", "Design"],
+    courses: [
+      "Bachelor of Architecture",
+      "Master of Architecture",
+      "Urban Planning",
+      "Interior Design",
+      "Landscape Architecture"
+    ],
+    entranceExams: [
+      {
+        name: "CEPT Entrance Exam",
+        description: "University specific entrance test",
+        minPercentile: 85,
+      },
+      {
+        name: "NATA",
+        description: "National Aptitude Test in Architecture",
+        minPercentile: 80,
+      }
+    ],
+    location: {
+      city: "Ahmedabad",
+      state: "Gujarat",
+      address: "Kasturbhai Lalbhai Campus, University Road, Ahmedabad 380009",
+    },
+    eligibility: {
+      academicCriteria: "Minimum 50% in 12th standard",
+      entranceRequirement: "Must qualify CEPT Entrance/NATA",
+      subjects: "Mathematics in 12th",
+    },
+    rankings: {
+      nirf: 3,
+      naac: "A+",
+    },
+    infrastructure: {
+      campus: "Iconic architecture campus",
+      facilities: [
+        "Design Studios",
+        "Workshop",
+        "Archives",
+        "Research Center",
+        "Exhibition Spaces"
+      ],
+    },
+    placement: {
+      averagePackage: "₹7.5 LPA",
+      highestPackage: "₹16 LPA",
+      recruiters: ["Leading Architecture Firms", "Urban Planning Consultancies", "Real Estate Developers"],
+    },
+    fees: {
+      tuition: "₹2.5 Lakhs per year",
+      hostel: "₹1 Lakh per year",
+    },
+  },
+  {
+    id: 34,
+    name: "Sir J.J. College of Architecture",
+    routes: "jj-architecture-mumbai",
+    categories: ["Architecture", "Design"],
+    courses: [
+      "Bachelor of Architecture",
+      "Master of Architecture",
+      "Diploma in Architecture",
+      "Conservation Studies",
+      "Urban Design"
+    ],
+    entranceExams: [
+      {
+        name: "NATA",
+        description: "National Aptitude Test in Architecture",
+        minPercentile: 80,
+      },
+      {
+        name: "MH-AAC-CET",
+        description: "State Architecture Entrance",
+        minPercentile: 75,
+      }
+    ],
+    location: {
+      city: "Mumbai",
+      state: "Maharashtra",
+      address: "78/3, Dr DN Road, Fort, Mumbai 400001",
+    },
+    eligibility: {
+      academicCriteria: "Minimum 50% in 12th standard",
+      entranceRequirement: "Must qualify NATA/MH-AAC-CET",
+      subjects: "Mathematics mandatory in 12th",
+    },
+    rankings: {
+      nirf: 4,
+      naac: "A",
+    },
+    infrastructure: {
+      campus: "Heritage campus in South Mumbai",
+      facilities: [
+        "Traditional Studios",
+        "Model Making Workshop",
+        "Material Library",
+        "Computer Lab",
+        "Exhibition Hall"
+      ],
+    },
+    placement: {
+      averagePackage: "₹6.5 LPA",
+      highestPackage: "₹15 LPA",
+      recruiters: ["Top Architecture Firms", "Construction Companies", "Design Studios"],
+    },
+    fees: {
+      tuition: "₹1.2 Lakhs per year",
+      hostel: "₹85,000 per year",
+    },
+  },
+  {
+    id: 36,
+    name: "Indian Institute of Mass Communication",
+    routes: "iimc-delhi",
+    categories: [
+      "Print Media & Journalism",
+      "Broadcast Journalism",
+      "Digital Media",
+      "Advertising & PR",
+      "Development Communication"
+    ],
+    communicationType: {
+      print: ["Newspaper Journalism", "Magazine Writing", "Editorial Management"],
+      broadcast: ["Television Production", "Radio Broadcasting", "News Anchoring"],
+      digital: ["Online Journalism", "Social Media Management", "Content Strategy"],
+      corporate: ["Public Relations", "Corporate Communications", "Brand Management"],
+      development: ["Rural Communication", "Social Change Communication", "NGO Communication"]
+    },
+    courses: [
+      "PG Diploma in English Journalism",
+      "PG Diploma in Hindi Journalism",
+      "PG Diploma in Radio & TV Journalism",
+      "PG Diploma in Advertising & PR",
+      "PG Diploma in Digital Media"
+    ],
+    specializations: [
+      "News Writing & Reporting",
+      "Television Production",
+      "Digital Content Creation",
+      "Strategic Communication",
+      "Media Research"
+    ],
+    entranceExams: [
+      {
+        name: "IIMC Entrance Exam",
+        description: "Institute's own entrance test",
+        minPercentile: 85,
+      }
+    ],
+    location: {
+      city: "New Delhi",
+      state: "Delhi",
+      address: "Aruna Asaf Ali Marg, JNU New Campus, New Delhi 110067",
+    },
+    eligibility: {
+      academicCriteria: "Bachelor's degree in any discipline",
+      entranceRequirement: "Must qualify IIMC Entrance",
+      languages: "Proficiency in English/Hindi",
+      skillsRequired: ["Writing", "Critical Thinking", "Media Understanding"]
+    },
+    rankings: {
+      nirf: 1,
+      industryRanking: "Top Media Institute",
+    },
+    infrastructure: {
+      campus: "Modern media-focused campus",
+      facilities: [
+        "TV Studios",
+        "Radio Station",
+        "Digital Media Lab",
+        "Media Library",
+        "Editing Suites"
+      ],
+      specializedLabs: [
+        "News Production Studio",
+        "Digital Content Lab",
+        "Audio Recording Studio",
+        "Virtual Reality Lab",
+        "Media Research Center"
+      ]
+    },
+    industryConnections: {
+      mediaPartners: ["Times Group", "NDTV", "Hindustan Times"],
+      internshipPartners: ["Major News Channels", "PR Firms", "Digital Media Houses"],
+      workshopProviders: ["Industry Experts", "Senior Journalists", "Media Professionals"]
+    },
+    placement: {
+      averagePackage: "₹6 LPA",
+      highestPackage: "₹12 LPA",
+      recruiters: ["Times Group", "NDTV", "India Today", "Republic TV", "Network18"],
+      careerPaths: [
+        "News Reporter",
+        "Content Strategist",
+        "PR Manager",
+        "Digital Media Manager",
+        "Communication Consultant"
+      ]
+    },
+    fees: {
+      tuition: "₹1.45 Lakhs per year",
+      hostel: "₹70,000 per year",
+      additionalCosts: {
+        equipmentCharges: "₹25,000",
+        softwareLicenses: "₹15,000",
+        fieldVisits: "₹10,000"
+      }
+    },
+    researchFocus: [
+      "Media Studies",
+      "Communication Theory",
+      "Digital Transformation",
+      "Rural Communication",
+      "Media Ethics"
+    ]
+  },
+  {
+    id: 37,
+    name: "Symbiosis Institute of Media & Communication",
+    routes: "simc-pune",
+    categories: ["Mass Communication", "Media", "Journalism"],
+    courses: [
+      "MBA (Communication Management)",
+      "MA (Mass Communication)",
+      "BA (Mass Communication)",
+      "PG Diploma in Media Studies",
+      "Digital Communication"
+    ],
+    entranceExams: [
+      {
+        name: "SNAP",
+        description: "Symbiosis National Aptitude Test",
+        minPercentile: 85,
+      },
+      {
+        name: "SIMC Entrance Test",
+        description: "Institute specific test",
+        minPercentile: 80,
+      }
+    ],
+    location: {
+      city: "Pune",
+      state: "Maharashtra",
+      address: "Viman Nagar Campus, Pune 411014",
+    },
+    eligibility: {
+      academicCriteria: "Minimum 50% in graduation",
+      entranceRequirement: "Must qualify SNAP & SIMC Test",
+      workExperience: "Preferred for MBA program",
+    },
+    rankings: {
+      nirf: 2,
+      industryRanking: "Top Private Media Institute",
+    },
+    infrastructure: {
+      campus: "State-of-the-art media campus",
+      facilities: [
+        "Broadcast Studio",
+        "Mac Lab",
+        "Media Center",
+        "Audio Studio",
+        "Production House"
+      ],
+    },
+    placement: {
+      averagePackage: "₹7 LPA",
+      highestPackage: "₹15 LPA",
+      recruiters: ["Star India", "Sony", "Ogilvy", "JWT", "Google"],
+    },
+    fees: {
+      tuition: "₹4.5 Lakhs per year",
+      hostel: "₹1.8 Lakhs per year",
+    },
+  },
+  {
+    id: 38,
+    name: "AJK Mass Communication Research Centre, Jamia",
+    routes: "ajk-mcrc-jamia",
+    categories: ["Mass Communication", "Media", "Film"],
+    courses: [
+      "MA Mass Communication",
+      "MA Convergent Journalism",
+      "PG Diploma in Development Communication",
+      "MA Visual Effects & Animation",
+      "PhD Program"
+    ],
+    entranceExams: [
+      {
+        name: "JAMIA Entrance Test",
+        description: "University's entrance exam",
+        minPercentile: 80,
+      }
+    ],
+    location: {
+      city: "New Delhi",
+      state: "Delhi",
+      address: "Jamia Millia Islamia, New Delhi 110025",
+    },
+    eligibility: {
+      academicCriteria: "Bachelor's degree with 50%",
+      entranceRequirement: "Must qualify entrance test",
+      languages: "English proficiency required",
+    },
+    rankings: {
+      nirf: 3,
+      naac: "A++",
+    },
+    infrastructure: {
+      campus: "Specialized media center",
+      facilities: [
+        "Film Studio",
+        "Edit Suites",
+        "Sound Recording Studio",
+        "Community Radio",
+        "Animation Lab"
+      ],
+    },
+    placement: {
+      averagePackage: "₹5.5 LPA",
+      highestPackage: "₹12 LPA",
+      recruiters: ["BBC", "Al Jazeera", "Reuters", "PTI", "Major News Channels"],
+    },
+    fees: {
+      tuition: "₹85,000 per year",
+      hostel: "₹65,000 per year",
+    },
+  },
+  {
+    id: 39,
+    name: "Xavier Institute of Communications",
+    routes: "xic-mumbai",
+    categories: ["Mass Communication", "Media", "Advertising"],
+    courses: [
+      "Post Graduate Diploma in Communications",
+      "Mass Media",
+      "Advertising & Marketing",
+      "Public Relations",
+      "Digital Media Management"
+    ],
+    entranceExams: [
+      {
+        name: "XIC Entrance Test",
+        description: "Institute's entrance exam",
+        minPercentile: 75,
+      }
+    ],
+    location: {
+      city: "Mumbai",
+      state: "Maharashtra",
+      address: "St. Xavier's College, 5, Mahapalika Marg, Mumbai 400001",
+    },
+    eligibility: {
+      academicCriteria: "Graduate in any discipline",
+      entranceRequirement: "Must qualify XIC entrance",
+      languages: "English proficiency mandatory",
+    },
+    rankings: {
+      nirf: 4,
+      industryRanking: "Top Media School",
+    },
+    infrastructure: {
+      campus: "Industry-integrated campus",
+      facilities: [
+        "Media Studios",
+        "Digital Lab",
+        "Audio-Visual Room",
+        "Edit Bay",
+        "Preview Theatre"
+      ],
+    },
+    placement: {
+      averagePackage: "₹5 LPA",
+      highestPackage: "₹10 LPA",
+      recruiters: ["Ad Agencies", "PR Firms", "Media Houses", "Digital Platforms"],
+    },
+    fees: {
+      tuition: "₹2.8 Lakhs per year",
+      hostel: "Not Available",
+    },
+  },
+  {
+    id: 40,
+    name: "Indian Agricultural Research Institute (IARI)",
+    routes: "iari-delhi",
+    categories: ["Agriculture", "Research", "Agricultural Sciences"],
+    courses: [
+      "M.Sc. Agriculture",
+      "Ph.D. in Agricultural Sciences",
+      "Post Graduate School Programs",
+      "Agricultural Engineering",
+      "Plant Protection"
+    ],
+    specializations: [
+      "Genetics and Plant Breeding",
+      "Soil Science and Agricultural Chemistry",
+      "Plant Pathology",
+      "Agricultural Economics",
+      "Agronomy"
+    ],
+    entranceExams: [
+      {
+        name: "ICAR AIEEA-PG",
+        description: "All India Entrance Examination for Admission",
+        minPercentile: 90,
+      }
+    ],
+    location: {
+      city: "New Delhi",
+      state: "Delhi",
+      address: "Pusa Campus, New Delhi 110012",
+    },
+    eligibility: {
+      academicCriteria: "Bachelor's degree in Agriculture/related field",
+      entranceRequirement: "Must qualify ICAR AIEEA",
+      minPercentage: "60% in graduation",
+    },
+    rankings: {
+      nirf: 1,
+      icarRanking: "Premier Institute",
+    },
+    infrastructure: {
+      campus: "1000+ acre research farm",
+      facilities: [
+        "Advanced Research Labs",
+        "Experimental Fields",
+        "Gene Bank",
+        "Automated Greenhouses",
+        "Soil Testing Labs"
+      ],
+    },
+    placement: {
+      averagePackage: "₹7 LPA",
+      highestPackage: "₹15 LPA",
+      recruiters: ["Agricultural Universities", "Research Institutes", "Agri-business Companies", "Government Sector"],
+    },
+    fees: {
+      tuition: "₹50,000 per year",
+      hostel: "₹45,000 per year",
+    },
+  },
+  {
+    id: 41,
+    name: "Punjab Agricultural University",
+    routes: "pau-ludhiana",
+    categories: ["Agriculture", "Horticulture", "Forestry"],
+    courses: [
+      "B.Sc. Agriculture",
+      "M.Sc. Agriculture",
+      "Ph.D. Programs",
+      "Agricultural Biotechnology",
+      "Food Science & Technology"
+    ],
+    specializations: [
+      "Crop Improvement",
+      "Agricultural Engineering",
+      "Food Technology",
+      "Plant Protection",
+      "Agricultural Extension"
+    ],
+    entranceExams: [
+      {
+        name: "PAU CET",
+        description: "University's entrance test",
+        minPercentile: 85,
+      }
+    ],
+    location: {
+      city: "Ludhiana",
+      state: "Punjab",
+      address: "Ferozepur Road, Ludhiana 141004",
+    },
+    eligibility: {
+      academicCriteria: "10+2 with PCM/PCB for UG",
+      entranceRequirement: "Must qualify PAU CET",
+      minPercentage: "50% in qualifying exam",
+    },
+    rankings: {
+      nirf: 2,
+      icarRanking: "Top Agricultural University",
+    },
+    infrastructure: {
+      campus: "1510-acre green campus",
+      facilities: [
+        "Research Farms",
+        "Modern Labs",
+        "Agricultural Museum",
+        "Seed Testing Lab",
+        "Weather Station"
+      ],
+    },
+    placement: {
+      averagePackage: "₹6 LPA",
+      highestPackage: "₹12 LPA",
+      recruiters: ["Agri-corporations", "Research Organizations", "Government Departments"],
+    },
+    fees: {
+      tuition: "₹45,000 per year",
+      hostel: "₹40,000 per year",
+    },
+  },
+  {
+    id: 42,
+    name: "G.B. Pant University of Agriculture & Technology",
+    routes: "gbpuat-pantnagar",
+    categories: ["Agriculture", "Technology", "Veterinary Sciences"],
+    courses: [
+      "B.Sc. Agriculture",
+      "B.Tech Agricultural Engineering",
+      "M.Sc. Agriculture",
+      "Ph.D. Programs",
+      "Veterinary Sciences"
+    ],
+    specializations: [
+      "Agricultural Sciences",
+      "Veterinary Medicine",
+      "Agricultural Engineering",
+      "Fishery Sciences",
+      "Home Science"
+    ],
+    entranceExams: [
+      {
+        name: "ICAR AIEEA",
+        description: "National level entrance",
+        minPercentile: 85,
+      }
+    ],
+    location: {
+      city: "Pantnagar",
+      state: "Uttarakhand",
+      address: "Pantnagar, Udham Singh Nagar 263145",
+    },
+    eligibility: {
+      academicCriteria: "10+2 with PCM/PCB",
+      entranceRequirement: "ICAR AIEEA qualification",
+      minPercentage: "55% in qualifying exam",
+    },
+    rankings: {
+      nirf: 3,
+      icarRanking: "Leading Agricultural Institution",
+    },
+    infrastructure: {
+      campus: "10,000-acre campus",
+      facilities: [
+        "Experimental Farms",
+        "Research Centers",
+        "Dairy Farm",
+        "Veterinary Hospital",
+        "Agricultural Engineering Workshop"
+      ],
+    },
+    placement: {
+      averagePackage: "₹5.5 LPA",
+      highestPackage: "₹10 LPA",
+      recruiters: ["Agricultural Companies", "Research Institutes", "Government Sector"],
+    },
+    fees: {
+      tuition: "₹55,000 per year",
+      hostel: "₹42,000 per year",
+    },
+  },
+  {
+    id: 43,
+    name: "Tamil Nadu Agricultural University",
+    routes: "tnau-coimbatore",
+    categories: ["Agriculture", "Horticulture", "Agricultural Engineering"],
+    courses: [
+      "B.Sc. Agriculture",
+      "B.Tech Agricultural Engineering",
+      "M.Sc. Agriculture",
+      "Ph.D. Programs",
+      "Diploma in Agriculture"
+    ],
+    specializations: [
+      "Crop Production",
+      "Plant Breeding",
+      "Agricultural Economics",
+      "Soil Science",
+      "Plant Protection"
+    ],
+    entranceExams: [
+      {
+        name: "TNAU Entrance",
+        description: "University entrance exam",
+        minPercentile: 80,
+      }
+    ],
+    location: {
+      city: "Coimbatore",
+      state: "Tamil Nadu",
+      address: "Lawley Road, Coimbatore 641003",
+    },
+    eligibility: {
+      academicCriteria: "10+2 with Biology/Mathematics",
+      entranceRequirement: "TNAU entrance qualification",
+      minPercentage: "60% in qualifying exam",
+    },
+    rankings: {
+      nirf: 4,
+      icarRanking: "Top Southern Agricultural University",
+    },
+    infrastructure: {
+      campus: "1000-acre research campus",
+      facilities: [
+        "Research Stations",
+        "Model Farms",
+        "Biotechnology Center",
+        "Agricultural Engineering Labs",
+        "Seed Processing Unit"
+      ],
+    },
+    placement: {
+      averagePackage: "₹5 LPA",
+      highestPackage: "₹9 LPA",
+      recruiters: ["Agri-business Companies", "Research Organizations", "State Agricultural Departments"],
+    },
+    fees: {
+      tuition: "₹40,000 per year",
+      hostel: "₹35,000 per year",
+    },
+  },
+  {
+    id: 44,
+    name: "National Institute of Pharmaceutical Education and Research (NIPER)",
+    routes: "niper-mohali",
+    categories: ["Pharmacy", "Pharmaceutical Sciences", "Drug Research"],
+    courses: [
+      "M.Pharm",
+      "M.S. (Pharm.)",
+      "M.Tech (Pharm.)",
+      "Ph.D in Pharmaceutical Sciences",
+      "MBA (Pharm.)"
+    ],
+    specializations: [
+      "Medicinal Chemistry",
+      "Pharmaceutics",
+      "Pharmacology",
+      "Drug Discovery",
+      "Clinical Research"
+    ],
+    entranceExams: [
+      {
+        name: "NIPER JEE",
+        description: "Joint Entrance Examination",
+        minPercentile: 90,
+      }
+    ],
+    location: {
+      city: "Mohali",
+      state: "Punjab",
+      address: "Sector 67, SAS Nagar, Mohali 160062",
+    },
+    eligibility: {
+      academicCriteria: "B.Pharm with minimum 60%",
+      entranceRequirement: "Must qualify NIPER JEE",
+      workExperience: "Not mandatory",
+    },
+    rankings: {
+      nirf: 1,
+      naac: "A++",
+    },
+    infrastructure: {
+      campus: "Modern research-oriented campus",
+      facilities: [
+        "Advanced Research Labs",
+        "Drug Testing Center",
+        "Central Instrumentation Lab",
+        "Medicinal Plants Garden",
+        "GMP Facility"
+      ],
+    },
+    placement: {
+      averagePackage: "₹8.5 LPA",
+      highestPackage: "₹16 LPA",
+      recruiters: ["Sun Pharma", "Dr. Reddy's", "Cipla", "GSK", "Pfizer"],
+    },
+    fees: {
+      tuition: "₹1.2 Lakhs per year",
+      hostel: "₹72,000 per year",
+    },
+  },
+  {
+    id: 45,
+    name: "Institute of Chemical Technology (ICT Mumbai)",
+    routes: "ict-mumbai",
+    categories: ["Pharmacy", "Chemical Technology", "Pharmaceutical Technology"],
+    courses: [
+      "B.Pharm Tech",
+      "M.Pharm",
+      "M.Tech Pharmaceutical Technology",
+      "Ph.D Programs",
+      "Integrated M.Tech"
+    ],
+    specializations: [
+      "Pharmaceutical Technology",
+      "Industrial Pharmacy",
+      "Pharmaceutical Chemistry",
+      "Quality Assurance",
+      "Drug Regulatory Affairs"
+    ],
+    entranceExams: [
+      {
+        name: "GPAT",
+        description: "Graduate Pharmacy Aptitude Test",
+        minPercentile: 85,
+      }
+    ],
+    location: {
+      city: "Mumbai",
+      state: "Maharashtra",
+      address: "Nathalal Parekh Marg, Matunga, Mumbai 400019",
+    },
+    eligibility: {
+      academicCriteria: "12th PCM/PCB with 60%",
+      entranceRequirement: "GPAT/State CET",
+      languages: "English proficiency required",
+    },
+    rankings: {
+      nirf: 2,
+      naac: "A++",
+    },
+    infrastructure: {
+      campus: "State-of-the-art facilities",
+      facilities: [
+        "Pilot Plant Facility",
+        "Research Laboratories",
+        "Analytical Center",
+        "Drug Development Lab",
+        "Industrial Training Center"
+      ],
+    },
+    placement: {
+      averagePackage: "₹7.5 LPA",
+      highestPackage: "₹14 LPA",
+      recruiters: ["Johnson & Johnson", "Lupin", "Abbott", "AstraZeneca", "Novartis"],
+    },
+    fees: {
+      tuition: "₹1.5 Lakhs per year",
+      hostel: "₹85,000 per year",
+    },
+  },
+  {
+    id: 46,
+    name: "Jamia Hamdard",
+    routes: "jamia-hamdard",
+    categories: ["Pharmacy", "Healthcare", "Medical Sciences"],
+    courses: [
+      "B.Pharm",
+      "M.Pharm",
+      "Pharm.D",
+      "Ph.D in Pharmacy",
+      "D.Pharm"
+    ],
+    specializations: [
+      "Clinical Pharmacy",
+      "Pharmaceutics",
+      "Pharmacology",
+      "Quality Assurance",
+      "Pharmaceutical Analysis"
+    ],
+    entranceExams: [
+      {
+        name: "GPAT",
+        description: "Graduate Pharmacy Aptitude Test",
+        minPercentile: 80,
+      }
+    ],
+    location: {
+      city: "New Delhi",
+      state: "Delhi",
+      address: "Hamdard Nagar, New Delhi 110062",
+    },
+    eligibility: {
+      academicCriteria: "12th PCB/PCM with 55%",
+      entranceRequirement: "GPAT for PG courses",
+      languages: "English medium instruction",
+    },
+    rankings: {
+      nirf: 3,
+      naac: "A",
+    },
+    infrastructure: {
+      campus: "100-acre green campus",
+      facilities: [
+        "Modern Laboratories",
+        "Herbal Garden",
+        "Central Library",
+        "Research Centers",
+        "Computer Labs"
+      ],
+    },
+    placement: {
+      averagePackage: "₹6.5 LPA",
+      highestPackage: "₹12 LPA",
+      recruiters: ["Ranbaxy", "Biocon", "Mankind", "Zydus", "Glenmark"],
+    },
+    fees: {
+      tuition: "₹1.8 Lakhs per year",
+      hostel: "₹80,000 per year",
+    },
+  },
+  {
+    id: 47,
+    name: "Manipal College of Pharmaceutical Sciences",
+    routes: "mcops-manipal",
+    categories: ["Pharmacy", "Pharmaceutical Sciences", "Healthcare"],
+    courses: [
+      "B.Pharm",
+      "M.Pharm",
+      "Pharm.D",
+      "Ph.D Programs",
+      "Certificate Courses"
+    ],
+    specializations: [
+      "Industrial Pharmacy",
+      "Pharmaceutical Quality Assurance",
+      "Pharmaceutical Biotechnology",
+      "Regulatory Affairs",
+      "Clinical Research"
+    ],
+    entranceExams: [
+      {
+        name: "MU OET",
+        description: "Manipal University Online Entrance Test",
+        minPercentile: 85,
+      }
+    ],
+    location: {
+      city: "Manipal",
+      state: "Karnataka",
+      address: "MAHE, Madhav Nagar, Manipal 576104",
+    },
+    eligibility: {
+      academicCriteria: "12th PCB/PCM with 60%",
+      entranceRequirement: "MU OET/GPAT",
+      languages: "English proficiency required",
+    },
+    rankings: {
+      nirf: 4,
+      naac: "A++",
+    },
+    infrastructure: {
+      campus: "Modern campus with advanced facilities",
+      facilities: [
+        "Research Labs",
+        "Drug Information Center",
+        "Sophisticated Instrument Facility",
+        "Industrial Pharmacy Lab",
+        "Clinical Trial Center"
+      ],
+    },
+    placement: {
+      averagePackage: "₹7 LPA",
+      highestPackage: "₹15 LPA",
+      recruiters: ["Novartis", "GSK", "Cipla", "Sanofi", "Merck"],
+    },
+    fees: {
+      tuition: "₹3.5 Lakhs per year",
+      hostel: "₹1.2 Lakhs per year",
+    },
+  },
+  {
+    id: 48,
+    name: "Bombay College of Pharmacy",
+    routes: "bcp-mumbai",
+    categories: ["Pharmacy", "Pharmaceutical Sciences", "Research"],
+    courses: [
+      "B.Pharm",
+      "M.Pharm",
+      "Ph.D in Pharmaceutical Sciences",
+      "PG Diploma in Pharmaceutical Management",
+      "Certificate Programs"
+    ],
+    specializations: [
+      "Pharmaceutics",
+      "Pharmaceutical Chemistry",
+      "Pharmacology",
+      "Quality Assurance",
+      "Drug Regulatory Affairs"
+    ],
+    entranceExams: [
+      {
+        name: "MHT-CET",
+        description: "Maharashtra Common Entrance Test",
+        minPercentile: 90,
+      },
+      {
+        name: "GPAT",
+        description: "Graduate Pharmacy Aptitude Test",
+        minPercentile: 85,
+      }
+    ],
+    location: {
+      city: "Mumbai",
+      state: "Maharashtra",
+      address: "Kalina, Santacruz East, Mumbai 400098",
+    },
+    eligibility: {
+      academicCriteria: "12th PCM/PCB with 60%",
+      entranceRequirement: "MHT-CET/GPAT",
+      languages: "English proficiency required",
+    },
+    rankings: {
+      nirf: 5,
+      naac: "A+",
+    },
+    infrastructure: {
+      campus: "Modern pharmaceutical campus",
+      facilities: [
+        "Advanced Research Labs",
+        "Pilot Plant Facility",
+        "Instrument Room",
+        "Machine Room",
+        "Pharmaceutical Museum"
+      ],
+    },
+    placement: {
+      averagePackage: "₹7 LPA",
+      highestPackage: "₹14 LPA",
+      recruiters: ["Cipla", "Sun Pharma", "Lupin", "Abbott", "GSK"],
+    },
+    fees: {
+      tuition: "₹1.3 Lakhs per year",
+      hostel: "₹90,000 per year",
+    },
+  },
+  {
+    id: 49,
+    name: "JSS College of Pharmacy",
+    routes: "jsscpm-mysore",
+    categories: ["Pharmacy", "Clinical Research", "Healthcare"],
+    courses: [
+      "B.Pharm",
+      "M.Pharm",
+      "Pharm.D",
+      "Ph.D Programs",
+      "Clinical Research Programs"
+    ],
+    specializations: [
+      "Clinical Pharmacy",
+      "Pharmaceutical Analysis",
+      "Pharmacognosy",
+      "Industrial Pharmacy",
+      "Pharmaceutical Biotechnology"
+    ],
+    entranceExams: [
+      {
+        name: "KCET",
+        description: "Karnataka Common Entrance Test",
+        minPercentile: 85,
+      }
+    ],
+    location: {
+      city: "Mysore",
+      state: "Karnataka",
+      address: "Sri Shivarathreeshwara Nagar, Mysuru 570015",
+    },
+    eligibility: {
+      academicCriteria: "12th PCB/PCM with 55%",
+      entranceRequirement: "KCET/GPAT",
+      languages: "English medium instruction",
+    },
+    rankings: {
+      nirf: 6,
+      naac: "A",
+    },
+    infrastructure: {
+      campus: "Sprawling campus with modern facilities",
+      facilities: [
+        "Drug Testing Lab",
+        "Herbal Garden",
+        "Clinical Research Center",
+        "Central Instrumentation Facility",
+        "Digital Library"
+      ],
+    },
+    placement: {
+      averagePackage: "₹6.5 LPA",
+      highestPackage: "₹12 LPA",
+      recruiters: ["Biocon", "Astra Zeneca", "Novartis", "Dr. Reddy's", "Mylan"],
+    },
+    fees: {
+      tuition: "₹2 Lakhs per year",
+      hostel: "₹75,000 per year",
+    },
+  },
+  {
+    id: 50,
+    name: "L.M. College of Pharmacy",
+    routes: "lmcp-ahmedabad",
+    categories: ["Pharmacy", "Pharmaceutical Technology", "Research"],
+    courses: [
+      "B.Pharm",
+      "M.Pharm",
+      "Ph.D in Pharmacy",
+      "Quality Assurance Programs",
+      "Industrial Training"
+    ],
+    specializations: [
+      "Pharmaceutical Technology",
+      "Quality Assurance",
+      "Pharmacology",
+      "Pharmaceutical Analysis",
+      "Clinical Research"
+    ],
+    entranceExams: [
+      {
+        name: "GUJCET",
+        description: "Gujarat Common Entrance Test",
+        minPercentile: 80,
+      }
+    ],
+    location: {
+      city: "Ahmedabad",
+      state: "Gujarat",
+      address: "Navrangpura, Ahmedabad 380009",
+    },
+    eligibility: {
+      academicCriteria: "12th Science with 55%",
+      entranceRequirement: "GUJCET/GPAT",
+      languages: "English medium instruction",
+    },
+    rankings: {
+      nirf: 7,
+      naac: "A",
+    },
+    infrastructure: {
+      campus: "Well-equipped campus",
+      facilities: [
+        "Research Laboratories",
+        "Pharmaceutical Technology Lab",
+        "Computer Center",
+        "Library",
+        "Industrial Training Unit"
+      ],
+    },
+    placement: {
+      averagePackage: "₹6 LPA",
+      highestPackage: "₹11 LPA",
+      recruiters: ["Zydus", "Intas", "Torrent", "Cadila", "Sun Pharma"],
+    },
+    fees: {
+      tuition: "₹1.1 Lakhs per year",
+      hostel: "₹70,000 per year",
+    },
+  },
+  {
+    id: 51,
+    name: "Poona College of Pharmacy",
+    routes: "pcp-pune",
+    categories: ["Pharmacy", "Drug Research", "Pharmaceutical Sciences"],
+    courses: [
+      "B.Pharm",
+      "M.Pharm",
+      "Pharm.D",
+      "Ph.D Programs",
+      "PG Diploma Courses"
+    ],
+    specializations: [
+      "Pharmaceutics",
+      "Drug Discovery",
+      "Pharmaceutical Quality Assurance",
+      "Pharmacology",
+      "Industrial Pharmacy"
+    ],
+    entranceExams: [
+      {
+        name: "MHT-CET",
+        description: "Maharashtra Common Entrance Test",
+        minPercentile: 85,
+      }
+    ],
+    location: {
+      city: "Pune",
+      state: "Maharashtra",
+      address: "Bharati Vidyapeeth Campus, Pune 411038",
+    },
+    eligibility: {
+      academicCriteria: "12th PCM/PCB with 55%",
+      entranceRequirement: "MHT-CET/GPAT",
+      languages: "English proficiency required",
+    },
+    rankings: {
+      nirf: 8,
+      naac: "A",
+    },
+    infrastructure: {
+      campus: "Modern research-oriented campus",
+      facilities: [
+        "Advanced Research Labs",
+        "Drug Testing Facility",
+        "Medicinal Garden",
+        "Industry Collaboration Center",
+        "Digital Library"
+      ],
+    },
+    placement: {
+      averagePackage: "₹5.8 LPA",
+      highestPackage: "₹10 LPA",
+      recruiters: ["Cipla", "Glenmark", "Emcure", "Serum Institute", "Lupin"],
+    },
+    fees: {
+      tuition: "₹2.2 Lakhs per year",
+      hostel: "₹85,000 per year",
+    },
+  },
+  {
+    id: 52,
+    name: "Indian Maritime University",
+    routes: "imu-chennai",
+    categories: ["Maritime", "Nautical Science", "Marine Engineering"],
+    courses: [
+      "B.Tech Marine Engineering",
+      "B.Sc Nautical Science",
+      "DNS (Diploma in Nautical Science)",
+      "M.Tech Marine Engineering",
+      "MBA in Maritime Management"
+    ],
+    specializations: [
+      "Navigation",
+      "Marine Engineering",
+      "Naval Architecture",
+      "Port & Shipping Management",
+      "Maritime Logistics"
+    ],
+    entranceExams: [
+      {
+        name: "IMU-CET",
+        description: "Common Entrance Test",
+        minPercentile: 85,
+      }
+    ],
+    location: {
+      city: "Chennai",
+      state: "Tamil Nadu",
+      address: "East Coast Road, Uthandi, Chennai 600119",
+    },
+    eligibility: {
+      academicCriteria: "12th PCM with 60%",
+      entranceRequirement: "IMU-CET qualification",
+      physicalFitness: "Medical fitness as per DG Shipping norms",
+    },
+    rankings: {
+      nirf: 1,
+      dgShippingRank: "Premier Maritime Institution",
+    },
+    infrastructure: {
+      campus: "Modern maritime campus",
+      facilities: [
+        "Ship-in-Campus",
+        "Navigation Simulators",
+        "Engine Room Simulators",
+        "Marine Workshop",
+        "Swimming Pool"
+      ],
+    },
+    placement: {
+      averagePackage: "₹15 LPA",
+      highestPackage: "₹25 LPA",
+      recruiters: ["Maersk Line", "MSC", "Shipping Corporation of India", "Anglo-Eastern"],
+    },
+    fees: {
+      tuition: "₹2.5 Lakhs per year",
+      hostel: "₹85,000 per year",
+    },
+  },
+  {
+    id: 53,
+    name: "AMET University",
+    routes: "amet-chennai",
+    categories: ["Maritime", "Marine Engineering", "Nautical Studies"],
+    courses: [
+      "B.Tech Marine Engineering",
+      "B.Sc Nautical Science",
+      "M.Tech Marine Engineering",
+      "MBA Maritime Management",
+      "Offshore Engineering"
+    ],
+    specializations: [
+      "Ship Navigation",
+      "Marine Engineering",
+      "Offshore Technology",
+      "Maritime Law",
+      "Ship Management"
+    ],
+    entranceExams: [
+      {
+        name: "AMET Entrance",
+        description: "University entrance test",
+        minPercentile: 80,
+      }
+    ],
+    location: {
+      city: "Chennai",
+      state: "Tamil Nadu",
+      address: "Kanathur, East Coast Road, Chennai 603112",
+    },
+    eligibility: {
+      academicCriteria: "12th PCM with 55%",
+      entranceRequirement: "AMET entrance qualification",
+      physicalFitness: "DG Shipping medical standards",
+    },
+    rankings: {
+      maritimeRank: 2,
+      naac: "A",
+    },
+    infrastructure: {
+      campus: "Waterfront campus",
+      facilities: [
+        "Marine Engineering Workshop",
+        "Navigation Bridge Simulator",
+        "Seamanship Lab",
+        "Maritime Research Center",
+        "Training Ship"
+      ],
+    },
+    placement: {
+      averagePackage: "₹12 LPA",
+      highestPackage: "₹20 LPA",
+      recruiters: ["Fleet Management", "Bernhard Schulte", "Wallem Group", "V.Ships"],
+    },
+    fees: {
+      tuition: "₹3 Lakhs per year",
+      hostel: "₹90,000 per year",
+    },
+  },
+  {
+    id: 54,
+    name: "Tolani Maritime Institute",
+    routes: "tmi-pune",
+    categories: ["Maritime", "Marine Engineering", "Nautical Science"],
+    courses: [
+      "B.Tech Marine Engineering",
+      "B.Sc Nautical Science",
+      "DNS Course",
+      "STCW Courses",
+      "Maritime Safety Programs"
+    ],
+    specializations: [
+      "Marine Engineering",
+      "Navigation",
+      "Maritime Safety",
+      "Ship Operations",
+      "Marine Control Systems"
+    ],
+    entranceExams: [
+      {
+        name: "TMI-JEE",
+        description: "Institute entrance test",
+        minPercentile: 75,
+      }
+    ],
+    location: {
+      city: "Pune",
+      state: "Maharashtra",
+      address: "Induri, Talegaon-Chakan Road, Pune 410507",
+    },
+    eligibility: {
+      academicCriteria: "12th PCM with 60%",
+      entranceRequirement: "TMI-JEE qualification",
+      physicalFitness: "Medical fitness certificate",
+    },
+    rankings: {
+      maritimeRank: 3,
+      dgShippingRating: "A+",
+    },
+    infrastructure: {
+      campus: "130-acre maritime campus",
+      facilities: [
+        "Ship Bridge Simulator",
+        "Engine Room Workshop",
+        "Safety Training Center",
+        "Swimming Pool",
+        "Marine Library"
+      ],
+    },
+    placement: {
+      averagePackage: "₹11 LPA",
+      highestPackage: "₹18 LPA",
+      recruiters: ["NYK Line", "K-Line", "MOL", "Great Eastern Shipping"],
+    },
+    fees: {
+      tuition: "₹2.8 Lakhs per year",
+      hostel: "₹85,000 per year",
+    },
+  },
+  {
+    id: 55,
+    name: "Marine Engineering and Research Institute (MERI)",
+    routes: "meri-kolkata",
+    categories: ["Marine Engineering", "Maritime Studies", "Research"],
+    courses: [
+      "B.Tech Marine Engineering",
+      "GME Course",
+      "Maritime Research Programs",
+      "STCW Courses",
+      "Specialized Marine Courses"
+    ],
+    specializations: [
+      "Marine Engineering",
+      "Ship Design",
+      "Maritime Safety",
+      "Marine Control Systems",
+      "Environmental Marine Technology"
+    ],
+    entranceExams: [
+      {
+        name: "JEE Main",
+        description: "National level entrance",
+        minPercentile: 75,
+      }
+    ],
+    location: {
+      city: "Kolkata",
+      state: "West Bengal",
+      address: "P-19 Taratala Road, Kolkata 700088",
+    },
+    eligibility: {
+      academicCriteria: "12th PCM with 60%",
+      entranceRequirement: "JEE Main qualification",
+      physicalFitness: "DG Shipping medical norms",
+    },
+    rankings: {
+      maritimeRank: 4,
+      dgShippingRating: "A",
+    },
+    infrastructure: {
+      campus: "Technical maritime campus",
+      facilities: [
+        "Engine Room Complex",
+        "Simulation Center",
+        "Workshop Facility",
+        "Research Labs",
+        "Training Vessel Access"
+      ],
+    },
+    placement: {
+      averagePackage: "₹10 LPA",
+      highestPackage: "₹16 LPA",
+      recruiters: ["Shipping Corporation of India", "Essar Shipping", "Maersk", "ASP Ship Management"],
+    },
+    fees: {
+      tuition: "₹2.2 Lakhs per year",
+      hostel: "₹75,000 per year",
+    },
+  },
+  {
+    id: 56,
+    name: "Institute of Hotel Management, Catering & Nutrition (IHM)",
+    routes: "ihm-pusa",
+    categories: ["Hotel Management", "Hospitality", "Culinary Arts"],
+    courses: [
+      "B.Sc in Hospitality & Hotel Administration",
+      "Post Graduate Diploma in Accommodation Management",
+      "Diploma in Food Production",
+      "Craft Course in Food & Beverage Service",
+      "Certificate in Bakery & Confectionery"
+    ],
+    specializations: [
+      "Food Production",
+      "Food & Beverage Service",
+      "Front Office Operations",
+      "Housekeeping",
+      "Hotel Administration"
+    ],
+    entranceExams: [
+      {
+        name: "NCHMCT JEE",
+        description: "National Council JEE",
+        minPercentile: 85,
+      }
+    ],
+    location: {
+      city: "New Delhi",
+      state: "Delhi",
+      address: "Pusa Complex, New Delhi 110012",
+    },
+    eligibility: {
+      academicCriteria: "12th with 50%",
+      entranceRequirement: "NCHMCT JEE qualification",
+      languages: "English proficiency required",
+    },
+    rankings: {
+      nirf: 1,
+      nchmctRank: "Premier Institute",
+    },
+    infrastructure: {
+      campus: "State-of-the-art hospitality campus",
+      facilities: [
+        "Training Restaurants",
+        "Professional Kitchens",
+        "Bakery Lab",
+        "Front Office Lab",
+        "Housekeeping Lab"
+      ],
+    },
+    placement: {
+      averagePackage: "₹4.5 LPA",
+      highestPackage: "₹12 LPA",
+      recruiters: ["Taj Hotels", "Oberoi", "ITC Hotels", "Marriott", "Hyatt"],
+    },
+    fees: {
+      tuition: "₹85,000 per year",
+      hostel: "₹75,000 per year",
+    },
+  },
+  {
+    id: 57,
+    name: "Welcomgroup Graduate School of Hotel Administration",
+    routes: "wgsha-manipal",
+    categories: ["Hotel Management", "Hospitality", "Culinary Arts"],
+    courses: [
+      "BA in Culinary Arts",
+      "BHM (Bachelor in Hotel Management)",
+      "MBA in Hotel Administration",
+      "Diploma in Culinary Arts",
+      "Certificate Programs"
+    ],
+    specializations: [
+      "Culinary Arts",
+      "Hotel Operations",
+      "Restaurant Management",
+      "Hospitality Marketing",
+      "Event Management"
+    ],
+    entranceExams: [
+      {
+        name: "MAHE OET",
+        description: "Manipal Online Entrance Test",
+        minPercentile: 80,
+      }
+    ],
+    location: {
+      city: "Manipal",
+      state: "Karnataka",
+      address: "MAHE Campus, Manipal 576104",
+    },
+    eligibility: {
+      academicCriteria: "12th with 50%",
+      entranceRequirement: "MAHE OET qualification",
+      languages: "English proficiency required",
+    },
+    rankings: {
+      hotelManagementRank: 2,
+      naac: "A++",
+    },
+    infrastructure: {
+      campus: "Modern hospitality campus",
+      facilities: [
+        "Training Hotel",
+        "Specialty Restaurants",
+        "Advanced Kitchens",
+        "Wine Tasting Lab",
+        "Hospitality Software Lab"
+      ],
+    },
+    placement: {
+      averagePackage: "₹4.2 LPA",
+      highestPackage: "₹10 LPA",
+      recruiters: ["ITC Hotels", "Taj Group", "Marriott International", "Hilton", "Accor"],
+    },
+    fees: {
+      tuition: "₹3.5 Lakhs per year",
+      hostel: "₹1.2 Lakhs per year",
+    },
+  },
+  {
+    id: 58,
+    name: "Institute of Hotel Management, Aurangabad",
+    routes: "ihm-aurangabad",
+    categories: ["Hotel Management", "Hospitality", "Tourism"],
+    courses: [
+      "B.Sc in Hospitality & Hotel Administration",
+      "Diploma in Food Production",
+      "Craft Course in F&B Service",
+      "Certificate in Front Office",
+      "Housekeeping Operations"
+    ],
+    specializations: [
+      "Kitchen Operations",
+      "F&B Service",
+      "Rooms Division",
+      "Hotel Administration",
+      "Tourism Management"
+    ],
+    entranceExams: [
+      {
+        name: "NCHMCT JEE",
+        description: "National Council JEE",
+        minPercentile: 80,
+      }
+    ],
+    location: {
+      city: "Aurangabad",
+      state: "Maharashtra",
+      address: "CIDCO, Aurangabad 431003",
+    },
+    eligibility: {
+      academicCriteria: "12th with 50%",
+      entranceRequirement: "NCHMCT JEE qualification",
+      languages: "English proficiency required",
+    },
+    rankings: {
+      hotelManagementRank: 3,
+      nchmctRank: "A+",
+    },
+    infrastructure: {
+      campus: "Industry-integrated campus",
+      facilities: [
+        "Training Kitchens",
+        "F&B Service Labs",
+        "Front Office Lab",
+        "Housekeeping Lab",
+        "Computer Center"
+      ],
+    },
+    placement: {
+      averagePackage: "₹3.8 LPA",
+      highestPackage: "₹8 LPA",
+      recruiters: ["Taj Hotels", "Radisson", "Lemon Tree", "IHCL", "The Leela"],
+    },
+    fees: {
+      tuition: "₹75,000 per year",
+      hostel: "₹65,000 per year",
+    },
+  },
+  {
+    id: 59,
+    name: "Christ University Institute of Hotel Management",
+    routes: "christ-ihm-bangalore",
+    categories: ["Hotel Management", "Hospitality", "Tourism"],
+    courses: [
+      "B.Sc in Hotel Management",
+      "BA in Culinary Arts",
+      "MBA in Tourism & Hospitality",
+      "Diploma in Hotel Operations",
+      "Certificate in F&B Service"
+    ],
+    specializations: [
+      "Hotel Operations",
+      "Culinary Management",
+      "Tourism Management",
+      "Event Management",
+      "Hospitality Marketing"
+    ],
+    entranceExams: [
+      {
+        name: "CUET",
+        description: "Christ University Entrance Test",
+        minPercentile: 75,
+      }
+    ],
+    location: {
+      city: "Bangalore",
+      state: "Karnataka",
+      address: "Hosur Road, Bangalore 560029",
+    },
+    eligibility: {
+      academicCriteria: "12th with 50%",
+      entranceRequirement: "CUET qualification",
+      languages: "English proficiency required",
+    },
+    rankings: {
+      hotelManagementRank: 4,
+      naac: "A+",
+    },
+    infrastructure: {
+      campus: "Modern hospitality training facility",
+      facilities: [
+        "Training Restaurant",
+        "Demo Kitchen",
+        "Housekeeping Lab",
+        "Front Office Simulation",
+        "Food Science Lab"
+      ],
+    },
+    placement: {
+      averagePackage: "₹3.5 LPA",
+      highestPackage: "₹7 LPA",
+      recruiters: ["Marriott", "Hyatt", "Oberoi", "Taj Hotels", "The Leela"],
+    },
+    fees: {
+      tuition: "₹2.5 Lakhs per year",
+      hostel: "₹1 Lakh per year",
+    },
+  },
+  {
+    id: 6,
+    name: "College of Art, New Delhi",
+    routes: "college-of-art-delhi",
+    categories: ["Fine Arts", "Arts", "Design"],
+    courses: [
+      "Bachelor of Fine Arts (Painting)",
+      "Bachelor of Fine Arts (Applied Arts)",
+      "Bachelor of Fine Arts (Sculpture)",
+      "Bachelor of Fine Arts (Print Making)",
+      "Bachelor of Fine Arts (Art History)",
+    ],
+    entranceExams: [
+      {
+        name: "College of Art Entrance Exam",
+        description: "Institution-specific entrance examination",
+        minPercentile: 85,
+      },
+    ],
+    location: {
+      city: "New Delhi",
+      state: "Delhi",
+      address: "20-22, Tilak Marg, New Delhi, Delhi 110001",
+    },
+    eligibility: {
+      academicCriteria: "Minimum 50% in 12th standard",
+      entranceRequirement: "Must qualify College of Art Entrance Exam",
+      ageLimit: "Less than 25 years",
+    },
+    rankings: {
+      nirf: 1,
+      qsWorld: null,
+    },
+    infrastructure: {
+      campus: "Historic campus in central Delhi",
+      facilities: [
+        "Art studios",
+        "Exhibition galleries",
+        "Art library",
+        "Sculpture workshops",
+        "Print making labs",
+      ],
+    },
+    placement: {
+      averagePackage: "₹4.5 LPA",
+      highestPackage: "₹12 LPA",
+      recruiters: ["Art galleries", "Museums", "Design studios", "Publishing houses"],
+    },
+    fees: {
+      tuition: "₹45,000 per year",
+      hostel: "₹30,000 per year",
+    },
+  },
+  {
+    id: 7,
+    name: "Sir JJ School of Art, Mumbai",
+    routes: "jj-school-of-art",
+    categories: ["Fine Arts", "Arts", "Design"],
+    courses: [
+      "Bachelor of Fine Arts (Painting)",
+      "Bachelor of Fine Arts (Applied Arts)",
+      "Bachelor of Fine Arts (Sculpture)",
+      "Bachelor of Fine Arts (Art History)",
+      "Bachelor of Fine Arts (Ceramics)",
+    ],
+    entranceExams: [
+      {
+        name: "JJ School of Art Entrance Exam",
+        description: "Institution-specific entrance examination",
+        minPercentile: 85,
+      },
+    ],
+    location: {
+      city: "Mumbai",
+      state: "Maharashtra",
+      address: "Dr D N Road, Fort, Mumbai, Maharashtra 400001",
+    },
+    eligibility: {
+      academicCriteria: "Minimum 50% in 12th standard",
+      entranceRequirement: "Must qualify JJ School of Art Entrance Exam",
+      ageLimit: "Less than 25 years",
+    },
+    rankings: {
+      nirf: 2,
+      qsWorld: null,
+    },
+    infrastructure: {
+      campus: "Heritage campus in Fort area",
+      facilities: [
+        "Art studios",
+        "Exhibition halls",
+        "Art library",
+        "Sculpture workshops",
+        "Ceramics studio",
+      ],
+    },
+    placement: {
+      averagePackage: "₹4.2 LPA",
+      highestPackage: "₹10 LPA",
+      recruiters: ["Art galleries", "Design studios", "Advertising agencies", "Museums"],
+    },
+    fees: {
+      tuition: "₹40,000 per year",
+      hostel: "₹25,000 per year",
+    },
+  },
+  {
+    id: 8,
+    name: "Government College of Fine Arts, Chennai",
+    routes: "gcf-chennai",
+    categories: ["Fine Arts", "Arts", "Design"],
+    courses: [
+      "Bachelor of Fine Arts (Painting)",
+      "Bachelor of Fine Arts (Applied Arts)",
+      "Bachelor of Fine Arts (Sculpture)",
+      "Bachelor of Fine Arts (Art History)",
+      "Bachelor of Fine Arts (Photography)",
+    ],
+    entranceExams: [
+      {
+        name: "GCF Entrance Exam",
+        description: "Institution-specific entrance examination",
+        minPercentile: 85,
+      },
+    ],
+    location: {
+      city: "Chennai",
+      state: "Tamil Nadu",
+      address: "Poonamallee High Road, Egmore, Chennai, Tamil Nadu 600008",
+    },
+    eligibility: {
+      academicCriteria: "Minimum 50% in 12th standard",
+      entranceRequirement: "Must qualify GCF Entrance Exam",
+      ageLimit: "Less than 25 years",
+    },
+    rankings: {
+      nirf: 3,
+      qsWorld: null,
+    },
+    infrastructure: {
+      campus: "Modern campus in Chennai",
+      facilities: [
+        "Art studios",
+        "Exhibition galleries",
+        "Art library",
+        "Sculpture workshops",
+        "Photography studio",
+      ],
+    },
+    placement: {
+      averagePackage: "₹4 LPA",
+      highestPackage: "₹9 LPA",
+      recruiters: ["Art galleries", "Design studios", "Media houses", "Advertising agencies"],
+    },
+    fees: {
+      tuition: "₹35,000 per year",
+      hostel: "₹20,000 per year",
+    },
+  },
+  {
+    id: 9,
+    name: "Maulana Azad Institute of Dental Sciences",
+    routes: "maulana-azad-dental",
+    categories: ["Dental", "Medical", "Healthcare"],
+    courses: [
+      "Bachelor of Dental Surgery (BDS)",
+      "Master of Dental Surgery (MDS) in various specializations",
+      "Diploma in Dental Hygienist",
+      "Diploma in Dental Mechanic",
+    ],
+    entranceExams: [
+      {
+        name: "NEET",
+        description: "National Eligibility cum Entrance Test",
+        minPercentile: 95,
+      },
+    ],
+    location: {
+      city: "New Delhi",
+      state: "Delhi",
+      address: "MAMC Complex, Bahadur Shah Zafar Marg, New Delhi, Delhi 110002",
+    },
+    eligibility: {
+      academicCriteria: "Minimum 50% in PCB in 12th standard",
+      entranceRequirement: "Must qualify NEET",
+      ageLimit: "Less than 25 years",
+    },
+    rankings: {
+      nirf: 1,
+      qsWorld: null,
+    },
+    infrastructure: {
+      campus: "Modern dental hospital complex",
+      facilities: [
+        "Advanced dental clinics",
+        "Dental laboratories",
+        "Research center",
+        "Library",
+        "Medical center",
+      ],
+    },
+    placement: {
+      averagePackage: "₹8 LPA",
+      highestPackage: "₹25 LPA",
+      recruiters: ["Government hospitals", "Private dental clinics", "Research institutions", "Dental equipment companies"],
+    },
+    fees: {
+      tuition: "₹1.5 Lakhs per year",
+      hostel: "₹50,000 per year",
+    },
+  },
+  {
+    id: 10,
+    name: "Manipal College of Dental Sciences",
+    routes: "manipal-dental",
+    categories: ["Dental", "Medical", "Healthcare"],
+    courses: [
+      "Bachelor of Dental Surgery (BDS)",
+      "Master of Dental Surgery (MDS) in various specializations",
+      "Diploma in Dental Hygienist",
+      "Diploma in Dental Mechanic",
+    ],
+    entranceExams: [
+      {
+        name: "NEET",
+        description: "National Eligibility cum Entrance Test",
+        minPercentile: 90,
+      },
+    ],
+    location: {
+      city: "Manipal",
+      state: "Karnataka",
+      address: "Madhav Nagar, Manipal, Karnataka 576104",
+    },
+    eligibility: {
+      academicCriteria: "Minimum 50% in PCB in 12th standard",
+      entranceRequirement: "Must qualify NEET",
+      ageLimit: "Less than 25 years",
+    },
+    rankings: {
+      nirf: 2,
+      qsWorld: null,
+    },
+    infrastructure: {
+      campus: "State-of-the-art dental hospital",
+      facilities: [
+        "Modern dental clinics",
+        "Advanced laboratories",
+        "Research facilities",
+        "Digital library",
+        "Medical center",
+      ],
+    },
+    placement: {
+      averagePackage: "₹7.5 LPA",
+      highestPackage: "₹22 LPA",
+      recruiters: ["Private dental clinics", "Hospitals", "Research institutions", "Dental equipment companies"],
+    },
+    fees: {
+      tuition: "₹3.5 Lakhs per year",
+      hostel: "₹75,000 per year",
+    },
+  },
+  {
+    id: 11,
+    name: "Dr. R. Ahmed Dental College and Hospital",
+    routes: "dr-ahmed-dental",
+    categories: ["Dental", "Medical", "Healthcare"],
+    courses: [
+      "Bachelor of Dental Surgery (BDS)",
+      "Master of Dental Surgery (MDS) in various specializations",
+      "Diploma in Dental Hygienist",
+      "Diploma in Dental Mechanic",
+    ],
+    entranceExams: [
+      {
+        name: "NEET",
+        description: "National Eligibility cum Entrance Test",
+        minPercentile: 90,
+      },
+    ],
+    location: {
+      city: "Kolkata",
+      state: "West Bengal",
+      address: "114, AJC Bose Road, Kolkata, West Bengal 700014",
+    },
+    eligibility: {
+      academicCriteria: "Minimum 50% in PCB in 12th standard",
+      entranceRequirement: "Must qualify NEET",
+      ageLimit: "Less than 25 years",
+    },
+    rankings: {
+      nirf: 3,
+      qsWorld: null,
+    },
+    infrastructure: {
+      campus: "Historic dental college and hospital",
+      facilities: [
+        "Dental clinics",
+        "Laboratories",
+        "Research center",
+        "Library",
+        "Medical center",
+      ],
+    },
+    placement: {
+      averagePackage: "₹7 LPA",
+      highestPackage: "₹20 LPA",
+      recruiters: ["Government hospitals", "Private dental clinics", "Research institutions", "Dental equipment companies"],
+    },
+    fees: {
+      tuition: "₹1.2 Lakhs per year",
+      hostel: "₹40,000 per year",
+    },
+  },
 ];
 
 
