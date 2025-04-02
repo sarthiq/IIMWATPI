@@ -7868,6 +7868,642 @@ export const collegeData = [
       hostel: "₹40,000 per year",
     },
   },
+  {
+    id: 12,
+    name: "National Institute of Design, Ahmedabad",
+    routes: "nid-ahmedabad",
+    categories: ["Crafts", "Design", "Arts"],
+    courses: [
+      "Bachelor of Design in Crafts",
+      "Master of Design in Crafts",
+      "Diploma in Craft Design",
+      "Certificate courses in various crafts",
+      "Design for Craft Excellence",
+    ],
+    entranceExams: [
+      {
+        name: "NID DAT",
+        description: "National Institute of Design Design Aptitude Test",
+        minPercentile: 85,
+      },
+    ],
+    location: {
+      city: "Ahmedabad",
+      state: "Gujarat",
+      address: "Paldi, Ahmedabad, Gujarat 380007",
+    },
+    eligibility: {
+      academicCriteria: "Minimum 50% in 12th standard",
+      entranceRequirement: "Must qualify NID DAT",
+      ageLimit: "Less than 25 years",
+    },
+    rankings: {
+      nirf: 1,
+      qsWorld: null,
+    },
+    infrastructure: {
+      campus: "Modern design campus",
+      facilities: [
+        "Craft workshops",
+        "Design studios",
+        "Material library",
+        "Exhibition spaces",
+        "Digital labs",
+      ],
+    },
+    placement: {
+      averagePackage: "₹6 LPA",
+      highestPackage: "₹15 LPA",
+      recruiters: ["Design studios", "Craft organizations", "Export houses", "Cultural institutions"],
+    },
+    fees: {
+      tuition: "₹2.5 Lakhs per year",
+      hostel: "₹60,000 per year",
+    },
+  },
+  {
+    id: 13,
+    name: "Indian Institute of Crafts and Design, Jaipur",
+    routes: "iicd-jaipur",
+    categories: ["Crafts", "Design", "Arts"],
+    courses: [
+      "Bachelor of Design in Crafts",
+      "Master of Design in Crafts",
+      "Diploma in Craft Design",
+      "Certificate courses in traditional crafts",
+      "Craft Entrepreneurship",
+    ],
+    entranceExams: [
+      {
+        name: "IICD Entrance Exam",
+        description: "Institution-specific entrance examination",
+        minPercentile: 80,
+      },
+    ],
+    location: {
+      city: "Jaipur",
+      state: "Rajasthan",
+      address: "J-8, Jhalana Institutional Area, Jaipur, Rajasthan 302004",
+    },
+    eligibility: {
+      academicCriteria: "Minimum 50% in 12th standard",
+      entranceRequirement: "Must qualify IICD Entrance Exam",
+      ageLimit: "Less than 25 years",
+    },
+    rankings: {
+      nirf: 2,
+      qsWorld: null,
+    },
+    infrastructure: {
+      campus: "State-of-the-art craft institute",
+      facilities: [
+        "Craft workshops",
+        "Design studios",
+        "Material library",
+        "Exhibition galleries",
+        "Digital labs",
+      ],
+    },
+    placement: {
+      averagePackage: "₹5.5 LPA",
+      highestPackage: "₹12 LPA",
+      recruiters: ["Craft organizations", "Design studios", "Export houses", "Cultural institutions"],
+    },
+    fees: {
+      tuition: "₹2 Lakhs per year",
+      hostel: "₹50,000 per year",
+    },
+  },
+  {
+    id: 14,
+    name: "Kala Bhavana, Visva-Bharati University",
+    routes: "kala-bhavana",
+    categories: ["Crafts", "Arts", "Design"],
+    courses: [
+      "Bachelor of Fine Arts in Crafts",
+      "Master of Fine Arts in Crafts",
+      "Diploma in Craft Design",
+      "Certificate courses in traditional crafts",
+      "Craft History and Criticism",
+    ],
+    entranceExams: [
+      {
+        name: "Visva-Bharati Entrance Exam",
+        description: "University-specific entrance examination",
+        minPercentile: 80,
+      },
+    ],
+    location: {
+      city: "Santiniketan",
+      state: "West Bengal",
+      address: "Visva-Bharati University, Santiniketan, West Bengal 731235",
+    },
+    eligibility: {
+      academicCriteria: "Minimum 50% in 12th standard",
+      entranceRequirement: "Must qualify Visva-Bharati Entrance Exam",
+      ageLimit: "Less than 25 years",
+    },
+    rankings: {
+      nirf: 3,
+      qsWorld: null,
+    },
+    infrastructure: {
+      campus: "Historic art and craft campus",
+      facilities: [
+        "Craft workshops",
+        "Art studios",
+        "Material library",
+        "Exhibition spaces",
+        "Traditional craft labs",
+      ],
+    },
+    placement: {
+      averagePackage: "₹5 LPA",
+      highestPackage: "₹10 LPA",
+      recruiters: ["Craft organizations", "Art galleries", "Cultural institutions", "Design studios"],
+    },
+    fees: {
+      tuition: "₹1.5 Lakhs per year",
+      hostel: "₹40,000 per year",
+    },
+  },
+  {
+    id: 15,
+    name: "Indira Gandhi Rashtriya Uran Akademi",
+    routes: "igrua",
+    categories: ["Aviation", "Engineering", "Technology"],
+    courses: [
+      "Commercial Pilot License (CPL)",
+      "Private Pilot License (PPL)",
+      "Aircraft Maintenance Engineering (AME)",
+      "Air Traffic Control (ATC)",
+      "Aviation Management",
+    ],
+    entranceExams: [
+      {
+        name: "IGRUA Entrance Exam",
+        description: "Institution-specific entrance examination",
+        minPercentile: 85,
+      },
+    ],
+    location: {
+      city: "Rae Bareli",
+      state: "Uttar Pradesh",
+      address: "Civil Aerodrome Post Office, Fursatganj, Rae Bareli, Uttar Pradesh 229302",
+    },
+    eligibility: {
+      academicCriteria: "Minimum 50% in PCM in 12th standard",
+      entranceRequirement: "Must qualify IGRUA Entrance Exam",
+      ageLimit: "17-24 years",
+    },
+    rankings: {
+      nirf: 1,
+      qsWorld: null,
+    },
+    infrastructure: {
+      campus: "Modern aviation training facility",
+      facilities: [
+        "Flight simulators",
+        "Aircraft hangars",
+        "Training aircraft",
+        "Aviation library",
+        "Meteorological center",
+      ],
+    },
+    placement: {
+      averagePackage: "₹12 LPA",
+      highestPackage: "₹35 LPA",
+      recruiters: ["Air India", "IndiGo", "SpiceJet", "Vistara", "International Airlines"],
+    },
+    fees: {
+      tuition: "₹15 Lakhs per year",
+      hostel: "₹1.5 Lakhs per year",
+    },
+  },
+  {
+    id: 16,
+    name: "Rajiv Gandhi Aviation Academy",
+    routes: "rgaviation",
+    categories: ["Aviation", "Engineering", "Technology"],
+    courses: [
+      "Commercial Pilot License (CPL)",
+      "Private Pilot License (PPL)",
+      "Aircraft Maintenance Engineering (AME)",
+      "Aviation Management",
+      "Air Hostess Training",
+    ],
+    entranceExams: [
+      {
+        name: "RGAA Entrance Exam",
+        description: "Institution-specific entrance examination",
+        minPercentile: 80,
+      },
+    ],
+    location: {
+      city: "Bangalore",
+      state: "Karnataka",
+      address: "Kempegowda International Airport Road, Bangalore, Karnataka 562157",
+    },
+    eligibility: {
+      academicCriteria: "Minimum 50% in PCM in 12th standard",
+      entranceRequirement: "Must qualify RGAA Entrance Exam",
+      ageLimit: "17-24 years",
+    },
+    rankings: {
+      nirf: 2,
+      qsWorld: null,
+    },
+    infrastructure: {
+      campus: "State-of-the-art aviation training center",
+      facilities: [
+        "Advanced flight simulators",
+        "Aircraft maintenance hangars",
+        "Training aircraft fleet",
+        "Aviation library",
+        "Meteorological center",
+      ],
+    },
+    placement: {
+      averagePackage: "₹10 LPA",
+      highestPackage: "₹30 LPA",
+      recruiters: ["Air India", "IndiGo", "SpiceJet", "Vistara", "International Airlines"],
+    },
+    fees: {
+      tuition: "₹12 Lakhs per year",
+      hostel: "₹1.2 Lakhs per year",
+    },
+  },
+  {
+    id: 17,
+    name: "Bharat Institute of Aeronautics",
+    routes: "bia",
+    categories: ["Aviation", "Engineering", "Technology"],
+    courses: [
+      "Commercial Pilot License (CPL)",
+      "Private Pilot License (PPL)",
+      "Aircraft Maintenance Engineering (AME)",
+      "Aviation Management",
+      "Ground Staff Training",
+    ],
+    entranceExams: [
+      {
+        name: "BIA Entrance Exam",
+        description: "Institution-specific entrance examination",
+        minPercentile: 80,
+      },
+    ],
+    location: {
+      city: "Patna",
+      state: "Bihar",
+      address: "Patna Airport Road, Patna, Bihar 800014",
+    },
+    eligibility: {
+      academicCriteria: "Minimum 50% in PCM in 12th standard",
+      entranceRequirement: "Must qualify BIA Entrance Exam",
+      ageLimit: "17-24 years",
+    },
+    rankings: {
+      nirf: 3,
+      qsWorld: null,
+    },
+    infrastructure: {
+      campus: "Modern aviation training facility",
+      facilities: [
+        "Flight simulators",
+        "Aircraft hangars",
+        "Training aircraft",
+        "Aviation library",
+        "Meteorological center",
+      ],
+    },
+    placement: {
+      averagePackage: "₹8 LPA",
+      highestPackage: "₹25 LPA",
+      recruiters: ["Air India", "IndiGo", "SpiceJet", "Vistara", "Regional Airlines"],
+    },
+    fees: {
+      tuition: "₹10 Lakhs per year",
+      hostel: "₹1 Lakh per year",
+    },
+  },
+  {
+    id: 18,
+    name: "All India Institute of Physical Medicine and Rehabilitation",
+    routes: "aiipmr",
+    categories: ["Rehabilitation", "Medical", "Healthcare"],
+    courses: [
+      "Bachelor of Physiotherapy (BPT)",
+      "Master of Physiotherapy (MPT)",
+      "Bachelor of Occupational Therapy (BOT)",
+      "Master of Occupational Therapy (MOT)",
+      "Diploma in Rehabilitation Therapy",
+    ],
+    entranceExams: [
+      {
+        name: "NEET",
+        description: "National Eligibility cum Entrance Test",
+        minPercentile: 85,
+      },
+    ],
+    location: {
+      city: "Mumbai",
+      state: "Maharashtra",
+      address: "Haji Ali, Mahalaxmi, Mumbai, Maharashtra 400034",
+    },
+    eligibility: {
+      academicCriteria: "Minimum 50% in PCB in 12th standard",
+      entranceRequirement: "Must qualify NEET",
+      ageLimit: "Less than 25 years",
+    },
+    rankings: {
+      nirf: 1,
+      qsWorld: null,
+    },
+    infrastructure: {
+      campus: "Modern rehabilitation center",
+      facilities: [
+        "Physiotherapy clinics",
+        "Occupational therapy labs",
+        "Rehabilitation gymnasium",
+        "Research center",
+        "Medical library",
+      ],
+    },
+    placement: {
+      averagePackage: "₹6 LPA",
+      highestPackage: "₹15 LPA",
+      recruiters: ["Hospitals", "Rehabilitation centers", "Sports organizations", "NGOs"],
+    },
+    fees: {
+      tuition: "₹2 Lakhs per year",
+      hostel: "₹60,000 per year",
+    },
+  },
+  {
+    id: 19,
+    name: "National Institute for the Empowerment of Persons with Visual Disabilities",
+    routes: "niepvd",
+    categories: ["Rehabilitation", "Special Education", "Healthcare"],
+    courses: [
+      "Bachelor of Rehabilitation Science",
+      "Master of Rehabilitation Science",
+      "Diploma in Special Education",
+      "Certificate in Assistive Technology",
+      "Rehabilitation Counseling",
+    ],
+    entranceExams: [
+      {
+        name: "NIE Entrance Exam",
+        description: "Institution-specific entrance examination",
+        minPercentile: 80,
+      },
+    ],
+    location: {
+      city: "Dehradun",
+      state: "Uttarakhand",
+      address: "116, Rajpur Road, Dehradun, Uttarakhand 248001",
+    },
+    eligibility: {
+      academicCriteria: "Minimum 50% in 12th standard",
+      entranceRequirement: "Must qualify NIE Entrance Exam",
+      ageLimit: "Less than 25 years",
+    },
+    rankings: {
+      nirf: 2,
+      qsWorld: null,
+    },
+    infrastructure: {
+      campus: "Specialized rehabilitation facility",
+      facilities: [
+        "Assistive technology labs",
+        "Training workshops",
+        "Research center",
+        "Library",
+        "Rehabilitation center",
+      ],
+    },
+    placement: {
+      averagePackage: "₹5.5 LPA",
+      highestPackage: "₹12 LPA",
+      recruiters: ["Rehabilitation centers", "NGOs", "Government organizations", "Special schools"],
+    },
+    fees: {
+      tuition: "₹1.5 Lakhs per year",
+      hostel: "₹50,000 per year",
+    },
+  },
+  {
+    id: 20,
+    name: "Institute of Rehabilitation Sciences and Research",
+    routes: "irsr",
+    categories: ["Rehabilitation", "Medical", "Healthcare"],
+    courses: [
+      "Bachelor of Physiotherapy (BPT)",
+      "Master of Physiotherapy (MPT)",
+      "Bachelor of Occupational Therapy (BOT)",
+      "Master of Occupational Therapy (MOT)",
+      "Speech and Language Therapy",
+    ],
+    entranceExams: [
+      {
+        name: "IRSR Entrance Exam",
+        description: "Institution-specific entrance examination",
+        minPercentile: 80,
+      },
+    ],
+    location: {
+      city: "Bangalore",
+      state: "Karnataka",
+      address: "Koramangala, Bangalore, Karnataka 560034",
+    },
+    eligibility: {
+      academicCriteria: "Minimum 50% in PCB in 12th standard",
+      entranceRequirement: "Must qualify IRSR Entrance Exam",
+      ageLimit: "Less than 25 years",
+    },
+    rankings: {
+      nirf: 3,
+      qsWorld: null,
+    },
+    infrastructure: {
+      campus: "Modern rehabilitation institute",
+      facilities: [
+        "Physiotherapy clinics",
+        "Occupational therapy labs",
+        "Speech therapy center",
+        "Research facilities",
+        "Medical library",
+      ],
+    },
+    placement: {
+      averagePackage: "₹5 LPA",
+      highestPackage: "₹10 LPA",
+      recruiters: ["Hospitals", "Rehabilitation centers", "Sports organizations", "NGOs"],
+    },
+    fees: {
+      tuition: "₹1.8 Lakhs per year",
+      hostel: "₹55,000 per year",
+    },
+  },
+  {
+    id: 21,
+    name: "National Institute for the Mentally Handicapped",
+    routes: "nimh",
+    categories: ["Special Education", "Education", "Healthcare"],
+    courses: [
+      "Bachelor of Education in Special Education",
+      "Master of Education in Special Education",
+      "Diploma in Special Education",
+      "Certificate in Early Intervention",
+      "Special Education for Multiple Disabilities",
+    ],
+    entranceExams: [
+      {
+        name: "NIMH Entrance Exam",
+        description: "Institution-specific entrance examination",
+        minPercentile: 85,
+      },
+    ],
+    location: {
+      city: "Secunderabad",
+      state: "Telangana",
+      address: "Manovikas Nagar, Secunderabad, Telangana 500009",
+    },
+    eligibility: {
+      academicCriteria: "Minimum 50% in 12th standard",
+      entranceRequirement: "Must qualify NIMH Entrance Exam",
+      ageLimit: "Less than 25 years",
+    },
+    rankings: {
+      nirf: 1,
+      qsWorld: null,
+    },
+    infrastructure: {
+      campus: "Modern special education facility",
+      facilities: [
+        "Special education classrooms",
+        "Assessment centers",
+        "Therapy rooms",
+        "Research center",
+        "Library",
+      ],
+    },
+    placement: {
+      averagePackage: "₹4.5 LPA",
+      highestPackage: "₹10 LPA",
+      recruiters: ["Special schools", "NGOs", "Government organizations", "Rehabilitation centers"],
+    },
+    fees: {
+      tuition: "₹1.2 Lakhs per year",
+      hostel: "₹40,000 per year",
+    },
+  },
+  {
+    id: 22,
+    name: "Ali Yavar Jung National Institute of Speech and Hearing Disabilities",
+    routes: "ayjnihd",
+    categories: ["Special Education", "Healthcare", "Education"],
+    courses: [
+      "Bachelor of Education in Special Education",
+      "Master of Education in Special Education",
+      "Diploma in Special Education",
+      "Certificate in Speech Therapy",
+      "Special Education for Hearing Impaired",
+    ],
+    entranceExams: [
+      {
+        name: "AYJNISHD Entrance Exam",
+        description: "Institution-specific entrance examination",
+        minPercentile: 85,
+      },
+    ],
+    location: {
+      city: "Mumbai",
+      state: "Maharashtra",
+      address: "K.C. Marg, Bandra (West), Mumbai, Maharashtra 400050",
+    },
+    eligibility: {
+      academicCriteria: "Minimum 50% in 12th standard",
+      entranceRequirement: "Must qualify AYJNISHD Entrance Exam",
+      ageLimit: "Less than 25 years",
+    },
+    rankings: {
+      nirf: 2,
+      qsWorld: null,
+    },
+    infrastructure: {
+      campus: "State-of-the-art special education institute",
+      facilities: [
+        "Speech therapy labs",
+        "Audiology centers",
+        "Special education classrooms",
+        "Research facilities",
+        "Library",
+      ],
+    },
+    placement: {
+      averagePackage: "₹4.2 LPA",
+      highestPackage: "₹9 LPA",
+      recruiters: ["Special schools", "Hospitals", "NGOs", "Rehabilitation centers"],
+    },
+    fees: {
+      tuition: "₹1.1 Lakhs per year",
+      hostel: "₹35,000 per year",
+    },
+  },
+  {
+    id: 23,
+    name: "National Institute for Empowerment of Persons with Multiple Disabilities",
+    routes: "niepmd",
+    categories: ["Special Education", "Healthcare", "Education"],
+    courses: [
+      "Bachelor of Education in Special Education",
+      "Master of Education in Special Education",
+      "Diploma in Special Education",
+      "Certificate in Multiple Disabilities",
+      "Special Education for Multiple Disabilities",
+    ],
+    entranceExams: [
+      {
+        name: "NIEPMD Entrance Exam",
+        description: "Institution-specific entrance examination",
+        minPercentile: 80,
+      },
+    ],
+    location: {
+      city: "Chennai",
+      state: "Tamil Nadu",
+      address: "East Coast Road, Muttukadu, Chennai, Tamil Nadu 603112",
+    },
+    eligibility: {
+      academicCriteria: "Minimum 50% in 12th standard",
+      entranceRequirement: "Must qualify NIEPMD Entrance Exam",
+      ageLimit: "Less than 25 years",
+    },
+    rankings: {
+      nirf: 3,
+      qsWorld: null,
+    },
+    infrastructure: {
+      campus: "Modern special education facility",
+      facilities: [
+        "Special education classrooms",
+        "Therapy centers",
+        "Assessment rooms",
+        "Research center",
+        "Library",
+      ],
+    },
+    placement: {
+      averagePackage: "₹4 LPA",
+      highestPackage: "₹8 LPA",
+      recruiters: ["Special schools", "NGOs", "Government organizations", "Rehabilitation centers"],
+    },
+    fees: {
+      tuition: "₹1 Lakh per year",
+      hostel: "₹30,000 per year",
+    },
+  },
 ];
 
 
