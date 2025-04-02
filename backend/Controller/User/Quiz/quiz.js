@@ -398,7 +398,7 @@ const exportResultsToGoogleDrive = async () => {
 
       return {
         Date: new Date(result.createdAt).toLocaleDateString(),
-        Time: new Date(result.createdAt).toLocaleTimeString('en-IN'),
+        Time: new Date(result.createdAt).toLocaleTimeString('en-IN', { timeZone: 'Asia/Kolkata' }),
         Name: user.name || "Anonymous",
         Email: user.email || "N/A",
         "Quiz Type": result.type || "N/A",
