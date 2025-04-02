@@ -12,26 +12,26 @@
 .cr-page-wrapper {
   background-color: #f5f7fa;
   min-height: 100vh;
-  padding: clamp(1rem, 2vw, 2rem);
+  padding: 1rem;
 }
 
 .cr-report-container {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 1.5rem;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 1rem;
 }
 
 /* Header Section */
 .report-header {
   background: linear-gradient(135deg, #4361ee, #3f37c9);
-  border-radius: 20px;
-  padding: 40px;
-  margin-bottom: 30px;
+  border-radius: 15px;
+  padding: 30px;
+  margin-bottom: 20px;
   color: white;
-  box-shadow: 0 10px 20px rgba(67, 97, 238, 0.1);
+  box-shadow: 0 5px 15px rgba(67, 97, 238, 0.1);
 }
 
 .report-header-content {
@@ -66,9 +66,9 @@
 }
 
 .section-title {
-  font-size: 1.8rem;
+  font-size: 1.5rem;
   color: #2c3e50;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
   padding-left: 0;
 }
 
@@ -190,10 +190,10 @@
 .report-section {
   width: 100%;
   background: #fff;
-  border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  padding: 2rem;
-  margin-bottom: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
 }
 
 /* Career and Education Section */
@@ -369,11 +369,11 @@
 }
 
 /* Trait-specific background colors */
-.extraversion { background-color: rgba(173, 216, 230, 0.05); }
-.agreeableness { background-color: rgba(255, 165, 0, 0.05); }
-.contentiousness { background-color: rgba(144, 238, 144, 0.05); }
-.neuroticism { background-color: rgba(221, 160, 221, 0.05); }
-.openness { background-color: rgba(255, 99, 71, 0.05); }
+/* .extraversion { background-color: rgba(173, 216, 230, 0.05) !important; }
+.agreeableness { background-color: rgba(255, 165, 0, 0.05) !important; }
+.contentiousness { background-color: rgba(109, 168, 109, 0.05) !important; }
+.neuroticism { background-color: rgba(221, 160, 221, 0.05) !important; }
+.openness { background-color: rgba(255, 99, 71, 0.05) !important; } */
 
 /* Personality grid */
 .personality-grid {
@@ -532,12 +532,32 @@
     background: white;
   }
 
+  .cr-report-container {
+    padding: 0;
+    gap: 1rem;
+  }
+
   .report-actions {
     display: none;
   }
 
   .report-section {
-    break-inside: avoid;
+    margin-bottom: 1rem;
+    padding: 1rem;
+  }
+
+  .main-content-container {
+    padding: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .report-header {
+    padding: 20px;
+    margin-bottom: 15px;
+  }
+
+  .section-title {
+    margin-bottom: 15px;
   }
 
   .personality-grid {
@@ -622,3 +642,20 @@
 }
 
 /* Add or update these CSS rules */
+.main-content-container {
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.main-content-container .report-section {
+  margin-bottom: 1.5rem;
+  box-shadow: none;
+  padding: 0;
+}
+
+.main-content-container .report-section:last-child {
+  margin-bottom: 0;
+}
