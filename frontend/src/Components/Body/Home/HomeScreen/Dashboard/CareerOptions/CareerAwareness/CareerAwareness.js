@@ -14,17 +14,7 @@ export const CareerAwareness = () => {
 
   return (
     <Container className={styles["career-summary-container"]}>
-      <div
-        className={`${styles["education-pattern-message"]} alert alert-info mb-4`}
-      >
-        <h4>Best Education Patterns Till 2030</h4>
-        <ul>
-          <li>Digital & Technical Skills</li>
-          <li>Specialized Certifications</li>
-          <li>Continuous Learning</li>
-          <li>Hybrid Education</li>
-        </ul>
-      </div>
+      
       <div className={styles["table-responsive"]}>
         <Table striped bordered hover className={styles["career-table"]}>
           <thead>
