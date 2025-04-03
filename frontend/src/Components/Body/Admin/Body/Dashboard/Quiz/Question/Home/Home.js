@@ -10,9 +10,10 @@ import {
   Spinner,
 } from "react-bootstrap";
 import { Link, useNavigate, useParams } from "react-router-dom";
-import "./QuestionHome.css"; // Unique CSS for this page
+import "../../Quiz.css";
 import { createHandler, quizHandler } from "../../apiHandler";
 import { useAlert } from "../../../../../../../UI/Alert/AlertContext";
+import { FaPlus, FaTrash, FaEye, FaPowerOff, FaTimes } from "react-icons/fa";
 
 export const QuestionHome = () => {
   const [showForm, setShowForm] = useState(false);
@@ -31,18 +32,17 @@ export const QuestionHome = () => {
   const [details, setDetails] = useState({
     id: "",
     totalQuestions: 0,
-    isActive: false, // Added isActive state for the quiz
+    isActive: false,
     typeId: "",
   });
   const [dataUpdated, setDataUpdated] = useState(0);
-  const [isActivating, setIsActivating] = useState(false); // Loading state for activate/deactivate
-  const [isDeleting, setIsDeleting] = useState(false); // Loading state for delete
-  const [isDeletingQuestion, setIsDeletingQuestion] = useState(false); // Loading state for delete
+  const [isActivating, setIsActivating] = useState(false);
+  const [isDeleting, setIsDeleting] = useState(false);
+  const [isDeletingQuestion, setIsDeletingQuestion] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
     fetchDetails();
-     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [dataUpdated]);
 
   const fetchDetails = async () => {
@@ -58,7 +58,7 @@ export const QuestionHome = () => {
       setDetails({
         id: response.quiz.id,
         totalQuestions: response.questions.length,
-        isActive: response.quiz.isActive || false, // Set isActive from the response
+        isActive: response.quiz.isActive || false,
         typeId: response.quiz.typeId,
       });
     }
@@ -96,6 +96,7 @@ export const QuestionHome = () => {
         formData.append("image", selectedImage);
       }
     }
+
     let response;
     if (details.typeId === "personality") {
       response = await quizHandler(
@@ -140,7 +141,7 @@ export const QuestionHome = () => {
 
   const handleDeleteQuestion = async (id) => {
     const response = await quizHandler(
-      { questionId: id ,typeId:details.typeId},
+      { questionId: id, typeId: details.typeId },
       "deleteQuestion",
       setIsDeletingQuestion,
       showAlert
@@ -153,43 +154,41 @@ export const QuestionHome = () => {
   const handleDeleteQuiz = async () => {
     setIsDeleting(true);
     const response = await quizHandler(
-      { quizId: params.id ,},
+      { quizId: params.id },
       "deleteQuiz",
       setIsLoading,
       showAlert
     );
     if (response) {
-      // Redirect to quizzes list or handle deletion success
-      navigate("/admin/quiz"); // Example redirect
+      navigate("/admin/quiz");
     }
     setIsDeleting(false);
   };
 
   if (isLoading) {
     return (
-      <div className="text-center">
+      <div className="loading-container">
         <Spinner animation="border" />
         <p>Loading Details...</p>
       </div>
     );
   }
-  
 
   return (
-    <Container className="question-home">
-      {/* Quiz Status Section */}
-      <Row className="quiz-status">
-        <Col md={6}>
-          <h4>Quiz ID: {details.id}</h4>
-          <p>Total Questions: {details.totalQuestions}</p>
-        </Col>
-        <Col md={6} className="quiz-actions">
+    <div className="quiz-container">
+      <div className="quiz-header">
+        <div>
+          <h2>Quiz Questions</h2>
+          <p className="text-muted mb-0">Quiz ID: {details.id}</p>
+        </div>
+        <div className="d-flex gap-2">
           <Button
-            variant={details.isActive ? "danger" : "success"}
-            className="quiz-action-btn"
+            variant={details.isActive ? "warning" : "success"}
+            className="action-btn"
             onClick={handleToggleActive}
             disabled={isActivating}
           >
+            <FaPowerOff className="me-2" />
             {isActivating ? (
               <Spinner animation="border" size="sm" />
             ) : details.isActive ? (
@@ -200,204 +199,226 @@ export const QuestionHome = () => {
           </Button>
           <Button
             variant="danger"
-            className="quiz-action-btn"
+            className="action-btn action-btn-danger"
             onClick={handleDeleteQuiz}
             disabled={isDeleting}
           >
+            <FaTimes className="me-2" />
             {isDeleting ? (
               <Spinner animation="border" size="sm" />
             ) : (
               "Delete Quiz"
             )}
           </Button>
-        </Col>
-      </Row>
+        </div>
+      </div>
 
-      {/* Create Question Button */}
-      <Row>
-        <Col className="text-center">
-          <Button variant="primary" onClick={() => setShowForm(!showForm)}>
-            Create Question
-          </Button>
-        </Col>
-      </Row>
+      <div className="d-flex justify-content-center mb-4">
+        <Button
+          variant="primary"
+          className="action-btn action-btn-primary"
+          onClick={() => setShowForm(!showForm)}
+        >
+          <FaPlus className="me-2" />
+          Create Question
+        </Button>
+      </div>
 
-      {/* Create Question Form */}
       {showForm && (
-        <Row className="question-form">
-          <Col md={8} className="mx-auto">
-            <Card>
-              <Card.Body>
-                <Form>
-                  {details.typeId === "personality" ? (
-                    <>
-                      <Form.Group
-                        className="mb-3"
-                        controlId="questionTextEnglish"
-                      >
-                        <Form.Label>Question Text (English)</Form.Label>
-                        <Form.Control
-                          type="text"
-                          name="text"
-                          value={newQuestion.text}
-                          onChange={handleChange}
-                          required
-                        />
-                      </Form.Group>
+        <Card className="quiz-form-card">
+          <Card.Body>
+            <Form>
+              {details.typeId === "personality" ? (
+                <>
+                  <Form.Group className="mb-3">
+                    <Form.Label>Question Text (English)</Form.Label>
+                    <Form.Control
+                      type="text"
+                      name="text"
+                      value={newQuestion.text}
+                      onChange={handleChange}
+                      required
+                      placeholder="Enter question in English"
+                    />
+                  </Form.Group>
 
-                      <Form.Group
-                        className="mb-3"
-                        controlId="questionTextHindi"
-                      >
-                        <Form.Label>Question Text (Hindi)</Form.Label>
-                        <Form.Control
-                          type="text"
-                          name="hindiText"
-                          value={newQuestion.hindiText}
-                          onChange={handleChange}
-                          required
-                        />
-                      </Form.Group>
-                    </>
-                  ) : (
-                    <>
-                      <Form.Group controlId="questionText">
-                        <Form.Label>Question Text (Optional)</Form.Label>
-                        <Form.Control
-                          type="text"
-                          name="text"
-                          value={newQuestion.text}
-                          onChange={handleChange}
-                        />
-                      </Form.Group>
+                  <Form.Group className="mb-3">
+                    <Form.Label>Question Text (Hindi)</Form.Label>
+                    <Form.Control
+                      type="text"
+                      name="hindiText"
+                      value={newQuestion.hindiText}
+                      onChange={handleChange}
+                      required
+                      placeholder="Enter question in Hindi"
+                    />
+                  </Form.Group>
+                </>
+              ) : (
+                <>
+                  <Form.Group className="mb-3">
+                    <Form.Label>Question Text</Form.Label>
+                    <Form.Control
+                      type="text"
+                      name="text"
+                      value={newQuestion.text}
+                      onChange={handleChange}
+                      placeholder="Enter question text"
+                    />
+                  </Form.Group>
 
-                      <Form.Group>
-                        <Form.Label>Image (Optional)</Form.Label>
-                        <Form.Control
-                          type="file"
-                          name="image"
-                          accept="image/*"
-                          onChange={handleImageChange}
-                        />
-                      </Form.Group>
+                  <Form.Group className="mb-3">
+                    <Form.Label>Image (Optional)</Form.Label>
+                    <Form.Control
+                      type="file"
+                      name="image"
+                      accept="image/*"
+                      onChange={handleImageChange}
+                    />
+                  </Form.Group>
 
-                      <Form.Group controlId="questionType">
-                        <Form.Label>Type</Form.Label>
-                        <Form.Select
-                          name="type"
-                          value={newQuestion.type}
-                          onChange={handleChange}
-                        >
-                          <option value="text">Text</option>
-                          <option value="image">Image</option>
-                          <option value="both">Both</option>
-                        </Form.Select>
-                      </Form.Group>
+                  <Form.Group className="mb-3">
+                    <Form.Label>Type</Form.Label>
+                    <Form.Select
+                      name="type"
+                      value={newQuestion.type}
+                      onChange={handleChange}
+                    >
+                      <option value="text">Text</option>
+                      <option value="image">Image</option>
+                      <option value="both">Both</option>
+                    </Form.Select>
+                  </Form.Group>
 
-                      <Form.Group controlId="questionWeight">
-                        <Form.Label>Weight</Form.Label>
-                        <Form.Control
-                          type="number"
-                          step="0.1"
-                          name="weight"
-                          value={newQuestion.weight}
-                          onChange={handleChange}
-                        />
-                      </Form.Group>
-                    </>
-                  )}
-                  <Button
-                    variant="success"
-                    onClick={handleCreateQuestion}
-                    className="mt-3"
-                    disabled={isSubmitting}
-                  >
-                    {isSubmitting ? <Spinner size="sm" /> : "Create Question"}
-                  </Button>
-                </Form>
-              </Card.Body>
-            </Card>
-          </Col>
-        </Row>
+                  <Form.Group className="mb-3">
+                    <Form.Label>Weight</Form.Label>
+                    <Form.Control
+                      type="number"
+                      step="0.1"
+                      name="weight"
+                      value={newQuestion.weight}
+                      onChange={handleChange}
+                      min="0"
+                    />
+                  </Form.Group>
+                </>
+              )}
+              <Button
+                variant="success"
+                onClick={handleCreateQuestion}
+                className="action-btn action-btn-primary"
+                disabled={isSubmitting}
+              >
+                {isSubmitting ? (
+                  <Spinner animation="border" size="sm" className="me-2" />
+                ) : (
+                  <FaPlus className="me-2" />
+                )}
+                Create Question
+              </Button>
+            </Form>
+          </Card.Body>
+        </Card>
       )}
 
-      {/* Question List */}
-      <Row className="question-list">
-        <Col>
-          <Table striped bordered hover>
-            <thead>
-              <tr>
+      <div className="quiz-table-container">
+        <Table className="quiz-table">
+          <thead>
+            <tr>
+              {details.typeId === "personality" ? (
+                <>
+                  <th>#</th>
+                  <th>English</th>
+                  <th>Hindi</th>
+                  <th>Actions</th>
+                </>
+              ) : (
+                <>
+                  <th>#</th>
+                  <th>Text</th>
+                  <th>Image</th>
+                  <th>Type</th>
+                  <th>Weight</th>
+                  <th>Actions</th>
+                </>
+              )}
+            </tr>
+          </thead>
+          <tbody>
+            {questions.map((question) => (
+              <tr key={question.id}>
                 {details.typeId === "personality" ? (
                   <>
-                    <th>#</th>
-                    <th>English</th>
-                    <th>Hindi</th>
-                    <th>Action</th>
+                    <td>{question.id}</td>
+                    <td>{question.text.english || "N/A"}</td>
+                    <td>{question.text.hindi || "N/A"}</td>
+                    <td>
+                      <div className="d-flex gap-2">
+                        <Link
+                          to={`./question/${question.id}`}
+                          className="action-btn action-btn-primary"
+                        >
+                          <FaEye className="me-1" />
+                          View
+                        </Link>
+                        <Button
+                          variant="danger"
+                          className="action-btn action-btn-danger"
+                          onClick={() => handleDeleteQuestion(question.id)}
+                          disabled={isDeletingQuestion}
+                        >
+                          <FaTrash className="me-1" />
+                          Delete
+                        </Button>
+                      </div>
+                    </td>
                   </>
                 ) : (
                   <>
-                    <th>#</th>
-                    <th>Text</th>
-                    <th>Image</th>
-                    <th>Type</th>
-                    <th>Weight</th>
-                    <th>Action</th>
+                    <td>{question.id}</td>
+                    <td>{question.text}</td>
+                    <td>
+                      {question.imageUrl ? (
+                        <img
+                          src={`${process.env.REACT_APP_REMOTE_ADDRESS}/${question.imageUrl}`}
+                          alt="Question"
+                          height="80"
+                          width="auto"
+                          className="rounded"
+                        />
+                      ) : (
+                        "N/A"
+                      )}
+                    </td>
+                    <td>{question.type}</td>
+                    <td>{question.weight}</td>
+                    <td>
+                      <div className="d-flex gap-2">
+                        <Link
+                          to={`./question/${question.id}`}
+                          className="action-btn action-btn-primary"
+                        >
+                          <FaEye className="me-1" />
+                          View
+                        </Link>
+                        <Button
+                          variant="danger"
+                          className="action-btn action-btn-danger"
+                          onClick={() => handleDeleteQuestion(question.id)}
+                          disabled={isDeletingQuestion}
+                        >
+                          <FaTrash className="me-1" />
+                          Delete
+                        </Button>
+                      </div>
+                    </td>
                   </>
                 )}
               </tr>
-            </thead>
-            <tbody>
-              {questions.map((question) => (
-                <tr key={question.id}>
-                  {details.typeId === "personality" ? (
-                    <>
-                      <td>{question.id}</td>
-                      <td>{question.text.english || "N/A"}</td>
-                      <td>{question.text.hindi || "N/A"}</td>
-                      <td>
-                        <Button
-                          variant="danger"
-                          onClick={() => handleDeleteQuestion(question.id)}
-                          className="ms-2"
-                        >
-                          Delete
-                        </Button>
-                      </td>
-                    </>
-                  ) : (
-                    <>
-                      <td>{question.id}</td>
-                      <td>{question.text}</td>
-                      <td>
-                        {question.imageUrl ? (
-                          <img
-                            src={`${process.env.REACT_APP_REMOTE_ADDRESS}/${question.imageUrl}`}
-                            alt="Question"
-                            height="100"
-                            width="auto"
-                          />
-                        ) : (
-                          "N/A"
-                        )}
-                      </td>
-                      <td>{question.type}</td>
-                      <td>{question.weight}</td>
-                      <td>
-                        <Link
-                          to={`./question/${question.id}`}
-                          className="view-more-btn"
-                        >
-                          View More
-                        </Link>
-                      </td>
-                    </>
-                  )}
-                </tr>
-              ))}
-            </tbody>
-          </Table>
-        </Col>
-      </Row>
-    </Container>
+            ))}
+          </tbody>
+        </Table>
+      </div>
+    </div>
   );
 };

@@ -5,7 +5,8 @@ import { useState } from "react";
 import { Home } from "./Home/Home";
 import { Quiz } from "./Quiz/Quiz";
 import { Result } from "./Result/Result";
-
+import { UserRoutes } from "./Users/UserRoutes";
+import { PageNotFound } from "./PageNotFound/PageNotFound";
 export const DashboardPage = () => {
   const [collapsed, setCollapsed] = useState(false);
 
@@ -50,6 +51,17 @@ export const DashboardPage = () => {
               {!collapsed && <span>Results</span>}
             </NavLink>
           </li>
+          <li>
+            <NavLink
+              to="./users"
+              className={({ isActive }) =>
+                isActive ? "tab-link active-tab" : "tab-link"
+              }
+            >
+              <i className="tab-icon bi bi-people"></i>
+              {!collapsed && <span>Users</span>}
+            </NavLink>
+          </li>
         </ul>
 
         <button className="toggle-button" onClick={toggleSidebar}>
@@ -61,7 +73,8 @@ export const DashboardPage = () => {
           <Route path="" element={<Home />} />
           <Route path="quiz/*" element={<Quiz />} />
           <Route path="result/*" element={<Result />} />
-          <Route path="*" element={<Navigate to="/admin" replace />} />
+          <Route path="users/*" element={<UserRoutes />} />
+          <Route path="*" element={<PageNotFound />} />
         </Routes>
       </div>
     </div>

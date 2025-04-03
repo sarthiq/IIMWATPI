@@ -7,6 +7,7 @@ import { quizHandler } from "../Quiz/apiHandler";
 import * as XLSX from 'xlsx';
 import DatePicker from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css";
+import { FaFileExcel, FaFilter, FaTimes, FaDownload } from "react-icons/fa";
 
 export const Result = () => {
   const [results, setResults] = useState([]);
@@ -31,17 +32,14 @@ export const Result = () => {
 
   useEffect(() => {
     fetchQuizzes();
-     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   
   useEffect(() => {
     fetchTotalCount();
-     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [filter,isCertified, dateRange]);
+  }, [filter, isCertified, dateRange]);
 
   useEffect(() => {
     fetchResults();
-     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [filter, pagination.currentPage, pagination.itemsPerPage, isCertified, dateRange]);
 
   const fetchQuizzes = async () => {
@@ -63,7 +61,7 @@ export const Result = () => {
       setPagination((prev) => ({
         ...prev,
         totalItems: response.totalResults,
-        totalPages: Math.ceil(response.totalResults / pagination.itemsPerPage),
+        totalPages: Math.ceil(response.totalResults / prev.itemsPerPage),
       }));
     }
   };
@@ -101,7 +99,7 @@ export const Result = () => {
     setPagination((prev) => ({
       ...prev,
       itemsPerPage: newLimit,
-      currentPage: 1, // Reset to first page when changing limit
+      currentPage: 1,
       totalPages: Math.ceil(prev.totalItems / newLimit),
     }));
   };
@@ -129,7 +127,6 @@ export const Result = () => {
       startPage = Math.max(1, endPage - maxVisiblePages + 1);
     }
 
-    // Previous button
     items.push(
       <Pagination.Prev
         key="prev"
@@ -138,7 +135,6 @@ export const Result = () => {
       />
     );
 
-    // First page
     if (startPage > 1) {
       items.push(
         <Pagination.Item key={1} onClick={() => handlePageChange(1)}>
@@ -148,7 +144,6 @@ export const Result = () => {
       if (startPage > 2) items.push(<Pagination.Ellipsis key="ellipsis1" />);
     }
 
-    // Page numbers
     for (let number = startPage; number <= endPage; number++) {
       items.push(
         <Pagination.Item
@@ -161,7 +156,6 @@ export const Result = () => {
       );
     }
 
-    // Last page
     if (endPage < pagination.totalPages) {
       if (endPage < pagination.totalPages - 1)
         items.push(<Pagination.Ellipsis key="ellipsis2" />);
@@ -175,7 +169,6 @@ export const Result = () => {
       );
     }
 
-    // Next button
     items.push(
       <Pagination.Next
         key="next"
@@ -189,7 +182,6 @@ export const Result = () => {
 
   const exportToExcel = () => {
     try {
-      // Prepare data for export
       const exportData = results.map(result => ({
         'Name': result.UnverifiedUser?.name || 'N/A',
         'Email': result.UnverifiedUser?.email || 'N/A',
@@ -199,17 +191,10 @@ export const Result = () => {
         'Date': new Date(result.createdAt).toLocaleString()
       }));
 
-      // Create worksheet
       const ws = XLSX.utils.json_to_sheet(exportData);
-
-      // Create workbook
       const wb = XLSX.utils.book_new();
       XLSX.utils.book_append_sheet(wb, ws, 'Quiz Results');
-
-      // Generate filename with current date
       const fileName = `quiz_results_${new Date().toISOString().split('T')[0]}.xlsx`;
-
-      // Save file
       XLSX.writeFile(wb, fileName);
       showAlert('Excel file exported successfully!', 'success');
     } catch (error) {
@@ -235,20 +220,18 @@ export const Result = () => {
 
   if (loading) {
     return (
-      <Container
-        className="d-flex justify-content-center align-items-center"
-        style={{ minHeight: "400px" }}
-      >
+      <div className="loading-container">
         <Spinner animation="border" role="status">
           <span className="visually-hidden">Loading...</span>
         </Spinner>
-      </Container>
+        <p>Loading Results...</p>
+      </div>
     );
   }
 
   return (
-    <Container className="result-admin-container">
-      <div className="filters-container mb-4">
+    <div className="result-admin-container">
+      <div className="filters-container">
         <div className="d-flex justify-content-between align-items-center">
           <h2>Quiz Results</h2>
           <Button 
@@ -257,11 +240,11 @@ export const Result = () => {
             className="export-button"
             disabled={results.length === 0}
           >
-            <i className="bi bi-file-earmark-excel me-2"></i>
+            <FaFileExcel className="me-2" />
             Export to Excel
           </Button>
         </div>
-        <div className="filters-wrapper mt-3">
+        <div className="filters-wrapper">
           <div className="filter-group">
             <Form.Select
               value={filter}
@@ -299,6 +282,7 @@ export const Result = () => {
               onChange={(e) => setIsCertified(e.currentTarget.checked)}
               className="certified-toggle"
             >
+              <FaFilter className="me-2" />
               {isCertified ? 'Certified Only' : 'All Results'}
             </ToggleButton>
 
@@ -316,7 +300,6 @@ export const Result = () => {
                 isClearable={true}
                 placeholderText="Select date range"
                 className="form-control"
-               // maxDate={new Date()}
               />
               {(dateRange.startDate || dateRange.endDate) && (
                 <Button 
@@ -324,7 +307,7 @@ export const Result = () => {
                   className="clear-dates-btn"
                   onClick={handleDateRangeReset}
                 >
-                  <i className="bi bi-x-circle"></i>
+                  <FaTimes />
                 </Button>
               )}
             </div>
@@ -332,7 +315,7 @@ export const Result = () => {
         </div>
       </div>
 
-      <div className="results-info mb-3">
+      <div className="results-info">
         Showing {(pagination.currentPage - 1) * pagination.itemsPerPage + 1} to{" "}
         {Math.min(
           pagination.currentPage * pagination.itemsPerPage,
@@ -360,19 +343,17 @@ export const Result = () => {
               <td>{result.UnverifiedUser?.age || "N/A"}</td>
               <td>{result.type.toUpperCase() || "N/A"}</td>
               <td>
-                {result.type === 'iq' ? (
-                  result.result?.label
-                ) : result.type === 'personality' ? (
-                  <div>
+                {result.type === 'personality' ? (
+                  <div className="personality-result">
                     <div>Openness: {result.result?.openness?.toFixed(1)}%</div>
                     <div>Neuroticism: {result.result?.neuroticism?.toFixed(1)}%</div>
                     <div>Extraversion: {result.result?.extraversion?.toFixed(1)}%</div>
                     <div>Agreeableness: {result.result?.agreeableness?.toFixed(1)}%</div>
                     <div>Conscientiousness: {result.result?.conscientiousness?.toFixed(1)}%</div>
                   </div>
-                ) : result.type === 'creativity' ? (
-                  result.result?.label
                 ) : (
+                  result.type === 'iq' ? result.result?.label :
+                  result.type === 'creativity' ? result.result?.label :
                   result.score || 'N/A'
                 )}
               </td>
@@ -382,7 +363,9 @@ export const Result = () => {
         </tbody>
       </Table>
 
-      <div className="pagination-container">{renderPagination()}</div>
-    </Container>
+      <div className="pagination-container">
+        {renderPagination()}
+      </div>
+    </div>
   );
 };

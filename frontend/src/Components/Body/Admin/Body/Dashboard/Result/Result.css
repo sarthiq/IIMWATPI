@@ -1,205 +1,251 @@
+/* Result Management Styles */
 .result-admin-container {
   padding: 20px;
+  background-color: #f8f9fa;
+  min-height: 100vh;
 }
 
-.result-admin-container h2 {
-  color: #1e3a8a;
-  margin-bottom: 20px;
-}
-
-.table {
-  background-color: white;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  border-radius: 8px;
-}
-
-.table thead th {
-  background-color: #f8fafc;
-  color: #1e3a8a;
-  font-weight: 600;
-  border-bottom: 2px solid #e5e7eb;
-}
-
-.table tbody tr:hover {
-  background-color: #f1f5f9;
-}
-
-.form-select {
-  border-color: #e5e7eb;
-  border-radius: 6px;
-  padding: 8px 12px;
-  color: #1e3a8a;
-  font-weight: 500;
-}
-
-.form-select:focus {
-  border-color: #1e3a8a;
-  box-shadow: 0 0 0 0.2rem rgba(30, 58, 138, 0.25);
-}
-
+/* Filters Section */
 .filters-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 20px;
+  background: white;
+  border-radius: 10px;
+  padding: 25px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  margin-bottom: 30px;
+}
+
+.filters-container h2 {
+  color: #2c3e50;
+  font-size: 24px;
+  font-weight: 600;
+  margin: 0;
 }
 
 .filters-wrapper {
   display: flex;
-  flex-direction: column;
-  gap: 15px;
+  flex-wrap: wrap;
+  gap: 20px;
+  align-items: center;
+  margin-top: 20px;
 }
 
 .filter-group {
   display: flex;
   gap: 15px;
   align-items: center;
-  flex-wrap: wrap;
 }
 
 .filter-select,
 .records-select {
   min-width: 200px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 8px 15px;
+  color: #2c3e50;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+.filter-select:focus,
+.records-select:focus {
+  border-color: #3498db;
+  box-shadow: 0 0 0 0.2rem rgba(52, 152, 219, 0.25);
 }
 
 .certified-toggle {
-  min-width: 120px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 38px;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 14px;
+  transition: all 0.3s ease;
 }
 
 .date-range-picker {
   position: relative;
   display: flex;
   align-items: center;
+  gap: 10px;
 }
 
 .date-range-picker .form-control {
-  min-width: 220px;
+  min-width: 250px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 8px 15px;
+  font-size: 14px;
 }
 
 .clear-dates-btn {
-  position: absolute;
-  right: 10px;
-  padding: 0;
-  color: #6c757d;
-}
-
-.clear-dates-btn:hover {
-  color: #dc3545;
-}
-
-.results-info {
-  color: #6b7280;
-  font-size: 0.9rem;
-}
-
-.pagination-container {
-  display: flex;
-  justify-content: center;
-  margin-top: 20px;
-}
-
-.pagination {
-  --bs-pagination-color: #1e3a8a;
-  --bs-pagination-active-bg: #1e3a8a;
-  --bs-pagination-active-border-color: #1e3a8a;
-}
-
-.table tbody td {
-  vertical-align: middle;
-}
-
-.export-button {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  padding: 8px 16px;
-  font-weight: 500;
+  color: #e74c3c;
+  padding: 8px;
+  border-radius: 50%;
   transition: all 0.3s ease;
 }
 
+.clear-dates-btn:hover {
+  background-color: #ffebee;
+  color: #c0392b;
+}
+
+/* Export Button */
+.export-button {
+  background-color: #27ae60;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  color: white;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
 .export-button:hover {
+  background-color: #219a52;
   transform: translateY(-2px);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .export-button:disabled {
+  background-color: #bdc3c7;
   cursor: not-allowed;
-  opacity: 0.7;
+  transform: none;
 }
 
-.export-button i {
-  font-size: 1.1em;
+/* Results Info */
+.results-info {
+  color: #7f8c8d;
+  font-size: 14px;
+  margin: 20px 0;
+  padding: 10px 15px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
 
-/* React DatePicker customization */
-.react-datepicker-wrapper {
-  width: auto;
+/* Table Styles */
+.table {
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
 
-.react-datepicker__input-container input {
-  padding-right: 30px;
+.table th {
+  background-color: #f8f9fa;
+  color: #2c3e50;
+  font-weight: 600;
+  padding: 15px;
+  border-bottom: 2px solid #e0e0e0;
+  font-size: 14px;
 }
 
+.table td {
+  padding: 15px;
+  vertical-align: middle;
+  border-bottom: 1px solid #e0e0e0;
+  color: #2c3e50;
+  font-size: 14px;
+}
+
+.table tr:hover {
+  background-color: #f8f9fa;
+}
+
+/* Personality Result Styles */
+.personality-result {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.personality-result div {
+  padding: 4px 8px;
+  border-radius: 4px;
+  background-color: #f8f9fa;
+  font-size: 13px;
+}
+
+/* Pagination Styles */
+.pagination-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+  padding: 20px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.pagination {
+  margin: 0;
+  gap: 5px;
+}
+
+.pagination .page-item {
+  margin: 0 2px;
+}
+
+.pagination .page-link {
+  border: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+  color: #2c3e50;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+.pagination .page-item.active .page-link {
+  background-color: #3498db;
+  color: white;
+}
+
+.pagination .page-link:hover {
+  background-color: #f8f9fa;
+  color: #3498db;
+}
+
+/* Loading State */
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 400px;
+  color: #7f8c8d;
+}
+
+.loading-container .spinner-border {
+  margin-bottom: 15px;
+}
+
+/* Responsive Design */
 @media (max-width: 768px) {
   .result-admin-container {
-    padding: 10px;
-  }
-
-  .d-flex {
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .form-select {
-    width: 100% !important;
+    padding: 15px;
   }
 
   .filters-container {
-    flex-direction: column;
-    align-items: stretch;
+    padding: 20px;
   }
 
   .filters-wrapper {
     flex-direction: column;
-  }
-
-  .filter-select,
-  .records-select {
-    width: 100%;
-  }
-
-  .pagination {
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-
-  .filters-container > div:first-child {
-    flex-direction: column;
-    gap: 15px;
-  }
-
-  .export-button {
-    width: 100%;
-    justify-content: center;
+    align-items: stretch;
   }
 
   .filter-group {
     flex-direction: column;
-    width: 100%;
+    align-items: stretch;
   }
 
-  .certified-toggle,
-  .date-range-picker,
+  .filter-select,
+  .records-select,
   .date-range-picker .form-control {
     width: 100%;
   }
 
-  .clear-dates-btn {
-    right: 10px;
+  .table {
+    display: block;
+    overflow-x: auto;
   }
 }

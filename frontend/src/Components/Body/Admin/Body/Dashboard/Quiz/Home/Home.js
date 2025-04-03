@@ -10,9 +10,10 @@ import {
   Alert,
 } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import "./Home.css";
+import "../Quiz.css";
 import { createHandler, quizHandler } from "../apiHandler";
 import { useAlert } from "../../../../../../UI/Alert/AlertContext";
+import { FaPlus, FaEdit, FaTrash, FaEye } from "react-icons/fa";
 
 export const QuizHome = () => {
   const [showForm, setShowForm] = useState(false);
@@ -49,25 +50,17 @@ export const QuizHome = () => {
       setSelectedImage(e.target.files[0]);
     }
   };
-  
 
   const handleCreateQuiz = async (e) => {
     e.preventDefault();
-
-    // Create a new FormData object
     const formData = new FormData();
-
-    // Append all form fields to the FormData object
     formData.append("title", quizData.title);
     formData.append("description", quizData.description);
     formData.append("typeId", quizData.typeId);
-
-    // Append the image file if it exists
     if (selectedImage) {
       formData.append("image", selectedImage);
     }
 
-    // Submit the form data using the createHandler API
     const response = await createHandler(
       formData,
       "createQuiz",
@@ -76,36 +69,41 @@ export const QuizHome = () => {
     );
 
     if (response) {
-      console.log("Form Submitted!");
-      // Reset the form fields
       setQuizData({
         title: "",
         description: "",
         typeId: "",
       });
-      setSelectedImage(null); // Clear the selected image
-      // Hide the form after submission
+      setSelectedImage(null);
       setShowForm(false);
-      // Refresh the quizzes list
       fetchQuizzes();
     }
   };
 
   return (
-    <Container className="quiz-creation-container">
-      <h2 className="quiz-header">Quiz Management</h2>
-      {error && <Alert variant="danger">{error}</Alert>}
-      <Button
-        className="quiz-create-btn"
-        onClick={() => setShowForm(!showForm)}
-      >
-        {showForm ? "Close Form" : "Create Quiz"}
-      </Button>
+    <div className="quiz-container">
+      <div className="quiz-header">
+        <h2>Quiz Management</h2>
+        <Button
+          className="quiz-create-btn"
+          onClick={() => setShowForm(!showForm)}
+        >
+          <FaPlus className="me-2" />
+          {showForm ? "Close Form" : "Create Quiz"}
+        </Button>
+      </div>
+
+      {error && (
+        <Alert variant="danger" className="mx-3">
+          {error}
+        </Alert>
+      )}
+
       {showForm && (
-        <Card className="quiz-form-card">
+        <Card className="quiz-form-card mx-3">
           <Card.Body>
             <Form onSubmit={handleCreateQuiz}>
-              <Form.Group>
+              <Form.Group className="mb-3">
                 <Form.Label>Title</Form.Label>
                 <Form.Control
                   type="text"
@@ -113,18 +111,23 @@ export const QuizHome = () => {
                   value={quizData.title}
                   onChange={handleChange}
                   required
+                  placeholder="Enter quiz title"
                 />
               </Form.Group>
-              <Form.Group>
+
+              <Form.Group className="mb-3">
                 <Form.Label>Description</Form.Label>
                 <Form.Control
                   as="textarea"
                   name="description"
                   value={quizData.description}
                   onChange={handleChange}
+                  placeholder="Enter quiz description"
+                  rows={3}
                 />
               </Form.Group>
-              <Form.Group>
+
+              <Form.Group className="mb-3">
                 <Form.Label>Image (Optional)</Form.Label>
                 <Form.Control
                   type="file"
@@ -133,61 +136,87 @@ export const QuizHome = () => {
                   onChange={handleImageChange}
                 />
               </Form.Group>
-              <Form.Group>
+
+              <Form.Group className="mb-3">
                 <Form.Label>Type ID</Form.Label>
-                <Form.Control
-                  type="text"
+                <Form.Select
                   name="typeId"
                   value={quizData.typeId}
                   onChange={handleChange}
                   required
-                />
+                >
+                  <option value="">Select Type</option>
+                  <option value="iq">IQ Test</option>
+                  <option value="personality">Personality Test</option>
+                  <option value="aptitude">Aptitude Test</option>
+                </Form.Select>
               </Form.Group>
+
               <Button
-                className="quiz-submit-btn"
+                className="action-btn action-btn-primary"
                 type="submit"
                 disabled={submitting}
               >
                 {submitting ? (
-                  <Spinner animation="border" size="sm" />
+                  <Spinner animation="border" size="sm" className="me-2" />
                 ) : (
-                  "Create"
+                  <FaPlus className="me-2" />
                 )}
+                Create Quiz
               </Button>
             </Form>
           </Card.Body>
         </Card>
       )}
+
       <h3 className="quiz-list-header">Available Quizzes</h3>
+
       {loading ? (
-        <div className="text-center">
+        <div className="loading-container">
           <Spinner animation="border" role="status" />
           <p>Loading quizzes...</p>
         </div>
       ) : (
-        <Row>
+        <div className="quiz-grid">
           {quizzes.map((quiz) => (
-            <Col md={6} lg={4} key={quiz.id} className="quiz-col">
-              <Card className="quiz-card">
-                {quiz.imageUrl && (
-                  <Card.Img
-                    variant="top"
-                    src={`${process.env.REACT_APP_REMOTE_ADDRESS}/${quiz.imageUrl}`}
-                    className="quiz-image"
-                  />
-                )}
-                <Card.Body>
-                  <Card.Title>{quiz.title}</Card.Title>
-                  <Card.Text>Type ID: {quiz.typeId}</Card.Text>
-                  <Link to={`./${quiz.id}`} className="quiz-view-link">
-                    View More
-                  </Link>
-                </Card.Body>
-              </Card>
-            </Col>
+            <Card key={quiz.id} className="quiz-card">
+              {quiz.imageUrl && (
+                <Card.Img
+                  variant="top"
+                  src={`${process.env.REACT_APP_REMOTE_ADDRESS}/${quiz.imageUrl}`}
+                  className="quiz-image"
+                  alt={quiz.title}
+                />
+              )}
+              <Card.Body>
+                <Card.Title>{quiz.title}</Card.Title>
+                <Card.Text>{quiz.description}</Card.Text>
+                <div className="d-flex justify-content-between align-items-center">
+                  <span className="status-badge status-active">
+                    {quiz.typeId}
+                  </span>
+                  <div className="d-flex gap-2">
+                    <Link
+                      to={`./${quiz.id}`}
+                      className="action-btn action-btn-primary"
+                    >
+                      <FaEye className="me-1" />
+                      View
+                    </Link>
+                    <Button
+                      variant="danger"
+                      className="action-btn action-btn-danger"
+                    >
+                      <FaTrash className="me-1" />
+                      Delete
+                    </Button>
+                  </div>
+                </div>
+              </Card.Body>
+            </Card>
           ))}
-        </Row>
+        </div>
       )}
-    </Container>
+    </div>
   );
 };
