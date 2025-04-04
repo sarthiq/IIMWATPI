@@ -9,10 +9,11 @@ export const TestSection = () => {
   const { showAlert } = useAlert();
   const [quizzes, setQuizzes] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+  const [allExpanded, setAllExpanded] = useState(false);
 
   useEffect(() => {
     fetchDetails();
-     // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const fetchDetails = async () => {
@@ -20,6 +21,10 @@ export const TestSection = () => {
     if (response) {
       setQuizzes(response.data);
     }
+  };
+
+  const toggleAllCards = () => {
+    setAllExpanded(!allExpanded);
   };
 
   const getQuizContent = (typeId) => {
@@ -42,7 +47,7 @@ export const TestSection = () => {
             "If you are an introvert, you have a better chance of cracking the UPSC examination with your ability to focus deeply, work independently, and think critically.",
             "If you are an extrovert, your true potential shines when surrounded by people, making you excel in leadership roles, networking, and dynamic environments."
           ],
-          cta: "Take our Personality Test today to understand yourself better and choose a career that aligns with your strengths. You also can download your Personality type certificate!"
+          cta: "Take our Personality Test today to understand yourself better and choose a career that aligns with your strengths. Also you can download your Personality type certificate!"
         };
       case 'creativity':
         return {
@@ -61,7 +66,7 @@ export const TestSection = () => {
 
   if (isLoading) {
     return (
-      <div className="loading-container">
+      <div className="ts-loading-container">
         <Spinner animation="border" role="status">
           <span className="visually-hidden">Loading...</span>
         </Spinner>
@@ -72,56 +77,87 @@ export const TestSection = () => {
   return (
     <section className="ts-test-section" id="test-section">
       <div className="ts-container">
-        <div className="about-header">
-          <h1 className="about-title">
+        <div className="ts-header">
+          <h1 className="ts-title">
             Discover Your Potential
-            <span className="title-highlight">Through Assessment</span>
+            <span className="ts-title-highlight">Through Assessment</span>
           </h1>
-          <p className="about-description">
+          <p className="ts-section-subtitle">
             Take our scientifically designed tests to understand your strengths and chart your path to success
           </p>
         </div>
 
-        <div className="quiz-boxes-container">
+        <div className="ts-quiz-boxes-container">
           {quizzes.map((quiz) => {
             const quizContent = getQuizContent(quiz.typeId);
+            
             return (
-              <div key={quiz.id} className="quiz-box">
-                <div className="quiz-box-header">
-                  <div className="image-container">
+              <div key={quiz.id} className="ts-quiz-box">
+                <div className="ts-quiz-box-header">
+                  <div className="ts-image-container">
                     <img
                       src={quiz.imageUrl
                         ? `${process.env.REACT_APP_REMOTE_ADDRESS}/${quiz.imageUrl}`
                         : "/IQ.png"}
                       alt={`${quiz.title} Test`}
-                      className="quiz-box-image"
+                      className="ts-quiz-box-image"
                     />
                   </div>
                   <h3>{quiz.title}</h3>
                 </div>
 
                 {quizContent && (
-                  <div className="quiz-box-content">
-                    <h4 className="content-title">{quizContent.title}</h4>
-                    <p className="content-description">{quizContent.description}</p>
-                    <ul className="content-points">
-                      {quizContent.points.map((point, index) => (
-                        <li key={index}>{point}</li>
-                      ))}
-                    </ul>
-                    <p className="content-cta">{quizContent.cta}</p>
+                  <div className="ts-quiz-box-content">
+                    <h4 className="ts-content-title">{quizContent.title}</h4>
+                    <p className="ts-content-description">{quizContent.description}</p>
+                    
+                    <div className="ts-content-wrapper">
+                      <div className={`ts-content-points-container ${allExpanded ? 'ts-expanded' : ''}`}>
+                        <ul className="ts-content-points">
+                          {quizContent.points.map((point, index) => (
+                            <li key={index}>{point}</li>
+                          ))}
+                        </ul>
+                        {!allExpanded && <div className="ts-fade-out"></div>}
+                      </div>
+                      
+                      <div className={`ts-content-cta-container ${allExpanded ? 'ts-expanded' : ''}`}>
+                        <p className="ts-content-cta">{quizContent.cta}</p>
+                        {!allExpanded && <div className="ts-fade-out"></div>}
+                      </div>
+                      
+                      <button 
+                        className="ts-toggle-btn" 
+                        onClick={toggleAllCards}
+                        aria-label={allExpanded ? "Show less" : "Show more"}
+                      >
+                        {allExpanded ? (
+                          <>
+                            <span className="ts-toggle-icon ts-rotate">▲</span>
+                            <span className="ts-toggle-text">Show Less</span>
+                          </>
+                        ) : (
+                          <>
+                            <span className="ts-toggle-icon">▼</span>
+                            <span className="ts-toggle-text">Show More</span>
+                          </>
+                        )}
+                      </button>
+                    </div>
                   </div>
                 )}
                 
-                {quiz.typeId === 'creativity' ? (
-                  <button className="take-test-btn disabled">
-                    Coming Soon
-                  </button>
-                ) : (
-                  <Link to={`./quiz/${quiz.id}`} className="take-test-btn">
-                    Take Test
-                  </Link>
-                )}
+                <div className="ts-card-footer">
+                  {quiz.typeId === 'creativity' ? (
+                    <button className="ts-take-test-btn ts-disabled">
+                      Coming Soon
+                    </button>
+                  ) : (
+                    <Link to={`./quiz/${quiz.id}`} className="ts-take-test-btn">
+                      Take Test
+                    </Link>
+                  )}
+                </div>
               </div>
             );
           })}
