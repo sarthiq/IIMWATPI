@@ -51,7 +51,7 @@ export const About = () => {
         </div>
 
         <div className="about-content">
-          <div className="mission-statement">
+          <div className="ab-mission">
             <h2>Our Mission</h2>
             <p>
               Educating, enabling, and empowering students to achieve their dreams in the AI-driven world. We combine 

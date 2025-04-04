@@ -28,22 +28,22 @@ export const EntranceExamSummary = () => {
   ];
 
   return (
-    <section className="ees-entrance-exam-section">
+    <section className="about-section">
       <Container>
-        <div className="ees-section-header">
-          <h2 className="ees-section-title">
+        <div className="about-header">
+          <h1 className="about-title">
             Entrance Exam Guide
-            <span className="ees-title-highlight">Your Path to Success</span>
-          </h2>
-          <p className="ees-section-description">
+            <span className="title-highlight">Your Path to Success</span>
+          </h1>
+          <p className="about-description">
             Comprehensive resources and guidance for your entrance exam preparation journey
           </p>
         </div>
 
-        <Row className="ees-feature-grid">
+        <Row className="feature-grid">
           {features.map((feature, index) => (
-            <div className="ees-feature-card" key={index}>
-              <div className="ees-icon-wrapper">
+            <div className="feature-card" key={index}>
+              <div className="icon-wrapper">
                 {feature.icon}
               </div>
               <h3>{feature.title}</h3>

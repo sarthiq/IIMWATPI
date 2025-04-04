@@ -28,22 +28,22 @@ export const ScholarshipSummary = () => {
   ];
 
   return (
-    <div className="schollarship-summary-section">
+    <div className="about-section">
       <Container>
-        <div className="schollarship-summary-header">
-          <h2 className="schollarship-summary-title">
+        <div className="about-header">
+          <h1 className="about-title">
             Scholarship Opportunities
-            <span className="schollarship-summary-title-highlight">Your Path to Academic Success</span>
-          </h2>
-          <p className="schollarship-summary-description">
+            <span className="title-highlight">Your Path to Academic Success</span>
+          </h1>
+          <p className="about-description">
             Discover financial aid options to support your educational journey and achieve your academic goals
           </p>
         </div>
 
-        <div className="schollarship-summary-feature-grid">
+        <div className="feature-grid">
           {scholarships.map((scholarship, index) => (
-            <div className="schollarship-summary-feature-card" key={index}>
-              <div className="schollarship-summary-icon-wrapper">
+            <div className="feature-card" key={index}>
+              <div className="icon-wrapper">
                 {scholarship.icon}
               </div>
               <h3>{scholarship.title}</h3>

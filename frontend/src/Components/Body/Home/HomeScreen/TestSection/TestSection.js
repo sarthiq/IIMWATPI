@@ -72,12 +72,12 @@ export const TestSection = () => {
   return (
     <section className="ts-test-section" id="test-section">
       <div className="ts-container">
-        <div className="ts-header">
-          <h2 className="ts-title">
+        <div className="about-header">
+          <h1 className="about-title">
             Discover Your Potential
-            <span className="ts-title-highlight">Through Assessment</span>
-          </h2>
-          <p className="ts-section-subtitle">
+            <span className="title-highlight">Through Assessment</span>
+          </h1>
+          <p className="about-description">
             Take our scientifically designed tests to understand your strengths and chart your path to success
           </p>
         </div>
