@@ -71,9 +71,9 @@ export const EntranceExamSummary = () => {
           <Link to="/entrance-test-details" className="ees-primary-cta">
             Explore Exam Guides
           </Link>
-          <button className="ees-secondary-cta">
+          {/* <button className="ees-secondary-cta">
             Download Resources
-          </button>
+          </button> */}
         </div>
       </Container>
     </section>

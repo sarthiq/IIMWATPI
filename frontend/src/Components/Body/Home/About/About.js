@@ -50,7 +50,7 @@ export const About = () => {
           ))}
         </div>
 
-        <div className="about-content">
+        {/* <div className="about-content">
           <div className="ab-mission">
             <h2>Our Mission</h2>
             <p>
@@ -58,22 +58,7 @@ export const About = () => {
               traditional educational excellence with innovative AI technologies to create future-ready professionals.
             </p>
           </div>
-
-          {/* <div className="stats-container">
-            <div className="stat-item">
-              <span className="stat-number">15K+</span>
-              <span className="stat-label">Students Guided</span>
-            </div>
-            <div className="stat-item">
-              <span className="stat-number">50+</span>
-              <span className="stat-label">AI Tools Integrated</span>
-            </div>
-            <div className="stat-item">
-              <span className="stat-number">95%</span>
-              <span className="stat-label">Success Rate</span>
-            </div>
-          </div> */}
-        </div>
+        </div> */}
       </Container>
     </div>
   );

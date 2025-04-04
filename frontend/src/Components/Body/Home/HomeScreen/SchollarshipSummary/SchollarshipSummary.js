@@ -71,9 +71,9 @@ export const ScholarshipSummary = () => {
           <Link to="/schollarship" className="schollarship-summary-primary-cta">
             Browse Scholarships
           </Link>
-          <Link to="/schollarship/apply" className="schollarship-summary-secondary-cta">
+          {/* <Link to="/schollarship/apply" className="schollarship-summary-secondary-cta">
             Apply Now
-          </Link>
+          </Link> */}
         </div>
       </Container>
     </div>
