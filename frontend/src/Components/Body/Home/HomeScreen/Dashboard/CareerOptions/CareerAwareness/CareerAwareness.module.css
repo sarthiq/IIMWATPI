@@ -27,8 +27,8 @@
 }
 
 .career-table th {
-    background: linear-gradient(135deg, #4285f4 , #4285f4);
-    color: white;
+    background-color: #4285f4 !important;
+    color: white !important ;
     padding: 1rem;
     font-weight: 600;
     text-align: center;

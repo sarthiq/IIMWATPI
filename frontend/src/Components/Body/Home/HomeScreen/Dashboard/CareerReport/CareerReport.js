@@ -226,7 +226,7 @@ export const CareerReport = () => {
 
   const handlePrint = () => {
     const reportContent = document.getElementById('report');
-    const printWindow = window.open('', '', 'height=600,width=800');
+    const printWindow = window.open('', '', 'height=800,width=1000');
     
     // Get all stylesheets from the current document
     const styles = Array.from(document.styleSheets)
@@ -241,187 +241,244 @@ export const CareerReport = () => {
       })
       .join('\n');
 
+    // Add additional styles for print layout
+    const printStyles = `
+      body {
+        padding: 0;
+        margin: 0;
+        font-family: Arial, sans-serif;
+      }
+      .report-container {
+        max-width: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      .report-section {
+        page-break-inside: avoid;
+        margin-bottom: 20px;
+      }
+      .main-content-container {
+        box-shadow: none;
+        padding: 0;
+        margin-bottom: 20px;
+      }
+      .personality-grid {
+        page-break-inside: avoid;
+      }
+      .personality-scores,
+      .personality-table {
+        page-break-inside: avoid;
+      }
+      .trait-row {
+        page-break-inside: avoid;
+      }
+      @page {
+        size: A4;
+        margin: 15px;
+      }
+      @media print {
+        body {
+          -webkit-print-color-adjust: exact !important;
+          print-color-adjust: exact !important;
+        }
+        .print-button,
+        .report-actions {
+          display: none !important;
+        }
+        .report-header {
+          margin-bottom: 20px;
+        }
+        .section-title {
+          margin-bottom: 15px;
+        }
+        .personality-table {
+          border: 1px solid #ddd;
+          margin: 20px 0;
+          font-size: 11px;
+          border-collapse: collapse;
+          width: 100%;
+        }
+        .table-header {
+          display: grid;
+          grid-template-columns: 1fr 2fr 2fr;
+          background-color: #f8f9fa;
+          font-weight: bold;
+          border-bottom: 1px solid #ddd;
+          padding: 0;
+        }
+        .trait-header, .score-header {
+          padding: 4px;
+          text-align: center;
+          font-size: 11px;
+        }
+        .trait-row {
+          display: grid;
+          grid-template-columns: 1fr 2fr 2fr;
+          border-bottom: 1px solid #ddd;
+          margin: 0;
+          padding: 0;
+        }
+        .trait-name {
+          padding: 4px;
+          font-weight: bold;
+          background-color: #f8f9fa;
+          font-size: 11px;
+        }
+        .trait-details {
+          padding: 4px;
+        }
+        .trait-details ul {
+          list-style-type: decimal;
+          margin: 0;
+          padding-left: 12px;
+        }
+        .trait-details li {
+          margin: 1px 0;
+          font-size: 11px;
+          line-height: 1.1;
+        }
+        .extraversion { background-color: rgba(173, 216, 230, 0.05); }
+        .agreeableness { background-color: rgba(255, 165, 0, 0.05); }
+        .contentiousness { background-color: rgba(144, 238, 144, 0.05); }
+        .neuroticism { background-color: rgba(221, 160, 221, 0.05); }
+        .openness { background-color: rgba(255, 99, 71, 0.05); }
+      }
+    `;
+
     printWindow.document.write(`
       <html>
         <head>
-          <title>Student Assessment Report</title>
+          <title>Career Assessment Report</title>
           <style>
             ${styles}
-            body {
-              padding: 0;
-              margin: 0;
-            }
-            .report-container {
-              padding: 40px;
-            }
-            @page {
-              size: A4;
-              margin: 0;
-            }
-            @media print {
-              body {
-                -webkit-print-color-adjust: exact !important;
-                print-color-adjust: exact !important;
-              }
-              .print-button {
-                display: none !important;
-              }
-            }
+            ${printStyles}
           </style>
         </head>
         <body>
-          ${reportContent.outerHTML}
+          <div class="report-container">
+            ${reportContent.innerHTML}
+          </div>
         </body>
       </html>
     `);
     
     printWindow.document.close();
     printWindow.focus();
+    
+    // Wait for images and styles to load
     setTimeout(() => {
       printWindow.print();
       printWindow.close();
-    }, 500);
+    }, 1000);
   };
 
   return (
     <Container fluid className="cr-page-wrapper">
       <div id="report" className="cr-report-container">
-        {/* Modern Header with Gradient */}
-        <div className="report-header">
-          <div className="report-header-content">
-            <div className="student-avatar-large">
-              {studentData?.studentDetails?.studentName?.charAt(0) || "?"}
-            </div>
-            <div className="student-info-wrapper">
-              <h1 className="student-name">
-                {studentData?.studentDetails?.studentName || "N/A"}
-              </h1>
-              <div className="student-meta">
-                <span className="meta-badge">
-                  {studentData?.studentDetails?.class || "N/A"}
-                </span>
-                <span className="meta-divider"></span>
-                <span className="meta-badge">
-                  {studentData?.studentDetails?.schoolName || "N/A"}
-                </span>
+        {/* Main content container */}
+        <div className="main-content-container">
+          {/* Modern Header with Gradient */}
+          <div className="report-header">
+            <div className="report-header-content">
+              <div className="student-avatar-large">
+                {studentData?.studentDetails?.studentName?.charAt(0) || "?"}
+              </div>
+              <div className="student-info-wrapper">
+                <h1 className="student-name">
+                  {studentData?.studentDetails?.studentName || "N/A"}
+                </h1>
+                <div className="student-meta">
+                  <span className="meta-badge">
+                    {studentData?.studentDetails?.class || "N/A"}
+                  </span>
+                  <span className="meta-divider"></span>
+                  <span className="meta-badge">
+                    {studentData?.studentDetails?.schoolName || "N/A"}
+                  </span>
+                </div>
               </div>
             </div>
           </div>
-        </div>
 
-        {/* Career Recommendations section - removed icons */}
-        <div className="report-section recommendation-section">
-          <h2 className="section-title">Career Recommendations</h2>
-          <div className="career-grid">
-            <div className="career-card">
-              <h3>Career Paths</h3>
-              <ul className="career-list">
-                <li>Software Engineer</li>
-                <li>Data Scientist</li>
-                <li>Product Manager</li>
-                <li>UI/UX Designer</li>
-              </ul>
-            </div>
-            <div className="career-card">
-              <h3>Education Pathways</h3>
-              <ul className="career-list">
-                <li>B.Tech in Computer Science</li>
-                <li>BCA</li>
-                <li>B.Sc in Data Science</li>
-                <li>B.Des in UI/UX</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        {/* Development Roadmap - removed icon */}
-        {/* <div className="report-section">
-          <h2 className="section-title">Development Roadmap</h2>
-          <div className="timeline-modern">
-            <div className="timeline-card">
-              <h3>First 6 Months</h3>
-              <ul className="timeline-list">
-                <li>Complete Python Programming Course</li>
-                <li>Learn Basic Web Development</li>
-                <li>Create GitHub Profile</li>
-              </ul>
-            </div>
-            <div className="timeline-card">
-              <div className="timeline-content">
-                <h3>Short Term</h3>
-                <ul className="timeline-list">
-                  <li>Build Portfolio Projects</li>
-                  <li>Join Coding Communities</li>
-                  <li>Participate in Hackathons</li>
+          {/* Career Recommendations section */}
+          <div className="report-section recommendation-section">
+            <h2 className="section-title">Career Recommendations</h2>
+            <div className="career-grid">
+              <div className="career-card">
+                <h3>Career Paths</h3>
+                <ul className="career-list">
+                  <li>Software Engineer</li>
+                  <li>Data Scientist</li>
+                  <li>Product Manager</li>
+                  <li>UI/UX Designer</li>
                 </ul>
               </div>
-            </div>
-            <div className="timeline-card">
-              <div className="timeline-content">
-                <h3>Long Term</h3>
-                <ul className="timeline-list">
-                  <li>Internship in Tech Company</li>
-                  <li>Industry Certifications</li>
-                  <li>Specialized Skills Development</li>
+              <div className="career-card">
+                <h3>Education Pathways</h3>
+                <ul className="career-list">
+                  <li>B.Tech in Computer Science</li>
+                  <li>BCA</li>
+                  <li>B.Sc in Data Science</li>
+                  <li>B.Des in UI/UX</li>
                 </ul>
               </div>
             </div>
           </div>
-        </div> */}
 
-        {/* Updated IQ Assessment Section */}
-        <div className="report-section iq-section">
-          <h2 className="section-title">IQ Assessment</h2>
-          <div className="iq-content-modern">
-            <div className="iq-row">
-              <div className="iq-score-circle">
-                <div className="score-ring">
-                  <span className="score-number">{testResults?.iq?.score || "N/A"}</span>
-                  <span className="score-label">IQ Score</span>
-                </div>
-              </div>
-              <div className="iq-details-grid">
-                <div className="analysis-box">
-                  <h4>Strong Areas</h4>
-                  <ul>
-                    {testResults?.iq?.strongAreas?.map((area, index) => (
-                      <li key={index}>{area}</li>
-                    )) || <li>No data available</li>}
-                  </ul>
-                </div>
-                <div className="analysis-box">
-                  <h4>Areas for Improvement</h4>
-                  <ul>
-                    {testResults?.iq?.improvementAreas?.map((area, index) => (
-                      <li key={index}>{area}</li>
-                    )) || <li>No data available</li>}
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Updated Interest Test Section */}
-        <div className="report-section">
-          <h2 className="section-title">Interest Test Explanation</h2>
-          <div className="interest-container">
-            <div className="interest-bars">
-              {Object.entries(testResults?.interest || {}).map(([key, value]) => (
-                <div key={key} className="interest-item">
-                  <span className="interest-label">{key.charAt(0).toUpperCase() + key.slice(1)}</span>
-                  <div className="interest-bar">
-                    <div className="bar-fill" style={{width: `${value}%`}}>
-                      {value}%
-                    </div>
+          {/* IQ Assessment Section */}
+          <div className="report-section iq-section">
+            <h2 className="section-title">IQ Assessment</h2>
+            <div className="iq-content-modern">
+              <div className="iq-row">
+                <div className="iq-score-circle">
+                  <div className="score-ring">
+                    <span className="score-number">{testResults?.iq?.score || "N/A"}</span>
+                    <span className="score-label">IQ Score</span>
                   </div>
                 </div>
-              ))}
+                <div className="iq-details-grid">
+                  <div className="analysis-box">
+                    <h4>Strong Areas</h4>
+                    <ul>
+                      {testResults?.iq?.strongAreas?.map((area, index) => (
+                        <li key={index}>{area}</li>
+                      )) || <li>No data available</li>}
+                    </ul>
+                  </div>
+                  <div className="analysis-box">
+                    <h4>Areas for Improvement</h4>
+                    <ul>
+                      {testResults?.iq?.improvementAreas?.map((area, index) => (
+                        <li key={index}>{area}</li>
+                      )) || <li>No data available</li>}
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Interest Test Section */}
+          <div className="report-section">
+            <h2 className="section-title">Interest Test Explanation</h2>
+            <div className="interest-container">
+              <div className="interest-bars">
+                {Object.entries(testResults?.interest || {}).map(([key, value]) => (
+                  <div key={key} className="interest-item">
+                    <span className="interest-label">{key.charAt(0).toUpperCase() + key.slice(1)}</span>
+                    <div className="interest-bar">
+                      <div className="bar-fill" style={{width: `${value}%`}}>
+                        {value}%
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>
 
-        {/* Updated Personality Section */}
+        {/* Personality Section - Outside the main container */}
         <div className="report-section">
           <h2 className="section-title">Personality Test Explanation</h2>
           <div className="personality-grid">
@@ -494,7 +551,7 @@ export const CareerReport = () => {
           <i className="fas fa-download"></i>
           Download Report
         </button>
-    </div>
+      </div>
     </Container>
   );
 };
