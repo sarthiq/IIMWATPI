@@ -28,22 +28,22 @@ export const AILiteracySummary = () => {
   ];
 
   return (
-    <div className="ai-literacy-section">
+    <div className="about-section">
       <Container>
-        <div className="ai-literacy-header">
-          <h2 className="ai-literacy-title">
+        <div className="about-header">
+          <h1 className="about-title">
             AI Literacy 
-            <span className="ai-literacy-title-highlight">Master Modern AI Tools</span>
-          </h2>
-          <p className="ai-literacy-description">
+            <span className="title-highlight">Master Modern AI Tools</span>
+          </h1>
+          <p className="about-description">
             Enhance your productivity and creativity with cutting-edge AI tools and technologies
           </p>
         </div>
 
-        <div className="ai-literacy-feature-grid">
+        <div className="feature-grid">
           {features.map((feature, index) => (
-            <div className="ai-literacy-feature-card" key={index}>
-              <div className="ai-literacy-icon-wrapper">
+            <div className="feature-card" key={index}>
+              <div className="icon-wrapper">
                 {feature.icon}
               </div>
               <h3>{feature.title}</h3>

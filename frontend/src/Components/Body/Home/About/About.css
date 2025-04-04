@@ -96,22 +96,28 @@
   margin: 0 auto;
 }
 
-.mission-statement {
+.ab-mission {
   text-align: center;
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 20px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
   margin-bottom: 2rem;
 }
 
-.mission-statement h2 {
-  font-size: 2rem;
+.ab-mission h2 {
   color: #1e293b;
+  font-size: 2rem;
   margin-bottom: 1.5rem;
   font-weight: 700;
 }
 
-.mission-statement p {
+.ab-mission p {
   color: #475569;
   font-size: 1.1rem;
   line-height: 1.8;
+  max-width: 800px;
+  margin: 0 auto;
 }
 
 .stats-container {
