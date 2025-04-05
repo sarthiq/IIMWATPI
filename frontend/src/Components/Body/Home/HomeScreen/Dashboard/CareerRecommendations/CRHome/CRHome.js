@@ -201,12 +201,10 @@ export const CRHome = () => {
 
     // Get IQ category
     const iqScore = iqResults?.result?.label ? (!isNaN(iqResults.result.label) ? Number(iqResults.result.label) : 0) : 0;
-    const iqCategory = [
-      iqScore < 80 ? 0 : iqScore < 90 ? 80 : 
-      iqScore < 100 ? 90 : iqScore < 120 ? 100 : 120,
-      iqScore < 80 ? 80 : iqScore < 90 ? 90 : 
-      iqScore < 100 ? 100 : iqScore < 120 ? 120 : 1000
-    ];
+    const iqCategory = iqScore < 80 ? 0 : 
+                      iqScore < 90 ? 80 : 
+                      iqScore < 100 ? 90 : 
+                      iqScore < 120 ? 100 : 120;
 
     //console.log("IQ Category:", iqCategory);
 
@@ -324,8 +322,7 @@ export const CRHome = () => {
           // Check if IQ range matches
           const optionIQStart = option["IQ Range"][0];
           const optionIQEnd = option["IQ Range"][1];
-          const userIQStart = iqCategory[0];
-          const userIQEnd = iqCategory[1];
+          const userIQ = iqCategory;
 
           //console.log("Comparing:", {
           //  personality: {
@@ -336,12 +333,12 @@ export const CRHome = () => {
           //  },
           //  iqRange: {
           //    option: [optionIQStart, optionIQEnd],
-          //    user: [userIQStart, userIQEnd]
+          //    user: userIQ
           //  }
           //});
 
-          // Check if IQ ranges match
-          if (optionIQStart === userIQStart && optionIQEnd === userIQEnd) {
+          // Check if IQ falls within range
+          if (userIQ >= optionIQStart && userIQ <= optionIQEnd) {
             //console.log("Found matching recommendation:", {
             //  field: fieldName,
             //  personality: matchingPersonality,
