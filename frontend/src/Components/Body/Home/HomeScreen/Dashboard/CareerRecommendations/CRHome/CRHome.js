@@ -167,6 +167,7 @@ export const CRHome = () => {
       response.data &&
       response.data.results
     ) {
+      console.log(response.data.results);
       // Safely access nested properties with optional chaining
       setIqResults(response.data.results?.iq?.detailedResult || null);
       setPersonalityResults(
@@ -185,7 +186,7 @@ export const CRHome = () => {
     if (personalityResults && !animationStarted) {
       setAnimationStarted(true);
     }
-  }, [personalityResults]);
+  }, []);
 
   const getCareerRecommendations = (iqResults, personalityResults, interestResults) => {
     //console.log("Starting getCareerRecommendations with:", {
@@ -201,12 +202,12 @@ export const CRHome = () => {
 
     // Get IQ category
     const iqScore = iqResults?.result?.label ? (!isNaN(iqResults.result.label) ? Number(iqResults.result.label) : 0) : 0;
-    const iqCategory = iqScore < 80 ? 0 : 
-                      iqScore < 90 ? 80 : 
-                      iqScore < 100 ? 90 : 
-                      iqScore < 120 ? 100 : 120;
+    const iqCategory = iqScore < 80 ? 1 : 
+                      iqScore < 90 ? 81 : 
+                      iqScore < 100 ? 91 : 
+                      iqScore < 120 ? 101 : 121;
 
-    //console.log("IQ Category:", iqCategory);
+    console.log("IQ Category:", iqCategory);
 
     // Get top 3 matching personality types
     const matchingPersonalityTypes = calculatePersonalityTypeMatch(personalityResults);
@@ -220,7 +221,8 @@ export const CRHome = () => {
 
     //console.log("Personality Type to ID mapping:", personalityTypeToId);
 
-    const recommendations = [];
+    // Create a map to group recommendations by field
+    const fieldMap = new Map();
 
     if (interestResults?.['16']) {
       const interests = Array.isArray(interestResults['16']) ? 
@@ -350,8 +352,16 @@ export const CRHome = () => {
             // Get the personality type name from personalityTypeArray based on ID
             const personalityTypeName = data["personalityTypeArray"][personalityId - 1];
 
-            recommendations.push({
-              fieldName: fieldName,
+            // Create a unique key for this field
+            const fieldKey = fieldName;
+            
+            // Initialize the field in the map if it doesn't exist
+            if (!fieldMap.has(fieldKey)) {
+              fieldMap.set(fieldKey, []);
+            }
+            
+            // Add this recommendation to the field
+            fieldMap.get(fieldKey).push({
               personalityType: personalityTypeName,
               fieldOfStudy: option["Recommended Field of Study"],
               courses: option["Relevant Courses"].split(", "),
@@ -362,6 +372,15 @@ export const CRHome = () => {
         });
       });
     }
+
+    // Convert the map to an array of field recommendations
+    const recommendations = [];
+    fieldMap.forEach((value, key) => {
+      recommendations.push({
+        fieldName: key,
+        recommendations: value
+      });
+    });
 
     //console.log("Final recommendations:", recommendations);
     return recommendations;
@@ -532,55 +551,63 @@ export const CRHome = () => {
       {(iqResults && personalityResults && interestResults) && (
         <div className={styles.recommendationsSection}>
           <h2 className={styles.sectionTitle}>Recommended Career Paths</h2>
-          <div className={styles.tableContainer}>
-            <table className={styles.recommendationsTable}>
-              <thead>
-                <tr>
-                  <th>Field</th>
-                  <th>Personality Type</th>
-                  <th>Field of Study</th>
-                  <th>Relevant Courses</th>
-                  <th>Potential Career Pathways</th>
-                  <th>Recommended Colleges</th>
-                </tr>
-              </thead>
-              <tbody>
-                {getCareerRecommendations(iqResults, personalityResults, interestResults)
-                  .map((recommendation, index) => (
-                    <tr key={index}>
-                      <td>{recommendation.fieldName}</td>
-                      <td>{recommendation.personalityType}</td>
-                      <td>{recommendation.fieldOfStudy}</td>
-                      <td>
-                        <ul className={styles.tableList}>
-                          {recommendation.courses.map((course, idx) => (
-                            <li key={idx}>{course}</li>
-                          ))}
-                        </ul>
-                      </td>
-                      <td>
-                        <ul className={styles.tableList}>
-                          {recommendation.careers.map((career, idx) => (
-                            <li key={idx}>{career}</li>
-                          ))}
-                        </ul>
-                      </td>
-                      <td>
-                        {recommendation.colleges && recommendation.colleges.length > 0 ? (
+          
+          {getCareerRecommendations(iqResults, personalityResults, interestResults).map((field, index) => (
+            <div key={index} className={styles.fieldSection}>
+              <div className={styles.fieldHeader}>
+                <h3 className={styles.fieldTitle}>{field.fieldName}</h3>
+              </div>
+              
+              <div className={styles.tableContainer}>
+                <table className={styles.recommendationsTable}>
+                  <thead>
+                    <tr>
+                      <th>Personality Type</th>
+                      <th>Field of Study</th>
+                      <th>Relevant Courses</th>
+                      <th>Potential Career Pathways</th>
+                      <th>Recommended Colleges</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {field.recommendations.map((recommendation, idx) => (
+                      <tr key={idx} className={styles.tableRow}>
+                        <td className={styles.personalityCell}>
+                          <span className={styles.personalityTag}>{recommendation.personalityType}</span>
+                        </td>
+                        <td>{recommendation.fieldOfStudy}</td>
+                        <td>
                           <ul className={styles.tableList}>
-                            {recommendation.colleges.map((college, idx) => (
-                              <li key={idx}>{college}</li>
+                            {recommendation.courses.map((course, courseIdx) => (
+                              <li key={courseIdx}>{course}</li>
                             ))}
                           </ul>
-                        ) : (
-                          <span>Not specified</span>
-                        )}
-                      </td>
-                    </tr>
-                  ))}
-              </tbody>
-            </table>
-          </div>
+                        </td>
+                        <td>
+                          <ul className={styles.tableList}>
+                            {recommendation.careers.map((career, careerIdx) => (
+                              <li key={careerIdx}>{career}</li>
+                            ))}
+                          </ul>
+                        </td>
+                        <td>
+                          {recommendation.colleges && recommendation.colleges.length > 0 ? (
+                            <ul className={styles.tableList}>
+                              {recommendation.colleges.map((college, collegeIdx) => (
+                                <li key={collegeIdx}>{college}</li>
+                              ))}
+                            </ul>
+                          ) : (
+                            <span>Not specified</span>
+                          )}
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          ))}
         </div>
       )}
 
