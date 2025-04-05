@@ -47,7 +47,7 @@ export const TestSection = () => {
             "If you are an introvert, you have a better chance of cracking the UPSC examination with your ability to focus deeply, work independently, and think critically.",
             "If you are an extrovert, your true potential shines when surrounded by people, making you excel in leadership roles, networking, and dynamic environments."
           ],
-          cta: "Take our Personality Test today to understand yourself better and choose a career that aligns with your strengths. Also you can download your Personality type certificate!"
+          cta: "Take our Personality Test today to understand yourself better and choose a career that aligns with your strengths. Also you can download your Personality certificate!"
         };
       case 'creativity':
         return {
