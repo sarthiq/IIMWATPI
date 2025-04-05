@@ -325,7 +325,7 @@
 .table-header {
   display: grid;
   grid-template-columns: 1fr 2fr 2fr;
-  background-color: #f8f9fa;
+  background-color: transparent;
   font-weight: bold;
   border-bottom: 1px solid #ddd;
   padding: 0;
@@ -343,12 +343,13 @@
   border-bottom: 1px solid #ddd;
   margin: 0;
   padding: 0;
+  background-color: transparent !important;
 }
 
 .trait-name {
   padding: 4px;
   font-weight: bold;
-  background-color: #f8f9fa;
+  background-color: transparent;
   font-size: 11px;
 }
 
@@ -368,12 +369,10 @@
   line-height: 1.1;
 }
 
-/* Trait-specific background colors */
-/* .extraversion { background-color: rgba(173, 216, 230, 0.05) !important; }
-.agreeableness { background-color: rgba(255, 165, 0, 0.05) !important; }
-.contentiousness { background-color: rgba(109, 168, 109, 0.05) !important; }
-.neuroticism { background-color: rgba(221, 160, 221, 0.05) !important; }
-.openness { background-color: rgba(255, 99, 71, 0.05) !important; } */
+/* Trait-specific background colors - explicitly removed */
+.extraversion, .agreeableness, .conscientiousness, .neuroticism, .openness {
+  background-color: transparent !important;
+}
 
 /* Personality grid */
 .personality-grid {
@@ -426,6 +425,13 @@
   opacity: 0.3;
 }
 
+/* Score bar colors */
+.score-row:nth-child(1) .score-bar { background-color: #74b9cc; }
+.score-row:nth-child(2) .score-bar { background-color: #ffc107; }
+.score-row:nth-child(3) .score-bar { background-color: #4caf50; }
+.score-row:nth-child(4) .score-bar { background-color: #9c27b0; }
+.score-row:nth-child(5) .score-bar { background-color: #ff5252; }
+
 .score-indicator {
   position: absolute;
   top: -20px;
@@ -463,13 +469,6 @@
   transform: translate(-50%, -50%);
   z-index: 2;
 }
-
-/* Score bar colors */
-.score-row:nth-child(1) .score-bar { background-color: #74b9cc; }
-.score-row:nth-child(2) .score-bar { background-color: #ffc107; }
-.score-row:nth-child(3) .score-bar { background-color: #4caf50; }
-.score-row:nth-child(4) .score-bar { background-color: #9c27b0; }
-.score-row:nth-child(5) .score-bar { background-color: #ff5252; }
 
 /* Media Queries */
 @media screen and (max-width: 768px) {
@@ -567,14 +566,20 @@
   .personality-scores,
   .personality-table {
     break-inside: avoid;
-    background-color: #f8f9fa !important;
+    background-color: transparent !important;
     -webkit-print-color-adjust: exact;
     print-color-adjust: exact;
   }
 
-  .trait-row {
-    break-inside: avoid;
+  .trait-row, .trait-name, .trait-details, .table-header, .trait-header, .score-header {
+    background-color: transparent !important;
   }
+
+  .extraversion { background-color: transparent; }
+  .agreeableness { background-color: transparent; }
+  .contentiousness { background-color: transparent; }
+  .neuroticism { background-color: transparent; }
+  .openness { background-color: transparent; }
 }
 
 /* Make sure icons are visible */

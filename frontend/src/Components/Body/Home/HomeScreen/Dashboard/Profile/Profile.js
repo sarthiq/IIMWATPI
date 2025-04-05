@@ -38,6 +38,32 @@ export const Profile = () => {
     profilePhoto: null,
   });
 
+  // Comprehensive class options from 8th to Post Graduation
+  const classOptions = [
+    // School
+    "Class 8th", "Class 9th", "Class 10th", "Class 11th", "Class 12th",
+  
+    // University
+    "Graduation", "PhD", "Post Graduation"
+  ];
+
+  // Course options based on education level
+  const courseOptions = {
+    "Class 8th": ["General"],
+    "Class 9th": ["General"],
+    "Class 10th": ["General"],
+    "Class 11th": ["Science", "Arts", "Commerce"],
+    "Class 12th": ["Science", "Arts", "Commerce"],
+    "Graduation": ["Engineering", "Science", "Arts", "Commerce", "Medical"],
+    "PhD": ["Engineering", "Science", "Arts", "Commerce", "Medical"],
+    "Post Graduation": ["Engineering", "Science", "Arts", "Commerce", "Medical"]
+  };
+
+  // Get available courses based on selected class
+  const getAvailableCourses = () => {
+    return courseOptions[userInfo.standard] || [];
+  };
+
   const institutionTypes = ["School", "College", "University", "Other"];
 
   const standardOptions = {
@@ -91,6 +117,14 @@ export const Profile = () => {
         ...prev,
         standard: "",
         otherInstitution: "",
+      }));
+    }
+    
+    // Reset course when standard changes
+    if (name === "standard") {
+      setUserInfo((prev) => ({
+        ...prev,
+        course: "",
       }));
     }
   };
@@ -278,25 +312,38 @@ export const Profile = () => {
                       <Col md={6}>
                         <Form.Group className="form-group">
                           <Form.Label>Class/Standard</Form.Label>
-                          <Form.Control
-                            type="text"
+                          <Form.Select
                             name="standard"
                             value={userInfo.standard}
                             onChange={handleChange}
                             className="form-control-custom"
-                          />
+                          >
+                            <option value="">Select Class/Standard</option>
+                            {classOptions.map((option, index) => (
+                              <option key={index} value={option}>
+                                {option}
+                              </option>
+                            ))}
+                          </Form.Select>
                         </Form.Group>
                       </Col>
                       <Col md={6}>
                         <Form.Group className="form-group">
                           <Form.Label>Course</Form.Label>
-                          <Form.Control
-                            type="text"
+                          <Form.Select
                             name="course"
                             value={userInfo.course}
                             onChange={handleChange}
                             className="form-control-custom"
-                          />
+                            disabled={!userInfo.standard}
+                          >
+                            <option value="">Select Course</option>
+                            {getAvailableCourses().map((option, index) => (
+                              <option key={index} value={option}>
+                                {option}
+                              </option>
+                            ))}
+                          </Form.Select>
                         </Form.Group>
                       </Col>
                       <Col md={6}>
