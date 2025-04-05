@@ -57,8 +57,6 @@ export const CareerReport = () => {
           setTestResults({
             iq: {
               score: testResponse.data.results.iq?.detailedResult?.result?.label || "0",
-              strongAreas: ["Logical Reasoning", "Pattern Recognition"], // These would need to be derived from the actual data
-              improvementAreas: ["Verbal Reasoning", "Spatial Awareness"] // These would need to be derived from the actual data
             },
             interest: {
               // Transform interests data from the response
@@ -523,7 +521,7 @@ export const CareerReport = () => {
               </div>
               
               {personalityTraits.map((trait, index) => (
-                <div key={index} className={`trait-row ${trait.trait.toLowerCase()}`}>
+                <div key={index} className="trait-row">
                   <div className="trait-name">{trait.trait}</div>
                   <div className="trait-details">
                     <ul>
