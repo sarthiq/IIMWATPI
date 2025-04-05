@@ -31,6 +31,8 @@ export const CareerReport = () => {
   });
   const [testResults, setTestResults] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [printLoading, setPrintLoading] = useState(false);
+  const [activeSection, setActiveSection] = useState(null);
   const { showAlert } = useAlert();
 
   useEffect(() => {
@@ -57,6 +59,15 @@ export const CareerReport = () => {
           setTestResults({
             iq: {
               score: testResponse.data.results.iq?.detailedResult?.result?.label || "0",
+              strongAreas: testResponse.data.results.iq?.detailedResult?.result?.strongAreas || [
+                "Logical Reasoning",
+                "Pattern Recognition",
+                "Spatial Visualization"
+              ],
+              improvementAreas: testResponse.data.results.iq?.detailedResult?.result?.improvementAreas || [
+                "Verbal Comprehension",
+                "Working Memory"
+              ]
             },
             interest: {
               // Transform interests data from the response
@@ -121,6 +132,14 @@ export const CareerReport = () => {
     } finally {
       setLoading(false);
     }
+  };
+
+  // Function to handle section click for animation
+  const handleSectionClick = (sectionName) => {
+    setActiveSection(sectionName);
+    setTimeout(() => {
+      setActiveSection(null);
+    }, 500);
   };
 
   if (loading) {
@@ -223,6 +242,7 @@ export const CareerReport = () => {
   ];
 
   const handlePrint = () => {
+    setPrintLoading(true);
     const reportContent = document.getElementById('report');
     const printWindow = window.open('', '', 'height=800,width=1000');
     
@@ -292,9 +312,11 @@ export const CareerReport = () => {
         .personality-table {
           border: 1px solid #ddd;
           margin: 20px 0;
-          font-size: 11px;
+          font-size: 14px;
           border-collapse: collapse;
           width: 100%;
+          border-radius: 8px;
+          overflow: hidden;
         }
         .table-header {
           display: grid;
@@ -305,9 +327,14 @@ export const CareerReport = () => {
           padding: 0;
         }
         .trait-header, .score-header {
-          padding: 4px;
+          padding: 12px 15px;
           text-align: center;
-          font-size: 11px;
+          font-size: 14px;
+          color: #2c3e50;
+          border-right: 1px solid #ddd;
+        }
+        .trait-header:last-child, .score-header:last-child {
+          border-right: none;
         }
         .trait-row {
           display: grid;
@@ -317,29 +344,36 @@ export const CareerReport = () => {
           padding: 0;
         }
         .trait-name {
-          padding: 4px;
+          padding: 12px 15px;
           font-weight: bold;
           background-color: #f8f9fa;
-          font-size: 11px;
+          font-size: 14px;
+          color: #2c3e50;
+          border-right: 1px solid #ddd;
         }
         .trait-details {
-          padding: 4px;
+          padding: 12px 15px;
+          border-right: 1px solid #ddd;
+        }
+        .trait-details:last-child {
+          border-right: none;
         }
         .trait-details ul {
           list-style-type: decimal;
           margin: 0;
-          padding-left: 12px;
+          padding-left: 20px;
         }
         .trait-details li {
-          margin: 1px 0;
-          font-size: 11px;
-          line-height: 1.1;
+          margin: 6px 0;
+          font-size: 14px;
+          line-height: 1.4;
+          color: #555;
         }
-        .extraversion { background-color: rgba(173, 216, 230, 0.05); }
-        .agreeableness { background-color: rgba(255, 165, 0, 0.05); }
-        .contentiousness { background-color: rgba(144, 238, 144, 0.05); }
-        .neuroticism { background-color: rgba(221, 160, 221, 0.05); }
-        .openness { background-color: rgba(255, 99, 71, 0.05); }
+        .extraversion { background-color: rgba(116, 185, 204, 0.05); }
+        .agreeableness { background-color: rgba(255, 193, 7, 0.05); }
+        .conscientiousness { background-color: rgba(76, 175, 80, 0.05); }
+        .neuroticism { background-color: rgba(156, 39, 176, 0.05); }
+        .openness { background-color: rgba(255, 82, 82, 0.05); }
       }
     `;
 
@@ -367,8 +401,48 @@ export const CareerReport = () => {
     setTimeout(() => {
       printWindow.print();
       printWindow.close();
+      setPrintLoading(false);
     }, 1000);
   };
+
+  // Function to get career recommendations based on personality traits
+  const getCareerRecommendations = () => {
+    const recommendations = {
+      careers: [],
+      education: []
+    };
+    
+    // Add careers based on personality traits
+    if (testResults?.personality?.openness > 70) {
+      recommendations.careers.push("Creative Director", "UX/UI Designer", "Content Creator");
+      recommendations.education.push("Bachelor of Design", "Bachelor of Fine Arts", "Bachelor of Media Studies");
+    }
+    
+    if (testResults?.personality?.conscientiousness > 70) {
+      recommendations.careers.push("Project Manager", "Data Analyst", "Financial Planner");
+      recommendations.education.push("Bachelor of Business Administration", "Bachelor of Commerce", "Bachelor of Economics");
+    }
+    
+    if (testResults?.personality?.extraversion > 70) {
+      recommendations.careers.push("Sales Manager", "Public Relations Specialist", "Event Planner");
+      recommendations.education.push("Bachelor of Communication", "Bachelor of Marketing", "Bachelor of Hospitality Management");
+    }
+    
+    if (testResults?.personality?.agreeableness > 70) {
+      recommendations.careers.push("Counselor", "Social Worker", "Human Resources Manager");
+      recommendations.education.push("Bachelor of Psychology", "Bachelor of Social Work", "Bachelor of Human Resource Management");
+    }
+    
+    // Add default recommendations if none were added
+    if (recommendations.careers.length === 0) {
+      recommendations.careers.push("Software Developer", "Business Analyst", "Marketing Specialist");
+      recommendations.education.push("Bachelor of Computer Science", "Bachelor of Business Administration", "Bachelor of Marketing");
+    }
+    
+    return recommendations;
+  };
+
+  const careerRecommendations = getCareerRecommendations();
 
   return (
     <Container fluid className="cr-page-wrapper">
@@ -399,32 +473,36 @@ export const CareerReport = () => {
           </div>
 
           {/* Career Recommendations section */}
-          <div className="report-section recommendation-section">
+          <div 
+            className={`report-section recommendation-section ${activeSection === 'recommendations' ? 'active' : ''}`}
+            onClick={() => handleSectionClick('recommendations')}
+          >
             <h2 className="section-title">Career Recommendations</h2>
             <div className="career-grid">
               <div className="career-card">
                 <h3>Career Paths</h3>
                 <ul className="career-list">
-                  <li>Software Engineer</li>
-                  <li>Data Scientist</li>
-                  <li>Product Manager</li>
-                  <li>UI/UX Designer</li>
+                  {careerRecommendations.careers.map((career, index) => (
+                    <li key={index}>{career}</li>
+                  ))}
                 </ul>
               </div>
               <div className="career-card">
                 <h3>Education Pathways</h3>
                 <ul className="career-list">
-                  <li>B.Tech in Computer Science</li>
-                  <li>BCA</li>
-                  <li>B.Sc in Data Science</li>
-                  <li>B.Des in UI/UX</li>
+                  {careerRecommendations.education.map((education, index) => (
+                    <li key={index}>{education}</li>
+                  ))}
                 </ul>
               </div>
             </div>
           </div>
 
           {/* IQ Assessment Section */}
-          <div className="report-section iq-section">
+          <div 
+            className={`report-section iq-section ${activeSection === 'iq' ? 'active' : ''}`}
+            onClick={() => handleSectionClick('iq')}
+          >
             <h2 className="section-title">IQ Assessment</h2>
             <div className="iq-content-modern">
               <div className="iq-row">
@@ -457,7 +535,10 @@ export const CareerReport = () => {
           </div>
 
           {/* Interest Test Section */}
-          <div className="report-section">
+          <div 
+            className={`report-section ${activeSection === 'interests' ? 'active' : ''}`}
+            onClick={() => handleSectionClick('interests')}
+          >
             <h2 className="section-title">Interest Test Explanation</h2>
             <div className="interest-container">
               <div className="interest-bars">
@@ -477,7 +558,10 @@ export const CareerReport = () => {
         </div>
 
         {/* Personality Section - Outside the main container */}
-        <div className="report-section">
+        <div 
+          className={`report-section ${activeSection === 'personality' ? 'active' : ''}`}
+          onClick={() => handleSectionClick('personality')}
+        >
           <h2 className="section-title">Personality Test Explanation</h2>
           <div className="personality-grid">
             <div className="personality-scores">
@@ -521,7 +605,7 @@ export const CareerReport = () => {
               </div>
               
               {personalityTraits.map((trait, index) => (
-                <div key={index} className="trait-row">
+                <div key={index} className={`trait-row ${trait.trait.toLowerCase()}`}>
                   <div className="trait-name">{trait.trait}</div>
                   <div className="trait-details">
                     <ul>
@@ -545,9 +629,17 @@ export const CareerReport = () => {
       </div>
 
       <div className="report-actions">
-        <button onClick={handlePrint} className="print-button">
-          <i className="fas fa-download"></i>
-          Download Report
+        <button 
+          onClick={handlePrint} 
+          className="print-button"
+          disabled={printLoading}
+        >
+          {printLoading ? (
+            <Spinner animation="border" size="sm" />
+          ) : (
+            <i className="fas fa-download"></i>
+          )}
+          {printLoading ? "Preparing..." : "Download Report"}
         </button>
       </div>
     </Container>

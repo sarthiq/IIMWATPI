@@ -7,6 +7,7 @@ import {
   Row,
   Col,
   Spinner,
+  Alert,
 } from "react-bootstrap";
 import { useAlert } from "../../../../../UI/Alert/AlertContext";
 import { getProfileHandler, updateProfileHandler } from "../apiHandler";
@@ -20,6 +21,8 @@ export const Profile = () => {
   const [isEditing, setIsEditing] = useState(false);
   const [showOtherField, setShowOtherField] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState(null);
+  const [successMessage, setSuccessMessage] = useState("");
   const { showAlert } = useAlert();
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -44,19 +47,18 @@ export const Profile = () => {
     "Class 8th", "Class 9th", "Class 10th", "Class 11th", "Class 12th",
   
     // University
-    "Graduation", "PhD", "Post Graduation"
+    "Graduation"
   ];
 
   // Course options based on education level
   const courseOptions = {
-    "Class 8th": ["General"],
-    "Class 9th": ["General"],
-    "Class 10th": ["General"],
-    "Class 11th": ["Science", "Arts", "Commerce"],
-    "Class 12th": ["Science", "Arts", "Commerce"],
-    "Graduation": ["Engineering", "Science", "Arts", "Commerce", "Medical"],
-    "PhD": ["Engineering", "Science", "Arts", "Commerce", "Medical"],
-    "Post Graduation": ["Engineering", "Science", "Arts", "Commerce", "Medical"]
+    "Class 8th": ["NA"],
+    "Class 9th": ["NA"],
+    "Class 10th": ["NA"],
+    "Class 11th": ["Science", "Arts/Humanities", "Commerce"],
+    "Class 12th": ["Science", "Arts/Humanities", "Commerce"],
+    "Graduation": ["STEM (Science, Technology, Engineering, Mathematics)", "Medical, Healthcare and Life Science", "Business, Economics and Finance", "Social Sciences, Humanities and Political Studies", "Arts, Media and Communication"],
+    
   };
 
   // Get available courses based on selected class
@@ -78,29 +80,38 @@ export const Profile = () => {
   }, []);
 
   const fetchProfileData = async () => {
-    const response = await getProfileHandler(setIsLoading, showAlert);
-    if (response && response.success) {
-      const userData = {
-        ...response.data,
-        ...response.data.User,
-        name: response.data.User?.name || "",
-        email: response.data.User?.email || "",
-        phone: response.data.User?.phone || "",
-        institutionName: response.data?.institutionName || "",
-        institutionType: institutionTypes.includes(
-          response.data?.institutionType
-        )
-          ? response.data?.institutionType
-          : "Other",
-        otherInstitution: response.data?.otherInstitution || "",
-        standard: response.data?.standard || "",
-        course: response.data?.course || "",
-        year: response.data?.year || "",
-        branch: response.data?.branch || "",
-        profilePhoto: response.data?.profilePhoto || null,
-      };
-      setUserInfo(userData);
-      setShowOtherField(userData.institutionType === "Other");
+    try {
+      setError(null);
+      const response = await getProfileHandler(setIsLoading, showAlert);
+      
+      if (response && response.success) {
+        const userData = {
+          ...response.data,
+          ...response.data.User,
+          name: response.data.User?.name || "",
+          email: response.data.User?.email || "",
+          phone: response.data.User?.phone || "",
+          institutionName: response.data?.institutionName || "",
+          institutionType: institutionTypes.includes(
+            response.data?.institutionType
+          )
+            ? response.data?.institutionType
+            : "Other",
+          otherInstitution: response.data?.otherInstitution || "",
+          standard: response.data?.standard || "",
+          course: response.data?.course || "",
+          year: response.data?.year || "",
+          branch: response.data?.branch || "",
+          profilePhoto: response.data?.profilePhoto || null,
+        };
+        setUserInfo(userData);
+        setShowOtherField(userData.institutionType === "Other");
+      } else {
+        setError("Failed to load profile data. Please try again later.");
+      }
+    } catch (err) {
+      console.error("Error fetching profile:", err);
+      setError("An error occurred while loading your profile. Please try again later.");
     }
   };
 
@@ -141,14 +152,26 @@ export const Profile = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const response = await updateProfileHandler(
-      userInfo,
-      setIsLoading,
-      showAlert
-    );
-    if (response && response.success) {
-      showAlert("Profile updated successfully!", "success");
-      setIsEditing(false);
+    try {
+      setError(null);
+      setSuccessMessage("");
+      
+      const response = await updateProfileHandler(
+        userInfo,
+        setIsLoading,
+        showAlert
+      );
+      
+      if (response && response.success) {
+        setSuccessMessage("Profile updated successfully!");
+        showAlert("Profile updated successfully!", "success");
+        setIsEditing(false);
+      } else {
+        setError("Failed to update profile. Please try again.");
+      }
+    } catch (err) {
+      console.error("Error updating profile:", err);
+      setError("An error occurred while updating your profile. Please try again.");
     }
   };
 
@@ -163,9 +186,10 @@ export const Profile = () => {
   if (isLoading) {
     return (
       <div className="profile-loading">
-        <Spinner animation="border" role="status">
+        <Spinner animation="border" role="status" variant="primary">
           <span className="visually-hidden">Loading...</span>
         </Spinner>
+        <p className="mt-3">Loading your profile...</p>
       </div>
     );
   }
@@ -175,7 +199,7 @@ export const Profile = () => {
       <Card className="profile-card">
         <div className="profile-layout">
           <div className="profile-header">
-            <div className="profile-title">Profile:</div>
+            <div className="profile-title">Profile</div>
             <div className="profile-actions">
               {!isEditing && (
                 <button
@@ -193,6 +217,19 @@ export const Profile = () => {
               </button>
             </div>
           </div>
+          
+          {error && (
+            <Alert variant="danger" className="profile-alert">
+              {error}
+            </Alert>
+          )}
+          
+          {successMessage && (
+            <Alert variant="success" className="profile-alert">
+              {successMessage}
+            </Alert>
+          )}
+          
           <div className="profile-body">
             <div className="profile-info-layout">
               <div className="profile-left-section">
@@ -200,7 +237,7 @@ export const Profile = () => {
                   {userInfo.profilePhoto ? (
                     <img src={userInfo.profilePhoto} alt="Profile" className="profile-photo" />
                   ) : (
-                    <div className="profile-initial">{userInfo.name.charAt(0)}</div>
+                    <div className="profile-initial">{userInfo.name.charAt(0) || "U"}</div>
                   )}
                   <div className="profile-name">{userInfo.name || "Not specified"}</div>
                 </div>
@@ -270,6 +307,7 @@ export const Profile = () => {
                             onChange={handleChange}
                             name="name"
                             className="form-control-custom"
+                            required
                           />
                         </Form.Group>
                       </Col>
@@ -282,6 +320,7 @@ export const Profile = () => {
                             onChange={handleChange}
                             name="email"
                             className="form-control-custom"
+                            required
                           />
                         </Form.Group>
                       </Col>
@@ -306,6 +345,7 @@ export const Profile = () => {
                             value={userInfo.institutionName}
                             onChange={handleChange}
                             className="form-control-custom"
+                            required
                           />
                         </Form.Group>
                       </Col>
@@ -317,6 +357,7 @@ export const Profile = () => {
                             value={userInfo.standard}
                             onChange={handleChange}
                             className="form-control-custom"
+                            required
                           >
                             <option value="">Select Class/Standard</option>
                             {classOptions.map((option, index) => (
@@ -336,6 +377,7 @@ export const Profile = () => {
                             onChange={handleChange}
                             className="form-control-custom"
                             disabled={!userInfo.standard}
+                            required
                           >
                             <option value="">Select Course</option>
                             {getAvailableCourses().map((option, index) => (
@@ -352,9 +394,10 @@ export const Profile = () => {
                           <Form.Control
                             type="text"
                             name="branch"
-                            value={userInfo.branch}
+                            value={userInfo.branch || "NA"}
                             onChange={handleChange}
                             className="form-control-custom"
+                            placeholder="Enter section (default: NA)"
                           />
                         </Form.Group>
                       </Col>
