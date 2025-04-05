@@ -27,7 +27,9 @@ exports.addInterest = async (req, res) => {
     const existingInterest = await Interest.findOne({
       where: { type, UserId: req.user.id },
     });
-
+    // console.log(req.body);
+    // console.log("--------------------------------");
+    // console.log(existingInterest);
     let interest;
     if (existingInterest) {
       interest = await existingInterest.update({ result });

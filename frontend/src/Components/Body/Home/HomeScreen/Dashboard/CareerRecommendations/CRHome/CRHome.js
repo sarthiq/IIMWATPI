@@ -244,10 +244,10 @@ export const CRHome = () => {
         const matchingInterest = interests.find(interest => {
           // Get the first word of the interest
           const firstWord = interest.split(' ')[0].toLowerCase();
-          
+          //console.log("First word:", firstWord,mainCategory);
           // Simple matching based on first word
           if (mainCategory === 'stem' && 
-              (firstWord === 'science' || 
+              (firstWord === 'science,' || 
                firstWord === 'technology' || 
                firstWord === 'engineering' || 
                firstWord === 'mathematics')) {
@@ -255,7 +255,7 @@ export const CRHome = () => {
           }
           
           if (mainCategory === 'medical' && 
-              (firstWord === 'medical' || 
+              (firstWord === 'medical,' || 
                firstWord === 'health' || 
                firstWord === 'medicine' || 
                firstWord === 'biology')) {
@@ -323,7 +323,7 @@ export const CRHome = () => {
           const optionIQStart = option["IQ Range"][0];
           const optionIQEnd = option["IQ Range"][1];
           const userIQ = iqCategory;
-
+          //console.log(option["IQ Range"],userIQ);
           //console.log("Comparing:", {
           //  personality: {
           //    option: option["Personality Cluster"],
@@ -339,6 +339,7 @@ export const CRHome = () => {
 
           // Check if IQ falls within range
           if (userIQ >= optionIQStart && userIQ <= optionIQEnd) {
+            //console.log("IQ founded in range");
             //console.log("Found matching recommendation:", {
             //  field: fieldName,
             //  personality: matchingPersonality,

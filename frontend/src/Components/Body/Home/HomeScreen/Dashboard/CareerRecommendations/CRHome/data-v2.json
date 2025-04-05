@@ -511,7 +511,7 @@
         },
         {
           "IQ Range":[0,80],
-          "ID": "2",
+          "ID": 2,
           "Personality Cluster": "The Innovator",
           "Recommended Field of Study": "Basic Healthcare Assistance",
           "Relevant Courses": "Certificate in Basic Healthcare Support",
@@ -520,7 +520,7 @@
          },
          {
           "IQ Range":[0,80],
-          "ID": "4",
+          "ID": 4,
           "Personality Cluster": "The Analytical Thinker",
           "Recommended Field of Study": "Home & Patient Care Assistance",
           "Relevant Courses": "Certificate in Home Nursing, Diploma in Caregiving",
@@ -529,7 +529,7 @@
          },
          {
           "IQ Range":[0,80],
-          "ID": "3",
+          "ID": 3,
           "Personality Cluster": "The Practical Healer",
           "Recommended Field of Study": "Healthcare Facility Maintenance",
           "Relevant Courses": "Certificate in Hospital Support Services",
@@ -538,7 +538,7 @@
          },
          {
           "IQ Range":[0,80],
-          "ID": "1",
+          "ID": 1,
           "Personality Cluster": "The Visionary Leader",
           "Recommended Field of Study": "Community Health Outreach",
           "Relevant Courses": "Certificate in Health Outreach Programs",
@@ -547,7 +547,7 @@
          },
          {
           "IQ Range":[0,80],
-          "ID": "5",
+          "ID": 5,
           "Personality Cluster": "The Systematic Researcher",
           "Recommended Field of Study": "Basic Laboratory Assistance",
           "Relevant Courses": "Certificate in Lab Support",
@@ -556,7 +556,7 @@
          },
          {
           "IQ Range":[0,80],
-          "ID": "6",
+          "ID": 6,
           "Personality Cluster": "The Adaptive Problem-Solver",
           "Recommended Field of Study": "First Aid & Safety Training",
           "Relevant Courses": "Basic First Aid Certification",
