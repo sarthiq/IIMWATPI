@@ -1,0 +1,87 @@
+/* Timer Styles with Unique Class Names */
+.quiz-timer-header {
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  padding: 1rem;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.quiz-timer-display {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+.quiz-timer-label {
+  color: #2c3e50;
+}
+
+.quiz-timer-value {
+  font-family: 'Courier New', monospace;
+  font-weight: 600;
+  color: #2c3e50;
+  padding: 0.5rem 1rem;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.quiz-timer-warning {
+  color: #e74c3c;
+  animation: quiz-timer-pulse 1s infinite;
+}
+
+@keyframes quiz-timer-pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Timer Modal Styles */
+.quiz-timer-modal .modal-content {
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.quiz-timer-modal .modal-header {
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  border-bottom: 1px solid #e0e0e0;
+  border-radius: 12px 12px 0 0;
+}
+
+.quiz-timer-modal .modal-title {
+  color: #2c3e50;
+  font-weight: 600;
+}
+
+.quiz-timer-modal .modal-body {
+  padding: 2rem;
+  font-size: 1.1rem;
+  color: #34495e;
+}
+
+.quiz-timer-modal .modal-body p {
+  margin-bottom: 1rem;
+}
+
+/* Responsive Timer Styles */
+@media (max-width: 768px) {
+  .quiz-timer-display {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .quiz-timer-display {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+} 

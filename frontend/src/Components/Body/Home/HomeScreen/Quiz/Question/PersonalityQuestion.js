@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import { Container, Card, Button } from "react-bootstrap";
+import { Container, Card, Button, Modal } from "react-bootstrap";
 import "./Question.css"; // You'll need to create this CSS file
+import "./Timer.css"; // Import the new timer styles
 import { FaVolumeUp } from "react-icons/fa";
 
 export const PersonalityQuestion = ({
@@ -15,6 +16,42 @@ export const PersonalityQuestion = ({
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [selectedAnswer, setSelectedAnswer] = useState(null);
   const [language, setLanguage] = useState("english"); // Toggle between english/hindi
+  const [timeLeft, setTimeLeft] = useState(20 * 60); // 20 minutes in seconds
+  const [showTimeUpModal, setShowTimeUpModal] = useState(false);
+  const [timerActive, setTimerActive] = useState(true);
+
+  // Timer effect
+  useEffect(() => {
+    let timer;
+    if (timerActive && timeLeft > 0) {
+      timer = setInterval(() => {
+        setTimeLeft((prevTime) => prevTime - 1);
+      }, 1000);
+    } else if (timeLeft === 0 && !showTimeUpModal) {
+      // Time's up - show modal
+      setShowTimeUpModal(true);
+      setTimerActive(false);
+    }
+    return () => clearInterval(timer);
+  }, [timeLeft, timerActive, showTimeUpModal]);
+
+  // Redirect after modal is shown
+  useEffect(() => {
+    let redirectTimer;
+    if (showTimeUpModal) {
+      redirectTimer = setTimeout(() => {
+        navigate(`/quiz/${id}/result`);
+      }, 3000); // 3 seconds delay
+    }
+    return () => clearTimeout(redirectTimer);
+  }, [showTimeUpModal, navigate, id]);
+
+  // Format time as MM:SS
+  const formatTime = (seconds) => {
+    const minutes = Math.floor(seconds / 60);
+    const remainingSeconds = seconds % 60;
+    return `${minutes.toString().padStart(2, '0')}:${remainingSeconds.toString().padStart(2, '0')}`;
+  };
 
   const speakText = () => {
     const text = currentQ.text[language];
@@ -56,6 +93,7 @@ export const PersonalityQuestion = ({
         ...prevData,
         endTime: new Date(),
       }));
+      setTimerActive(false);
       navigate(`/quiz/${id}/result`);
     }
   };
@@ -82,6 +120,14 @@ export const PersonalityQuestion = ({
   return (
     <Container className="question-container">
       <Card className="question-card">
+        <Card.Header className="quiz-timer-header">
+          <div className="quiz-timer-display">
+            <span className="quiz-timer-label">Time Remaining:</span>
+            <span className={`quiz-timer-value ${timeLeft < 60 ? 'quiz-timer-warning' : ''}`}>
+              {formatTime(timeLeft)}
+            </span>
+          </div>
+        </Card.Header>
         <Card.Body>
           <div className="language-toggle">
             <Button
@@ -149,6 +195,17 @@ export const PersonalityQuestion = ({
           </div>
         </Card.Footer>
       </Card>
+
+      {/* Time's Up Modal */}
+      <Modal show={showTimeUpModal} onHide={() => setShowTimeUpModal(false)} centered className="quiz-timer-modal">
+        <Modal.Header closeButton>
+          <Modal.Title>Time's Up!</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <p>Your 20-minute time limit for the Personality test has expired.</p>
+          <p>You will be redirected to the results page in a few seconds.</p>
+        </Modal.Body>
+      </Modal>
     </Container>
   );
 };

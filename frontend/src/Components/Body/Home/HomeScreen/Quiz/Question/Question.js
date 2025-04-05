@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import { Container, Card, Button, Form } from "react-bootstrap";
+import { Container, Card, Button, Form, Modal } from "react-bootstrap";
 import "./Question.css"; // Keeping styles file unchanged
+import "./Timer.css"; // Import the new timer styles
 
 export const Question = ({ questions, setUserAnswer, setTimeDuration }) => {
   
@@ -12,6 +13,35 @@ export const Question = ({ questions, setUserAnswer, setTimeDuration }) => {
   const [selectedAnswer, setSelectedAnswer] = useState(null);
   const [age, setAge] = useState("");
   const [isAgeRequired, setIsAgeRequired] = useState(false);
+  const [timeLeft, setTimeLeft] = useState(30 * 60); // 30 minutes in seconds
+  const [showTimeUpModal, setShowTimeUpModal] = useState(false);
+  const [timerActive, setTimerActive] = useState(true);
+
+  // Timer effect
+  useEffect(() => {
+    let timer;
+    if (timerActive && timeLeft > 0) {
+      timer = setInterval(() => {
+        setTimeLeft((prevTime) => prevTime - 1);
+      }, 1000);
+    } else if (timeLeft === 0 && !isAgeRequired) {
+      // Time's up - auto submit
+      setTimeDuration((prevData) => ({
+        ...prevData,
+        endTime: new Date(),
+      }));
+      setIsAgeRequired(true);
+      setTimerActive(false);
+    }
+    return () => clearInterval(timer);
+  }, [timeLeft, timerActive, isAgeRequired, setTimeDuration]);
+
+  // Format time as MM:SS
+  const formatTime = (seconds) => {
+    const minutes = Math.floor(seconds / 60);
+    const remainingSeconds = seconds % 60;
+    return `${minutes.toString().padStart(2, '0')}:${remainingSeconds.toString().padStart(2, '0')}`;
+  };
 
   const handleAnswerSelect = (index) => {
     setSelectedAnswer(index);
@@ -32,6 +62,7 @@ export const Question = ({ questions, setUserAnswer, setTimeDuration }) => {
         endTime: new Date(),
       }));
       setIsAgeRequired(true);
+      setTimerActive(false);
     }
   };
 
@@ -73,6 +104,14 @@ export const Question = ({ questions, setUserAnswer, setTimeDuration }) => {
       <Card className="question-card">
         {!isAgeRequired ? (
           <>
+            <Card.Header className="quiz-timer-header">
+              <div className="quiz-timer-display">
+                <span className="quiz-timer-label">Time Remaining:</span>
+                <span className={`quiz-timer-value ${timeLeft < 60 ? 'quiz-timer-warning' : ''}`}>
+                  {formatTime(timeLeft)}
+                </span>
+              </div>
+            </Card.Header>
             <Card.Body>
               <Card.Title className="question-title">
                   {`${Q}`} {"Complete the pattern? "}
@@ -168,6 +207,21 @@ export const Question = ({ questions, setUserAnswer, setTimeDuration }) => {
           </Card.Body>
         )}
       </Card>
+
+      {/* Time's Up Modal */}
+      <Modal show={showTimeUpModal} onHide={() => setShowTimeUpModal(false)} centered className="quiz-timer-modal">
+        <Modal.Header closeButton>
+          <Modal.Title>Time's Up!</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          Your 30-minute time limit for the IQ test has expired. Your answers will be submitted automatically.
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="primary" onClick={() => setShowTimeUpModal(false)}>
+            Continue
+          </Button>
+        </Modal.Footer>
+      </Modal>
     </Container>
   );
 };
