@@ -18,1364 +18,1378 @@
   "Career Recommendations": [
     {
       "STEM (Science, Technology, Engineering, and Mathematics)": [
-       {
-        "ID": 2,
-        "IQ Range": [120,1000],
-        "Personality Cluster": "The Innovator",
-        "Recommended Field of Study": "Computer Science & Artificial Intelligence",
-        "Relevant Courses": "B.Tech CSE, M.Tech AI, PhD AI",
-        "Potential Career Pathways": "AI Researcher, Data Scientist, Software Architect",
-        "Recommended Colleges": "IITs, IIITs, NITs, BITS Pilani"
-       },
-       {
-        "ID": 4,
-        "IQ Range": [120,1000],
-        "Personality Cluster": "The Analytical Thinker",
-        "Recommended Field of Study": "Mathematics & Statistics, Engineering",
-        "Relevant Courses": "B.Sc Mathematics, M.Sc Statistics, PhD Data Science, B.Tech",
-        "Potential Career Pathways": "Statistician, Quantitative Analyst, Actuary",
-        "Recommended Colleges": "ISI, IITs, IISc"
-       },
-       {
-        "ID": 3,
-        "IQ Range": [120,1000],
-        "Personality Cluster": "The Practical Engineer",
-        "Recommended Field of Study": "Biotechnology & Bioinformatics, Engineering",
-        "Relevant Courses": "B.Tech Biotechnology, M.Sc Bioinformatics, PhD Biotech",
-        "Potential Career Pathways": "Biotechnologist, Genetic Engineer, Biomedical Researcher",
-        "Recommended Colleges": "IITs, NITs, JNU, IISER"
-       },
-       {
-        "ID": 1,
-        "IQ Range": [120,1000],
-        "Personality Cluster": "The Visionary Leader",
-        "Recommended Field of Study": "Robotics & Automation",
-        "Relevant Courses": "B.Tech Robotics, M.Tech Automation, PhD Robotics",
-        "Potential Career Pathways": "Robotics Engineer, Automation Specialist, AI Ethicist",
-        "Recommended Colleges": "IITs, IIITs, International Universities"
-       },
-       {
-        "ID": 5,
-        "IQ Range": [120,1000],
-        "Personality Cluster": "The Systematic Researcher",
-        "Recommended Field of Study": "Theoretical Physics",
-        "Relevant Courses": "B.Sc Physics, M.Sc Theoretical Physics, PhD Physics",
-        "Potential Career Pathways": "Theoretical Physicist, Research Scientist, Professor",
-        "Recommended Colleges": "IISc, IITs, TIFR"
-       },
-       {
-        "ID": 6,
-        "IQ Range": [120,1000],
-        "Personality Cluster": "The Adaptive Problem-Solver",
-        "Recommended Field of Study": "Cybersecurity & Ethical Hacking",
-        "Relevant Courses": "B.Tech Cybersecurity, M.Tech Information Security",
-        "Potential Career Pathways": "Ethical Hacker, Cybersecurity Analyst, Security Engineer",
-        "Recommended Colleges": "IITs, IIITs, NITs, other top 10 colleges"
-       },
-       {
-        "ID": 2,
-        "IQ Range": [100,120],
-        "Personality Cluster": "The Innovator",
-        "Recommended Field of Study": "Data Science & Analytics",
-        "Relevant Courses": "B.Sc Data Science, M.Sc Big Data",
-        "Potential Career Pathways": "Data Analyst, Business Intelligence Expert",
-        "Recommended Colleges": "ISI, IITs, Ashoka University, other top 10 colleges"
-       },
-       {
-        "ID": 4,
-        "IQ Range": [100,120],
-        "Personality Cluster": "The Analytical Thinker",
-        "Recommended Field of Study": "Electrical & Electronics Engineering",
-        "Relevant Courses": "B.Tech EEE, M.Tech Power Systems",
-        "Potential Career Pathways": "Electrical Engineer, Embedded Systems Developer",
-        "Recommended Colleges": "IITs, NITs, BITS, other top 10 colleges"
-       },
-       {
-        "ID": 3,
-        "IQ Range": [100,120],
-        "Personality Cluster": "The Practical Engineer",
-        "Recommended Field of Study": "Environmental Science & Sustainability",
-        "Relevant Courses": "B.Sc Environmental Science, M.Sc Sustainability",
-        "Potential Career Pathways": "Environmental Consultant, Climate Researcher",
-        "Recommended Colleges": "TISS, IITs, JNU, other top 10 colleges"
-       },
-       {
-        "ID": 1,
-        "IQ Range": [100,120],
-        "Personality Cluster": "The Visionary Leader",
-        "Recommended Field of Study": "Aerospace Engineering",
-        "Relevant Courses": "B.Tech Aerospace, M.Tech Aerodynamics",
-        "Potential Career Pathways": "Aerospace Engineer, Space Scientist ",
-        "Recommended Colleges": "IITs, IIST, MIT (International), other top 10 colleges"
-       },
-       {
-        "ID": 5,
-        "IQ Range": [100,120],
-        "Personality Cluster": "The Systematic Researcher",
-        "Recommended Field of Study": "Civil & Structural Engineering",
-        "Relevant Courses": "B.Tech Civil, M.Tech Structural Engineering",
-        "Potential Career Pathways": "Structural Engineer, Urban Planner",
-        "Recommended Colleges": "IITs, NITs, CEPT, other top 10 colleges"
-       },
-       {
-        "ID": 6,
-        "IQ Range": [100,120],
-        "Personality Cluster": "The Adaptive Problem-Solver",
-        "Recommended Field of Study": "Software Development & Engineering",
-        "Relevant Courses": "B.Tech Software Engineering, MCA",
-        "Potential Career Pathways": "Software Developer, App Developer",
-        "Recommended Colleges": "IITs, IIITs, NITs, other top 10 colleges"
-       },
-       {
-        "ID": 2,
-        "IQ Range": [90,100],
-        "Personality Cluster": "The Innovator",
-        "Recommended Field of Study": "Mechanical Engineering",
-        "Relevant Courses": "B.Tech Mechanical, Diploma in Mechatronics",
-        "Potential Career Pathways": "Mechanical Engineer, Product Designer",
-        "Recommended Colleges": "IITs, NITs, State Universities, or other top 20 colleges"
-       },
-       {
-        "ID": 4,
-        "IQ Range": [90,100],
-        "Personality Cluster": "The Analytical Thinker",
-        "Recommended Field of Study": "B.Tech, IT & Network Administration",
-        "Relevant Courses": "BCA, Diploma in Network Security",
-        "Potential Career Pathways": "IT Administrator, Network Engineer",
-        "Recommended Colleges": "IITs, NITs, NIIT, or other top 20 colleges"
-       },
-       {
-        "ID": 3,
-        "IQ Range": [90,100],
-        "Personality Cluster": "The Practical Engineer",
-        "Recommended Field of Study": "Biomedical Engineering",
-        "Relevant Courses": "B.Tech Biomedical, Diploma in Medical Devices",
-        "Potential Career Pathways": "Medical Equipment Engineer, Hospital Tech Consultant",
-        "Recommended Colleges": "IITs, NITs, or other top 20 colleges"
-       },
-       {
-        "ID": 1,
-        "IQ Range": [90,100],
-        "Personality Cluster": "The Visionary Leader",
-        "Recommended Field of Study": "Renewable Energy & Sustainable Technology",
-        "Relevant Courses": "B.Sc Renewable Energy, M.Tech Green Tech",
-        "Potential Career Pathways": "Renewable Energy Consultant, Solar Energy Specialist",
-        "Recommended Colleges": "IITs, NITs, State Universities, or other top 20 colleges"
-       },
-       {
-        "ID": 5,
-        "IQ Range": [90,100],
-        "Personality Cluster": "The Systematic Researcher",
-        "Recommended Field of Study": "Astronomy & Astrophysics",
-        "Relevant Courses": "B.Sc Astronomy, M.Sc Astrophysics",
-        "Potential Career Pathways": "Astronomer, Research Scientist",
-        "Recommended Colleges": "IISc, IIST, TIFR, IITs, NITs, State Universities, or other top 20 colleges"
-       },
-       {
-        "ID": 6,
-        "IQ Range": [90,100],
-        "Personality Cluster": "The Adaptive Problem-Solver",
-        "Recommended Field of Study": "Industrial Design & Product Development",
-        "Relevant Courses": "B.Des Industrial Design, M.Des",
-        "Potential Career Pathways": "Product Designer, UI/UX Expert",
-        "Recommended Colleges": "NID, IIT-IDC, IITs, NITs, State Universities, or other top 20 colleges other top 20 colleges"
-       },
-       {
-        "ID": 2,
-        "IQ Range": [80,90],
-        "Personality Cluster": "The Innovator",
-        "Recommended Field of Study": "B.Tech, ITI, IT Support & Technical Assistance",
-        "Relevant Courses": "Diploma in IT Support, Certificate in Hardware Networking",
-        "Potential Career Pathways": "IT Technician, Helpdesk Support",
-        "Recommended Colleges": "IITs, NITs, State Universities, top Polytechnics colleges"
-       },
-       {
-        "ID": 4,
-        "IQ Range": [80,90],
-        "Personality Cluster": "The Analytical Thinker",
-        "Recommended Field of Study": "Engineering Drafting & CAD",
-        "Relevant Courses": "Diploma in CAD/CAM, Certificate in 3D Modelling",
-        "Potential Career Pathways": "CAD Engineer, Drafting Technician",
-        "Recommended Colleges": "IITs, NITs, State Universities, or other top 50 colleges, Training Institutes, ITIs"
-       },
-       {
-        "ID": 3,
-        "IQ Range": [80,90],
-        "Personality Cluster": "The Practical Engineer",
-        "Recommended Field of Study": "Laboratory Technology & Quality Control",
-        "Relevant Courses": "Diploma in Lab Technology",
-        "Potential Career Pathways": "Lab Technician, Quality Control Analyst",
-        "Recommended Colleges": "IITs, NITs, State Universities, or other top 50 colleges, Vocational Institutes"
-       },
-       {
-        "ID": 1,
-        "IQ Range": [80,90],
-        "Personality Cluster": "The Visionary Leader",
-        "Recommended Field of Study": "Renewable Energy Technician",
-        "Relevant Courses": "Certificate in Solar Panel Installation, Diploma in Wind Energy",
-        "Potential Career Pathways": "Solar Technician, Wind Turbine Operator",
-        "Recommended Colleges": "NITs, State Universities, or other top 20 colleges, Skill Development Centers"
-       },
-       {
-        "ID": 5,
-        "IQ Range": [80,90],
-        "Personality Cluster": "The Systematic Researcher",
-        "Recommended Field of Study": "Geoinformatics & GIS",
-        "Relevant Courses": "Diploma in GIS, Certificate in Remote Sensing",
-        "Potential Career Pathways": "GIS Analyst, Mapping Technician",
-        "Recommended Colleges": "NITs, State Universities, or other top 20 colleges, ISRO Training Centers, Universities"
-       },
-       {
-        "ID": 6,
-        "IQ Range": [80,90],
-        "Personality Cluster": "The Adaptive Problem-Solver",
-        "Recommended Field of Study": "Electrician & Instrumentation",
-        "Relevant Courses": "ITI Electrician Course, Diploma in Instrumentation",
-        "Potential Career Pathways": "Electrician, Control Panel Technician",
-        "Recommended Colleges": "IITs, NITs, State Universities, or other top 20 ITIs, Skill Training Centers"
-       },
-       {
-        "ID": 2,
-        "IQ Range": [0,80],
-        "Personality Cluster": "The Innovator",
-        "Recommended Field of Study": "Machine Maintenance & Repair",
-        "Relevant Courses": "ITI in Mechanical Maintenance",
-        "Potential Career Pathways": "Maintenance Technician, Equipment Operator",
-        "Recommended Colleges": "Top ITIs, Technical Training Centers"
-       },
-       {
-        "ID": 4,
-        "IQ Range": [0,80],
-        "Personality Cluster": "The Analytical Thinker",
-        "Recommended Field of Study": "ITI, specialised field ",
-        "Relevant Courses": "Certificate in Welding Technology",
-        "Potential Career Pathways": "Welder, Fabricator",
-        "Recommended Colleges": "Top ITI & Vocational Institutes, ITIs"
-       },
-       {
-        "ID": 3,
-        "IQ Range": [0,80],
-        "Personality Cluster": "The Practical Engineer",
-        "Recommended Field of Study": "Electrician, Plumbing & Pipefitting, ",
-        "Relevant Courses": "ITI Plumbing Course",
-        "Potential Career Pathways": "Plumber, Pipefitter",
-        "Recommended Colleges": "ITIs, Government Training Centers"
-       },
-       {
-        "ID": 1,
-        "IQ Range": [0,80],
-        "Personality Cluster": "The Visionary Leader",
-        "Recommended Field of Study": "Automotive Mechanics",
-        "Relevant Courses": "Diploma in Automobile Engineering",
-        "Potential Career Pathways": "Automobile Mechanic, Service Engineer",
-        "Recommended Colleges": "ITIs, Automotive Training Centers"
-       },
-       {
-        "ID": 5,
-        "IQ Range": [0,80],
-        "Personality Cluster": "The Systematic Researcher",
-        "Recommended Field of Study": "Agriculture Technology & Farming Innovations",
-        "Relevant Courses": "Diploma in Agri-Tech, Certificate in Precision Farming",
-        "Potential Career Pathways": "Precision Farmer, Agri-Tech Specialist",
-        "Recommended Colleges": "State Agricultural Universities"
-       },
-       {
-        "ID": 6,
-        "IQ Range": [0,80],
-        "Personality Cluster": "The Adaptive Problem-Solver",
-        "Recommended Field of Study": "Construction & Civil Assistance",
-        "Relevant Courses": "Certificate in Masonry, Diploma in Construction Tech",
-        "Potential Career Pathways": "Construction Worker, Site Supervisor",
-        "Recommended Colleges": "ITI, Vocational Training Institutes"
-       }
+        {
+          "ID": 2,
+          "IQ Range": [120, 1000],
+          "Personality Cluster": "The Innovator",
+          "Recommended Field of Study": "Computer Science & Artificial Intelligence",
+          "Relevant Courses": "B.Tech CSE, M.Tech AI, PhD AI",
+          "Potential Career Pathways": "AI Researcher, Data Scientist, Software Architect",
+          "Recommended Colleges": "IITs, IIITs, NITs, BITS Pilani"
+        },
+        {
+          "ID": 4,
+          "IQ Range": [120, 1000],
+          "Personality Cluster": "The Analytical Thinker",
+          "Recommended Field of Study": "Mathematics & Statistics, Engineering",
+          "Relevant Courses": "B.Sc Mathematics, M.Sc Statistics, PhD Data Science, B.Tech",
+          "Potential Career Pathways": "Statistician, Quantitative Analyst, Actuary",
+          "Recommended Colleges": "ISI, IITs, IISc"
+        },
+        {
+          "ID": 3,
+          "IQ Range": [120, 1000],
+          "Personality Cluster": "The Practical Engineer",
+          "Recommended Field of Study": "Biotechnology & Bioinformatics, Engineering",
+          "Relevant Courses": "B.Tech Biotechnology, M.Sc Bioinformatics, PhD Biotech",
+          "Potential Career Pathways": "Biotechnologist, Genetic Engineer, Biomedical Researcher",
+          "Recommended Colleges": "IITs, NITs, JNU, IISER"
+        },
+        {
+          "ID": 1,
+          "IQ Range": [120, 1000],
+          "Personality Cluster": "The Visionary Leader",
+          "Recommended Field of Study": "Robotics & Automation",
+          "Relevant Courses": "B.Tech Robotics, M.Tech Automation, PhD Robotics",
+          "Potential Career Pathways": "Robotics Engineer, Automation Specialist, AI Ethicist",
+          "Recommended Colleges": "IITs, IIITs, International Universities"
+        },
+        {
+          "ID": 5,
+          "IQ Range": [120, 1000],
+          "Personality Cluster": "The Systematic Researcher",
+          "Recommended Field of Study": "Theoretical Physics",
+          "Relevant Courses": "B.Sc Physics, M.Sc Theoretical Physics, PhD Physics",
+          "Potential Career Pathways": "Theoretical Physicist, Research Scientist, Professor",
+          "Recommended Colleges": "IISc, IITs, TIFR"
+        },
+        {
+          "ID": 6,
+          "IQ Range": [120, 1000],
+          "Personality Cluster": "The Adaptive Problem-Solver",
+          "Recommended Field of Study": "Cybersecurity & Ethical Hacking",
+          "Relevant Courses": "B.Tech Cybersecurity, M.Tech Information Security",
+          "Potential Career Pathways": "Ethical Hacker, Cybersecurity Analyst, Security Engineer",
+          "Recommended Colleges": "IITs, IIITs, NITs, other top 10 colleges"
+        },
+        {
+          "ID": 2,
+          "IQ Range": [100, 120],
+          "Personality Cluster": "The Innovator",
+          "Recommended Field of Study": "Data Science & Analytics",
+          "Relevant Courses": "B.Sc Data Science, M.Sc Big Data",
+          "Potential Career Pathways": "Data Analyst, Business Intelligence Expert",
+          "Recommended Colleges": "ISI, IITs, Ashoka University, other top 10 colleges"
+        },
+        {
+          "ID": 4,
+          "IQ Range": [100, 120],
+          "Personality Cluster": "The Analytical Thinker",
+          "Recommended Field of Study": "Electrical & Electronics Engineering",
+          "Relevant Courses": "B.Tech EEE, M.Tech Power Systems",
+          "Potential Career Pathways": "Electrical Engineer, Embedded Systems Developer",
+          "Recommended Colleges": "IITs, NITs, BITS, other top 10 colleges"
+        },
+        {
+          "ID": 3,
+          "IQ Range": [100, 120],
+          "Personality Cluster": "The Practical Engineer",
+          "Recommended Field of Study": "Environmental Science & Sustainability",
+          "Relevant Courses": "B.Sc Environmental Science, M.Sc Sustainability",
+          "Potential Career Pathways": "Environmental Consultant, Climate Researcher",
+          "Recommended Colleges": "TISS, IITs, JNU, other top 10 colleges"
+        },
+        {
+          "ID": 1,
+          "IQ Range": [100, 120],
+          "Personality Cluster": "The Visionary Leader",
+          "Recommended Field of Study": "Aerospace Engineering",
+          "Relevant Courses": "B.Tech Aerospace, M.Tech Aerodynamics",
+          "Potential Career Pathways": "Aerospace Engineer, Space Scientist ",
+          "Recommended Colleges": "IITs, IIST, MIT (International), other top 10 colleges"
+        },
+        {
+          "ID": 5,
+          "IQ Range": [100, 120],
+          "Personality Cluster": "The Systematic Researcher",
+          "Recommended Field of Study": "Civil & Structural Engineering",
+          "Relevant Courses": "B.Tech Civil, M.Tech Structural Engineering",
+          "Potential Career Pathways": "Structural Engineer, Urban Planner",
+          "Recommended Colleges": "IITs, NITs, CEPT, other top 10 colleges"
+        },
+        {
+          "ID": 6,
+          "IQ Range": [100, 120],
+          "Personality Cluster": "The Adaptive Problem-Solver",
+          "Recommended Field of Study": "Software Development & Engineering",
+          "Relevant Courses": "B.Tech Software Engineering, MCA",
+          "Potential Career Pathways": "Software Developer, App Developer",
+          "Recommended Colleges": "IITs, IIITs, NITs, other top 10 colleges"
+        },
+        {
+          "ID": 2,
+          "IQ Range": [90, 100],
+          "Personality Cluster": "The Innovator",
+          "Recommended Field of Study": "Mechanical Engineering",
+          "Relevant Courses": "B.Tech Mechanical, Diploma in Mechatronics",
+          "Potential Career Pathways": "Mechanical Engineer, Product Designer",
+          "Recommended Colleges": "IITs, NITs, State Universities, or other top 20 colleges"
+        },
+        {
+          "ID": 4,
+          "IQ Range": [90, 100],
+          "Personality Cluster": "The Analytical Thinker",
+          "Recommended Field of Study": "B.Tech, IT & Network Administration",
+          "Relevant Courses": "BCA, Diploma in Network Security",
+          "Potential Career Pathways": "IT Administrator, Network Engineer",
+          "Recommended Colleges": "IITs, NITs, NIIT, or other top 20 colleges"
+        },
+        {
+          "ID": 3,
+          "IQ Range": [90, 100],
+          "Personality Cluster": "The Practical Engineer",
+          "Recommended Field of Study": "Biomedical Engineering",
+          "Relevant Courses": "B.Tech Biomedical, Diploma in Medical Devices",
+          "Potential Career Pathways": "Medical Equipment Engineer, Hospital Tech Consultant",
+          "Recommended Colleges": "IITs, NITs, or other top 20 colleges"
+        },
+        {
+          "ID": 1,
+          "IQ Range": [90, 100],
+          "Personality Cluster": "The Visionary Leader",
+          "Recommended Field of Study": "Renewable Energy & Sustainable Technology",
+          "Relevant Courses": "B.Sc Renewable Energy, M.Tech Green Tech",
+          "Potential Career Pathways": "Renewable Energy Consultant, Solar Energy Specialist",
+          "Recommended Colleges": "IITs, NITs, State Universities, or other top 20 colleges"
+        },
+        {
+          "ID": 5,
+          "IQ Range": [90, 100],
+          "Personality Cluster": "The Systematic Researcher",
+          "Recommended Field of Study": "Astronomy & Astrophysics",
+          "Relevant Courses": "B.Sc Astronomy, M.Sc Astrophysics",
+          "Potential Career Pathways": "Astronomer, Research Scientist",
+          "Recommended Colleges": "IISc, IIST, TIFR, IITs, NITs, State Universities, or other top 20 colleges"
+        },
+        {
+          "ID": 6,
+          "IQ Range": [90, 100],
+          "Personality Cluster": "The Adaptive Problem-Solver",
+          "Recommended Field of Study": "Industrial Design & Product Development",
+          "Relevant Courses": "B.Des Industrial Design, M.Des",
+          "Potential Career Pathways": "Product Designer, UI/UX Expert",
+          "Recommended Colleges": "NID, IIT-IDC, IITs, NITs, State Universities, or other top 20 colleges other top 20 colleges"
+        },
+        {
+          "ID": 2,
+          "IQ Range": [80, 90],
+          "Personality Cluster": "The Innovator",
+          "Recommended Field of Study": "B.Tech, ITI, IT Support & Technical Assistance",
+          "Relevant Courses": "Diploma in IT Support, Certificate in Hardware Networking",
+          "Potential Career Pathways": "IT Technician, Helpdesk Support",
+          "Recommended Colleges": "IITs, NITs, State Universities, top Polytechnics colleges"
+        },
+        {
+          "ID": 4,
+          "IQ Range": [80, 90],
+          "Personality Cluster": "The Analytical Thinker",
+          "Recommended Field of Study": "Engineering Drafting & CAD",
+          "Relevant Courses": "Diploma in CAD/CAM, Certificate in 3D Modelling",
+          "Potential Career Pathways": "CAD Engineer, Drafting Technician",
+          "Recommended Colleges": "IITs, NITs, State Universities, or other top 50 colleges, Training Institutes, ITIs"
+        },
+        {
+          "ID": 3,
+          "IQ Range": [80, 90],
+          "Personality Cluster": "The Practical Engineer",
+          "Recommended Field of Study": "Laboratory Technology & Quality Control",
+          "Relevant Courses": "Diploma in Lab Technology",
+          "Potential Career Pathways": "Lab Technician, Quality Control Analyst",
+          "Recommended Colleges": "IITs, NITs, State Universities, or other top 50 colleges, Vocational Institutes"
+        },
+        {
+          "ID": 1,
+          "IQ Range": [80, 90],
+          "Personality Cluster": "The Visionary Leader",
+          "Recommended Field of Study": "Renewable Energy Technician",
+          "Relevant Courses": "Certificate in Solar Panel Installation, Diploma in Wind Energy",
+          "Potential Career Pathways": "Solar Technician, Wind Turbine Operator",
+          "Recommended Colleges": "NITs, State Universities, or other top 20 colleges, Skill Development Centers"
+        },
+        {
+          "ID": 5,
+          "IQ Range": [80, 90],
+          "Personality Cluster": "The Systematic Researcher",
+          "Recommended Field of Study": "Geoinformatics & GIS",
+          "Relevant Courses": "Diploma in GIS, Certificate in Remote Sensing",
+          "Potential Career Pathways": "GIS Analyst, Mapping Technician",
+          "Recommended Colleges": "NITs, State Universities, or other top 20 colleges, ISRO Training Centers, Universities"
+        },
+        {
+          "ID": 6,
+          "IQ Range": [80, 90],
+          "Personality Cluster": "The Adaptive Problem-Solver",
+          "Recommended Field of Study": "Electrician & Instrumentation",
+          "Relevant Courses": "ITI Electrician Course, Diploma in Instrumentation",
+          "Potential Career Pathways": "Electrician, Control Panel Technician",
+          "Recommended Colleges": "IITs, NITs, State Universities, or other top 20 ITIs, Skill Training Centers"
+        },
+        {
+          "ID": 2,
+          "IQ Range": [0, 70],
+          "Personality Cluster": "The Innovator",
+          "Recommended Field of Study": "Machine Maintenance & Repair",
+          "Relevant Courses": "ITI in Mechanical Maintenance",
+          "Potential Career Pathways": "Maintenance Technician, Equipment Operator",
+          "Recommended Colleges": "Top ITIs, Technical Training Centers"
+        },
+        {
+          "ID": 4,
+          "IQ Range": [0, 70],
+          "Personality Cluster": "The Analytical Thinker",
+          "Recommended Field of Study": "ITI, specialised field ",
+          "Relevant Courses": "Certificate in Welding Technology",
+          "Potential Career Pathways": "Welder, Fabricator",
+          "Recommended Colleges": "Top ITI & Vocational Institutes, ITIs"
+        },
+        {
+          "ID": 3,
+          "IQ Range": [0, 70],
+          "Personality Cluster": "The Practical Engineer",
+          "Recommended Field of Study": "Electrician, Plumbing & Pipefitting, ",
+          "Relevant Courses": "ITI Plumbing Course",
+          "Potential Career Pathways": "Plumber, Pipefitter",
+          "Recommended Colleges": "ITIs, Government Training Centers"
+        },
+        {
+          "ID": 1,
+          "IQ Range": [0, 70],
+          "Personality Cluster": "The Visionary Leader",
+          "Recommended Field of Study": "Automotive Mechanics",
+          "Relevant Courses": "Diploma in Automobile Engineering",
+          "Potential Career Pathways": "Automobile Mechanic, Service Engineer",
+          "Recommended Colleges": "ITIs, Automotive Training Centers"
+        },
+        {
+          "ID": 5,
+          "IQ Range": [0, 70],
+          "Personality Cluster": "The Systematic Researcher",
+          "Recommended Field of Study": "Agriculture Technology & Farming Innovations",
+          "Relevant Courses": "Diploma in Agri-Tech, Certificate in Precision Farming",
+          "Potential Career Pathways": "Precision Farmer, Agri-Tech Specialist",
+          "Recommended Colleges": "State Agricultural Universities"
+        },
+        {
+          "ID": 6,
+          "IQ Range": [0, 70],
+          "Personality Cluster": "The Adaptive Problem-Solver",
+          "Recommended Field of Study": "Construction & Civil Assistance",
+          "Relevant Courses": "Certificate in Masonry, Diploma in Construction Tech",
+          "Potential Career Pathways": "Construction Worker, Site Supervisor",
+          "Recommended Colleges": "ITI, Vocational Training Institutes"
+        }
       ]
-     },
-    
+    },
+
     {
       "Medical, Healthcare, and Life Sciences": [
-       {
-        "ID": 2,
-        "IQ Range": [120,1000],
-        "Personality Cluster": "The Innovator",
-        "Recommended Field of Study": "Medical Research & Biotechnology",
-        "Relevant Courses": "MBBS + PhD, BSc Biotechnology, MSc Bioinformatics",
-        "Potential Career Pathways": "Medical Researcher, Biotechnologist, Genetic Engineer",
-        "Recommended Colleges": "AIIMS, AFMC, and other top 10 college"
-       },
-       {
-        "ID": 4,
-        "IQ Range": [120,1000],
-        "Personality Cluster": "The Analytical Thinker",
-        "Recommended Field of Study": "Medicine & Surgery",
-        "Relevant Courses": "MBBS, MS, MD",
-        "Potential Career Pathways": "Surgeon, Physician, Medical Specialist",
-        "Recommended Colleges": "AIIMS, AFMC, and other top 10 college"
-       },
-       {
-        "ID": 3,
-        "IQ Range": [120,1000],
-        "Personality Cluster": "The Practical Healer",
-        "Recommended Field of Study": "Pharmacy & Pharmacology",
-        "Relevant Courses": "BPharm, MPharm, PharmD",
-        "Potential Career Pathways": "Pharmacist, Clinical Researcher, Toxicologist",
-        "Recommended Colleges": "AIIMS, AFMC, and other top 10 college"
-       },
-       {
-        "ID": 1,
-        "IQ Range": [120,1000],
-        "Personality Cluster": "The Visionary Leader",
-        "Recommended Field of Study": "Healthcare Management & Policy",
-        "Relevant Courses": "BHA (Bachelor of Healthcare Administration), MBA Healthcare",
-        "Potential Career Pathways": "Hospital Administrator, Healthcare Consultant, Policy Maker",
-        "Recommended Colleges": "AIIMS, AFMC, and other top 10 college"
-       },
-       {
-        "ID": 5,
-        "IQ Range": [120,1000],
-        "Personality Cluster": "The Systematic Researcher",
-        "Recommended Field of Study": "Neuroscience & Mental Health",
-        "Relevant Courses": "BSc Neuroscience, MSc Clinical Psychology",
-        "Potential Career Pathways": "Neuroscientist, Psychiatrist, Clinical Psychologist",
-        "Recommended Colleges": "AIIMS, AFMC, and other top 10 college"
-       },
-       {
-        "ID": 6,
-        "IQ Range": [120,1000],
-        "Personality Cluster": "The Adaptive Problem-Solver",
-        "Recommended Field of Study": "Biomedical Engineering & Technology",
-        "Relevant Courses": "BTech Biomedical, MSc Medical Electronics",
-        "Potential Career Pathways": "Biomedical Engineer, Medical Device Designer",
-        "Recommended Colleges": "AIIMS, AFMC, and other top 10 college"
-       },
-       {
-        "ID": 2,
-        "IQ Range": [100,120],
-        "Personality Cluster": "The Innovator",
-        "Recommended Field of Study": "Public Health & Epidemiology",
-        "Relevant Courses": "BSc Public Health, MSc Epidemiology",
-        "Potential Career Pathways": "Epidemiologist, Public Health Officer",
-        "Recommended Colleges": "AIIMS, AFMC, and other top 20 Colleges"
-       },
-       {
-        "ID": 4,
-        "IQ Range": [100,120],
-        "Personality Cluster": "The Analytical Thinker",
-        "Recommended Field of Study": "Dentistry & Oral Health",
-        "Relevant Courses": "BDS, MDS",
-        "Potential Career Pathways": "Dentist, Orthodontist, Oral Surgeon",
-        "Recommended Colleges": "AIIMS, AFMC, and other top 20 Colleges"
-       },
-       {
-        "ID": 3,
-        "IQ Range": [100,120],
-        "Personality Cluster": "The Practical Healer",
-        "Recommended Field of Study": "Nursing & Patient Care",
-        "Relevant Courses": "BSc Nursing, MSc Nursing",
-        "Potential Career Pathways": "Nurse, Critical Care Specialist",
-        "Recommended Colleges": "AIIMS, AFMC, and other top 20 Colleges"
-       },
-       {
-        "ID": 1,
-        "IQ Range": [100,120],
-        "Personality Cluster": "The Visionary Leader",
-        "Recommended Field of Study": "Alternative Medicine & Holistic Healing",
-        "Relevant Courses": "BAMS, BHMS, BNYS",
-        "Potential Career Pathways": "Ayurveda Doctor, Homeopathic Practitioner, Naturopath",
-        "Recommended Colleges": "AIIMS, AFMC, and other top 20 Colleges"
-       },
-       {
-        "ID": 5,
-        "IQ Range": [100,120],
-        "Personality Cluster": "The Systematic Researcher",
-        "Recommended Field of Study": "Clinical Laboratory Science",
-        "Relevant Courses": "BMLT, MSc Clinical Lab Science",
-        "Potential Career Pathways": "Medical Lab Technologist, Pathologist",
-        "Recommended Colleges": "AIIMS, AFMC, and other top 20 Colleges"
-       },
-       {
-        "ID": 6,
-        "IQ Range": [100,120],
-        "Personality Cluster": "The Adaptive Problem-Solver",
-        "Recommended Field of Study": "Nutrition & Dietetics",
-        "Relevant Courses": "BSc Nutrition, MSc Clinical Dietetics",
-        "Potential Career Pathways": "Dietitian, Nutritionist, Health Coach",
-        "Recommended Colleges": "AIIMS, AFMC, and other top 20 Colleges"
-       },
-       {
-        "ID": 2,
-        "IQ Range": [90,100],
-        "Personality Cluster": "The Innovator",
-        "Recommended Field of Study": "Radiology & Medical Imaging",
-        "Relevant Courses": "BSc Radiology, MSc Medical Imaging",
-        "Potential Career Pathways": "Radiologist, MRI/CT Technician",
-        "Recommended Colleges": "AIIMS, AFMC, and other top 20 Colleges"
-       },
-       {
-        "ID": 4,
-        "IQ Range": [90,100],
-        "Personality Cluster": "The Analytical Thinker",
-        "Recommended Field of Study": "Physiotherapy & Rehabilitation",
-        "Relevant Courses": "BPT, MPT",
-        "Potential Career Pathways": "Physiotherapist, Rehabilitation Specialist",
-        "Recommended Colleges": "AIIMS, AFMC, and other top 20 Colleges"
-       },
-       {
-        "ID": 3,
-        "IQ Range": [90,100],
-        "Personality Cluster": "The Practical Healer",
-        "Recommended Field of Study": "Medical Assistance & Healthcare Support",
-        "Relevant Courses": "Diploma in Medical Assistance, Certificate in Healthcare Support",
-        "Potential Career Pathways": "Medical Assistant, Healthcare Aide",
-        "Recommended Colleges": "AIIMS, AFMC, and other top 20 Colleges"
-       },
-       {
-        "ID": 1,
-        "IQ Range": [90,100],
-        "Personality Cluster": "The Visionary Leader",
-        "Recommended Field of Study": "Health Informatics & Medical Coding",
-        "Relevant Courses": "BSc Health Informatics, Diploma in Medical Coding",
-        "Potential Career Pathways": "Health Information Specialist, Medical Coder",
-        "Recommended Colleges": "AIIMS, AFMC, and other top 20 Colleges"
-       },
-       {
-        "ID": 5,
-        "IQ Range": [90,100],
-        "Personality Cluster": "The Systematic Researcher",
-        "Recommended Field of Study": "Veterinary Science",
-        "Relevant Courses": "BVSc, MVSc",
-        "Potential Career Pathways": "Veterinarian, Animal Healthcare Specialist",
-        "Recommended Colleges": "AIIMS, AFMC, and other top 20 Colleges"
-       },
-       {
-        "ID": 6,
-        "IQ Range": [90,100],
-        "Personality Cluster": "The Adaptive Problem-Solver",
-        "Recommended Field of Study": "Occupational Therapy & Disability Support",
-        "Relevant Courses": "BOT, MSc Occupational Therapy",
-        "Potential Career Pathways": "Occupational Therapist, Disability Support Worker",
-        "Recommended Colleges": "AIIMS, AFMC, and other top 20 Colleges"
-       },
-       {
-        "ID": 2,
-        "IQ Range": [80,90],
-        "Personality Cluster": "The Innovator",
-        "Recommended Field of Study": "Medical Equipment Operation",
-        "Relevant Courses": "Diploma in Medical Equipment Technology, Certificate in Medical Equipment Maintenance",
-        "Potential Career Pathways": "Medical Equipment Technician, Hospital Technician",
-        "Recommended Colleges": "AIIMS, AFMC, and other top 30 Colleges"
-       },
-       {
-        "ID": 4,
-        "IQ Range": [80,90],
-        "Personality Cluster": "The Analytical Thinker",
-        "Recommended Field of Study": "Home Healthcare & Elderly Care",
-        "Relevant Courses": "Certificate in Geriatric Care, Diploma in Home Nursing",
-        "Potential Career Pathways": "Caregiver, Elderly Care Specialist",
-        "Recommended Colleges": "and other top 30 Colleges"
-       },
-       {
-        "ID": 3,
-        "IQ Range": [80,90],
-        "Personality Cluster": "The Practical Healer",
-        "Recommended Field of Study": "Paramedical Sciences",
-        "Relevant Courses": "Diploma in Paramedical Sciences, Emergency Medical Technician (EMT) Certification",
-        "Potential Career Pathways": "Paramedic, EMT, Ambulance Technician",
-        "Recommended Colleges": "AIIMS, AFMC, Top 30 Colleges"
-       },
-       {
-        "ID": 1,
-        "IQ Range": [80,90],
-        "Personality Cluster": "The Visionary Leader",
-        "Recommended Field of Study": "Hospital & Healthcare Support Services",
-        "Relevant Courses": "Diploma in Hospital Administration, Certificate in Healthcare Support",
-        "Potential Career Pathways": "Hospital Receptionist, Healthcare Coordinator",
-        "Recommended Colleges": "AIIMS, AFMC, Top 30 Colleges"
-       },
-       {
-        "ID": 5,
-        "IQ Range": [80,90],
-        "Personality Cluster": "The Systematic Researcher",
-        "Recommended Field of Study": "Medical Record Keeping & Billing",
-        "Relevant Courses": "Certificate in Medical Billing & Coding",
-        "Potential Career Pathways": "Medical Biller, Health Records Manager",
-        "Recommended Colleges": "AIIMS, AFMC, Top 30 Colleges"
-       },
-       {
-        "ID": 6,
-        "IQ Range": [80,90],
-        "Personality Cluster": "The Adaptive Problem-Solver",
-        "Recommended Field of Study": "Community Health & First Aid",
-        "Relevant Courses": "Certificate in Community Health Work, Diploma in First Aid Training",
-        "Potential Career Pathways": "Community Health Worker, First Aid Trainer",
-        "Recommended Colleges": "AIIMS, AFMC, Top 30 Colleges"
-       }
+        {
+          "ID": 2,
+          "IQ Range": [120,1000],
+          "Personality Cluster": "The Innovator",
+          "Recommended Field of Study": "Medical Research & Biotechnology",
+          "Relevant Courses": "MBBS + PhD, BSc Biotechnology, MSc Bioinformatics",
+          "Potential Career Pathways": "Medical Researcher, Biotechnologist, Genetic Engineer",
+          "Recommended Colleges": "AIIMS, AFMC, and other top 10 college"
+        },
+        {
+          "ID": 4,
+          "IQ Range": [120,1000],
+          "Personality Cluster": "The Analytical Thinker",
+          "Recommended Field of Study": "Medicine & Surgery",
+          "Relevant Courses": "MBBS, MS, MD",
+          "Potential Career Pathways": "Surgeon, Physician, Medical Specialist",
+          "Recommended Colleges": "AIIMS, AFMC, and other top 10 college"
+        },
+        {
+          "ID": 3,
+          "IQ Range": [120,1000],
+          "Personality Cluster": "The Practical Healer",
+          "Recommended Field of Study": "Pharmacy & Pharmacology",
+          "Relevant Courses": "BPharm, MPharm, PharmD",
+          "Potential Career Pathways": "Pharmacist, Clinical Researcher, Toxicologist",
+          "Recommended Colleges": "AIIMS, AFMC, and other top 10 college"
+        },
+        {
+          "ID": 1,
+          "IQ Range": [120,1000],
+          "Personality Cluster": "The Visionary Leader",
+          "Recommended Field of Study": "Healthcare Management & Policy",
+          "Relevant Courses": "BHA (Bachelor of Healthcare Administration), MBA Healthcare",
+          "Potential Career Pathways": "Hospital Administrator, Healthcare Consultant, Policy Maker",
+          "Recommended Colleges": "AIIMS, AFMC, and other top 10 college"
+        },
+        {
+          "ID": 5,
+          "IQ Range": [120,1000],
+          "Personality Cluster": "The Systematic Researcher",
+          "Recommended Field of Study": "Neuroscience & Mental Health",
+          "Relevant Courses": "BSc Neuroscience, MSc Clinical Psychology",
+          "Potential Career Pathways": "Neuroscientist, Psychiatrist, Clinical Psychologist",
+          "Recommended Colleges": "AIIMS, AFMC, and other top 10 college"
+        },
+        {
+          "ID": 6,
+          "IQ Range": [120,1000],
+          "Personality Cluster": "The Adaptive Problem-Solver",
+          "Recommended Field of Study": "Biomedical Engineering & Technology",
+          "Relevant Courses": "BTech Biomedical, MSc Medical Electronics",
+          "Potential Career Pathways": "Biomedical Engineer, Medical Device Designer",
+          "Recommended Colleges": "AIIMS, AFMC, and other top 10 college"
+        },
+        {
+          "ID": 2,
+          "IQ Range": [100,120],
+          "Personality Cluster": "The Innovator",
+          "Recommended Field of Study": "Public Health & Epidemiology",
+          "Relevant Courses": "BSc Public Health, MSc Epidemiology",
+          "Potential Career Pathways": "Epidemiologist, Public Health Officer",
+          "Recommended Colleges": "AIIMS, AFMC, and other top 20 Colleges"
+        },
+        {
+          "ID": 4,
+          "IQ Range": [100,120],
+          "Personality Cluster": "The Analytical Thinker",
+          "Recommended Field of Study": "Dentistry & Oral Health",
+          "Relevant Courses": "BDS, MDS",
+          "Potential Career Pathways": "Dentist, Orthodontist, Oral Surgeon",
+          "Recommended Colleges": "AIIMS, AFMC, and other top 20 Colleges"
+        },
+        {
+          "ID": 3,
+          "IQ Range": [100,120],
+          "Personality Cluster": "The Practical Healer",
+          "Recommended Field of Study": "Nursing & Patient Care",
+          "Relevant Courses": "BSc Nursing, MSc Nursing",
+          "Potential Career Pathways": "Nurse, Critical Care Specialist",
+          "Recommended Colleges": "AIIMS, AFMC, and other top 20 Colleges"
+        },
+        {
+          "ID": 1,
+          "IQ Range": [100,120],
+          "Personality Cluster": "The Visionary Leader",
+          "Recommended Field of Study": "Alternative Medicine & Holistic Healing",
+          "Relevant Courses": "BAMS, BHMS, BNYS",
+          "Potential Career Pathways": "Ayurveda Doctor, Homeopathic Practitioner, Naturopath",
+          "Recommended Colleges": "AIIMS, AFMC, and other top 20 Colleges"
+        },
+        {
+          "ID": 5,
+          "IQ Range": [100,120],
+          "Personality Cluster": "The Systematic Researcher",
+          "Recommended Field of Study": "Clinical Laboratory Science",
+          "Relevant Courses": "BMLT, MSc Clinical Lab Science",
+          "Potential Career Pathways": "Medical Lab Technologist, Pathologist",
+          "Recommended Colleges": "AIIMS, AFMC, and other top 20 Colleges"
+        },
+        {
+          "ID": 6,
+          "IQ Range": [100,120],
+          "Personality Cluster": "The Adaptive Problem-Solver",
+          "Recommended Field of Study": "Nutrition & Dietetics",
+          "Relevant Courses": "BSc Nutrition, MSc Clinical Dietetics",
+          "Potential Career Pathways": "Dietitian, Nutritionist, Health Coach",
+          "Recommended Colleges": "AIIMS, AFMC, and other top 20 Colleges"
+        },
+        {
+          "ID": 2,
+          "IQ Range": [90,100],
+          "Personality Cluster": "The Innovator",
+          "Recommended Field of Study": "Radiology & Medical Imaging",
+          "Relevant Courses": "BSc Radiology, MSc Medical Imaging",
+          "Potential Career Pathways": "Radiologist, MRI/CT Technician",
+          "Recommended Colleges": "AIIMS, AFMC, and other top 20 Colleges"
+        },
+        {
+          "ID": 4,
+          "IQ Range": [90,100],
+          "Personality Cluster": "The Analytical Thinker",
+          "Recommended Field of Study": "Physiotherapy & Rehabilitation",
+          "Relevant Courses": "BPT, MPT",
+          "Potential Career Pathways": "Physiotherapist, Rehabilitation Specialist",
+          "Recommended Colleges": "AIIMS, AFMC, and other top 20 Colleges"
+        },
+        {
+          "ID": 3,
+          "IQ Range": [90,100],
+          "Personality Cluster": "The Practical Healer",
+          "Recommended Field of Study": "Medical Assistance & Healthcare Support",
+          "Relevant Courses": "Diploma in Medical Assistance, Certificate in Healthcare Support",
+          "Potential Career Pathways": "Medical Assistant, Healthcare Aide",
+          "Recommended Colleges": "AIIMS, AFMC, and other top 20 Colleges"
+        },
+        {
+          "ID": 1,
+          "IQ Range": [90,100],
+          "Personality Cluster": "The Visionary Leader",
+          "Recommended Field of Study": "Health Informatics & Medical Coding",
+          "Relevant Courses": "BSc Health Informatics, Diploma in Medical Coding",
+          "Potential Career Pathways": "Health Information Specialist, Medical Coder",
+          "Recommended Colleges": "AIIMS, AFMC, and other top 20 Colleges"
+        },
+        {
+          "ID": 5,
+          "IQ Range": [90,100],
+          "Personality Cluster": "The Systematic Researcher",
+          "Recommended Field of Study": "Veterinary Science",
+          "Relevant Courses": "BVSc, MVSc",
+          "Potential Career Pathways": "Veterinarian, Animal Healthcare Specialist",
+          "Recommended Colleges": "AIIMS, AFMC, and other top 20 Colleges"
+        },
+        {
+          "ID": 6,
+          "IQ Range": [90,100],
+          "Personality Cluster": "The Adaptive Problem-Solver",
+          "Recommended Field of Study": "Occupational Therapy & Disability Support",
+          "Relevant Courses": "BOT, MSc Occupational Therapy",
+          "Potential Career Pathways": "Occupational Therapist, Disability Support Worker",
+          "Recommended Colleges": "AIIMS, AFMC, and other top 20 Colleges"
+        },
+        {
+          "ID": 2,
+          "IQ Range": [80,90],
+          "Personality Cluster": "The Innovator",
+          "Recommended Field of Study": "Medical Equipment Operation",
+          "Relevant Courses": "Diploma in Medical Equipment Technology, Certificate in Medical Equipment Maintenance",
+          "Potential Career Pathways": "Medical Equipment Technician, Hospital Technician",
+          "Recommended Colleges": "AIIMS, AFMC, and other top 30 Colleges"
+        },
+        {
+          "ID": 4,
+          "IQ Range": [80,90],
+          "Personality Cluster": "The Analytical Thinker",
+          "Recommended Field of Study": "Home Healthcare & Elderly Care",
+          "Relevant Courses": "Certificate in Geriatric Care, Diploma in Home Nursing",
+          "Potential Career Pathways": "Caregiver, Elderly Care Specialist",
+          "Recommended Colleges": "and other top 30 Colleges"
+        },
+        {
+          "ID": 3,
+          "IQ Range": [80,90],
+          "Personality Cluster": "The Practical Healer",
+          "Recommended Field of Study": "Paramedical Sciences",
+          "Relevant Courses": "Diploma in Paramedical Sciences, Emergency Medical Technician (EMT) Certification",
+          "Potential Career Pathways": "Paramedic, EMT, Ambulance Technician",
+          "Recommended Colleges": "AIIMS, AFMC, Top 30 Colleges"
+        },
+        {
+          "ID": 1,
+          "IQ Range": [80,90],
+          "Personality Cluster": "The Visionary Leader",
+          "Recommended Field of Study": "Hospital & Healthcare Support Services",
+          "Relevant Courses": "Diploma in Hospital Administration, Certificate in Healthcare Support",
+          "Potential Career Pathways": "Hospital Receptionist, Healthcare Coordinator",
+          "Recommended Colleges": "AIIMS, AFMC, Top 30 Colleges"
+        },
+        {
+          "ID": 5,
+          "IQ Range": [80,90],
+          "Personality Cluster": "The Systematic Researcher",
+          "Recommended Field of Study": "Medical Record Keeping & Billing",
+          "Relevant Courses": "Certificate in Medical Billing & Coding",
+          "Potential Career Pathways": "Medical Biller, Health Records Manager",
+          "Recommended Colleges": "AIIMS, AFMC, Top 30 Colleges"
+        },
+        {
+          "ID": 6,
+          "IQ Range": [80,90],
+          "Personality Cluster": "The Adaptive Problem-Solver",
+          "Recommended Field of Study": "Community Health & First Aid",
+          "Relevant Courses": "Certificate in Community Health Work, Diploma in First Aid Training",
+          "Potential Career Pathways": "Community Health Worker, First Aid Trainer",
+          "Recommended Colleges": "AIIMS, AFMC, Top 30 Colleges"
+        },
+        {
+          "IQ Range":[0,80],
+          "ID": "2",
+          "Personality Cluster": "The Innovator",
+          "Recommended Field of Study": "Basic Healthcare Assistance",
+          "Relevant Courses": "Certificate in Basic Healthcare Support",
+          "Potential Career Pathways": "Hospital Attendant, Ward Assistant",
+          "Recommended Colleges": "AIIMS, AFMC, or Any other Government College"
+         },
+         {
+          "IQ Range":[0,80],
+          "ID": "4",
+          "Personality Cluster": "The Analytical Thinker",
+          "Recommended Field of Study": "Home & Patient Care Assistance",
+          "Relevant Courses": "Certificate in Home Nursing, Diploma in Caregiving",
+          "Potential Career Pathways": "Home Nurse, Personal Care Assistant",
+          "Recommended Colleges": "AIIMS, AFMC, or Any other Government College"
+         },
+         {
+          "IQ Range":[0,80],
+          "ID": "3",
+          "Personality Cluster": "The Practical Healer",
+          "Recommended Field of Study": "Healthcare Facility Maintenance",
+          "Relevant Courses": "Certificate in Hospital Support Services",
+          "Potential Career Pathways": "Hospital Cleaner, Equipment Maintenance Worker",
+          "Recommended Colleges": "AIIMS, AFMC, or Any other Government College"
+         },
+         {
+          "IQ Range":[0,80],
+          "ID": "1",
+          "Personality Cluster": "The Visionary Leader",
+          "Recommended Field of Study": "Community Health Outreach",
+          "Relevant Courses": "Certificate in Health Outreach Programs",
+          "Potential Career Pathways": "Health Promoter, Community Health Aide",
+          "Recommended Colleges": "AIIMS, AFMC, or Any other Government College"
+         },
+         {
+          "IQ Range":[0,80],
+          "ID": "5",
+          "Personality Cluster": "The Systematic Researcher",
+          "Recommended Field of Study": "Basic Laboratory Assistance",
+          "Relevant Courses": "Certificate in Lab Support",
+          "Potential Career Pathways": "Lab Helper, Medical Lab Assistant",
+          "Recommended Colleges": "AIIMS, AFMC, or Any other Government College"
+         },
+         {
+          "IQ Range":[0,80],
+          "ID": "6",
+          "Personality Cluster": "The Adaptive Problem-Solver",
+          "Recommended Field of Study": "First Aid & Safety Training",
+          "Relevant Courses": "Basic First Aid Certification",
+          "Potential Career Pathways": "First Aid Responder, Safety Assistant",
+          "Recommended Colleges": "AIIMS, AFMC, or Any other Government College"
+         }
+
       ]
-     },
-    
+    },
+
     {
       "Business, Economics, and Finance": [
-       {
-        "ID": 2,
-        "IQ Range": [120,1000],
-        "Personality Cluster": "The Strategic Visionary",
-        "Recommended Field of Study": "Business Strategy & Management",
-        "Relevant Courses": "BBA, MBA Strategy, MSc Business Analytics",
-        "Potential Career Pathways": "Management Consultant, Business Strategist, Corporate Executive",
-        "Recommended Colleges": "DU, JNU, DSE, ISI, DSE, IGIDR, JNU, Ashoka, Azim Premji University, NLSIU"
-       },
-       {
-        "ID": 4,
-        "IQ Range": [120,1000],
-        "Personality Cluster": "The Financial Analyst",
-        "Recommended Field of Study": "Finance & Investment",
-        "Relevant Courses": "BCom Finance, CFA, MSc Financial Engineering",
-        "Potential Career Pathways": "Investment Banker, Financial Analyst, Portfolio Manager",
-        "Recommended Colleges": "DU, JNU, DSE, ISI, DSE, IGIDR, JNU, Ashoka, Azim Premji University, NLSIU"
-       },
-       {
-        "ID": 3,
-        "IQ Range": [120,1000],
-        "Personality Cluster": "The Entrepreneurial Leader",
-        "Recommended Field of Study": "Entrepreneurship & Startups",
-        "Relevant Courses": "BBA Entrepreneurship, MBA Innovation",
-        "Potential Career Pathways": "Entrepreneur, Startup Founder, Business Development Manager",
-        "Recommended Colleges": "DU, JNU, DSE, ISI, DSE, IGIDR, JNU, Ashoka, Azim Premji University, NLSIU"
-       },
-       {
-        "ID": 1,
-        "IQ Range": [120,1000],
-        "Personality Cluster": "The Market Disruptor",
-        "Recommended Field of Study": "Marketing & Brand Management",
-        "Relevant Courses": "BBA Marketing, MBA Digital Marketing",
-        "Potential Career Pathways": "Marketing Manager, Brand Strategist, Digital Marketing Expert",
-        "Recommended Colleges": "DU, JNU, DSE, ISI, DSE, IGIDR, JNU, Ashoka, Azim Premji University, NLSIU"
-       },
-       {
-        "ID": 5,
-        "IQ Range": [120,1000],
-        "Personality Cluster": "The Policy Expert",
-        "Recommended Field of Study": "Economics & Public Policy",
-        "Relevant Courses": "BA Economics, MSc Development Economics",
-        "Potential Career Pathways": "Economist, Policy Analyst, Economic Consultant",
-        "Recommended Colleges": "DU, JNU, DSE, ISI, DSE, IGIDR, JNU, Ashoka, Azim Premji University, NLSIU"
-       },
-       {
-        "ID": 6,
-        "IQ Range": [120,1000],
-        "Personality Cluster": "The Analytical Planner",
-        "Recommended Field of Study": "Accounting & Auditing",
-        "Relevant Courses": "BCom Accounting, CA, CPA",
-        "Potential Career Pathways": "Chartered Accountant, Auditor, Financial Controller",
-        "Recommended Colleges": "DU, JNU, DSE, ISI, DSE, IGIDR, JNU, Ashoka, Azim Premji University, NLSIU"
-       },
-       {
-        "ID": 2,
-        "IQ Range": [100,120],
-        "Personality Cluster": "The Strategic Visionary",
-        "Recommended Field of Study": "International Business",
-        "Relevant Courses": "BBA IB, MBA International Business",
-        "Potential Career Pathways": "International Business Manager, Global Marketing Director",
-        "Recommended Colleges": "IIMs, FMS, IIFT, XLRI"
-       },
-       {
-        "ID": 4,
-        "IQ Range": [100,120],
-        "Personality Cluster": "The Financial Analyst",
-        "Recommended Field of Study": "Actuarial Science",
-        "Relevant Courses": "BSc Actuarial Science, MSc Actuarial Science",
-        "Potential Career Pathways": "Actuary, Risk Manager, Financial Planner",
-        "Recommended Colleges": "LSE, Cass Business School, Amity University"
-       },
-       {
-        "ID": 3,
-        "IQ Range": [100,120],
-        "Personality Cluster": "The Entrepreneurial Leader",
-        "Recommended Field of Study": "Social Entrepreneurship",
-        "Relevant Courses": "BA Social Entrepreneurship, MBA Social Impact",
-        "Potential Career Pathways": "Social Entrepreneur, NGO Manager, CSR Consultant",
-        "Recommended Colleges": "TISS, IRMA, Ashoka University"
-       },
-       {
-        "ID": 1,
-        "IQ Range": [100,120],
-        "Personality Cluster": "The Market Disruptor",
-        "Recommended Field of Study": "Retail Management",
-        "Relevant Courses": "BBA Retail Management, MBA Retail Operations",
-        "Potential Career Pathways": "Retail Manager, E-commerce Specialist, Supply Chain Manager",
-        "Recommended Colleges": "NIFT, IIMs, Symbiosis"
-       },
-       {
-        "ID": 5,
-        "IQ Range": [100,120],
-        "Personality Cluster": "The Policy Expert",
-        "Recommended Field of Study": "Urban & Regional Planning",
-        "Relevant Courses": "BPlan, MPlan",
-        "Potential Career Pathways": "Urban Planner, Regional Development Officer",
-        "Recommended Colleges": "CEPT, SPA, IITs"
-       },
-       {
-        "ID": 6,
-        "IQ Range": [100,120],
-        "Personality Cluster": "The Analytical Planner",
-        "Recommended Field of Study": "Financial Planning",
-        "Relevant Courses": "BCom Finance, CFP",
-        "Potential Career Pathways": "Financial Planner, Investment Advisor",
-        "Recommended Colleges": "DU, Amity University"
-       },
-       {
-        "ID": 2,
-        "IQ Range": [90,100],
-        "Personality Cluster": "The Strategic Visionary",
-        "Recommended Field of Study": "Human Resources Management",
-        "Relevant Courses": "BBA HR, MBA HR",
-        "Potential Career Pathways": "HR Manager, Talent Acquisition Specialist",
-        "Recommended Colleges": "XLRI, TISS, Symbiosis"
-       },
-       {
-        "ID": 4,
-        "IQ Range": [90,100],
-        "Personality Cluster": "The Financial Analyst",
-        "Recommended Field of Study": "Banking & Insurance",
-        "Relevant Courses": "BCom Banking & Insurance, MBA Finance",
-        "Potential Career Pathways": "Bank Manager, Insurance Agent",
-        "Recommended Colleges": "DU, Amity University"
-       },
-       {
-        "ID": 3,
-        "IQ Range": [90,100],
-        "Personality Cluster": "The Entrepreneurial Leader",
-        "Recommended Field of Study": "Family Business Management",
-        "Relevant Courses": "BBA, MBA Family Business",
-        "Potential Career Pathways": "Family Business Owner, Business Consultant",
-        "Recommended Colleges": "SP Jain, NMIMS"
-       },
-       {
-        "ID": 1,
-        "IQ Range": [90,100],
-        "Personality Cluster": "The Market Disruptor",
-        "Recommended Field of Study": "Sales Management",
-        "Relevant Courses": "BBA Sales, MBA Marketing",
-        "Potential Career Pathways": "Sales Manager, Business Development Executive",
-        "Recommended Colleges": "DU, Amity University"
-       },
-       {
-        "ID": 5,
-        "IQ Range": [90,100],
-        "Personality Cluster": "The Policy Expert",
-        "Recommended Field of Study": "Public Administration",
-        "Relevant Courses": "BA Public Administration, MA Public Policy",
-        "Potential Career Pathways": "Public Administrator, Civil Servant",
-        "Recommended Colleges": "IIPA, JNU, DU"
-       },
-       {
-        "ID": 6,
-        "IQ Range": [90,100],
-        "Personality Cluster": "The Analytical Planner",
-        "Recommended Field of Study": "Taxation",
-        "Relevant Courses": "BCom Taxation, MCom Finance",
-        "Potential Career Pathways": "Tax Consultant, Tax Accountant",
-        "Recommended Colleges": "DU, Amity University"
-       },
-       {
-        "ID": 2,
-        "IQ Range": [80,90],
-        "Personality Cluster": "The Strategic Visionary",
-        "Recommended Field of Study": "Office Administration",
-        "Relevant Courses": "BBA, Diploma in Office Management",
-        "Potential Career Pathways": "Office Manager, Administrative Assistant",
-        "Recommended Colleges": "IGNOU, Vocational Institutes"
-       },
-       {
-        "ID": 4,
-        "IQ Range": [80,90],
-        "Personality Cluster": "The Financial Analyst",
-        "Recommended Field of Study": "Banking Operations",
-        "Relevant Courses": "BCom, Diploma in Banking",
-        "Potential Career Pathways": "Bank Teller, Clerk",
-        "Recommended Colleges": "IGNOU, Vocational Institutes"
-       },
-       {
-        "ID": 3,
-        "IQ Range": [80,90],
-        "Personality Cluster": "The Entrepreneurial Leader",
-        "Recommended Field of Study": "Small Business Management",
-        "Relevant Courses": "BBA, Diploma in Small Business Management",
-        "Potential Career Pathways": "Small Business Owner, Retail Manager",
-        "Recommended Colleges": "IGNOU, Vocational Institutes"
-       },
-       {
-        "ID": 1,
-        "IQ Range": [80,90],
-        "Personality Cluster": "The Market Disruptor",
-        "Recommended Field of Study": "Customer Service",
-        "Relevant Courses": "BA, Certificate in Customer Service",
-        "Potential Career Pathways": "Customer Service Representative, Sales Assistant",
-        "Recommended Colleges": "IGNOU, Vocational Institutes"
-       },
-       {
-        "ID": 5,
-        "IQ Range": [80,90],
-        "Personality Cluster": "The Policy Expert",
-        "Recommended Field of Study": "Local Governance",
-        "Relevant Courses": "BA Public Administration, Diploma in Local Governance",
-        "Potential Career Pathways": "Local Administrator, Panchayat Officer",
-        "Recommended Colleges": "IGNOU, Vocational Institutes"
-       },
-       {
-        "ID": 6,
-        "IQ Range": [80,90],
-        "Personality Cluster": "The Analytical Planner",
-        "Recommended Field of Study": "Accounting Assistance",
-        "Relevant Courses": "BCom, Certificate in Accounting",
-        "Potential Career Pathways": "Accounts Assistant, Bookkeeper",
-        "Recommended Colleges": "IGNOU, Vocational Institutes"
-       },
-       {
-        "ID": 2,
-        "IQ Range": [0,80],
-        "Personality Cluster": "The Strategic Visionary",
-        "Recommended Field of Study": "Basic Office Skills",
-        "Relevant Courses": "Certificate in Office Skills",
-        "Potential Career Pathways": "Office Helper, Messenger",
-        "Recommended Colleges": "Vocational Training Centers"
-       },
-       {
-        "ID": 4,
-        "IQ Range": [0,80],
-        "Personality Cluster": "The Financial Analyst",
-        "Recommended Field of Study": "Cash Handling",
-        "Relevant Courses": "Certificate in Cash Management",
-        "Potential Career Pathways": "Cashier, Teller Assistant",
-        "Recommended Colleges": "Vocational Training Centers"
-       },
-       {
-        "ID": 3,
-        "IQ Range": [0,80],
-        "Personality Cluster": "The Entrepreneurial Leader",
-        "Recommended Field of Study": "Retail Assistance",
-        "Relevant Courses": "Certificate in Retail Skills",
-        "Potential Career Pathways": "Shop Assistant, Sales Helper",
-        "Recommended Colleges": "Vocational Training Centers"
-       },
-       {
-        "ID": 1,
-        "IQ Range": [0,80],
-        "Personality Cluster": "The Market Disruptor",
-        "Recommended Field of Study": "Basic Sales Skills",
-        "Relevant Courses": "Certificate in Sales Techniques",
-        "Potential Career Pathways": "Sales Trainee, Counter Staff",
-        "Recommended Colleges": "Vocational Training Centers"
-       },
-       {
-        "ID": 5,
-        "IQ Range": [0,80],
-        "Personality Cluster": "The Policy Expert",
-        "Recommended Field of Study": "Civic Engagement",
-        "Relevant Courses": "Certificate in Community Service",
-        "Potential Career Pathways": "Community Volunteer, Civic Worker",
-        "Recommended Colleges": "Vocational Training Centers"
-       },
-       {
-        "ID": 6,
-        "IQ Range": [0,80],
-        "Personality Cluster": "The Analytical Planner",
-        "Recommended Field of Study": "Basic Accounting",
-        "Relevant Courses": "Certificate in Basic Accounting",
-        "Potential Career Pathways": "Accounts Clerk, Data Entry Operator",
-        "Recommended Colleges": "Vocational Training Centers"
-       }
-      ]
-     },
-    {
-      "Social Sciences, Arts, and Humanities": [
-       {
-        "ID": 1,
-        "IQ Range": [120,1000],
-        "Personality Cluster": "The Creative Visionary",
-        "Recommended Field of Study": "Literature & Creative Writing",
-        "Relevant Courses": "BA Literature, MA Creative Writing, PhD in Literary Studies",
-        "Potential Career Pathways": "Author, Poet, Screenwriter, Content Writer",
-        "Recommended Colleges": "JNU, DU, Jadavpur University"
-       },
-       {
-        "ID": 2,
-        "IQ Range": [120,1000],
-        "Personality Cluster": "The Storyteller",
-        "Recommended Field of Study": "Journalism & Mass Communication",
-        "Relevant Courses": "BA Journalism, MA Mass Communication",
-        "Potential Career Pathways": "Journalist, News Anchor, Editor",
-        "Recommended Colleges": "IIMC, Jamia Millia Islamia, DU"
-       },
-       {
-        "ID": 3,
-        "IQ Range": [120,1000],
-        "Personality Cluster": "The Media Strategist",
-        "Recommended Field of Study": "Digital Media & Communication",
-        "Relevant Courses": "BA Digital Media, MA Digital Communication",
-        "Potential Career Pathways": "Digital Strategist, Social Media Manager",
-        "Recommended Colleges": "MICA, Symbiosis Institute of Media & Communication"
-       },
-       {
-        "ID": 4,
-        "IQ Range": [120,1000],
-        "Personality Cluster": "The Cultural Communicator",
-        "Recommended Field of Study": "Cultural Studies & Anthropology",
-        "Relevant Courses": "BA Anthropology, MA Cultural Studies",
-        "Potential Career Pathways": "Anthropologist, Cultural Researcher, Heritage Manager",
-        "Recommended Colleges": "TISS, DU, JNU"
-       },
-       {
-        "ID": 5,
-        "IQ Range": [120,1000],
-        "Personality Cluster": "The Performing Artist",
-        "Recommended Field of Study": "Performing Arts",
-        "Relevant Courses": "BA Theatre, MA Performance Studies",
-        "Potential Career Pathways": "Actor, Director, Musician",
-        "Recommended Colleges": "NSD, FTII, SRFTI"
-       },
-       {
-        "ID": 6,
-        "IQ Range": [120,1000],
-        "Personality Cluster": "The Analytical Thinker",
-        "Recommended Field of Study": "Philosophy & Logic",
-        "Relevant Courses": "BA Philosophy, MA Logic",
-        "Potential Career Pathways": "Philosopher, Logician, Academic Researcher",
-        "Recommended Colleges": "JNU, DU"
-       },
-       {
-        "ID": 1,
-        "IQ Range": [100,120],
-        "Personality Cluster": "The Creative Visionary",
-        "Recommended Field of Study": "Fine Arts & Visual Communication",
-        "Relevant Courses": "BFA, MFA",
-        "Potential Career Pathways": "Artist, Graphic Designer, Illustrator",
-        "Recommended Colleges": "Lal কলা Bhawan BHU, College of Art DU"
-       },
-       {
-        "ID": 2,
-        "IQ Range": [100,120],
-        "Personality Cluster": "The Storyteller",
-        "Recommended Field of Study": "Film Studies & Production",
-        "Relevant Courses": "BA Film Studies, Diploma in Filmmaking",
-        "Potential Career Pathways": "Filmmaker, Cinematographer, Editor",
-        "Recommended Colleges": "FTII, SRFTI, MCRC Jamia"
-       },
-       {
-        "ID": 3,
-        "IQ Range": [100,120],
-        "Personality Cluster": "The Media Strategist",
-        "Recommended Field of Study": "Advertising & Public Relations",
-        "Relevant Courses": "BA Advertising, MA Public Relations",
-        "Potential Career Pathways": "Advertising Executive, PR Specialist",
-        "Recommended Colleges": "IIMC, MICA, Symbiosis"
-       },
-       {
-        "ID": 4,
-        "IQ Range": [100,120],
-        "Personality Cluster": "The Cultural Communicator",
-        "Recommended Field of Study": "History & Archaeology",
-        "Relevant Courses": "BA History, MA Archaeology",
-        "Potential Career Pathways": "Historian, Archaeologist, Museum Curator",
-        "Recommended Colleges": "JNU, DU, Deccan College"
-       },
-       {
-        "ID": 5,
-        "IQ Range": [100,120],
-        "Personality Cluster": "The Performing Artist",
-        "Recommended Field of Study": "Music & Dance",
-        "Relevant Courses": "BA Music, MA Dance",
-        "Potential Career Pathways": "Musician, Dancer, Choreographer",
-        "Recommended Colleges": "Faculty of Music and Fine Arts DU, Bhatkhande Music Institute"
-       },
-       {
-        "ID": 6,
-        "IQ Range": [100,120],
-        "Personality Cluster": "The Analytical Thinker",
-        "Recommended Field of Study": "Political Science & International Relations",
-        "Relevant Courses": "BA Political Science, MA International Relations",
-        "Potential Career Pathways": "Political Analyst, Diplomat",
-        "Recommended Colleges": "JNU, DU"
-       },
-       {
-        "ID": 1,
-        "IQ Range": [90,100],
-        "Personality Cluster": "The Creative Visionary",
-        "Recommended Field of Study": "Applied Arts & Design",
-        "Relevant Courses": "BDes, Diploma in Graphic Design",
-        "Potential Career Pathways": "Graphic Designer, Visual Artist",
-        "Recommended Colleges": "Raffles Design International, NIFT"
-       },
-       {
-        "ID": 2,
-        "IQ Range": [90,100],
-        "Personality Cluster": "The Storyteller",
-        "Recommended Field of Study": "Content Creation & Copywriting",
-        "Relevant Courses": "BA English Literature, Diploma in Creative Writing",
-        "Potential Career Pathways": "Content Writer, Copywriter, Editor",
-        "Recommended Colleges": "DU, IGNOU"
-       },
-       {
-        "ID": 3,
-        "IQ Range": [90,100],
-        "Personality Cluster": "The Media Strategist",
-        "Recommended Field of Study": "Event Management",
-        "Relevant Courses": "BBA Event Management, Diploma in Event Planning",
-        "Potential Career Pathways": "Event Planner, Event Coordinator",
-        "Recommended Colleges": "NIEM, NAEMD"
-       },
-       {
-        "ID": 4,
-        "IQ Range": [90,100],
-        "Personality Cluster": "The Cultural Communicator",
-        "Recommended Field of Study": "Sociology & Social Work",
-        "Relevant Courses": "BA Sociology, MSW",
-        "Potential Career Pathways": "Social Worker, Counselor",
-        "Recommended Colleges": "TISS, DU"
-       },
-       {
-        "ID": 5,
-        "IQ Range": [90,100],
-        "Personality Cluster": "The Performing Artist",
-        "Recommended Field of Study": "Theatre & Drama",
-        "Relevant Courses": "BA Theatre Arts, Diploma in Acting",
-        "Potential Career Pathways": "Actor, Theatre Artist",
-        "Recommended Colleges": "NSD, NATA"
-       },
-       {
-        "ID": 6,
-        "IQ Range": [90,100],
-        "Personality Cluster": "The Analytical Thinker",
-        "Recommended Field of Study": "Psychology & Counseling",
-        "Relevant Courses": "BA Psychology, MA Counseling Psychology",
-        "Potential Career Pathways": "Counselor, Psychologist",
-        "Recommended Colleges": "DU, IGNOU"
-       },
-       {
-        "ID": 1,
-        "IQ Range": [80,90],
-        "Personality Cluster": "The Creative Visionary",
-        "Recommended Field of Study": "Visual Arts & Crafts",
-        "Relevant Courses": "Certificate in Fine Arts, Diploma in Crafts",
-        "Potential Career Pathways": "Craftsman, Art Teacher",
-        "Recommended Colleges": "Local Art Colleges, Vocational Institutes"
-       },
-       {
-        "ID": 2,
-        "IQ Range": [80,90],
-        "Personality Cluster": "The Storyteller",
-        "Recommended Field of Study": "Community Journalism & Storytelling",
-        "Relevant Courses": "Certificate in Community Journalism, Diploma in Storytelling",
-        "Potential Career Pathways": "Local Reporter, Community Blogger, Oral Storyteller"
-       },
-       {
-        "ID": 3,
-        "IQ Range": [80,90],
-        "Personality Cluster": "The Media Strategist",
-        "Recommended Field of Study": "Social Media Management",
-        "Relevant Courses": "Certificate in Social Media Marketing, Diploma in Digital Media",
-        "Potential Career Pathways": "Social Media Manager, Online Community Coordinator"
-       },
-       {
-        "ID": 4,
-        "IQ Range": [80,90],
-        "Personality Cluster": "The Cultural Communicator",
-        "Recommended Field of Study": "Theatre & Drama Therapy",
-        "Relevant Courses": "Diploma in Drama Therapy, BA Applied Theatre",
-        "Potential Career Pathways": "Drama Therapist, Theatre Coach, Performance Artist"
-       },
-       {
-        "ID": 5,
-        "IQ Range": [80,90],
-        "Personality Cluster": "The Performing Artist",
-        "Recommended Field of Study": "Local Music & Performance",
-        "Relevant Courses": "Certificate in Music Performance, Diploma in Ethnomusicology",
-        "Potential Career Pathways": "Street Performer, Local Musician, Music Educator"
-       },
-       {
-        "ID": 1,
-        "IQ Range": [0,80],
-        "Personality Cluster": "The Creative Visionary",
-        "Recommended Field of Study": "Basic Art & Crafts",
-        "Relevant Courses": "Certificate in Visual Arts",
-        "Potential Career Pathways": "Art Assistant, Craft Maker, Mural Painter"
-       },
-       {
-        "ID": 2,
-        "IQ Range": [0,80],
-        "Personality Cluster": "The Storyteller",
-        "Recommended Field of Study": "Local History & Folk Narratives",
-        "Relevant Courses": "Certificate in Oral Traditions",
-        "Potential Career Pathways": "Folk Storyteller, Heritage Guide, Cultural Narrator"
-       },
-       {
-        "ID": 3,
-        "IQ Range": [0,80],
-        "Personality Cluster": "The Media Strategist",
-        "Recommended Field of Study": "Entry-Level Multimedia & Digital Skills",
-        "Relevant Courses": "Certificate in Digital Media Basics",
-        "Potential Career Pathways": "Multimedia Assistant, Junior Content Creator"
-       },
-       {
-        "ID": 4,
-        "IQ Range": [0,80],
-        "Personality Cluster": "The Cultural Communicator",
-        "Recommended Field of Study": "Grassroots Cultural Advocacy",
-        "Relevant Courses": "Certificate in Community Cultural Work",
-        "Potential Career Pathways": "Cultural Worker, Local Arts Promoter"
-       },
-       {
-        "ID": 5,
-        "IQ Range": [0,80],
-        "Personality Cluster": "The Performing Artist",
-        "Recommended Field of Study": "Street Performance & Entertainment",
-        "Relevant Courses": "Certificate in Performing Arts",
-        "Potential Career Pathways": "Street Performer, Small-Scale Entertainer, Theatre Crew"
-       }
-      ]
-     },
-    
-    {
-      "Arts, Design, and Media": [
-       {
-        "ID": 2,
-        "IQ Range": [120,1000],
-        "Personality Cluster": "The Creative Visionary",
-        "Recommended Field of Study": "Literature & Creative Writing",
-        "Relevant Courses": "BA Literature, MA Creative Writing, PhD in Literary Studies",
-        "Potential Career Pathways": "Author, Poet, Screenwriter, Content Writer",
-        "Recommended Colleges": "JNU, DU, Jadavpur University"
-       },
-       {
-        "ID": 4,
-        "IQ Range": [120,1000],
-        "Personality Cluster": "The Storyteller",
-        "Recommended Field of Study": "Journalism & Mass Communication",
-        "Relevant Courses": "BA Journalism, MA Mass Communication",
-        "Potential Career Pathways": "Journalist, News Anchor, Editor",
-        "Recommended Colleges": "IIMC, Jamia Millia Islamia, DU"
-       },
-       {
-        "ID": 3,
-        "IQ Range": [120,1000],
-        "Personality Cluster": "The Media Strategist",
-        "Recommended Field of Study": "Digital Media & Communication",
-        "Relevant Courses": "BA Digital Media, MA Digital Communication",
-        "Potential Career Pathways": "Digital Strategist, Social Media Manager",
-        "Recommended Colleges": "MICA, Symbiosis Institute of Media & Communication"
-       },
-       {
-        "ID": 1,
-        "IQ Range": [120,1000],
-        "Personality Cluster": "The Cultural Communicator",
-        "Recommended Field of Study": "Cultural Studies & Anthropology",
-        "Relevant Courses": "BA Anthropology, MA Cultural Studies",
-        "Potential Career Pathways": "Anthropologist, Cultural Researcher, Heritage Manager",
-        "Recommended Colleges": "TISS, DU, JNU"
-       },
-       {
-        "ID": 5,
-        "IQ Range": [120,1000],
-        "Personality Cluster": "The Performing Artist",
-        "Recommended Field of Study": "Performing Arts",
-        "Relevant Courses": "BA Theatre, MA Performance Studies",
-        "Potential Career Pathways": "Actor, Director, Musician",
-        "Recommended Colleges": "NSD, FTII, SRFTI"
-       },
-       {
-        "ID": 6,
-        "IQ Range": [120,1000],
-        "Personality Cluster": "The Analytical Thinker",
-        "Recommended Field of Study": "Philosophy & Logic",
-        "Relevant Courses": "BA Philosophy, MA Logic",
-        "Potential Career Pathways": "Philosopher, Logician, Academic Researcher",
-        "Recommended Colleges": "JNU, DU"
-       },
-       {
-        "ID": 2,
-        "IQ Range": [100,120],
-        "Personality Cluster": "The Creative Visionary",
-        "Recommended Field of Study": "Fine Arts & Visual Communication",
-        "Relevant Courses": "BFA, MFA",
-        "Potential Career Pathways": "Artist, Graphic Designer, Illustrator",
-        "Recommended Colleges": "Lal কলা Bhawan BHU, College of Art DU"
-       },
-       {
-        "ID": 4,
-        "IQ Range": [100,120],
-        "Personality Cluster": "The Storyteller",
-        "Recommended Field of Study": "Film Studies & Production",
-        "Relevant Courses": "BA Film Studies, Diploma in Filmmaking",
-        "Potential Career Pathways": "Filmmaker, Cinematographer, Editor",
-        "Recommended Colleges": "FTII, SRFTI, MCRC Jamia"
-       },
-       {
-        "ID": 3,
-        "IQ Range": [100,120],
-        "Personality Cluster": "The Media Strategist",
-        "Recommended Field of Study": "Advertising & Public Relations",
-        "Relevant Courses": "BA Advertising, MA Public Relations",
-        "Potential Career Pathways": "Advertising Executive, PR Specialist",
-        "Recommended Colleges": "IIMC, MICA, Symbiosis"
-       },
-       {
-        "ID": 1,
-        "IQ Range": [100,120],
-        "Personality Cluster": "The Cultural Communicator",
-        "Recommended Field of Study": "History & Archaeology",
-        "Relevant Courses": "BA History, MA Archaeology",
-        "Potential Career Pathways": "Historian, Archaeologist, Museum Curator",
-        "Recommended Colleges": "JNU, DU, Deccan College"
-       },
-       {
-        "ID": 5,
-        "IQ Range": [100,120],
-        "Personality Cluster": "The Performing Artist",
-        "Recommended Field of Study": "Music & Dance",
-        "Relevant Courses": "BA Music, MA Dance",
-        "Potential Career Pathways": "Musician, Dancer, Choreographer",
-        "Recommended Colleges": "Faculty of Music and Fine Arts DU, Bhatkhande Music Institute"
-       },
-       {
-        "ID": 6,
-        "IQ Range": [100,120],
-        "Personality Cluster": "The Analytical Thinker",
-        "Recommended Field of Study": "Political Science & International Relations",
-        "Relevant Courses": "BA Political Science, MA International Relations",
-        "Potential Career Pathways": "Political Analyst, Diplomat",
-        "Recommended Colleges": "JNU, DU"
-       },
-       {
-        "ID": 2,
-        "IQ Range": [90,100],
-        "Personality Cluster": "The Creative Visionary",
-        "Recommended Field of Study": "Applied Arts & Design",
-        "Relevant Courses": "BDes, Diploma in Graphic Design",
-        "Potential Career Pathways": "Graphic Designer, Visual Artist",
-        "Recommended Colleges": "Raffles Design International, NIFT"
-       },
-       {
-        "ID": 4,
-        "IQ Range": [90,100],
-        "Personality Cluster": "The Storyteller",
-        "Recommended Field of Study": "Content Creation & Copywriting",
-        "Relevant Courses": "BA English Literature, Diploma in Creative Writing",
-        "Potential Career Pathways": "Content Writer, Copywriter, Editor",
-        "Recommended Colleges": "DU, IGNOU"
-       },
-       {
-        "ID": 3,
-        "IQ Range": [90,100],
-        "Personality Cluster": "The Media Strategist",
-        "Recommended Field of Study": "Event Management",
-        "Relevant Courses": "BBA Event Management, Diploma in Event Planning",
-        "Potential Career Pathways": "Event Planner, Event Coordinator",
-        "Recommended Colleges": "NIEM, NAEMD"
-       },
-       {
-        "ID": 1,
-        "IQ Range": [90,100],
-        "Personality Cluster": "The Cultural Communicator",
-        "Recommended Field of Study": "Sociology & Social Work",
-        "Relevant Courses": "BA Sociology, MSW",
-        "Potential Career Pathways": "Social Worker, Counselor",
-        "Recommended Colleges": "TISS, DU"
-       },
-       {
-        "ID": 5,
-        "IQ Range": [90,100],
-        "Personality Cluster": "The Performing Artist",
-        "Recommended Field of Study": "Theatre & Drama",
-        "Relevant Courses": "BA Theatre Arts, Diploma in Acting",
-        "Potential Career Pathways": "Actor, Theatre Artist",
-        "Recommended Colleges": "NSD, NATA"
-       },
-       {
-        "ID": 6,
-        "IQ Range": [90,100],
-        "Personality Cluster": "The Analytical Thinker",
-        "Recommended Field of Study": "Psychology & Counseling",
-        "Relevant Courses": "BA Psychology, MA Counseling Psychology",
-        "Potential Career Pathways": "Counselor, Psychologist",
-        "Recommended Colleges": "DU, IGNOU"
-       },
-       {
-        "ID": 2,
-        "IQ Range": [80,90],
-        "Personality Cluster": "The Creative Visionary",
-        "Recommended Field of Study": "Visual Arts & Crafts",
-        "Relevant Courses": "Certificate in Fine Arts, Diploma in Crafts",
-        "Potential Career Pathways": "Craftsman, Art Teacher",
-        "Recommended Colleges": "Local Art Colleges, Vocational Institutes"
-       },
-       {
-        "ID": 4,
-        "IQ Range": [80,90],
-        "Personality Cluster": "The Storyteller",
-        "Recommended Field of Study": "Community Journalism & Storytelling",
-        "Relevant Courses": "Certificate in Community Journalism, Diploma in Storytelling",
-        "Potential Career Pathways": "Local Reporter, Community Blogger, Oral Storyteller"
-       },
-       {
-        "ID": 3,
-        "IQ Range": [80,90],
-        "Personality Cluster": "The Media Strategist",
-        "Recommended Field of Study": "Social Media Management",
-        "Relevant Courses": "Certificate in Social Media Marketing, Diploma in Digital Media",
-        "Potential Career Pathways": "Social Media Manager, Online Community Coordinator"
-       },
-       {
-        "ID": 1,
-        "IQ Range": [80,90],
-        "Personality Cluster": "The Cultural Communicator",
-        "Recommended Field of Study": "Theatre & Drama Therapy",
-        "Relevant Courses": "Diploma in Drama Therapy, BA Applied Theatre",
-        "Potential Career Pathways": "Drama Therapist, Theatre Coach, Performance Artist"
-       },
-       {
-        "ID": 5,
-        "IQ Range": [80,90],
-        "Personality Cluster": "The Performing Artist",
-        "Recommended Field of Study": "Local Music & Performance",
-        "Relevant Courses": "Certificate in Music Performance, Diploma in Ethnomusicology",
-        "Potential Career Pathways": "Street Performer, Local Musician, Music Educator"
-       },
-       {
-        "ID": 6,
-        "IQ Range": [90,100],
-        "Personality Cluster": "The Analytical Thinker",
-        "Recommended Field of Study": "Interior Design",
-        "Relevant Courses": "BSc Interior Design, Diploma in Interior Decoration",
-        "Potential Career Pathways": "Interior Designer"
-       },
-       {
-        "ID": 2,
-        "IQ Range": [80,90],
-        "Personality Cluster": "The Analytical Thinker",
-        "Recommended Field of Study": "Fashion Design",
-        "Relevant Courses": "BSc Fashion Design, Diploma in Fashion Styling",
-        "Potential Career Pathways": "Fashion Designer, Fashion Stylist"
-       },
         {
-        "ID": 4,
-        "IQ Range": [80,90],
-        "Personality Cluster": "The Analytical Thinker",
-        "Recommended Field of Study": "Culinary Arts",
-        "Relevant Courses": "BSc Culinary Arts, Diploma in Bakery and Confectionery",
-        "Potential Career Pathways": "Chef, Baker"
-       },
-       {
-        "ID": 3,
-        "IQ Range": [80,90],
-        "Personality Cluster": "The Analytical Thinker",
-        "Recommended Field of Study": "Cultural Management",
-        "Relevant Courses": "BA Cultural Studies, Diploma in Cultural Management",
-        "Potential Career Pathways": "Event Coordinator, Cultural Facilitator",
-        "Recommended Colleges": "NIEM, NAEMD, Pearl Academy, Amity University, EMDI Institute, Indian School of Media, IIEMState Cultural Bodies"
-       },
-       {
-        "ID": 1,
-        "IQ Range": [80,90],
-        "Personality Cluster": "The Systematic Researcher",
-        "Recommended Field of Study": "Printing Technology",
-        "Relevant Courses": "Certificate in Printing Techniques",
-        "Potential Career Pathways": "Print Technician, Publishing Assistant",
-        "Recommended Colleges": "Govt Polytechnics"
-       },
-       {
-        "ID": 5,
-        "IQ Range": [80,90],
-        "Personality Cluster": "The Adaptive Problem-Solver",
-        "Recommended Field of Study": "Basic Graphic Design",
-        "Relevant Courses": "Certificate in Graphic Design Basics",
-        "Potential Career Pathways": "Junior Designer, Creative Assistant",
-        "Recommended Colleges": "Vocational Training Institutes"
-       },
-       {
-        "ID": 2,
-        "IQ Range": [0,80],
-        "Personality Cluster": "The Creative Visionary",
-        "Recommended Field of Study": "Basic Art & Crafts",
-        "Relevant Courses": "Certificate in Visual Arts",
-        "Potential Career Pathways": "Art Assistant, Craft Maker, Mural Painter"
-       },
-       {
-        "ID": 4,
-        "IQ Range": [0,80],
-        "Personality Cluster": "The Storyteller",
-        "Recommended Field of Study": "Local History & Folk Narratives",
-        "Relevant Courses": "Certificate in Oral Traditions",
-        "Potential Career Pathways": "Folk Storyteller, Heritage Guide, Cultural Narrator"
-       },
-       {
-        "ID": 3,
-        "IQ Range": [0,80],
-        "Personality Cluster": "The Media Strategist",
-        "Recommended Field of Study": "Entry-Level Multimedia & Digital Skills",
-        "Relevant Courses": "Certificate in Digital Media Basics",
-        "Potential Career Pathways": "Multimedia Assistant, Junior Content Creator"
-       },
-       {
-        "ID": 1,
-        "IQ Range": [0,80],
-        "Personality Cluster": "The Cultural Communicator",
-        "Recommended Field of Study": "Grassroots Cultural Advocacy",
-        "Relevant Courses": "Certificate in Community Cultural Work",
-        "Potential Career Pathways": "Cultural Worker, Local Arts Promoter"
-       },
-       {
-        "ID": 5,
-        "IQ Range": [0,80],
-        "Personality Cluster": "The Performing Artist",
-        "Recommended Field of Study": "Street Performance & Entertainment",
-        "Relevant Courses": "Certificate in Performing Arts",
-        "Potential Career Pathways": "Street Performer, Small-Scale Entertainer, Theatre Crew"
-       },
+          "ID": 2,
+          "IQ Range": [120,1000],
+          "Personality Cluster": "The Strategic Visionary",
+          "Recommended Field of Study": "Business Strategy & Management",
+          "Relevant Courses": "BBA, MBA Strategy, MSc Business Analytics",
+          "Potential Career Pathways": "Management Consultant, Business Strategist, Corporate Executive",
+          "Recommended Colleges": "DU, JNU, DSE, ISI, DSE, IGIDR, JNU, Ashoka, Azim Premji University, NLSIU"
+        },
         {
-        "ID": 6,
-        "IQ Range": [0,80],
-        "Personality Cluster": "The Analytical Thinker",
-        "Recommended Field of Study": "Audio Equipment Handling",
-        "Relevant Courses": "Certificate in Audio Equipment Maintenance",
-        "Potential Career Pathways": "Sound Helper, Studio Assistant",
-        "Recommended Colleges": "Community Audio Schools"
-       },
-       {
-        "ID": 2,
-        "IQ Range": [0,80],
-        "Personality Cluster": "The Practical Artist",
-        "Recommended Field of Study": "Costume Assistance",
-        "Relevant Courses": "Certificate in Costume Design",
-        "Potential Career Pathways": "Wardrobe Assistant, Costume Support Staff",
-        "Recommended Colleges": "Theatre Training Institutes"
-       },
-       {
-        "ID": 4,
-        "IQ Range": [0,80],
-        "Personality Cluster": "The Visionary Leader",
-        "Recommended Field of Study": "Local Media Communication",
-        "Relevant Courses": "Certificate in Local Reporting",
-        "Potential Career Pathways": "Local News Assistant, Communication Support",
-        "Recommended Colleges": "Local Journalism Institutes"
-       },
-       {
-        "ID": 3,
-        "IQ Range": [0,80],
-        "Personality Cluster": "The Systematic Researcher",
-        "Recommended Field of Study": "Archival Media Support",
-        "Relevant Courses": "Certificate in Media Archiving",
-        "Potential Career Pathways": "Media Archive Assistant, Tape Handler",
-        "Recommended Colleges": "Museums, Libraries"
-       },
-       {
-        "ID": 1,
-        "IQ Range": [0,80],
-        "Personality Cluster": "The Adaptive Problem-Solver",
-        "Recommended Field of Study": "Photography Assistance",
-        "Relevant Courses": "Certificate in Photo Assistance",
-        "Potential Career Pathways": "Camera Assistant, Studio Assistant",
-        "Recommended Colleges": "Photography Training Centers"
-       }
+          "ID": 4,
+          "IQ Range": [120,1000],
+          "Personality Cluster": "The Financial Analyst",
+          "Recommended Field of Study": "Finance & Investment",
+          "Relevant Courses": "BCom Finance, CFA, MSc Financial Engineering",
+          "Potential Career Pathways": "Investment Banker, Financial Analyst, Portfolio Manager",
+          "Recommended Colleges": "DU, JNU, DSE, ISI, DSE, IGIDR, JNU, Ashoka, Azim Premji University, NLSIU"
+        },
+        {
+          "ID": 3,
+          "IQ Range": [120,1000],
+          "Personality Cluster": "The Entrepreneurial Leader",
+          "Recommended Field of Study": "Entrepreneurship & Startups",
+          "Relevant Courses": "BBA Entrepreneurship, MBA Innovation",
+          "Potential Career Pathways": "Entrepreneur, Startup Founder, Business Development Manager",
+          "Recommended Colleges": "DU, JNU, DSE, ISI, DSE, IGIDR, JNU, Ashoka, Azim Premji University, NLSIU"
+        },
+        {
+          "ID": 1,
+          "IQ Range": [120,1000],
+          "Personality Cluster": "The Market Disruptor",
+          "Recommended Field of Study": "Marketing & Brand Management",
+          "Relevant Courses": "BBA Marketing, MBA Digital Marketing",
+          "Potential Career Pathways": "Marketing Manager, Brand Strategist, Digital Marketing Expert",
+          "Recommended Colleges": "DU, JNU, DSE, ISI, DSE, IGIDR, JNU, Ashoka, Azim Premji University, NLSIU"
+        },
+        {
+          "ID": 5,
+          "IQ Range": [120,1000],
+          "Personality Cluster": "The Policy Expert",
+          "Recommended Field of Study": "Economics & Public Policy",
+          "Relevant Courses": "BA Economics, MSc Development Economics",
+          "Potential Career Pathways": "Economist, Policy Analyst, Economic Consultant",
+          "Recommended Colleges": "DU, JNU, DSE, ISI, DSE, IGIDR, JNU, Ashoka, Azim Premji University, NLSIU"
+        },
+        {
+          "ID": 6,
+          "IQ Range": [120,1000],
+          "Personality Cluster": "The Analytical Planner",
+          "Recommended Field of Study": "Accounting & Auditing",
+          "Relevant Courses": "BCom Accounting, CA, CPA",
+          "Potential Career Pathways": "Chartered Accountant, Auditor, Financial Controller",
+          "Recommended Colleges": "DU, JNU, DSE, ISI, DSE, IGIDR, JNU, Ashoka, Azim Premji University, NLSIU"
+        },
+        {
+          "ID": 2,
+          "IQ Range": [100,120],
+          "Personality Cluster": "The Strategic Visionary",
+          "Recommended Field of Study": "International Business",
+          "Relevant Courses": "BBA IB, MBA International Business",
+          "Potential Career Pathways": "International Business Manager, Global Marketing Director",
+          "Recommended Colleges": "IIMs, FMS, IIFT, XLRI"
+        },
+        {
+          "ID": 4,
+          "IQ Range": [100,120],
+          "Personality Cluster": "The Financial Analyst",
+          "Recommended Field of Study": "Actuarial Science",
+          "Relevant Courses": "BSc Actuarial Science, MSc Actuarial Science",
+          "Potential Career Pathways": "Actuary, Risk Manager, Financial Planner",
+          "Recommended Colleges": "LSE, Cass Business School, Amity University"
+        },
+        {
+          "ID": 3,
+          "IQ Range": [100,120],
+          "Personality Cluster": "The Entrepreneurial Leader",
+          "Recommended Field of Study": "Social Entrepreneurship",
+          "Relevant Courses": "BA Social Entrepreneurship, MBA Social Impact",
+          "Potential Career Pathways": "Social Entrepreneur, NGO Manager, CSR Consultant",
+          "Recommended Colleges": "TISS, IRMA, Ashoka University"
+        },
+        {
+          "ID": 1,
+          "IQ Range": [100,120],
+          "Personality Cluster": "The Market Disruptor",
+          "Recommended Field of Study": "Retail Management",
+          "Relevant Courses": "BBA Retail Management, MBA Retail Operations",
+          "Potential Career Pathways": "Retail Manager, E-commerce Specialist, Supply Chain Manager",
+          "Recommended Colleges": "NIFT, IIMs, Symbiosis"
+        },
+        {
+          "ID": 5,
+          "IQ Range": [100,120],
+          "Personality Cluster": "The Policy Expert",
+          "Recommended Field of Study": "Urban & Regional Planning",
+          "Relevant Courses": "BPlan, MPlan",
+          "Potential Career Pathways": "Urban Planner, Regional Development Officer",
+          "Recommended Colleges": "CEPT, SPA, IITs"
+        },
+        {
+          "ID": 6,
+          "IQ Range": [100,120],
+          "Personality Cluster": "The Analytical Planner",
+          "Recommended Field of Study": "Financial Planning",
+          "Relevant Courses": "BCom Finance, CFP",
+          "Potential Career Pathways": "Financial Planner, Investment Advisor",
+          "Recommended Colleges": "DU, Amity University"
+        },
+        {
+          "ID": 2,
+          "IQ Range": [90,100],
+          "Personality Cluster": "The Strategic Visionary",
+          "Recommended Field of Study": "Human Resources Management",
+          "Relevant Courses": "BBA HR, MBA HR",
+          "Potential Career Pathways": "HR Manager, Talent Acquisition Specialist",
+          "Recommended Colleges": "XLRI, TISS, Symbiosis"
+        },
+        {
+          "ID": 4,
+          "IQ Range": [90,100],
+          "Personality Cluster": "The Financial Analyst",
+          "Recommended Field of Study": "Banking & Insurance",
+          "Relevant Courses": "BCom Banking & Insurance, MBA Finance",
+          "Potential Career Pathways": "Bank Manager, Insurance Agent",
+          "Recommended Colleges": "DU, Amity University"
+        },
+        {
+          "ID": 3,
+          "IQ Range": [90,100],
+          "Personality Cluster": "The Entrepreneurial Leader",
+          "Recommended Field of Study": "Family Business Management",
+          "Relevant Courses": "BBA, MBA Family Business",
+          "Potential Career Pathways": "Family Business Owner, Business Consultant",
+          "Recommended Colleges": "SP Jain, NMIMS"
+        },
+        {
+          "ID": 1,
+          "IQ Range": [90,100],
+          "Personality Cluster": "The Market Disruptor",
+          "Recommended Field of Study": "Sales Management",
+          "Relevant Courses": "BBA Sales, MBA Marketing",
+          "Potential Career Pathways": "Sales Manager, Business Development Executive",
+          "Recommended Colleges": "DU, Amity University"
+        },
+        {
+          "ID": 5,
+          "IQ Range": [90,100],
+          "Personality Cluster": "The Policy Expert",
+          "Recommended Field of Study": "Public Administration",
+          "Relevant Courses": "BA Public Administration, MA Public Policy",
+          "Potential Career Pathways": "Public Administrator, Civil Servant",
+          "Recommended Colleges": "IIPA, JNU, DU"
+        },
+        {
+          "ID": 6,
+          "IQ Range": [90,100],
+          "Personality Cluster": "The Analytical Planner",
+          "Recommended Field of Study": "Taxation",
+          "Relevant Courses": "BCom Taxation, MCom Finance",
+          "Potential Career Pathways": "Tax Consultant, Tax Accountant",
+          "Recommended Colleges": "DU, Amity University"
+        },
+        {
+          "ID": 2,
+          "IQ Range": [80,90],
+          "Personality Cluster": "The Strategic Visionary",
+          "Recommended Field of Study": "Office Administration",
+          "Relevant Courses": "BBA, Diploma in Office Management",
+          "Potential Career Pathways": "Office Manager, Administrative Assistant",
+          "Recommended Colleges": "IGNOU, Vocational Institutes"
+        },
+        {
+          "ID": 4,
+          "IQ Range": [80,90],
+          "Personality Cluster": "The Financial Analyst",
+          "Recommended Field of Study": "Banking Operations",
+          "Relevant Courses": "BCom, Diploma in Banking",
+          "Potential Career Pathways": "Bank Teller, Clerk",
+          "Recommended Colleges": "IGNOU, Vocational Institutes"
+        },
+        {
+          "ID": 3,
+          "IQ Range": [80,90],
+          "Personality Cluster": "The Entrepreneurial Leader",
+          "Recommended Field of Study": "Small Business Management",
+          "Relevant Courses": "BBA, Diploma in Small Business Management",
+          "Potential Career Pathways": "Small Business Owner, Retail Manager",
+          "Recommended Colleges": "IGNOU, Vocational Institutes"
+        },
+        {
+          "ID": 1,
+          "IQ Range": [80,90],
+          "Personality Cluster": "The Market Disruptor",
+          "Recommended Field of Study": "Customer Service",
+          "Relevant Courses": "BA, Certificate in Customer Service",
+          "Potential Career Pathways": "Customer Service Representative, Sales Assistant",
+          "Recommended Colleges": "IGNOU, Vocational Institutes"
+        },
+        {
+          "ID": 5,
+          "IQ Range": [80,90],
+          "Personality Cluster": "The Policy Expert",
+          "Recommended Field of Study": "Local Governance",
+          "Relevant Courses": "BA Public Administration, Diploma in Local Governance",
+          "Potential Career Pathways": "Local Administrator, Panchayat Officer",
+          "Recommended Colleges": "IGNOU, Vocational Institutes"
+        },
+        {
+          "ID": 6,
+          "IQ Range": [80,90],
+          "Personality Cluster": "The Analytical Planner",
+          "Recommended Field of Study": "Accounting Assistance",
+          "Relevant Courses": "BCom, Certificate in Accounting",
+          "Potential Career Pathways": "Accounts Assistant, Bookkeeper",
+          "Recommended Colleges": "IGNOU, Vocational Institutes"
+        },
+        {
+          "ID": 2,
+          "IQ Range": [0,80],
+          "Personality Cluster": "The Strategic Visionary",
+          "Recommended Field of Study": "Basic Office Skills",
+          "Relevant Courses": "Certificate in Office Skills",
+          "Potential Career Pathways": "Office Helper, Messenger",
+          "Recommended Colleges": "Vocational Training Centers"
+        },
+        {
+          "ID": 4,
+          "IQ Range": [0,80],
+          "Personality Cluster": "The Financial Analyst",
+          "Recommended Field of Study": "Cash Handling",
+          "Relevant Courses": "Certificate in Cash Management",
+          "Potential Career Pathways": "Cashier, Teller Assistant",
+          "Recommended Colleges": "Vocational Training Centers"
+        },
+        {
+          "ID": 3,
+          "IQ Range": [0,80],
+          "Personality Cluster": "The Entrepreneurial Leader",
+          "Recommended Field of Study": "Retail Assistance",
+          "Relevant Courses": "Certificate in Retail Skills",
+          "Potential Career Pathways": "Shop Assistant, Sales Helper",
+          "Recommended Colleges": "Vocational Training Centers"
+        },
+        {
+          "ID": 1,
+          "IQ Range": [0,80],
+          "Personality Cluster": "The Market Disruptor",
+          "Recommended Field of Study": "Basic Sales Skills",
+          "Relevant Courses": "Certificate in Sales Techniques",
+          "Potential Career Pathways": "Sales Trainee, Counter Staff",
+          "Recommended Colleges": "Vocational Training Centers"
+        },
+        {
+          "ID": 5,
+          "IQ Range": [0,80],
+          "Personality Cluster": "The Policy Expert",
+          "Recommended Field of Study": "Civic Engagement",
+          "Relevant Courses": "Certificate in Community Service",
+          "Potential Career Pathways": "Community Volunteer, Civic Worker",
+          "Recommended Colleges": "Vocational Training Centers"
+        },
+        {
+          "ID": 6,
+          "IQ Range": [0,80],
+          "Personality Cluster": "The Analytical Planner",
+          "Recommended Field of Study": "Basic Accounting",
+          "Relevant Courses": "Certificate in Basic Accounting",
+          "Potential Career Pathways": "Accounts Clerk, Data Entry Operator",
+          "Recommended Colleges": "Vocational Training Centers"
+        }
       ]
-     }
+    },
+
+    {
+      "Social Sciences, Humanities, and Political Studies": [
+        {
+          "ID": 2,
+          "IQ Range": [120,1000],
+          "Personality Cluster": "The Thought Leader",
+          "Recommended Field of Study": "Political Science & International Relations",
+          "Relevant Courses": "BA Political Science, MA International Relations",
+          "Potential Career Pathways": "Diplomat, Policy Analyst, Political Consultant",
+          "Recommended Colleges": "JNU, DU or any other top 10 colleges"
+        },
+        {
+          "ID": 4,
+          "IQ Range": [120,1000],
+          "Personality Cluster": "The Cultural Analyst",
+          "Recommended Field of Study": "Sociology & Anthropology",
+          "Relevant Courses": "BA Sociology, MA Anthropology",
+          "Potential Career Pathways": "Social Researcher, Cultural Analyst, NGO Consultant",
+          "Recommended Colleges": "DSE, TISS, or any other top 10 colleges"
+        },
+        {
+          "ID": 3,
+          "IQ Range": [120,1000],
+          "Personality Cluster": "The Ethical Strategist",
+          "Recommended Field of Study": "Law & Human Rights",
+          "Relevant Courses": "BA LLB, LLM Human Rights",
+          "Potential Career Pathways": "Lawyer, Human Rights Advocate, Legal Consultant",
+          "Recommended Colleges": "NLSIU, NALSAR, or any other top 10 colleges"
+        },
+        {
+          "ID": 1,
+          "IQ Range": [120,1000],
+          "Personality Cluster": "The Visionary Communicator",
+          "Recommended Field of Study": "Journalism & Media Studies",
+          "Relevant Courses": "BA Journalism, MA Media Studies",
+          "Potential Career Pathways": "Journalist, Media Analyst, Editor",
+          "Recommended Colleges": "IIMC, XIC, or any other top 10 colleges"
+        },
+        {
+          "ID": 5,
+          "IQ Range": [120,1000],
+          "Personality Cluster": "The Philosophical Thinker",
+          "Recommended Field of Study": "Philosophy & Ethics",
+          "Relevant Courses": "BA Philosophy, MA Ethics",
+          "Potential Career Pathways": "Philosopher, Ethics Consultant, Academic Researcher",
+          "Recommended Colleges": "DU, Jadavpur University, or any other top 10 colleges"
+        },
+        {
+          "ID": 6,
+          "IQ Range": [120,1000],
+          "Personality Cluster": "The Economic Strategist",
+          "Recommended Field of Study": "Economics & Development Studies",
+          "Relevant Courses": "BA Economics, MA Development Studies",
+          "Potential Career Pathways": "Economist, Development Policy Analyst, Financial Consultant",
+          "Recommended Colleges": "Delhi School of Economics, Indian Statistical Institute (ISI), or any other top 10 colleges"
+        },
+        {
+          "ID": 2,
+          "IQ Range": [100,120],
+          "Personality Cluster": "The Thought Leader",
+          "Recommended Field of Study": "Governance & Public Administration",
+          "Relevant Courses": "BA Public Administration, MA Public Policy",
+          "Potential Career Pathways": "Civil Servant, Government Advisor, Policy Analyst",
+          "Recommended Colleges": "JNU, Indian Institute of Public Administration (IIPA), or any other top 20 colleges"
+        },
+        {
+          "ID": 4,
+          "IQ Range": [100,120],
+          "Personality Cluster": "The Cultural Analyst",
+          "Recommended Field of Study": "Psychology & Social Behavior",
+          "Relevant Courses": "BA Psychology, MA Social Psychology",
+          "Potential Career Pathways": "Psychologist, Social Worker, Behavioral Analyst",
+          "Recommended Colleges": "SRCC/LSR, Christ University, or any other top 20 colleges"
+        },
+        {
+          "ID": 3,
+          "IQ Range": [100,120],
+          "Personality Cluster": "The Ethical Strategist",
+          "Recommended Field of Study": "Criminology & Forensic Studies",
+          "Relevant Courses": "BA Criminology, MSc Forensic Science",
+          "Potential Career Pathways": "Criminologist, Forensic Analyst, Legal Investigator",
+          "Recommended Colleges": "LNJN National Institute of Criminology & Forensic Science, or any other top 20 colleges"
+        },
+        {
+          "ID": 1,
+          "IQ Range": [100,120],
+          "Personality Cluster": "The Visionary Communicator",
+          "Recommended Field of Study": "Mass Communication & Public Relations",
+          "Relevant Courses": "BA Mass Communication, MA Public Relations",
+          "Potential Career Pathways": "PR Specialist, Corporate Communicator, Media Planner",
+          "Recommended Colleges": "Symbiosis Institute of Media & Communication (SIMC), Amity School of Communication, or any other top 20 colleges"
+        },
+        {
+          "ID": 5,
+          "IQ Range": [100,120],
+          "Personality Cluster": "The Philosophical Thinker",
+          "Recommended Field of Study": "Religious Studies & Theology",
+          "Relevant Courses": "BA Religious Studies, MA Theology",
+          "Potential Career Pathways": "Theologian, Ethics Advisor, Clerical Scholar",
+          "Recommended Colleges": "Banaras Hindu University (BHU), or any other top 20 colleges"
+        },
+        {
+          "ID": 6,
+          "IQ Range": [100,120],
+          "Personality Cluster": "The Economic Strategist",
+          "Recommended Field of Study": "Urban Planning & Development",
+          "Relevant Courses": "BA Urban Studies, MSc City Planning",
+          "Potential Career Pathways": "Urban Planner, Development Consultant, Social Economist",
+          "Recommended Colleges": "School of Planning and Architecture (SPA), or any other top 20 colleges"
+        },
+        {
+          "ID": 2,
+          "IQ Range": [90,100],
+          "Personality Cluster": "The Thought Leader",
+          "Recommended Field of Study": "Local Governance & Social Work",
+          "Relevant Courses": "BA Social Work, MA Community Development",
+          "Potential Career Pathways": "Social Worker, Local Government Officer, NGO Coordinator",
+          "Recommended Colleges": "Tata Institute of Social Sciences (TISS), or any other top 30 colleges"
+        },
+        {
+          "ID": 4,
+          "IQ Range": [90,100],
+          "Personality Cluster": "The Cultural Analyst",
+          "Recommended Field of Study": "History & Cultural Studies",
+          "Relevant Courses": "BA History, MA Cultural Studies",
+          "Potential Career Pathways": "Historian, Museum Curator, Heritage Consultant",
+          "Recommended Colleges": "Delhi University (DU), Jawaharlal Nehru University (JNU), or any other top 30 colleges"
+        },
+        {
+          "ID": 3,
+          "IQ Range": [90,100],
+          "Personality Cluster": "The Ethical Strategist",
+          "Recommended Field of Study": "Paralegal & Legal Support",
+          "Relevant Courses": "Diploma in Paralegal Studies, BA Legal Services",
+          "Potential Career Pathways": "Paralegal, Legal Assistant, Law Office Manager",
+          "Recommended Colleges": "Government Law College (GLC), Mumbai, or any other top 30 colleges"
+        },
+        {
+          "ID": 1,
+          "IQ Range": [90,100],
+          "Personality Cluster": "The Visionary Communicator",
+          "Recommended Field of Study": "Broadcasting & Digital Media",
+          "Relevant Courses": "Diploma in Broadcasting, BA Digital Media",
+          "Potential Career Pathways": "Radio Broadcaster, Content Creator, News Producer",
+          "Recommended Colleges": "Film and Television Institute of India (FTII), or any other top 30 colleges"
+        },
+        {
+          "ID": 5,
+          "IQ Range": [90,100],
+          "Personality Cluster": "The Philosophical Thinker",
+          "Recommended Field of Study": "Ethics & Social Responsibility",
+          "Relevant Courses": "Diploma in Ethics Studies, MA Corporate Responsibility",
+          "Potential Career Pathways": "CSR Manager, Ethics Auditor, Policy Advisor",
+          "Recommended Colleges": "Tata Institute of Social Sciences (TISS), or any other top 30 colleges"
+        },
+        {
+          "ID": 6,
+          "IQ Range": [90,100],
+          "Personality Cluster": "The Economic Strategist",
+          "Recommended Field of Study": "Market Research & Consumer Studies",
+          "Relevant Courses": "BA Marketing, MSc Consumer Behavior",
+          "Potential Career Pathways": "Market Research Analyst, Consumer Psychologist, Economic Consultant",
+          "Recommended Colleges": "Indian Institute of Management (IIMs), or any other top 30 colleges"
+        },
+        {
+          "ID": 2,
+          "IQ Range": [80,90],
+          "Personality Cluster": "The Thought Leader",
+          "Recommended Field of Study": "Community Service & Social Outreach",
+          "Relevant Courses": "Certificate in Community Work, Diploma in Social Services",
+          "Potential Career Pathways": "Community Outreach Worker, NGO Assistant",
+          "Recommended Colleges": "Indira Gandhi National Open University (IGNOU), or any other top 50 colleges"
+        },
+        {
+          "ID": 4,
+          "IQ Range": [80,90],
+          "Personality Cluster": "The Cultural Analyst",
+          "Recommended Field of Study": "Museum & Heritage Work",
+          "Relevant Courses": "Certificate in Museum Studies, Diploma in Cultural Heritage",
+          "Potential Career Pathways": "Museum Assistant, Tour Guide, Cultural Coordinator",
+          "Recommended Colleges": "National Museum Institute, Delhi, or any other top 50 colleges"
+        },
+        {
+          "ID": 3,
+          "IQ Range": [80,90],
+          "Personality Cluster": "The Ethical Strategist",
+          "Recommended Field of Study": "Law Enforcement & Security Studies",
+          "Relevant Courses": "Diploma in Security Studies, BA Criminology",
+          "Potential Career Pathways": "Security Analyst, Law Enforcement Officer",
+          "Recommended Colleges": "Sardar Vallabhbhai Patel National Police Academy, or any other top 50 colleges"
+        },
+        {
+          "ID": 1,
+          "IQ Range": [80,90],
+          "Personality Cluster": "The Visionary Communicator",
+          "Recommended Field of Study": "Public Speaking & Event Hosting",
+          "Relevant Courses": "Certificate in Public Speaking, Diploma in Event Management",
+          "Potential Career Pathways": "Event Host, Public Speaker, Community Moderator",
+          "Recommended Colleges": "National School of Drama (NSD), or any other top 50 colleges"
+        },
+        {
+          "ID": 5,
+          "IQ Range": [80,90],
+          "Personality Cluster": "The Philosophical Thinker",
+          "Recommended Field of Study": "Basic Counseling & Social Guidance",
+          "Relevant Courses": "Certificate in Counseling Basics, Diploma in Community Psychology",
+          "Potential Career Pathways": "Counselor Assistant, Youth Mentor",
+          "Recommended Colleges": "Amity Institute of Psychology, or any other top 50 colleges"
+        },
+        {
+          "ID": 6,
+          "IQ Range": [80,90],
+          "Personality Cluster": "The Economic Strategist",
+          "Recommended Field of Study": "Cooperative Management & Rural Development",
+          "Relevant Courses": "Certificate in Cooperative Studies, Diploma in Rural Development",
+          "Potential Career Pathways": "Rural Development Officer, Cooperative Manager",
+          "Recommended Colleges": "Institute of Rural Management Anand (IRMA), or any other top 50 colleges"
+        },
+        {
+          "ID": 2,
+          "IQ Range": [0,80],
+          "Personality Cluster": "The Thought Leader",
+          "Recommended Field of Study": "Basic Administrative Support",
+          "Relevant Courses": "Certificate in Office Administration",
+          "Potential Career Pathways": "Office Assistant, Clerk",
+          "Recommended Colleges": "IGNOU, Local Polytechnic Institutes, or any other top 100 colleges"
+        },
+        {
+          "ID": 4,
+          "IQ Range": [0,80],
+          "Personality Cluster": "The Cultural Analyst",
+          "Recommended Field of Study": "Cultural Tourism & Local History",
+          "Relevant Courses": "Certificate in Cultural Tourism",
+          "Potential Career Pathways": "Tour Guide, Local Historian",
+          "Recommended Colleges": "Indian Institute of Tourism and Travel Management, or any other top 100 colleges"
+        },
+        {
+          "ID": 3,
+          "IQ Range": [0,80],
+          "Personality Cluster": "The Ethical Strategist",
+          "Recommended Field of Study": "Entry-Level Legal Support",
+          "Relevant Courses": "Certificate in Legal Office Assistance",
+          "Potential Career Pathways": "Legal Office Clerk, Court Assistant",
+          "Recommended Colleges": "State Government Law Institutes, or any other top 100 colleges"
+        },
+        {
+          "ID": 1,
+          "IQ Range": [0,80],
+          "Personality Cluster": "The Visionary Communicator",
+          "Recommended Field of Study": "Community Media & Storytelling",
+          "Relevant Courses": "Certificate in Community Media",
+          "Potential Career Pathways": "Local News Reporter, Community Storyteller",
+          "Recommended Colleges": "Local Media Training Centers, or any other top 100 colleges"
+        },
+        {
+          "ID": 5,
+          "IQ Range": [0,80],
+          "Personality Cluster": "The Philosophical Thinker",
+          "Recommended Field of Study": "Grassroots Advocacy & Awareness",
+          "Relevant Courses": "Certificate in Public Awareness Campaigns",
+          "Potential Career Pathways": "Advocacy Assistant, Public Awareness Officer",
+          "Recommended Colleges": "Any top 100 colleges"
+        },
+        {
+          "ID": 6,
+          "IQ Range": [0,80],
+          "Personality Cluster": "The Economic Strategist",
+          "Recommended Field of Study": "Microfinance & Financial Literacy",
+          "Relevant Courses": "Certificate in Microfinance",
+          "Potential Career Pathways": "Microfinance Assistant, Financial Literacy Trainer",
+          "Recommended Colleges": "National Institute of Financial Management, or any other top 100 colleges"
+        }
+      ]
+    },
+
+    {
+      "Arts, Media, and Communication": [
+        {
+          "IQ Range": [120,1000],
+          "ID": 2,
+          "Personality Cluster": "The Innovator",
+          "Recommended Field of Study": "Media Innovation & Digital Design",
+          "Relevant Courses": "BA Digital Media, MA Creative Technology",
+          "Potential Career Pathways": "Creative Director, Media Entrepreneur",
+          "Recommended Colleges": "JNU, Delhi School of Communication, IIMC, Delhi School of Communication, IIMC, and other top 10 colleges/ Universities"
+        },
+        {
+          "IQ Range": [120,1000],
+          "ID": 4,
+          "Personality Cluster": "The Analytical Thinker",
+          "Recommended Field of Study": "Communication Research & Media Theory",
+          "Relevant Courses": "BA Communication Studies, MA Media Research",
+          "Potential Career Pathways": "Media Analyst, Academic Researcher",
+          "Recommended Colleges": "MICA, University of Hyderabad JNU, Delhi School of Communication, IIMC, Delhi School of Communication, IIMC, and other top 10 colleges/ Universities"
+        },
+        {
+          "IQ Range": [120,1000],
+          "ID": 3,
+          "Personality Cluster": "The Practical Artist",
+          "Recommended Field of Study": "Film Production & Direction",
+          "Relevant Courses": "BFA Film Direction, MFA Cinematography",
+          "Potential Career Pathways": "Film Director, Cinematographer",
+          "Recommended Colleges": "FTII, Satyajit Ray Film Institute JNU, DU, and other top 10 colleges/ Universities"
+        },
+        {
+          "IQ Range": [120,1000],
+          "ID": 1,
+          "Personality Cluster": "The Visionary Leader",
+          "Recommended Field of Study": "Strategic Communication & Branding",
+          "Relevant Courses": "BA Mass Comm, MBA Communication Mgmt",
+          "Potential Career Pathways": "Brand Strategist, Corporate Communications Head",
+          "Recommended Colleges": "MICA, XIC, University of Hyderabad JNU, Delhi School of Communication, IIMC, Delhi School of Communication, IIMC, and other top 10 colleges/ Universities"
+        },
+        {
+          "IQ Range": [120,1000],
+          "ID": 5,
+          "Personality Cluster": "The Systematic Researcher",
+          "Recommended Field of Study": "Journalism & Investigative Reporting",
+          "Relevant Courses": "BA Journalism, MA Investigative Journalism",
+          "Potential Career Pathways": "Investigative Journalist, Media Ethics Consultant",
+          "Recommended Colleges": "IIMC, ACJ, University of Hyderabad JNU, Delhi School of Communication, IIMC, Delhi School of Communication, IIMC, and other top 10 colleges/ Universities"
+        },
+        {
+          "IQ Range": [120,1000],
+          "ID": 6,
+          "Personality Cluster": "The Adaptive Problem-Solver",
+          "Recommended Field of Study": "Animation & Interactive Media",
+          "Relevant Courses": "BDes Animation, MA Interactive Arts",
+          "Potential Career Pathways": "Animator, Game Designer",
+          "Recommended Colleges": "NID, MIT Institute of Design, Other top 10 colleges"
+        },
+        {
+          "IQ Range": [100,120],
+          "ID": 2,
+          "Personality Cluster": "The Innovator",
+          "Recommended Field of Study": "Creative Writing & Storytelling",
+          "Relevant Courses": "BA Literature, MA Creative Writing",
+          "Potential Career Pathways": "Author, Scriptwriter",
+          "Recommended Colleges": "DU, Ashoka University, Ashoka, JNU, FTII, XIC, MICA, SCMC."
+        },
+        {
+          "IQ Range": [100,120],
+          "ID": 4,
+          "Personality Cluster": "The Analytical Thinker",
+          "Recommended Field of Study": "Public Relations & Corporate Comm",
+          "Relevant Courses": "BA PR, MA Corp Comm",
+          "Potential Career Pathways": "PR Manager, Communications Officer",
+          "Recommended Colleges": "MICA, XIC, SIMC (Symbiosis), IIMC, Jamia Millia Islamia, Amity University, Delhi University, NMIMS, Christ University, SCMC (Symbiosis Centre for Media & Communication)"
+        },
+        {
+          "IQ Range": [100,120],
+          "ID": 3,
+          "Personality Cluster": "The Practical Artist",
+          "Recommended Field of Study": "Photography & Visual Arts",
+          "Relevant Courses": "BFA Photography, Diploma in Visual Arts",
+          "Potential Career Pathways": "Photographer, Visual Artist",
+          "Recommended Colleges": "NIFT, Delhi College of Art, FTII Pune, NID Ahmedabad, JJ School of Art Mumbai, Srishti Institute of Art (Bengaluru), NID Gandhinagar, MIT Institute of Design (Pune), BHU Chandigarh, Jamia M"
+        },
+        {
+          "IQ Range": [100,120],
+          "ID": 1,
+          "Personality Cluster": "The Visionary Leader",
+          "Recommended Field of Study": "Media Business & Management",
+          "Relevant Courses": "BBA Media Mgmt, MBA Media",
+          "Potential Career Pathways": "Media Manager, Channel Head",
+          "Recommended Colleges": "IIMs, NMIMS, Whistling Woods, MICA, Symbiosis SIMC Pune, XIC Mumbai, IIMC, Delhi School of Business, Christ University Bangalore"
+        },
+        {
+          "IQ Range": [100,120],
+          "ID": 5,
+          "Personality Cluster": "The Systematic Researcher",
+          "Recommended Field of Study": "Content Strategy & Editing",
+          "Relevant Courses": "BA English, MA Publishing",
+          "Potential Career Pathways": "Editor, Content Strategist",
+          "Recommended Colleges": "DU, Ambedkar University AJK Mass Communication Research Centre, IIMC, XIC Mumbai, SIMC Pune, MICA Ahmedabad, Asian College of Journalism (Chennai), Amity School of Communication, Christ University Bangalore, Delhi University (English Hons + Electives), FTII (for screenwriting/editing)"
+        },
+        {
+          "IQ Range": [100,120],
+          "ID": 6,
+          "Personality Cluster": "The Adaptive Problem-Solver",
+          "Recommended Field of Study": "Radio & Sound Design",
+          "Relevant Courses": "Diploma in Sound Design, BSc Audio Tech",
+          "Potential Career Pathways": "Sound Engineer, Radio Producer",
+          "Recommended Colleges": "FTII, SRFTI, Whistling Woods, AAFT, Ramoji Academy, SAE, Annapurna, XIC, and Seamedu"
+        },
+        {
+          "IQ Range": [90,100],
+          "ID": 2,
+          "Personality Cluster": "The Innovator",
+          "Recommended Field of Study": "Event Management",
+          "Relevant Courses": "Diploma in Event Management",
+          "Potential Career Pathways": "Event Planner, Production Coordinator",
+          "Recommended Colleges": "NIEM, National Academy of Event Management, NIEM, EMDI, NAEMD, INLEAD, Pearl Academy, Amity University, Apeejay Institute, NIMS."
+        },
+        {
+          "IQ Range": [90,100],
+          "ID": 4,
+          "Personality Cluster": "The Analytical Thinker",
+          "Recommended Field of Study": "Print Journalism",
+          "Relevant Courses": "Diploma in Journalism",
+          "Potential Career Pathways": "Reporter, Sub Editor",
+          "Recommended Colleges": "IGNOU, IIMC, ACJ, Jamia, DU, BHU, Symbiosis, XIC, Makhanlal Chaturvedi"
+        },
+        {
+          "IQ Range": [90,100],
+          "ID": 3,
+          "Personality Cluster": "The Practical Artist",
+          "Recommended Field of Study": "Make-up & Styling",
+          "Relevant Courses": "Diploma in Cosmetology",
+          "Potential Career Pathways": "Stylist, Makeup Artist",
+          "Recommended Colleges": "Pearl Academy, Private Cosmetology Institutes, FTII, Pearl Academy, NIFT, JD Institute, ISAS, Marvie Ann Beck Academy, VLCC Institute."
+        },
+        {
+          "IQ Range": [90,100],
+          "ID": 1,
+          "Personality Cluster": "The Visionary Leader",
+          "Recommended Field of Study": "Theatre Arts",
+          "Relevant Courses": "BA Theatre, MA Performing Arts",
+          "Potential Career Pathways": "Actor, Theatre Director",
+          "Recommended Colleges": "NSD, DU, FTII, BHU, (Kirori Mal, Miranda House), SNU, Ashoka, Jamia Millia Islamia"
+        },
+        {
+          "IQ Range": [90,100],
+          "ID": 5,
+          "Personality Cluster": "The Systematic Researcher",
+          "Recommended Field of Study": "Publication Design",
+          "Relevant Courses": "Diploma in Publishing Design",
+          "Potential Career Pathways": "Layout Designer, Print Media Executive",
+          "Recommended Colleges": "NIFT, NID, NIFT, Srishti, Pearl Academy, MIT-ID, UID, Symbiosis Institute of Design, Srishti Institute"
+        },
+        {
+          "IQ Range": [90,100],
+          "ID": 6,
+          "Personality Cluster": "The Adaptive Problem-Solver",
+          "Recommended Field of Study": "Set Design & Stage Craft",
+          "Relevant Courses": "Diploma in Stage Design, BFA Applied Arts",
+          "Potential Career Pathways": "Set Designer, Theatre Production Support",
+          "Recommended Colleges": "NSD, FTII, NID, Srishti, MIT-ID, Jamia Millia Islamia"
+        },
+        {
+          "IQ Range": [80,90],
+          "ID": 2,
+          "Personality Cluster": "The Innovator",
+          "Recommended Field of Study": "Folk Arts & Regional Media",
+          "Relevant Courses": "Certificate in Folk Arts",
+          "Potential Career Pathways": "Folk Performer, Local Presenter",
+          "Recommended Colleges": "IGNCA, BNA Lucknow, Kalakshetra, Visva-Bharati University, Kerala K., MSU Baroda, Jamia Millia Islamia, Regional Cultural Academies"
+        },
+        {
+          "IQ Range": [80,90],
+          "ID": 4,
+          "Personality Cluster": "The Analytical Thinker",
+          "Recommended Field of Study": "Video Editing & Post Production",
+          "Relevant Courses": "Certificate in Video Editing",
+          "Potential Career Pathways": "Video Editor, Assistant Director",
+          "Recommended Colleges": "FTII, Satyajit Ray Film & Television Institute (SRFTI), Whistling Woods, MAAC, AAFT, Jamia Millia Islamia, Zee Institute of Creative Arts (ZICA), Private Editing Institutes"
+        },
+        {
+          "IQ Range": [80,90],
+          "ID": 3,
+          "Personality Cluster": "The Practical Artist",
+          "Recommended Field of Study": "RJ, Community Radio",
+          "Relevant Courses": "Certificate in Community Media",
+          "Potential Career Pathways": "Community RJ, Radio Technician",
+          "Recommended Colleges": "FTII, SRFTI, Whistling Woods, AAFT, Ramoji Academy, SAE, Annapurna, XIC, Local NGOs, Community Radio Centers"
+        },
+        {
+          "IQ Range": [80,90],
+          "ID": 1,
+          "Personality Cluster": "The Visionary Leader",
+          "Recommended Field of Study": "Cultural Event Planning",
+          "Relevant Courses": "Diploma in Cultural Management",
+          "Potential Career Pathways": "Event Coordinator, Cultural Facilitator",
+          "Recommended Colleges": "NIEM, NAEMD, Pearl Academy, Amity University, EMDI Institute, Indian School of Media, IIEMState Cultural Bodies"
+        },
+        {
+          "IQ Range": [80,90],
+          "ID": 5,
+          "Personality Cluster": "The Systematic Researcher",
+          "Recommended Field of Study": "Printing Technology",
+          "Relevant Courses": "Certificate in Printing Techniques",
+          "Potential Career Pathways": "Print Technician, Publishing Assistant",
+          "Recommended Colleges": "Govt Polytechnics"
+        },
+        {
+          "IQ Range": [80,90],
+          "ID": 6,
+          "Personality Cluster": "The Adaptive Problem-Solver",
+          "Recommended Field of Study": "Basic Graphic Design",
+          "Relevant Courses": "Certificate in Graphic Design Basics",
+          "Potential Career Pathways": "Junior Designer, Creative Assistant",
+          "Recommended Colleges": "Vocational Training Institutes"
+        },
+        {
+          "IQ Range": [0,80],
+          "ID": 2,
+          "Personality Cluster": "The Innovator",
+          "Recommended Field of Study": "Painting & Art Support",
+          "Relevant Courses": "Certificate in Drawing & Painting",
+          "Potential Career Pathways": "Art Assistant, Community Art Teacher",
+          "Recommended Colleges": "Local Art Schools"
+        },
+        {
+          "IQ Range": [0,80],
+          "ID": 4,
+          "Personality Cluster": "The Analytical Thinker",
+          "Recommended Field of Study": "Audio Equipment Handling",
+          "Relevant Courses": "Certificate in Audio Equipment Maintenance",
+          "Potential Career Pathways": "Sound Helper, Studio Assistant",
+          "Recommended Colleges": "Community Audio Schools"
+        },
+        {
+          "IQ Range": [0,80],
+          "ID": 3,
+          "Personality Cluster": "The Practical Artist",
+          "Recommended Field of Study": "Costume Assistance",
+          "Relevant Courses": "Certificate in Costume Design",
+          "Potential Career Pathways": "Wardrobe Assistant, Costume Support Staff",
+          "Recommended Colleges": "Theatre Training Institutes"
+        },
+        {
+          "IQ Range": [0,80],
+          "ID": 1,
+          "Personality Cluster": "The Visionary Leader",
+          "Recommended Field of Study": "Local Media Communication",
+          "Relevant Courses": "Certificate in Local Reporting",
+          "Potential Career Pathways": "Local News Assistant, Communication Support",
+          "Recommended Colleges": "Local Journalism Institutes"
+        },
+        {
+          "IQ Range": [0,80],
+          "ID": 5,
+          "Personality Cluster": "The Systematic Researcher",
+          "Recommended Field of Study": "Archival Media Support",
+          "Relevant Courses": "Certificate in Media Archiving",
+          "Potential Career Pathways": "Media Archive Assistant, Tape Handler",
+          "Recommended Colleges": "Museums, Libraries"
+        },
+        {
+          "IQ Range": [0,80],
+          "ID": 6,
+          "Personality Cluster": "The Adaptive Problem-Solver",
+          "Recommended Field of Study": "Photography Assistance",
+          "Relevant Courses": "Certificate in Photo Assistance",
+          "Potential Career Pathways": "Camera Assistant, Studio Assistant",
+          "Recommended Colleges": "Photography Training Centers"
+        }
+      ]
+    }
   ]
 }
