@@ -532,50 +532,54 @@ export const CRHome = () => {
       {(iqResults && personalityResults && interestResults) && (
         <div className={styles.recommendationsSection}>
           <h2 className={styles.sectionTitle}>Recommended Career Paths</h2>
-          <div className={styles.careerGrid}>
-            {getCareerRecommendations(iqResults, personalityResults, interestResults)
-              .map((recommendation, index) => (
-                <div key={index} className={styles.careerCard}>
-                  <h3 className={styles.categoryTitle}>
-                    {recommendation.fieldName}
-                  </h3>
-                  <div className={styles.personalityType}>
-                    Recommended for: {recommendation.personalityType}
-                  </div>
-                  <div className={styles.recommendationContent}>
-                    <div className={styles.fieldOfStudy}>
-                      <h4>Recommended Field of Study</h4>
-                      <p>{recommendation.fieldOfStudy}</p>
-                    </div>
-                    <div className={styles.courses}>
-                      <h4>Relevant Courses</h4>
-                      <ul>
-                        {recommendation.courses.map((course, idx) => (
-                          <li key={idx}>{course}</li>
-                        ))}
-                      </ul>
-                    </div>
-                    <div className={styles.careers}>
-                      <h4>Potential Career Pathways</h4>
-                      <ul>
-                        {recommendation.careers.map((career, idx) => (
-                          <li key={idx}>{career}</li>
-                        ))}
-                      </ul>
-                    </div>
-                    {recommendation.colleges && recommendation.colleges.length > 0 && (
-                      <div className={styles.colleges}>
-                        <h4>Recommended Colleges</h4>
-                        <ul>
-                          {recommendation.colleges.map((college, idx) => (
-                            <li key={idx}>{college}</li>
+          <div className={styles.tableContainer}>
+            <table className={styles.recommendationsTable}>
+              <thead>
+                <tr>
+                  <th>Field</th>
+                  <th>Personality Type</th>
+                  <th>Field of Study</th>
+                  <th>Relevant Courses</th>
+                  <th>Potential Career Pathways</th>
+                  <th>Recommended Colleges</th>
+                </tr>
+              </thead>
+              <tbody>
+                {getCareerRecommendations(iqResults, personalityResults, interestResults)
+                  .map((recommendation, index) => (
+                    <tr key={index}>
+                      <td>{recommendation.fieldName}</td>
+                      <td>{recommendation.personalityType}</td>
+                      <td>{recommendation.fieldOfStudy}</td>
+                      <td>
+                        <ul className={styles.tableList}>
+                          {recommendation.courses.map((course, idx) => (
+                            <li key={idx}>{course}</li>
                           ))}
                         </ul>
-                      </div>
-                    )}
-                  </div>
-                </div>
-              ))}
+                      </td>
+                      <td>
+                        <ul className={styles.tableList}>
+                          {recommendation.careers.map((career, idx) => (
+                            <li key={idx}>{career}</li>
+                          ))}
+                        </ul>
+                      </td>
+                      <td>
+                        {recommendation.colleges && recommendation.colleges.length > 0 ? (
+                          <ul className={styles.tableList}>
+                            {recommendation.colleges.map((college, idx) => (
+                              <li key={idx}>{college}</li>
+                            ))}
+                          </ul>
+                        ) : (
+                          <span>Not specified</span>
+                        )}
+                      </td>
+                    </tr>
+                  ))}
+              </tbody>
+            </table>
           </div>
         </div>
       )}
