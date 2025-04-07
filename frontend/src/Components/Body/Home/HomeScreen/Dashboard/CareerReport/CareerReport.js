@@ -1,648 +1,1042 @@
-import React, { useState, useEffect } from "react";
-import "./CareerReport.css";
-import { Spinner, Container, Row, Col, Card, ProgressBar, Badge } from 'react-bootstrap';
-import { updateUserProfileHandler, getUserProfileHandler, getTestResultsHandler } from "../apiHandler";
+import React, { useState, useEffect, useRef } from "react";
+import { Container, Card, Button, Spinner, Alert } from "react-bootstrap";
 import { useAlert } from "../../../../../UI/Alert/AlertContext";
 
-// Dummy data simulating backend response
-const dummyData = {
-  studentDetails: {
-    studentName: "Alok Prajapati",
-    schoolName: "St. Mary's High School",
-    class: "12th Grade - Science"
-  },
-  personalityScores: {
-    extraversion: 81,
-    agreeableness: 75,
-    conscientiousness: 74,
-    neuroticism: 64,
-    openness: 71
+import { FaDownload, FaUserCircle, FaBrain, FaSearch } from "react-icons/fa";
+import styles from "./CareerReport.module.css";
+import data from "../CareerRecommendations/CRHome/data-v2.json";
+import { getProfileHandler, getTestResultsHandler } from "../apiHandler";
+import jsPDF from 'jspdf';
+import html2canvas from 'html2canvas';
+
+const CommonPersonalityTypes = data["Common Personality Types"];
+
+let CareerRecommendations = [];
+
+try {
+  CareerRecommendations = data["Career Recommendations"] || [];
+} catch (error) {
+  console.error("Error loading data from JSON:", error);
+}
+
+const getPersonalityLabel = (trait, score) => {
+  const labels = {
+    extraversion: { low: "Introvert", high: "Extrovert" },
+    agreeableness: { low: "Self-Centered", high: "Empathetic" },
+    conscientiousness: { low: "Unorganized", high: "Organized" },
+    neuroticism: { low: "Emotionally Stable", high: "Emotional" },
+    openness: { low: "Rigid", high: "Early Adopter" },
+  };
+
+  return score > 50 ? labels[trait].high : labels[trait].low;
+};
+
+const calculatePersonalityTypeMatch = (personalityResults) => {
+  if (!personalityResults?.result) {
+    console.log("No personality results found");
+    return [];
+  }
+
+  // Check if CommonPersonalityTypes exists
+  if (!CommonPersonalityTypes) {
+    console.error("CommonPersonalityTypes is not defined");
+    return [];
+  }
+
+  // Define the trait mappings with their corresponding scores
+  const traitMappings = {
+    extraversion: {
+      left: "Introvert",
+      right: "Extrovert",
+      score: personalityResults.result.extraversion
+    },
+    agreeableness: {
+      left: "Self-Centered",
+      right: "Altruist",
+      score: personalityResults.result.agreeableness
+    },
+    conscientiousness: {
+      left: "Unorganized",
+      right: "Organized",
+      score: personalityResults.result.conscientiousness
+    },
+    neuroticism: {
+      left: "Emotionally Stable",
+      right: "Emotional",
+      score: personalityResults.result.neuroticism
+    },
+    openness: {
+      left: "Rigid",
+      right: "Early Adopter",
+      score: personalityResults.result.openness
+    }
+  };
+
+  try {
+    // Calculate match score for each personality type
+    const personalityTypeScores = Object.entries(CommonPersonalityTypes).map(([type, traits]) => {
+      let matchScore = 0;
+      
+      // For each trait in the personality type
+      traits.forEach(trait => {
+        // Find which trait dimension this trait belongs to
+        for (const [dimension, mapping] of Object.entries(traitMappings)) {
+          if (trait === mapping.left || trait === mapping.right) {
+            // If the trait is on the "left" side, subtract from 100
+            if (trait === mapping.left) {
+              const traitScore = 100 - mapping.score;
+              matchScore += traitScore;
+            } else {
+              // If the trait is on the "right" side, use the score directly
+              matchScore += mapping.score;
+            }
+            break;
+          }
+        }
+      });
+      
+      return { type, matchScore };
+    });
+
+    // Sort by match score and get top 3
+    const topTypes = personalityTypeScores
+      .sort((a, b) => {
+        // First sort by score (descending)
+        if (b.matchScore !== a.matchScore) {
+          return b.matchScore - a.matchScore;
+        }
+        // If scores are equal, sort alphabetically by type name
+        return a.type.localeCompare(b.type);
+      })
+      .slice(0, 3)
+      .map(score => score.type);
+    
+    // Ensure we always return 3 personality types
+    // If we have fewer than 3, add the remaining personality types from personalityTypeArray
+    if (topTypes.length < 3) {
+      const remainingTypes = data["personalityTypeArray"].filter(type => !topTypes.includes(type));
+      topTypes.push(...remainingTypes.slice(0, 3 - topTypes.length));
+    }
+    
+    return topTypes;
+  } catch (error) {
+    console.error("Error in calculatePersonalityTypeMatch:", error);
+    return [];
   }
 };
 
-export const CareerReport = () => {
-  // Initialize studentData with default values
-  const [studentData, setStudentData] = useState({
-    studentDetails: {
-      studentName: "N/A",
-      schoolName: "N/A",
-      class: "N/A"
-    }
+const getCareerRecommendations = (iqResults, personalityResults, interestResults) => {
+  if (!CareerRecommendations || !CommonPersonalityTypes) {
+    console.error("Required data is not loaded");
+    return [];
+  }
+
+  // Get IQ category
+  const iqScore = iqResults?.result?.label ? (!isNaN(iqResults.result.label) ? Number(iqResults.result.label) : 0) : 0;
+  const iqCategory = iqScore < 80 ? 1 : 
+                    iqScore < 90 ? 81 : 
+                    iqScore < 100 ? 91 : 
+                    iqScore < 120 ? 101 : 121;
+
+  // Get top 3 matching personality types
+  const matchingPersonalityTypes = calculatePersonalityTypeMatch(personalityResults);
+
+  // Map personality types to their IDs
+  const personalityTypeToId = {};
+  data["personalityTypeArray"].forEach((type, index) => {
+    personalityTypeToId[type] = index + 1; // IDs start from 1
   });
-  const [testResults, setTestResults] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [printLoading, setPrintLoading] = useState(false);
-  const [activeSection, setActiveSection] = useState(null);
-  const { showAlert } = useAlert();
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const [profileResponse, testResponse] = await Promise.all([
-          getUserProfileHandler(setLoading, showAlert),
-          getTestResultsHandler(setLoading, showAlert)
-        ]);
+  // Create a map to group recommendations by field
+  const fieldMap = new Map();
 
-        if (profileResponse && profileResponse.success && profileResponse.data) {
-          const userData = {
-            studentDetails: {
-              studentName: profileResponse.data.User?.name || "N/A",
-              schoolName: profileResponse.data.institutionName || "N/A",
-              class: `${profileResponse.data.standard || "N/A"} - ${profileResponse.data.course || "N/A"} ${profileResponse.data.branch ? `(${profileResponse.data.branch})` : ''}`
-            }
-          };
-          setStudentData(userData);
+  if (interestResults?.['16']) {
+    const interests = Array.isArray(interestResults['16']) ? 
+      interestResults['16'] : 
+      Object.entries(interestResults['16'])
+        .sort(([,a], [,b]) => b - a)
+        .map(([subject]) => subject);
+
+    // Process each career field in the CareerRecommendations array
+    CareerRecommendations.forEach(careerField => {
+      // Get the field name (e.g., "STEM (Science, Technology, Engineering, and Mathematics)")
+      const fieldName = Object.keys(careerField)[0];
+      const careerOptions = careerField[fieldName];
+
+      // Extract the main category from the field name (e.g., "STEM" from "STEM (Science, Technology, Engineering, and Mathematics)")
+      const mainCategory = fieldName.split(' ')[0].toLowerCase();
+      
+      // Check if any interest matches this field
+      const matchingInterest = interests.find(interest => {
+        // Get the first word of the interest
+        const firstWord = interest.split(' ')[0].toLowerCase();
+        
+        // Simple matching based on first word
+        if (mainCategory === 'stem' && 
+            (firstWord === 'science,' || 
+             firstWord === 'technology' || 
+             firstWord === 'engineering' || 
+             firstWord === 'mathematics')) {
+          return true;
         }
+        
+        if (mainCategory === 'medical' && 
+            (firstWord === 'medical,' || 
+             firstWord === 'health' || 
+             firstWord === 'medicine' || 
+             firstWord === 'biology')) {
+          return true;
+        }
+        
+        if (mainCategory === 'business' && 
+            (firstWord === 'business' || 
+             firstWord === 'economics' || 
+             firstWord === 'finance' || 
+             firstWord === 'management')) {
+          return true;
+        }
+        
+        if (mainCategory === 'social' && 
+            (firstWord === 'social' || 
+             firstWord === 'psychology' || 
+             firstWord === 'sociology' || 
+             firstWord === 'anthropology')) {
+          return true;
+        }
+        
+        if (mainCategory === 'arts' && 
+            (firstWord === 'arts' || 
+             firstWord === 'humanities' || 
+             firstWord === 'literature' || 
+             firstWord === 'history')) {
+          return true;
+        }
+        
+        // Direct match with the main category
+        return firstWord === mainCategory;
+      });
 
-        if (testResponse && testResponse.success && testResponse.data) {
-          // Transform the API response to match our component structure
-          setTestResults({
-            iq: {
-              score: testResponse.data.results.iq?.detailedResult?.result?.label || "0",
-              strongAreas: testResponse.data.results.iq?.detailedResult?.result?.strongAreas || [
-                "Logical Reasoning",
-                "Pattern Recognition",
-                "Spatial Visualization"
-              ],
-              improvementAreas: testResponse.data.results.iq?.detailedResult?.result?.improvementAreas || [
-                "Verbal Comprehension",
-                "Working Memory"
-              ]
-            },
-            interest: {
-              // Transform interests data from the response
-              technology: testResponse.data.interests["10"] ? 75 : 0,
-              science: testResponse.data.interests["12"] ? 75 : 0,
-              arts: testResponse.data.interests["16"]?.includes("Social Sciences, Humanities, and Political Studies") ? 75 : 0
-            },
-            personality: {
-              // Map personality scores from the response
-              extraversion: testResponse.data.results.personality?.detailedResult?.result?.extraversion || 0,
-              agreeableness: testResponse.data.results.personality?.detailedResult?.result?.agreeableness || 0,
-              conscientiousness: testResponse.data.results.personality?.detailedResult?.result?.conscientiousness || 0,
-              neuroticism: testResponse.data.results.personality?.detailedResult?.result?.neuroticism || 0,
-              openness: testResponse.data.results.personality?.detailedResult?.result?.openness || 0
-            },
-            creativity: {
-              // Add creativity scores if needed
-              score: testResponse.data.results.creativity?.detailedResult?.result?.total || 0,
-              label: testResponse.data.results.creativity?.detailedResult?.result?.label || "N/A",
-              categories: testResponse.data.results.creativity?.detailedResult?.result?.categoryScores || {}
-            }
+      if (!matchingInterest) {
+        return; // Skip this field if no matching interest
+      }
+
+      if (!careerOptions || !Array.isArray(careerOptions)) {
+        return;
+      }
+
+      // Process each career option
+      careerOptions.forEach(option => {
+        // Get the personality ID for this option
+        const personalityId = option.ID;
+        
+        // Check if this personality ID matches any of the user's personality types
+        const matchingPersonality = matchingPersonalityTypes.find(type => {
+          // Get the index of the personality type in the personalityTypeArray
+          const personalityIndex = data["personalityTypeArray"].indexOf(type);
+          // Add 1 to match the ID (since IDs start from 1)
+          return personalityIndex + 1 === personalityId;
+        });
+        
+        if (!matchingPersonality) {
+          return; // Skip if personality doesn't match
+        }
+        
+        // Check if IQ range matches
+        const optionIQStart = option["IQ Range"][0];
+        const optionIQEnd = option["IQ Range"][1];
+        const userIQ = iqCategory;
+
+        // Check if IQ falls within range
+        if (userIQ >= optionIQStart && userIQ <= optionIQEnd) {
+          // Get the personality type name from personalityTypeArray based on ID
+          const personalityTypeName = data["personalityTypeArray"][personalityId - 1];
+
+          // Create a unique key for this field
+          const fieldKey = fieldName;
+          
+          // Initialize the field in the map if it doesn't exist
+          if (!fieldMap.has(fieldKey)) {
+            fieldMap.set(fieldKey, []);
+          }
+          
+          // Add this recommendation to the field
+          fieldMap.get(fieldKey).push({
+            personalityType: personalityTypeName,
+            fieldOfStudy: option["Recommended Field of Study"],
+            courses: option["Relevant Courses"].split(", "),
+            careers: option["Potential Career Pathways"].split(", "),
+            colleges: option["Recommended Colleges"] ? option["Recommended Colleges"].split(", ") : []
           });
         }
-      } catch (error) {
-        console.error("Error fetching data:", error);
-        showAlert("error", "Error", "Failed to load test results");
-      } finally {
-        setLoading(false);
-      }
-    };
+      });
+    });
+  }
 
+  // Convert the map to an array of field recommendations
+  const recommendations = [];
+  fieldMap.forEach((value, key) => {
+    recommendations.push({
+      fieldName: key,
+      recommendations: value
+    });
+  });
+
+  return recommendations;
+};
+
+export const CareerReport = () => {
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState(null);
+  const [userInfo, setUserInfo] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    institutionName: "",
+    institutionType: "",
+    otherInstitution: "",
+    standard: "",
+    course: "",
+    year: "",
+    branch: "",
+    profilePhoto: null,
+  });
+  const [iqResults, setIqResults] = useState(null);
+  const [personalityResults, setPersonalityResults] = useState(null);
+  const [interestResults, setInterestResults] = useState(null);
+  const { showAlert } = useAlert();
+  const reportRef = useRef(null);
+  const [isGeneratingPDF, setIsGeneratingPDF] = useState(false);
+
+  useEffect(() => {
     fetchData();
   }, []);
 
-  // Add a function to update the user profile if needed
-  const updateProfile = async (updatedData) => {
+  const fetchData = async () => {
     try {
-      setLoading(true);
-      const response = await updateUserProfileHandler(updatedData, setLoading, showAlert);
-      if (response) {
-        showAlert("success", "Success", "Profile updated successfully");
-        // Refresh data after update
+      setIsLoading(true);
+      setError(null);
+      
+      // Fetch profile data
+      const profileResponse = await getProfileHandler(setIsLoading, showAlert);
+      
+      if (profileResponse && profileResponse.success) {
         const userData = {
-          studentDetails: {
-            studentName: response.name || "N/A",
-            schoolName: response.institute || "N/A",
-            class: response.grade || "N/A"
-          },
-          personalityScores: {
-            extraversion: response.extraversion || 50,
-            agreeableness: response.agreeableness || 50,
-            conscientiousness: response.conscientiousness || 50,
-            neuroticism: response.neuroticism || 50,
-            openness: response.openness || 50
-          }
+          ...profileResponse.data,
+          ...profileResponse.data.User,
+          name: profileResponse.data.User?.name || "",
+          email: profileResponse.data.User?.email || "",
+          phone: profileResponse.data.User?.phone || "",
+          institutionName: profileResponse.data?.institutionName || "",
+          institutionType: profileResponse.data?.institutionType || "",
+          otherInstitution: profileResponse.data?.otherInstitution || "",
+          standard: profileResponse.data?.standard || "",
+          course: profileResponse.data?.course || "",
+          year: profileResponse.data?.year || "",
+          branch: profileResponse.data?.branch || "",
+          profilePhoto: profileResponse.data?.profilePhoto || null,
         };
-        setStudentData(userData);
+        setUserInfo(userData);
+      } else {
+        setError("Failed to load profile data. Please try again later.");
       }
-    } catch (error) {
-      console.error("Error updating profile:", error);
-      showAlert("error", "Error", "Failed to update profile");
+      
+      // Fetch test results
+      const testResponse = await getTestResultsHandler(setIsLoading, showAlert);
+      
+      if (testResponse && testResponse.success && testResponse.data && testResponse.data.results) {
+        setIqResults(testResponse.data.results?.iq?.detailedResult || null);
+        setPersonalityResults(testResponse.data.results?.personality?.detailedResult || null);
+        setInterestResults(testResponse.data?.interests || null);
+      } else {
+        setError("Failed to load test results. Please try again later.");
+      }
+    } catch (err) {
+      console.error("Error fetching data:", err);
+      setError("An error occurred while loading your data. Please try again later.");
     } finally {
-      setLoading(false);
+      setIsLoading(false);
     }
   };
 
-  // Function to handle section click for animation
-  const handleSectionClick = (sectionName) => {
-    setActiveSection(sectionName);
-    setTimeout(() => {
-      setActiveSection(null);
-    }, 500);
+  const handleDownloadReport = async () => {
+    if (!reportRef.current) return;
+    
+    try {
+      setIsGeneratingPDF(true);
+      
+      // Create a new PDF document with A4 size
+      const pdf = new jsPDF({
+        orientation: 'portrait',
+        unit: 'mm',
+        format: 'a4'
+      });
+      
+      // Get the report element
+      const reportElement = reportRef.current;
+      
+      // Calculate the width and height for A4
+      const pdfWidth = pdf.internal.pageSize.getWidth();
+      const pdfHeight = pdf.internal.pageSize.getHeight();
+      
+      // Use html2canvas to capture the report as an image
+      const canvas = await html2canvas(reportElement, {
+        scale: 1.5, // Higher scale for better quality
+        useCORS: true, // Allow loading cross-origin images
+        logging: false, // Disable logging
+        allowTaint: true,
+        backgroundColor: '#ffffff'
+      });
+      
+      // Convert canvas to image
+      const imgData = canvas.toDataURL('image/jpeg', 0.95);
+      
+      // Calculate the aspect ratio to maintain proportions
+      const imgWidth = pdfWidth;
+      const imgHeight = (canvas.height * pdfWidth) / canvas.width;
+      
+      // Add the image to the PDF
+      pdf.addImage(imgData, 'JPEG', 0, 0, imgWidth, imgHeight);
+      
+      // If the content is longer than one page, add new pages
+      let heightLeft = imgHeight;
+      let position = 0;
+      let pageNumber = 1;
+      
+      // Add page numbers
+      pdf.setFontSize(10);
+      pdf.setTextColor(100);
+      pdf.text(`Page ${pageNumber}`, pdfWidth - 20, pdfHeight - 10);
+      
+      // Add more pages if needed
+      while (heightLeft > pdfHeight) {
+        position = heightLeft - pdfHeight;
+        pdf.addPage();
+        pdf.addImage(imgData, 'JPEG', 0, -position, imgWidth, imgHeight);
+        heightLeft -= pdfHeight;
+        pageNumber++;
+        
+        // Add page number to new page
+        pdf.setFontSize(10);
+        pdf.setTextColor(100);
+        pdf.text(`Page ${pageNumber}`, pdfWidth - 20, pdfHeight - 10);
+      }
+      
+      // Add a title page
+      pdf.insertPage(0);
+      pdf.setFillColor(52, 152, 219);
+      pdf.rect(0, 0, pdfWidth, pdfHeight, 'F');
+      
+      // Add title
+      pdf.setTextColor(255, 255, 255);
+      pdf.setFontSize(28);
+      pdf.text('Career Assessment Report', pdfWidth / 2, 80, { align: 'center' });
+      
+      // Add user info
+      pdf.setFontSize(16);
+      pdf.text(`Name: ${userInfo.name || 'Not specified'}`, pdfWidth / 2, 120, { align: 'center' });
+      pdf.text(`Date: ${new Date().toLocaleDateString()}`, pdfWidth / 2, 140, { align: 'center' });
+      
+      // Add footer
+      pdf.setFontSize(10);
+      pdf.setTextColor(255, 255, 255);
+      pdf.text('Generated by IIMWATPI Career Assessment System', pdfWidth / 2, pdfHeight - 20, { align: 'center' });
+      
+      // Save the PDF
+      pdf.save(`Career_Report_${userInfo.name || 'User'}_${new Date().toISOString().split('T')[0]}.pdf`);
+      
+      showAlert('Report downloaded successfully!', 'success');
+    } catch (error) {
+      console.error('Error generating PDF:', error);
+      
+      // Try alternative approach if the first method fails
+      try {
+        // Create a new PDF document with A4 size
+        const pdf = new jsPDF({
+          orientation: 'portrait',
+          unit: 'mm',
+          format: 'a4'
+        });
+        
+        // Add title page
+        pdf.setFillColor(52, 152, 219);
+        pdf.rect(0, 0, pdf.internal.pageSize.getWidth(), pdf.internal.pageSize.getHeight(), 'F');
+        
+        // Add title
+        pdf.setTextColor(255, 255, 255);
+        pdf.setFontSize(28);
+        pdf.text('Career Assessment Report', pdf.internal.pageSize.getWidth() / 2, 80, { align: 'center' });
+        
+        // Add user info
+        pdf.setFontSize(16);
+        pdf.text(`Name: ${userInfo.name || 'Not specified'}`, pdf.internal.pageSize.getWidth() / 2, 120, { align: 'center' });
+        pdf.text(`Date: ${new Date().toLocaleDateString()}`, pdf.internal.pageSize.getWidth() / 2, 140, { align: 'center' });
+        
+        // Add footer
+        pdf.setFontSize(10);
+        pdf.text('Generated by IIMWATPI Career Assessment System', pdf.internal.pageSize.getWidth() / 2, pdf.internal.pageSize.getHeight() - 20, { align: 'center' });
+        
+        // Add a new page for the report content
+        pdf.addPage();
+        
+        // Add text content instead of image
+        pdf.setTextColor(0, 0, 0);
+        pdf.setFontSize(12);
+        
+        // Add profile information
+        pdf.setFontSize(16);
+        pdf.text('Profile Information', 20, 20);
+        pdf.setFontSize(12);
+        pdf.text(`Name: ${userInfo.name || 'Not specified'}`, 20, 30);
+        pdf.text(`Email: ${userInfo.email || 'Not specified'}`, 20, 40);
+        pdf.text(`Standard: ${userInfo.standard || 'Not specified'}`, 20, 50);
+        pdf.text(`Course: ${userInfo.course || 'Not specified'}`, 20, 60);
+        pdf.text(`Institution: ${userInfo.institutionName || 'Not specified'}`, 20, 70);
+        
+        // Add IQ results
+        pdf.addPage();
+        pdf.setFontSize(16);
+        pdf.text('IQ Assessment', 20, 20);
+        pdf.setFontSize(12);
+        if (iqResults) {
+          pdf.text(`IQ Score: ${iqResults.result.label}`, 20, 30);
+        } else {
+          pdf.text('No IQ assessment results available.', 20, 30);
+        }
+        
+        // Add personality results
+        pdf.addPage();
+        pdf.setFontSize(16);
+        pdf.text('Personality Assessment', 20, 20);
+        pdf.setFontSize(12);
+        if (personalityResults) {
+          let yPos = 30;
+          Object.entries(personalityResults.result).forEach(([trait, score]) => {
+            pdf.text(`${trait.charAt(0).toUpperCase() + trait.slice(1)}: ${Math.round(score)}%`, 20, yPos);
+            yPos += 10;
+          });
+        } else {
+          pdf.text('No personality assessment results available.', 20, 30);
+        }
+        
+        // Add interest results
+        pdf.addPage();
+        pdf.setFontSize(16);
+        pdf.text('Interest Analysis', 20, 20);
+        pdf.setFontSize(12);
+        if (interestResults && interestResults["16"]) {
+          let yPos = 30;
+          const interests = Array.isArray(interestResults["16"])
+            ? interestResults["16"].map((subject) => ({ subject }))
+            : Object.entries(interestResults["16"]).map(([subject, score]) => ({ subject }));
+          
+          interests.forEach(({ subject }, index) => {
+            pdf.text(`${index + 1}. ${subject}`, 20, yPos);
+            yPos += 10;
+          });
+        } else {
+          pdf.text('No interest assessment results available.', 20, 30);
+        }
+        
+        // Add page numbers
+        const pageCount = pdf.internal.getNumberOfPages();
+        for (let i = 1; i <= pageCount; i++) {
+          pdf.setPage(i);
+          pdf.setFontSize(10);
+          pdf.setTextColor(100);
+          pdf.text(`Page ${i} of ${pageCount}`, pdf.internal.pageSize.getWidth() - 20, pdf.internal.pageSize.getHeight() - 10);
+        }
+        
+        // Save the PDF
+        pdf.save(`Career_Report_${userInfo.name || 'User'}_${new Date().toISOString().split('T')[0]}.pdf`);
+        
+        showAlert('Report downloaded successfully!', 'success');
+      } catch (fallbackError) {
+        console.error('Error in fallback PDF generation:', fallbackError);
+        showAlert('Failed to generate report. Please try again later.', 'danger');
+      }
+    } finally {
+      setIsGeneratingPDF(false);
+    }
   };
 
-  if (loading) {
+  if (isLoading) {
     return (
-      <div className="profile-loading">
-        <Spinner animation="border" role="status">
+      <div className={styles.loadingContainer}>
+        <Spinner animation="border" role="status" variant="primary">
           <span className="visually-hidden">Loading...</span>
         </Spinner>
+        <p className="mt-3">Loading your career report...</p>
       </div>
     );
   }
 
-  // Move personalityTraits inside the component and use testResults
-  const personalityTraits = [
-    {
-      trait: "Extraversion",
-      score: testResults?.personality?.extraversion || 0,
-      leftLabel: "Introvert",
-      rightLabel: "Extrovert",
-      color: "#74b9cc",
-      high: [
-        "Feel energized around people",
-        "Wide social circle and friends",
-        "Say before thinking"
-      ],
-      low: [
-        "Avoid attention and prefer solitude",
-        "Find it difficult to start a conversation",
-        "Perform best when alone"
-      ]
-    },
-    {
-      trait: "Agreeableness",
-      score: testResults?.personality?.agreeableness || 0,
-      leftLabel: "Self-Centered",
-      rightLabel: "Empathetic",
-      color: "#ffc107",
-      high: [
-        "Highly empathetic",
-        "Enjoys helping others",
-        "Cares for people around"
-      ],
-      low: [
-        "Self-centered and looks for self-interest",
-        "Insult and belittle others",
-        "Sometimes manipulate others for self-interest"
-      ]
-    },
-    {
-      trait: "Conscientiousness",
-      score: testResults?.personality?.conscientiousness || 0,
-      leftLabel: "Unorganized",
-      rightLabel: "Organized",
-      color: "#4caf50",
-      high: [
-        "Like to be prepared beforehand",
-        "Enjoys following schedules",
-        "Pays attention to details"
-      ],
-      low: [
-        "Procrastinates and avoids tasks until the last moment",
-        "Dislike structure and schedules",
-        "Usually makes mess and fails to complete tasks on time"
-      ]
-    },
-    {
-      trait: "Neuroticism",
-      score: testResults?.personality?.neuroticism || 0,
-      leftLabel: "Emotionally stable",
-      rightLabel: "Emotional",
-      color: "#9c27b0",
-      high: [
-        "Mood swings and stress",
-        "Get upset easily",
-        "Struggles to bounce back after failures"
-      ],
-      low: [
-        "Emotionally stable",
-        "Deals with stress and usually relaxed",
-        "Doesn't worry much"
-      ]
-    },
-    {
-      trait: "Openness",
-      score: testResults?.personality?.openness || 0,
-      leftLabel: "Rigid",
-      rightLabel: "Early Adopter",
-      color: "#ff5252",
-      high: [
-        "Gets involved in new things",
-        "Creative",
-        "Abstract thinking"
-      ],
-      low: [
-        "Dislike changes",
-        "Resist New things",
-        "Lack imagination"
-      ]
-    }
-  ];
-
-  const handlePrint = () => {
-    setPrintLoading(true);
-    const reportContent = document.getElementById('report');
-    const printWindow = window.open('', '', 'height=800,width=1000');
-    
-    // Get all stylesheets from the current document
-    const styles = Array.from(document.styleSheets)
-      .map(styleSheet => {
-        try {
-          return Array.from(styleSheet.cssRules)
-            .map(rule => rule.cssText)
-            .join('');
-        } catch (e) {
-          return '';
-        }
-      })
-      .join('\n');
-
-    // Add additional styles for print layout
-    const printStyles = `
-      body {
-        padding: 0;
-        margin: 0;
-        font-family: Arial, sans-serif;
-      }
-      .report-container {
-        max-width: 100%;
-        margin: 0;
-        padding: 0;
-      }
-      .report-section {
-        page-break-inside: avoid;
-        margin-bottom: 20px;
-      }
-      .main-content-container {
-        box-shadow: none;
-        padding: 0;
-        margin-bottom: 20px;
-      }
-      .personality-grid {
-        page-break-inside: avoid;
-      }
-      .personality-scores,
-      .personality-table {
-        page-break-inside: avoid;
-      }
-      .trait-row {
-        page-break-inside: avoid;
-      }
-      @page {
-        size: A4;
-        margin: 15px;
-      }
-      @media print {
-        body {
-          -webkit-print-color-adjust: exact !important;
-          print-color-adjust: exact !important;
-        }
-        .print-button,
-        .report-actions {
-          display: none !important;
-        }
-        .report-header {
-          margin-bottom: 20px;
-        }
-        .section-title {
-          margin-bottom: 15px;
-        }
-        .personality-table {
-          border: 1px solid #ddd;
-          margin: 20px 0;
-          font-size: 14px;
-          border-collapse: collapse;
-          width: 100%;
-          border-radius: 8px;
-          overflow: hidden;
-        }
-        .table-header {
-          display: grid;
-          grid-template-columns: 1fr 2fr 2fr;
-          background-color: #f8f9fa;
-          font-weight: bold;
-          border-bottom: 1px solid #ddd;
-          padding: 0;
-        }
-        .trait-header, .score-header {
-          padding: 12px 15px;
-          text-align: center;
-          font-size: 14px;
-          color: #2c3e50;
-          border-right: 1px solid #ddd;
-        }
-        .trait-header:last-child, .score-header:last-child {
-          border-right: none;
-        }
-        .trait-row {
-          display: grid;
-          grid-template-columns: 1fr 2fr 2fr;
-          border-bottom: 1px solid #ddd;
-          margin: 0;
-          padding: 0;
-        }
-        .trait-name {
-          padding: 12px 15px;
-          font-weight: bold;
-          background-color: #f8f9fa;
-          font-size: 14px;
-          color: #2c3e50;
-          border-right: 1px solid #ddd;
-        }
-        .trait-details {
-          padding: 12px 15px;
-          border-right: 1px solid #ddd;
-        }
-        .trait-details:last-child {
-          border-right: none;
-        }
-        .trait-details ul {
-          list-style-type: decimal;
-          margin: 0;
-          padding-left: 20px;
-        }
-        .trait-details li {
-          margin: 6px 0;
-          font-size: 14px;
-          line-height: 1.4;
-          color: #555;
-        }
-        .extraversion { background-color: rgba(116, 185, 204, 0.05); }
-        .agreeableness { background-color: rgba(255, 193, 7, 0.05); }
-        .conscientiousness { background-color: rgba(76, 175, 80, 0.05); }
-        .neuroticism { background-color: rgba(156, 39, 176, 0.05); }
-        .openness { background-color: rgba(255, 82, 82, 0.05); }
-      }
-    `;
-
-    printWindow.document.write(`
-      <html>
-        <head>
-          <title>Career Assessment Report</title>
-          <style>
-            ${styles}
-            ${printStyles}
-          </style>
-        </head>
-        <body>
-          <div class="report-container">
-            ${reportContent.innerHTML}
-          </div>
-        </body>
-      </html>
-    `);
-    
-    printWindow.document.close();
-    printWindow.focus();
-    
-    // Wait for images and styles to load
-    setTimeout(() => {
-      printWindow.print();
-      printWindow.close();
-      setPrintLoading(false);
-    }, 1000);
-  };
-
-  // Function to get career recommendations based on personality traits
-  const getCareerRecommendations = () => {
-    const recommendations = {
-      careers: [],
-      education: []
-    };
-    
-    // Add careers based on personality traits
-    if (testResults?.personality?.openness > 70) {
-      recommendations.careers.push("Creative Director", "UX/UI Designer", "Content Creator");
-      recommendations.education.push("Bachelor of Design", "Bachelor of Fine Arts", "Bachelor of Media Studies");
-    }
-    
-    if (testResults?.personality?.conscientiousness > 70) {
-      recommendations.careers.push("Project Manager", "Data Analyst", "Financial Planner");
-      recommendations.education.push("Bachelor of Business Administration", "Bachelor of Commerce", "Bachelor of Economics");
-    }
-    
-    if (testResults?.personality?.extraversion > 70) {
-      recommendations.careers.push("Sales Manager", "Public Relations Specialist", "Event Planner");
-      recommendations.education.push("Bachelor of Communication", "Bachelor of Marketing", "Bachelor of Hospitality Management");
-    }
-    
-    if (testResults?.personality?.agreeableness > 70) {
-      recommendations.careers.push("Counselor", "Social Worker", "Human Resources Manager");
-      recommendations.education.push("Bachelor of Psychology", "Bachelor of Social Work", "Bachelor of Human Resource Management");
-    }
-    
-    // Add default recommendations if none were added
-    if (recommendations.careers.length === 0) {
-      recommendations.careers.push("Software Developer", "Business Analyst", "Marketing Specialist");
-      recommendations.education.push("Bachelor of Computer Science", "Bachelor of Business Administration", "Bachelor of Marketing");
-    }
-    
-    return recommendations;
-  };
-
-  const careerRecommendations = getCareerRecommendations();
-
   return (
-    <Container fluid className="cr-page-wrapper">
-      <div id="report" className="cr-report-container">
-        {/* Main content container */}
-        <div className="main-content-container">
-          {/* Modern Header with Gradient */}
-          <div className="report-header">
-            <div className="report-header-content">
-              <div className="student-avatar-large">
-                {studentData?.studentDetails?.studentName?.charAt(0) || "?"}
-              </div>
-              <div className="student-info-wrapper">
-                <h1 className="student-name">
-                  {studentData?.studentDetails?.studentName || "N/A"}
-                </h1>
-                <div className="student-meta">
-                  <span className="meta-badge">
-                    {studentData?.studentDetails?.class || "N/A"}
-                  </span>
-                  <span className="meta-divider"></span>
-                  <span className="meta-badge">
-                    {studentData?.studentDetails?.schoolName || "N/A"}
-                  </span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Career Recommendations section */}
-          <div 
-            className={`report-section recommendation-section ${activeSection === 'recommendations' ? 'active' : ''}`}
-            onClick={() => handleSectionClick('recommendations')}
-          >
-            <h2 className="section-title">Career Recommendations</h2>
-            <div className="career-grid">
-              <div className="career-card">
-                <h3>Career Paths</h3>
-                <ul className="career-list">
-                  {careerRecommendations.careers.map((career, index) => (
-                    <li key={index}>{career}</li>
-                  ))}
-                </ul>
-              </div>
-              <div className="career-card">
-                <h3>Education Pathways</h3>
-                <ul className="career-list">
-                  {careerRecommendations.education.map((education, index) => (
-                    <li key={index}>{education}</li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-          </div>
-
-          {/* IQ Assessment Section */}
-          <div 
-            className={`report-section iq-section ${activeSection === 'iq' ? 'active' : ''}`}
-            onClick={() => handleSectionClick('iq')}
-          >
-            <h2 className="section-title">IQ Assessment</h2>
-            <div className="iq-content-modern">
-              <div className="iq-row">
-                <div className="iq-score-circle">
-                  <div className="score-ring">
-                    <span className="score-number">{testResults?.iq?.score || "N/A"}</span>
-                    <span className="score-label">IQ Score</span>
-                  </div>
-                </div>
-                <div className="iq-details-grid">
-                  <div className="analysis-box">
-                    <h4>Strong Areas</h4>
-                    <ul>
-                      {testResults?.iq?.strongAreas?.map((area, index) => (
-                        <li key={index}>{area}</li>
-                      )) || <li>No data available</li>}
-                    </ul>
-                  </div>
-                  <div className="analysis-box">
-                    <h4>Areas for Improvement</h4>
-                    <ul>
-                      {testResults?.iq?.improvementAreas?.map((area, index) => (
-                        <li key={index}>{area}</li>
-                      )) || <li>No data available</li>}
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Interest Test Section */}
-          <div 
-            className={`report-section ${activeSection === 'interests' ? 'active' : ''}`}
-            onClick={() => handleSectionClick('interests')}
-          >
-            <h2 className="section-title">Interest Test Explanation</h2>
-            <div className="interest-container">
-              <div className="interest-bars">
-                {Object.entries(testResults?.interest || {}).map(([key, value]) => (
-                  <div key={key} className="interest-item">
-                    <span className="interest-label">{key.charAt(0).toUpperCase() + key.slice(1)}</span>
-                    <div className="interest-bar">
-                      <div className="bar-fill" style={{width: `${value}%`}}>
-                        {value}%
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Personality Section - Outside the main container */}
-        <div 
-          className={`report-section ${activeSection === 'personality' ? 'active' : ''}`}
-          onClick={() => handleSectionClick('personality')}
+    <Container className={styles.container}>
+      <div className={styles.reportHeader}>
+        <h1 className={styles.mainTitle}>Career Report</h1>
+        <Button 
+          variant="primary" 
+          className={styles.downloadButton}
+          onClick={handleDownloadReport}
+          disabled={isGeneratingPDF}
         >
-          <h2 className="section-title">Personality Test Explanation</h2>
-          <div className="personality-grid">
-            <div className="personality-scores">
-              {personalityTraits.map((trait, index) => (
-                <div key={index} className="score-row">
-                  <div className="score-labels">
-                    <span className="left-label">{trait.leftLabel}</span>
-                    <span className="right-label">{trait.rightLabel}</span>
-                  </div>
-                  <div className="score-bar-container">
-                    <div 
-                      className="score-bar"
-                      style={{ backgroundColor: trait.color }}
-                    />
-                    <span 
-                      className="score-value" 
-                      style={{ left: `${trait.score.toFixed(2)}%` }}
-                    >
-                      {trait.score.toFixed(2)}%
-                    </span>
-                    <div 
-                      className="circle-indicator"
-                      style={{ left: `${trait.score.toFixed(2)}%` }}
-                    />
-                  </div>
-                  <div 
-                    className="score-indicator"
-                    style={{ left: `${trait.score.toFixed(2)}%` }}
-                  >
-                    {trait.trait}
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            <div className="personality-table">
-              <div className="table-header">
-                <div className="trait-header">Personality Types</div>
-                <div className="score-header">High (score 60 or more)</div>
-                <div className="score-header">Low (Score 30 or less)</div>
-              </div>
-              
-              {personalityTraits.map((trait, index) => (
-                <div key={index} className={`trait-row ${trait.trait.toLowerCase()}`}>
-                  <div className="trait-name">{trait.trait}</div>
-                  <div className="trait-details">
-                    <ul>
-                      {trait.high.map((item, i) => (
-                        <li key={i}>{item}</li>
-                      ))}
-                    </ul>
-                  </div>
-                  <div className="trait-details">
-                    <ul>
-                      {trait.low.map((item, i) => (
-                        <li key={i}>{item}</li>
-                      ))}
-                    </ul>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
+          {isGeneratingPDF ? (
+            <>
+              <Spinner as="span" animation="border" size="sm" role="status" aria-hidden="true" />
+              <span className="ms-2">Generating PDF...</span>
+            </>
+          ) : (
+            <>
+              <FaDownload className={styles.downloadIcon} />
+              Download Report
+            </>
+          )}
+        </Button>
       </div>
 
-      <div className="report-actions">
-        <button 
-          onClick={handlePrint} 
-          className="print-button"
-          disabled={printLoading}
-        >
-          {printLoading ? (
-            <Spinner animation="border" size="sm" />
-          ) : (
-            <i className="fas fa-download"></i>
-          )}
-          {printLoading ? "Preparing..." : "Download Report"}
-        </button>
+      {error && (
+        <Alert variant="danger" className={styles.alert}>
+          {error}
+        </Alert>
+      )}
+
+      <div ref={reportRef} className={styles.reportContent}>
+        {/* Profile Information Section */}
+        <Card className={styles.profileCard}>
+          <Card.Header className={styles.cardHeader}>
+            <FaUserCircle className={styles.cardIcon} />
+            <h2>Profile Information</h2>
+          </Card.Header>
+          <Card.Body className={styles.profileBody}>
+            <div className={styles.profileInfo}>
+              <div className={styles.profilePhotoContainer}>
+                {userInfo.profilePhoto ? (
+                  <img 
+                    src={userInfo.profilePhoto} 
+                    alt="Profile" 
+                    className={styles.profilePhoto} 
+                  />
+                ) : (
+                  <div className={styles.profileInitial}>
+                    {userInfo.name.charAt(0) || "U"}
+                  </div>
+                )}
+              </div>
+              <div className={styles.profileDetails}>
+                <div className={styles.profileDetail}>
+                  <span className={styles.detailLabel}>Name:</span>
+                  <span className={styles.detailValue}>{userInfo.name || "Not specified"}</span>
+                </div>
+                <div className={styles.profileDetail}>
+                  <span className={styles.detailLabel}>Email:</span>
+                  <span className={styles.detailValue}>{userInfo.email || "Not specified"}</span>
+                </div>
+                <div className={styles.profileDetail}>
+                  <span className={styles.detailLabel}>Standard:</span>
+                  <span className={styles.detailValue}>{userInfo.standard || "Not specified"}</span>
+                </div>
+                <div className={styles.profileDetail}>
+                  <span className={styles.detailLabel}>Course:</span>
+                  <span className={styles.detailValue}>{userInfo.course || "Not specified"}</span>
+                </div>
+                <div className={styles.profileDetail}>
+                  <span className={styles.detailLabel}>Institution:</span>
+                  <span className={styles.detailValue}>{userInfo.institutionName || "Not specified"}</span>
+                </div>
+              </div>
+            </div>
+          </Card.Body>
+        </Card>
+
+        {/* Test Results Section */}
+        <div className={styles.testResultsSection}>
+          <h2 className={styles.sectionTitle}>Assessment Results</h2>
+          
+          <div className={styles.assessmentCards}>
+            {/* IQ Assessment Card */}
+            <Card className={styles.assessmentCard}>
+              <Card.Header className={styles.cardHeader}>
+                <FaBrain className={styles.cardIcon} />
+                <h2>IQ Assessment</h2>
+              </Card.Header>
+              <Card.Body>
+                {iqResults ? (
+                  <div className={styles.resultContent}>
+                    <div className={styles.iqResult}>
+                      <div className={styles.iqScore}>{iqResults.result.label}</div>
+                    </div>
+                  </div>
+                ) : (
+                  <div className={styles.emptyContent}>
+                    <p>No IQ assessment results available.</p>
+                  </div>
+                )}
+              </Card.Body>
+            </Card>
+
+            {/* Personality Assessment Card */}
+            <Card className={styles.assessmentCard}>
+              <Card.Header className={styles.cardHeader}>
+                <FaUserCircle className={styles.cardIcon} />
+                <h2>Personality Assessment</h2>
+              </Card.Header>
+              <Card.Body>
+                {personalityResults ? (
+                  <div className={styles.resultContent}>
+                    <div className={styles.personalityTraits}>
+                      {Object.entries(personalityResults.result).map(
+                        ([trait, score]) => (
+                          <div key={trait} className={styles.traitContainer}>
+                            <div className={styles.traitHeader}>
+                              <span className={styles.traitTitle}>
+                                {trait.charAt(0).toUpperCase() + trait.slice(1)}
+                              </span>
+                              <span
+                                className={styles.traitScoreAnimated}
+                                style={{
+                                  "--score-width": `${score}%`,
+                                  "--score-number": Math.round(score),
+                                }}
+                              />
+                            </div>
+                            <div className={styles.traitBar}>
+                              <div
+                                className={styles.traitProgress}
+                                style={{ "--score-width": `${score}%` }}
+                              />
+                            </div>
+                            <div className={styles.traitLabels}>
+                              <span className={styles.lowLabel}>
+                                {getPersonalityLabel(trait, 0)}
+                              </span>
+                              <span className={styles.highLabel}>
+                                {getPersonalityLabel(trait, 100)}
+                              </span>
+                            </div>
+                          </div>
+                        )
+                      )}
+                    </div>
+                  </div>
+                ) : (
+                  <div className={styles.emptyContent}>
+                    <p>No personality assessment results available.</p>
+                  </div>
+                )}
+              </Card.Body>
+            </Card>
+
+            {/* Interest Assessment Card */}
+            <Card className={styles.assessmentCard}>
+              <Card.Header className={styles.cardHeader}>
+                <FaSearch className={styles.cardIcon} />
+                <h2>Interest Analysis</h2>
+              </Card.Header>
+              <Card.Body>
+                {interestResults && interestResults["16"] ? (
+                  <div className={styles.resultContent}>
+                    <div className={styles.interestAreas}>
+                      {(Array.isArray(interestResults["16"])
+                        ? interestResults["16"].map((subject) => ({ subject }))
+                        : Object.entries(interestResults["16"]).map(
+                            ([subject, score]) => ({ subject })
+                          )
+                      ).map(({ subject }, index) => (
+                        <div key={subject} className={styles.interestItem}>
+                          <span className={styles.interestNumber}>{index + 1}.</span>
+                          <span className={styles.interestName}>{subject}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                ) : (
+                  <div className={styles.emptyContent}>
+                    <p>No interest assessment results available.</p>
+                  </div>
+                )}
+              </Card.Body>
+            </Card>
+          </div>
+        </div>
+
+        {/* Career Recommendations Section */}
+        {(iqResults && personalityResults && interestResults) && (
+          <div className={styles.recommendationsSection}>
+            <h2 className={styles.sectionTitle}>Recommended Career Paths</h2>
+            
+            {getCareerRecommendations(iqResults, personalityResults, interestResults).map((field, index) => (
+              <div key={index} className={styles.fieldSection}>
+                <div className={styles.fieldHeader}>
+                  <h3 className={styles.fieldTitle}>{field.fieldName}</h3>
+                </div>
+                
+                <div className={styles.tableContainer}>
+                  <table className={styles.recommendationsTable}>
+                    <thead>
+                      <tr>
+                        <th>Personality Type</th>
+                        <th>Field of Study</th>
+                        <th>Relevant Courses</th>
+                        <th>Potential Career Pathways</th>
+                        <th>Recommended Colleges</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {field.recommendations.map((recommendation, idx) => (
+                        <tr key={idx} className={styles.tableRow}>
+                          <td className={styles.personalityCell}>
+                            <span className={styles.personalityTag}>{recommendation.personalityType}</span>
+                          </td>
+                          <td>{recommendation.fieldOfStudy}</td>
+                          <td>
+                            <ul className={styles.tableList}>
+                              {recommendation.courses.map((course, courseIdx) => (
+                                <li key={courseIdx}>{course}</li>
+                              ))}
+                            </ul>
+                          </td>
+                          <td>
+                            <ul className={styles.tableList}>
+                              {recommendation.careers.map((career, careerIdx) => (
+                                <li key={careerIdx}>{career}</li>
+                              ))}
+                            </ul>
+                          </td>
+                          <td>
+                            {recommendation.colleges && recommendation.colleges.length > 0 ? (
+                              <ul className={styles.tableList}>
+                                {recommendation.colleges.map((college, collegeIdx) => (
+                                  <li key={collegeIdx}>{college}</li>
+                                ))}
+                              </ul>
+                            ) : (
+                              <span>Not specified</span>
+                            )}
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            ))}
+          </div>
+        )}
+
+        {/* Summary Tables Section */}
+        <div className={styles.summaryTablesSection}>
+          <h2 className={styles.sectionTitle}>Assessment Summaries</h2>
+          
+          {/* IQ Summary Table */}
+          <div className={styles.summaryTableContainer}>
+            <div className={styles.summaryTableHeader}>
+              <h3 className={styles.summaryTableTitle}>IQ Assessment Summary</h3>
+            </div>
+            <div className={styles.tableContainer}>
+              <table className={styles.summaryTable}>
+                <thead>
+                  <tr>
+                    <th>IQ Range</th>
+                    <th>IQ Category</th>
+                    <th>Meaning</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr className={`${styles.summaryTableRow} ${iqResults?.result?.label >= 120 ? styles.highlighted : ''}`}>
+                    <td className={styles.iqRangeCell}>120+</td>
+                    <td className={styles.iqCategoryCell}>High IQ</td>
+                    <td className={styles.meaningCell}>
+                      <p className={styles.meaningHeading}>Highly Intelligent/Genius</p>
+                      <p className={styles.meaningDescription}>Can learn anything easily</p>
+                    </td>
+                  </tr>
+                  <tr className={`${styles.summaryTableRow} ${iqResults?.result?.label >= 100 && iqResults?.result?.label < 120 ? styles.highlighted : ''}`}>
+                    <td className={styles.iqRangeCell}>100-120</td>
+                    <td className={styles.iqCategoryCell}>Above Average IQ</td>
+                    <td className={styles.meaningCell}>
+                      <p className={styles.meaningHeading}>Superior Intelligence</p>
+                      <p className={styles.meaningDescription}>Likely to excel academically</p>
+                    </td>
+                  </tr>
+                  <tr className={`${styles.summaryTableRow} ${iqResults?.result?.label >= 90 && iqResults?.result?.label < 100 ? styles.highlighted : ''}`}>
+                    <td className={styles.iqRangeCell}>90-100</td>
+                    <td className={styles.iqCategoryCell}>Average IQ</td>
+                    <td className={styles.meaningCell}>
+                      <p className={styles.meaningHeading}>Normal/Average Intelligent</p>
+                      <p className={styles.meaningDescription}>Can learn things and perform academically well with dedication and hard work</p>
+                    </td>
+                  </tr>
+                  <tr className={`${styles.summaryTableRow} ${iqResults?.result?.label >= 80 && iqResults?.result?.label < 90 ? styles.highlighted : ''}`}>
+                    <td className={styles.iqRangeCell}>80-90</td>
+                    <td className={styles.iqCategoryCell}>Below Average IQ</td>
+                    <td className={styles.meaningCell}>
+                      <p className={styles.meaningHeading}>Dull Normal</p>
+                      <p className={styles.meaningDescription}>Difficulty in learning complex and new things: Repeated</p>
+                    </td>
+                  </tr>
+                  <tr className={`${styles.summaryTableRow} ${iqResults?.result?.label >= 70 && iqResults?.result?.label < 80 ? styles.highlighted : ''}`}>
+                    <td className={styles.iqRangeCell}>70-80</td>
+                    <td className={styles.iqCategoryCell}>Low IQ</td>
+                    <td className={styles.meaningCell}>
+                      <p className={styles.meaningHeading}>Borderline Delayed</p>
+                      <p className={styles.meaningDescription}>Can study and learn to some extent if repeated multiple times but not complex ideas/concepts.</p>
+                    </td>
+                  </tr>
+                  <tr className={`${styles.summaryTableRow} ${iqResults?.result?.label < 70 ? styles.highlighted : ''}`}>
+                    <td className={styles.iqRangeCell}>Below 70</td>
+                    <td className={styles.iqCategoryCell}>Very Low IQ</td>
+                    <td className={styles.meaningCell}>
+                      <p className={styles.meaningHeading}>Delayed</p>
+                      <p className={styles.meaningDescription}>Should be given special attention</p>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <div className={styles.summaryNote}>
+                *IQ measures the learning speed and sharpness of the mind. Higher IQ only reflects better at understanding and making sense of things while success depends on many other parameters.
+              </div>
+            </div>
+          </div>
+          
+          {/* Personality Summary Table */}
+          <div className={styles.summaryTableContainer}>
+            <div className={styles.summaryTableHeader}>
+              <h3 className={styles.summaryTableTitle}>Personality Assessment Summary</h3>
+            </div>
+            <div className={styles.tableContainer}>
+              <table className={styles.summaryTable}>
+                <thead>
+                  <tr>
+                    <th>Personality Trait</th>
+                    <th>High (score 60 or more)</th>
+                    <th>Low (Score 30 or less)</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr className={styles.summaryTableRow}>
+                    <td className={styles.personalityTraitCell}>Extraversion</td>
+                    <td className={styles.personalityCategoryCell}>
+                      <div className={`${styles.personalityCategoryHeader} ${personalityResults?.result?.extraversion >= 60 ? styles.high : ''}`}>
+                        High Characteristics:
+                      </div>
+                      <ul className={styles.personalityDetailsList}>
+                        <li>Feel energized around people</li>
+                        <li>Wide social circle and friends</li>
+                        <li>Say before thinking</li>
+                      </ul>
+                    </td>
+                    <td className={styles.personalityDetailsCell}>
+                      <div className={`${styles.personalityCategoryHeader} ${personalityResults?.result?.extraversion <= 30 ? styles.low : ''}`}>
+                        Low Characteristics:
+                      </div>
+                      <ul className={styles.personalityDetailsList}>
+                        <li>Avoid attention and prefer solitude</li>
+                        <li>Find it difficult to start a conversation</li>
+                        <li>Perform best when alone</li>
+                      </ul>
+                    </td>
+                  </tr>
+                  <tr className={styles.summaryTableRow}>
+                    <td className={styles.personalityTraitCell}>Agreeableness</td>
+                    <td className={styles.personalityCategoryCell}>
+                      <div className={`${styles.personalityCategoryHeader} ${personalityResults?.result?.agreeableness >= 60 ? styles.high : ''}`}>
+                        High Characteristics:
+                      </div>
+                      <ul className={styles.personalityDetailsList}>
+                        <li>Highly empathetic</li>
+                        <li>Enjoys helping others</li>
+                        <li>Cares for people around</li>
+                      </ul>
+                    </td>
+                    <td className={styles.personalityDetailsCell}>
+                      <div className={`${styles.personalityCategoryHeader} ${personalityResults?.result?.agreeableness <= 30 ? styles.low : ''}`}>
+                        Low Characteristics:
+                      </div>
+                      <ul className={styles.personalityDetailsList}>
+                        <li>Self-centered and looks for self-interest</li>
+                        <li>Insult and belittle others</li>
+                        <li>Sometimes manipulate others for self-interest</li>
+                      </ul>
+                    </td>
+                  </tr>
+                  <tr className={styles.summaryTableRow}>
+                    <td className={styles.personalityTraitCell}>Conscientiousness</td>
+                    <td className={styles.personalityCategoryCell}>
+                      <div className={`${styles.personalityCategoryHeader} ${personalityResults?.result?.conscientiousness >= 60 ? styles.high : ''}`}>
+                        High Characteristics:
+                      </div>
+                      <ul className={styles.personalityDetailsList}>
+                        <li>Like to be prepared beforehand</li>
+                        <li>Enjoys following schedules</li>
+                        <li>Pays attention to details</li>
+                      </ul>
+                    </td>
+                    <td className={styles.personalityDetailsCell}>
+                      <div className={`${styles.personalityCategoryHeader} ${personalityResults?.result?.conscientiousness <= 30 ? styles.low : ''}`}>
+                        Low Characteristics:
+                      </div>
+                      <ul className={styles.personalityDetailsList}>
+                        <li>Procrastinates and avoids tasks until the last moment</li>
+                        <li>Dislike structure and schedules</li>
+                        <li>Usually makes mess and fails to complete tasks on time</li>
+                      </ul>
+                    </td>
+                  </tr>
+                  <tr className={styles.summaryTableRow}>
+                    <td className={styles.personalityTraitCell}>Neuroticism</td>
+                    <td className={styles.personalityCategoryCell}>
+                      <div className={`${styles.personalityCategoryHeader} ${personalityResults?.result?.neuroticism >= 60 ? styles.high : ''}`}>
+                        High Characteristics:
+                      </div>
+                      <ul className={styles.personalityDetailsList}>
+                        <li>Mood swings and stress</li>
+                        <li>Get upset easily</li>
+                        <li>Struggles to bounce back after failures</li>
+                      </ul>
+                    </td>
+                    <td className={styles.personalityDetailsCell}>
+                      <div className={`${styles.personalityCategoryHeader} ${personalityResults?.result?.neuroticism <= 30 ? styles.low : ''}`}>
+                        Low Characteristics:
+                      </div>
+                      <ul className={styles.personalityDetailsList}>
+                        <li>Emotionally stable</li>
+                        <li>Deals with stress and usually relaxed</li>
+                        <li>Doesn't worry much</li>
+                      </ul>
+                    </td>
+                  </tr>
+                  <tr className={styles.summaryTableRow}>
+                    <td className={styles.personalityTraitCell}>Openness</td>
+                    <td className={styles.personalityCategoryCell}>
+                      <div className={`${styles.personalityCategoryHeader} ${personalityResults?.result?.openness >= 60 ? styles.high : ''}`}>
+                        High Characteristics:
+                      </div>
+                      <ul className={styles.personalityDetailsList}>
+                        <li>Gets involved in new things</li>
+                        <li>Creative</li>
+                        <li>Abstract thinking</li>
+                      </ul>
+                    </td>
+                    <td className={styles.personalityDetailsCell}>
+                      <div className={`${styles.personalityCategoryHeader} ${personalityResults?.result?.openness <= 30 ? styles.low : ''}`}>
+                        Low Characteristics:
+                      </div>
+                      <ul className={styles.personalityDetailsList}>
+                        <li>Dislike changes</li>
+                        <li>Resist New things</li>
+                        <li>Lack imagination</li>
+                      </ul>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <div className={styles.summaryNote}>
+                *Personality traits influence career satisfaction and performance. Understanding your personality profile helps in choosing environments and roles that align with your natural tendencies.
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </Container>
   );
 };
-
