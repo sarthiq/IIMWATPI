@@ -16,6 +16,31 @@ export const Question = ({ questions, setUserAnswer, setTimeDuration }) => {
   const [timeLeft, setTimeLeft] = useState(30 * 60); // 30 minutes in seconds
   const [showTimeUpModal, setShowTimeUpModal] = useState(false);
   const [timerActive, setTimerActive] = useState(true);
+  const [questionStatus, setQuestionStatus] = useState({});
+
+  // Initialize question status when questions are loaded
+  useEffect(() => {
+    if (questions && questions.length > 0) {
+      const initialStatus = {};
+      questions.forEach((q, index) => {
+        initialStatus[index] = {
+          visited: false,
+          answered: false,
+          selectedAnswer: null
+        };
+      });
+      setQuestionStatus(initialStatus);
+    }
+  }, [questions]);
+
+  // Update selected answer when navigating to a question
+  useEffect(() => {
+    if (questionStatus[currentQuestion] && questionStatus[currentQuestion].selectedAnswer !== null) {
+      setSelectedAnswer(questionStatus[currentQuestion].selectedAnswer);
+    } else {
+      setSelectedAnswer(null);
+    }
+  }, [currentQuestion, questionStatus]);
 
   // Timer effect
   useEffect(() => {
@@ -45,6 +70,18 @@ export const Question = ({ questions, setUserAnswer, setTimeDuration }) => {
 
   const handleAnswerSelect = (index) => {
     setSelectedAnswer(index);
+    
+    // Update question status
+    setQuestionStatus(prev => ({
+      ...prev,
+      [currentQuestion]: {
+        ...prev[currentQuestion],
+        visited: true,
+        answered: true,
+        selectedAnswer: index
+      }
+    }));
+    
     const questionId = questions[currentQuestion].id;
     setUserAnswer((prevUserAnswer) => ({
       ...prevUserAnswer,
@@ -54,8 +91,18 @@ export const Question = ({ questions, setUserAnswer, setTimeDuration }) => {
 
   const handleNext = () => {
     if (currentQuestion < questions.length - 1) {
+      // Mark current question as visited
+      setQuestionStatus(prev => ({
+        ...prev,
+        [currentQuestion]: {
+          ...prev[currentQuestion],
+          visited: true,
+          answered: selectedAnswer !== null,
+          selectedAnswer: selectedAnswer
+        }
+      }));
+      
       setCurrentQuestion(currentQuestion + 1);
-      setSelectedAnswer(null);
     } else {
       setTimeDuration((prevData) => ({
         ...prevData,
@@ -81,16 +128,52 @@ export const Question = ({ questions, setUserAnswer, setTimeDuration }) => {
 
   const handlePrevious = () => {
     if (currentQuestion > 0) {
+      // Mark current question as visited
+      setQuestionStatus(prev => ({
+        ...prev,
+        [currentQuestion]: {
+          ...prev[currentQuestion],
+          visited: true,
+          answered: selectedAnswer !== null,
+          selectedAnswer: selectedAnswer
+        }
+      }));
+      
       setCurrentQuestion(currentQuestion - 1);
-      setSelectedAnswer(null);
     }
   };
 
   const handleSkip = () => {
     if (currentQuestion < questions.length - 1) {
+      // Mark current question as visited but not answered
+      setQuestionStatus(prev => ({
+        ...prev,
+        [currentQuestion]: {
+          ...prev[currentQuestion],
+          visited: true,
+          answered: false,
+          selectedAnswer: null
+        }
+      }));
+      
       setCurrentQuestion(currentQuestion + 1);
       setSelectedAnswer(null);
     }
+  };
+
+  const handleQuestionClick = (index) => {
+    // Mark current question as visited before switching
+    setQuestionStatus(prev => ({
+      ...prev,
+      [currentQuestion]: {
+        ...prev[currentQuestion],
+        visited: true,
+        answered: selectedAnswer !== null,
+        selectedAnswer: selectedAnswer
+      }
+    }));
+    
+    setCurrentQuestion(index);
   };
 
   if (questions.length === 0) {
@@ -99,6 +182,12 @@ export const Question = ({ questions, setUserAnswer, setTimeDuration }) => {
   
   const currentQ = questions[currentQuestion];
   const Q = `Q.${currentQuestion + 1}`;
+  
+  // Calculate statistics
+  const answeredCount = Object.values(questionStatus).filter(q => q.answered).length;
+  const visitedCount = Object.values(questionStatus).filter(q => q.visited).length;
+  const totalQuestions = questions.length;
+  
   return (
     <Container className="question-container">
       <Card className="question-card">
@@ -111,7 +200,26 @@ export const Question = ({ questions, setUserAnswer, setTimeDuration }) => {
                   {formatTime(timeLeft)}
                 </span>
               </div>
+              <div className="quiz-progress">
+                <span>Progress: {answeredCount}/{totalQuestions} answered</span>
+              </div>
             </Card.Header>
+            
+            {/* Question Navigation Grid */}
+            <div className="question-navigation">
+              {questions.map((_, index) => (
+                <div 
+                  key={index} 
+                  className={`question-number ${index === currentQuestion ? 'current' : ''} 
+                    ${questionStatus[index]?.visited ? 'visited' : ''} 
+                    ${questionStatus[index]?.answered ? 'answered' : ''}`}
+                  onClick={() => handleQuestionClick(index)}
+                >
+                  {index + 1}
+                </div>
+              ))}
+            </div>
+            
             <Card.Body>
               <Card.Title className="question-title">
                   {`${Q}`} {"Complete the pattern? "}

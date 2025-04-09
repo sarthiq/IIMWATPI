@@ -19,6 +19,31 @@ export const PersonalityQuestion = ({
   const [timeLeft, setTimeLeft] = useState(20 * 60); // 20 minutes in seconds
   const [showTimeUpModal, setShowTimeUpModal] = useState(false);
   const [timerActive, setTimerActive] = useState(true);
+  const [questionStatus, setQuestionStatus] = useState({});
+
+  // Initialize question status when questions are loaded
+  useEffect(() => {
+    if (questions && questions.length > 0) {
+      const initialStatus = {};
+      questions.forEach((q, index) => {
+        initialStatus[index] = {
+          visited: false,
+          answered: false,
+          selectedAnswer: null
+        };
+      });
+      setQuestionStatus(initialStatus);
+    }
+  }, [questions]);
+
+  // Update selected answer when navigating to a question
+  useEffect(() => {
+    if (questionStatus[currentQuestion] && questionStatus[currentQuestion].selectedAnswer !== null) {
+      setSelectedAnswer(questionStatus[currentQuestion].selectedAnswer);
+    } else {
+      setSelectedAnswer(null);
+    }
+  }, [currentQuestion, questionStatus]);
 
   // Timer effect
   useEffect(() => {
@@ -78,16 +103,38 @@ export const PersonalityQuestion = ({
 
   const handleAnswerSelect = (optionId) => {
     setSelectedAnswer(optionId);
+    
+    // Update question status
+    setQuestionStatus(prev => ({
+      ...prev,
+      [currentQuestion]: {
+        ...prev[currentQuestion],
+        visited: true,
+        answered: true,
+        selectedAnswer: optionId
+      }
+    }));
   };
   
   const handleNext = () => {
+    // Mark current question as visited
+    setQuestionStatus(prev => ({
+      ...prev,
+      [currentQuestion]: {
+        ...prev[currentQuestion],
+        visited: true,
+        answered: selectedAnswer !== null,
+        selectedAnswer: selectedAnswer
+      }
+    }));
+    
     setUserPersonalityAnswer((prevUserPersonalityAnswer) => {
       prevUserPersonalityAnswer.push(options[selectedAnswer - 1].value);
       return prevUserPersonalityAnswer;
     });
+    
     if (currentQuestion < questions.length - 1) {
       setCurrentQuestion(currentQuestion + 1);
-      setSelectedAnswer(null);
     } else {
       setTimeDuration((prevData) => ({
         ...prevData,
@@ -100,8 +147,19 @@ export const PersonalityQuestion = ({
 
   const handlePrevious = () => {
     if (currentQuestion > 0) {
+      // Mark current question as visited
+      setQuestionStatus(prev => ({
+        ...prev,
+        [currentQuestion]: {
+          ...prev[currentQuestion],
+          visited: true,
+          answered: selectedAnswer !== null,
+          selectedAnswer: selectedAnswer
+        }
+      }));
+      
       setCurrentQuestion(currentQuestion - 1);
-      setSelectedAnswer(null);
+      
       // Remove the last answer when going back
       setUserPersonalityAnswer((prevAnswers) => {
         const newAnswers = [...prevAnswers];
@@ -111,11 +169,31 @@ export const PersonalityQuestion = ({
     }
   };
 
+  const handleQuestionClick = (index) => {
+    // Mark current question as visited before switching
+    setQuestionStatus(prev => ({
+      ...prev,
+      [currentQuestion]: {
+        ...prev[currentQuestion],
+        visited: true,
+        answered: selectedAnswer !== null,
+        selectedAnswer: selectedAnswer
+      }
+    }));
+    
+    setCurrentQuestion(index);
+  };
+
   if (questions.length === 0) {
     return <h1>No Questions Found</h1>;
   }
 
   const currentQ = questions[currentQuestion];
+  
+  // Calculate statistics
+  const answeredCount = Object.values(questionStatus).filter(q => q.answered).length;
+  const visitedCount = Object.values(questionStatus).filter(q => q.visited).length;
+  const totalQuestions = questions.length;
 
   return (
     <Container className="question-container">
@@ -127,7 +205,26 @@ export const PersonalityQuestion = ({
               {formatTime(timeLeft)}
             </span>
           </div>
+          <div className="quiz-progress">
+            <span>Progress: {answeredCount}/{totalQuestions} answered</span>
+          </div>
         </Card.Header>
+        
+        {/* Question Navigation Grid */}
+        <div className="question-navigation">
+          {questions.map((_, index) => (
+            <div 
+              key={index} 
+              className={`question-number ${index === currentQuestion ? 'current' : ''} 
+                ${questionStatus[index]?.visited ? 'visited' : ''} 
+                ${questionStatus[index]?.answered ? 'answered' : ''}`}
+              onClick={() => handleQuestionClick(index)}
+            >
+              {index + 1}
+            </div>
+          ))}
+        </div>
+        
         <Card.Body>
           <div className="language-toggle">
             <Button
@@ -165,7 +262,7 @@ export const PersonalityQuestion = ({
                 <Button
                   variant={selectedAnswer === option.id ? "success" : "outline-primary"}
                   className={`question-circle ${selectedAnswer === option.id ? "selected" : ""}`}
-                  onClick={() => handleAnswerSelect(index + 1)}
+                  onClick={() => handleAnswerSelect(option.id)}
                 >
                 </Button>
                 <span className="option-text">{option.text}</span>
