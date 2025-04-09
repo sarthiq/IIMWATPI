@@ -25,6 +25,9 @@ export const Quiz = () => {
     navigate("/auth");
      }
     }
+    else{
+      navigate("/auth");
+    }
     
   }
   if (isLoading) {
