@@ -18,6 +18,7 @@ export const PersonalityQuestion = ({
   const [language, setLanguage] = useState("english"); // Toggle between english/hindi
   const [timeLeft, setTimeLeft] = useState(20 * 60); // 20 minutes in seconds
   const [showTimeUpModal, setShowTimeUpModal] = useState(false);
+  const [showIncompleteModal, setShowIncompleteModal] = useState(false);
   const [timerActive, setTimerActive] = useState(true);
   const [questionStatus, setQuestionStatus] = useState({});
 
@@ -136,6 +137,16 @@ export const PersonalityQuestion = ({
     if (currentQuestion < questions.length - 1) {
       setCurrentQuestion(currentQuestion + 1);
     } else {
+      // Check if all questions are answered
+      const allAnswered = Object.values(questionStatus).every(q => q.answered);
+      
+      if (!allAnswered) {
+        // Show modal for incomplete quiz
+        setShowIncompleteModal(true);
+        return;
+      }
+      
+      // All questions answered, proceed to results
       setTimeDuration((prevData) => ({
         ...prevData,
         endTime: new Date(),
@@ -184,6 +195,25 @@ export const PersonalityQuestion = ({
     setCurrentQuestion(index);
   };
 
+  const handleFinishQuiz = () => {
+    // Check if all questions are answered
+    const allAnswered = Object.values(questionStatus).every(q => q.answered);
+    
+    if (!allAnswered) {
+      // Show modal for incomplete quiz
+      setShowIncompleteModal(true);
+      return;
+    }
+    
+    // All questions answered, proceed to results
+    setTimeDuration((prevData) => ({
+      ...prevData,
+      endTime: new Date(),
+    }));
+    setTimerActive(false);
+    navigate(`/quiz/${id}/result`);
+  };
+
   if (questions.length === 0) {
     return <h1>No Questions Found</h1>;
   }
@@ -194,6 +224,7 @@ export const PersonalityQuestion = ({
   const answeredCount = Object.values(questionStatus).filter(q => q.answered).length;
   const visitedCount = Object.values(questionStatus).filter(q => q.visited).length;
   const totalQuestions = questions.length;
+  const unansweredCount = totalQuestions - answeredCount;
 
   return (
     <Container className="question-container">
@@ -207,6 +238,9 @@ export const PersonalityQuestion = ({
           </div>
           <div className="quiz-progress">
             <span>Progress: {answeredCount}/{totalQuestions} answered</span>
+            {unansweredCount > 0 && (
+              <span className="incomplete-warning"> - {unansweredCount} questions remaining</span>
+            )}
           </div>
         </Card.Header>
         
@@ -302,6 +336,23 @@ export const PersonalityQuestion = ({
           <p>Your 20-minute time limit for the Personality test has expired.</p>
           <p>You will be redirected to the results page in a few seconds.</p>
         </Modal.Body>
+      </Modal>
+
+      {/* Incomplete Quiz Modal */}
+      <Modal show={showIncompleteModal} onHide={() => setShowIncompleteModal(false)} centered className="quiz-timer-modal">
+        <Modal.Header closeButton>
+          <Modal.Title>Incomplete Quiz</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <p>You must answer all {totalQuestions} questions before completing the personality test.</p>
+          <p>You have {unansweredCount} unanswered questions.</p>
+          <p>Please go back and answer all questions to get accurate results.</p>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="primary" onClick={() => setShowIncompleteModal(false)}>
+            Continue Quiz
+          </Button>
+        </Modal.Footer>
       </Modal>
     </Container>
   );
